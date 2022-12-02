@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+    if (window.location.protocol == 'https:') {
+        window.document.write('<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">');
+    }
+</script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<link rel="stylesheet" href="/cdn/public/public_css.css?css=7065"><script src="/cdn/public/ie_action.js"></script><script src="/cdn/public/js_config.js?js=2535"></script><script src="/cdn/public/jquery.js?js=6166"></script><script src="/cdn/public/layer.js?js=4110"></script><script src="/cdn/public/vue.js?js=6763"></script><script src="/cdn/public/api.js?js=6183"></script><script src="/cdn/public/rizhi.js?js=2815"></script><script src="/cdn/public/jsapp.js?js=9978"></script><script src="/cdn/public/jsplugin.js?js=3096"></script><script src="/cdn/public/layui/layui.js?js=6042"></script><link rel="stylesheet" href="/cdn/public/layui/css/layui.css?css=3471"><link rel="stylesheet" href="/cdn/public/xadmin/css/font.css?css=5540"><!--[if lt IE 9]>
+    <script src="/cdn/public/html5.min.js"></script>
+    <script src="/cdn/public/respond.min.js"></script>
+<![endif]-->    <title>登录</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/tailwindcss/2.0.0-alpha.5/tailwind.min.css" rel="stylesheet">
+    <style scope="js_plug_page">
+        .dlbox .weixin,
+        .dlbox .weibo {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-size: cover;
+        }
+
+        .dlbox .weixin {
+            background-image: url(images/weixin.png);
+        }
+
+        .dlbox .weibo {
+            background-image: url(images/weibo.png);
+        }
+
+        .bg-indigo-100 {
+            background-color: #ebf4ff;
+        }
+
+        .border-gray-200 {
+            border-color: #edf2f7;
+        }
+
+        .bg-gray-100 {
+            background-color: #f7fafc;
+        }
+
+        .bg-indigo-500 {
+            background-color: #667eea;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="js_plug_page">
+        <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center dlbox">
+            <div class="max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+                <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+                    <div class="mt-12 flex flex-col items-center">
+                        <h1 class="text-2xl xl:text-3xl font-extrabold">用户登录</h1>
+                        <div class="w-full flex-1 mt-8">
+                            <div class="my-12 border-b text-center" style="margin-top: 0;margin-bottom: 2rem;">
+                                <div class="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2"><a href="/website/js_website_6284b66017bfb136//">返回首页</a></div>
+                            </div>
+                            <div class="mx-auto max-w-xs">
+                                <input class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white" type="email" placeholder="输入邮箱帐号"  v-model:value="userInfo.user_email">
+                                <input class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5" type="password" placeholder="请输入密码" v-model:value="userInfo.user_password">
+                                <p class="mt-6 text-xs text-gray-600 text-center" v-on:click="register()" style="cursor: pointer;">还没注册账号？立即注册</p>
+                                <button class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                                    <span class="ml-3" v-on:click="login()">登 录</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <footer id="footer" style="color: #999;margin: 0 auto;width: 290px;margin-top: 80px;text-align: center;">
+                        <div>客服热线：{{ MyConfig.contact_number }} </div>
+                        <p style="color: #999;">{{ MyConfig.corporate_name }} 2022 版权所有 </p>
+                    </footer><!-- jquery lib -->
+                </div>
+                <div class="flex-1 bg-indigo-100 text-center hidden lg:flex">
+                    <div class="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat" style="background-image: url('images/dlbox.svg');"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- js 代码 -->
+    <script>
+        jsApp.working({
+            // 绑定元素节点的ID值
+            el: '#js_plug_page',
+            // 对象可以使用的属性
+            data: {
+                userInfo: {
+                    "website_urls": location.hostname,
+                    "user_email": "",
+                    "user_password": "",
+                    "operation_ip": returnCitySN["cip"],
+                },
+                info: {}
+            },
+            // 创建对象时运行的函数
+            created: function() {
+                this.GetMyConfig('js_uuid_623d6a5a6fd5a819');
+            },
+            // 对象可以使用的函数
+            methods: {
+                // 用户登录
+                login: function() {
+                    console.log(123)
+                    Api.post({
+                        http: '/js-api/home_user/login',
+                        data: this.userInfo,
+                        success: function(result) {
+                            layer.msg(result.msg);
+                            location.href = "/website/js_website_6284b66017bfb136//";
+                        },
+                    });
+                },
+                register: function() {
+                    location.href='/js_plug_page/js_plug_page_626b57cca9c2f8227/?page_url=/website/js_website_6284b66017bfb136///&uuid=js_uuid_623d6a5a6fd5a819&register_type=phone'
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

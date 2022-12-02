@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Create PDFs from HTML with PHP and Dompdf</title>
+    
+<link rel="canonical" href="https://www.phplift.net/" />
+<link rel="publisher" href="https://plus.google.com/104843303742341697879"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Create PDFs from HTML with PHP and Dompdf" />
+<meta property="og:description" content="PHPLift is a web programming blog focus on all web development tutorials specially PHP and MySQL, HTML, CSS, Ajax, Jquery, Web, Demos, JavaScript, Designing" />
+<meta property="og:site_name" content="PHPLift">
+<meta property="og:image" content="http://www.phplift.net/wp-content/uploads/2017/01/logo.png">
+<meta property="og:url" content="http://www.PHPLift.net/" />
+<meta property="og:site_name" content="How to Create PDFs from HTML with PHP and Dompdf" />
+<meta property="article:publisher" content="https://www.facebook.com/PHiPLift" />
+<meta property="article:published_time" content="2014-02-12T18:37:09+00:00" />
+<meta property="article:modified_time" content="2014-02-12T18:39:48+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@PHPLift"/>
+<meta name="twitter:domain" content="How to Create PDFs from HTML with PHP and Dompdf"/>
+<meta name="twitter:creator" content="@huzoorbux"/>
+
+<meta content='PHPlift is a web programming blog focus on all web development tutorials specially PHP and MySQL, HTML, CSS, Ajax, Jquery, Web, Demos, JavaScript, Designing' name='description'/>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel='stylesheet' type='text/css'>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-6883622550208397",
+          enable_page_level_ads: true
+     });
+</script>
+<style>
+.PHPGangMessage a, .subbase a{
+    color:blue;
+}
+</style>
+</head>
+<body>
+<header class="text-gray-700 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a href="https://www.phplift.net/" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <span class="ml-3 text-xl">PHPLift</span>
+    </a>
+    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+      <a href="https://feeds2.feedburner.com/PHPLift" title="PHPLift feed" class="mr-5 hover:text-gray-900"><img alt="feed" height="26" src="https://feeds2.feedburner.com/~fc/PHPLift1?bg=f2a0bb&amp;fg=000000&amp;anim=0&amp;label=Readers" style="border:0;margin-right:10px;margin-top:6px" width="88"></a>
+      <a href="https://demos.phplift.net/" class="mr-5 hover:text-gray-900">Demos</a>
+      <a href="https://www.phplift.net/category/php/" class="mr-5 hover:text-gray-900">PHP Tutorials</a>
+      <a href="https://www.phplift.net/request/" class="mr-5 hover:text-gray-900">Request Tutorial</a>
+      <a href="https://www.phplift.net/jobs/" class="mr-5 hover:text-gray-900">JOBS</a>
+    </nav>
+  </div>
+</header>
+<section class="text-gray-700 body-font">
+    <div class="container px-5 py-12 mx-auto">
+        <div class="flex flex-col text-center w-full mb-12">
+            <div>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- PHPGang on dw top first page -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-6883622550208397"
+                    data-ad-slot="8079672102"
+                    data-ad-format="auto"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="py-2 px-4">
+    <div  style="margin-left:5%;">
+    <a href="download.php" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+  <span>Download PDF</span>
+</a>
+</div>
+    <br>
+    <br>
+    
+
+
+
+
+    <div id="main" class="article inherited-styles-for-exported-element" style="width: 90%; margin-left:5%;">
+        <article id="post-615" class="article-post cat-2 loop-page-1 clearfix post-615 post type-post status-publish format-standard has-post-thumbnail hentry category-php tag-php-is-dead" itemscope="" itemtype="http://schema.org/Article">
+            <div class="head-image thumb-wrap">
+                <img src="https://www.phplift.net/wp-content/uploads/2021/09/Is-PHP-dead-in-2021-Is-PHP-still-relevant-or-worth-the-effort-770x470.png" class="entry-thumb img-responsive wp-post-image" alt="Is PHP dead in 2021? Is PHP still relevant or worth the effort?">
+
+            </div>
+
+            <div class="article-post-reading-area">
+                <header>
+
+                    <h1 itemprop="mainEntityOfPage">Is PHP dead in 2021? Is PHP still relevant or worth the effort?</h1>
+
+                </header>
+                <div class="article-post-content">
+                    <h2><span data-preserver-spaces="true">Is PHP dead in 2021? There's a chance that I wouldn't be so sure about PHP. Is PHP still relevant or worth the effort?</span></h2>
+                    <p><span id="more-615"></span></p>
+                    <p><span data-preserver-spaces="true">You might have heard it said that <strong>PHP is dead</strong> or that no one uses PHP these days. Is <a href="https://php.net" target="_blank" rel="nofollow">PHP</a> dead?</span></p>
+                    <p><span data-preserver-spaces="true">Let's talk about the pros and cons of PHP, and then let's decide if <strong>PHP is truly over</strong>.</span></p>
+
+                    <p><strong><span data-preserver-spaces="true">Pros</span></strong></p>
+                    <p><strong><span data-preserver-spaces="true">1. PHP is a widely-used Internet protocol</span></strong></p>
+                    <p><span data-preserver-spaces="true"><strong>According to a blog, 79% of web users have used PHP to date</strong>. You may wonder why this is so because WordPress is a significant contributor to the web. WordPress developed in PHP. All WordPress websites are built internally on PHP.</span></p>
+                    <p><strong><span data-preserver-spaces="true">2. PHP is becoming faster and more efficient</span></strong></p>
+                    <p><span data-preserver-spaces="true">PHP is widely used on the internet, so there are always new improvements and updates to PHP. For example, the PHP 8 update got a JIT (just-in-time compiler). PHP is getting faster. The image shows PHP's ability to handle more requests per second.</span></p>
+                    <blockquote>
+                        <p>Read Also: <a href="https://www.phplift.net/how-to-convert-html-to-pdf-in-php-with-fpdf/">How to Convert HTML to PDF in PHP with fpdf</a></p>
+                    </blockquote>
+                    <p><strong><span data-preserver-spaces="true">Even though PHP is becoming faster, it is still slower than Golang or Java.</span></strong></p>
+                    <ol>
+                        <li><span data-preserver-spaces="true">PHP PHP has many high-quality frameworks. Laravel is one of them. <a href="https://www.phplift.net/6-reasons-laravel-is-the-top-php-framework-in-the-web-development-industry/">Laravel</a>, a PHP back-end framework, is very useful and provides security and good practices for your web apps.</span></li>
+                        <li><span data-preserver-spaces="true">PHP has a strong developer community PHP also has an enormous developer community that can assist you with any technical problem. Many developers are available to help with your PHP problems on websites such as Stackoverflow.</span></li>
+                        <li><span data-preserver-spaces="true">PHP PHP freelance is very popular among the freelancing community. It is one of the most simple languages to learn, making it easy for non-technical individuals to manage their website's back-end. Many people offer great gigs working PHP websites. You also have the opportunity to freelance with PHP. <a href="https://www.phplift.net/how-to-building-responsive-wordpress-theme-using-bootstrap/">WordPress</a> also allows you to edit wp-config files. Cons</span></li>
+                        <li><span data-preserver-spaces="true">Performance PHP is less performant than languages like Golang or runtimes like Node.JS. It is because PHP's architecture allows it to run a different process with every request it receives. That's why PHP should be used in place of it. However, this should not prevent you from learning PHP. PHP developers can still find jobs and make good money. For the next decade, PHP will likely play a significant role on the internet.</span></li>
+                        <li><span data-preserver-spaces="true">JavaScript is a required language for Full Stack Developers. JavaScript can be used in both the front-end and back-end. This is why JavaScript is preferred by some developers over PHP. Is PHP dead? NO. PHP isn't dead. It is still unknown what the future holds. Future updates may include the most viable features. We will see. You might now know whether or not you want to learn PHP. Learning PHP is a great way to learn if you're going to be a sound back-end engineer and a master of a language. Don't believe everything you read on the internet about PHP. It's also a great place to begin your programming career.</span></li>
+                    </ol>
+
+
+
+                </div>
+            </div>
+
+        </article>
+    </div>
+
+    <style>
+        *,
+        ::after,
+        input[type=checkbox] {
+            box-sizing: border-box;
+        }
+
+        article,
+        aside,
+        footer,
+        header,
+        section {
+            display: block;
+        }
+
+        canvas {
+            vertical-align: baseline;
+        }
+
+        a {
+            background-color: transparent;
+            color: #222;
+            text-decoration: none;
+            transition: color .2s, background-color .2s, text-shadow .2s, box-shadow .2s, border .2s;
+        }
+
+        #jp-relatedposts h3.jp-relatedposts-headline em,
+        label,
+        strong {
+            font-weight: 700;
+        }
+
+        img {
+            border-width: 0;
+            vertical-align: middle;
+        }
+
+        input,
+        textarea {
+            color: inherit;
+            font-weight: inherit;
+            margin: 0;
+        }
+
+        textarea {
+            overflow: auto;
+        }
+
+        input,
+        textarea {
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+        }
+
+        ol,
+        p {
+            margin-top: 0;
+        }
+
+        p {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        ol {
+            margin-bottom: 10px;
+        }
+
+        blockquote {
+            background-color: #f9f9f9;
+            font-size: 17.5px;
+            quotes: "“""”""‘""'";
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            max-width: 100%;
+        }
+
+        article {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        ins {
+            margin-bottom: 30px;
+        }
+
+        .inherited-styles-for-exported-element {
+            color: #5c5c5c;
+            font-family: Roboto;
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        h3 small {
+            color: #777;
+            font-size: 65%;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        blockquote::before {
+            margin-right: .25em;
+            vertical-align: -.4em;
+        }
+
+        blockquote p {
+            display: inline;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .row {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+        .col-md-12,
+        .col-md-6,
+        .col-sm-4 {
+            min-height: 1px;
+            padding-left: 15px;
+            padding-right: 15px;
+            position: relative;
+        }
+
+        .col-xs-6 {
+            float: left;
+            width: 50%;
+        }
+
+        @media (min-width: 768px) {
+            .col-sm-4 {
+                float: left;
+                width: 33.3333%;
+            }
+        }
+
+        @media (min-width: 992px) {
+
+            .col-md-12,
+            .col-md-6 {
+                float: left;
+            }
+
+            .col-md-12 {
+                width: 100%;
+            }
+
+            .col-md-6 {
+                width: 50%;
+            }
+        }
+
+        .form-control {
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: rgba(0, 0, 0, .075) 0 1px 1px inset;
+            color: #555;
+            display: block;
+            font-size: 14px;
+            line-height: 1.42857;
+            padding: 6px 12px;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            width: 100%;
+        }
+
+        .breadcrumb {
+            border-radius: 4px;
+            list-style: none;
+        }
+
+        .fa {
+            display: inline-block;
+            font-family: FontAwesome;
+            font-weight: 400;
+            text-rendering: auto;
+        }
+
+        .fa-lg {
+            font-size: 1.33333em;
+            line-height: .75em;
+            vertical-align: -15%;
+        }
+
+        .bttrlazyloading-wrapper {
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: block;
+        }
+
+        .bttrlazyloading,
+        .bttrlazyloading-clone {
+            border-width: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bttrlazyloading-clone {
+            display: block;
+            height: auto;
+            max-width: 100%;
+        }
+
+        .relative,
+        header {
+            position: relative;
+        }
+
+        .theme {
+            background-color: #444;
+            color: #fff;
+            font-family: "Roboto Condensed", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            left: 0;
+            line-height: 25px;
+            padding: 0 12px;
+            position: absolute;
+            text-transform: uppercase;
+            top: 10px;
+        }
+
+        .article-post {
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb {
+            background-color: initial;
+            background-position: 0 0;
+            color: #999;
+            margin: 0 0 8px;
+            padding: 0;
+        }
+
+        .author-box {
+            background-color: #f5f5f7;
+            margin: 30px -10px;
+            min-height: 155px;
+            padding: 20px 10px 5px;
+            position: relative;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .author-box {
+                margin: 40px -15px 20px;
+                padding: 30px 30px 15px 185px;
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .author-box {
+                margin: 35px -20px 0;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .author-box {
+                margin-left: -25px;
+                margin-right: -25px;
+            }
+        }
+
+        .sd-sharing {
+            margin-bottom: 1em;
+        }
+
+        .sharing-screen-reader-text {
+            clip: rect(1px, 1px, 1px, 1px);
+            height: 1px;
+            overflow: hidden;
+            width: 1px;
+        }
+
+        a:active {
+            outline: 0;
+        }
+
+        input[type=checkbox] {
+            line-height: normal;
+            margin: 4px 0 0;
+            padding: 0;
+        }
+
+        a:focus {
+            color: #23527c;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px;
+            text-decoration: underline;
+        }
+
+        .form-control::-webkit-input-placeholder {
+            color: #999;
+        }
+
+        textarea.form-control {
+            height: auto;
+        }
+
+        .row::after {
+            clear: both;
+            content: " ";
+            display: table;
+        }
+
+        .fa-home::before {
+            content: "";
+        }
+
+        .fa-facebook-square::before {
+            content: "";
+        }
+
+        .fa-linkedin-square::before {
+            content: "";
+        }
+
+        .fa-twitter::before {
+            content: "";
+        }
+
+        .fa-google-plus-square::before {
+            content: "";
+        }
+
+        a:active,
+        a:hover {
+            color: #111;
+            text-decoration: none;
+        }
+
+        .article-post h2,
+        .article-post h3 {
+            color: #222;
+            font-family: "Roboto Condensed";
+        }
+
+        .article-post h2 {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 30px;
+            margin: 25px 0 15px;
+        }
+
+        .article-post h4 {
+            color: #222;
+            font-weight: 400;
+        }
+
+        .article-post header {
+            border-bottom: 1px solid #dadada;
+            margin: 0 0 20px;
+            padding: 0 0 15px;
+        }
+
+        .article-post p {
+            font-size: 20px;
+            line-height: 32px;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb a {
+            color: #777;
+        }
+
+        .breadcrumb>div {
+            display: inline-block;
+        }
+
+        .article-post img {
+            height: inherit;
+        }
+
+        .article-post blockquote {
+            border-style: none;
+            margin: 25px 0;
+            padding: 20px 50px 45px 60px;
+            position: relative;
+        }
+
+        @media (min-width: 992px) {
+            .article-post blockquote {
+                display: table;
+            }
+        }
+
+        header .post-meta {
+            color: #bcbcbc;
+            margin: 5px 0 -8px;
+            padding: 0 0 0 2px;
+            text-transform: uppercase;
+        }
+
+        aside.tags {
+            margin: 40px 0 0;
+        }
+
+        .author-box img {
+            border: 3px solid #fff;
+            border-radius: 50%;
+            box-shadow: #ddd 0 3px 0 0;
+            margin: 0 auto 10px;
+        }
+
+        .article-post footer {
+            border-top: 1px solid #dadada;
+            clear: both;
+            margin: 50px 0 30px;
+            padding: 15px 0 0;
+        }
+
+        @media (min-width: 768px) {
+            .author-box img {
+                left: 35px;
+                position: absolute;
+                top: 25px;
+            }
+        }
+
+        .article-post h3 {
+            line-height: 26px;
+        }
+
+        .article-post-content a {
+            color: #222;
+        }
+
+        .jp-relatedposts::after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-title a:hover,
+        .article-post p a {
+            text-decoration: underline;
+        }
+
+        .article-post section header {
+            border-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .article-post header h1 {
+            color: #222;
+            font-family: "Roboto Condensed";
+            font-size: 30px;
+            font-weight: 400;
+            line-height: 36px;
+            margin: 0;
+        }
+
+        .article-post blockquote p {
+            color: #222;
+            font-size: 20px;
+            font-style: italic;
+            line-height: 30px;
+            quotes: "“""”""‘""'";
+        }
+
+        .article-post blockquote::after,
+        .article-post blockquote::before {
+            color: #999;
+            font-family: Georgia, serif;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 54px;
+            position: absolute;
+        }
+
+        .article-post blockquote::before {
+            content: open-quote;
+            left: 10px;
+            top: 0;
+        }
+
+        .article-post blockquote::after {
+            bottom: 10px;
+            content: close-quote;
+            right: 10px;
+        }
+
+        header .post-meta a {
+            color: #999;
+            text-decoration: none;
+        }
+
+        header .post-meta span {
+            display: inline-block;
+            margin-right: 25px;
+        }
+
+        aside.tags ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .article-post ol li,
+        .article-post ul li {
+            font-size: 20px;
+            line-height: 32px;
+        }
+
+        article.thumb h3 {
+            font-family: "Roboto Condensed", sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 20px;
+            margin: 0 0 10px;
+        }
+
+        .sd-content ul li {
+            display: inline-block;
+            margin: 0 5px 5px 0;
+            padding: 0;
+        }
+
+        .breadcrumb>div+div::before {
+            color: #ccc;
+            content: "/ ";
+            padding: 0 5px;
+        }
+
+        aside.tags ul li {
+            float: left;
+            list-style: none;
+            margin-bottom: 4px;
+            margin-right: 5px;
+        }
+
+        aside.tags ul li a,
+        aside.tags ul li span {
+            background-color: #ededed;
+            color: #444;
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 20px;
+            padding: 2px 8px 0;
+            text-transform: uppercase;
+        }
+
+        aside.tags ul li span {
+            background-color: #555;
+            color: #fff;
+        }
+
+        .form-control:focus {
+            border-color: #66afe9;
+            box-shadow: rgba(0, 0, 0, .075) 0 1px 1px inset, rgba(102, 175, 233, .6) 0 0 8px;
+            outline: 0;
+        }
+
+        .img-responsive {
+            display: block;
+            max-height: inherit;
+            width: 100%;
+        }
+
+        .article-post .head-image {
+            margin-bottom: 20px;
+        }
+
+        .article-post .post-navigation {
+            margin-top: 30px;
+        }
+
+        .author-box .name {
+            margin-bottom: 15px;
+        }
+
+        .article-post .soc-media-sharing {
+            background-color: #f3f3f3;
+            margin-bottom: -16px;
+            margin-top: 15px;
+            padding: 15px 15px 10px;
+            position: relative;
+        }
+
+        .sharing-screen-reader-text:active {
+            background-color: #f0f0f1;
+            border-radius: 3px;
+            box-shadow: rgba(0, 0, 0, .6) 0 0 2px 2px;
+            color: #21759b;
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            height: auto;
+            left: 5px;
+            line-height: normal;
+            padding: 15px 23px 14px;
+            text-decoration: none;
+            top: 5px;
+            width: auto;
+            z-index: 100000;
+        }
+
+        .sd-content .share-customize-link {
+            line-height: 11px;
+            margin-top: 0;
+        }
+
+        input[type=checkbox]:focus {
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px;
+        }
+
+        .author-box p.follow {
+            padding-top: 10px;
+        }
+
+        .article-post footer .soc-media-sharing {
+            background-color: initial;
+            background-position: 0 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .article-post .soc-media-sharing a {
+            color: #828282;
+        }
+
+        .article-post-content a:hover {
+            color: #000;
+        }
+
+        .sd-content .share-customize-link a {
+            font-family: "Open Sans", sans-serif;
+            font-size: 11px;
+        }
+
+        article span.published {
+            color: #777;
+            display: block;
+            font-size: 10px;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        article.thumb-lay-two span.published {
+            margin-bottom: 0;
+        }
+
+        .article-post p a:hover {
+            text-decoration: none;
+        }
+
+        aside.tags ul li a:hover,
+        header .post-meta a:hover {
+            color: #222;
+            text-decoration: underline;
+        }
+
+        header .post-meta span.fa-bookmark,
+        header .post-meta span.fa-comments {
+            float: right;
+            margin-left: 25px;
+            margin-right: 0;
+        }
+
+        .article-post .post-navigation div cite {
+            color: #999;
+            display: block;
+            font-size: 12px;
+            line-height: 16px;
+            text-transform: uppercase;
+        }
+
+        .article-post .post-navigation div a {
+            color: #444;
+            margin: 0;
+        }
+
+        .article-post .soc-media-sharing a:hover,
+        .author-box p a:hover {
+            color: #222;
+        }
+
+        article span.text {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        .article-post footer .author-box p {
+            color: #5c5c5c;
+            font-family: Roboto;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+
+        div.sharedaddy h3.sd-title {
+            display: inline-block;
+            font-size: 9pt;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 1em;
+        }
+
+        header .post-meta span.fa-calendar::before {
+            content: "";
+            font-family: FontAwesome;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+
+        header .post-meta span.fa-author img {
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        header .post-meta span.fa-categories::before,
+        header .post-meta span.fa-comments::before {
+            content: "";
+            font-family: FontAwesome;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+
+        header .post-meta span.fa-categories::before {
+            content: "";
+        }
+
+        .article-post .post-navigation .row div::before,
+        header .post-meta span.fa-bookmark::before {
+            content: "";
+            font-family: FontAwesome;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+
+        .article-post footer .author-box p a {
+            color: #bbb;
+            display: inline-block;
+            margin: 0 12px 0 0;
+        }
+
+        #jp-relatedposts h3.jp-relatedposts-headline em::before,
+        div.sharedaddy h3.sd-title::before {
+            border-top-style: solid;
+            border-top-width: 1px;
+            content: "";
+            display: block;
+            margin-bottom: 1em;
+            min-width: 30px;
+            width: 100%;
+        }
+
+        div.sharedaddy h3.sd-title::before {
+            border-top-color: #dcdcde;
+        }
+
+        aside.tags ul li a:hover {
+            background-color: #fff;
+        }
+
+        .sd-content ul li a.sd-button::before {
+            display: inline-block;
+            font-family: social-logos;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            .sd-content ul li a.sd-button::before {
+                position: relative;
+            }
+        }
+
+        .article-post .soc-media-sharing a.btn-icon-title {
+            border-radius: 3px;
+            display: inline-block;
+            margin: 0 3px 5px;
+            padding: 8px 0;
+            text-align: center;
+            width: 36px;
+        }
+
+        .article-post .post-navigation .row div::before {
+            color: #ccc;
+            content: "";
+            float: left;
+            line-height: 16px;
+        }
+
+        .article-post footer .author-box p.name,
+        .article-post footer .author-box p.name a {
+            color: #222;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 20px;
+        }
+
+        .article-post footer .author-box p.name a {
+            font-family: Roboto;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        .sd-content ul li a.sd-button {
+            display: inline-block;
+            font-family: "Open Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            text-decoration: none !important;
+            text-shadow: none;
+        }
+
+        .sd-social-icon .sd-content ul li[class*=share-] a {
+            border-radius: 50%;
+            border-width: 0;
+            box-shadow: none;
+            height: auto;
+            line-height: 1;
+            margin-bottom: 0;
+            padding: 7px;
+            position: relative;
+            top: -2px;
+            width: auto;
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-facebook {
+            background-color: #3b5998;
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-twitter {
+            background-color: #55acee;
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-pinterest {
+            background-color: #cb2028;
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-linkedin {
+            background-color: #0073b2;
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-google {
+            background-color: #d73d32;
+        }
+
+        @media (min-width: 992px) {
+            .article-post .soc-media-sharing a.btn-social.btn-icon-title {
+                padding: 8px 15px 8px 12px;
+                text-align: left;
+                width: auto;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .article-post .post-navigation .row div.text-right {
+                float: right;
+            }
+        }
+
+        .article-post .post-navigation .row div.text-right::before {
+            content: "";
+            float: right;
+            margin: 0 0 0 8px;
+        }
+
+        #jp-relatedposts .jp-relatedposts-items-visual div.jp-relatedposts-post-thumbs p.jp-relatedposts-post-excerpt,
+        .article-post .soc-media-sharing.soc-style-three a.btn-social span {
+            display: none;
+        }
+
+        @media (min-width: 992px) {
+            .article-post .soc-media-sharing a.btn-social.btn-icon-title span {
+                color: #fff;
+                display: inline-block;
+                font-size: 13px;
+                font-weight: 400;
+                margin-left: 12px;
+            }
+        }
+
+        .sd-social-icon .sd-content ul li[class*=share-] a.sd-button {
+            margin-top: 2px;
+            text-indent: 0;
+        }
+
+        .sd-social-icon .sd-content ul li[class*=share-] a.sd-button>span {
+            line-height: 1;
+        }
+
+        .sd-social-icon .sd-content ul li[class*=share-] a.sd-button::before {
+            top: 0;
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-social:hover {
+            background-color: #444;
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-social i.fa {
+            color: #fff;
+            font-size: 16px;
+            position: relative;
+            text-shadow: rgba(0, 0, 0, .1) 3px 3px 0;
+            top: -1px;
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-social i.fa-linkedin-square {
+            line-height: 5px;
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-social i.fa-facebook-square::before {
+            content: "";
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-social i.fa-twitter-square::before {
+            content: "";
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-social i.fa-pinterest-square::before {
+            content: "";
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-social i.fa-linkedin-square::before {
+            content: "";
+        }
+
+        .article-post .soc-media-sharing.soc-style-three a.btn-social i.fa-google-plus-square::before {
+            content: "";
+        }
+
+        .sd-social-icon .sd-content ul li[class*=share-].share-facebook a.sd-button {
+            background-color: #1877f2;
+        }
+
+        .sd-social-icon .sd-content ul li[class*=share-].share-twitter a.sd-button {
+            background-color: #00acee;
+        }
+
+        #comments {
+            margin-bottom: 50px;
+        }
+
+        #cancel-comment-reply-link {
+            color: #ef3434;
+            float: right;
+            text-transform: uppercase;
+        }
+
+        #jp-relatedposts {
+            clear: both;
+            display: none;
+            margin: 1em 0;
+            padding-top: 1em;
+        }
+
+        #respond h3,
+        header h2 {
+            border-bottom: 1px solid #f5f5f5;
+            color: #444;
+            font-family: "Roboto Condensed", sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 17px;
+            margin: 0 0 15px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        header h2 {
+            font-family: "Roboto Condensed";
+            min-height: 28px;
+        }
+
+        #jp-relatedposts,
+        .head-image {
+            position: relative;
+        }
+    </style>
+
+
+
+
+    
+    <br>
+    <br>
+    
+    <div  style="margin-left:5%;">
+    <a href="download.php" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+  <span>Download PDF</span>
+</a>
+</div>
+</div>
+
+<!-- <section class="text-gray-700 body-font">
+  <div class="container px-5 py-12 mx-auto">
+    <div class="flex flex-col w-full mb-12">
+    
+    <h3 class="widget-title">More Tutorials on PHPLift.net</h3>
+    <br />
+    <ul>
+            </ul>
+    </div>
+  </div>
+</section> -->
+
+<footer class="text-gray-700 body-font">
+  <div class="container px-5 py-24 mx-auto flex items-center sm:flex-row flex-col">
+    <a href="http://www.huzoorbux.com/" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+      <span class="ml-3 text-xl">Huzoor Bux Production</span>
+    </a>
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">&copy; 2020 phplift.net</p>
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+      <a href="https://www.facebook.com/PHiPLift/" class="text-gray-500">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+        </svg>
+      </a>
+      <a href="https://twitter.com/PHPLift/" class="ml-3 text-gray-500">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+        </svg>
+      </a>
+    </span>
+  </div>
+</footer>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149371669-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149371669-2');
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+
+<html lang="en" data-layout="main" data-page="home">
+
+<head>
+
+    
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+
+<title>Petrojet, sprawdzony dostawca paliw</title>
+<meta name="description"
+    content="Petrojet, sprawdzony dostawca paliw">
+
+<meta property="og:description"
+    content="Petrojet, sprawdzony dostawca paliw">
+<meta property="og:image" content="https://petrojet.pl/themes/petrojet/assets/images/theme-preview.png">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="Petrojet, sprawdzony dostawca paliw">
+<meta property="og:title"
+    content="Petrojet, sprawdzony dostawca paliw">
+<meta property="og:type" content="website">
+<meta property="og:url" content="/">
+
+
+<link rel="shortcut icon" href="https://petrojet.pl/themes/petrojet/assets/icons/favicon.ico" type="image/x-icon">
+
+<link href="https://petrojet.pl/themes/petrojet/assets/styles/animation-loading.css" rel="stylesheet">
+
+<meta name="application-name" content="Petrojet, sprawdzony dostawca paliw">
+<meta name="msapplication-TileColor" content="#2b3e50">
+<meta name="msapplication-TileImage" content="https://petrojet.pl/themes/petrojet/assets/icons/mstile-144x144.png">
+<meta name="msapplication-square70x70logo" content="https://petrojet.pl/themes/petrojet/assets/icons/mstile-70x70.png">
+<meta name="msapplication-square150x150logo" content="https://petrojet.pl/themes/petrojet/assets/icons/mstile-150x150.png">
+<meta name="msapplication-wide310x150logo" content="https://petrojet.pl/themes/petrojet/assets/icons/mstile-310x150.png">
+<meta name="msapplication-square310x310logo" content="https://petrojet.pl/themes/petrojet/assets/icons/mstile-310x310.png">
+<link rel="icon" type="image/png" sizes="128x128" href="https://petrojet.pl/themes/petrojet/assets/icons/favicon-128.png">
+<link rel="icon" type="image/png" sizes="196x196" href="https://petrojet.pl/themes/petrojet/assets/icons/favicon-196x196.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://petrojet.pl/themes/petrojet/assets/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://petrojet.pl/themes/petrojet/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://petrojet.pl/themes/petrojet/assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://petrojet.pl/themes/petrojet/assets/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+    href="https://petrojet.pl/themes/petrojet/assets/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://petrojet.pl/themes/petrojet/assets/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+    href="https://petrojet.pl/themes/petrojet/assets/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://petrojet.pl/themes/petrojet/assets/icons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120"
+    href="https://petrojet.pl/themes/petrojet/assets/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://petrojet.pl/themes/petrojet/assets/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152"
+    href="https://petrojet.pl/themes/petrojet/assets/icons/apple-touch-icon-152x152.png">
+</head>
+
+<body class="animsition" data-page-preloader>
+
+    <div id="app">
+        
+        <navigation logo="https://petrojet.pl/themes/petrojet/assets/images/logo.png" :enabled-components="[
+            {
+                title: 'Home',
+                link:  '/#top'
+            },
+            {
+                title: 'Oferta',
+                link:  '/#offer'
+            },
+            {
+                title: 'O nas',
+                link:  '/#about'
+            }
+        ]">
+            <div class="contact_form mobile md:hidden relative">
+                <div class="cursor-pointer">
+                    <img src="https://petrojet.pl/themes/petrojet/assets/images/icons/mail-64.png">
+                </div>
+            </div>
+            <section class="contact">
+    <div class="popup">
+        <div class="head">
+            <div class="text-center font-bold">Poproś o kontakt</div>
+            <span class="close">&times;</span>
+        </div>
+        <div class="content">
+            <form class="form" action='#' data-request='onValidateContactForm' method='POST'>
+                <div class="">
+                    <div>
+                        <input id="phone" name="phone" placeholder="Telefon" value="">
+                        <span id="phone_validation" class="validation-error"></span>
+                    </div>
+                    <div>
+                        <input id="email" name="email" placeholder="E-mail" value="">
+                        <span id="email_validation" class="validation-error"></span>
+                    </div>
+                </div>
+                <div>
+                    <!-- <label for="subject">Wybierz temat<em>*</em></label> -->
+                    <select id="subject" name="subject" placeholder="Wybierz temat">
+                        <option value="">Wybierz temat</option>
+                        <option value="paliwo">zakup paliwa</option>
+                        <option value="adblue">zakup ad-blue</option>
+                        <option value="olej">zakup oleju opałowego</option>
+                        <option value="przetargi">przetargi</option>
+                        <option value="inne">inne</option>
+                    </select>
+                    <span id="subject_validation" class="validation-error"></span>
+                </div>
+                <div>
+                    <!-- <label for="desc">Wiadomość<em>*</em></label> -->
+                    <textarea id="desc" class="" name="desc" rows="3" cols=""
+                        placeholder="Wiadomość"></textarea>
+                    <span id="desc_validation" class="validation-error"></span>
+                </div>
+                <div class="text-center">
+                    <button class="text-white text-xs capitalize" type="submit">Wyślij</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>            <button class="hamburger hamburger--arrow" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+
+
+            <template slot="systems">
+                <div class="dropdown navigation__item">
+                    <span class="navigation__lnk cursor-pointer">Systemy on-line</span>
+                    <div class="dropdown-content">
+                        <div>
+                            <a target="_blank" href="http://www.dieselstacja.pl/">DMS</a>
+                        </div>
+                        <div>
+                            <a target="_blank" href="https://kingspanconnect.xtrack.com/">XTRACK</a>
+                        </div>
+                        <div>
+                            <a target="_blank" href="https://panel.cardgo.pl/">FLOTA</a>
+                        </div>
+                        <div>
+                            <a target="_blank"
+                                href="https://hurt.petrojet.pl">HURT</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown navigation__item">
+                    <span class="navigation__lnk cursor-pointer">Przydatne linki</span>
+                    <div class="dropdown-content">
+                        <div>
+                            <a target="_blank"
+                                href="https://www.orlen.pl/PL/DlaBiznesu/HurtoweCenyPaliw/Strony/default.aspx">SPOT
+                                ORLEN</a>
+                        </div>
+                        <div>
+                            <a target="_blank" href="https://www.lotos.pl/144/dla_biznesu/hurtowe_ceny_paliw">SPOT
+                                LOTOS</a>
+                        </div>
+                        <div>
+                            <a target="_blank" href="https://rejestry.ure.gov.pl">URE KONCESJE</a>
+                        </div>
+                        <div>
+                            <a target="_blank" href="https://puesc.gov.pl">PUESC</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown navigation__item">
+                    <span class="navigation__lnk cursor-pointer">Dokumenty</span>
+                    <div id="documents-links" class="dropdown-content">
+                        <div>
+                            <a href="/#awards_nagrody" rel="#awards_nagrody">Nagrody</a>
+                        </div>
+                        <div>
+                            <a href="/#awards_instrukcje" rel="#awards_instrukcje">Instrukcje</a>
+                        </div>
+                        <div>
+                            <a href="/#awards_dokumenty" rel="#awards_dokumenty">Dokumenty Firmy</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown navigation__item">
+                    <a class="navigation__lnk cursor-pointer" href="/kontakt#subpage-top">Kontakt</a>
+                </div>
+                <div class="contact_form hidden md:block relative">
+                    <div class="navigation__lnk cursor-pointer">Współpraca</div>
+                    <section class="contact">
+    <div class="popup">
+        <div class="head">
+            <div class="text-center font-bold">Poproś o kontakt</div>
+            <span class="close">&times;</span>
+        </div>
+        <div class="content">
+            <form class="form" action='#' data-request='onValidateContactForm' method='POST'>
+                <div class="">
+                    <div>
+                        <input id="phone" name="phone" placeholder="Telefon" value="">
+                        <span id="phone_validation" class="validation-error"></span>
+                    </div>
+                    <div>
+                        <input id="email" name="email" placeholder="E-mail" value="">
+                        <span id="email_validation" class="validation-error"></span>
+                    </div>
+                </div>
+                <div>
+                    <!-- <label for="subject">Wybierz temat<em>*</em></label> -->
+                    <select id="subject" name="subject" placeholder="Wybierz temat">
+                        <option value="">Wybierz temat</option>
+                        <option value="paliwo">zakup paliwa</option>
+                        <option value="adblue">zakup ad-blue</option>
+                        <option value="olej">zakup oleju opałowego</option>
+                        <option value="przetargi">przetargi</option>
+                        <option value="inne">inne</option>
+                    </select>
+                    <span id="subject_validation" class="validation-error"></span>
+                </div>
+                <div>
+                    <!-- <label for="desc">Wiadomość<em>*</em></label> -->
+                    <textarea id="desc" class="" name="desc" rows="3" cols=""
+                        placeholder="Wiadomość"></textarea>
+                    <span id="desc_validation" class="validation-error"></span>
+                </div>
+                <div class="text-center">
+                    <button class="text-white text-xs capitalize" type="submit">Wyślij</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>                </div>
+
+            </template>
+            <div id="top_contact" class="hidden text-xs text-left pt-3">
+                <div>Tel:/fax: 48 384 80 24</div>
+                <div>Tel:/fax: 48 322 12 99</div>
+                <div>
+                    Email: <a class="desc" href="mailto:biuro@petrojet.pl">biuro@petrojet.pl</a>
+                </div>
+            </div>
+        </navigation>
+
+        <section class="top relative" id="top">
+    <!-- <div class="box">
+        <a class="button" href="#popup1">Let me Pop up</a>
+    </div> -->
+    <div class="ParallaxImage">
+        <!-- <video autoplay loop muted id="movieIntro" poster="https://petrojet.pl/themes/petrojet/assets/images/video-bg.jpg"> -->
+            <!-- <source src="https://petrojet.pl/themes/petrojet/assets/videos/intro.mp4" type="video/mp4"> -->
+        <!-- </video> -->
+
+    </div>
+    <div class="ParallaxContent">
+
+
+        <div class="main text-white text-center">
+
+            <span class="uppercase text-4xl font-bold">HURTOWA SPRZEDAŻ PALIW</span>
+            <!-- <span class="text-xl">Zapewniamy najwyższej jakości paliwa pochodzące zarówno z krajowych jak i zagranicznych
+                rafinerii.</span> -->
+            <div class="my-4 mx-auto">
+                <div class="sm:inline-block mx-6 mb-4">
+                    <a href="/paliwa#subpage-top">
+                        <button>paliwa płynne</button>
+                    </a>
+                </div>
+                <div class="sm:inline-block mx-6 mb-4">
+                    <a href="/olej#subpage-top">
+                        <button>olej grzewczy</button>
+                    </a>
+                </div>
+                <div class="sm:inline-block mx-6 mb-4">
+                    <a href="/zbiorniki#subpage-top">
+                        <button>zbiorniki</button>
+                    </a>
+                </div>
+                <div class="sm:inline-block mx-6 mb-4">
+                    <a href="/adblue#subpage-top">
+                        <button id="adblue" class="bg-blue-400 hover:bg-blue-300">AdBlue<sup>®</sup></button>
+                    </a>
+                </div>
+
+            </div>
+            <!-- <div class="mx-auto">
+                <div class="">
+                    <a href="#contact">
+                        <button id="contact_form">podejmij współpracę</button>
+                    </a>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+<section class="offer" id="offer">
+    <div class="main pt-3">
+
+        <!-- <h1>Co oferujemy?</h1> -->
+
+        <div id="packets" class="mt-12 lg:grid lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-2 lg:gap-8 xl:grid-cols-4 xl:grid-rows-1 gap-4">
+            <div>
+                <div class="thumb">
+                    <a href="/paliwa#subpage-top"><img src="https://petrojet.pl/themes/petrojet/assets/images/offer-1.jpg"></a>
+                </div>
+                <div>
+                    <h3 class="font-sc primary"><a href="/paliwa#subpage-top">hurtowa sprzedaż paliw</a></h3>
+                </div>
+                <div class="desc">Petrojet zaprasza do współpracy odbiorców
+indywidualnych jak i hurtowych sprzedawców
+paliwa.                    Zapewniamy najwyższej jakości paliwa pochodzące zarówno z krajowych rafinerii, jak i od
+                    sprawdzonych dostawców zagranicznych. Naszym atutem jest odpowiedni i szybki transport paliwa do
+                    odbiorcy.
+                    <div class="py-4 font-bold">Naszym Partnerom gwarantujemy:</div>
+                    <ul class="list-disc pl-4">
+                        <li>najwyższą jakość produktów paliwowych pochodzących zarówno z rafinerii krajowych jak
+    i
+    zagranicznych</li>
+<li>zawsze chętny do pomocy personel</li>
+<li>pełną elastyczność w działaniu</li>
+<li>dostosowanie się do indywidualnych potrzeb</li>
+<li>ciągłość i terminowość dostaw</li>
+<li>sprawny i fachowy serwis</li>
+<li>konkurencyjne ceny</li>
+<li>obsługę zgodną ze wszystkimi standardami bezpieczeństwa.</li>                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="thumb">
+                    <a href="/olej#subpage-top"><img src="https://petrojet.pl/themes/petrojet/assets/images/offer-2.jpg"></a>
+                </div>
+                <div>
+                    <h3 class="font-sc"><a href="/olej#subpage-top">olej grzewczy ekoterm</a></h3>
+                </div>
+                <div class="desc">
+                    <p>
+    PKN ORLEN dokłada wyjątkowej staranności, aby oferowane oleje Ekoterm łączyły
+    najwyższą jakość i bezpieczeństwo eksploatacji. W trosce o komfort użytkowania olej napędowy
+    grzewczy Ekoterm zawiera odpowiednio dobrane komponenty oraz dodatki uszlachetniające poprawiające
+    ekonomikę zużycia paliwa grzewczego, a także żywotność systemów grzewczych.
+    Ekoterm spełnia wymagania Polskiej Normy PN-C-96024 „Przetwory naftowe. Oleje opałowe” w zakresie
+    oleju opałowego lekkiego gatunku L-1 oraz wymagania Rozporządzenia Ministra Energii z dnia 1 grudnia
+    2016 r. w sprawie wymagań jakościowych dotyczących zawartości siarki dla olejów oraz rodzajów
+    instalacji i warunków, w których będą stosowane ciężkie oleje opałowe (Dz.U. z dnia 14 grudnia 2016
+    r. poz. 2008).Ekoterm spełnia wymagania Rozporządzenia Ministra Finansów z dnia 20 sierpnia 2010 r.
+    w sprawie znakowania i barwienia wyrobów energetycznych (Dz.U. 2010 r., Nr 157, poz.
+    1054).
+</p>                    <br /><br />
+                    <strong>Zastosowanie</strong><br />
+                    <p>
+    Olej napędowy grzewczy Ekoterm jest nowoczesnym paliwem grzewczym znajdującym zastosowanie w kotłach
+    ogrzewających domy mieszkalne, kotłach parowych, piecach przemysłowych oraz technologicznych.
+     Oferowany przez nas produkt jest idealnym źródłem ciepła dla obiektów nie posiadających dostępu do
+    sieci przesyłowej gazu ziemnego.
+</p>                </div>
+            </div>
+            <div>
+                <div class="thumb">
+                    <a href="/zbiorniki#subpage-top"><img src="https://petrojet.pl/themes/petrojet/assets/images/offer-3.jpg"></a>
+                </div>
+                <div>
+                    <h3 class="font-sc"><a href="/zbiorniki#subpage-top">zbiorniki</a></h3>
+                </div>
+                <div class="desc">
+                    <p>
+    Naszym Klientom użyczamy bezpłatnie zbiorniki do magazynowania paliw płynnych oraz AdBlue<sup>®</sup> o
+    pojemności dostosowanej do indywidualnych potrzeb odbiorcy (od 1000 do 30000 l). Na życzenie
+    Klienta
+    zbiornik może być wyposażony w system ewidencji i kontroli procesu tankowania XTRACK lub
+    DMS. Współpracujemy z firmami KINGSPAN oraz PETROLEO , które są liderami na rynku polskim w
+    dostarczaniu innowacyjnych i skutecznych narzędzi do kompleksowego zarządzania gospodarką
+    paliwami, flotą pojazdów, kosztami oraz kierowcami.
+</p>                    <ul class="list-disc pl-4">
+                        <ul>
+	<li>oszczędności wynikające ze zmniejszenia globalnego zużycia paliwa oraz AdBlue<sup>®</sup></li>
+	<li>gotowe raporty okresowe (XTML, XLS, PDF)</li>
+	<li>analiza i statystyki dotyczące utrzymania floty pojazdów</li>
+	<li>stale monitorowany dostęp do paliwa oraz AdBlue<sup>®</sup></li>
+	<li>wygoda w ewidencji i kontroli kosztów</li>
+</ul>                    </ul>
+                </div>
+                <div class="desc mt-4">
+                    <p class="my-3">Kontakt:</p>
+                    <div class="mt-2">
+                        <div>
+                            <p><strong>Piotr Mąkosa</strong></p>
+                            <p>tel. kom.: 663 333 406</p>
+                            <p><a href="mailto:zbiorniki@petrojet.pl">email: zbiorniki@petrojet.pl</a></p>
+                        </div>
+                        <div class="mt-2">
+                            <p><strong>Rafał Mąkosa</strong></p>
+                            <p>tel. kom.: 667 977 124</p>
+                            <p><a href="mailto:zbiorniki@petrojet.pl">email: zbiorniki@petrojet.pl</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="thumb">
+                    <a href="/adblue#subpage-top"><img src="https://petrojet.pl/themes/petrojet/assets/images/offer-4.jpg"></a>
+                </div>
+                <div>
+                    <h3 class="font-sc"><a href="/adblue#subpage-top">AdBlue<sup>®</sup></a></h3>
+                </div>
+                <div class="desc">
+                    <div>
+                        <p>Jesteśmy Certyfikowanym Autoryzowanym Dystrybutorem &nbsp;NOXy<sup>®</sup> AdBlue<sup>®</sup> - środka o bardzo wysokiej jakości i czystości, eliminującego szkodliwe substancje z gazów spalinowych. Znajduje on zastosowanie w nowoczesnych samochodach osobowych oraz ciężarowych nowej generacji, wyposażonych w katalizatory z systemem dopalania gazów SCR. Dowiedz się więcej o <a class="oc-link-green" href="https://noxy.eu" rel="noopener noreferrer" target="_blank">AdBlue<sup>®</sup></a> i przekonaj się, jakie korzyści płyną z jego stosowania.</p>                    </div>
+                    <div>
+                        <ul class="list-disc ml-4">
+                            <li>niższe zużycie paliwa – o 3-4% w przypadku silników, spełniających normę EURO 4 bądź o
+    5% w
+    przypadku pojazdów z jednostką zgodną z normą EURO 5,</li>
+<li>niższe opłaty drogowe w Polsce i na obszarze całej Unii Europejskiej,</li>
+<li>zmniejszenie awaryjności pojazdu oraz możliwość utrzymania, a nawet wydłużenia okresów
+    między
+    jego
+    serwisami,</li>
+<li>wzrost wartości pojazdu przy jego odsprzedaniu.</li>                        </ul>
+                    </div>
+                    <div class="mt-4">
+                        <p class="my-3">Kontakt:</p>
+                        <p><strong>Tomasz Łyczek</strong></p>
+                        <p>tel. 697 977 277</p>
+                        <p><a href="mailto:adblue@petrojet.pl">email: adblue@petrojet.pl</a></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="about" id="about">
+    <div class="main">
+        <div class="body">
+            <div class="lg:flex">
+                <div class="lg:w-1/2 md:pt-32">
+                    <h1 class="text-center lg:text-left">O nas</h1>
+                    <div class="text-center lg:text-left text-sm">
+                        <p>Petrojet Sp. z o.o. to firma zbudowana w oparciu o kilkunastoletnie doświadczenie rynkowe, zaufanie Klientów oraz wysokie kompetencje pracowników. Kluczowym założeniem spółki jest współpraca z europejskimi oraz polskimi producentami paliw w celu zapewnienia dostaw produktów najwyższej jakości. Współpracujemy ze spółkami z Grupy PKN Orlen S.A., Grupy Lotos S.A. oraz BP Europa S.E i Shell Polska.</p>                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <img class="thumb m-auto" src="https://petrojet.pl/themes/petrojet/assets/images/about-photo.jpg">
+                </div>
+            </div>
+
+            <div class="box-container mt-24 mx-auto text-center">
+                <div class="mb-3">
+                    <h2 class="text-center lg:text-left">Nasze cechy to:</h2>
+                </div>
+                <div class="box">
+                    <div class="icon sign"></div>
+                    <h3>
+                        Doświadczona kadra
+                    </h3>
+                    <div class="desc">
+                        zarządzająca, ale również kierowcy i pracownicy stacji paliw to nasz bardzo ważny atut.
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon time"></div>
+                    <h3>
+                        Ciągłość i terminowość dostaw
+                    </h3>
+                    <div class="desc">
+                        Naszym atutem jest odpowiedni
+                        i szybki transport paliwa do odbiorcy.
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon carton"></div>
+                    <h3>
+                        Konkurencyjne ceny
+                    </h3>
+                    <div class="desc">
+                        przy zachowaniu najwyższych standardów.
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon star"></div>
+                    <h3>
+                        Jakość
+                    </h3>
+                    <div class="desc">
+                        Zapewniamy najwyższej jakości paliwa z krajowych i zagranicznych rafinerii.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- <div class="highlight-bar">
+    Petrojet należy do ścisłego grona zaufanych dostawców paliw. Potwierdzeniem tego faktu jest obecność na liście
+    <br />
+    bezpiecznych dostawców Ministerstwa Finansów. <a href="https://kaucja-gwarancyjna.mf.gov.pl/"
+        target="_blank">SPRAWDŹ NAS NA STRONIE
+        MINISTERSTWA</a>
+</div> -->
+<section class="carousel" id="carousel">
+
+    <div class="main">
+        <div class="splide">
+            <div class="splide__track">
+                <div class="splide__list">
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/606/cropped_602a866069777231601591.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/4fc/cropped_602a864fc502f534873845.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/628/cropped_602a866282033816401208.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/657/cropped_602a86657f2c5625602352.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/657/cropped_602a866579496033651823.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/606/cropped_602a86606ccd2899089432.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/627/cropped_602a86627e463880455471.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/63f/cropped_602a8663f2e87443627557.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/640/cropped_602a866402efe060463771.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/670/cropped_602a866706f0a507251893.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/684/cropped_602a866843564771409550.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/6a1/cropped_602a866a186a5836732861.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/6b9/cropped_602a866b9f495661515069.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/6cb/cropped_602a866cbf21a091958478.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/6d0/cropped_602a866d0b023172367288.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/6e4/cropped_602a866e40239706162215.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/6fb/cropped_602a866fbb91a343418103.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/602/a86/700/cropped_602a86700c13b124680860.jpeg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/614/325/8eb/6143258ebeb1a985429104.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/614/325/a59/614325a59c2fa070899844.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/627/928/a96/627928a96da64407067600.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/627/928/a96/627928a96de31330101380.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/627/928/aa6/627928aa6aa49590325111.jpg" >
+                        </a>
+                    </div>
+                                        <div class="splide__slide">
+                        <img title=""
+                            data-splide-lazy="https://petrojet.pl/storage/app/uploads/public/627/928/aac/627928aac1ea4562212242.jpg" >
+                        </a>
+                    </div>
+                                    </div>
+
+            </div>
+        </div>
+
+        <!-- <div class="swiper-container">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide"><img src="https://petrojet.pl/themes/petrojet/assets/images/carousel-1.jpg"></div>
+                <div class="swiper-slide"><img src="https://petrojet.pl/themes/petrojet/assets/images/carousel-1.jpg"></div>
+                <div class="swiper-slide"><img src="https://petrojet.pl/themes/petrojet/assets/images/carousel-1.jpg"></div>
+
+            </div>
+
+
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+        </div> -->
+    </div>
+
+</section>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<section class="awards" id="awards">
+
+
+    <div class="main p-4">
+        <h1>Dokumenty</h1>
+        <div class="mt-24 mb-8 w-1/2 lg:w-1/4 uppercase justify-center m-auto cursor-pointer md:flex font-bold text-sm">
+            <div class="flex-none m-2 text-center">
+                <span rel="nagrody" class="awards-link active">nagrody</span>
+            </div>
+            <div class="flex-none m-2 text-center">
+                <span rel="instrukcje" class="awards-link">instrukcje</span>
+            </div>
+            <!-- <div class="flex-none m-2 text-center">
+                <span rel="referencje" class="awards-link">referencje</span>
+            </div> -->
+            <div class="flex-none m-2 text-center">
+                <span rel="dokumenty" class="awards-link">dokumenty firmy</span>
+            </div>
+        </div>
+        <div class="swipers max-w-full md:-mt-8 relative">
+            <div id="nagrody">
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/nagrody/nagrody1.png">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a80/077/609a80077bcf5310891644.webp">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Gazele Biznesu 2016</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/nagrody/nagrody2.png">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a81/c81/609a81c81253f202490398.webp">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Orły 2017</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/nagrody/nagrody3.png">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a82/0b8/609a820b8cee5508407917.webp">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Orły 2019</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/nagrody/nagrody4.png">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a82/40a/609a8240a5502282978950.webp">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Gazele Biznesu 2017</span>
+                        </div>
+                                            </div>
+                    <!-- If we need pagination -->
+
+                    <!-- If we need navigation buttons -->
+
+                    <div class="swiper-pagination mt-8"></div>
+                </div>
+                <div class="swiper-nav">
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+            </div>
+
+            <div id="instrukcje">
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/instrukcje/instrukcje3.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a71/f20/609a71f2084f9511669217.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Kingspan Access - manual PL</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/instrukcje/instrukcje2.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a72/53a/609a7253a5aba798636549.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Kingspan Connect - manual PL</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/instrukcje/instrukcje3.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a7d/3bf/609a7d3bf1652306952625.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Magazynowanie Oleju Napędowego</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/instrukcje/instrukcje4.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a7d/6f5/609a7d6f5d7a4064312607.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Instrukcja posadowienia zbiornika</span>
+                        </div>
+                                            </div>
+                    <!-- If we need pagination -->
+
+                    <!-- If we need navigation buttons -->
+
+                    <div class="swiper-pagination mt-8"></div>
+                </div>
+                <div class="swiper-nav">
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+            </div>
+            <div id="dokumenty">
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/dokument1.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a82/ce9/609a82ce939ee863808250.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Koncesja</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/dokument2.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a82/f37/609a82f37fa7a835020876.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Zaświadczenie o niekaralności Petrojet</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/dokument3.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a83/110/609a83110ba90939341394.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Rejestr Przedsiębiorców [KRS]</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/dokumenty4.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a83/28f/609a8328f3241040362852.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Licencja</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/dokument5.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/61e/ff4/40a/61eff440a723c613440710.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Świadectwo Autoryzacji EKOTERM</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/dokument6.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a83/5ea/609a835ea1fe4505031169.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Zaświadczenie o niezaleganiu [US]</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/dokument7.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a83/767/609a83767766b295932486.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">Zaświadczenie o niezaleganiu [ZUS]</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/dokumenty8.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a83/8f0/609a838f0352b622482402.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">AdBlue Regulamin reklamacji</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/dokumenty9.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/609/a83/bc7/609a83bc7b565434753990.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">AdBlue karta charakterystyki</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/RODO_WWW%20.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/611/63a/776/61163a776deda717460322.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">RODO</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/Autoryzacja_AdBlue.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/621/8e0/6f4/6218e06f4df87322460764.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">AUTORYZACJA ADBLUE</span>
+                        </div>
+                                                <div class="swiper-slide">
+                            <a href="/storage/app/media/dokumenty/Strategia_Podatkowa.pdf" download target="_blank">
+                                <img class="swiper-lazy" data-src="https://petrojet.pl/storage/app/uploads/public/61b/b01/0ba/61bb010ba391a128310579.jpg">
+                                <div class="swiper-lazy-preloader"></div>
+                            </a>
+                            <span class="caption">INFORMACJA O REALIZOWANEJ STRATEGII PODATKOWEJ ZA ROK PODATKOWY 2020</span>
+                        </div>
+                                            </div>
+                    <!-- If we need pagination -->
+
+                    <!-- If we need navigation buttons -->
+
+                    <div class="swiper-pagination mt-8"></div>
+                </div>
+                <div class="swiper-nav">
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="recommendations" id="recommendations">
+    <div class="main">
+        <div class="body pt-4">
+            <section class="relative">
+    <!-- <div class="box">
+        <a class="button" href="#popup1">Let me Pop up</a>
+    </div> -->
+    <div class="ParallaxVideo">
+        <video autoplay loop muted preload="none" id="movieEmbed" width="800" class="thumb" poster="https://petrojet.pl/themes/petrojet/assets/images/video-poster.jpg">
+            <source src="https://petrojet.pl/themes/petrojet/assets/videos/intro.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>            <h1 class="text-center">Polecamy dla klientów</h1>
+            <div class="sm:w-1/2 desc mx-auto mt-4">
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mt-12">
+                <a href="https://cardgo.pl" target="_blank">
+                    <div>
+                        <img src="https://petrojet.pl/themes/petrojet/assets/images/card_go.png">
+                        <div class="icon large card m-auto mt-3"></div>
+                        <div class="desc">
+                            karta flotowa
+                        </div>
+                    </div>
+                </a>
+                <a href="http://www.auto-jet.pl/nasze_stacje" target="_blank">
+                    <div>
+                        <img src="https://petrojet.pl/themes/petrojet/assets/images/autojet.png">
+                        <div class="icon large control m-auto mt-3"></div>
+                        <div class="desc">
+                            STACJE KONTROLI <br /> POJAZDÓW AUTOJET
+                        </div>
+                    </div>
+                </a>
+                <a href="http://www.auto-jet.pl/nasze_myjnie" target="_blank">
+                    <div>
+                        <img src="https://petrojet.pl/themes/petrojet/assets/images/autojet.png">
+                        <div class="icon large wash m-auto mt-3"></div>
+                        <div class="desc">
+                            MYJNIE SAMOCHODOWE <br /> AUTOJET
+                        </div>
+                    </div>
+                </a>
+                <a href="http://www.auto-jet.pl/nasze_stacje_paliw" target="_blank">
+                    <div>
+                        <img src="https://petrojet.pl/themes/petrojet/assets/images/autojet.png">
+                        <div class="icon large station m-auto mt-3"></div>
+                        <div class="desc">
+                            STACJE PALIW <br />
+                            AUTOJET
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<footer id="footer" class="p-4">
+
+    <div class="footer md:flex text-center font-bold pt-8">
+        <div>
+            <span>DANE FIRMY</span>
+            <div>
+                Petrojet Sp. z o.o. <br />
+                Kieszek 52<br />
+                26-670 Pionki<br />
+                Tel./fax: 48 384 80 24<br />
+                Tel./fax: 48 322 12 99<br />
+                <a href="mailto:biuro@petrojet.pl">email: biuro@petrojet.pl</a><br /><br />
+
+                NIP: 796-290-94-73 <br />
+                REGON: 142428908<br />
+                KRS: 0000354683<br />
+                BDO: 000109961<br /><br />
+                Nr rachunku:<br /> PKO BP 82 1020 4317 0000 5802 0341 2616
+            </div>
+            <div>
+                Godziny pracy biura: <br/>
+                od poniedziałku do piątku <br/>
+                od godz. 8:00 do 16:00
+            </div>
+            <!-- <span>ZARZĄD</span>
+            <div>
+                Wojciech Michałowski<br />
+                Prezes Zarządu<br />
+                <a href="mailto:wojciech@petrojet.pl">email: wojciech@petrojet.pl</a><br />
+            </div> -->
+
+
+        </div>
+        <div>
+            <section id="map">
+</section>        </div>
+        <!-- <div>
+            <span>LOGISTYKA / ZAMÓWIENIA</span>
+            <div>
+                tel. 48 322 12 99 wewn. 1<br />
+                fax: 48 322 12 99 wewn. 0<br /><br />
+
+                Michał Jaskólski<br />
+                Kierownik Logistyki<br />
+                <a href="mailto:michal@petrojet.pl">email: michal@petrojet.pl</a><br />
+                tel. kom.: 667-977-849<br /><br />
+
+                Grzegorz Bernat<br />
+                Specjalista ds. logistyki<br />
+                <a href="mailto:grzegorz@petrojet.pl">email: grzegorz@petrojet.pl</a><br />
+                tel. kom.: 601 977 487<br /><br />
+
+                Kamil Kępczyński<br />
+                Specjalista ds. logistyki<br />
+                <a href="mailto:kamil@petrojet.pl">email: kamil@petrojet.pl</a><br />
+                tel. kom.: 667 977 252<br />
+            </div>
+
+        </div>
+        <div>
+            <span>DZIAŁ ZAMÓWIEŃ PUBLICZNYCH</span>
+            <div>
+                Piotr Monik<br />
+                Prokurent<br />
+                <a href="mailto:piotr@petrojet.pl">email: piotr@petrojet.pl</a><br />
+                tel. kom.: 667 977 846<br />
+                tel.: 48 322 12 99 wewn. 3<br />
+            </div>
+            <span>FAKTUROWANIE</span>
+            <div>
+                Małgorzata Krogulec<br />
+                Kierownik działu<br />
+                <a href="mailto:malgorzata@petrojet.pl">email: malgorzata@petrojet.pl</a><br />
+                <a href="mailto:faktury@petrojet.pl">email: faktury@petrojet.pl</a><br />
+                tel. kom.: 667 977 978<br />
+                tel.: 48 322 12 99 wewn. 126<br /><br />
+
+                NUMER KONTA FIRMY PETROJET SP. Z O.O.<br />
+                PKO BP 82 1020 4317 0000 5802 0341 261<br />
+            </div>
+
+
+        </div>
+        <div>
+            <span>ROZLICZENIA FINANSOWE</span>
+            <div>
+                Dariusz Narojczyk<br />
+                Główny księgowy<br />
+                tel.: 48 322 12 99 wewn.4<br />
+                <a href="mailto:dariusz@petrojet.pl">email: dariusz@petrojet.pl</a><br />
+
+                Agata Cibor<br />
+                Rozliczenia z dostawcami<br />
+                tel.: 48 322 12 99 wewn. 134<br />
+                <a href="mailto:agata@petrojet.pl">email: agata@petrojet.pl</a><br />
+            </div>
+            <span class="block leading-5">ROZLICZENIA Z ODBIORCAMI <br />
+                KREDYTY KUPIECKIE</span>
+            <div>
+                tel.: 48 322 12 99 wewn. 124<br />
+                tel. kom.: 667 977 262<br />
+                <a href="mailto:kasia@petrojet.pl">email: kasia@petrojet.pl</a><br />
+                <a href="mailto:wiola@petrojet.pl">email: wiola@petrojet.pl</a><br />
+            </div>
+
+        </div> -->
+    </div>
+    <!-- <div class="mt-8 mb-16 text-center">
+        <a class="button" href="/kontakt#subpage-top">KONTAKT - SZCZEGÓŁY</a>
+    </div> -->
+    <div class="mt-16">
+        <hr>
+        <div id="partners" class="pt-8 mx-auto text-center lg:flex">
+            <img src="https://petrojet.pl/themes/petrojet/assets/images/shell.png" alt="">
+            <img src="https://petrojet.pl/themes/petrojet/assets/images/orlen.png" alt="">
+            <img src="https://petrojet.pl/themes/petrojet/assets/images/lotos.png" alt="">
+            <img src="https://petrojet.pl/themes/petrojet/assets/images/bp.png" alt="">
+            <img src="https://petrojet.pl/themes/petrojet/assets/images/noxy.png" alt="">
+        </div>
+    </div>
+    <div class="md:grid md:grid-cols-1 text-center">
+        <div class="line-trough">
+            <img class="mx-auto" src="https://petrojet.pl/themes/petrojet/assets/images/footer-banner.png">
+            <img class="mx-auto lg:ml-3" src="https://petrojet.pl/themes/petrojet/assets/images/pfr.png">
+        </div>
+
+    </div>
+    <div class="p-8 grid grid-cols-2">
+        <div>
+            © 2020, projekt: graficzni.com, wykonanie: dev64.pl
+        </div>
+        <div>
+        </a>
+         <a href="https://www.facebook.com/petrojet.hurt.paliw.adblue/" target="_blank">
+         <div>
+            <img class="float-right" src="https://petrojet.pl/themes/petrojet/assets/images/fb.png">
+        </div>
+    </div>
+
+</footer>
+    </div>
+
+
+        
+    
+<script src="https://petrojet.pl/themes/petrojet/assets/scripts/vendor.js"></script>
+<script src="https://petrojet.pl/themes/petrojet/assets/scripts/app.js"></script>
+<!-- <script src="https://petrojet.pl/themes/petrojet/assets/scripts/eModal.min.js"></script> -->
+
+
+<script src="https://petrojet.pl/themes/petrojet/assets/scripts/swiper-bundle.min.js"></script>
+<script src="https://petrojet.pl/themes/petrojet/assets/scripts/photoswipe.min.js"></script>
+<script src="https://petrojet.pl/themes/petrojet/assets/scripts/photoswipe-ui-default.min.js"></script>
+<script src="https://petrojet.pl/themes/petrojet/assets/scripts/photoview.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82052597-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-82052597-1');
+</script>
+
+<script src="/modules/system/assets/js/framework.js"></script>
+<script src="/modules/system/assets/js/framework.extras.js"></script>
+<link rel="stylesheet" property="stylesheet" href="/modules/system/assets/css/framework.extras.css">
+
+<script type="text/javascript" src="https://petrojet.pl/themes/petrojet/assets/scripts/main.js"></script>
+
+
+<script src="https://petrojet.pl/themes/petrojet/assets/scripts/splide.min.js"></script>
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> -->
+
+        <link href="https://petrojet.pl/themes/petrojet/assets/styles/vendor.css" rel="stylesheet" async>
+
+
+    <link href="https://petrojet.pl/themes/petrojet/assets/styles/app.css" rel="stylesheet" async>
+    <link href="https://petrojet.pl/themes/petrojet/assets/styles/tailwind.min.css" rel="stylesheet" async>
+    <link href="https://petrojet.pl/themes/petrojet/assets/styles/custom.css" rel="stylesheet">
+    <link href="https://petrojet.pl/themes/petrojet/assets/styles/dialog_box.css" rel="stylesheet">
+    <link href="https://petrojet.pl/themes/petrojet/assets/styles/responsive.css" rel="stylesheet">
+    <link href="https://petrojet.pl/themes/petrojet/assets/styles/hamburger.min.css" rel="stylesheet">
+
+    <link href="https://petrojet.pl/themes/petrojet/assets/styles/splide-skyblue.min.css" rel="stylesheet">
+    <link href="https://petrojet.pl/themes/petrojet/assets/styles/videoparallax.css" rel="stylesheet">
+
+
+    <link href="https://petrojet.pl/themes/petrojet/assets/styles/swiper-bundle.min.css" rel="stylesheet">
+        <link href="https://petrojet.pl/themes/petrojet/assets/styles/photoswipe.css" rel="stylesheet">
+    <link href="https://petrojet.pl/themes/petrojet/assets/styles/default-skin.css" rel="stylesheet">
+
+
+</body>
+
+</html>

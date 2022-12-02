@@ -1,0 +1,2442 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T6DP8P7');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Analitycs -->
+  <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-KK7262');</script>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-7cc55ac6e7ac628033b",applicationID:"754950632"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n,r){return function(){return s.recordSupportability("API/"+e+"/called"),o(t+e,[u.now()].concat(c(arguments)),n?null:this,r),n?void 0:this}}var o=t("handle"),a=t(9),c=t(10),f=t("ee").get("tracer"),u=t("loader"),s=t(4),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",v=l+"ixn-";a(p,function(t,e){d[e]=i(l,e,!0,"api")}),d.addPageAction=i(l,"addPageAction",!0),d.setCurrentRouteName=i(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(v+"tracer",[u.now(),t,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw f.emit("fn-err",[arguments,this,t],n),t}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(v,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),s.recordSupportability("API/noticeError/called"),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){var r=!1;try{var i=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,i),window.removeEventListener("testPassive",null,i)}catch(o){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],4:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return o("storeMetric",n,null,"api"),n}function i(t,e){var n=[c,t,{name:t},e];return o("storeEventMetrics",n,null,"api"),n}var o=t("handle"),a="sm",c="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:c},recordSupportability:r,recordCustom:i}},{}],5:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(11);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],6:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(u&&u<r.startTime)return;var i=[r],o=a({});o&&i.push(o),l("lcp",i)}}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function c(t){if(t instanceof y&&!w){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=v.now()?n.fid=v.now()-e:e>v.offset&&e<=Date.now()?(e-=v.offset,n.fid=v.now()-e):e=v.now(),w=!0,l("timing",["fi",e,n])}}function f(t){"hidden"===t&&(u=v.now(),l("pageHide",[u]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var u,s,d,p,l=t("handle"),v=t("loader"),m=t(8),g=t(3),y=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(h){}d=new PerformanceObserver(i);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(h){}p=new PerformanceObserver(o);try{p.observe({type:"layout-shift",buffered:!0})}catch(h){}}if("addEventListener"in document){var w=!1,b=["click","keydown","mousedown","pointerdown","touchstart"];b.forEach(function(t){document.addEventListener(t,c,g(!1))})}m(f)}},{}],7:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}e.exports={agent:i,version:o,match:r}},{}],8:[function(t,e,n){function r(t){function e(){t(c&&document[c]?document[c]:document[o]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,i(!1))}var i=t(3);e.exports=r;var o,a,c;"undefined"!=typeof document.hidden?(o="hidden",a="visibilitychange",c="visibilityState"):"undefined"!=typeof document.msHidden?(o="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(o="webkitHidden",a="webkitvisibilitychange",c="webkitVisibilityState")},{}],9:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],10:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],11:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),f=m(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[w[n]];return p&&p.push([b,n,r,c]),c}}function o(t,e){h[t]=m(t).concat(e)}function v(t,e){var n=h[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return h[t]||[]}function g(t){return p[t]=p[t]||i(n)}function y(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var h={},w={},b={on:o,addEventListener:o,removeEventListener:v,emit:n,get:g,listeners:m,context:e,buffer:y,abort:c,aborted:!1};return b}function o(t){return u(t,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=t("gos"),s=t(9),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!M++){var t=T.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(x,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+T.offset],null,"api"),c("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===m.readyState&&o()}function o(){c("mark",["domContent",a()+T.offset],null,"api")}var a=t(5),c=t("handle"),f=t(9),u=t("ee"),s=t(7),d=t(2),p=t(3),l=d.getConfiguration("ssl")===!1?"http":"https",v=window,m=v.document,g="addEventListener",y="attachEvent",h=v.XMLHttpRequest,w=h&&h.prototype,b=!1;NREUM.o={ST:setTimeout,SI:v.setImmediate,CT:clearTimeout,XHR:h,REQ:v.Request,EV:v.Event,PR:v.Promise,MO:v.MutationObserver};var E=""+location,x={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1216.min.js"},O=h&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),T=e.exports={offset:a.getLastTimestamp(),now:a,origin:E,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(6),m[g]?(m[g]("DOMContentLoaded",o,p(!1)),v[g]("load",r,p(!1))):(m[y]("onreadystatechange",i),v[y]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var M=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],t)}c(n+"start",[o,a,f],s,u);try{return p=e.apply(a,o)}catch(v){throw c(n+"err",[o,a,v],s,u),v}finally{c(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)f=e[u],c=t[f],a(c)||(t[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!v||e){var c=v;v=!0;try{t.emit(n,r,o,e,a)}catch(f){i([f,n,r,o],t)}v=c}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function c(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function f(t,e,n){var r=t[e];t[e]=c(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(10),p="nr@original",l=Object.prototype.hasOwnProperty,v=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=f,e.exports.argsToArray=u},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"NRJS-7cc55ac6e7ac628033b","applicationID":"754950632","transactionName":"MlFVbUQCCBIHWxVZCgsbcUxYABIICVZOQxEQUFJXQhBIFw9dFkNLDFpETV8XExUDZxJVBBdXXwN/DRUVD0wURAA2UVZLVQswCANPT1cAEQ==","queueTime":3,"applicationTime":59,"agent":""}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='icon' href="/static/Institutos/logo/Tuprofe.f448d1d064f4.ico">
+  <title>
+    
+      ▷ UM: Clases Particulares de Matematica Financiera
+    
+  </title>
+  <meta
+    name="description"
+    content="Los mejores Profesores Particulares ✅ para salvar Matematica Financiera de UM. ¡Lista completa de Profesores en Uruguay!">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@tuprofeuy">
+  <meta name="twitter:title" content="▷ Clases Particulares: Todos los profesores particulares.">
+  <meta name="twitter:description" 
+      content="Clases Particulares para de todas las materias de Facultad, Liceo, Escuela y más. Contáctalos gratis profesores particulares, academias e institutos.">
+  
+  <meta property="og:title" 
+      content="▷ Clases Particulares: Todos los profesores particulares.">
+  <meta property="og:site_name" content="TuProfe.com.uy">
+  <meta property="og:url" content="www.tuprofe.com.uy">
+  <meta property="og:description" 
+      content="Clases Particulares para de todas las materias de Facultad, Liceo, Escuela y más. Contáctalos gratis profesores particulares, academias e institutos.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" 
+      content="https://www.tuprofe.com.uy/static/Institutos/theme/img/TuProfeOG.7937477ae141.jpg">
+  
+  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
+<link
+  href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+  rel="stylesheet"
+>
+<link
+  href="/static/Institutos/theme/css/templates/institute_search_results.2.7dabd669e876.css"
+  rel="stylesheet"
+>
+
+<script async src="/static/Institutos/theme/js/min/toggleFAQ.2.min.1fc9a8832087.js"></script>
+
+<script async src="/static/students/js/searchFilters.2.c19f4619f4f3.js"></script>
+<script src="/static/Institutos/theme/js/min/lazysizes.min.45bacd312d50.js" async></script>
+
+
+  <link rel="preload" href="/static/Institutos/theme/fonts/Lato-Regular.e13e93093461.otf" as="font" crossorigin="anonymous">
+  <link rel="preload" href="/static/Institutos/theme/fonts/Lato-Bold.f88c3a8b7f96.otf" as="font" crossorigin="anonymous">
+  <link rel="preload" href="/static/Institutos/theme/fonts/Lato-Light.2fe27d9d10cd.ttf" as="font" crossorigin="anonymous">
+  <link rel="preconnect" href="https://ssl.google-analytics.com">
+  <link rel="preconnect" href="https://www.google-analytics.com">
+  
+  <script defer src="/static/Institutos/theme/js/min/tuprofe.min.714ba34c6965.js"></script>
+  <link href="/static/Institutos/theme/min-css/tuprofe.3.min.d7fa3683946e.css" rel="stylesheet" type="text/css">
+  <link href="/static/Institutos/theme/min-css/index.3.min.ec863daa22af.css" rel="stylesheet" type="text/css">
+  
+  
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6DP8P7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KK7262" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  
+  <header class="interna tp-bg-blue-darken">
+    <div class="max head head-flex height-inherit">
+      <div class="internaHeadLeft">
+        <div class="logo">
+          
+          <a href="/" title="inicio">
+            <img 
+            src="/static/Institutos/logo/Logo_desk_TuProfe_1.38c36d9abbe4.png" 
+            class="logo-image"
+            width="193"
+            height="51"
+            alt="Logo">
+          </a>
+        </div>
+         
+      </div>
+      <div class="internaHeadRight">
+        <div class="menuHead">
+          <div class="menu">
+            <a href="/" title="Buscador">Buscar Profesores</a>
+            <a href="https://blog.tuprofe.com.uy/" target="_blank" title="Blog" rel="noreferrer noopener">Blog</a>
+            <a href="/nosotros/" title="Nosotros">Quienes Somos</a>
+          </div>
+
+          <div class="hamburger">
+            <div class="_layer -top"></div>
+            <div class="_layer -mid"></div>
+            <div class="_layer -bottom"></div>
+          </div>
+
+        </div>
+        
+      </div>
+
+       
+    </div>
+    <div class="popUpMenu">
+      <div class="menuHeadResponsive tp-bg-blue-aside">
+          <p class="tp-ml-3 tp-mt-4 tp-text-bold tp-text-2">MENÚ</p>
+          <a href="/"  title="Buscador"
+          class="text-center-tuprofe tp-bg-blue-darken tp-mt-3 tp-mb-0 tp-pt-3 tp-pb-3 tp-mb-menu">
+            Buscar Profesores
+          </a>
+          <a href="https://blog.tuprofe.com.uy/" target="_blank" title="Blog" rel="noreferrer noopener"
+          class="text-center-tuprofe tp-bg-blue-darken tp-pt-3 tp-pb-3 tp-mb-menu">
+              Blog
+          </a>
+          <a href="/nosotros/" title="Nosotros"
+          class="text-center-tuprofe tp-bg-blue-darken tp-pt-3 tp-pb-3 tp-mb-menu">
+            Quienes Somos
+          </a>
+          <a href="/ingresar/" class="text-center-tuprofe tp-bg-blue-darken tp-pt-3 tp-pb-3 tp-mb-menu" 
+          title="Ingresa como Profesor">
+            Ingresá como Profesor
+          </a>
+
+          <a href="/registro/" class="text-center-tuprofe tp-bg-blue-darken tp-pt-3 tp-pb-3 tp-mb-menu"
+           title="Registro de Profesores">
+            Registrate como Profesor
+          </a>
+          <a href="/terminos-y-condiciones/" class="text-center-tuprofe tp-my-0 tp-bg-blue-darken tp-pt-3 tp-pb-3"
+           title="Condiciones de Uso de Sitio">
+            Condiciones de Uso del Sitio
+          </a>
+      </div>
+    </div>
+  </header>
+  
+
+  <main>
+  
+<section>
+  <article class="
+    tp-bg-blue tp-text-white tp-text-new-text
+    tp-text-Lato-bold tp-pt-2 tp-pb-2 text-center
+  ">
+    <h1 class="max tp-text-new-text">
+      5 Clases particulares de Matematica Financiera
+      <br class="lg:hidden">
+      de Universidad de Montevideo (UM)
+    </h1>
+  </article>
+
+  <!-- Filters wrapper (mobile only) -->
+  <article
+    class="
+      filters-bg-gray tp-text-white tp-text-new-text
+      tp-text-Lato-bold tp-pt-2 tp-pb-2 text-center
+      cursor-pointer lg:hidden
+    "
+    onclick="toggleFAQ('1')"
+  >
+    <div class="max flex justify-center items-center">
+      <span class="flex-initial">Aplicar Filtros</span>
+      <img
+        id="see-more-1"
+        class="flex-initial tp-ml-1 w-4 h-4"
+        src="/static/students/icon/Arrow-Down.9954e7270f87.svg"
+        width="16"
+        height="16"
+        alt="Expandir filtros"
+      />
+      <img
+        id="see-less-1"
+        class="flex-initial tp-ml-1 w-4 h-4 hidden"
+        src="/static/students/icon/Arrow-up.43d2b5f171b4.svg"
+        width="16"
+        height="16"
+        alt="Contraer filtros"
+      />
+    </div>
+  </article>
+
+  <!-- Applied filters -->
+  <article class="bg-gray-filters">
+    <div
+      id="applied-filters"
+      class="
+        tp-text-new-text tp-text-blue-darken
+        flex flex-wrap w-100  tp-pt-2 tp-pb-2
+        hidden max
+      "
+    ></div>
+  </article>
+
+  <!-- Separator -->
+  <div class="lg:mt-6"></div>
+
+  <div class="max-lg flex flex-col lg:flex-row">
+
+    <!-- Filters -->
+    <div
+      id="faq-1"
+      class="hidden lg:block mb-3 w-full lg:w-1/4"
+    >
+      <article class="pr-0 lg:pr-5">
+        <!-- modalidades -->
+        
+        <div
+          class="
+            tp-btn-new --custom-padding flex w-full
+            tp-text-new-text tp-p-1 mb-2 mt-3 lg:mt-0
+            dynamic-btn-blue
+          "
+          onclick="toggleFAQ('3', 'flex', toggleBlue(this))"
+        >
+          <span class="flex-1">
+            Modalidades
+          </span>
+          <div class="flex-inline">
+            <img
+              id="see-more-3"
+              class="h-4 w-4 flex lg:hidden"
+              src="/static/students/icon/mas.511f5b800c4b.svg"
+              width="16"
+              height="16"
+              alt="mas"
+            >
+            <img
+              id="see-less-3"
+              class="h-4 w-4 hidden lg:flex"
+              src="/static/students/icon/menos.288ff45f1e77.svg"
+              width="16"
+              height="16"
+              alt="menos"
+            >
+          </div>
+        </div>
+        <div
+          id="faq-3"
+          class="
+            tp-text-new-text tp-text-blue-darken flex
+            flex-wrap w-100 hidden lg:flex
+          "
+        >
+          
+          <div
+            id="facilidad_1"
+            onclick="applyFilter(
+              'facilidad_1',
+              'unapply-facilidad-1',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>A Domicilio</span>
+              <span
+                id="unapply-facilidad-1"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'facilidad_1',
+                    'faq-3',
+                    'unapply-facilidad-1',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="facilidad_18"
+            onclick="applyFilter(
+              'facilidad_18',
+              'unapply-facilidad-18',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Virtual / Videollamada Individual</span>
+              <span
+                id="unapply-facilidad-18"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'facilidad_18',
+                    'faq-3',
+                    'unapply-facilidad-18',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="facilidad_29"
+            onclick="applyFilter(
+              'facilidad_29',
+              'unapply-facilidad-29',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Cursos Online Grabados</span>
+              <span
+                id="unapply-facilidad-29"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'facilidad_29',
+                    'faq-3',
+                    'unapply-facilidad-29',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="facilidad_30"
+            onclick="applyFilter(
+              'facilidad_30',
+              'unapply-facilidad-30',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Presencial Grupal (menos de 5 personas)</span>
+              <span
+                id="unapply-facilidad-30"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'facilidad_30',
+                    'faq-3',
+                    'unapply-facilidad-30',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="facilidad_32"
+            onclick="applyFilter(
+              'facilidad_32',
+              'unapply-facilidad-32',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Semipresencial</span>
+              <span
+                id="unapply-facilidad-32"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'facilidad_32',
+                    'faq-3',
+                    'unapply-facilidad-32',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="facilidad_33"
+            onclick="applyFilter(
+              'facilidad_33',
+              'unapply-facilidad-33',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Presencial Grupal (5 o más personas)</span>
+              <span
+                id="unapply-facilidad-33"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'facilidad_33',
+                    'faq-3',
+                    'unapply-facilidad-33',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="facilidad_34"
+            onclick="applyFilter(
+              'facilidad_34',
+              'unapply-facilidad-34',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Presencial Individual</span>
+              <span
+                id="unapply-facilidad-34"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'facilidad_34',
+                    'faq-3',
+                    'unapply-facilidad-34',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="facilidad_35"
+            onclick="applyFilter(
+              'facilidad_35',
+              'unapply-facilidad-35',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Virtual / Videollamada Grupal</span>
+              <span
+                id="unapply-facilidad-35"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'facilidad_35',
+                    'faq-3',
+                    'unapply-facilidad-35',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+        </div>
+        
+
+        <!-- formas pago -->
+        
+        <div
+          class="
+            tp-btn-new --custom-padding flex w-full
+            tp-text-new-text tp-p-1  mb-2 tp-mt-2
+            dynamic-btn-blue
+          "
+          onclick="toggleFAQ('4', 'flex', toggleBlue(this))"
+        >
+          <span class="flex-1">
+            Formas de pago
+          </span>
+          <div class="flex-inline">
+            <img
+              id="see-more-4"
+              class="h-4 w-4 flex lg:hidden"
+              src="/static/students/icon/mas.511f5b800c4b.svg"
+              width="16"
+              height="16"
+              alt="mas"
+            >
+            <img
+              id="see-less-4"
+              class="h-4 w-4 hidden lg:flex"
+              src="/static/students/icon/menos.288ff45f1e77.svg"
+              width="16"
+              height="16"
+              alt="menos"
+            >
+          </div>
+        </div>
+        <div
+          id="faq-4"
+          class="
+            tp-text-new-text tp-text-blue-darken flex
+            flex-wrap w-100 hidden lg:flex
+          "
+        >
+          
+          <div
+            id="forma_pago_18"
+            onclick="applyFilter(
+              'forma_pago_18',
+              'unapply-forma_pago-18',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Contado</span>
+              <span
+                id="unapply-forma_pago-18"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'forma_pago_18',
+                    'faq-4',
+                    'unapply-forma_pago-18',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="forma_pago_19"
+            onclick="applyFilter(
+              'forma_pago_19',
+              'unapply-forma_pago-19',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Tarjeta de Debito</span>
+              <span
+                id="unapply-forma_pago-19"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'forma_pago_19',
+                    'faq-4',
+                    'unapply-forma_pago-19',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="forma_pago_20"
+            onclick="applyFilter(
+              'forma_pago_20',
+              'unapply-forma_pago-20',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Tarjeta de Credito</span>
+              <span
+                id="unapply-forma_pago-20"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'forma_pago_20',
+                    'faq-4',
+                    'unapply-forma_pago-20',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="forma_pago_21"
+            onclick="applyFilter(
+              'forma_pago_21',
+              'unapply-forma_pago-21',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Abitab</span>
+              <span
+                id="unapply-forma_pago-21"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'forma_pago_21',
+                    'faq-4',
+                    'unapply-forma_pago-21',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="forma_pago_23"
+            onclick="applyFilter(
+              'forma_pago_23',
+              'unapply-forma_pago-23',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Red Pagos</span>
+              <span
+                id="unapply-forma_pago-23"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'forma_pago_23',
+                    'faq-4',
+                    'unapply-forma_pago-23',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="forma_pago_24"
+            onclick="applyFilter(
+              'forma_pago_24',
+              'unapply-forma_pago-24',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Transferencia Bancaria</span>
+              <span
+                id="unapply-forma_pago-24"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'forma_pago_24',
+                    'faq-4',
+                    'unapply-forma_pago-24',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+        </div>
+        
+
+        <!-- comodidades -->
+        
+        <div
+          class="
+            tp-btn-new --custom-padding flex w-full
+            tp-text-new-text tp-p-1  mb-2 tp-mt-2
+            dynamic-btn-blue
+          "
+          onclick="toggleFAQ('2', 'flex', toggleBlue(this))"
+        >
+          <span class="flex-1">
+            Comodidades
+          </span>
+          <div class="flex-inline">
+            <img
+              id="see-more-2"
+              class="h-4 w-4 flex lg:hidden"
+              src="/static/students/icon/mas.511f5b800c4b.svg"
+              width="16"
+              height="16"
+              alt="mas"
+            >
+            <img
+              id="see-less-2"
+              class="h-4 w-4 hidden lg:flex"
+              src="/static/students/icon/menos.288ff45f1e77.svg"
+              width="16"
+              height="16"
+              alt="menos"
+            >
+          </div>
+        </div>
+        <div
+          id="faq-2"
+          class="
+            tp-text-new-text tp-text-blue-darken flex
+            flex-wrap w-100 hidden lg:flex
+          "
+        >
+          
+          <div
+            id="comodidad_3"
+            onclick="applyFilter(
+              'comodidad_3',
+              'unapply-comodidad-3',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Aire Acondicionado</span>
+              <span
+                id="unapply-comodidad-3"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'comodidad_3',
+                    'faq-2',
+                    'unapply-comodidad-3',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="comodidad_5"
+            onclick="applyFilter(
+              'comodidad_5',
+              'unapply-comodidad-5',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Ventilación</span>
+              <span
+                id="unapply-comodidad-5"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'comodidad_5',
+                    'faq-2',
+                    'unapply-comodidad-5',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="comodidad_10"
+            onclick="applyFilter(
+              'comodidad_10',
+              'unapply-comodidad-10',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Materiales Online o Biblioteca Virtual</span>
+              <span
+                id="unapply-comodidad-10"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'comodidad_10',
+                    'faq-2',
+                    'unapply-comodidad-10',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="comodidad_12"
+            onclick="applyFilter(
+              'comodidad_12',
+              'unapply-comodidad-12',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Asistencia por Whatsapp</span>
+              <span
+                id="unapply-comodidad-12"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'comodidad_12',
+                    'faq-2',
+                    'unapply-comodidad-12',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="comodidad_17"
+            onclick="applyFilter(
+              'comodidad_17',
+              'unapply-comodidad-17',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Medidas Sanitarias Covid 19</span>
+              <span
+                id="unapply-comodidad-17"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'comodidad_17',
+                    'faq-2',
+                    'unapply-comodidad-17',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="comodidad_19"
+            onclick="applyFilter(
+              'comodidad_19',
+              'unapply-comodidad-19',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Primer Clase Gratis</span>
+              <span
+                id="unapply-comodidad-19"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'comodidad_19',
+                    'faq-2',
+                    'unapply-comodidad-19',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="comodidad_20"
+            onclick="applyFilter(
+              'comodidad_20',
+              'unapply-comodidad-20',
+            )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+              tp-bg-gray-card px-2 py-2 h-full rounded flex
+              items-center justify-center text-center-tuprofe
+            ">
+              <span>Materiales Incluidos</span>
+              <span
+                id="unapply-comodidad-20"
+                onclick="
+                  event.stopPropagation();
+                  unapplyFilter(
+                    'comodidad_20',
+                    'faq-2',
+                    'unapply-comodidad-20',
+                  );
+                "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+        </div>
+        
+
+        <!-- servicios y descuentos -->
+        
+        <div
+          class="
+            tp-btn-new --custom-padding flex w-full
+            tp-text-new-text tp-p-1 mb-2 tp-mt-2
+            dynamic-btn-blue
+          "
+          onclick="toggleFAQ('5', 'flex', toggleBlue(this))"
+        >
+          <span class="flex-1">
+            Servicios y descuentos
+          </span>
+          <div class="flex-inline">
+            <img
+              id="see-more-5"
+              class="h-4 w-4 flex lg:hidden"
+              src="/static/students/icon/mas.511f5b800c4b.svg"
+              width="16"
+              height="16"
+              alt="mas"
+            >
+            <img
+              id="see-less-5"
+              class="h-4 w-4 hidden lg:flex"
+              src="/static/students/icon/menos.288ff45f1e77.svg"
+              width="16"
+              height="16"
+              alt="menos"
+            >
+          </div>
+        </div>
+        <div
+          id="faq-5"
+          class="
+            tp-text-new-text tp-text-blue-darken flex
+            flex-wrap w-100 hidden lg:flex
+          "
+        >
+          
+          <div
+            id="service_1"
+            onclick="applyFilter(
+            'service_1',
+            'unapply-service-1',
+          )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+            tp-bg-gray-card px-2 py-2 h-full rounded flex
+            items-center justify-center text-center-tuprofe
+            ">
+              <span>Servicio Mensual</span>
+              <span
+                id="unapply-service-1"
+                onclick="
+                event.stopPropagation();
+                unapplyFilter(
+                  'service_1',
+                  'faq-5',
+                  'unapply-service-1',
+                );
+              "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="service_2"
+            onclick="applyFilter(
+            'service_2',
+            'unapply-service-2',
+          )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+            tp-bg-gray-card px-2 py-2 h-full rounded flex
+            items-center justify-center text-center-tuprofe
+            ">
+              <span>Servicio por Preparación de Examen</span>
+              <span
+                id="unapply-service-2"
+                onclick="
+                event.stopPropagation();
+                unapplyFilter(
+                  'service_2',
+                  'faq-5',
+                  'unapply-service-2',
+                );
+              "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="service_3"
+            onclick="applyFilter(
+            'service_3',
+            'unapply-service-3',
+          )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+            tp-bg-gray-card px-2 py-2 h-full rounded flex
+            items-center justify-center text-center-tuprofe
+            ">
+              <span>Curso Paralelo</span>
+              <span
+                id="unapply-service-3"
+                onclick="
+                event.stopPropagation();
+                unapplyFilter(
+                  'service_3',
+                  'faq-5',
+                  'unapply-service-3',
+                );
+              "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="service_4"
+            onclick="applyFilter(
+            'service_4',
+            'unapply-service-4',
+          )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+            tp-bg-gray-card px-2 py-2 h-full rounded flex
+            items-center justify-center text-center-tuprofe
+            ">
+              <span>Servicio por Tema de Materia</span>
+              <span
+                id="unapply-service-4"
+                onclick="
+                event.stopPropagation();
+                unapplyFilter(
+                  'service_4',
+                  'faq-5',
+                  'unapply-service-4',
+                );
+              "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="service_5"
+            onclick="applyFilter(
+            'service_5',
+            'unapply-service-5',
+          )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+            tp-bg-gray-card px-2 py-2 h-full rounded flex
+            items-center justify-center text-center-tuprofe
+            ">
+              <span>Servicio de Dudas o Consultas Puntuales</span>
+              <span
+                id="unapply-service-5"
+                onclick="
+                event.stopPropagation();
+                unapplyFilter(
+                  'service_5',
+                  'faq-5',
+                  'unapply-service-5',
+                );
+              "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="service_6"
+            onclick="applyFilter(
+            'service_6',
+            'unapply-service-6',
+          )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+            tp-bg-gray-card px-2 py-2 h-full rounded flex
+            items-center justify-center text-center-tuprofe
+            ">
+              <span>Descuentos por Pago Adelantado</span>
+              <span
+                id="unapply-service-6"
+                onclick="
+                event.stopPropagation();
+                unapplyFilter(
+                  'service_6',
+                  'faq-5',
+                  'unapply-service-6',
+                );
+              "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+          <div
+            id="service_7"
+            onclick="applyFilter(
+            'service_7',
+            'unapply-service-7',
+          )"
+            class="w-1/2 p-1 cursor-pointer"
+          >
+            <p class="
+            tp-bg-gray-card px-2 py-2 h-full rounded flex
+            items-center justify-center text-center-tuprofe
+            ">
+              <span>Descuentos por Grupos</span>
+              <span
+                id="unapply-service-7"
+                onclick="
+                event.stopPropagation();
+                unapplyFilter(
+                  'service_7',
+                  'faq-5',
+                  'unapply-service-7',
+                );
+              "
+                class="hidden cursor-pointer tp-ml-2"
+              >
+                X
+              </span>
+            </p>
+          </div>
+          
+        </div>
+        
+
+      </article>
+    </div>
+
+    <div class="w-full lg:w-3/4">
+      <div id="filtered-results">
+        
+        <div
+          class="
+          
+            premium
+          
+          "
+        >
+          <article class="
+            tp-pt-4 tp-pb-4 tp-text-new-text tp-text-blue-darken
+            max lg:px-6
+          ">
+            <!-- Mobile title -->
+            <a
+              class="
+                text-2xl tp-text-blue-title tp-text-Lato-bold
+                leading-none tp-mb-2 cursor-pointer lg:hidden
+              "
+              href="/academia-fc/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)"
+            >
+              <p class="tp-mb-3">Academia FC</p>
+            </a>
+            <div class="flex justify-center lg:justify-start">
+              <!-- Image -->
+              <div class="flex-initial self-center tp-mr-3">
+                <a href="/academia-fc/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)">
+                  <div class="fit-image --border-gray w-32 h-32 lg:h-48 lg:w-48">
+                    <img
+                      
+                      src="https://storage.googleapis.com/www.tuprofe.com.uy/media/profile_pics/Logo_Felipe_altaresolucion.jpg"
+                      
+                      alt="Academia FC"
+                      class="lazyload"
+                      width="188"
+                      height="188"
+                    >
+                  </div>
+                </a>
+              </div>
+              <div class="flex-1 flex flex-col">
+                <div class="flex-1 flex flex-col items-center lg:items-start">
+                  <a
+                    class="
+                      tp-text-new-title tp-text-blue-title tp-text-Lato-bold
+                      leading-none tp-mb-2 text-center lg:text-left cursor-pointer
+                      hidden lg:block
+                    "
+                    href="/academia-fc/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)"
+                  >
+                    Academia FC
+                  </a>
+                  <div class="w-full flex flex-wrap tp-mb-2">
+                    <div class="w-full flex items-center tp-mb-1">
+                      <img
+                        class="h-6 w-6 flex-initial tp-mr-1"
+                        src="/static/students/icon/ubication.00ebb3698750.svg"
+                        alt="Ubicacion"
+                        width="24"
+                        height="24"
+                      >
+                      <p class="flex-auto">
+                        Uruguay, Uruguay
+                      </p>
+                    </div>
+                    
+                    <div class="w-full flex items-center tp-mb-1">
+                      <img
+                        class="h-6 w-6 flex-initial tp-mr-1"
+                        src="/static/students/icon/Premium.9d7be1769560.svg"
+                        alt="Premium"
+                        width="24"
+                        height="24"
+                      >
+                      <p>Profesor Premium</p>
+                    </div>
+                    
+                    
+                    <div class="w-full flex items-center">
+                      <img
+                        class="h-6 w-6 flex-initial tp-mr-1"
+                        src="/static/students/icon/Free-Tag.1dbdaa6f75a7.svg"
+                        alt="Clase gratis"
+                        width="24"
+                        height="24"
+                      >
+                      <p>Primera Clase GRATIS</p>
+                    </div>
+                    
+                  </div>
+                </div>
+                <div class="flex flex-wrap">
+                  <div class="w-full max-200">
+                    <a href="/academia-fc/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)">
+                      <button
+                        class="
+                          tp-btn-new --blue w-full flex justify-center
+                        "
+                      >
+                        Ver Perfil
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- To filter -->
+          <div
+            class="
+            
+              comodidad_3
+            
+              comodidad_5
+            
+              comodidad_12
+            
+              comodidad_17
+            
+
+            
+              facilidad_18
+            
+              facilidad_30
+            
+              facilidad_34
+            
+              facilidad_35
+            
+              facilidad_32
+            
+
+            
+              forma_pago_23
+            
+              forma_pago_18
+            
+              forma_pago_21
+            
+              forma_pago_24
+            
+
+            
+              service_7
+            
+              service_2
+            
+              service_3
+            
+              service_4
+            
+              service_5
+            
+              service_6
+            
+            "
+            hidden
+          ></div>
+        </div>
+        
+        <div
+          class="
+          
+            premium
+          
+          "
+        >
+          <article class="
+            tp-pt-4 tp-pb-4 tp-text-new-text tp-text-blue-darken
+            max lg:px-6
+          ">
+            <!-- Mobile title -->
+            <a
+              class="
+                text-2xl tp-text-blue-title tp-text-Lato-bold
+                leading-none tp-mb-2 cursor-pointer lg:hidden
+              "
+              href="/instcee-cra-andrula-gomez/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)"
+            >
+              <p class="tp-mb-3">INSTCEE - Cra. Andrula Gómez</p>
+            </a>
+            <div class="flex justify-center lg:justify-start">
+              <!-- Image -->
+              <div class="flex-initial self-center tp-mr-3">
+                <a href="/instcee-cra-andrula-gomez/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)">
+                  <div class="fit-image --border-gray w-32 h-32 lg:h-48 lg:w-48">
+                    <img
+                      
+                      src="https://storage.googleapis.com/www.tuprofe.com.uy/media/profile_pics/instcee.jpg"
+                      
+                      alt="INSTCEE - Cra. Andrula Gómez"
+                      class="lazyload"
+                      width="188"
+                      height="188"
+                    >
+                  </div>
+                </a>
+              </div>
+              <div class="flex-1 flex flex-col">
+                <div class="flex-1 flex flex-col items-center lg:items-start">
+                  <a
+                    class="
+                      tp-text-new-title tp-text-blue-title tp-text-Lato-bold
+                      leading-none tp-mb-2 text-center lg:text-left cursor-pointer
+                      hidden lg:block
+                    "
+                    href="/instcee-cra-andrula-gomez/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)"
+                  >
+                    INSTCEE - Cra. Andrula Gómez
+                  </a>
+                  <div class="w-full flex flex-wrap tp-mb-2">
+                    <div class="w-full flex items-center tp-mb-1">
+                      <img
+                        class="h-6 w-6 flex-initial tp-mr-1"
+                        src="/static/students/icon/ubication.00ebb3698750.svg"
+                        alt="Ubicacion"
+                        width="24"
+                        height="24"
+                      >
+                      <p class="flex-auto">
+                        Cordón, Montevideo
+                      </p>
+                    </div>
+                    
+                    <div class="w-full flex items-center tp-mb-1">
+                      <img
+                        class="h-6 w-6 flex-initial tp-mr-1"
+                        src="/static/students/icon/Premium.9d7be1769560.svg"
+                        alt="Premium"
+                        width="24"
+                        height="24"
+                      >
+                      <p>Profesor Premium</p>
+                    </div>
+                    
+                    
+                  </div>
+                </div>
+                <div class="flex flex-wrap">
+                  <div class="w-full max-200">
+                    <a href="/instcee-cra-andrula-gomez/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)">
+                      <button
+                        class="
+                          tp-btn-new --blue w-full flex justify-center
+                        "
+                      >
+                        Ver Perfil
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- To filter -->
+          <div
+            class="
+            
+              comodidad_17
+            
+              comodidad_3
+            
+              comodidad_20
+            
+              comodidad_5
+            
+              comodidad_10
+            
+              comodidad_12
+            
+
+            
+              facilidad_32
+            
+              facilidad_29
+            
+
+            
+              forma_pago_21
+            
+              forma_pago_23
+            
+              forma_pago_19
+            
+              forma_pago_20
+            
+              forma_pago_24
+            
+
+            
+              service_5
+            
+              service_2
+            
+              service_3
+            
+              service_7
+            
+              service_4
+            
+            "
+            hidden
+          ></div>
+        </div>
+        
+        <div
+          class="
+          
+            no-premium
+          
+          "
+        >
+          <article class="
+            tp-pt-4 tp-pb-4 tp-text-new-text tp-text-blue-darken
+            max lg:px-6
+          ">
+            <!-- Mobile title -->
+            <a
+              class="
+                text-2xl tp-text-blue-title tp-text-Lato-bold
+                leading-none tp-mb-2 cursor-pointer lg:hidden
+              "
+              href="/academia-tarigo/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)"
+            >
+              <p class="tp-mb-3">Lic. María José Tarigo</p>
+            </a>
+            <div class="flex justify-center lg:justify-start">
+              <!-- Image -->
+              <div class="flex-initial self-center tp-mr-3">
+                <a href="/academia-tarigo/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)">
+                  <div class="fit-image --border-gray w-32 h-32 lg:h-48 lg:w-48">
+                    <img
+                      
+                      src="https://storage.googleapis.com/www.tuprofe.com.uy/media/profile_pics/foto_cv.jpg"
+                      
+                      alt="Lic. María José Tarigo"
+                      class="lazyload"
+                      width="188"
+                      height="188"
+                    >
+                  </div>
+                </a>
+              </div>
+              <div class="flex-1 flex flex-col">
+                <div class="flex-1 flex flex-col items-center lg:items-start">
+                  <a
+                    class="
+                      tp-text-new-title tp-text-blue-title tp-text-Lato-bold
+                      leading-none tp-mb-2 text-center lg:text-left cursor-pointer
+                      hidden lg:block
+                    "
+                    href="/academia-tarigo/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)"
+                  >
+                    Lic. María José Tarigo
+                  </a>
+                  <div class="w-full flex flex-wrap tp-mb-2">
+                    <div class="w-full flex items-center tp-mb-1">
+                      <img
+                        class="h-6 w-6 flex-initial tp-mr-1"
+                        src="/static/students/icon/ubication.00ebb3698750.svg"
+                        alt="Ubicacion"
+                        width="24"
+                        height="24"
+                      >
+                      <p class="flex-auto">
+                        Centro, Montevideo
+                      </p>
+                    </div>
+                    
+                    
+                  </div>
+                </div>
+                <div class="flex flex-wrap">
+                  <div class="w-full max-200">
+                    <a href="/academia-tarigo/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)">
+                      <button
+                        class="
+                          tp-btn-new --blue w-full flex justify-center
+                        "
+                      >
+                        Ver Perfil
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- To filter -->
+          <div
+            class="
+            
+              comodidad_3
+            
+              comodidad_5
+            
+              comodidad_17
+            
+              comodidad_12
+            
+              comodidad_20
+            
+
+            
+              facilidad_18
+            
+              facilidad_30
+            
+              facilidad_33
+            
+              facilidad_32
+            
+              facilidad_34
+            
+              facilidad_35
+            
+
+            
+              forma_pago_18
+            
+              forma_pago_21
+            
+              forma_pago_23
+            
+              forma_pago_24
+            
+
+            
+              service_3
+            
+              service_4
+            
+              service_5
+            
+              service_2
+            
+              service_7
+            
+              service_1
+            
+            "
+            hidden
+          ></div>
+        </div>
+        
+        <div
+          class="
+          
+            no-premium
+          
+          "
+        >
+          <article class="
+            tp-pt-4 tp-pb-4 tp-text-new-text tp-text-blue-darken
+            max lg:px-6
+          ">
+            <!-- Mobile title -->
+            <a
+              class="
+                text-2xl tp-text-blue-title tp-text-Lato-bold
+                leading-none tp-mb-2 cursor-pointer lg:hidden
+              "
+              href="/quants-uy/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)"
+            >
+              <p class="tp-mb-3">QUANTS UY</p>
+            </a>
+            <div class="flex justify-center lg:justify-start">
+              <!-- Image -->
+              <div class="flex-initial self-center tp-mr-3">
+                <a href="/quants-uy/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)">
+                  <div class="fit-image --border-gray w-32 h-32 lg:h-48 lg:w-48">
+                    <img
+                      
+                      src="https://storage.googleapis.com/www.tuprofe.com.uy/media/profile_pics/logo.jpg"
+                      
+                      alt="QUANTS UY"
+                      class="lazyload"
+                      width="188"
+                      height="188"
+                    >
+                  </div>
+                </a>
+              </div>
+              <div class="flex-1 flex flex-col">
+                <div class="flex-1 flex flex-col items-center lg:items-start">
+                  <a
+                    class="
+                      tp-text-new-title tp-text-blue-title tp-text-Lato-bold
+                      leading-none tp-mb-2 text-center lg:text-left cursor-pointer
+                      hidden lg:block
+                    "
+                    href="/quants-uy/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)"
+                  >
+                    QUANTS UY
+                  </a>
+                  <div class="w-full flex flex-wrap tp-mb-2">
+                    <div class="w-full flex items-center tp-mb-1">
+                      <img
+                        class="h-6 w-6 flex-initial tp-mr-1"
+                        src="/static/students/icon/ubication.00ebb3698750.svg"
+                        alt="Ubicacion"
+                        width="24"
+                        height="24"
+                      >
+                      <p class="flex-auto">
+                        Pocitos, Montevideo
+                      </p>
+                    </div>
+                    
+                    
+                  </div>
+                </div>
+                <div class="flex flex-wrap">
+                  <div class="w-full max-200">
+                    <a href="/quants-uy/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)">
+                      <button
+                        class="
+                          tp-btn-new --blue w-full flex justify-center
+                        "
+                      >
+                        Ver Perfil
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- To filter -->
+          <div
+            class="
+            
+              comodidad_17
+            
+              comodidad_12
+            
+              comodidad_20
+            
+
+            
+              facilidad_18
+            
+              facilidad_35
+            
+              facilidad_33
+            
+
+            
+              forma_pago_24
+            
+              forma_pago_18
+            
+              forma_pago_21
+            
+              forma_pago_23
+            
+
+            
+              service_2
+            
+              service_3
+            
+            "
+            hidden
+          ></div>
+        </div>
+        
+        <div
+          class="
+          
+            no-premium
+          
+          "
+        >
+          <article class="
+            tp-pt-4 tp-pb-4 tp-text-new-text tp-text-blue-darken
+            max lg:px-6
+          ">
+            <!-- Mobile title -->
+            <a
+              class="
+                text-2xl tp-text-blue-title tp-text-Lato-bold
+                leading-none tp-mb-2 cursor-pointer lg:hidden
+              "
+              href="/sofia-giordano/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)"
+            >
+              <p class="tp-mb-3">Sofía Giordano</p>
+            </a>
+            <div class="flex justify-center lg:justify-start">
+              <!-- Image -->
+              <div class="flex-initial self-center tp-mr-3">
+                <a href="/sofia-giordano/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)">
+                  <div class="fit-image --border-gray w-32 h-32 lg:h-48 lg:w-48">
+                    <img
+                      
+                      src="https://storage.googleapis.com/www.tuprofe.com.uy/media/profile_pics/IMG-20220803-WA0015.jpg"
+                      
+                      alt="Sofía Giordano"
+                      class="lazyload"
+                      width="188"
+                      height="188"
+                    >
+                  </div>
+                </a>
+              </div>
+              <div class="flex-1 flex flex-col">
+                <div class="flex-1 flex flex-col items-center lg:items-start">
+                  <a
+                    class="
+                      tp-text-new-title tp-text-blue-title tp-text-Lato-bold
+                      leading-none tp-mb-2 text-center lg:text-left cursor-pointer
+                      hidden lg:block
+                    "
+                    href="/sofia-giordano/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)"
+                  >
+                    Sofía Giordano
+                  </a>
+                  <div class="w-full flex flex-wrap tp-mb-2">
+                    <div class="w-full flex items-center tp-mb-1">
+                      <img
+                        class="h-6 w-6 flex-initial tp-mr-1"
+                        src="/static/students/icon/ubication.00ebb3698750.svg"
+                        alt="Ubicacion"
+                        width="24"
+                        height="24"
+                      >
+                      <p class="flex-auto">
+                        pocitos, Montevideo
+                      </p>
+                    </div>
+                    
+                    
+                    <div class="w-full flex items-center">
+                      <img
+                        class="h-6 w-6 flex-initial tp-mr-1"
+                        src="/static/students/icon/Free-Tag.1dbdaa6f75a7.svg"
+                        alt="Clase gratis"
+                        width="24"
+                        height="24"
+                      >
+                      <p>Primera Clase GRATIS</p>
+                    </div>
+                    
+                  </div>
+                </div>
+                <div class="flex flex-wrap">
+                  <div class="w-full max-200">
+                    <a href="/sofia-giordano/?subject=Matematica Financiera&center=Universidad de Montevideo (UM)">
+                      <button
+                        class="
+                          tp-btn-new --blue w-full flex justify-center
+                        "
+                      >
+                        Ver Perfil
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- To filter -->
+          <div
+            class="
+            
+              comodidad_3
+            
+              comodidad_5
+            
+              comodidad_10
+            
+              comodidad_12
+            
+              comodidad_19
+            
+
+            
+              facilidad_32
+            
+              facilidad_1
+            
+              facilidad_33
+            
+              facilidad_35
+            
+              facilidad_34
+            
+              facilidad_18
+            
+              facilidad_29
+            
+              facilidad_30
+            
+
+            
+              forma_pago_19
+            
+
+            
+              service_1
+            
+              service_2
+            
+              service_4
+            
+              service_5
+            
+              service_6
+            
+              service_7
+            
+            "
+            hidden
+          ></div>
+        </div>
+        
+      </div>
+
+      <div
+        id="filter-advice"
+        class="
+          tp-bg-blue-darken tp-pt-4 tp-pb-4 tp-mt-4 tp-mb-4
+          flex items-center tp-pl-4 tp-pr-4 hidden
+        "
+      >
+        <img
+          class="w-4 h-4"
+          src="/static/students/icon/Arrow-Down.9954e7270f87.svg"
+          alt="Expandir"
+          width="16"
+          height="16"
+        >
+        <p class="
+          max tp-text-new-text tp-text-white tp-text-Lato-bold
+          text-center
+        ">
+          Otros profesores que dan clases de  que no cumplen con los filtros.
+        </p>
+        <img
+          class="w-4 h-4"
+          src="/static/students/icon/Arrow-up.43d2b5f171b4.svg"
+          alt="Contraer"
+          width="16"
+          height="16"
+        >
+      </div>
+
+      <div class="tp-pl-4 tp-pr-4 tp-mt-10 tp-mb-10">
+        <p class="tp-text-Lato-ExtraBold tp-text-new-subtitle tp-mb-1 tp-text-blue-title">¿Sos Profesor o Profesora?</p>
+        <p>
+          Sumate a la comunidad de Profesores y Academias más grande de Uruguay haciendo click 👉
+          <a
+            href="/queres-ser-profesor/"
+            class="tp-text-Lato-bold tp-text-blue-title"
+          >
+             aquí
+          </a>
+        </p>
+      </div>
+
+      <div id="all-results">
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+  </main>
+
+
+  
+  <footer>
+    <div class="bg-footer-gray">
+      <div class="head max tp-flex-column tp-pb-4 tp-pt-8">
+        <h2 class="tp-text-3 tp-text-bold text-center-tuprofe tp-mb-4">Formación por Centro de Estudio</h2>
+        <div class="tp-flex-row tp-justify-footer-between tp-w-100 --wrap">
+
+          <article class="min-width-350 tp-mb-4 tp-footer-ml-auto tp-flex-column tp-align-footer-start tp-justify-start">
+
+              <a href="/primaria-escuela/apoyo-escolar/" class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Escuela
+              </a>
+
+              <a href="/liceo/" class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Liceo
+              </a>
+
+              <a href="/utu/" class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                UTU
+              </a>
+
+          </article>
+
+          <article class="min-width-350 tp-mb-4 tp-footer-ml-auto tp-flex-column tp-align-footer-start">
+
+            <a href="/facultad/agronomia-fagro/" 
+            class="tp-text-footer-links tp-text-1 tp-mb-footer">
+              Facultad de Agronomía (FAGRO)
+            </a>
+
+            <a href="/facultad/arquitectura-fadu/" 
+            class="tp-text-footer-links tp-text-1 tp-mb-footer">
+              Facultad de Arquitectura (FADU)
+            </a>
+
+              <a href="/facultad/ciencias-fcien/"
+              class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Facultad de Ciencias (FCIEN)
+              </a>
+
+              <a href="/facultad/ciencias-sociales-fcs/"
+              class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Facultad de Ciencias Sociales (FSC)
+              </a>
+
+          </article>
+
+          <article class="min-width-350 tp-mb-4 tp-footer-ml-auto tp-flex-column tp-align-footer-start">
+
+            <a href="/facultad/derecho-fder/"
+              class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Facultad de Derecho (FDER)
+              </a>
+
+              <a href="/facultad/economia-fcea/"
+              class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Facultad de Economía (FCEA)
+              </a>
+
+              <a href="/facultad/humanidades-fhce/" 
+              class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Facultad de Humanidades (FHCE)
+              </a>
+
+              <a href="/facultad/ingenieria-fing/" 
+              class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Facultad de Ingeniería (FING)
+              </a>
+
+          </article>
+
+          <article class="min-width-350 tp-mb-4 tp-footer-ml-auto tp-flex-column tp-align-footer-start">
+
+            <a href="/facultad/medicina-fmed/" 
+            class="tp-text-footer-links tp-text-1 tp-mb-footer">
+              Facultad de Medicina (FMED)
+            </a>
+
+            <a href="/facultad/psicologia-psico/" 
+            class="tp-text-footer-links tp-text-1 tp-mb-footer">
+              Facultad de Psicología (PSICO)
+            </a>
+
+            <a href="/facultad/quimica-fq/" 
+            class="tp-text-footer-links tp-text-1 tp-mb-footer">
+              Facultad de Química (FQ)
+            </a>
+
+            <a href="/facultad/veterinaria-fvet/" 
+            class="tp-text-footer-links tp-text-1 tp-mb-footer">
+              Facultad de Veterinaria (FVET)
+            </a>
+
+          </article>
+
+          <article class="min-width-350 tp-mb-4 tp-footer-ml-auto tp-flex-column tp-align-footer-start">
+
+            <a href="/facultad/universidad-catolica-ucu/" 
+              class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Universidad Católica (UCU)
+              </a>
+
+              <a href="/facultad/universidad-de-la-empresa-ude/" 
+              class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Universidad de la Empresa (UDE)
+              </a>
+
+              <a href="/facultad/universidad-de-montevideo-um/" 
+              class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Universidad de Montevideo (UM)
+              </a>
+
+              <a href="/facultad/universidad-ort/" 
+              class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Universidad ORT
+              </a>
+
+          </article>
+
+          <article class="min-width-350 tp-mb-4 tp-footer-ml-auto tp-flex-column tp-align-footer-start">
+
+            <a href="/idiomas/" 
+            class="tp-text-footer-links tp-text-1 tp-mb-footer">
+              Idiomas
+            </a>
+
+            <a href="/para-administrativos-y-profesionales/" 
+            class="tp-text-footer-links tp-text-1 tp-mb-footer">
+              Tecnología
+            </a>
+
+            <a href="/musica-y-otras-artes/" 
+            class="tp-text-footer-links tp-text-1 tp-mb-footer">
+              Música 
+            </a>
+
+            </a>
+
+            <a href="/manejo-academias-de-choferes/" 
+              class="tp-text-footer-links tp-text-1 tp-mb-footer">
+                Manejo 
+            </a>
+
+          </article>
+
+        </div> 
+      </div>
+    </div>
+    <div class="bg-footer-darkgray">
+      <div class="head max tp-flex-column tp-pb-4 tp-pt-8">
+        <div class="tp-flex-row tp-justify-footer-between tp-align-start  tp-w-100 --wrap  tp-mb-4">
+          <article class="tp-flex-column min-width-200 tp-align-footer-start tp-mb-2">
+            <p class="text-white tp-text-footer-title tp-mb-3">GENERAL</p>
+            <a class="tp-text-footer-links tp-mb-footer tp-w-100" target="_blank" rel="noreferrer noopener" href="https://blog.tuprofe.com.uy/">Blog</a>
+            <a class="tp-text-footer-links tp-mb-footer tp-w-100" href="/atencion-a-estudiantes/">Atención a Estudiantes</a>
+            <a class="tp-text-footer-links tp-mb-footer" href="/terminos-y-condiciones/">Condiciones de Uso del Sitio</a>
+            <a class="tp-text-footer-links tp-mb-footer" href="/terminos-y-condiciones/#Politica-de-privacidad">Política de Privacidad</a>
+            <a class="tp-text-footer-links" href="/terminos-y-condiciones/#Politica-de-Cookies">Política de Cookies</a>
+          </article>
+  
+          <article class="tp-flex-column min-width-200 tp-align-footer-start tp-mb-2">
+            <p class="text-white tp-text-footer-title tp-mb-3">PROFESORES</p>
+            <a class="tp-text-footer-links tp-mb-footer" href="/ingresar/">Ingresá como Profesor</a>
+            <a class="tp-text-footer-links tp-mb-footer" href="/registro/">Registrate como Profesor</a>
+            <a class="tp-text-footer-links tp-mb-footer" href="/planes/">Planes para Profesores</a>
+            <a class="tp-text-footer-links tp-mb-footer" href="/atencion-a-profesores/">Atención a Profesores</a>
+            <a 
+              class="tp-text-footer-links" 
+              target="_blank"
+              href="https://blog.tuprofe.com.uy/preguntas-frecuentes-profesores/"
+              rel="noreferrer noopener"
+            >
+                Preguntas Frecuentes
+            </a>
+          </article>
+  
+          <article class="tp-flex-column tp-align-center min-width-200 tp-mb-2">
+            <div class="tp-flex-row tp-align-center">
+              <p class="text-white tp-text-footer-title tp-mr-1 tp-mb-3">PRODUCTO URUGUAYO</p>
+              <img
+                src="/static/Institutos/theme/img/uruguay.228bc0d62b32.svg"
+                alt="Bandera de Uruguay"
+                width="31"
+                height="24"
+                class="tp-mb-3"
+              >
+              </div>
+              <a href="/" class="tp-mb-2" title="inicio">
+                  <img
+                    src="/static/Institutos/theme/img/Logo-TuProfe-Negro-Blanco.2a349b15582b.png"
+                    alt="Logo de TuProfe"
+                    width="164"
+                    height="48"
+                   >
+              </a>
+         
+            <p class="tp-text-footer-links text-center-tuprofe tp-mb-0">Todas las clases particulares <br> en un solo lugar</p>
+          </article>
+  
+          <article class="tp-flex-column min-width-200 tp-align-footer-start tp-mb-2">
+            <p class="tp-text-footer-title tp-mb-3">NOSOTROS</p>
+            <a class="tp-text-footer-links tp-mb-footer" href="/nosotros/">Quienes Somos</a>
+            <a class="tp-text-footer-links tp-mb-footer"  href="/contacto/">Contáctanos</a>
+            <div class="tp-flex-row tp-mt-1">
+                <a href="https://www.instagram.com/tuprofeuy/" class="redes" target="_blank" title="instagram" 
+                data-kmt="1" rel="nofollow noreferrer noopener">
+                  <img
+                    src="/static/Institutos/theme/img/instagram.d4116c1682c9.svg"
+                    alt="logo de instagram"
+                    width="25"
+                    height="25"
+                  >
+                </a>
+                <a href="https://www.facebook.com/tuprofeuy" class="redes" target="_blank" title="facebook" 
+                data-kmt="1" rel="nofollow noreferrer noopener">
+                  <img
+                    src="/static/Institutos/theme/img/facebook_white.390280b08d02.svg"
+                    alt="logo de facebook"
+                    width="25"
+                    height="25"
+                  >
+                </a>
+                <a href="https://www.youtube.com/channel/UCwVk_-ot3yOD2Jcr76rttpg?view_as=subscriber" class="redes" target="_blank" title="Youtube" 
+                data-kmt="1" rel="nofollow noreferrer noopener">
+                  <img
+                    src="/static/Institutos/theme/img/youtube_white.d7a73af9be24.svg"
+                    alt="logo de youtube"
+                    width="30"
+                    height="30"
+                  >
+                </a>
+            </div>
+            <img
+                src="/static/Institutos/theme/img/escudo-ssl.ebba9c423e2f.png"
+                alt="Escudo SSL"
+                class="tp-mt-1"
+                width="123"
+                height="44"
+                >
+          </article>
+        </div>
+        <p class="text-center-tuprofe tp-text-footer-links">TuProfe® - Es una marca registrada - 2022</p>
+      </div>
+    </div>
+  </footer>
+
+  
+
+  
+  <script>
+    function geocodeAddress(geocoder, elemId) {
+      var address = document.getElementById(elemId).value;
+      if (address) {
+        document.getElementById('direccion').value = address;
+        geocoder.geocode({ 'address': address + ', Montevideo, Uruguay' }, function (results, status) {
+          if (status === 'OK') {
+            document.getElementById('lat').value = results[0].geometry.location.lat();
+            document.getElementById('lng').value = results[0].geometry.location.lng();
+            if (validateBuscarForm())
+              document.buscar.submit();
+          } else {
+            console.log('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+    }
+  </script>
+  
+
+
+  <script>
+    function validateBuscarForm() {
+      var x = document.forms["buscar"]["centro"].value;
+      if (x == "") {
+        return false;
+      } x = document.forms["buscar"]["materia"].value;
+      if (x == "") {
+        return false;
+      }
+      const nonFacultiesSlugs = [
+        'gastronomia',
+        'idiomas',
+        'liceo',
+        'magisterio',
+        'manejo-academias-de-choferes',
+        'musica-y-otras-artes',
+        'naturaleza-animales-plantas-e-insectos',
+        'oficios-y-otros-servicios',
+        'para-administrativos-y-profesionales',
+        'primaria-escuela',
+        'salud-y-cuidado-personal',
+        'tecnologia-informatica-y-programacion',
+        'tiempo-libre-deportes-y-baile',
+        'utu',
+      ];
+      debugger;
+      const centerSlug = document.forms["buscar"]["centro"].value;
+      const subjectSlug = document.forms["buscar"]["materia"].value;
+      let url = '';
+      if (nonFacultiesSlugs.includes(centerSlug)) {
+        url = `/${centerSlug}/${subjectSlug}`;
+      } else {
+        url = `/facultad/${centerSlug}/${subjectSlug}`;
+      }
+      window.location.href = url;
+      return false;
+    }
+
+    function is_email(email) {
+      var emailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      return emailReg.test(email);
+    }
+
+    function validateContactoForm(e, submit=true, formName='contacto', inscription=false) {
+      e.preventDefault();
+      var isValid = true;
+      let errors = [
+        'err_nombre',
+        'err_email',
+        'err_email2',
+        'err_mensaje',
+      ];
+      errors = errors.map((error) => {
+        if (inscription) {
+          error += '_modal';
+        }
+        document.getElementById(error).style.display = "none";
+        return error;
+      })
+
+      // validations
+      var x = document.forms[formName]["nombre"].value;
+      if (x == "") {
+        document.getElementById(errors[0]).style.display = "block";
+        isValid = false;
+      }
+      x = document.forms[formName]["email"].value;
+      if (x == "") {
+        document.getElementById(errors[1]).style.display = "block";
+        isValid = false;
+      } else {
+        if (!is_email(x)) {
+          document.getElementById(errors[2]).style.display = "block";
+          isValid = false;
+        }
+      }
+      x = document.forms[formName]["mensaje"].value;
+      if (x == "") {
+        document.getElementById(errors[3]).style.display = "block";
+        isValid = false;
+      }
+      if (isValid) {
+        if (submit) {
+          document.forms[formName].submit();
+        } else {
+          return isValid;
+        }
+      }
+    }
+
+    function configureListeners(geocoder) {
+      aux = document.getElementById('searchDirPop');
+      if (aux !== null) {
+        document.getElementById('searchDirPop').addEventListener('click', function () {
+          geocodeAddress(geocoder, 'addressPop');
+        });
+        document.getElementById('searchPop').addEventListener('click', function () {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(show_map, geoFail);
+          } else {
+            alert('La geolocalización no es soportada por este navegador');
+          }
+        });
+      }
+    }
+
+    function geoFail(error) {
+      if (error.code == error.PERMISSION_DENIED) {
+        alert(
+          "Permisos insuficientes para la geolozalicación.\n" +
+          "Pruebe activando el gps en su dispositivo"
+        );
+      } else {
+        alert("Ocurrió un error al buscar la ubicación actual");
+      }
+    };
+
+    function show_map(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      document.getElementById('lat').value = latitude;
+      document.getElementById('lng').value = longitude;
+      document.getElementById('direccion').value = "Posición actual";
+      if (validateBuscarForm()) {
+        document.buscar.submit();
+      }
+      else alert('Faltan completar campos en el formulario');
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+  </script>
+
+  
+
+  
+</body>
+
+</html>

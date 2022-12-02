@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/favicon-16x16.png">
+
+    <meta property="og:title" content="Serverless Laravel - Scaling your applications with Laravel Vapor" />
+    <meta property="og:description" content="I am going to share everything I know about Laravel Vapor with you." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@jackellis" />
+    <meta name="twitter:title" content="Serverless Laravel - Scaling your applications with Laravel Vapor" />
+    <meta name="twitter:description" content="I am going to share everything I know about Laravel Vapor with you." />
+    <meta name="twitter:image" content="https://serverless-laravel.s3.amazonaws.com/social.png" />
+
+    <meta property="og:url" content="https://serverless-laravel.com" />
+    <meta property="og:type" content="product" />
+    <meta property="og:image" content="https://serverless-laravel.s3.amazonaws.com/social.png" />
+
+    <link rel="manifest" href="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/tailwind.min.css">
+    <title>
+                Serverless Laravel - The Laravel Vapor masterclass
+            </title>
+    <style type="text/css">
+       body {
+          background: #FFFDF8;
+      }
+
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .bg-cream {
+          background: #F3EFE7;
+      }
+
+      .container {
+          max-width: 942px;
+      }
+
+      .black-1 {
+        color: #4D4949;
+    }
+
+    .bg-black-1 {
+        background: #4D4949;
+    }
+
+    .black-2 {
+        color: #262425;
+    }
+
+    .bg-black-2 {
+        background: #262425;
+    }
+
+    .black-3 {
+        color: #EBE8E3;
+    }
+
+    .red {
+        color: #EB5B48;
+    }
+
+    .red-2 {
+        color: #FF7765;
+    }
+
+    .bg-red {
+        background: #EB5B48;
+    }
+
+    .red-dark {
+        color: #B10626;
+    }
+
+    .grey {
+        color: #999592;
+    }
+
+    #email-input {
+        outline: 0px;
+    }
+
+    #email-input:focus {
+        border-color: #4D4949 !important;
+    }
+
+    #email-input::-webkit-input-placeholder { /* Edge */
+      color: #4D4949;
+    }
+
+    #email-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: #4D4949;
+    }
+
+    #email-input::placeholder {
+      color: #4D4949;
+    }
+
+    #email-submit:hover, #buy-button:hover {
+        opacity: 0.9;
+    }
+
+    @media (max-width: 700px) {
+        #team-pricing {
+            clear: both;
+            float: left;
+        }
+    }
+
+    @media (max-width: 470px) {
+        #student-login, #downloads-link {
+            clear: both;
+            float: left;
+            margin-top: 20px;
+        }
+
+        #video {
+            height: 300px !important;
+        }
+
+        #email-input {
+            border-color: #999592;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        #email-submit {
+            margin: 0px;
+            width: 100%;
+        }
+
+        #offer-expires {
+            clear: both;
+            padding-left: 0px;
+            margin-top: 10px;
+        }
+
+        #points li {
+            line-height: 150%;
+            margin-bottom: 20px !important;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (min-width: 610px) {
+        #points {
+            background: url('https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/check-circlecheck-circlecheck-circlecheck-circlecheck-circle.png') no-repeat 0px 10px; padding-left: 30px;
+        }
+
+        .container {
+            padding-left: 4rem;
+            padding-right: 4rem;
+        }
+    }
+</style>
+</head>
+<body>
+    
+        <div class="container mx-auto text-sm mt-10 sm:mt-20 relative">
+        <img src="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/red-circle.svg" style="top: 7rem; left: -36%; z-index: -1;" class="no-flex absolute">
+        <div class="mb-10 sm:mb-20 clearfix">
+            <a href="https://serverlesslaravelcourse.com" class="float-left text-lg black-1 font-light" style="font-size: 1.3rem;">
+                <img src="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/logo.svg" class="inline mr-2" style="margin-top: -4px;">
+                <span>Serverless Laravel</span>
+            </a>
+
+            
+<a href="https://serverlesslaravelcourse.com/login" class="float-right underline" id="student-login">Student login</a>
+        </div>
+    </div>
+    
+        <div class="container mx-auto text-sm relative">
+        <h1 class="text-2xl sm:text-5xl font-bold leading-none mb-10 black-2" style="letter-spacing: -0.01rem;">A masterclass for Laravel developers who want to quickly and efficiently scale their applications using Vapor</h1>
+
+        <p class="text-xl mb-10 sm:mb-10 black-1 font-light" style="letter-spacing: -0.015rem;">I don’t like managing servers, I just want to write code. Security updates and configuration are one thing, but you also have to make sure your servers are ready to handle large spikes of traffic without suffering downtime. So you’ll be over-provisioning servers ($$$) or suffering downtime. There is a better way, and that’s serverless.</p>
+
+        <form class="mb-5 clearfix sm:flex" method="POST" action="https://serverlesslaravelcourse.us4.list-manage.com/subscribe/post?u=897ee69296e884d9df410b2d1&amp;id=7fdb6cee97">
+            <input placeholder="First name" name="FNAME" id="email-input" class="sm:text-base float-left p-4 sm:w-7/12 w-7/12 rounded-md border-2 black-1 bg-cream sm:mr-2" style="border-color: #999592;">
+            <input placeholder="Email address" name="EMAIL" id="email-input" class="sm:text-base float-left p-4 sm:w-7/12 w-7/12 rounded-md border-2 black-1 bg-cream" style="border-color: #999592;">
+            <button id="email-submit" class="sm:text-base float-left p-4 w-4/12 sm:w-4/12 rounded-md border-2 text-white ml-2 bg-red" style="border-color: #EB5B48;letter-spacing: -0.01rem;">Send me previews</button>
+        </form>
+
+        <p class="mb-0 text-base">Or <a href="#buy" class="border-b-5 black-1" style="border-color: #FFC7BD;border-bottom-width: 5px;">buy the course right now</a> and join 1,200+ other Laravel developers!</p>
+
+        <div class="flex mt-30 mb-40 pt-20 relative" style="margin-top: 35px;">
+            <div class="flex-auto">
+                <img src="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/quote.svg" class="flex-none absolute" style="top: 35px;">
+                <h2 class="text-xl sm:text-3xl font-semibold leading-none red">Jack has been using Vapor since it first launched and has a lot of experience with it. He's in a perfect position to teach this course</h2>
+                <p class="text-base mt-4 tracking-tight grey" style="font-weight: 100;">Taylor Otwell, Creator of Laravel</p>
+            </div>
+
+            <img src="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/taylor-2@2x.png" class="hidden sm:block flex-none ml-15" style="width: 150px;height: 150px;margin-left: 10px;margin-top: -20px;">
+            <img src="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/taylor-2@2x.png" class="sm:hidden flex-none ml-15" style="width: 80px;height: 80px;margin-left: 10px;margin-top: 15px;">
+        </div>
+
+        <h2 class="text-3xl font-semibold tracking-tight" style="">Why I got tired of managing servers</h2>
+
+        <div class="grid sm:grid-cols-2 leading-relaxed text-base mb-20">
+
+            <div>
+                <div class="mt-12 sm:pr-12">
+                    <h4 class="mb-2 red">2AM wake up calls</h4>
+                    <p class="black-1">Our application goes offline in the middle of the night. Guess whose getting woken up? Me. With Vapor, our servers don't go offline because we're serverless.</p>
+                </div>
+
+                <div class="mt-12 sm:pr-12">
+                    <h4 class="mb-2 red">Application downtime</h4>
+                    <p class="black-1">What happens if the server goes offline? How many servers should I put behind my load balancer? What if one breaks, can the remaining server handle traffic?</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="mt-12">
+                    <h4 class="mb-2 red">Scaling issues</h4>
+                    <p class="black-1">We're going live with a big application. Can our servers handle the traffic? Will our server fall over and embarass us? How long will it take to get the server back online?</p>
+                </div>
+
+                <div class="mt-12">
+                    <h4 class="mb-2 red">Varying server load</h4>
+                    <p class="black-1">Our application isn't popular between 2am - 5am but needs double the capacity between 6am - 12PM, but then dies down at 1PM for 3 hours, then back up at 4PM. What a headache...</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+
+    </div>
+
+    <div class="grey pt-32 pb-32 sm:p-32 bg-black-1">
+        <div class="container mx-auto text-sm" style="background: url('https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/grey-circles.svg') no-repeat center 90%;">
+            <h1 class="text-2xl sm:text-5xl text-white font-semibold">Laravel Vapor is the future</h1>
+
+            <div class="grid sm:grid-cols-2 text-base mb-12 leading-relaxed">
+
+                <div>
+                    <div class="mt-12 sm:pr-12">
+                        <h4 class="mb-2 red-2">Automatic scaling</h4>
+                        <p class="black-3">Laravel Vapor runs on serverless technology, meaning you don't have physical servers. Because of this, your application can automatically scale on-demand, and you only pay for what you need.</p>
+                    </div>
+
+                    <div class="mt-12 sm:pr-12">
+                        <h4 class="mb-2 red-2">No expensive DevOps costs</h4>
+                        <p class="black-3">Have you ever received a quote for DevOps? Our last one was for $1,000 per month to keep our servers online. We now pay $39 per month for Vapor, which has saved us over $11,500 per year!</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="mt-12 sm:pr-12">
+                        <h4 class="mb-2 red-2">No server maintenance</h4>
+                        <p class="black-3">No updates, no server reboots, no hardware issues, nothing. You don't have to worry about any virtual servers because the AWS team takes care of everything for you. Server maintenance isn't an issue until your application goes offline.</p>
+                    </div>
+
+                    <div class="mt-12 sm:pr-12">
+                        <h4 class="mb-2 red-2">Easy deployment</h4>
+                        <p class="black-3">Deploying your application to Vapor is a smooth process. They handle everything, including DNS configuration, firewalls, load balancers, moving assets to a global CDN, metrics and more.     </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto text-sm">
+
+        <div class="flex mb-40 pt-20 relative" style="margin-top: 35px;">
+            <div class="flex-auto">
+                <img src="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/quote.svg" class="flex-none absolute" style="top: 35px;">
+                <h2 class="text-lg sm:text-3xl font-semibold leading-none red">Before Jack joined the Fathom Analytics team, we had numerous challenges with keeping our servers online and put out a lot of fires. Since our move to Laravel Vapor, we've had no server issues and have not had to even think about servers.</h2>
+                <p class="text-base mt-4 tracking-tight grey" style="font-weight: 100;">Paul Jarvis, Cofounder of Fathom Analytics &amp; Author of Company of One</p>
+            </div>
+
+
+            <img src="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/paul.jpg" class="hidden sm:block flex-none ml-15 rounded-full" style="width: 150px;height: 150px;margin-left: 15px;margin-top: 0px; margin-right: 5%">
+            <img src="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/paul.jpg" class="sm:hidden flex-none ml-15 rounded-full" style="width: 80px;height: 80px;margin-left: 10px;margin-top: 15px;">
+        </div>
+
+        <div>
+            <h1 class="text-xl sm:text-5xl font-semibold mb-12">Course Contents</h1>
+
+            <a id="curriculum"></a>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Welcome to Serverless Laravel</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860856813-f185a4dc04ed5b88457ce8cd56321c73761d7e1871d5e63951ab02d2329bf302-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Introduction</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860861713-ffda25b17685fd19e1ca6850b829fa7ecc0dc40a96fee7fba050d1aebada91f9-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">What is Serverless?</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860862075-d4c512c6d1ac78ff674993a998683e3a73b24ddf4122e1ec16d8f3918d5d527c-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">What is Vapor and who is it for?</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Let’s get set-up</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860862237-bab0f4d6dd7ec991022a75b06d075c1e4a97d9c84bdeef64ce38411922b19ba3-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Linking with AWS</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860862817-4ae88ce061bca26482f9342bf8a96bc7e0f4fe2208875b21dd36dcf0d3720742-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">How to get free AWS credits</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Creating your first project</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860863078-9f0d609985bf48e27ee43f5dbb5e2b7518a095791cd867ccb26927a1fed7ad1a-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Installing Vapor</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860863851-3e68b2e308caa5c0c952aee1f6e0cc0e678efab39560d1819a81e0c01f962872-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">YAML file basics</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860865082-bb78377ce0134bb99999425d02644c2be0ae2cb118791c68f4a72e29f6e3388c-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Deploying your project</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860866645-99e1ee439305b642e8fd035bbb5182f5ee9cb7898a0012cbe3bbbcfc8a3f51d8-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Adding a domain to your project</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/862635780-11620a115061ab2e5b0a807614c10bb767f2b782044ba2b54a9a616671da1d81-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Adding a database to your project</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860870196-368f1af743cd803a8a842f71312a44df979c8edc1e040e8927201b8559832595-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Adding Redis to your project</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860871987-7e2390e15f4793be92b0201410482ba2187279616bbf56a379b3d618673e747c-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Managing environment variables and secrets</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/951141670-3b4b4b1f0542b4c8bb567aca89eaccd3a6532fc8aa67bf4119d43ec03469cb25-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Using an external DNS provider</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Advanced environment configuration</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860872641-23263ec27055d970a1ceda01c0f45c83a465abf07a5cf2c20e3f7f67a070ad39-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Disabling services you don&#039;t need</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/862637098-aaf15315a333a1cd0577e4dc08f25e26a345f7f1264e405af3d822ffca98e041-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Avoiding cold starts by pre-warming</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860879280-eb9f1bff5489d421d756b91e0a61369fd706b5970b24f7440922ea389bcbfffe-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Provisioned Concurrency vs Vapor Prewarming</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860879846-c3f210982701928e38f13e0b38c3bd8b319a04c90c0cccd1bfbf504558eda33c-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">How to prevent a DDoS attack from bankrupting you</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860881611-b812c5da5686e79d360638dc4d414f23fcce3d3dc355a4a770d8b45049c6083d-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Timeouts, memory, and concurrency</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860882089-9c714f7ac7661ba35c21de7694ab0876b084f180128228e8c0dadebaddac6ad9-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Build Hooks vs Deploy Hooks</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/1003349272-8a44855e5753c77d3e76c282eb8be8a1c756bade938ca379ef6cce50fee8dc97-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">DDoS Protection Basics</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Databases &amp; Redis</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/862637821-d0f5e52596c5cdb9025c3be32313df131191285d5f5720db01af3638495c2b19-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Serverless vs Fixed Size</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860893075-be5c7ba6731e92ffc1197cbe3dcd8706e757d0bb10f21d70f6810668eb04e699-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Database redundancy &amp; scaling</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/862638066-b76365aefc4d851d520df0e134ae12c468d1750bdf0fa575bd35c6b06c188d48-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Monitoring your database</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860897092-153f84ed8882887419bf82224edbcd155afb0a6500d019509569fd19dd0c9df2-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Attaching a second database to an environment</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860899028-e01ca039c8b14a2507f661187eec3ff51218ab7f470fe3e1647785b53f8ec838-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Sharing a database between environments</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860901638-cfdb9e8837e3839f38963eac3866f0ab4a392e982ea0f170e93194a0d3f1dd43-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Scaling &amp; monitoring your Redis cluster</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/951147517-bf8b8f3b55eda6eab7d2a39ef7d541b66b1c6ff0cbcd5ea1399efc74b70db903-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Using Redis to speed up session performance</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Queues</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860901672-46c789ed80933871e8687e19a4bbf894c632515b379e9ba558fe3acc5341387d-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Understanding Simple Queue Service (SQS)</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860902044-a97691e1f3852c76d1318e11561b3916b6110147387b2056d61491d9b128a8f3-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Assume the worst</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/862638540-a4896354bd596019c9da143a358b9b108caecc4081055e4fa6f0c110e9583b7b-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Preventing your jobs from being processed multiple times</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860904107-060fa907ea3d98c94f1e729f3963bd8fbbb865dd3ea9c2fbe42bd561debf19c9-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Building jobs that can handle database downtimes</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Handling Static Assets</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860905640-365be66f151fb1fb82e84419a84057a86913989b42b33b2d7e86e467f4e1f5d4-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Static assets in Vapor</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860905653-e9b78352868bc9fe7225ffc0527d8203aeeaeafbc010fb0fc49ca91d1ee1702e-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Laravel Mix</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860905904-443883adf303d6877ea8022dbe1df9cade0cd8454ae74f8489a0058d8fc7f1b6-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Background images in your CSS</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Dude, where&#039;s my filesystem?</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860906191-6d237d7848c88412f704939fcb531a78b586932c0922e8dabd3e5275ea12922a-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Explanation</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860906876-4efbad59bcde51849a64604544a1603cf2aae553c35e100f4cc8d4e4d829159d-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Using an S3 bucket for your files</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860907288-cfce641224de50ec01c7b933c3edb839ed56e24aba4b88171608a5dfcfd23811-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Never upload files through your Laravel app</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/951141484-bc5691c7712d28a3657ed197d0e2f86ab9549616069015143558856a77b9e899-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Oh, here’s my filesystem</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Networks &amp; Security</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860907414-bff21471d659332ff6382fb418cc3c0faf9a32e3c4223cd00bb623de0b1f304b-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Jumpbox, Jumpbox, Jumpbox, them boys up to somethin&#039;</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860908811-78c9bcd4c7f79bea64869a4ca6d38090f0507e21778ef9b2f5ad744567c9ace8-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Connecting to your private database</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860909696-24432eccc663f1a6db126ba42a58df54e097b5e428bf6c2bf9b9665881e6e6fa-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">NAT Gateways</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860911602-8e81be4c87aef8448ca3a52a19c114a145084d984187d433caa4e23abd9460ef-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">API Gateway vs Application Load Balancer</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/862639172-1a2dd670d42b4c6a27e5678bb55fe23eb908199ae527ca0c79c9a324fbf6db5c-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Keeping your projects isolated</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Business &amp; Costs</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860915121-8c8af00f6dbe01d4ef05dfc20cd7c8521a6604234a0eeff0e790292168ae29c6-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Persuading your boss or client to use Vapor</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/951146944-ab4814541aa5feb7325d2eb20780f9ba9446dac085e564a34c4d627b1a41e21b-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">How to estimate costs for Vapor</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/951141158-2926cf5be9c33125b7d6f4857880c1ea615a74ddb27b3b79287c99c57c7a520c-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Cost-saving techniques</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/951140953-96146e5431537a4c2f07e7cc76959462f15aee94030564403639693b39118526-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">A real-world example of costs</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Deployment</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860917296-5a7bacf3e489cb2181b24381e7323b916382c9109f00c1346673423cecfdc95b-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Essential commands</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860918185-1e6a74a130589ffc449e982f9be14ac2861794f0a1b64ef5be797488cc1d2331-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Continuous Integration with ChipperCI</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Advanced</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/905977007-d11c236fb0342fdd0b3de94612b6221049c7c33cc62ecff93f387da193663e85-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Provisioning custom domains for your users</span>
+            </div>
+                    </div>
+            </div>
+</div>
+<div>
+    <h1 class="text-xl sm:text-3xl font-semibold">Everything else</h1>
+
+    <div class="grid sm:grid-cols-3 gap-4 -mx-2 mt-8 mb-0">
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/862639560-1c255a96741e1867c868313a597f4f5eded008f632c4e9ba9cc6c6670cf1936a-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Don&#039;t forget to Base64 Encode your binary responses</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860920064-dbe561fc7c45f8c28baaee6270334c0857548a740487538707276b232663f700-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Weird DynamoDB error? Let’s solve it!</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860919695-b23bbf28a630ccfd628536ff9d7f5ade18c9fa6237e7ea03a4e0426f6202aac6-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Response size in Lambda</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860919711-32a49f362da936be9a40b4c2ace2c698f8c3a1a5670d67dd1706f54ebea8566c-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Uncaught exceptions vs DynamoDB</span>
+            </div>
+                    </div>
+        
+        <div class="flex">
+                        <div class="overflow-hidden mb-8 px-4 relative" style="width:100%;">
+                <img style="margin: 0px;display: block;width: 100%; border: 1px solid #5652511c;" src="https://i.vimeocdn.com/video/860915591-67569d465918111edf7cbf08bc4751790a53ba03d08f1df08638d34b216e3799-d_295x166?r=pad" class="rounded-lg">
+                
+                <span class="md:float-left block mt-2">Outro</span>
+            </div>
+                    </div>
+            </div>
+</div>
+
+        </div>
+    </div>
+
+    <div class="black text-white bg-black-2">
+
+        <a id="buy"></a>
+
+        <div class="container mx-auto text-sm pt-20 pb-20 sm:pt-40 sm:pb-40 text-base overflow-hidden sm:overflow-visible font-hairline" style="background: url('https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/black-circles.svg') no-repeat center 52%;">
+
+            <h1 class="text-2xl sm:text-5xl font-medium mb-8" style="line-height: 100%;">
+                Get Serverless Laravel, $249
+            </h1>
+            <p class="leading-normal mt-6 mb-8 text-lg black-3">Learn everything you need to know about Laravel Vapor and save yourself hundreds of hours by taking the express route to mastery.</p>
+
+            <ul id="points" class="leading-10 mb-6 black-3">
+                <li style="margin-bottom: 4px;">Instant access to the private course area</li>
+                <li style="margin-top: 4px;">Stream and download all 55 lessons immediately</li>
+                <li style="margin-top: 4px;">Membership to our private Slack community</li>
+                <li style="margin-top: 4px;">Learn how to get $300+ in free AWS credits</li>
+                <li style="margin-top: 4px;">Lifetime updates and access to any new material as it’s added</li>
+            </ul>
+
+            <script src="https://gumroad.com/js/gumroad.js"></script>
+            <a href="https://gum.co/serverlesslaravel" class="float-left p-4 w-full sm:w-8/12 rounded-md border-2 text-white text-center bg-red" style="border-color: #EB5B48;" id="buy-button" target="_blank" data-gumroad-single-product="true">Buy the course now, <span class="hidden sm:inline-block">instant access,</span> $249</a>
+
+            <a class="float-right pt-4 text-base hover:underline" target="_blank" href="https://gum.co/serverless-laravel-team" id="team-pricing">See team pricing options</a>
+
+        </div>
+
+    </div>
+
+    <div class="container mx-auto text-sm pt-32 relative overflow-hidden sm:overflow-visible">
+        <img src="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/red-circle.svg" class="absolute" style="top: -8rem;right: -14%;z-index: -1;">
+        <h1 class="text-2xl sm:text-5xl font-semibold">Frequently asked questions</h1>
+
+        <div class="grid sm:grid-cols-2 text-base mb-12 leading-relaxed">
+
+            <!-- Adam, I stole some of these ideas from TDD for Laravel. I owe you a beer -->
+            <div>
+                <div class="mt-12 sm:pr-12">
+                    <h4 class="mb-2 font-bold">Do I need experience with AWS before I take this course?</h4>
+                    <p>No. We cover the basics, and move onto more advanced areas later in the course. I recommend watching the videos in order.</p>
+                </div>
+                <div class="mt-12 sm:pr-12">
+                    <h4 class="mb-2 font-bold">Can I pay with PayPal?</h4>
+                    <p>Absolutely. We use Gumroad for payment processing, so you can pay with your card or Paypal.</p>
+                </div>
+                <div class="mt-12 sm:pr-12">
+                    <h4 class="mb-2 font-bold">What if I decide it's not for me?</h4>
+                    <p>No problem. I'll refund you in full if you email <a class="underline" href="mailto:jack@jackellisweb.com">jack@jackellisweb.com</a> within 7 days of purchase, no questions asked.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="mt-12 sm:pr-12">
+                    <h4 class="mb-2 font-bold">How do I access and watch the videos?</h4>
+                    <p>Once you've purchased the course, you'll receive an email with a license key &amp; a registration link. You can then sign-up and work through the videos at your own pace.</p>
+                </div>
+                <div class="mt-12 sm:pr-12">
+                    <h4 class="mb-2 font-bold">Can I get an invoice?</h4>
+                    <p>You most definitely can. Gumroad sends you an email when you make a purchase, and there's a link in the email for you to print an invoice.</p>
+                </div>
+                <div class="mt-12 sm:pr-12">
+                    <h4 class="mb-2 font-bold">Is the price inclusive of VAT?</h4>
+                    <p>The price displayed here is exclusive of VAT. Depending on your location, Gumroad may add VAT to your purchase.</p>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="text-2xl sm:text-5xl font-semibold leading-none mb-12 pt-20">I’m Jack Ellis, Serverless Laravel’s instructor &amp; cofounder of Fathom Analytics</h1>
+
+        <div class="flex mb-10 relative font-light">
+            <img src="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/red-circle.svg" class="absolute" style="top: 0rem;left: -32%;z-index: -1;" class="no-flex">
+
+            <div class="flex-auto">
+                <p class="text-lg sm:text-xl mb-8 sm:mb-8 black-1">I am also the cofounder of <a href="http://usefathom.com/" target="_blank" class="underline">Fathom Analytics</a>, a privacy-focused analytics platform that has taken the industry by storm. I was one of the first users on Laravel Vapor, and we have been using it for our infrastructure from the moment it launched. All the knowledge I share in this course has been accumulated through <span class="font-bold">hundreds of hours</span> in the battlefield. This course is going to save you so much time.</p>
+                <p class="text-lg sm:text-xl mb-16 black-1">I've been using Laravel for a long time, and have a lot of experience with scaling applications. I've written articles about <a class="underline" href="https://laravel-news.com/5-ways-to-write-laravel-code-that-scales" target="_blank">scaling Laravel applications</a> and <a class="underline" href="https://usefathom.com/blog/moved-to-vapor" target="_blank">detailed explanations on our move to Vapor</a>. My advice has been read by tens of thousands of people, and now I want to share my knowledge with you.</p>
+            </div>
+            <img src="https://dahvskksy8gaw.cloudfront.net/7bd78165-d075-4c64-824c-879c57feea89/jack.jpg" class="hidden sm:block flex-none ml-10 rounded-full" style="width: 150px;height: 150px;margin-right: 5%;">
+        </div>
+    </div>
+
+        <div class="container mx-auto text-sm">
+        <p class="mb-20" style="color: #999696;">
+            &copy; 2022 <a href="https://jackellis.me">JackEllisWeb Limited</a><br>
+            
+            
+
+                          <a href="https://serverlesslaravelcourse.com/login" class="underline">Student Login</a> |
+              <a href="https://serverlesslaravelcourse.com/blog" class="underline">Blog</a>
+                    </p>
+    </div>
+    
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <!-- Psst. $10 off if you sign up via this link: https://usefathom.com/ref/GITHUB -->
+    <script src="https://cod.serverlesslaravelcourse.com/script.js" site="KRTEXEUO" defer></script>
+    <!-- / Fathom -->
+    <script>
+        // Number.prototype.pad = function(size) {
+        //     var s = String(this);
+        //     while (s.length < (size || 2)) {s = "0" + s;}
+        //     return s;
+        // }
+        // function doItBaby() {
+        //     var deadline = new Date("March 7, 2021 23:59:59").getTime();
+        //     var now = new Date().getTime();
+        //     var t = deadline - now;
+        //     var days = Math.floor(t / (1000 * 60 * 60 * 24));
+        //     var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+        //     var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+        //     var seconds = Math.floor((t % (1000 * 60)) / 1000);
+        //     document.getElementById("offer-expires").innerHTML = 'Offer ends in ' + hours.pad() + ":" + minutes.pad() + ":" + seconds.pad() + "";
+        //     // document.getElementById("offer-expires").innerHTML = 'Offer ends in ' + days + " days";
+        //     if (t < 0) {
+        //         clearInterval(x);
+        //         document.getElementById("offer-expires").innerHTML = 'Offer ends today'
+        //     }
+        // }
+        // doItBaby();
+        // var x = setInterval(function() {
+        //     doItBaby();
+        // }, 1000);
+        </script>
+</body>
+</html>

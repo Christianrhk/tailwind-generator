@@ -1,0 +1,650 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" />
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("markLoaded dummyfile: "+items[filename].name);}
+function logWhatsBlocked(){for(var i in items){if(items.hasOwnProperty(i)===false)continue;var item=items[i];isBlocked(item)}}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,logWhatsBlocked:logWhatsBlocked,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-0&cb=2', true, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=195-0&cb=20', true, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=195-0&cb=4', true, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/rochester.js', '/detroitchicago/rochester.js?gcb=195-0&cb=13', false, ['/detroitchicago/memphis.js','/detroitchicago/minneapolis.js'], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){function e(i){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(i)}__ez.pel=function(){var i=[];function t(t,o,_,d,n,r,a,s){if(__ez.dot.isDefined(t)&&0!=__ez.dot.isAnyDefined(t.getSlotElementId,t.ElementId)){void 0===s&&(s=!1);var p=parseInt(__ez.dot.getTargeting(t,"ap")),f=__ez.dot.getSlotIID(t),u=__ez.dot.getAdUnit(t,s),g=parseInt(__ez.dot.getTargeting(t,"compid")),c=0,l=0,z=function(i){if("undefined"==typeof _ezim_d)return!1;var t=__ez.dot.getAdUnitPath(i).split("/").pop();if("object"===("undefined"==typeof _ezim_d?"undefined":e(_ezim_d))&&_ezim_d.hasOwnProperty(t))return _ezim_d[t];for(var o in _ezim_d)if(o.split("/").pop()===t)return _ezim_d[o];return!1}(t);"object"==e(z)&&(void 0!==z.creative_id&&(l=z.creative_id),void 0!==z.line_item_id&&(c=z.line_item_id)),__ez.dot.isDefined(f,u)&&__ez.dot.isValid(o)&&("0"===f&&!0!==s||""===u||i.push({type:"impression",impression_id:f,domain_id:__ez.dot.getDID(),unit:u,t_epoch:__ez.dot.getEpoch(0),revenue:_,est_revenue:d,ad_position:p,ad_size:"",bid_floor_filled:n,bid_floor_prev:r,stat_source_id:a,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:g,line_item_id:c,creative_id:l,data:__ez.dot.dataToStr(o),is_orig:s||__ez.template.isOrig}))}}function o(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(i)&&i.length>0&&[i.filter((function(e){return e.is_orig})),i.filter((function(e){return!e.is_orig}))].forEach((function(e){for(;e.length>0;){var i=e[0].is_orig||!1,t=5;t>e.length&&(t=e.length);var o=e.splice(0,t),_=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig="+(!0===i?1:0)+"&sts="+btoa(JSON.stringify(o));void 0!==window.isAmp&&isAmp&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("domain_id")&&(_+="&visit_uuid="+_ezaq.visit_uuid),__ez.dot.Fire(_)}})),i=[])}return{Add:t,AddAndFire:function(e,i){t(e,i,0,0,0,0,0),o()},AddAndFireOrig:function(e,i){t(e,i,0,0,0,0,0,!0),o()},AddById:function(e,t,o,_){var d=e.split("/");if(__ez.dot.isDefined(e)&&3===d.length&&__ez.dot.isValid(t)){var n=d[0],r={type:"impression",impression_id:d[2],domain_id:__ez.dot.getDID(),unit:n,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(t),is_orig:o||__ez.template.isOrig};void 0!==_&&(r.revenue=_),i.push(r)}},Fire:o,GetPixels:function(){return i}}}()}();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-0&cb=6', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-0&cb=4', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=195-0&cb=6', false, [], true, false, true, false);</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<link rel="shortcut icon" type="image/x-icon" href="https://www.laravelcode.com/upload/favicon.svg" />
+
+<meta name="google-site-verification" content="JSY834KIItZuzp_dq0EKy7Jayke0nwNyLxLec6KQ3NA" />
+
+<meta name="msvalidate.01" content="409F11618EDE7F86D634ECEE23418519" />
+
+<meta name="msvalidate.01" content="6EF966FD8E9D92E4DE62AE6253F3641F" />
+
+<meta name="yandex-verification" content="89686eb86b35686f" />
+
+<meta name="p:domain_verify" content="d8625341516d4d9bb07427f1e20b5d33" />
+
+<meta property="fb:app_id" content="1068889813227533" />
+
+<meta name="author" content="laravelcode.com" />
+
+<meta name="csrf-token" content="zJVP71uL7w0gcfGzfJ2MqXgIvQim01rGa9xTfF8m" />
+
+<meta name="author" content="LaravelCode" />
+<meta name="twitter:card" content="summary_large_image" />
+<title>Laravel Livewire Pagination Example</title>
+<meta name="description" content="Laravel Livewire Pagination Example" />
+<meta name="keywords" content="create Pagination in Livewire in Laravel 8, create pagination in livewire,laravel livewire pagination example,user pagination in laravel livewire examplepagination with laravel livewire,laravel 8 livewire pagination tutorial,laravel livewire pagination not working" />
+<meta property="article:published_time" content="2021-12-13T05:22:26+00:00" />
+<meta property="og:description" content="Laravel Livewire Pagination Example" />
+<meta property="og:title" content="Laravel Livewire Pagination Example" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en-us" />
+<meta property="og:locale:alternate" content="en-us" />
+<meta property="og:url" content="https://www.laravelcode.com/post/laravel-livewire-pagination-example" />
+<meta property="og:image" content="https://www.laravelcode.com/uploads/postimages/laravel-livewire-pagination-example.png" />
+<meta property="og:image:url" content="https://www.laravelcode.com/uploads/postimages/laravel-livewire-pagination-example.png" />
+<meta property="og:image" content="https://www.laravelcode.com/uploads/postimages/laravel-livewire-pagination-example.png" />
+<meta property="og:image:height" content="300" />
+<meta property="og:image:width" content="300" />
+<meta name="twitter:title" content="Laravel Livewire Pagination Example" />
+<meta name="twitter:site" content="@laravelcode" />
+<meta name="twitter:images0" content="https://www.laravelcode.com/uploads/postimages/laravel-livewire-pagination-example.png" />
+<meta name="twitter:images1" content="300" />
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"WebPage","name":"LaravelCode","description":"Learn Programming to easy way","url":"https:\/\/www.laravelcode.com\/post\/laravel-livewire-pagination-example"}</script>
+
+<link href="https://www.laravelcode.com/theme/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+
+<link rel="stylesheet" href="https://www.laravelcode.com/theme/lib/animate.css/animate.min.css" />
+<link rel="stylesheet" href="https://www.laravelcode.com/theme/assets/css/dashforge.css" />
+<link rel="stylesheet" href="https://www.laravelcode.com/theme/assets/css/dashforge.dashboard.css" />
+<link rel="stylesheet" type="text/css" href="https://www.laravelcode.com/theme/assets/css/articles.css" />
+<link href="https://www.laravelcode.com/theme/lib/pritty-code/monokai-sublime.css" rel="stylesheet" type="text/css" media="all" />
+<style type="text/css">
+    .article img {
+        width: 100%;
+    }
+    .card {
+        margin-bottom: 1rem;
+    }
+    .media .avatar {
+        width: 120px;
+        height: 120px;
+        margin: auto;
+    }
+    @media  screen and (max-width: 600px) {
+        .hide-in-mobile {
+            display: none;
+        }
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" async="" defer=""></script>
+
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9831105513427181" crossorigin="anonymous"></script>
+<script>
+            var current_page_url = "https://www.laravelcode.com/post/laravel-livewire-pagination-example";
+            var current_page_fullurl = "https://www.laravelcode.com/post/laravel-livewire-pagination-example";
+            var CSRF_TOKEN='zJVP71uL7w0gcfGzfJ2MqXgIvQim01rGa9xTfF8m';
+            console.log(current_page_url);
+        </script>
+<script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-38361387-3', 'auto');
+          ga('send', 'pageview');
+        </script>
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-W8GKZS');</script>
+
+<script type="text/javascript" src="//services.bilsyndication.com/adv1/?q=581c1874359c52644a4b899783bd6e9e"></script><script> var vitag = vitag || {};</script>
+<link rel='canonical' href='https://laravelcode.com/post/laravel-livewire-pagination-example' />
+<script type="text/javascript">var ezouid = "1";</script><base href="https://www.laravelcode.com/post/laravel-livewire-pagination-example"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script>
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 191712;
+var ezdomain = 'laravelcode.com';
+var ezoicSearchable = 1;
+</script>
+
+
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":191712,"engaged_time_visit":0,"ezcache_level":1,"ezcache_skip_code":11,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"72aaeac3-c394-432b-6b36-2476c03ca6cf","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":34493,"response_time_orig":106,"serverid":"3.92.242.89:32059","state":"VA","t_epoch":1660055656,"template_id":126,"time_on_site_visit":0,"url":"https://www.laravelcode.com/post/laravel-livewire-pagination-example","user_id":0,"word_count":692,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_191712=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["72aaeac3-c394-432b-6b36-2476c03ca6cf", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="page-profile">
+
+<noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8GKZS" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+
+<style type="text/css">
+    .navbar-header .navbar-right .search-link {
+        margin-bottom: 5px;
+    }
+    .twitter-typeahead {
+        width: 100%;
+    }
+</style>
+<header class="navbar navbar-header navbar-header-fixed">
+<div class="container">
+<a href="" id="mainMenuOpen" class="burger-menu"><i data-feather="menu"></i></a>
+<div class="navbar-brand">
+<img src="https://www.laravelcode.com/upload/logo.svg" alt="logo" />
+<a href="/" class="df-logo">Laravel<span>Code</span></a>
+</div>
+
+<div id="navbarMenu" class="navbar-menu-wrapper">
+<div class="navbar-menu-header">
+<a href="/" class="df-logo">Laravel<span>Code</span></a>
+<a id="mainMenuClose" href=""><i data-feather="x"></i></a>
+</div>
+
+<ul class="nav navbar-menu">
+<li class="nav-label pd-l-20 pd-lg-l-25 d-lg-none">Main Navigation</li>
+<li class="nav-item"><a href="https://www.laravelcode.com/posts" class="nav-link"><i data-feather="image"></i> Articles</a></li>
+<li class="nav-item"><a href="https://www.laravelcode.com/categories" class="nav-link"><i data-feather="grid"></i> Categories</a></li>
+<li class="nav-item"><a href="https://www.laravelcode.com/tags" class="nav-link"><i data-feather="tag"></i> Tags</a></li>
+<li class="nav-item"><a href="https://www.laravelcode.com/contact-us" class="nav-link"><i data-feather="at-sign"></i> Contact Us</a></li>
+</ul>
+</div>
+
+<div class="navbar-right">
+<a id="navbarSearch" href="" class="search-link"><i data-feather="search"></i></a>
+<div class="dropdown dropdown-profile">
+<a href="" class="dropdown-link" data-toggle="dropdown" data-display="static">
+<div class="avatar avatar-sm"><img src="https://via.placeholder.com/500" class="rounded-circle" alt="" /></div>
+</a>
+
+
+</div>
+</div>
+
+<div class="navbar-search">
+<div class="navbar-search-header">
+<input type="search" class="form-control" placeholder="Type and hit enter to search..." id="search" name="query" />
+<button class="btn"><i data-feather="search"></i></button>
+<a id="navbarSearchClose" href="" class="link-03 mg-l-5 mg-lg-l-10"><i data-feather="x"></i></a>
+</div>
+
+
+</div>
+
+</div>
+</header>
+<div class="content content-fixed">
+<div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
+<div class="row row-xs">
+<div class="col-md-12">
+
+<div id="ezoic-pub-ad-placeholder-103">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9831105513427181" crossorigin="anonymous"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9831105513427181" data-ad-slot="9323789936" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+</div>
+</div>
+</div>
+<div class="row row-xs">
+<div class="col-md-8">
+<div class="card">
+<div class="card-header">
+<h1 class="mg-b-0 tx-bold tx-spacing--1">Laravel Livewire Pagination Example</h1>
+<div id="ezoic-pub-ad-placeholder-104"> </div>
+<div class="article-topbar">
+<span class="badge">
+<i class="far fa-eye"></i>  514 views
+</span>
+<span class="badge">
+<i class="far fa-clock"></i>  7 months ago
+</span>
+<a href="https://www.laravelcode.com/category/laravel" class="badge badge-light">Laravel</a>
+ <div class="article-topbar-right">
+</div>
+</div>
+</div>
+<div class="card-body article">
+<div class="text-center hide-in-mobile">
+<div class="adsbyvli" data-ad-slot="vi_24766749"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_24766749")})</script>
+</div>
+<div classs="clearfix hide-in-mobile"></div><br />
+<p>This post is facile to how to utilize laravel livewire pagination example. it&#39;s a simple example of laravel 8 livewire pagination tutorial. I’m going to show you laravel livewire tutorial. In this article, we will implement Livewire pagination not working.</p>
+<p>In this tutorial, we will engender simple pagination utilizing laravel livewire utilizing PHP artisan livewire. you can utilize laravel livewire pagination with all versions.</p>
+<p>Livewire is a full-stack framework for Laravel framework then uses laravel livewire pagination that makes building dynamic interfaces and use simple, without leaving the comfort of Laravel. if you are utilizing livewire with laravel then you don&#39;t worry about inscribing any code like jquery ajax etc, livewire will avail to inscribe very simple way jquery ajax code utilizing PHP. without page refresh laravel validation will work, the form will submit, etc.</p>
+<p>Here, I will give you a very simple example of creating pagination with a user&#39;s table and I will store that data in the database without a refresh page and too many lines of code in the blade file. we will use only the livewire/livewire package.</p>
+<h3><strong>Step 1 : Install Laravel 8</strong></h3>
+<p>First of all, we need to get fresh Laravel 8 version application using bellow command, So open your terminal OR command prompt and run bellow command:</p>
+<pre><code class="language-bash">composer create-project --prefer-dist laravel/laravel blog
+</code></pre>
+<h3><strong>Step 2 : Create Dummy Records Using Tinker Factory</strong></h3>
+<p>You need to run following command to create a dummy record in your users table. let&#39;s run both command:</p>
+<pre><code class="language-bash">php artisan tinker
+User::factory()-&gt;count(100)-&gt;create()</code></pre>
+<h3><strong>Step 3: Install Livewire</strong></h3>
+<p>install the livewire running by the following command.</p>
+<pre><code class="language-bash">composer require livewire/livewire
+</code></pre>
+<h3><strong>Step 4: Create Component</strong></h3>
+<p>Now here we will create a livewire component using their command. so run the below command to create a pagination component.</p>
+<pre><code class="language-bash">php artisan make:livewire user-pagination
+</code></pre>
+<p>Now they created files on both paths:</p>
+<pre><code class="language-bash">app/Http/Livewire/UserPagination.php
+resources/views/livewire/user-pagination.blade.php</code></pre>
+<p>Now both files we will update as below for our contact us form.</p>
+<p><b>app/Http/Livewire/UserPagination.php</b></p>
+<pre><code class="language-php">&lt;?php
+  
+namespace App\Http\Livewire;
+  
+use Livewire\Component;
+use Livewire\WithPagination;
+use App\Models\User;
+  
+class UserPagination extends Component
+{
+    use WithPagination;
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function render()
+    {
+        return view(&#39;livewire.user-pagination&#39;, [
+            &#39;users&#39; =&gt; User::paginate(10),
+        ]);
+    }
+}</code></pre>
+<p><b>resources/views/livewire/user-pagination.blade.php</b></p>
+<pre><code class="language-html">&lt;div&gt;
+    &lt;table class=&#34;table-auto&#34; style=&#34;width: 100%;&#34;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th class=&#34;px-4 py-2&#34;&gt;ID&lt;/th&gt;
+          &lt;th class=&#34;px-4 py-2&#34;&gt;Name&lt;/th&gt;
+          &lt;th class=&#34;px-4 py-2&#34;&gt;Email&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        @foreach ($users as $user)
+            &lt;tr&gt;
+            &lt;td class=&#34;border px-4 py-2&#34;&gt;{{ $user-&gt;id }}&lt;/td&gt;
+            &lt;td class=&#34;border px-4 py-2&#34;&gt;{{ $user-&gt;name }}&lt;/td&gt;
+            &lt;td class=&#34;border px-4 py-2&#34;&gt;{{ $user-&gt;email }}&lt;/td&gt;
+            &lt;/tr&gt;
+        @endforeach
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  
+    {{ $users-&gt;links() }}
+&lt;/div&gt;</code></pre>
+<h3><strong>Step 5: Create Routes</strong></h3>
+<p>Now we will create one route for calling our example, so let&#39;s add a new route to the <b>web.php</b> file as bellow:</p>
+<p><b>routes/web.php</b></p>
+<pre><code class="language-php">Route::get(&#39;user-pagination&#39;, function () {
+    return view(&#39;default&#39;);
+});&lt;pre&gt;&lt;/pre&gt;</code></pre>
+<h3><strong>Step 6: Create View File</strong></h3>
+<p>We will create a blade file for the call form route. in this file we will use @livewireStyles, @livewireScripts and @livewire(&#39;contact-form&#39;). so let&#39;s add it we learn livewire tailwind pagination.</p>
+<p><b>resources/views/default.blade.php</b></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Livewire Pagination - HackTheStuff&lt;/title&gt;
+    @livewireStyles
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.0/tailwind.min.css&#34; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;div class=&#34;container&#34;&gt;
+    
+    &lt;div class=&#34;card&#34;&gt;
+      &lt;div class=&#34;card-header&#34;&gt;
+        Livewire Pagination - HackTheStuff
+      &lt;/div&gt;
+      &lt;div class=&#34;card-body&#34;&gt;
+        @livewire(&#39;user-pagination&#39;)
+      &lt;/div&gt;
+    &lt;/div&gt;
+        
+&lt;/div&gt;
+    
+&lt;/body&gt;
+  
+@livewireScripts
+  
+&lt;/html&gt;</code></pre>
+<p>Now you can run using the below command:</p>
+<pre><code class="language-bash">php artisan serve
+</code></pre>
+<p>i hope you like this article.</p>
+<div id="ezoic-pub-ad-placeholder-109"> </div>
+</div>
+</div>
+<div class="card">
+<div class="card-header d-flex align-items-center justify-content-between">
+<h6 class="mg-b-0 tx-bold">Author : Harsukh Makwana</h6>
+</div>
+<div class="card-body">
+<div class="media row">
+<div class="col-md-2">
+<div class="avatar d-flex align-items-center justify-content-center">
+<img src="https://www.laravelcode.com/upload/author.jpg" alt="Harsukh Makwana" class="img-responsive rounded-circle w-100 pull-center" />
+</div>
+</div>
+<div class="col-md-10">
+<div class="media-body pd-l-25">
+<p class="mg-b-3">
+Hi, My name is Harsukh Makwana. i have been work with many programming language like php, python, javascript, node, react, anguler, etc.. since last 5 year. if you have any issue or want me hire then contact me on <a href="/cdn-cgi/l/email-protection#81e9e0f3f2f4eae9b3b0c1e6ece0e8edafe2eeec"><span class="__cf_email__" data-cfemail="d5bdb4a7a6a0bebde7e495b2b8b4bcb9fbb6bab8">[email&#160;protected]</span></a>
+</p>
+<a href="https://github.com/Harsukh21" class="btn btn-outline-dark btn-icon" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+<a href="https://www.youtube.com/laravelcode" class="btn btn-outline-danger btn-icon" target="_blank">
+<i class="fab fa-youtube"></i>
+</a>
+<a href="https://stackoverflow.com/users/4120409/harsukh-makwana" class="btn btn-outline-secondary btn-icon" target="_blank">
+<i class="fab fa-stack-overflow"></i>
+</a>
+<a href="https://www.facebook.com/Laravelcodedemo/" class="btn btn-outline-primary btn-icon" target="_blank">
+ <i class="fab fa-facebook"></i>
+</a>
+<a href="https://twitter.com/laravelcode" class="btn btn-outline-info btn-icon" target="_blank">
+<i class="fab fa-twitter"></i>
+</a>
+</div>
+</div>
+</div>
+<div id="ezoic-pub-ad-placeholder-112"> </div>
+</div>
+</div>
+</div>
+<style type="text/css">
+    .list-group .avatar img {
+        width: inherit;
+    }
+    .gsc-search-button-v2 {
+        padding: 10px 15px;
+    }
+</style>
+<div class="col-md-4 mg-t-10 mg-lg-t-0">
+<div class="card">
+<div class="card-header d-flex align-items-center justify-content-between">
+<h6 class="mg-b-0 tx-bold">Search</h6>
+</div>
+<div class="card-body">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=7e5873ec8e199b191"></script>
+<div class="gcse-search"></div>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<div id="ezoic-pub-ad-placeholder-105"> </div>
+</div>
+</div>
+<div class="card animated zoomIn">
+<div class="card-header d-flex align-items-center justify-content-between">
+<h6 class="mg-b-0 tx-bold">Random Articles</h6>
+</div>
+<ul class="list-group list-group-flush tx-13">
+<a href="https://www.laravelcode.com/post/form-validation-with-jquery-ajax-in-laravel-8" class="list-group-item" title="Form validation with Jquery Ajax in Laravel 8">
+<li class="d-flex">
+<div class="avatar">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABi0lEQVR4nO3YrU4cURiA4SlZg6vF9jpwyL0RVBWeG9gLqG5IUJWVOBoMAoOFEARyMZQE0iy6pj/JDPNu8jx6MvmSN+ecnPNhs9kMdCyGYRhW50tVInbmHoDfCRIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSMxi7gH+5mj/+2j/+nF3Mlzcn472vylYITGCxAgSI0hM/lD/k8fnh+Hl189//v7pdT3hNOPY6iBnN1+G2/Xl3GOMypYVI0iMIDGCxAgSI0iMIDGCxGz1xfDg0+F/3dS/Xn2ecJpxbHWQj7t7c48wOltWjCAxgsQIErPVh/q362PP70xLkBhBYgSJESRGkBhBYgSJESRGkBhBYgSJESQm/9q7Ol/OPcK7skJiBIkRJEaQGEFiBIkRJEaQGEFiBIkRJEaQGEFiBIkRJEaQGEFiBIkRJEaQGEFiBIkRJEaQGEFiBIkRJEaQGEFiBIkRJOYN2d8l2CfAZtcAAAAASUVORK5CYII=" alt="F" />
+</div>
+<div class="pd-l-5">
+<p class="tx-semibold mg-b-0">Form validation with Jquery Ajax in Laravel 8</p>
+<small class="tx-12 tx-color-03 mg-b-0">Laravel is a great website application f...</small>
+</div>
+</li>
+</a>
+<a href="https://www.laravelcode.com/post/laravel-56-realtime-crud-system-using-google-firebase" class="list-group-item" title="Laravel 5.6 - RealTime CRUD System Using Google Firebase">
+<li class="d-flex">
+<div class="avatar">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABXUlEQVR4nO3asU3DUABF0Q9JSwmt92EEKoqswABkA3p2YQgmoE0DHRIFpqYgEhKxD9I9rWXpSVffv/HZPM8jju0YYxymXVUQ52sPyHcFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEs117wDFXL48/Pnu7fRgfT88LrllGJwRTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXB0D9bH3NxfzM+795//d7r9f4Ea/7Ovw2ymS7HZu0RJ9AnC1MQTEEwBcHQl/ph2q09YXGdEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBfAG6NBLvzSqv/gAAAABJRU5ErkJggg==" alt="L" />
+</div>
+<div class="pd-l-5">
+<p class="tx-semibold mg-b-0">Laravel 5.6 - RealTime CRUD System Using Google Firebase</p>
+<small class="tx-12 tx-color-03 mg-b-0">Today, we are share with you how to buil...</small>
+</div>
+</li>
+</a>
+<a href="https://www.laravelcode.com/post/laravel-8-roles-and-permissions-tutorial-part-2" class="list-group-item" title="Laravel 8 Roles and Permissions Tutorial Part 2">
+<li class="d-flex">
+<div class="avatar">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABXUlEQVR4nO3asU3DUABF0Q9JSwmt92EEKoqswABkA3p2YQgmoE0DHRIFpqYgEhKxD9I9rWXpSVffv/HZPM8jju0YYxymXVUQ52sPyHcFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEs117wDFXL48/Pnu7fRgfT88LrllGJwRTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXB0D9bH3NxfzM+795//d7r9f4Ea/7Ovw2ymS7HZu0RJ9AnC1MQTEEwBcHQl/ph2q09YXGdEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBFARTEExBMAXBfAG6NBLvzSqv/gAAAABJRU5ErkJggg==" alt="L" />
+</div>
+<div class="pd-l-5">
+<p class="tx-semibold mg-b-0">Laravel 8 Roles and Permissions Tutorial Part 2</p>
+<small class="tx-12 tx-color-03 mg-b-0">In the previous tutorial article, we hav...</small>
+</div>
+</li>
+</a>
+<a href="https://www.laravelcode.com/post/how-to-replace-character-inside-a-string-in-javascript" class="list-group-item" title="How to replace character inside a string in JavaScript">
+<li class="d-flex">
+<div class="avatar">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABaElEQVR4nO3dMUoDQRiA0T+aIhY2HsHaM1hbehZPZmntGWz1CDYW2shai0QIGPIi32uHHQY+ZhZmi10tyzJxrGdm5nFTFcTJoReQ7wqCKQimIJiCYAqCKQimIJiCYAqCKQimIJiCYAqCKQimIJiCYAqCKQimIJiCYAqCKQimIJiCYAqCKQimIJiCYAqCKQhmfegF/HD9sX3s6Xbm9WG3+S5uZq7ut48/bnabb8/aIZiCYAqCKQimIJiCYAqCKQimIJiCYAqCKQimIBjvtvc3v93a/hPtEExBMAXBFARzXC/195eZz7fdnjk9nzm73M969uC4gjzf/f03dUxHFqYgmIJgCoIpCKYgmIJgCoIpCKYgmIJgCoIpCKYgmNWyLP3yCNIOwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxBMQTAFwRQEUxDMF6TFGWTg1FA/AAAAAElFTkSuQmCC" alt="H" />
+</div>
+<div class="pd-l-5">
+<p class="tx-semibold mg-b-0">How to replace character inside a string in JavaScript</p>
+<small class="tx-12 tx-color-03 mg-b-0">Use the JavaScript replace() method
+Y...</small>
+</div>
+</li>
+</a>
+<a href="https://www.laravelcode.com/post/create-rest-api-using-django-rest-framework" class="list-group-item" title="Create REST API using Django Rest Framework">
+<li class="d-flex">
+<div class="avatar">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEcUlEQVR4nO3dTWgcdRzG8Wd2Zl+yM5vsrgm7rDFRWlvR1caDRaWCLBU89ODNIh5Eiij05NVLvXgsxUPxoKAX7cUqKCJiURREbCiK9i3UtvZlk26a7Hbfsjs7Lx7EQ8D/JiaTybPb3+f6H4bf8mXnNUs03/cheBgAoJ06K1VIRLZ7ALGaBCEjQchIEDIShIwEISNByEgQMhKEjAQhI0HISBAyEoSMBCEjQchIEDIShIwEISNByEgQMhKEjAQhI0HISBAyEoSMBCEjQchIEDIShIwEIWNs9wCbdX8iiqIVRz5mIG3oMDQNdcdFzfEw1+7iXKuLtjc4v7YYyCCljImDuTG8MJHCRKz/R3B9HxdaXXy91MSXtxv4vtYOacqN0XzfH5gf7OzPmHhnZw5PjI5seB9/dWy8f7OKd68vo+56AU4XjIEIkohoOPpgHm9MZgPZX8v1UPjxImUQ+kOWpUfw1cwUnkmbge3zxK07lDEA8iAxTcM3j0/jqbFkoPt978ZyoPsLEnWQY7vya8boeT6+rTbxQ7WNcrcH2/eRjxkoWgnsz5qYTsRWbX+6voLZRmcrx94U2iCljLnmOePTSh2HL85jwXaU2+wdHcGrhTReyo0hZejU3w6A+KT+694d2JNKKNffvlzBkSuL695f2ojgUCGD4zeWqe9LKIMcGLfwxZ5p5fpH8zW8cu5miBOFh/LRyWsF9aGq2nPx5txCiNOEiy6IpUfw/D2Wcv3Y9SUsO26IE4WLLkgpYyIa0ZTrHy/cCXGa8NEF2ZdWX+aeb3VxacUOcZrw0QV5KBlXrp1prIQ4yfagC7IzGVOu/dHshjjJ9qALMh7VlWuVPjeAw4IuiKWrR2qSPhAMEl0QQ1NfYXWI77CDQhek7qrvMZK6OtawoAtSc9SHpX6Hs2FB9wlrPfU3JL/G+/NhQBek36P0oqV++jss6ILM1tU3fzMSJHy/9Amy24zjYVN9Jz8MBioIALycHwtpku1BF+R2z8V31ZZy/fBkFoUhPrnTBQGA433ee6cMHR8+ci+MIb0loQzy+WId892ecv25rIWTj04ha6ife/2Xx6w4jjwwsdnxthTlO3UAOJgbxSfF+/pus2g7OHptCScX65hrr35PYmjArmQcM1YCz2ZMlLImdoz88yRZO3V2y+beLNogAHCiOIkXc+s7iTccFwu2A9vzMWroyMcM5ZtH5iDUZ8fXL5QxYyWwex2XuilDR+p/HsIYUZ5D/lVzPJTOXMXvTd6/NAwadRAAKNsOnjx9GR+Uq3Dvgn8+Qx8EANqej0Pny3h69go+q9TR2+B7kd8aHbz1562ApwsW9UldZTyq48B4CvvSSRTNOKYSUaQNHbGIho7no+16qNgOrnZ6uNS28XO9jZ9qK7jW51KaxUAGGWYDcci6m0gQMhKEjAQhI0HISBAyEoSMBCEjQchIEDIShIwEISNByEgQMhKEjAQhI0HISBAyEoSMBCEjQchIEDIShIwEISNByEgQMhKEjAQhI0HISBAyEoTM3yvnR4t+/TN4AAAAAElFTkSuQmCC" alt="C" />
+</div>
+<div class="pd-l-5">
+<p class="tx-semibold mg-b-0">Create REST API using Django Rest Framework</p>
+<small class="tx-12 tx-color-03 mg-b-0">There are multiple ways to indite an API...</small>
+</div>
+</li>
+</a>
+</ul>
+<div class="card-footer text-center tx-13">
+<a href="" class="link-03">View More.. <i class="icon ion-md-arrow-forward mg-l-5"></i></a>
+</div>
+</div>
+<div class="card animated zoomIn">
+<div class="card-header d-flex align-items-center justify-content-between">
+<h6 class="mg-b-0 tx-bold">Advertise</h6>
+</div>
+<div class="card-body">
+<div class="ul_list ul_list-icon-ok">
+<div class="adsbyvli" data-ad-slot="vi_24766748"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_24766748")})</script>
+</div>
+</div>
+</div>
+<br />
+<div class="animated zoomIn" id="sideAds">
+<div id="ezoic-pub-ad-placeholder-108">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9831105513427181" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9831105513427181" data-ad-slot="9870584843" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-body">
+<div id="ezoic-pub-ad-placeholder-121"></div>
+</div> </div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div>
+<span>© 2022 LaravelCode</span>
+</div>
+<div>
+<nav class="nav">
+<a href="https://www.laravelcode.com/privacy-policy" class="nav-link">Privacy Policy</a>
+<a href="https://www.laravelcode.com/terms-and-conditions" class="nav-link">Terms &amp; Conditions</a>
+<a href="https://www.laravelcode.com/disclaimer" class="nav-link">Disclaimer</a>
+</nav>
+</div>
+</footer>
+<script src="https://www.laravelcode.com/theme/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://www.laravelcode.com/theme/lib/feather-icons/feather.min.js"></script>
+<script src="https://www.laravelcode.com/theme/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="https://www.laravelcode.com/theme/assets/js/dashforge.js"></script>
+
+<script src="https://www.laravelcode.com/theme/assets/js/jquery.sticky.js"></script>
+<script src="https://www.laravelcode.com/theme/lib/pritty-code/highlight.pack.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+<script type="text/javascript">
+    var path = "https://www.laravelcode.com/post-search";
+    // $('#search').typeahead({
+    //     hint: true,
+    //     highlight: true,
+    //     minLength: 1,
+    //     source:  function (query, process) {
+    //         return $.get(path, { query: query }, function (data) {
+    //             return process(data.title);
+    //         });
+    //     },
+    //     templates: {
+    //         empty: [
+    //           '<div class="empty-message">',
+    //             'unable to find any Best Picture winners that match the current query',
+    //           '</div>'
+    //         ].join('\n'),
+    //       }
+    // });
+    jQuery(document).ready(function($) {
+        // Set the Options for "Bloodhound" suggestion engine
+        var engine = new Bloodhound({
+            remote: {
+                url: '/post-search?query=%QUERY%',
+                wildcard: '%QUERY%'
+            },
+            datumTokenizer: Bloodhound.tokenizers.whitespace('query'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+        });
+
+        $("body #search").typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        }, 
+        {
+            source: engine.ttAdapter(),
+            limit: 10,
+
+            // This will be appended to "tt-dataset-" to form the class name of the suggestion menu.
+            // name: 'usersList',
+
+            // the key from the array we want to display (name,id,email,etc...)
+            templates: {
+                empty: [
+                    '<div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
+                ],
+                header: [
+                    '<div class="list-group search-results-dropdown">'
+                ],
+                suggestion: function (data) {
+                    return '<a href="https://laravelcode.com/post/' + data.slug + '" class="list-group-item">' + data.title + '</a>'
+                }
+            }
+        });
+    });
+</script> <script type="text/javascript">
+            function reloadMe() {
+                window.location.reload();
+            }
+            function getInterval(){
+                var lowerBound = 310;
+                var upperBound =1010;
+                
+                var randNum = Math.floor((upperBound-lowerBound+1)*Math.random()+lowerBound) * 1000;
+                return randNum;
+            }
+            var interval = getInterval();
+            var srcInterval = setInterval("reloadMe()",interval);
+            // Make sticky side ads.
+            $(window).load(function(){
+              $("#sideAds").sticky({ topSpacing: 60 });
+            });
+        </script>
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('/detroitchicago/edmonton.webp', '/detroitchicago/edmonton.webp?a=a&cb=0&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('/porpoiseant/jellyfish.webp', '/porpoiseant/jellyfish.webp?a=a&cb=0&shcb=34', false, [], true, false, false, false);
+</script>
+<script>var _audins_dom="laravelcode_com",_audins_did=191712;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=195-0");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.laravelcode_com,DomainId.191712" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=0&cb=3', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script>
+<script>__ez.queue.addFile('/beardeddragon/drake.js', '/beardeddragon/drake.js?gcb=0&cb=4', false, [], true, false, true, false);</script></body></html>

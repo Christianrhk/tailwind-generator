@@ -1,0 +1,321 @@
+<!--
+# ===============================
+# Classic SLiMS Template
+# ===============================
+# @Author: Waris Agung Widodo
+# @Email:  ido.alit@gmail.com
+# @Date:   2018-01-23T11:25:57+07:00
+# @Last modified by:   Waris Agung Widodo
+# @Last modified time: 2019-01-03T11:25:57+07:00
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Visitor Counter | Perpustakaan Akper Fatmawati</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+    <meta http-equiv="Expires" content="Sat, 26 Jul 1997 05:00:00 GMT"/>
+
+        <meta name="description" content="Visitor Counter | Perpustakaan Akper Fatmawati">
+      <meta name="keywords" content="Open Source Library Management System">
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <meta name="generator" content="SLiMS 9 (Bulian)">
+    <meta name="theme-color" content="#000">
+
+    <meta property="og:locale" content="id_ID"/>
+    <meta property="og:type" content="book"/>
+    <meta property="og:title" content="Visitor Counter | Perpustakaan Akper Fatmawati"/>
+        <meta property="og:description" content="Open Source Library Management System"/>
+      <meta property="og:url" content="//perpustakaan.akperfatmawati.ac.id%2Fopac%2Findex.php%3Fp%3Dvisitor"/>
+    <meta property="og:site_name" content="Perpustakaan Akper Fatmawati"/>
+        <meta property="og:image"
+            content="//perpustakaan.akperfatmawati.ac.id/opac/template/default/img/logo.png"/>
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="//perpustakaan.akperfatmawati.ac.id%2Fopac%2Findex.php%3Fp%3Dvisitor"/>
+    <meta name="twitter:title" content="Visitor Counter | Perpustakaan Akper Fatmawati"/>
+        <meta property="twitter:image"
+            content="//perpustakaan.akperfatmawati.ac.id/opac/template/default/img/logo.png"/>
+      <!-- // load bootstrap style -->
+    <link rel="stylesheet" href="template/default/assets/css/bootstrap.min.css">
+    <!-- // font awesome -->
+    <link rel="stylesheet" href="template/default/assets/plugin/font-awesome/css/fontawesome-all.min.css">
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="template/default/assets/css/tailwind.min.css">
+    <!-- Vegas CSS -->
+    <link rel="stylesheet" href="template/default/assets/plugin/vegas/vegas.min.css">
+    <link href="/opac/js/toastr/toastr.min.css?31031949" rel="stylesheet" type="text/css"/>
+    <!-- SLiMS CSS -->
+    <link rel="stylesheet" href="/opac/js/colorbox/colorbox.css">
+    <!-- // Flag css -->
+    <link rel="stylesheet" href="template/default/assets/css/flag-icon.min.css">
+    <!-- // my custom style -->
+    <link rel="stylesheet" href="template/default/assets/css/style.css?v=20220809-031949">
+
+    <link rel="shortcut icon" href="webicon.ico" type="image/x-icon"/>
+
+    <!-- // load vue js -->
+    <script src="template/default/assets/js/vue.min.js"></script>
+    <!-- // load jquery library -->
+    <script src="template/default/assets/js/jquery.min.js"></script>
+    <!-- // load popper javascript -->
+    <script src="template/default/assets/js/popper.min.js"></script>
+    <!-- // load bootstrap javascript -->
+    <script src="template/default/assets/js/bootstrap.min.js"></script>
+    <!-- // load vegas javascript -->
+    <script src="template/default/assets/plugin/vegas/vegas.min.js"></script>
+    <script src="/opac/js/toastr/toastr.min.js"></script>
+    <!-- // load SLiMS javascript -->
+    <script src="/opac/js/colorbox/jquery.colorbox-min.js"></script>
+    <script src="/opac/js/gui.js"></script>
+    <script src="/opac/js/fancywebsocket.js"></script>
+
+</head>
+<body class="bg-grey-lightest">
+<div class="vegas-slide" style="position: fixed; z-index: -1"></div>
+<div class="flex h-screen w-full" id="visitor-counter" style="background: rgba(0,0,0,0.3)">
+    <div class="bg-white w-full md:w-1/3 px-8 pt-8 pb-3 flex flex-col justify-between">
+        <div>
+            <h3 class="font-light mb-2">Welcome to Perpustakaan Akper Fatmawati</h3>
+            <p class="lead">
+                Please, fill your data into our visitor log.
+            </p>
+
+            <div v-if="textInfo !== ''" class="rounded p-2 mt-4 bg-blue-lighter text-blue-darker md:hidden">{{textInfo}}</div>
+
+            <form class="mt-4" @submit.prevent="onSubmit">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Member ID</label>
+                    <input v-model="memberId" ref="memberId" autofocus type="text" class="form-control" id="exampleInputEmail1"
+                           aria-describedby="emailHelp" placeholder="Enter your member ID">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Institution</label>
+                    <input v-model="institution" type="text" class="form-control" id="exampleInputPassword1"
+                           placeholder="Enter your institution">
+                    <small id="emailHelp" class="form-text text-muted">Enough fill your member ID if you are member
+                        of Perpustakaan Akper Fatmawati</small>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Check In</button>
+            </form>
+        </div>
+        <div class="text-right">
+            <small class="text-grey-dark">Powered by <code>SLiMS</code></small>
+        </div>
+    </div>
+    <div class="flex-1 hidden md:block">
+        <div class="h-screen">
+            <div v-show="textInfo !== ''" class="flex items-center h-screen p-8">
+                <div class="w-32">
+                    <div class="w-32 h-32 bg-white rounded-full border-white border-4 shadow">
+                        <img :src="image" alt="image" class="rounded-full" @error="onImageError">
+                    </div>
+                </div>
+                <div class="px-8">
+                    <h3 class="font-light text-white mb-2">{{textInfo}}</h3>
+                    </p>
+                </div>
+            </div>
+            <div class="flex h-screen items-end p-8">
+                <blockquote class="blockquote" v-show="textInfo === ''">
+                    <p class="text-white">{{quotes.content}}</p>
+                    <footer class="blockquote-footer text-grey-light">{{quotes.author}}</footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="template/default/assets/js/axios.min.js"></script>
+<script>
+    new Vue({
+        el: '#visitor-counter',
+        data() {
+            return {
+                memberId: '',
+                institution: '',
+                textInfo: '',
+                image: './images/persons/photo.png',
+                quotes: {},
+                timeout: null
+            }
+        },
+        mounted() {
+            this.$refs.memberId.focus()
+            this.getQuotes()
+        },
+        methods: {
+            onImageError: function() {
+                this.image = './images/persons/photo.png'
+            },
+            getQuotes: function() {
+                axios.get('https://api.quotable.io/random')
+                    .then(res => {
+                        this.quotes = res.data
+                    })
+                    .catch(() => {
+                        this.quotes = {
+                            content: "Sing penting madhiang.",
+                            author: "Pai-Jo"
+                        }
+                    })
+                    .finally(() => {
+                        this.textInfo = ''
+                    })
+            },
+            onSubmit: function() {
+                if (this.memberId === '') {
+                    this.resetForm()
+                    return
+                }
+                let url = 'index.php?p=visitor'
+                let data = new FormData()
+                data.append('memberID', this.memberId)
+                data.append('institution', this.institution)
+                data.append('counter', 1)
+
+                axios({
+                    url: url,
+                    method: 'post',
+                    data: data,
+                    headers: {'Content-Type': 'multipart/form-data' }
+                })
+                    .then(res => {
+                        this.textInfo = res.data
+                        this.image = `./images/persons/member_${this.memberId}.jpg`
+                        this.textToSpeech(this.textInfo)
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+                    .finally(() => {
+                        this.resetForm()
+                        clearTimeout(this.timeout)
+                        this.timeout = setTimeout(() => {
+                            this.getQuotes()
+                        }, 5000)
+                    })
+            },
+            resetForm: function () {
+                this.memberId = ''
+                this.institution = ''
+                this.$refs.memberId.focus()
+            },
+            textToSpeech: function(message) {
+                var message = new SpeechSynthesisUtterance(message);
+                var voices = speechSynthesis.getVoices();
+                // console.log(message);
+                message['volume'] = 1;
+                message['rate'] = 1;
+                message['pitch'] = 1;
+                message['lang'] = 'id-ID';
+                message['voice'] = null;
+                speechSynthesis.cancel();
+                speechSynthesis.speak(message);
+            }
+        }
+    })
+</script><div style="display: none !important;">
+<input type="text" id="text_voice" value=""></input>
+<button type="button" id="speak">Speak</button>
+</div>
+
+<script type="text/javascript">
+$(document).ready( function() {
+  var success_text = 'Welcome to our library.';
+  var empty_text = 'Please fill your member ID or name.';
+  var error_text = 'Error while inserting counter data to database.';
+  // give focus to first field
+  $('#memberID').focus();
+  var visitorCounterForm = $('#visitorCounterForm');
+  var defaultMsg = $('#counterInfo').html();
+  // register event
+  visitorCounterForm.on('submit', function(e) {
+    e.preventDefault();
+    // check member ID or name
+    if ($.trim($('#memberID').val()) == '') {
+      $('#counterInfo').html(error_text);
+      return false;
+    }
+    var theForm     = $(this);
+    var formAction  = theForm.attr('action');
+    var formData    = theForm.serialize();
+    formData       += '&counter=true';
+    // block the form
+    theForm.disableForm();
+    $('#counterInfo').html('Please Wait ...');
+    // create AJAX request for submitting form
+    $.ajax({ url: formAction,
+          type: 'POST',
+          async: false,
+          data: formData,
+          cache: false,
+          success: function(respond) {
+            $('#counterInfo').html(respond);
+            $('#text_voice').val(success_text + respond); 
+            // reset counter
+            setTimeout(function() { 
+              $('#speak').trigger('click');
+              $('#visitorCounterPhoto').attr('src', './images/persons/photo.png');
+              $('#counterInfo').html(defaultMsg); 
+              visitorCounterForm.enableForm().find('input[type=text]').val('');
+              $('#memberID').focus();
+            }, 1000);
+          },
+          complete: function() {
+            $(this).enableForm().find('input[type=text]').val('');
+            var memberImage = $('#memberImage');
+            if (memberImage) {
+              // update visitor photo
+              var imageSRC = memberImage.data("img");
+              $('#visitorCounterPhoto').attr('src', imageSRC);
+            }
+            $('#memberID').focus();            
+          },
+          error: function(){
+            // alert('Error inserting counter data to database!');
+            $('#text_voice').val(error_text);            
+            $(this).enableForm().find('input[type=text]').val('');
+            $('#memberID').focus();
+          }
+      });
+  });
+
+});
+
+$("#speak").on("click", function () {
+    var message = new SpeechSynthesisUtterance($("#text_voice").val());
+    var voices = speechSynthesis.getVoices();
+    // console.log(message);
+    message['volume'] = 1;
+    message['rate'] = 1;
+    message['pitch'] = 1;
+    message['lang'] = 'hi-IN';
+    message['voice'] = voices[1];
+    speechSynthesis.cancel();
+    speechSynthesis.speak(message);
+});
+
+</script>
+
+
+<script>
+  $('.c-header, .vegas-slide').vegas({
+        delay: 5000,
+        timer: false,
+        transition: 'blur',
+        animation: 'none',
+        slides: [
+            { src: "template/default/assets/images/slide1.jpg" },
+            { src: "template/default/assets/images/slide2.jpg" },
+            { src: "template/default/assets/images/slide3.jpg" },
+            { src: "template/default/assets/images/slide4.jpg" }
+        ]
+    });
+</script>
+</body></html>

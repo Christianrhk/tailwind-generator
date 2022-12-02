@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Heimbakakak</title>
+		<link
+			href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<link href="nouislider.min.css" rel="stylesheet" />
+		<link href="main.css" rel="stylesheet" />
+	</head>
+	<body>
+		<svg class="absolute hidden">
+			<defs>
+				<symbol id="klokke" viewBox="0 0 15 15">
+					<path
+						d="M9.5,17a7.226,7.226,0,0,1-5.3-2.2A7.226,7.226,0,0,1,2,9.5,7.226,7.226,0,0,1,4.2,4.2,7.226,7.226,0,0,1,9.5,2a7.226,7.226,0,0,1,5.3,2.2A7.226,7.226,0,0,1,17,9.5a7.226,7.226,0,0,1-2.2,5.3A7.226,7.226,0,0,1,9.5,17Zm0-1.5a5.781,5.781,0,0,0,4.243-1.757A5.781,5.781,0,0,0,15.5,9.5a5.781,5.781,0,0,0-1.757-4.243A5.781,5.781,0,0,0,9.5,3.5,5.781,5.781,0,0,0,5.257,5.257,5.781,5.781,0,0,0,3.5,9.5a5.781,5.781,0,0,0,1.757,4.243A5.781,5.781,0,0,0,9.5,15.5Zm.75-6.307,1.9,1.9a.753.753,0,1,1-1.065,1.065l-2.115-2.13A.723.723,0,0,1,8.75,9.5v-3a.75.75,0,0,1,1.5,0Z"
+						transform="translate(-2 -2)"
+					/>
+				</symbol>
+				<symbol id="smile" viewBox="0 0 15 15">
+					<path
+						d="M9.5,17a7.226,7.226,0,0,1-5.3-2.2A7.226,7.226,0,0,1,2,9.5,7.226,7.226,0,0,1,4.2,4.2,7.226,7.226,0,0,1,9.5,2a7.226,7.226,0,0,1,5.3,2.2A7.226,7.226,0,0,1,17,9.5a7.226,7.226,0,0,1-2.2,5.3A7.226,7.226,0,0,1,9.5,17Zm0-1.5a5.781,5.781,0,0,0,4.243-1.757A5.781,5.781,0,0,0,15.5,9.5a5.781,5.781,0,0,0-1.757-4.243A5.781,5.781,0,0,0,9.5,3.5,5.781,5.781,0,0,0,5.257,5.257,5.781,5.781,0,0,0,3.5,9.5a5.781,5.781,0,0,0,1.757,4.243A5.781,5.781,0,0,0,9.5,15.5ZM6.845,12.155a.666.666,0,0,1,0-1.065.666.666,0,0,1,1.065,0,1.989,1.989,0,0,0,3.18,0,.666.666,0,0,1,1.065,0,.666.666,0,0,1,0,1.065,3.613,3.613,0,0,1-2.655,1.1A3.613,3.613,0,0,1,6.845,12.155Zm.405-3.4A.663.663,0,0,1,6.5,8a.663.663,0,0,1,.75-.75A.663.663,0,0,1,8,8,.663.663,0,0,1,7.25,8.75Zm4.5,0A.663.663,0,0,1,11,8a.663.663,0,0,1,.75-.75A.663.663,0,0,1,12.5,8,.663.663,0,0,1,11.75,8.75Z"
+						transform="translate(-2 -2)"
+					/>
+				</symbol>
+				<symbol id="comment" viewBox="0 0 15 13.499">
+					<g transform="translate(-2 -3)">
+						<path
+							d="M2,12V4.5A1.5,1.5,0,0,1,3.5,3h12A1.326,1.326,0,0,1,17,4.5V15.75a.75.75,0,0,1-1.275.525L12.935,13.5H3.5A1.326,1.326,0,0,1,2,12ZM15.5,4.5H3.5V12h9.75a.723.723,0,0,1,.525.225L15.5,13.943Z"
+							transform="translate(0)"
+						/>
+					</g>
+				</symbol>
+				<symbol id="liste" viewBox="0 0 15 11.667">
+					<g transform="translate(-620.695 -196)">
+						<path
+							d="M7.833,5h8.333A.737.737,0,0,1,17,5.833a.737.737,0,0,1-.833.833H7.833A.737.737,0,0,1,7,5.833.737.737,0,0,1,7.833,5Zm0,5h9.333a.737.737,0,0,1,.833.833.737.737,0,0,1-.833.833H7.833A.737.737,0,0,1,7,10.833.737.737,0,0,1,7.833,10Zm0,5h7.333a.737.737,0,0,1,.833.833.737.737,0,0,1-.833.833H7.833A.737.737,0,0,1,7,15.833.737.737,0,0,1,7.833,15Z"
+							transform="translate(617.695 191)"
+						/>
+						<path
+							d="M3.833,5h.333A.737.737,0,0,1,5,5.833a.737.737,0,0,1-.833.833H3.833A.737.737,0,0,1,3,5.833.737.737,0,0,1,3.833,5Zm0,5h.333A.737.737,0,0,1,5,10.833a.737.737,0,0,1-.833.833H3.833A.737.737,0,0,1,3,10.833.737.737,0,0,1,3.833,10Zm0,5h.333A.737.737,0,0,1,5,15.833a.737.737,0,0,1-.833.833H3.833A.737.737,0,0,1,3,15.833.737.737,0,0,1,3.833,15Z"
+							transform="translate(617.695 191)"
+						/>
+					</g>
+				</symbol>
+			</defs>
+		</svg>
+		<div id="app" class="max-w-5xl mx-auto relative">
+			<div class="md:flex items-start">
+				<aside
+					class="
+						md:w-1/3
+						py-20
+						px-5
+						md:sticky
+						top-0
+						md:h-screen md:overflow-y-scroll
+						text-white
+					"
+					style="background: #1b263f"
+				>
+					<h1 class="font-serif text-4xl pt-px font-light md:hidden">
+						{{ entry.title }}
+					</h1>
+					<div class="flex justify-between">
+						<div class="flex flex-wrap">
+							<span class="w-full">Antall voksne</span>
+							<button
+								type="button"
+								class="
+									bg-blue-100
+									text-black
+									font-serif
+									text-3xl
+									w-9
+									rounded-l-full
+								"
+								@click="voksne = Math.max(voksne - 1, 0)"
+							>
+								-
+							</button>
+							<input
+								v-model="voksne"
+								class="text-xl w-9 text-black text-center"
+							/>
+							<button
+								type="button"
+								class="
+									bg-blue-100
+									text-black
+									font-serif
+									text-3xl
+									w-9
+									rounded-r-full
+								"
+								@click="voksne = Math.min(voksne + 1, 99)"
+							>
+								+
+							</button>
+						</div>
+						<div class="flex flex-wrap">
+							<span class="w-full">Antall barn</span>
+							<button
+								type="button"
+								class="
+									bg-blue-100
+									text-black
+									font-serif
+									text-3xl
+									w-9
+									rounded-l-full
+								"
+								@click="barn = Math.max(barn - 1, 0)"
+							>
+								-
+							</button>
+							<input
+								v-model="barn"
+								class="text-xl w-9 text-black text-center"
+							/>
+							<button
+								type="button"
+								class="
+									bg-blue-100
+									text-black
+									font-serif
+									text-3xl
+									w-9
+									rounded-r-full
+								"
+								@click="barn = Math.min(barn + 1, 99)"
+							>
+								+
+							</button>
+						</div>
+					</div>
+					<div class="my-8">
+						<span class="block mb-3"
+							>Hvor sulten er {{ voksne + barn === 1 ? 'du' :
+							'dere' }}?</span
+						>
+						<div class="range"></div>
+						<div
+							class="
+								inline-block
+								mt-4
+								bg-red-500
+								rounded-md
+								px-2
+								py-1
+								transition-all
+								duration-300
+							"
+							:class="sultFarger[sult + 3]"
+						>
+							{{ sultTekst }}
+						</div>
+					</div>
+					<ul
+						v-for="(gruppe, i) in entry.grupper"
+						:key="`gruppe-${gruppe.id}`"
+						class="mb-2 flex flex-col items-start"
+					>
+						<li
+							v-if="gruppe.gruppenavn"
+							class="
+								text-xl
+								font-serif
+								py-px
+								pl-3
+								mb-2
+								mt-8
+								font-bold
+								tracking-wide
+							"
+						>
+							{{ gruppe.gruppenavn }}
+						</li>
+						<li
+							v-for="ing in gruppe.ingredienser"
+							:key="`ing-${ing.id}`"
+							v-html="ingTekst(ing)"
+							:data-id="`${gruppe.id}-${ing.id}`"
+							class="
+								py-px
+								px-4
+								hover:text-black
+								border-l-4
+								rounded-r-md
+							"
+							:class="`hover:bg-${groupColors[i]} border-${groupColors[i]}`"
+						></li>
+					</ul>
+				</aside>
+				<article class="md:w-2/3 pb-8 px-4 md:pl-12">
+					<picture class="-mx-4 block md:-ml-12 mb-8">
+						<img src="img/bæssmor.jpg" alt="Ho bæssmor" />
+					</picture>
+					<h2 class="text-lg">{{ entry.origin }}</h2>
+					<h1
+						class="
+							font-serif font-bold
+							hidden
+							md:block
+							text-3xl
+							pt-px
+							font-light
+						"
+						style="color: #1b263f"
+					>
+						{{ entry.title }}
+					</h1>
+
+					<div class="flex mt-4">
+						<span class="bg-purple-200 rounded-full px-3 py-1">
+							<svg
+								class="
+									w-4
+									h-4
+									inline-block
+									align-middle
+									-mt-1
+									mr-1
+								"
+							>
+								<use xlink:href="#klokke"></use>
+							</svg>
+							{{ prettyDuration }}
+						</span>
+						<span
+							v-for="tag in entry.tags"
+							:key="`tag-${tag}`"
+							class="bg-purple-200 rounded-full px-3 py-1 ml-2"
+						>
+							<svg
+								class="
+									w-4
+									h-4
+									inline-block
+									align-middle
+									-mt-1
+									mr-1
+								"
+							>
+								<use xlink:href="#smile"></use>
+							</svg>
+							{{ tag }}
+						</span>
+					</div>
+					<p class="text-lg mt-5">{{ entry.ingress }}</p>
+					<div
+						v-if="allPreps.length"
+						class="mb-8 mt-8 bg-green-50 rounded-md p-4"
+					>
+						<h2 class="text-2xl mb-2 font-serif">Prep!</h2>
+						<ul class="flex flex-wrap">
+							<li
+								v-for="(ing, i) in allPreps"
+								:key="`prep-${i}`"
+								v-html="ing"
+								class="w-1/2"
+							></li>
+						</ul>
+					</div>
+					<span class="block mt-8 mb-2">Oppskriftsvisning:</span>
+					<div class="mb-8 flex items-start">
+						<button
+							type="button"
+							class="px-3 py-1 flex items-center rounded-full"
+							:class="visning === 'vanlig' ? 'bg-blue-900 text-white' : 'bg-gray-300'"
+							@click="visning = 'vanlig'"
+						>
+							<svg class="w-4 h-4 mr-2 fill-current">
+								<use xlink:href="#liste"></use>
+							</svg>
+							Liste
+						</button>
+						<button
+							type="button"
+							class="
+								px-3
+								py-1
+								flex
+								items-center
+								mx-2
+								rounded-full
+							"
+							:class="visning === 'timeline' ? 'bg-blue-900 text-white' : 'bg-gray-300'"
+							@click="visning = 'timeline'"
+						>
+							<svg class="w-4 h-4 mr-2 fill-current">
+								<use xlink:href="#klokke"></use>
+							</svg>
+							Tidslinje
+						</button>
+						<button
+							type="button"
+							class="
+								px-3
+								py-1
+								ml-2
+								flex
+								items-center
+								rounded-full
+								md:hidden
+							"
+							:class="visning === 'steg' ? 'bg-blue-900 text-white' : 'bg-gray-300'"
+							@click="visning = 'steg'"
+						>
+							Stegvis
+						</button>
+						<button
+							v-if="visning ===  'timeline'"
+							class="bg-green-300 px-4 py-2 rounded-full ml-auto"
+							@click="toggleTimer"
+						>
+							{{ timer.isRunning ? 'Stopp' : 'Start' }} timer
+						</button>
+					</div>
+					<template v-if="visning === 'vanlig'">
+						<div
+							v-for="(steg, i) in parsedSteg"
+							:key="`how-${i}`"
+							class="mb-4"
+							:class="[
+                            steg.hint
+                                ? 'bg-gray-200 p-4 rounded-md'
+                                : `pl-2 border-l-4 border-${groupColors[steg.ingrediensgruppe]}`,
+                            steg.done
+                                ? `bg-${
+                                      groupColors[steg.ingrediensgruppe]
+                                  } text-gray-700 max-h-6 overflow-hidden`
+                                : 'text-black'
+                        ]"
+							@click="steg.done = !steg.hint && !steg.done"
+						>
+							<span v-if="!steg.hint" class="font-bold">
+								{{ steg.num }}:
+							</span>
+							<span v-else class="font-bold">i:</span>
+							<div
+								v-html="steg.tekst"
+								class="inline leading-relaxed"
+							></div>
+						</div>
+					</template>
+					<template v-else-if="visning === 'timeline'">
+						<div class="css--timeline">
+							<div
+								v-if="timer.isRunning"
+								class="
+									pt-px
+									bg-green-300
+									w-full
+									absolute
+									left-0
+									z-40
+								"
+								:style="`top:${timer.seconds * (16/60)}px`"
+							>
+								<span
+									class="
+										absolute
+										left-full
+										bg-green-300
+										-mt-4
+										ml-1
+										whitespace-nowrap
+										rounded-full
+										px-3
+										py-1
+										tabular-nums
+									"
+								>
+									{{ prettyTime(timer.seconds) }}
+								</span>
+							</div>
+							<div
+								v-for="steg in parsedSteg"
+								:class="`pt-1 ml-${steg.left} pl-4 leading-8 absolute left-0 ${steg.hint ? 'bg-green-100 rounded-lg' : ''}`"
+								:style="`top: ${steg.top * 32}px`"
+							>
+								<div
+									:class="`absolute top-0 left-0 border-l-4 border-${groupColors[steg.ingrediensgruppe]}`"
+									:style="`height:${steg.varighet * 32 - 4}px`"
+								></div>
+								<strong v-if="steg.hint" class="font-bold">
+									Hint:
+								</strong>
+								<span
+									v-else
+									class="
+										css--steg
+										absolute
+										top-0
+										right-full
+										text-lg
+										font-bold
+										-mr-1
+										px-2
+										py-1
+										rounded-tl-lg rounded-bl-lg
+										border-4 border-r-0
+										bg-white
+									"
+									:class="`border-${groupColors[steg.ingrediensgruppe]}`"
+								>
+									{{ steg.num }}
+								</span>
+								<div v-html="steg.tekst" class="inline"></div>
+							</div>
+							<div
+								v-for="(x,i) in 20"
+								:key="`timeline-${i}`"
+								class="
+									absolute
+									left-full
+									-mt-4
+									ml-1
+									whitespace-nowrap
+									bg-gray-200
+									rounded-full
+									px-3
+									py-1
+								"
+								:style="`top:${i*320}px`"
+							>
+								{{ minuteCounter(i) }}
+							</div>
+						</div>
+					</template>
+					<template v-else>
+						<div class="fixed inset-0">
+							<button
+								class="
+									absolute
+									top-0
+									right-0
+									m-4
+									bg-red-300
+									px-2
+									py-1
+									z-20
+								"
+								@click="visning = 'vanlig'"
+							>
+								Lukk
+							</button>
+							<div
+								v-for="(steg, i) in parsedSteg"
+								:key="`step-by-step-${i}`"
+								class="absolute h-screen bg-white pt-20 px-8"
+								:class="[
+									steg.hint ? 'bg-gray-200 p-4' : `border-l-4 border-${groupColors[steg.ingrediensgruppe]}`,
+									currentSteg === i ? 'z-10' : ''
+								]"
+							>
+								<ul
+									v-if="steg.ingredienser.length"
+									class="mb-8"
+								>
+									<li class="text-xl mb-2">
+										Ingredienser for dette steget
+									</li>
+									<li
+										v-for="ing in steg.ingredienser"
+										v-html="ing"
+									></li>
+								</ul>
+								<span v-if="!steg.hint" class="font-bold">
+									{{ steg.num }}:
+								</span>
+								<span v-else class="font-bold">i:</span>
+								<div v-html="steg.tekst" class="inline"></div>
+								<span class="absolute top-0 left-0 ml-8 mt-12">
+									<svg
+										class="
+											w-4
+											h-4
+											inline-block
+											align-middle
+											-mt-px
+										"
+										enable-background="new 0 0 443.294 443.294"
+										viewBox="0 0 443.294 443.294"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="m221.647 0c-122.214 0-221.647 99.433-221.647 221.647s99.433 221.647 221.647 221.647 221.647-99.433 221.647-221.647-99.433-221.647-221.647-221.647zm0 415.588c-106.941 0-193.941-87-193.941-193.941s87-193.941 193.941-193.941 193.941 87 193.941 193.941-87 193.941-193.941 193.941z"
+										/>
+										<path
+											d="m235.5 83.118h-27.706v144.265l87.176 87.176 19.589-19.589-79.059-79.059z"
+										/>
+									</svg>
+									{{ steg.varighet }} min.
+								</span>
+							</div>
+							<button
+								class="
+									absolute
+									top-1/2
+									-mt-2
+									left-0
+									bg-white
+									z-20
+									rounded-full
+									h-6
+									w-6
+									border border-black
+									mx-2
+									leading-none
+								"
+								:disabled="currentSteg === 0"
+								@click="currentSteg--"
+							>
+								&larr;
+							</button>
+							<button
+								class="
+									absolute
+									top-1/2
+									-mt-2
+									right-0
+									bg-white
+									z-20
+									rounded-full
+									h-6
+									w-6
+									border border-black
+									mx-2
+									leading-none
+								"
+								:disabled="currentSteg === parsedSteg.length - 1"
+								@click="currentSteg++"
+							>
+								&rarr;
+							</button>
+						</div>
+					</template>
+				</article>
+			</div>
+			<div
+				ref="popup"
+				v-html="popupHtml"
+				class="
+					fixed
+					bg-gray-900
+					max-w-sm
+					rounded-md
+					text-white
+					border border-white
+					p-4
+					whitespace-no-wrap
+					mt-5
+					transform
+					-translate-x-1/2
+				"
+				:class="{ hidden: !showPopup }"
+			></div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+		<script src="nouislider.min.js"></script>
+		<script src="entry.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>

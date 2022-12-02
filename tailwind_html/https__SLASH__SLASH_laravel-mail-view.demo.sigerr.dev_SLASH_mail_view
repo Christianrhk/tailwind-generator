@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://unpkg.com/tailwindcss@1.9.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.1/dist/alpine.min.js" defer></script>
+
+            <meta name="description" content="Demo site to preview Laravel Mailable and Notifications">
+
+<meta property="og:site_name" content="Laravel Mail View - Admin panel for Mailables">
+<meta property="og:locale" content="en_US">
+<meta property="og:description" content="Nice admin panel to preview Mailables and notifications from your Laravel app.">
+<meta property="og:url" content="https://laravel-mail-view.demo.sigerr.dev/mail_view">
+<meta property="og:image" content="https://laravel-mail-view.demo.sigerr.dev/mail-view/linkedin_banner_image_1.png"/>
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@julienbourdeau" />
+
+<title>Laravel Mail View - Admin panel for Mailables</title>
+    
+    <title>[MailView] </title>
+</head>
+<body class="font-sans leading-none text-gray-900 antialiased bg-gray-100">
+
+    <div class="px-20 mt-10">
+
+        
+    <div class="flex justify-between max-w-6xl">
+        <h1 class="text-4xl font-bold mb-12">Mailable Preview</h1>
+        <div id="page-actions">
+            <a href="https://laravel-mail-view.demo.sigerr.dev/mail_view/send-all" class="block mt-1 py-2 px-3 bg-white text-gray-700 uppercase text-sm font-semibold shadow rounded border hover:border-gray-700">Send all</a>
+        </div>
+    </div>
+
+    
+            <h2 class="text-2xl mb-6">User</h2>
+
+        <div class="bg-white mb-12 rounded shadow overflow-x-auto max-w-6xl">
+            <table class="w-full whitespace-no-wrap">
+                <tr class="text-left font-bold">
+                    <th class="p-6 w-12">#</th>
+                    <th class="px-6 pt-6 pb-4">Preview</th>
+                    <th class="p-6 w-12">&nbsp;</th>
+                </tr>
+                                    <tr class="hover:bg-grey-lightest focus-within:bg-grey-lightest">
+                        <td class="border-t">
+                            <div class="px-6 py-4 flex items-center focus:text-indigo">
+                                1
+                            </div>
+                        </td>
+                        <td class="border-t">
+                            <a href="https://laravel-mail-view.demo.sigerr.dev/mail_view/UserPreview/userCompletedOnboarding">
+                                <div class="px-6 py-4 flex flex-col leading-relaxed outline-0" tabindex="-1">
+                                    <strong>User Completed Onboarding</strong>
+                                    <small>Email sent after the user complete all the onboarding steps</small>
+                                </div>
+                            </a>
+                        </td>
+                        <td class="border-t">
+                            <div class="px-6 py-4 flex items-center focus:text-indigo">
+                                <a href="https://laravel-mail-view.demo.sigerr.dev/mail_view/UserPreview/userCompletedOnboarding/send" class="py-2 px-3 text-gray-700 uppercase text-sm font-semibold  hover:text-gray-900">Send</a>
+                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="hover:bg-grey-lightest focus-within:bg-grey-lightest">
+                        <td class="border-t">
+                            <div class="px-6 py-4 flex items-center focus:text-indigo">
+                                2
+                            </div>
+                        </td>
+                        <td class="border-t">
+                            <a href="https://laravel-mail-view.demo.sigerr.dev/mail_view/UserPreview/userHasLoginFromDifferentCountry">
+                                <div class="px-6 py-4 flex flex-col leading-relaxed outline-0" tabindex="-1">
+                                    <strong>User Has Login From Different Country</strong>
+                                    <small>When a user login from a different country, we send him an email in case his account was hacked</small>
+                                </div>
+                            </a>
+                        </td>
+                        <td class="border-t">
+                            <div class="px-6 py-4 flex items-center focus:text-indigo">
+                                <a href="https://laravel-mail-view.demo.sigerr.dev/mail_view/UserPreview/userHasLoginFromDifferentCountry/send" class="py-2 px-3 text-gray-700 uppercase text-sm font-semibold  hover:text-gray-900">Send</a>
+                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="hover:bg-grey-lightest focus-within:bg-grey-lightest">
+                        <td class="border-t">
+                            <div class="px-6 py-4 flex items-center focus:text-indigo">
+                                3
+                            </div>
+                        </td>
+                        <td class="border-t">
+                            <a href="https://laravel-mail-view.demo.sigerr.dev/mail_view/UserPreview/inactiveAccount">
+                                <div class="px-6 py-4 flex flex-col leading-relaxed outline-0" tabindex="-1">
+                                    <strong>Inactive Account</strong>
+                                    <small>User hasn&#039;t logged in in a year</small>
+                                </div>
+                            </a>
+                        </td>
+                        <td class="border-t">
+                            <div class="px-6 py-4 flex items-center focus:text-indigo">
+                                <a href="https://laravel-mail-view.demo.sigerr.dev/mail_view/UserPreview/inactiveAccount/send" class="py-2 px-3 text-gray-700 uppercase text-sm font-semibold  hover:text-gray-900">Send</a>
+                            </div>
+                        </td>
+                    </tr>
+                            </table>
+        </div>
+
+    
+
+
+    </div>
+
+    <div class="text-center text-gray-500 mt-20 mb-12">
+        <span class="text-gray-600">Laravel MailView</span>
+        <span class="px-2">&#10045;</span>
+        <a class="hover:underline" href="https://www.github.com/julienbourdeau/laravel-mail-view">GitHub</a>
+        <span class="px-2">&#10045;</span>
+        <a class="hover:underline" href="https://www.sigerr.org/docs/laravel-mail-view">Docs</a>
+        <span class="px-2">&#10045;</span>
+        <a class="hover:underline" href="https://www.sigerr.org" title="Julien Bourdeau">Author</a>
+    </div>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+<script src="https://hornet.sigerr.dev/script.js" data-site="CMAHFIKX" defer></script>
+<!-- / Fathom -->
+    </body>
+</html>

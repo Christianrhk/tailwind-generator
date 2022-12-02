@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css" />
+  </head>
+  <body class="py-4 px-4">
+    <div class="grid grid-cols-2">
+      <div class="col-span-2 md:col-span-1 h-64 md:h-full">
+        <div id="map"></div>
+
+        
+        <div class="mt-2">
+          <select name="country" id="country" class="py-2 px-4 w-full bg-white border rounded-lg focus:outline-none focus:ring">
+            
+          </select>
+        </div>
+      </div>
+      <div class="col-span-2 md:col-span-1">
+        <div class="grid grid-cols-1 text-white">
+          <div id="header" class="states py-4 px-4 md:px-8 overflow-x-auto uppercase text-white" style="background:#168DC7">
+          
+          </div>
+          <div class="overflow-scroll h-48 md:h-96 relative" style="background:#1795d3">
+            <div class="page grid grid-cols-5" id="location-listings">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script src="./lodash.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="./app.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ3YxI7wzaUqUbvzBJPwb2ZjutZOqAcCg&callback=initMap&v=weekly&libraries=geometry"
+    ></script>
+  </body>
+</html>

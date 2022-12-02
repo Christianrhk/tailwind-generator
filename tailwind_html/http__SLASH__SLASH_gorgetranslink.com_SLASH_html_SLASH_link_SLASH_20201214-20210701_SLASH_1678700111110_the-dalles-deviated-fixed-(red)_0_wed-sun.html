@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/timetable_styles.css">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlaG9sem1hbiIsImEiOiJjazA1cHc0bGwyc25zM29xZGptdnJ3N2FlIn0.c6NVNxyMLyAONXtQtpUjyg';
+  </script>
+  <script src="../js/timetable-map.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Timetable generated on Wed Jun 30 2021 09:13:30 GMT-0700 (Pacific Daylight Time) using GTFS-to-HTML version 2.0.3 -->
+  <div class="timetable-page menu-type-simple">
+    <div class="container mx-4 md:mx-auto">
+      <h1 class="timetable-page-label text-2xl pt-4 flex items-center">
+        <div class="route-color-swatch-large mr-2 flex-none" style="background-color: #ff0000; color: #ffffff"></div>
+        <div>Route The Dalles Deviated Fixed (Red)</div>
+      </h1>
+      <div class="effective-date text-gray-600 mb-2">Effective May 26, 2021</div>
+      <div class="timetable mb-5" id="timetable_id_1678700111110" data-day-list="Wed-Sun" data-timetable-id="16787|0011111|0" data-direction-id="0" data-route-id="16787">
+        <h2 class="text-xl">Route The Dalles Deviated Fixed (Red) - LINK Transit Center - The Dalles to 201 Federal Street | wednesday-sunday</h2>
+        <div class="service-notes"></div>
+        <div class="map" id="map_timetable_id_1678700111110"></div>
+        <script>
+          (function() {
+            const id = 'timetable_id_1678700111110';
+            const geojson = {
+              "type": "FeatureCollection",
+              "features": [{
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "The LINK",
+                  "route_id": "16787",
+                  "agency_id": "1491",
+                  "route_long_name": "The Dalles Deviated Fixed (Red)",
+                  "route_type": 3,
+                  "route_color": "#ff0000",
+                  "route_text_color": "#ffffff",
+                  "route_sort_order": 5,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.21769, 45.62558],
+                    [-121.21772, 45.62308],
+                    [-121.21349, 45.62309],
+                    [-121.21234, 45.62074],
+                    [-121.21095, 45.61803],
+                    [-121.20903, 45.61401],
+                    [-121.20881, 45.61366],
+                    [-121.20856, 45.61334],
+                    [-121.20762, 45.61218],
+                    [-121.20608, 45.61038],
+                    [-121.20568, 45.61057],
+                    [-121.20547, 45.61065],
+                    [-121.20524, 45.6107],
+                    [-121.20505, 45.6107],
+                    [-121.20483, 45.61064],
+                    [-121.20462, 45.61054],
+                    [-121.20415, 45.61024],
+                    [-121.20364, 45.60996],
+                    [-121.2029, 45.60943],
+                    [-121.20148, 45.60848],
+                    [-121.20092, 45.60817],
+                    [-121.2003, 45.60791],
+                    [-121.19968, 45.60768],
+                    [-121.19846, 45.60737],
+                    [-121.19532, 45.60698],
+                    [-121.19018, 45.6064],
+                    [-121.18889, 45.60621],
+                    [-121.18784, 45.60602],
+                    [-121.18715, 45.60581],
+                    [-121.18603, 45.60535],
+                    [-121.18472, 45.60474],
+                    [-121.18312, 45.60396],
+                    [-121.17983, 45.60243],
+                    [-121.17834, 45.60181],
+                    [-121.1776, 45.60153],
+                    [-121.17651, 45.60116],
+                    [-121.17539, 45.60082],
+                    [-121.17458, 45.6006],
+                    [-121.17337, 45.60031],
+                    [-121.17222, 45.60008],
+                    [-121.1711, 45.59988],
+                    [-121.16927, 45.59962],
+                    [-121.16769, 45.59948],
+                    [-121.16612, 45.5994],
+                    [-121.16466, 45.59938],
+                    [-121.16351, 45.5994],
+                    [-121.16237, 45.59945],
+                    [-121.16122, 45.59954],
+                    [-121.16022, 45.59964],
+                    [-121.15865, 45.59984],
+                    [-121.15704, 45.60008],
+                    [-121.14405, 45.60188],
+                    [-121.14111, 45.6021],
+                    [-121.13863, 45.60215],
+                    [-121.1382, 45.6039],
+                    [-121.1376, 45.60396],
+                    [-121.1366, 45.60412],
+                    [-121.1359, 45.60426],
+                    [-121.13524, 45.60443],
+                    [-121.13239, 45.60535],
+                    [-121.13082, 45.60598],
+                    [-121.1303, 45.60627],
+                    [-121.12985, 45.60657],
+                    [-121.12929, 45.607],
+                    [-121.12841, 45.60778],
+                    [-121.12784, 45.6082],
+                    [-121.12816, 45.6084],
+                    [-121.12807, 45.60849],
+                    [-121.12785, 45.60865],
+                    [-121.12769, 45.60855],
+                    [-121.12772, 45.6083],
+                    [-121.12841, 45.60778]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "The LINK",
+                  "route_id": "16787",
+                  "agency_id": "1491",
+                  "route_long_name": "The Dalles Deviated Fixed (Red)",
+                  "route_type": 3,
+                  "route_color": "#ff0000",
+                  "route_text_color": "#ffffff",
+                  "route_sort_order": 5,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.1382, 45.6039],
+                    [-121.13798, 45.60474],
+                    [-121.13901, 45.60486],
+                    [-121.13926, 45.60487],
+                    [-121.13929, 45.60515],
+                    [-121.13929, 45.60528],
+                    [-121.13908, 45.60526],
+                    [-121.13893, 45.60574],
+                    [-121.13885, 45.60581],
+                    [-121.13873, 45.60583],
+                    [-121.13868, 45.60581],
+                    [-121.13855, 45.60569],
+                    [-121.13867, 45.6052],
+                    [-121.13908, 45.60526]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "The LINK",
+                  "route_id": "16787",
+                  "agency_id": "1491",
+                  "route_long_name": "The Dalles Deviated Fixed (Red)",
+                  "route_type": 3,
+                  "route_color": "#ff0000",
+                  "route_text_color": "#ffffff",
+                  "route_sort_order": 5,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.13863, 45.60215],
+                    [-121.13925, 45.59983],
+                    [-121.13946, 45.59924],
+                    [-121.13969, 45.5988],
+                    [-121.13937, 45.59866],
+                    [-121.13908, 45.59848],
+                    [-121.13876, 45.59827],
+                    [-121.13852, 45.59813],
+                    [-121.1383, 45.59803],
+                    [-121.13687, 45.59766],
+                    [-121.13647, 45.59753],
+                    [-121.13609, 45.59734],
+                    [-121.13565, 45.59707],
+                    [-121.13467, 45.59625],
+                    [-121.13492, 45.59619],
+                    [-121.13501, 45.59619],
+                    [-121.13509, 45.59621],
+                    [-121.1352, 45.5963],
+                    [-121.13539, 45.59654],
+                    [-121.13551, 45.59665],
+                    [-121.13572, 45.5968],
+                    [-121.136, 45.59697],
+                    [-121.13685, 45.5974],
+                    [-121.13723, 45.59746],
+                    [-121.1376, 45.59745],
+                    [-121.13822, 45.59721],
+                    [-121.13879, 45.59705],
+                    [-121.1412, 45.5967],
+                    [-121.14193, 45.59676],
+                    [-121.14201, 45.59343],
+                    [-121.16251, 45.59342],
+                    [-121.16467, 45.59337],
+                    [-121.16623, 45.59302],
+                    [-121.1668, 45.59301],
+                    [-121.16685, 45.59163],
+                    [-121.16688, 45.59119],
+                    [-121.16667, 45.59119],
+                    [-121.16672, 45.59046],
+                    [-121.16579, 45.59045],
+                    [-121.16583, 45.58926],
+                    [-121.16578, 45.58785],
+                    [-121.16634, 45.58765],
+                    [-121.16631, 45.5874],
+                    [-121.16627, 45.58733],
+                    [-121.1662, 45.58729],
+                    [-121.16528, 45.58725],
+                    [-121.16527, 45.58744],
+                    [-121.16513, 45.58744],
+                    [-121.16506, 45.58748],
+                    [-121.16484, 45.58755],
+                    [-121.16486, 45.58762],
+                    [-121.16488, 45.58758],
+                    [-121.16499, 45.58759],
+                    [-121.16511, 45.58755],
+                    [-121.16506, 45.58746],
+                    [-121.16505, 45.58736],
+                    [-121.16576, 45.5874],
+                    [-121.16631, 45.5874],
+                    [-121.16633, 45.58756]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "The LINK",
+                  "route_id": "16787",
+                  "agency_id": "1491",
+                  "route_long_name": "The Dalles Deviated Fixed (Red)",
+                  "route_type": 3,
+                  "route_color": "#ff0000",
+                  "route_text_color": "#ffffff",
+                  "route_sort_order": 5,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.16578, 45.58785],
+                    [-121.16509, 45.58804],
+                    [-121.1646, 45.5881],
+                    [-121.16401, 45.58812],
+                    [-121.16401, 45.58905],
+                    [-121.16415, 45.58933],
+                    [-121.16459, 45.58967],
+                    [-121.16469, 45.58987],
+                    [-121.1647, 45.59116],
+                    [-121.16468, 45.59159],
+                    [-121.16468, 45.59265],
+                    [-121.16504, 45.59259],
+                    [-121.16573, 45.59239],
+                    [-121.16629, 45.59231],
+                    [-121.16682, 45.59229],
+                    [-121.1668, 45.59295],
+                    [-121.16681, 45.59385],
+                    [-121.16833, 45.59383],
+                    [-121.16977, 45.59376],
+                    [-121.17266, 45.59378],
+                    [-121.17342, 45.59394],
+                    [-121.18104, 45.59391],
+                    [-121.18105, 45.59521],
+                    [-121.18102, 45.59557],
+                    [-121.18071, 45.59587],
+                    [-121.18064, 45.59599],
+                    [-121.18064, 45.59705],
+                    [-121.18066, 45.5971],
+                    [-121.18069, 45.59716],
+                    [-121.18078, 45.59721],
+                    [-121.18209, 45.59761],
+                    [-121.1831, 45.59794],
+                    [-121.18321, 45.59803],
+                    [-121.18426, 45.59877],
+                    [-121.1843, 45.59886],
+                    [-121.18424, 45.59895],
+                    [-121.18375, 45.59946],
+                    [-121.18286, 45.60036],
+                    [-121.18195, 45.60131],
+                    [-121.18069, 45.60073],
+                    [-121.18036, 45.60111],
+                    [-121.1802, 45.60116],
+                    [-121.18013, 45.60124]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2430903",
+                  "stop_name": "LINK Transit Center - The Dalles",
+                  "zone_id": "73",
+                  "stop_url": "http://catransit.org/service-routes/",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "14113",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Blue)",
+                    "route_type": 3,
+                    "route_url": "https://www.mcedd.org/the-dalles-deviated-fixed-route/",
+                    "route_color": "#0948fe",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 4,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "16787",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Red)",
+                    "route_type": 3,
+                    "route_color": "#ff0000",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 5,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "3643",
+                    "agency_id": "37",
+                    "route_long_name": "Columbia Gorge Express",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/columbia-gorge-express/",
+                    "route_color": "#14aaed",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.21793, 45.62558]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2555693",
+                  "stop_name": "Mid-Columbia Medical Center",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "14113",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Blue)",
+                    "route_type": 3,
+                    "route_url": "https://www.mcedd.org/the-dalles-deviated-fixed-route/",
+                    "route_color": "#0948fe",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 4,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "16787",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Red)",
+                    "route_type": 3,
+                    "route_color": "#ff0000",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 5,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.16481, 45.58767]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2619408",
+                  "stop_name": "Seufert Park at Lone Pine",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "16787",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Red)",
+                    "route_type": 3,
+                    "route_color": "#ff0000",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 5,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.12767, 45.60827]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2619409",
+                  "stop_name": "Water’s Edge 551 NE Lone Pine Blvd",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "16787",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Red)",
+                    "route_type": 3,
+                    "route_color": "#ff0000",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 5,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.13873, 45.60583]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2619410",
+                  "stop_name": "4-Corners 12th St & Dry Hollow Rd",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "16787",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Red)",
+                    "route_type": 3,
+                    "route_color": "#ff0000",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 5,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.16694, 45.59279]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2619411",
+                  "stop_name": "Kelly Stop 1113 Kelly Ave",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "16787",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Red)",
+                    "route_type": 3,
+                    "route_color": "#ff0000",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 5,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.181, 45.5941]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "9468",
+                  "stop_name": "201 Federal Street",
+                  "zone_id": "73",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "14113",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Blue)",
+                    "route_type": 3,
+                    "route_url": "https://www.mcedd.org/the-dalles-deviated-fixed-route/",
+                    "route_color": "#0948fe",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 4,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "16787",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Red)",
+                    "route_type": 3,
+                    "route_color": "#ff0000",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 5,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.18021, 45.60128]
+                }
+              }]
+            };
+            createMap(id, geojson);
+          })();
+        </script>
+        <div class="table-container">
+          <table summary="This table shows schedules for a selection of key stops on the route for Route The Dalles Deviated Fixed (Red) - LINK Transit Center - The Dalles to 201 Federal Street Wed-Sun. Stops and their schedule times are listed in the columns." data-orientation="vertical">
+            <caption class="sr-only">Route The Dalles Deviated Fixed (Red) - LINK Transit Center - The Dalles to 201 Federal Street | Wed-Sun</caption>
+            <colgroup>
+              <col class="stop-0" id="stop_id_2430903" data-stop-id="2430903">
+              <col class="stop-1" id="stop_id_2619408" data-stop-id="2619408">
+              <col class="stop-2" id="stop_id_2619409" data-stop-id="2619409">
+              <col class="stop-3" id="stop_id_2619410" data-stop-id="2619410">
+              <col class="stop-4" id="stop_id_2555693" data-stop-id="2555693">
+              <col class="stop-5" id="stop_id_2619411" data-stop-id="2619411">
+              <col class="stop-6" id="stop_id_9468" data-stop-id="9468">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="city-column">The Dalles</th>
+                <th class="stop-header" scope="col" width="11.11%"><a class="stop-name" href="http://catransit.org/service-routes/">LINK Transit Center - The Dalles</a>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="11.11%">
+                  <div class="stop-name">Seufert Park at Lone Pine</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="11.11%">
+                  <div class="stop-name">Water’s Edge 551 NE Lone Pine Blvd</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="11.11%">
+                  <div class="stop-name">4-Corners 12th St &amp; Dry Hollow Rd</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="11.11%">
+                  <div class="stop-name">Mid-Columbia Medical Center</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="11.11%">
+                  <div class="stop-name">Kelly Stop 1113 Kelly Ave</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="city-column">Springfield</th>
+                <th class="stop-header" scope="col" width="11.11%">
+                  <div class="stop-name">201 Federal Street</div>
+                  <div class="stop-code"></div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="trip-row" id="trip_id_t_1270096_b_26831_tn_0">
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">7:00am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">7:10am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">7:15am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">7:27am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">7:35am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">7:45am</span></td>
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">7:55am</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1270097_b_26831_tn_0">
+                <td></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-16787|0011111|0-no-service">—</a></td>
+                <td class="stop-time am"><span class="stop-time-text">8:10am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:15am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:27am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:35am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:45am</span></td>
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">8:55am</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1270098_b_26831_tn_0">
+                <td></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-16787|0011111|0-no-service">—</a></td>
+                <td class="stop-time am"><span class="stop-time-text">9:25am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:30am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:42am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:50am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:00am</span></td>
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">10:10am</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1270105_b_26831_tn_0">
+                <td></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-16787|0011111|0-no-service">—</a></td>
+                <td class="stop-time am"><span class="stop-time-text">10:25am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:30am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:42am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:50am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:00am</span></td>
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">11:10am</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1270099_b_26831_tn_0">
+                <td></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-16787|0011111|0-no-service">—</a></td>
+                <td class="stop-time am"><span class="stop-time-text">11:25am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:30am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:42am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:50am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:00pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:10pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1270100_b_26831_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:20pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:25pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:42pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:50pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:00pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:10pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1270101_b_26831_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:20pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:25pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:42pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:50pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:00pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:10pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1270102_b_26831_tn_0">
+                <td></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-16787|0011111|0-no-service">—</a></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:40pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:57pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:05pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:15pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:25pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1270103_b_26831_tn_0">
+                <td></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-16787|0011111|0-no-service">—</a></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:40pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:57pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:05pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:15pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:25pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1270104_b_26831_tn_0">
+                <td></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-16787|0011111|0-no-service">—</a></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:40pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:57pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:05pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:15pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:25pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1270106_b_26831_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:40pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:50pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:55pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:07pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:15pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:25pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:35pm</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div class="notes">
+            <div class="note" id="note-16787|0011111|0-no-service">— = No service at this stop</div>
+          </div>
+          <div class="excluded-dates">Service not provided on: New Years Day, Martin Luther King Jr Day, Presidents Day, Memorial Day</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Spelling Test</title>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://www.free-english-games.com/css/app.css">
+    </head>
+    <body class="bg-gray-100">
+        <nav class="p-6 bg-white">
+            <div class=" flex justify-between">
+                <ul class="flex items-center">
+                    <li>
+                        <a href="https://free-english-games.com" class="p-3">Home</a>
+                    </li>
+                                    </ul>
+
+                <ul class="flex items-center">
+                                                                <li>
+                            <a href="https://free-english-games.com/login" class="p-3">Login</a>
+                        </li>
+                        <li>
+                            <a href="https://free-english-games.com/register" class="p-3">Register</a>
+                        </li>
+                                    </ul>
+            </div>
+        </nav>
+
+        <div class="text-center mt-2">
+                <h1 class="text-2xl font-semibold text-gray-900 sm:text-3xl">Spelling Tests</h1>
+        </div>
+
+        <div class="container mx-auto mt-6 px-6">
+            
+    <div>
+        <h2 class="text-lg font-semibold text-gray-900 sm:text-2xl mb-4">How To Use The Spelling Test App</h2>
+    </div>
+
+    <div class="mb-8">
+
+        <p class="mb-2">Our Spelling Test app allows you to create your own spelling tests. It's easy:</p>
+
+        <ul class="list-disc pl-8">
+            <li>create a test and give it a name.</li>
+            <li>start typing in the words you want to test.</li>
+            <li>enter as many words as you want in your test.</li>
+            <li>when you've finished typing in the words, you can test yourself on them, or test someone else.</li>
+            <li>when you do the test, an automated voice speaks the word and you have to try and spell it.</li>
+            <li>a running total of correct/incorrect spellings is kept, and you get your score at the end.</li>
+            <li>you have to register and then log in, so only you get to see your tests.</li>
+            <li>all the tests you create are kept in the database, so you can test yourself on older tests.</li>
+        </ul>
+
+    </div>
+
+    <div class="mb-4">
+        <a href="https://free-english-games.com/spelltests" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Get Started</a>
+    </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+
+                //$("#spelledword").focus();
+                var mode = '';
+
+                $("#checkButton").click(function(e) {
+
+                    e.preventDefault();
+
+                    if (mode === 'nextWord') {
+                        $('form').submit();
+                        return;
+                    }
+                    
+                    $("#messageContainer").removeClass('hidden');
+                    $("#messageContainer").removeClass('bg-red-500');
+                    $("#messageContainer").removeClass('bg-green-500');
+                    if ($("#word").val().trim().toLowerCase() === $("#spelledword").val().trim().toLowerCase()) {
+                        $("#message").html("Woah - way to go dude!");
+                        $("#messageContainer").addClass('bg-green-500');
+                        $("#right").val('1');
+                    } else {
+                        $("#message").html("That's wrong Bert.");
+                        $("#spelledword").val($("#word").val())
+                        $("#messageContainer").addClass('bg-red-500');
+                        $("#wrong").val('1');
+                    }
+                    
+                    $("#checkButton").html('Next Word');
+                    $("#speakButton").addClass('hidden');
+                    mode = 'nextWord';
+                });
+
+                // Pressing enter on the word
+                $("#spelledword").keyup(function(event) {
+             
+                    if(event.keyCode == 13) {
+                        $("#checkButton").trigger("click");
+                    }
+                });
+
+                $("#speakButton").click(function(e) {
+                    e.preventDefault();
+                    speechSynthesis.speak(new SpeechSynthesisUtterance($("#word").val()));
+                    $("#spelledword").focus();
+                    $("#checkButton").removeClass('hidden');
+                });
+
+            });
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0ed3cf">
+    <meta name="msapplication-TileColor" content="#0ed3cf">
+    <meta name="theme-color" content="#0ed3cf">
+
+    
+    <meta property="og:image" content="http://tailwindcomponents.com/storage/1094/temp88683.png?v=2022-08-08 04:15:34" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta property="og:image:type" content="image/png" />
+
+    <meta property="og:url" content="https://tailwindcomponents.com/component/simple-time-picker" />
+    <meta property="og:title" content="Tailwind CSS Simple Time Picker Free &amp; Ready-to-use Components" />
+    <meta property="og:description" content="&#039;Just a simple time picker :)&#039;" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@TwComponents" />
+    <meta name="twitter:title" content="Tailwind CSS Simple Time Picker Free &amp; Ready-to-use Components" />
+    <meta name="twitter:description" content="&#039;Just a simple time picker :)&#039;" />
+    <meta name="twitter:image" content="http://tailwindcomponents.com/storage/1094/temp88683.png?v=2022-08-08 04:15:34" />
+
+    <meta name="google-site-verification" content="D4BL2NNYf_eEOMneiD3A61KMM4QiL_qas4wZfm84BVY" />
+
+    <title>Tailwind CSS Simple Time Picker Free &amp; Ready-to-use Components</title>
+    <meta name="description" content="&#039;Just a simple time picker :)&#039;">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+    <link rel="stylesheet" href="/css/app.css?id=ff042d1ba4b0211e13306d4aa893a8c2">
+    
+        
+            <meta name="twitter:creator" content="@NikolovLazar" />
+    
+    <script>
+        if (window.localStorage) {
+            if (localStorage.getItem("darkMode") == "true") {
+                document.documentElement.classList.add("dark");
+            } else if (localStorage.getItem("darkMode") == "false") {
+                document.documentElement.classList.remove("dark");
+            }
+        }
+    </script>
+
+    <script src="/js/app.js?id=16a1a06d59234ba90d5b5d7f594c27d9" defer></script>
+</head>
+<body>
+    <div id="app" class="flex flex-col min-h-screen font-roboto dark:bg-gray-900">
+        <header class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 lg:fixed lg:w-full lg:top-0 lg:left-0 lg:z-30">
+            <div class="container px-4 py-5 mx-auto space-y-4 lg:space-y-0 lg:flex lg:items-center lg:justify-between lg:space-x-10">
+                <div class="flex justify-between">
+                    <a href="/" class="text-gray-800 dark:text-gray-200">
+                        <div class="flex items-center">
+    <svg class="h-7 w-7 -mt-2 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 27"><path d="M22.487.658s5.03 13.072-1.822 22.171C16.476 28.39 9.84 27.26 5.484 25.68c1.513-3.391 3.441-6.067 5.784-8.03 1.176.623 3.186.792 6.03.51-2.535-.221-4.284-.654-5.246-1.3l.125.08c2.122-1.546 4.556-2.556 7.303-3.029-3.16-.285-6.026.315-8.598 1.804-.577-.742-1.157-1.748-1.74-3.018.07 1.534.339 2.734.809 3.6-2.64 1.797-4.953 4.58-6.94 8.351a7.583 7.583 0 01-.188-.088c-.802-.358-1.328-1.037-1.755-2.036C-1.9 13.366 4.645 8.273 11.123 7.989 23.046 7.465 22.487.658 22.487.658z" fill="#0ED3CF"/></svg>
+    <p class="text-xl ml-2">tailwind<strong>components</strong></p>
+</div>                    </a>
+
+                    <div class="flex items-center space-x-2 lg:hidden">
+                        <button @click="isOpen = !isOpen" class="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:bg-gray-100 dark:focus:bg-gray-800 focus:outline-none">
+                            <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <transition
+                    v-cloak
+                    enter-active-class="transition duration-100 ease-out transform"
+                    enter-class="scale-95 opacity-0"
+                    enter-to-class="scale-100 opacity-100"
+                    leave-active-class="transition duration-75 ease-in transform"
+                    leave-class="scale-100 opacity-100"
+                    leave-to-class="scale-95 opacity-0"
+                >
+                    <div v-show="isOpen" class="flex flex-col space-y-4 lg:hidden">
+                        <div class="flex flex-col space-y-3 lg:space-y-0 lg:flex-row lg:space-x-6 xl:space-x-8 lg:items-center">
+    <a class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300" href="/">Home</a>
+    <a class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300 lg:hidden" href="/components">Components</a>
+    <dropdown class="hidden lg:block">
+        <button class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300 flex items-center space-x-1 focus:outline-none">
+            <span>Components</span>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+        </button>
+
+        <template v-slot:content>
+            <div class="w-36">
+                <a href="/components" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                    All Components
+                </a>
+                <a href="/awesome" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                    awesome
+                </a>
+                                    <a href="/components/alpinejs" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Alpinejs
+                    </a>
+                                    <a href="/components/buttons" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Buttons
+                    </a>
+                                    <a href="/components/cards" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Cards
+                    </a>
+                                    <a href="/components/dropdowns" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Dropdowns
+                    </a>
+                                    <a href="/components/forms" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Forms
+                    </a>
+                                    <a href="/components/inputs" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Inputs
+                    </a>
+                                    <a href="/components/logins" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Logins
+                    </a>
+                                    <a href="/components/modals" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Modals
+                    </a>
+                                    <a href="/components/navigations" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Navigations
+                    </a>
+                                    <a href="/components/pages" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Pages
+                    </a>
+                                    <a href="/components/selects" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Selects
+                    </a>
+                                    <a href="/components/tabs" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Tabs
+                    </a>
+                                    <a href="/components/tables" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Tables
+                    </a>
+                                    <a href="/components/widget" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Widget
+                    </a>
+                            </div>
+        </template>
+    </dropdown>
+    <a class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300" href="/premium">Premium</a>
+    
+    <a class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300" href="/cheatsheet" target="_blank">Cheatsheet</a>
+
+    </div>
+
+<div class="flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:items-center lg:space-x-4">
+    <dark-mode></dark-mode>
+
+            <form action="/search" class="flex flex-wrap justify-between md:flex-row">
+            <input type="search" name="query" class="w-full h-12 px-4 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg lg:w-20 xl:transition-all xl:duration-300 xl:w-36 xl:focus:w-44 lg:h-10 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" placeholder="Search" required>
+        </form>
+        
+    <a href="/submit-component" class="flex items-center justify-center h-12 px-4 text-sm font-medium text-center text-white transition-colors duration-300 transform rounded-md lg:h-10 bg-primary hover:bg-primary/70">
+        Submit <span class="lg:hidden 2xl:inline">&nbsp;new component</span>
+    </a>
+
+            <a href="/login" class="flex items-center justify-center h-12 px-4 mt-2 text-sm text-center text-gray-600 transition-colors duration-300 transform border rounded-lg lg:h-10 dark:text-gray-300 dark:border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+            Login
+        </a>
+    </div>                    </div>
+                </transition>
+
+                <div class="hidden lg:flex lg:flex-row lg:items-center lg:justify-between lg:flex-1 lg:space-x-2">
+                    <div class="flex flex-col space-y-3 lg:space-y-0 lg:flex-row lg:space-x-6 xl:space-x-8 lg:items-center">
+    <a class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300" href="/">Home</a>
+    <a class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300 lg:hidden" href="/components">Components</a>
+    <dropdown class="hidden lg:block">
+        <button class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300 flex items-center space-x-1 focus:outline-none">
+            <span>Components</span>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+        </button>
+
+        <template v-slot:content>
+            <div class="w-36">
+                <a href="/components" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                    All Components
+                </a>
+                <a href="/awesome" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                    awesome
+                </a>
+                                    <a href="/components/alpinejs" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Alpinejs
+                    </a>
+                                    <a href="/components/buttons" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Buttons
+                    </a>
+                                    <a href="/components/cards" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Cards
+                    </a>
+                                    <a href="/components/dropdowns" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Dropdowns
+                    </a>
+                                    <a href="/components/forms" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Forms
+                    </a>
+                                    <a href="/components/inputs" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Inputs
+                    </a>
+                                    <a href="/components/logins" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Logins
+                    </a>
+                                    <a href="/components/modals" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Modals
+                    </a>
+                                    <a href="/components/navigations" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Navigations
+                    </a>
+                                    <a href="/components/pages" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Pages
+                    </a>
+                                    <a href="/components/selects" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Selects
+                    </a>
+                                    <a href="/components/tabs" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Tabs
+                    </a>
+                                    <a href="/components/tables" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Tables
+                    </a>
+                                    <a href="/components/widget" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                        Widget
+                    </a>
+                            </div>
+        </template>
+    </dropdown>
+    <a class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300" href="/premium">Premium</a>
+    
+    <a class="text-gray-500 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-400 transition-colors duration-300" href="/cheatsheet" target="_blank">Cheatsheet</a>
+
+    </div>
+
+<div class="flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:items-center lg:space-x-4">
+    <dark-mode></dark-mode>
+
+            <form action="/search" class="flex flex-wrap justify-between md:flex-row">
+            <input type="search" name="query" class="w-full h-12 px-4 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg lg:w-20 xl:transition-all xl:duration-300 xl:w-36 xl:focus:w-44 lg:h-10 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" placeholder="Search" required>
+        </form>
+        
+    <a href="/submit-component" class="flex items-center justify-center h-12 px-4 text-sm font-medium text-center text-white transition-colors duration-300 transform rounded-md lg:h-10 bg-primary hover:bg-primary/70">
+        Submit <span class="lg:hidden 2xl:inline">&nbsp;new component</span>
+    </a>
+
+            <a href="/login" class="flex items-center justify-center h-12 px-4 mt-2 text-sm text-center text-gray-600 transition-colors duration-300 transform border rounded-lg lg:h-10 dark:text-gray-300 dark:border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+            Login
+        </a>
+    </div>                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 lg:mt-20">
+                        
+                <section class="container px-4 mx-auto mt-8">
+        <div class="flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:items-center lg:justify-between">
+            <div class="flex flex-col flex-shrink-0 w-full lg:w-1/2">
+                <span class="font-light text-gray-400">tailwindcss@1.3.4</span>
+
+                <div class="flex flex-col mt-2 space-y-1 sm:flex-row sm:space-y-0 sm:items-center sm:space-x-4">
+                    <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">Tailwind CSS Simple Time Picker</h1>
+
+                                            <a href="/u/nikolovlazar" class="text-gray-400 hover:underline">By NikolovLazar</a>
+                                    </div>
+
+                <p class="mt-2 text-gray-500 dark:text-gray-400 lg:max-w-xl description-link">Check out this Simple Time Picker component example that Just a simple time picker :) for your Tailwind CSS project</p>
+
+                
+                <div class="mt-8 space-y-4 lg:flex lg:space-x-4 lg:space-y-0">
+                    <a href="/submit-component?fork=simple-time-picker" class="items-center hidden px-4 py-2 space-x-3 text-gray-600 transition-colors duration-300 transform border rounded-lg lg:flex dark:text-gray-200 dark:border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+
+                        <span>Fork</span>
+                    </a>
+
+                                            <form action="/component/simple-time-picker/favorites" method="post">
+                            <input type="hidden" name="_token" value="gqW34VxHtLU9rhM2dwB74poAiPCINYXxeVEWmHYD">
+                            <button type="submit" class="flex items-center justify-center w-full px-4 py-2 space-x-2 text-gray-600 transition-colors duration-300 transform border rounded-lg lg:w-auto dark:text-gray-200 dark:border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                                <span>Favorite <span class="inline-flex items-center justify-center px-2 py-1 text-xs bg-gray-200 rounded-full dark:bg-gray-700">6</span></span>
+                            </button>
+                        </form>
+                    
+                    <twitter-link text="Check out Tailwind CSS Simple Time Picker By NikolovLazar" url="https://tailwindcomponents.com/component/simple-time-picker"></twitter-link>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 custom-slant"  style="height: 182px">
+                <div class="relative hide-with-banner">
+                    <a href="https://a.paddle.com/v2/click/37973/127422?link=3167" target="_blank" class="flex flex-col w-full h-full py-4">
+                        <div class="z-10 flex-col items-start justify-center w-1/2 px-6 xl:px-10">
+                            <img src="/images/ap/tails.svg" class="mb-2" />
+                            <p class="mb-3 font-sans text-2xl font-black text-white">
+                                TailwindCSS
+                                <span class="block font-light">Page Creator</span>
+                            </p>
+                            <div>
+                                <span class="h-8 px-4 py-2 font-sans text-xs font-bold text-blue-600 bg-white rounded-full">Learn more</span>
+                            </div>
+                        </div>
+                        <img src="/images/ap/tails.png" class="absolute bottom-0 left-0 object-cover w-full h-full overflow-hidden rounded-md" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="flex flex-col mt-10" id="component">
+            <component-preview :show-code-button="true" class="overflow-hidden rounded-lg" style="height: 80vh" css="https://unpkg.com/tailwindcss@1.3.4/dist/tailwind.min.css" :component="{&quot;id&quot;:406,&quot;name&quot;:&quot;Simple Time Picker&quot;,&quot;tailwind_version&quot;:&quot;1.3.4&quot;,&quot;description&quot;:&quot;Just a simple time picker :)&quot;,&quot;body&quot;:&quot;&lt;div class=\&quot;mt-2 p-5 w-40 bg-white rounded-lg shadow-xl\&quot;&gt;\n  &lt;div class=\&quot;flex\&quot;&gt;\n    &lt;select name=\&quot;hours\&quot; class=\&quot;bg-transparent text-xl appearance-none outline-none\&quot;&gt;\n      &lt;option value=\&quot;1\&quot;&gt;1&lt;\/option&gt;\n      &lt;option value=\&quot;2\&quot;&gt;2&lt;\/option&gt;\n      &lt;option value=\&quot;3\&quot;&gt;3&lt;\/option&gt;\n      &lt;option value=\&quot;4\&quot;&gt;4&lt;\/option&gt;\n      &lt;option value=\&quot;5\&quot;&gt;5&lt;\/option&gt;\n      &lt;option value=\&quot;6\&quot;&gt;6&lt;\/option&gt;\n      &lt;option value=\&quot;7\&quot;&gt;7&lt;\/option&gt;\n      &lt;option value=\&quot;8\&quot;&gt;8&lt;\/option&gt;\n      &lt;option value=\&quot;9\&quot;&gt;9&lt;\/option&gt;\n      &lt;option value=\&quot;10\&quot;&gt;10&lt;\/option&gt;\n      &lt;option value=\&quot;11\&quot;&gt;10&lt;\/option&gt;\n      &lt;option value=\&quot;12\&quot;&gt;12&lt;\/option&gt;\n    &lt;\/select&gt;\n    &lt;span class=\&quot;text-xl mr-3\&quot;&gt;:&lt;\/span&gt;\n    &lt;select name=\&quot;minutes\&quot; class=\&quot;bg-transparent text-xl appearance-none outline-none mr-4\&quot;&gt;\n      &lt;option value=\&quot;0\&quot;&gt;00&lt;\/option&gt;\n      &lt;option value=\&quot;30\&quot;&gt;30&lt;\/option&gt;\n    &lt;\/select&gt;\n    &lt;select name=\&quot;ampm\&quot; class=\&quot;bg-transparent text-xl appearance-none outline-none\&quot;&gt;\n      &lt;option value=\&quot;am\&quot;&gt;AM&lt;\/option&gt;\n      &lt;option value=\&quot;pm\&quot;&gt;PM&lt;\/option&gt;\n    &lt;\/select&gt;\n  &lt;\/div&gt;\n&lt;\/div&gt;&quot;,&quot;author_type&quot;:&quot;App\\User&quot;,&quot;author_id&quot;:624,&quot;fork_id&quot;:null,&quot;votes&quot;:16,&quot;score&quot;:&quot;4.3&quot;,&quot;visits&quot;:14433,&quot;popularity&quot;:1367,&quot;slug&quot;:&quot;simple-time-picker&quot;,&quot;approved&quot;:1,&quot;created_at&quot;:&quot;2020-04-30T15:49:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-08-08T04:15:34.000000Z&quot;,&quot;downloads&quot;:238,&quot;code_views&quot;:3670,&quot;center&quot;:true,&quot;notified&quot;:1,&quot;premium&quot;:0,&quot;tailwind_config&quot;:null,&quot;type&quot;:&quot;component&quot;,&quot;css&quot;:&quot;https:\/\/unpkg.com\/tailwindcss@1.3.4\/dist\/tailwind.min.css&quot;,&quot;should_tweet&quot;:0,&quot;favoritesCount&quot;:6,&quot;media&quot;:[{&quot;id&quot;:1094,&quot;model_type&quot;:&quot;App\\Component&quot;,&quot;model_id&quot;:406,&quot;collection_name&quot;:&quot;preview&quot;,&quot;name&quot;:&quot;temp88683&quot;,&quot;file_name&quot;:&quot;temp88683.png&quot;,&quot;mime_type&quot;:&quot;image\/png&quot;,&quot;disk&quot;:&quot;public&quot;,&quot;size&quot;:35266,&quot;manipulations&quot;:[],&quot;custom_properties&quot;:{&quot;generated_conversions&quot;:{&quot;thumb&quot;:true,&quot;ogimage&quot;:true}},&quot;responsive_images&quot;:{&quot;medialibrary_original&quot;:{&quot;urls&quot;:[&quot;temp88683___medialibrary_original_1280_957.png&quot;,&quot;temp88683___medialibrary_original_1070_799.png&quot;,&quot;temp88683___medialibrary_original_895_669.png&quot;,&quot;temp88683___medialibrary_original_749_559.png&quot;],&quot;base64svg&quot;:&quot;data:image\/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA5NTciPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijk1NyIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FGd0FmQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvU2lPTjVmdWpOZWkya2NLVFpMOW1rL3UwdWRENVdKOW1rL3UwYzZEbFpGSWp4bmtZcWswOWlXbWllemtaYmM3TWJxNWF1NTBVOWhtcXpYb3QwTnVBWDcxZ2JhRksrbTFYeTRmSkEzZnhVYWhvV3JwM01FZm1ZOHpITmROSXdxR2RKTExId2pZcmR4VDNNVkpvaSswWFgvUFdwNUVWenNQdEYxL3owbzVFSE95YU41SlB2dHVxa2t0aVhLNS85az0iPgoJPC9pbWFnZT4KPC9zdmc+&quot;}},&quot;order_column&quot;:1075,&quot;created_at&quot;:&quot;2020-05-07T08:42:32.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-09-25T21:39:19.000000Z&quot;,&quot;conversions_disk&quot;:&quot;public&quot;,&quot;uuid&quot;:&quot;20b7fcd2-1fb4-4ffc-9b85-32d6101d8358&quot;,&quot;generated_conversions&quot;:null,&quot;original_url&quot;:&quot;http:\/\/tailwindcomponents.com\/storage\/1094\/temp88683.png&quot;,&quot;preview_url&quot;:&quot;&quot;}],&quot;author&quot;:{&quot;id&quot;:624,&quot;name&quot;:&quot;NikolovLazar&quot;,&quot;slug&quot;:&quot;nikolovlazar&quot;,&quot;bio&quot;:null,&quot;avatar&quot;:&quot;https:\/\/pbs.twimg.com\/profile_images\/950717923412365313\/L915Fn-I_normal.jpg&quot;,&quot;header&quot;:null,&quot;created_at&quot;:&quot;2020-04-30T15:43:47.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-04-30T15:43:47.000000Z&quot;},&quot;tags&quot;:[{&quot;id&quot;:2,&quot;name&quot;:{&quot;en&quot;:&quot;Forms&quot;},&quot;description&quot;:&quot;Get started with our 100+ forms examples that are ready to be used in your Tailwind project. From Sign up, Sign in, to subscribe forms we got anything you need.&quot;,&quot;meta_description&quot;:&quot;Get started with our 100+ forms examples that are ready to be used in your Tailwind project. From Sign up, Sign in, to subscribe forms we got anything you need.&quot;,&quot;slug&quot;:{&quot;en&quot;:&quot;forms&quot;},&quot;type&quot;:null,&quot;order_column&quot;:5,&quot;created_at&quot;:&quot;2019-07-04T08:20:17.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-08-01T16:08:37.000000Z&quot;,&quot;pivot&quot;:{&quot;taggable_id&quot;:406,&quot;tag_id&quot;:2,&quot;taggable_type&quot;:&quot;App\\Component&quot;}},{&quot;id&quot;:5,&quot;name&quot;:{&quot;en&quot;:&quot;Widget&quot;},&quot;description&quot;:&quot;Check out our collection of 500+ widget examples. Use our snippets to preview the code and spend less time re-inventing the wheel.&quot;,&quot;meta_description&quot;:&quot;Check out our collection of 500+ widget examples. Use our snippets to preview the code and spend less time re-inventing the wheel.&quot;,&quot;slug&quot;:{&quot;en&quot;:&quot;widget&quot;},&quot;type&quot;:null,&quot;order_column&quot;:14,&quot;created_at&quot;:&quot;2019-07-04T08:20:17.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-08-01T16:16:36.000000Z&quot;,&quot;pivot&quot;:{&quot;taggable_id&quot;:406,&quot;tag_id&quot;:5,&quot;taggable_type&quot;:&quot;App\\Component&quot;}}],&quot;fork&quot;:null,&quot;favorites&quot;:[{&quot;id&quot;:3038,&quot;name&quot;:&quot;lohnsonok&quot;,&quot;slug&quot;:&quot;lohnsonok&quot;,&quot;bio&quot;:null,&quot;avatar&quot;:&quot;https:\/\/avatars.githubusercontent.com\/u\/60504466?v=4&quot;,&quot;header&quot;:null,&quot;created_at&quot;:&quot;2021-04-11T20:40:20.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-04-11T20:40:20.000000Z&quot;,&quot;pivot&quot;:{&quot;component_id&quot;:406,&quot;user_id&quot;:3038}},{&quot;id&quot;:3558,&quot;name&quot;:&quot;whoisthisstud&quot;,&quot;slug&quot;:&quot;whoisthisstud&quot;,&quot;bio&quot;:null,&quot;avatar&quot;:&quot;https:\/\/avatars.githubusercontent.com\/u\/44807533?v=4&quot;,&quot;header&quot;:null,&quot;created_at&quot;:&quot;2021-05-25T15:23:04.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-05-25T15:23:04.000000Z&quot;,&quot;pivot&quot;:{&quot;component_id&quot;:406,&quot;user_id&quot;:3558}},{&quot;id&quot;:4237,&quot;name&quot;:&quot;erkobridee&quot;,&quot;slug&quot;:&quot;erkobridee&quot;,&quot;bio&quot;:null,&quot;avatar&quot;:&quot;https:\/\/avatars.githubusercontent.com\/u\/342471?v=4&quot;,&quot;header&quot;:null,&quot;created_at&quot;:&quot;2021-07-14T06:40:38.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-07-14T06:40:38.000000Z&quot;,&quot;pivot&quot;:{&quot;component_id&quot;:406,&quot;user_id&quot;:4237}},{&quot;id&quot;:6574,&quot;name&quot;:&quot;fachrularly&quot;,&quot;slug&quot;:&quot;fachrularly&quot;,&quot;bio&quot;:null,&quot;avatar&quot;:&quot;https:\/\/avatars.githubusercontent.com\/u\/24983698?v=4&quot;,&quot;header&quot;:null,&quot;created_at&quot;:&quot;2022-01-19T13:34:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-01-19T13:34:22.000000Z&quot;,&quot;pivot&quot;:{&quot;component_id&quot;:406,&quot;user_id&quot;:6574}},{&quot;id&quot;:4128,&quot;name&quot;:&quot;rudyhadoux&quot;,&quot;slug&quot;:&quot;rudyhadoux&quot;,&quot;bio&quot;:null,&quot;avatar&quot;:&quot;https:\/\/avatars.githubusercontent.com\/u\/45458482?v=4&quot;,&quot;header&quot;:null,&quot;created_at&quot;:&quot;2021-07-05T17:44:30.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-07-05T17:44:30.000000Z&quot;,&quot;pivot&quot;:{&quot;component_id&quot;:406,&quot;user_id&quot;:4128}},{&quot;id&quot;:6652,&quot;name&quot;:&quot;ezequiel-gg&quot;,&quot;slug&quot;:&quot;ezequiel-gg&quot;,&quot;bio&quot;:null,&quot;avatar&quot;:&quot;https:\/\/avatars.githubusercontent.com\/u\/54220485?v=4&quot;,&quot;header&quot;:null,&quot;created_at&quot;:&quot;2022-01-24T21:47:39.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-01-24T21:47:39.000000Z&quot;,&quot;pivot&quot;:{&quot;component_id&quot;:406,&quot;user_id&quot;:6652}}]}" :edit="false">
+                                    <a v-cloak href="/component/simple-time-picker/landing" class="flex items-center px-4 py-2 space-x-3 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:text-gray-200 dark:border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+
+                        <span class="hidden md:inline">Full screen Preview</span>
+                    </a>
+                
+                <form v-cloak action="/component/simple-time-picker/download" method="post">
+                    <input type="hidden" name="_token" value="gqW34VxHtLU9rhM2dwB74poAiPCINYXxeVEWmHYD">                    <button type="submit" class="flex items-center px-4 py-2 space-x-3 text-gray-600 transition-colors duration-300 transform border rounded-lg focus:border-teal-500 focus:ring focus:ring-primary focus:ring-opacity-40 dark:text-gray-200 dark:border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+
+                        <span class="hidden md:inline">Download</span>
+                    </button>
+                </form>
+            </component-preview>
+
+                    </div>
+
+        <div class="flex flex-col mt-6 space-y-8 md:flex-row md:space-y-0 md:justify-between md:items-center">
+            <div>
+                                    <div class="flex items-center space-x-4">
+                        <a href="/u/nikolovlazar" class="flex-shrink-0 w-12 h-12 overflow-hidden rounded-full ">
+                            <img class="object-cover w-full h-full" src="https://pbs.twimg.com/profile_images/950717923412365313/L915Fn-I_normal.jpg" alt="NikolovLazar">
+                        </a>
+
+                        <div>
+                            <div>
+                                <a class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:underline" href="/u/nikolovlazar">NikolovLazar</a>
+                            </div>
+
+                            <span class="text-sm text-gray-500 dark:text-gray-400">1 component</</span>
+
+                            
+                                                            <a href="http://twitter.com/NikolovLazar" class="flex items-center mt-1 space-x-2 text-gray-500 dark:text-gray-400 hover:underline">
+                                    <span>Profile On</span>
+
+                                    <svg class="w-4 h-4 fill-current text-twitter" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 612" xml:space="preserve"><g><path d="M612,116.258c-22.525,9.981-46.694,16.75-72.088,19.772c25.929-15.527,45.777-40.155,55.184-69.411 c-24.322,14.379-51.169,24.82-79.775,30.48c-22.907-24.437-55.49-39.658-91.63-39.658c-69.334,0-125.551,56.217-125.551,125.513 c0,9.828,1.109,19.427,3.251,28.606C197.065,206.32,104.556,156.337,42.641,80.386c-10.823,18.51-16.98,40.078-16.98,63.101 c0,43.559,22.181,81.993,55.835,104.479c-20.575-0.688-39.926-6.348-56.867-15.756v1.568c0,60.806,43.291,111.554,100.693,123.104 c-10.517,2.83-21.607,4.398-33.08,4.398c-8.107,0-15.947-0.803-23.634-2.333c15.985,49.907,62.336,86.199,117.253,87.194 c-42.947,33.654-97.099,53.655-155.916,53.655c-10.134,0-20.116-0.612-29.944-1.721c55.567,35.681,121.536,56.485,192.438,56.485 c230.948,0,357.188-191.291,357.188-357.188l-0.421-16.253C573.872,163.526,595.211,141.422,612,116.258z"></path></g></svg>
+                                </a>
+                                                    </div>
+                    </div>
+                            </div>
+
+            <div>
+                <h4 class="text-lg text-gray-600 dark:text-gray-300">Community Rate</h4>
+
+                <component-score
+                    :votes="16"
+                    :score="4.3"
+                    url="https://tailwindcomponents.com/component/simple-time-picker/votes"
+                ></component-score>
+            </div>
+        </div>
+    </section>
+
+    <section class="container px-4 py-10 mx-auto">
+        <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">Related components</h3>
+
+        <div class="grid gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3">
+            <div>
+    <a href="/component/spotify-playlist-card" class="relative block overflow-hidden bg-gray-100 rounded-lg shadow aspect-w-16 aspect-h-10 dark:bg-gray-800">
+                    <img class="w-full h-full object-cover" alt="tailwind Spotify - Playlist Card" loading="" src="http://tailwindcomponents.com/storage/6276/conversions/temp13457-thumb.jpg" alt="temp13457">
+                
+            </a> 
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center space-x-4">
+                            <a href="/u/dzaky-widya-putra" class="flex-shrink-0 w-10 h-10 overflow-hidden rounded-full ">
+                    <img class="object-cover w-full h-full" src="/storage/avatars/AC8CKHEzeQTO3cazL20Mm0RS6wWLvhvn8hF7931X.jpg" alt="Dzaky Widya Putra">
+                </a>
+                        
+            <div class="flex flex-col space-y-1">
+                <a href="/component/spotify-playlist-card" class="font-semibold text-gray-800 transition-colors duration-300 dark:text-gray-200 sm:text-lg dark:hover:text-primary hover:text-primary hover:underline">Spotify - Playlist Card</a> 
+
+                                    <a href="/u/dzaky-widya-putra" class="text-sm text-gray-600 dark:text-gray-400 hover:underline">Dzaky Widya Putra</a>
+                            </div>
+        </div>
+
+        <div class="flex items-center space-x-2 text-gray-400">
+            
+            <div class="flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
+                </svg>
+
+                <span class="text-sm font-medium">3.0</span>
+            </div>
+            
+            <div class="flex items-center space-x-1">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                </svg>
+                
+                <span class="text-sm font-medium">3</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div>
+    <a href="/component/profile-card-with-overlap-button" class="relative block overflow-hidden bg-gray-100 rounded-lg shadow aspect-w-16 aspect-h-10 dark:bg-gray-800">
+                    <img class="w-full h-full object-cover" alt="tailwind Tailwind CSS Profile Card with Overlap Button" loading="" src="http://tailwindcomponents.com/storage/1219/conversions/temp56504-thumb.jpg" alt="temp56504">
+                
+            </a> 
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center space-x-4">
+                            <a href="/u/ravisankarchinnam" class="flex-shrink-0 w-10 h-10 overflow-hidden rounded-full ">
+                    <img class="object-cover w-full h-full" src="https://avatars3.githubusercontent.com/u/22351907?v=4" alt="ravisankarchinnam">
+                </a>
+                        
+            <div class="flex flex-col space-y-1">
+                <a href="/component/profile-card-with-overlap-button" class="font-semibold text-gray-800 transition-colors duration-300 dark:text-gray-200 sm:text-lg dark:hover:text-primary hover:text-primary hover:underline">Tailwind CSS Profile Card with Overlap Button</a> 
+
+                                    <a href="/u/ravisankarchinnam" class="text-sm text-gray-600 dark:text-gray-400 hover:underline">ravisankarchinnam</a>
+                            </div>
+        </div>
+
+        <div class="flex items-center space-x-2 text-gray-400">
+            
+            <div class="flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
+                </svg>
+
+                <span class="text-sm font-medium">1.4</span>
+            </div>
+            
+            <div class="flex items-center space-x-1">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                </svg>
+                
+                <span class="text-sm font-medium">15</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div>
+    <a href="/component/centered-spinner" class="relative block overflow-hidden bg-gray-100 rounded-lg shadow aspect-w-16 aspect-h-10 dark:bg-gray-800">
+                    <img class="w-full h-full object-cover" alt="tailwind Centered spinner" loading="" src="http://tailwindcomponents.com/storage/5737/conversions/temp25346-thumb.jpg" alt="temp25346">
+                
+            </a> 
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center space-x-4">
+                            <a href="/u/tesar-tech" class="flex-shrink-0 w-10 h-10 overflow-hidden rounded-full ">
+                    <img class="object-cover w-full h-full" src="https://avatars.githubusercontent.com/u/33880579?v=4" alt="tesar-tech">
+                </a>
+                        
+            <div class="flex flex-col space-y-1">
+                <a href="/component/centered-spinner" class="font-semibold text-gray-800 transition-colors duration-300 dark:text-gray-200 sm:text-lg dark:hover:text-primary hover:text-primary hover:underline">Centered spinner</a> 
+
+                                    <a href="/u/tesar-tech" class="text-sm text-gray-600 dark:text-gray-400 hover:underline">tesar-tech</a>
+                            </div>
+        </div>
+
+        <div class="flex items-center space-x-2 text-gray-400">
+            
+            <div class="flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
+                </svg>
+
+                <span class="text-sm font-medium">2.2</span>
+            </div>
+            
+            <div class="flex items-center space-x-1">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                </svg>
+                
+                <span class="text-sm font-medium">5</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div>
+    <a href="/component/hero-with-image" class="relative block overflow-hidden bg-gray-100 rounded-lg shadow aspect-w-16 aspect-h-10 dark:bg-gray-800">
+                    <img class="w-full h-full object-cover" alt="tailwind Hero With Image" loading="" src="http://tailwindcomponents.com/storage/5950/conversions/temp74591-thumb.jpg" alt="temp74591">
+                
+            </a> 
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center space-x-4">
+                            <a href="/u/khatabwedaa" class="flex-shrink-0 w-10 h-10 overflow-hidden rounded-full ">
+                    <img class="object-cover w-full h-full" src="/storage/avatars/ZTdiAPM7CfGdgY44q2WJSRrFnRRZhNsAfO4q0GHS.jpg" alt="khatabwedaa">
+                </a>
+                        
+            <div class="flex flex-col space-y-1">
+                <a href="/component/hero-with-image" class="font-semibold text-gray-800 transition-colors duration-300 dark:text-gray-200 sm:text-lg dark:hover:text-primary hover:text-primary hover:underline">Hero With Image</a> 
+
+                                    <a href="/u/khatabwedaa" class="text-sm text-gray-600 dark:text-gray-400 hover:underline">khatabwedaa</a>
+                            </div>
+        </div>
+
+        <div class="flex items-center space-x-2 text-gray-400">
+            
+            <div class="flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
+                </svg>
+
+                <span class="text-sm font-medium">2.2</span>
+            </div>
+            
+            <div class="flex items-center space-x-1">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                </svg>
+                
+                <span class="text-sm font-medium">0</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div>
+    <a href="/component/user-list" class="relative block overflow-hidden bg-gray-100 rounded-lg shadow aspect-w-16 aspect-h-10 dark:bg-gray-800">
+                    <img class="w-full h-full object-cover" alt="tailwind user list" loading="" src="http://tailwindcomponents.com/storage/6393/conversions/temp12567-thumb.jpg" alt="temp12567">
+                
+            </a> 
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center space-x-4">
+                            <a href="/u/upro" class="flex-shrink-0 w-10 h-10 overflow-hidden rounded-full ">
+                    <img class="object-cover w-full h-full" src="https://www.gravatar.com/avatar/366e3ad978a3eb4bfc90f87bc5586a3f" alt="Upro">
+                </a>
+                        
+            <div class="flex flex-col space-y-1">
+                <a href="/component/user-list" class="font-semibold text-gray-800 transition-colors duration-300 dark:text-gray-200 sm:text-lg dark:hover:text-primary hover:text-primary hover:underline">user list</a> 
+
+                                    <a href="/u/upro" class="text-sm text-gray-600 dark:text-gray-400 hover:underline">Upro</a>
+                            </div>
+        </div>
+
+        <div class="flex items-center space-x-2 text-gray-400">
+            
+            <div class="flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
+                </svg>
+
+                <span class="text-sm font-medium">3.0</span>
+            </div>
+            
+            <div class="flex items-center space-x-1">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                </svg>
+                
+                <span class="text-sm font-medium">0</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div>
+    <a href="/component/twitter-compose-tweet" class="relative block overflow-hidden bg-gray-100 rounded-lg shadow aspect-w-16 aspect-h-10 dark:bg-gray-800">
+                    <img class="w-full h-full object-cover" alt="tailwind Twitter Compose Tweet" loading="" src="http://tailwindcomponents.com/storage/4330/conversions/temp39164-thumb.jpg" alt="temp39164">
+                
+            </a> 
+    
+    <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center space-x-4">
+                            <a href="/u/welfordian" class="flex-shrink-0 w-10 h-10 overflow-hidden rounded-full ">
+                    <img class="object-cover w-full h-full" src="https://pbs.twimg.com/profile_images/1367267802940375042/H4JDd6aC_normal.jpg" alt="welfordian">
+                </a>
+                        
+            <div class="flex flex-col space-y-1">
+                <a href="/component/twitter-compose-tweet" class="font-semibold text-gray-800 transition-colors duration-300 dark:text-gray-200 sm:text-lg dark:hover:text-primary hover:text-primary hover:underline">Twitter Compose Tweet</a> 
+
+                                    <a href="/u/welfordian" class="text-sm text-gray-600 dark:text-gray-400 hover:underline">welfordian</a>
+                            </div>
+        </div>
+
+        <div class="flex items-center space-x-2 text-gray-400">
+            
+            <div class="flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
+                </svg>
+
+                <span class="text-sm font-medium">2.2</span>
+            </div>
+            
+            <div class="flex items-center space-x-1">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                </svg>
+                
+                <span class="text-sm font-medium">11</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+        </div>
+
+        <div class="flex justify-center mt-10">
+            <a href="/components" class="px-4 py-2 mt-2 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:text-gray-200 dark:border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                See more components
+            </a>
+        </div>
+    </section>
+        </main>
+
+        <div class="bg-gray-100 dark:bg-gray-800">
+    <div class="container flex flex-col items-center px-4 py-6 mx-auto space-y-6 lg:space-y-0 lg:flex-row lg:justify-between">
+        <div class="w-48 text-gray-700 dark:text-gray-200">
+            <div class="flex items-center">
+    <svg class="h-7 w-7 -mt-2 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 27"><path d="M22.487.658s5.03 13.072-1.822 22.171C16.476 28.39 9.84 27.26 5.484 25.68c1.513-3.391 3.441-6.067 5.784-8.03 1.176.623 3.186.792 6.03.51-2.535-.221-4.284-.654-5.246-1.3l.125.08c2.122-1.546 4.556-2.556 7.303-3.029-3.16-.285-6.026.315-8.598 1.804-.577-.742-1.157-1.748-1.74-3.018.07 1.534.339 2.734.809 3.6-2.64 1.797-4.953 4.58-6.94 8.351a7.583 7.583 0 01-.188-.088c-.802-.358-1.328-1.037-1.755-2.036C-1.9 13.366 4.645 8.273 11.123 7.989 23.046 7.465 22.487.658 22.487.658z" fill="#0ED3CF"/></svg>
+    <p class="text-xl ml-2">tailwind<strong>components</strong></p>
+</div>        </div>
+
+        <p class="text-sm text-center text-gray-500 dark:text-gray-300">&copy; 2022 Highscore Studio. Component copyrights belongs to their authors.</p>
+
+        <div class="flex items-center space-x-6">
+            <a href="/privacy" class="text-sm text-gray-500 transition-colors duration-300 dark:text-gray-300 hover:underline hover:text-primary dark:hover:text-primary">Privacy</a>
+            <a href="/legal" class="text-sm text-gray-500 transition-colors duration-300 dark:text-gray-300 hover:underline hover:text-primary dark:hover:text-primary">Legal</a>
+            <a href="/cookies" class="text-sm text-gray-500 transition-colors duration-300 dark:text-gray-300 hover:underline hover:text-primary dark:hover:text-primary">Cookies</a>
+
+            <a href="https://twitter.com/TwComponents" target="_blink" class="text-gray-500 transition-colors duration-300 dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.995 6.68799C20.8914 6.15208 21.5622 5.30823 21.882 4.31399C21.0397 4.81379 20.118 5.16587 19.157 5.35499C17.8246 3.94552 15.7135 3.60251 14.0034 4.51764C12.2933 5.43277 11.4075 7.37948 11.841 9.26999C8.39062 9.09676 5.17598 7.4669 2.99702 4.78599C1.85986 6.74741 2.44097 9.25477 4.32502 10.516C3.64373 10.4941 2.97754 10.3096 2.38202 9.97799C2.38202 9.99599 2.38202 10.014 2.38202 10.032C2.38241 12.0751 3.82239 13.8351 5.82502 14.24C5.19308 14.4119 4.53022 14.4372 3.88702 14.314C4.45022 16.0613 6.06057 17.2583 7.89602 17.294C6.37585 18.4871 4.49849 19.1342 2.56602 19.131C2.22349 19.1315 1.88123 19.1118 1.54102 19.072C3.50341 20.333 5.78739 21.0023 8.12002 21C11.3653 21.0223 14.484 19.7429 16.7787 17.448C19.0734 15.1531 20.3526 12.0342 20.33 8.78899C20.33 8.60299 20.3257 8.41799 20.317 8.23399C21.1575 7.62659 21.8828 6.87414 22.459 6.01199C21.676 6.35905 20.8455 6.58691 19.995 6.68799Z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://github.com/tailwindcomponents" target="_blink" class="text-gray-500 transition-colors duration-300 dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                <svg viewBox="0 0 30 30" class="w-6 h-6 fill-current">
+                    <path d="M15 1.875C7.75195 1.875 1.875 7.9043 1.875 15.334C1.875 21.2812 5.63672 26.3203 10.8516 28.1016C10.9247 28.1175 10.9994 28.1253 11.0742 28.125C11.5605 28.125 11.748 27.7676 11.748 27.457C11.748 27.1348 11.7363 26.291 11.7305 25.166C11.2963 25.2678 10.8522 25.3209 10.4062 25.3242C7.88086 25.3242 7.30664 23.3613 7.30664 23.3613C6.70898 21.8086 5.84766 21.3926 5.84766 21.3926C4.70508 20.5898 5.8418 20.5664 5.92969 20.5664H5.93555C7.25391 20.6836 7.94531 21.9609 7.94531 21.9609C8.60156 23.1094 9.48047 23.4316 10.2656 23.4316C10.7848 23.4213 11.2959 23.3015 11.7656 23.0801C11.8828 22.2129 12.2227 21.6211 12.5977 21.2812C9.68555 20.9414 6.62109 19.7871 6.62109 14.6309C6.62109 13.1602 7.13086 11.959 7.96875 11.0215C7.83398 10.6816 7.38281 9.31055 8.09766 7.45898C8.19354 7.43604 8.29209 7.42619 8.39062 7.42969C8.86523 7.42969 9.9375 7.61133 11.707 8.8418C13.8572 8.24022 16.1311 8.24022 18.2812 8.8418C20.0508 7.61133 21.123 7.42969 21.5977 7.42969C21.6962 7.42619 21.7947 7.43604 21.8906 7.45898C22.6055 9.31055 22.1543 10.6816 22.0195 11.0215C22.8574 11.9648 23.3672 13.166 23.3672 14.6309C23.3672 19.7988 20.2969 20.9355 17.373 21.2695C17.8418 21.6855 18.2637 22.5059 18.2637 23.7598C18.2637 25.5586 18.2461 27.0117 18.2461 27.4512C18.2461 27.7676 18.4277 28.125 18.9141 28.125C18.9928 28.1253 19.0713 28.1175 19.1484 28.1016C24.3691 26.3203 28.125 21.2754 28.125 15.334C28.125 7.9043 22.248 1.875 15 1.875Z"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+
+        <script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "Article",
+		"datePublished": "2020-04-30 15:49:09",
+		"dateModified": "2022-08-08 04:15:34",
+		"url": "https://tailwindcomponents.com/component/simple-time-picker",
+		"author": {
+			"@type": "Person",
+			"name": "NikolovLazar",
+			"image": {
+				"@type": "ImageObject",
+				"url": "https://pbs.twimg.com/profile_images/950717923412365313/L915Fn-I_normal.jpg",
+				"width": "200",
+				"height": "200"
+			}
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "TailwindComponents",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://tailwindcomponents.com/images/logo.png",
+				"width": "200",
+				"height": "100"
+			}
+		},
+		"mainEntityOfPage": "https://tailwindcomponents.com/component/simple-time-picker#component",
+		"headline": "Simple Time Picker",
+		            "image": "http://tailwindcomponents.com/storage/1094/conversions/temp88683-ogimage.jpg",
+		        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.3",
+			"reviewCount": "16"
+		}
+	}
+	</script>
+    <!-- Load the following script before </head>. You only have to load this script once even if you have multiple ads on the same page. E.g. Flex Bar + FancyBar on the homepage. -->
+<script type="text/javascript" src="//m.servedby-buysellads.com/monetization.js"></script>
+<script>
+
+    function checkAds() {
+        const ad = document.querySelector('#_custom_');
+
+        if (!ad) {
+            return;
+        }
+
+
+        Array.from(ad.parentNode.querySelectorAll('.hide-with-banner')).forEach(el => el.parentNode.removeChild(el));
+        target.removeAttribute('href');
+
+        return true;
+    }
+    const target = document.querySelector('.custom-slant');
+    const adObserver = new MutationObserver((mutations) => {
+        if (checkAds()) {
+            adObserver.disconnect();
+        }
+    })
+
+    adObserver.observe(target, { attributes: true, childList: true, characterData: true, subtree: true })
+
+    const interval = setInterval(() => {
+        if (checkAds()) {
+            clearInterval(interval);
+        }
+    }, 16)
+</script>
+
+<!-- Load this function before end of </body>. Make sure to disable async for the script. -->
+<script>
+
+    if (window.innerWidth >= 640) {
+
+        (function() {
+          if (typeof _bsa !== 'undefined' && _bsa) {
+            _bsa.init('custom', 'CESD62JI', 'placement:tailwindcomponentscom',
+            {
+              target: '.custom-slant',
+              template: `
+        <a href="##link##" class="native-banner" style="background-color: ##backgroundColor##; color: ##textColor##;">
+          <div class="native-sponsor-container">
+            <div class="native-sponsor">
+              <div class="native-label">Sponsor</div>
+              <div class="native-company">##company##</div>
+            </div>
+          </div>
+          <div class="native-main">
+            <img class="native-logo" src="##logo##">
+            <div class="native-text">
+              <div class="native-tagline">##tagline##</div>
+              <div class="native-description">##description##</div>
+              <div class="native-cta" style="background-color: ##ctaBackgroundColor##; color: ##ctaTextColor##">##callToAction##</div>
+            </div>
+          </div>
+        </a>
+            `
+                }
+              );
+          }
+        })();
+    }
+</script>
+<style>
+    .custom-slant .native-banner {
+  display: flex;
+  max-width: 728px;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px solid #edf2f7;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+  align-items: left;
+}
+
+.custom-slant .native-sponsor-container {
+  overflow: hidden;
+  border-top-left-radius: 4px;
+}
+
+.custom-slant .native-sponsor {
+  display: inline-flex;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  background-image: linear-gradient(135deg, #6154F8cc, #6154F8);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-size: 12px;
+  transform: skewX(-22deg);
+  transform-origin: top left;
+  pointer-events: none;
+
+  align-items: center;
+}
+
+.custom-slant .native-sponsor:after {
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  width: 3px;
+  height: calc(100% - 8px);
+  background-color: #fff;
+  content: "";
+}
+
+.custom-slant .native-sponsor > div {
+  padding: 8px 10px;
+  transform: skewX(22deg);
+}
+
+.custom-slant .native-company {
+  border-left: 2px solid #fff;
+}
+
+.custom-slant .native-main {
+  display: flex;
+}
+
+.custom-slant .native-logo {
+  display: block;
+  box-sizing: border-box;
+  margin-right: 20px;
+  padding: 20px 30px;
+  width: 180px;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.custom-slant .native-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+
+  align-items: flex-start;
+}
+
+.custom-slant .native-tagline {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.custom-slant .native-description {
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.custom-slant .native-cta {
+  display: flex;
+  padding: 8px 14px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  font-weight: 600;
+  font-size: 12px;
+}
+</style>
+    <script src="//cdn.carbonads.com/carbon.js?serve=CE7DEK7J&placement=tailwindcomponentscom" id="_carbonads_js"></script>
+<style>
+    #carbonads {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+        Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    #carbonads {
+        display: flex;
+        position: fixed;
+        bottom: 60px;
+        right: 30px;
+        z-index:50;
+        max-width: 330px;
+        background-color: hsl(0, 0%, 98%);
+        box-shadow: 0 1px 4px 1px hsla(0, 0%, 0%, .1);
+    }
+
+    #carbonads a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    #carbonads a:hover {
+        color: inherit;
+    }
+
+    #carbonads span {
+        position: relative;
+        display: block;
+        overflow: hidden;
+    }
+
+    #carbonads .carbon-wrap {
+        display: flex;
+    }
+
+    .carbon-img {
+        display: block;
+        margin: 0;
+        line-height: 1;
+    }
+
+    .carbon-img img {
+        display: block;
+    }
+
+    .carbon-text {
+        font-size: 13px;
+        padding: 10px;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    .carbon-poweredby {
+        display: block;
+        padding: 8px 10px;
+        background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 95%, .4);
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: .5px;
+        font-weight: 600;
+        font-size: 9px;
+        line-height: 1;
+    }
+
+</style>
+
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110182129-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-110182129-1');
+        </script>
+    </body>
+</html>

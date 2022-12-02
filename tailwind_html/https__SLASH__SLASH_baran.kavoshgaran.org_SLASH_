@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="csrf-token" content="xbcaeI5RPmoFnBB0DpUISXgDDr0Bv0aUrBUV0GNg">
+
+
+    <title>سامانه هوشمند کاوشگران آب رفسنجان</title>
+
+
+    <link rel="stylesheet" href="https://baran.kavoshgaran.org/awesome/css/all.css">
+    <link href="https://baran.kavoshgaran.org/Home/css/bootstrap.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://baran.kavoshgaran.org/Home/css/mdb.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="https://baran.kavoshgaran.org/Home/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://baran.kavoshgaran.org/css/loader/loader-curtain.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://baran.kavoshgaran.org/css/app.css">
+
+    <style >[wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {display:none;}[wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {animation-duration: 50000s;animation-name: livewireautofill;}@keyframes livewireautofill { from {} }</style>
+
+    <!-- Scripts -->
+    <script src="https://baran.kavoshgaran.org/js/app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <![endif]-->
+
+    <style>
+        @font-face {
+            font-family: "IRANSansDN";
+            src: url(https://baran.kavoshgaran.org/Home/font/iransansdn.ttf) format('truetype');
+        }
+        div,b,h1,h2,h3,h4,h5,h6,a,span,p{
+            font-family: "IRANSansDN" !important;
+        }
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            left: 20px;
+            background-color: #c70039;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            animation: bot-to-top 2s ease-out;
+        }
+        .my-float {
+            font-size: 24px;
+            margin-top: 18px;
+        }
+        #menu-share i {
+            animation: rotate-in 0.5s;
+        }
+        #menu-share:hover > i {
+            animation: rotate-out 0.5s;
+        }
+    </style>
+</head>
+
+<body class="bg-blue-50">
+
+
+<div class="h-screen w-full"  >
+
+
+        <!-- component -->
+    <div class="w-full overflow-y-hidden  h-screen" style="direction: rtl">
+        <div class="w-full bg-blue-900 text-gray-700  text-white " style="direction: rtl;">
+            <div x-data="{ open: false }" class="flex bg-blue-900 flex-col max-w-screen-xl  md:items-center md:justify-center md:flex-row ">
+                <div class=" flex flex-row items-center justify-between">
+                    <a href="http://www.kavoshgaran.org/" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
+                        <div class=" flex-shrink-0 flex items-center">
+                            <img class="text-white block h-10 w-auto " src="https://baran.kavoshgaran.org/img/logoinfo.png" alt="کاوشگران آب">
+                        </div>
+                    </a>
+                    <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" onclick="open = !open">
+                        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                            <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                            <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pt-1 pb-4 md:pb-0 hidden md:flex md:justify-start text-center md:flex-row" style="direction: rtl;">
+                    
+
+                    <a class="px-6 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="http://www.kavoshgaran.org/Baran_smart_farm_weather">خرید ایستگاه</a>
+                    <a class="px-6 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="https://baran.kavoshgaran.org/AgriculRegistration">ثبت نام کارشناس</a>
+                    <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                        <button onclick="open = !open" class="justify-center flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-center bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            <span>آموزش</span>
+                            <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+                            <div class="px-2 py-2  bg-blue-900  rounded-md shadow dark-mode:bg-blue-900">
+                                <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0  hover:text-white focus:text-white focus:outline-none focus:shadow-outline" href="#">آموزش کارشناس</a>
+                                <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0  hover:text-white focus:text-white focus:outline-none focus:shadow-outline" href="#">آموزش هواکاو</a>
+                                <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-white  focus:text-white focus:outline-none focus:shadow-outline" href="#">آموزش متصدی</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="px-6 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">سوالات متداول</a>
+
+                </nav>
+            </div>
+        </div>
+
+        
+        <div class="w-full grid md:grid-cols-3 grid-cols-1 overflow-hidden h-screen" >
+
+            <div class="md:col-span-1">
+                <div class="text-center h-screen lg:text-right px-8   flex items-center justify-center">
+                    <div class="">
+                        <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">
+                            سامانه هوشمند
+                            <span class="text-indigo-600">باران</span>
+                        </h2>
+                        <p class="mt-2 text-sm text-gray-500 md:text-base">
+                            مدیریت یکپارچه مزرعه و آبیاری
+
+                        </p>
+                        <div class="w-100 justify-content-center mt-6 d-flex">
+                            <a class="btn btn-rounded bg-blue-900 text-xs" style="color: #FFFFFF;font-size: 10px" href="https://baran.kavoshgaran.org/login"  role="button">ورود به وب اپلیکیشن سامانه باران</a>
+                        </div>
+
+                        <div class="flex justify-center lg:justify-end mt-3">
+                            <a class="btn btn-rounded bg-blue-900 text-xs" style="color: #FFFFFF;background: #3bb69a;font-size: 8px" href="http://kavoshgaran.org/cdn/latest.apk"  role="button">دانلود اپلیکیشن باران</a>
+                            <a class="btn btn-rounded bg-blue-900 text-xs" style="color: #FFFFFF;background: #3bb69a;font-size: 8px"href="http://kavoshgaran.org/cdn/havakav1.apk"  role="button">دانلود اپلیکیشن هواکاو</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-2">
+                <div class="hidden md:block " style="clip-path:polygon(0 0, 100% 0%, 80% 100%, 0 100%)">
+                    <div class="h-screen w-full">
+                        <img class="h-screen w-full object-cover" src="https://baran.kavoshgaran.org/img/bg4.jpg">
+                    </div>
+                </div>
+                <div class="md:hidden block w-full" >
+                    <div class="h-screen w-full">
+                        <img class="fixed bottom-0 xl:h-80 w-100"  src=https://baran.kavoshgaran.org/./img/image-from-rawpixel-id-2809614-png.png>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+<!-- jQuery Version 1.11.0 -->
+<script src="js/jquery/jquery-1.11.0.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+
+</body>
+
+</html>

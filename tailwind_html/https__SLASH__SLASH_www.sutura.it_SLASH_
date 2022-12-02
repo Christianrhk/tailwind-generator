@@ -1,0 +1,277 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sutura</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Nixie+One&display=swap" rel="stylesheet">
+		<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
+		<style>
+			.text-roboto { font-family: 'Roboto Condensed', serif; }
+			.text-nixieone { font-family: 'Nixie One', cursive; }
+			.container {
+				max-width: 1200px;
+			}
+			.duration-2000 {
+				transition-duration: 2s;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script>
+			(function($) {
+				$(document).ready(function() {
+					var timeline = 0;
+					var mainSlideGap = 2000;
+					var littleSlideGap = 800;
+					$('#anim1').removeClass('opacity-0');
+					setTimeout(function () {
+						$('#anim2').removeClass('opacity-0');
+					}, mainSlideGap);
+					setTimeout(function () {
+						$('#anim3').removeClass('opacity-0');
+					}, mainSlideGap * 2);
+					setTimeout(function () {
+						$('#anim4').removeClass('opacity-0');
+					}, (mainSlideGap * 2) + (littleSlideGap * 2) );
+					setTimeout(function () {
+						$('#anim5').removeClass('opacity-0');
+					}, (mainSlideGap * 2) + (littleSlideGap * 3) );
+					setTimeout(function () {
+						$('#anim6').removeClass('opacity-0');
+					}, (mainSlideGap * 2) + (littleSlideGap * 4) );
+					setTimeout(function () {
+						$('#anim7').removeClass('opacity-0');
+					}, (mainSlideGap * 2) + (littleSlideGap * 5) );
+					setTimeout(function () {
+						$('#anim8').removeClass('opacity-0');
+					}, (mainSlideGap * 2) + (littleSlideGap * 6) );
+					setTimeout(function () {
+						$('#animLogo').addClass('animate-pulse');
+					}, (mainSlideGap * 2) + (littleSlideGap * 7) );
+					setTimeout(function () {
+						$(window).scrollTop(0);
+					}, (mainSlideGap * 2) + (littleSlideGap * 8) );
+				})
+
+				$(document).on('click', '#animLogo', function() {
+					$('#anim').addClass('opacity-0');
+					setTimeout(function () {
+						$('#anim').addClass('hidden');
+						$('#goToBoxes').removeClass('opacity-0');
+						$('body').removeClass('overflow-hidden');
+					}, 1000);
+				});
+				
+				$(document).on('click', '#goToBoxes span', function() {
+					$('html, body').animate({
+						scrollTop: $('#boxes').offset().top
+					}, 1000);
+				});
+			})(jQuery)
+		</script>
+		<script type="text/javascript">
+			!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+				n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+				n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+				t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+				document,'script','https://connect.facebook.net/en_US/fbevents.js');
+		</script>
+		<script class="cmplz-script" type="text/javascript">
+			fbq('init', '170915805021557');
+			fbq('init', '926657208273575');
+			fbq('track', 'PageView');
+		</script>
+	</head>
+	<body class="overflow-hidden overscroll-none overflow-x-hidden text-roboto bg-black">
+		<!-- <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=170915805021557&ev=PageView&noscript=1" /></noscript> -->
+		<header class="fixed w-full bg-black bg-opacity-50 z-10">
+			<div class="container mx-auto px-8 xl:px-0">
+				<div class="flex items-center justify-between py-2">
+					<div class="w-1/2">
+						<span class="sr-only">SUTURA</span>
+						<img src="assets/logo/logo-white.png" class="w-28" alt="Sutura" />
+					</div>
+					<div class="w-1/2 text-white flex justify-end">
+						<!-- <a href="https://www.facebook.com" target="_blank"><i class="text-xl fab fa-facebook-square"></i></a> -->
+						<a href="https://www.instagram.com/sutura_official/" target="_blank" class="ml-2"><i class="text-xl fab fa-instagram-square"></i></a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section id="anim" class="fixed z-10 w-full h-screen bg-black text-white transition-opacity duration-1000">
+			<div class="w-full h-full relative">
+				<div class="w-full h-full flex flex-col items-center justify-center pb-20 text-center">
+					<span id="anim1" class="text-3xl md:text-5xl text-nixieone transition-opacity opacity-0 duration-2000" >We all have a secret wound</span>
+					<span id="anim2" class="text-3xl md:text-5xl text-nixieone transition-opacity opacity-0 duration-2000 mt-8">Which we fight to avenge</span>
+					<span id="anim3" class="text-2xl md:text-4xl text-nixieone transition-opacity opacity-0 duration-2000 italic mt-16">Italo Calvino</span>
+					<div id="animLogo" class="cursor-pointer w-full p-10 md:w-2/5 md:p-0 block relative mt-16">
+						<img id="anim4" src="assets/logo/animation/1.png" class="w-full absolute top-0 left-0 transition-opacity opacity-0 duration-1000" />
+						<img id="anim5" src="assets/logo/animation/2.png" class="w-full absolute top-0 left-0 transition-opacity opacity-0 duration-1000" />
+						<img id="anim6" src="assets/logo/animation/3.png" class="w-full absolute top-0 left-0 transition-opacity opacity-0 duration-1000" />
+						<img id="anim7" src="assets/logo/animation/4.png" class="w-full absolute top-0 left-0 transition-opacity opacity-0 duration-1000" />
+						<img id="anim8" src="assets/logo/animation/5.png" class="w-full absolute top-0 left-0 transition-opacity opacity-0 duration-1000" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="h-screen bg-black text-white">
+			<div class="w-full h-full relative">
+				<div class="w-full h-full flex flex-col items-center justify-center pb-20">
+					<h1 class="text-3xl">
+						<span class="sr-only">SUTURA</span>
+						<img src="assets/logo/logo-white.png" class="w-72 md:w-96" alt="Sutura" />
+					</h1>
+					<h2 class="text-3xl mt-4">
+						<span class="sr-only">scars speak</span>
+						<img src="assets/logo/logo-scars-speak-white.png" class="w-56 md:w-72" alt="scars speak" />
+					</h2>
+					<img src="assets/logo/logo-animated-white.png" class="w-full mx-auto" alt="Sutura" />
+				</div>
+				<div id="goToBoxes" class="bottom-28 lg:bottom-0 w-full absolute py-4 text-center transition-opacity duration-1000 opacity-0">
+					<span class="text-6xl block transform rotate-90 cursor-pointer">></span>
+				</div>
+			</div>
+		</section>
+		<section id="boxes" class="bg-white text-black bg-opacity-30" style="background-image: url(assets/background.jpg);">
+			<div class="bg-white bg-opacity-50">
+				<div class="container block mx-auto px-8 xl:px-0">
+					<div class="pt-16 pb-8">
+						<div class="flex flex-col lg:flex-row border-2 border-black border-solid bg-white">
+							<div class="w-full lg:w-1/2">
+								<img src="assets/images/1.jpg" />
+							</div>
+							<div class="w-full lg:w-1/2 h-full">
+								<div class="p-16 text-right" >
+									<h3 class="text-roboto text-4xl mb-4">SKIN</h3>
+									<p class="text-nixieone text-2xl">(under the)<br>
+									What was that noise?<br>
+									What is the sudden pain?<br>
+									I’m on top, one second,<br>
+									I hit rock bottom, the next.<br>
+									It’s aching underneath.<br>
+									Bye, tendon.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pt-8 pb-8">
+						<div class="flex flex-col lg:flex-row lg:flex-row-reverse border-2 border-black border-solid bg-black text-white">
+							<div class="w-full lg:w-1/2">
+								<img src="assets/images/2.jpg" />
+							</div>
+							<div class="w-full lg:w-1/2 h-full">
+								<div class="p-16 text-left">
+									<h3 class="text-roboto text-4xl mb-4">FLESH AND BLOOD</h3>
+									<p class="text-nixieone text-2xl">I feel my flesh tearing apart.<br>
+									Pain, pain. Pain again.<br>
+									I don’t care, I’ll wash you with my blood.<br>
+									It’s not the first time, not the last.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pt-8 pb-8">
+						<div class="flex flex-col lg:flex-row lg:flex-row-reverse border-2 border-black border-solid bg-black text-white">
+							<div class="w-full ">
+								<img src="assets/images/3.jpg" />
+							</div>
+						</div>
+					</div>
+					<!-- <div class="pt-16 pb-16">
+						<div class="flex justify-center items-center">
+							<div class="w-1/2 ">
+								<img src="assets/images/Tag-1.png" />
+							</div>
+						</div>
+					</div> -->
+					<div class="pt-8 pb-8">
+						<div class="flex border-2 border-black border-solid bg-black">
+							<div class="w-full h-full relative">
+								<div class="p-16 w-full h-full top-0 z-10 text-white flex flex-col justify-center">
+									<div class="w-5/6">
+										<p class="text-nixieone text-right text-4xl">The first cut is the deepest</p>
+										<p class="text-nixieone text-right text-3xl italic mt-4">Cat Stevens</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pt-8 pb-8">
+						<div class="flex border-2 border-black border-solid bg-white">
+							<div class="w-full h-full relative">
+								<div class="p-16 w-full h-full top-0 z-10 text-black flex flex-col justify-center">
+									<h3 class="text-roboto text-center text-4xl mb-4">WOUND</h3>
+									<p class="text-nixieone text-center text-2xl">Heal, wound heal. I can’t wait for you to heal.<br>
+									I know you’ll be there forever in a different form.<br>
+									Wherever I go, I’ll remember the pain.</p>
+									<!-- <img src="assets/logo/logo-essential.png" class="w-40 mx-auto mt-8" alt="Sutura" /> -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pt-8 pb-8">
+						<div class="flex flex-col lg:flex-row border-2 border-black border-solid bg-white">
+							<div class="w-full lg:w-1/2">
+								<img src="assets/images/4.jpg" />
+							</div>
+							<div class="w-full lg:w-1/2 h-full">
+								<div class="p-16 flex flex-col justify-end">
+									<h3 class="text-roboto text-4xl mb-4 sr-only">SUTURA</h3>
+									<img src="assets/logo/logo-black.png" class="w-36 self-end text-right mb-4" alt="Sutura" />
+									<p class="text-nixieone text-right text-2xl">I’ll put you back together.<br>
+									I’ll put me back together.<br>
+									I’ll move on.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pt-8 pb-8">
+						<div class="flex flex-col lg:flex-row lg:flex-row-reverse border-2 border-black border-solid bg-black text-white">
+							<div class="w-full lg:w-1/2">
+								<img src="assets/images/5.jpg" />
+							</div>
+							<div class="w-full lg:w-1/2 h-full">
+								<div class="p-16 text-left">
+									<h3 class="text-roboto text-4xl mb-4">SCAR</h3>
+									<p class="text-nixieone text-2xl">You’ll be a reminder that there’s nothing<br>
+									that can stop my relentless will.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pt-8 pb-8">
+						<div class="w-full md:w-1/2 mx-auto flex justify-center flex-col lg:flex-row lg:flex-row-reverse border-2 border-black border-solid bg-black text-white">
+							<div class="w-full">
+								<img src="assets/images/6.jpg" class="w-full" />
+							</div>
+						</div>
+					</div>
+					<div class="pt-16 pb-16">
+						<div class="flex justify-center items-center">
+							<div class="w-full md:w-1/2 p-8">
+								<img src="assets/images/Sun-1.png" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="bg-black text-white">
+			<div class="container mx-auto text-center px-8 xl:px-0">
+				<div class="w-full flex flex-col items-center justify-center p-2">
+					<span class="text-3xl">
+						<span class="sr-only">SUTURA</span>
+						<img src="assets/logo/logo-white.png" class="w-32" alt="Sutura" />
+					</span>
+					<span class="text-3xl mt-2">
+						<span class="sr-only">scars speak</span>
+						<img src="assets/logo/logo-scars-speak-white.png" class="w-24" alt="scars speak" />
+					</span>
+					<span class="text-roboto mt-4 text-2xs uppercase">S U T U R A | SCARS SPEAK<!-- - INFO@SUTURA.IT / Cookie Policy / Privacy Policy--> - &copy; COPYRIGHT 2021</span>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

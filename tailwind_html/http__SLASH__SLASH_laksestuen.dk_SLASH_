@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164582496-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-164582496-1');
+</script>
+
+  <!--SEO meta Tags -->
+  <meta name="keywords" content="Whist, whist, Makker, regler,laksestuen, point, KU, kortspil, pointstyring, makkeres,Es, Kort, Sans, Vip, Halve, Almindelige, Sol, Ren sol, bordlægger, Sniksnak, snik snak, almindelige, trumf, kortdrengene, kortspil, 4 personer, joker">
+  <meta name="description" content="Laksestuen kan hjælpe dig med at pointstyring i et spil whist.">
+
+  <!---Bootstrap css  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Fonts -->  
+  <link href='https://fonts.googleapis.com/css?family=Alegreya Sans SC' rel='stylesheet'>
+
+  <!-- Ikon -->
+  <link rel="icon" href="icon.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="stylesheet.css">
+  
+  <title>Laksestuen - Whist scoreboard</title>
+
+  <!--<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">-->
+  <!-- Compiled and minified CSS 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+  <!-- Compiled and minified JavaScript 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+</head>
+<body>
+
+  <!-- Overlay til at menu skærm inde i spillet -->
+  <div id="overlay" onclick="off()">
+  </div>
+  <div id="frame">
+    <h1 id="titelFrame"> Hvem spiller? </h1> <br>
+  </div>
+    
+  <!-- baggrund --> 
+  <div class="page-bg">
+</div>  
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="forsætSpilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span id="IDsand"> Vil du forsætte spillet med ID: <span id="IDforsæt"> </span>. Hvis ikke kan du indtaste det specfikke ID nedenfor. </span>
+        <span id="IDfalsk"> Indtast ID'et på spillet du ønsker at forsætte.</span>
+        <form onsubmit="return loadFraID()">
+        <input type="number" id="IDInput">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
+        <button type="button" class="btn btn-primary" onclick="loadFraID()">Forsæt spil</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <!-- Forsiden -->
+  
+  <div class = "cover-container d-flex w-100 p-3 mx-auto flex-column"> 
+    <header class="masthead mb-auto">
+      <a href="index.html"><img class="masthead-brand" src="logo.svg"> </a>
+      <nav class="nav nav-masthead justify-content-center"> 
+        <a class="nav-link active" href="index.html"> Hjem </a>
+        <a class="nav-link" href="regler.html"> Regler </a>
+        <a class="nav-link" href="TurneringsStatistik.html"> Statistik</a>
+        <a class="nav-link" href="Turnering.html"> Turnering</a>
+        <a class="nav-link" href="opdatering.html">Opdateringer</a>
+        <a class="nav-link" href="about.html">Om os</a>
+        <!-- Knapper på spil siden -->
+      </nav>
+      
+    </header>
+
+
+    <div class = "inner cover" role="main">
+      <h1 class="overskrift"> Velkommen til Laksestuen</h1>
+      <p class="lead">
+        Laksestuen er Danmarks førende pointfører til whist, og hjælper dig og din kortgruppe af med besværet af at skulle føre point i hånden. Laksestuen gemmer også dine meldinger, så du senere kan se præcis hvem i din gruppe der melder bedst.
+      </p>
+      <div class="container">
+        <div class="row align-items-center ">
+            <a class="btn btn-lg forside-knap" onclick="nytSpil()">Nyt spil</a>
+            <button type="button" class="btn btn-lg forside-knap" data-toggle="modal" onclick="forsætID()" data-target="#forsætSpilModal">
+  Forsæt spil
+</button>
+        </div>
+
+      </div>
+    </div>
+    <footer class="mastfoot mt-auto">
+      
+
+    </footer>
+
+    <!-- Side til at indsmale navne -->
+    <div class="w-80 h-80">
+    <form onsubmit="return TjekTurneringsID()">
+      <div id="spillerNavne">   
+        <h1 id="names">Spillernavne</h1><br>
+        <div class="submit-wrap">
+          <input type="submit" value="Send" id="sendNavne" class="submit">
+          <h3 id="Turnames" class = "TurneringsIDTitel">Turneringsnavn (valgfri)</h3>
+          <input type="text" id='TurneringsID' class="navneInput" name="TurneringsID">
+        </div>
+      </div>  
+    </form>
+    </div>
+
+
+    <!-- Spil side -->
+    <nav class="nav nav-masthead justify-content-center" id="spilKnapper"> 
+        
+        <!-- Knapper på spil siden -->
+      </nav>
+
+    <div class="mainWrapper">
+      
+      <div id="spil" class="bg-update container input-form"> 
+        <h4>Tilføj en runde</h4>
+        <p class="tekst">Hvis du vil forsætte dit spil senere kan du gøre det med følgende spil ID: <span id="IDShower"></span></p>
+        <div class="btn-group btn-spil" role="group">
+        <button type="button" class="btn btn-secondary" onclick="undoRunde()">Undo</button>
+        <button type="button" class="btn btn-secondary" onclick="on()">Spillere</button>
+        <button type="button" class="btn btn-secondary" onclick="lavPointPlot()">Opdater graf</button>
+      </div> 
+        <form onsubmit="return udregnPoint()">
+
+        <div id="data">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="mode">Melding</label>
+               </div>
+               <select class="custom-select" id="mode" onchange="change(this.value)"> 
+                <option value="Alm">Almindelige</option>
+                <option value="Vip">Vip</option>
+                <option value="Gode">Gode</option>
+                <option value="Halve">Halve</option>
+                <option value="Sans">Sans</option>
+                <option value="Sol">Sol</option>
+                <option value="Ren">Ren Sol</option>
+                <option value="Bord">Bordlægger</option>
+                <option value="Snak">Sniksnak</option>
+                </select>
+               <div class="input-group-prepend kort">
+                <label class="input-group-text" for="kortTre">3. kort</label>
+                <div class="input-group-text">
+                  <input type="checkbox" id="kortTre" value="3">
+                </div>
+              </div>
+              <div class="input-group-prepend solo">
+                <label class="input-group-text" for="soloHjem">Gik hjem?</label>
+                <div class="input-group-text">
+                  <input type="checkbox" id="soloHjem" value="1">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div id="stikWrapper">
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="stik">Stik meldt</label>
+               </div>
+               <select class="custom-select" id="stik"> 
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+                <option value=11>11</option>
+                <option value=12>12</option>
+                <option value=13>13</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="stikT">Stik taget</label>
+               </div>
+               <select class="custom-select" id="stikT"> 
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+                <option value=11>11</option>
+                <option value=12>12</option>
+                <option value=13>13</option>
+                </select>
+            </div>
+            </div>
+            <br>
+          <input type="submit" class="submit" id="sendPoint" value="Tilføj runde">           
+        </div> 
+      </form>  
+    </div>
+  </div>
+  </div>
+  <div id="tableHolder"> </div>
+  <div id=grafHolder>
+    <canvas id="myChart"></canvas>
+  </div>  
+
+
+
+
+    <!--<div id="startButtons" class="center">
+      <button onclick="nytSpil()" class="button">  Nyt spil </button> 
+      <button class="btn btn-blue" onclick="loadFraCookie()">Forsæt gemt spil</button>
+      <button class="btn btn-blue" onclick="loadFraID()">Forsæt specifikt spil</button>
+      <a href="regler.html"> <button class="btn btn-blue" >Regler</button> </a>
+    </div> -->
+
+    
+
+    <!-- Ekstra knapper -->
+    <div id="statknapTilbage"><button class="btn btn-blue" onclick="tilbageSpil()">Tilbage til spil</button></div>
+
+    
+    
+
+
+
+  <!-- Område til grafer -->  
+ 
+
+
+ <!-- Scripts-->
+ <!-- Bootstrap -->
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- graf -->
+  <script src="js/Chart.js"></script>
+  <!-- Egen JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1088 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"NRJS-22e464f74cb6a20afec","applicationID":"704028275","transactionName":"dwkKEhMMWAgGEEpCUUYPARVOEFEWCgcWbkdBCwkPFQ==","queueTime":0,"applicationTime":276,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-22e464f74cb6a20afec",applicationID:"704028275"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n,r){return function(){return s.recordSupportability("API/"+e+"/called"),o(t+e,[u.now()].concat(c(arguments)),n?null:this,r),n?void 0:this}}var o=t("handle"),a=t(9),c=t(10),f=t("ee").get("tracer"),u=t("loader"),s=t(4),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",v=l+"ixn-";a(p,function(t,e){d[e]=i(l,e,!0,"api")}),d.addPageAction=i(l,"addPageAction",!0),d.setCurrentRouteName=i(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(v+"tracer",[u.now(),t,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw f.emit("fn-err",[arguments,this,t],n),t}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(v,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),s.recordSupportability("API/noticeError/called"),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){var r=!1;try{var i=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,i),window.removeEventListener("testPassive",null,i)}catch(o){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],4:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return o("storeMetric",n,null,"api"),n}function i(t,e){var n=[c,t,{name:t},e];return o("storeEventMetrics",n,null,"api"),n}var o=t("handle"),a="sm",c="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:c},recordSupportability:r,recordCustom:i}},{}],5:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(11);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],6:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(u&&u<r.startTime)return;var i=[r],o=a({});o&&i.push(o),l("lcp",i)}}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function c(t){if(t instanceof y&&!w){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=v.now()?n.fid=v.now()-e:e>v.offset&&e<=Date.now()?(e-=v.offset,n.fid=v.now()-e):e=v.now(),w=!0,l("timing",["fi",e,n])}}function f(t){"hidden"===t&&(u=v.now(),l("pageHide",[u]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var u,s,d,p,l=t("handle"),v=t("loader"),m=t(8),g=t(3),y=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(h){}d=new PerformanceObserver(i);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(h){}p=new PerformanceObserver(o);try{p.observe({type:"layout-shift",buffered:!0})}catch(h){}}if("addEventListener"in document){var w=!1,b=["click","keydown","mousedown","pointerdown","touchstart"];b.forEach(function(t){document.addEventListener(t,c,g(!1))})}m(f)}},{}],7:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}e.exports={agent:i,version:o,match:r}},{}],8:[function(t,e,n){function r(t){function e(){t(c&&document[c]?document[c]:document[o]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,i(!1))}var i=t(3);e.exports=r;var o,a,c;"undefined"!=typeof document.hidden?(o="hidden",a="visibilitychange",c="visibilityState"):"undefined"!=typeof document.msHidden?(o="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(o="webkitHidden",a="webkitvisibilitychange",c="webkitVisibilityState")},{}],9:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],10:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],11:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),f=m(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[w[n]];return p&&p.push([b,n,r,c]),c}}function o(t,e){h[t]=m(t).concat(e)}function v(t,e){var n=h[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return h[t]||[]}function g(t){return p[t]=p[t]||i(n)}function y(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var h={},w={},b={on:o,addEventListener:o,removeEventListener:v,emit:n,get:g,listeners:m,context:e,buffer:y,abort:c,aborted:!1};return b}function o(t){return u(t,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=t("gos"),s=t(9),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!M++){var t=T.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(x,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+T.offset],null,"api"),c("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===m.readyState&&o()}function o(){c("mark",["domContent",a()+T.offset],null,"api")}var a=t(5),c=t("handle"),f=t(9),u=t("ee"),s=t(7),d=t(2),p=t(3),l=d.getConfiguration("ssl")===!1?"http":"https",v=window,m=v.document,g="addEventListener",y="attachEvent",h=v.XMLHttpRequest,w=h&&h.prototype,b=!1;NREUM.o={ST:setTimeout,SI:v.setImmediate,CT:clearTimeout,XHR:h,REQ:v.Request,EV:v.Event,PR:v.Promise,MO:v.MutationObserver};var E=""+location,x={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1216.min.js"},O=h&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),T=e.exports={offset:a.getLastTimestamp(),now:a,origin:E,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(6),m[g]?(m[g]("DOMContentLoaded",o,p(!1)),v[g]("load",r,p(!1))):(m[y]("onreadystatechange",i),v[y]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var M=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],t)}c(n+"start",[o,a,f],s,u);try{return p=e.apply(a,o)}catch(v){throw c(n+"err",[o,a,v],s,u),v}finally{c(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)f=e[u],c=t[f],a(c)||(t[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!v||e){var c=v;v=!0;try{t.emit(n,r,o,e,a)}catch(f){i([f,n,r,o],t)}v=c}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function c(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function f(t,e,n){var r=t[e];t[e]=c(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(10),p="nr@original",l=Object.prototype.hasOwnProperty,v=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=f,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+  <link href="https://d1f74no97k6yi9.cloudfront.net/assets/application-18f312eed875653e370f38dcbb23bc85.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://d1f74no97k6yi9.cloudfront.net/assets/conferences-60dbd809d560cbfe923bcf903998796f.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://d1f74no97k6yi9.cloudfront.net/assets/application_series-53753437ef6347edfd4aeb3017d8576b.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://d1f74no97k6yi9.cloudfront.net/assets/fonts-w-e6e3ff4174415bfa037c6888a4a2c4f9.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://d1f74no97k6yi9.cloudfront.net/assets/fonts-g-51eaabb227da69840e4d913f952d79ae.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://d1f74no97k6yi9.cloudfront.net/assets/fonts-sf-c825537f9f1dbea84927e7110111c47f.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://d1f74no97k6yi9.cloudfront.net/assets/fonts-pro-03a6f515fbbb89abb8a4a7835b91599e.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://d1f74no97k6yi9.cloudfront.net/assets/fonts-m-7ca8c0aa70a3f8aaf95b9d8f86bef7e8.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://d1f74no97k6yi9.cloudfront.net/assets/virtual-checkin-dbd58a5a9cfcd1dee051184cf8c75514.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://d1f74no97k6yi9.cloudfront.net/assets/event-dashboard-f7bdfa01bab242f08ba8ce59f8438fdf.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="https://d1f74no97k6yi9.cloudfront.net/assets/application-bc51ac5d11530d0187605d7898da57ed.js" type="text/javascript"></script>
+  <script src="https://d1f74no97k6yi9.cloudfront.net/assets/lazyload-59ca3f8c871c504dbb93a2641125a70c.js" type="text/javascript"></script>
+  <script src="https://d1f74no97k6yi9.cloudfront.net/assets/application_series-292601ef7b39d2b2136a889a2312c180.js" type="text/javascript"></script>
+  <link href='https://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="content-language" content="en">
+<title>SRALA2021: V Congreso de la Sociedad de Análisis de Riesgo Latinoamericana </title>
+
+
+<meta name="keywords" content="Análisis Riesgo Risk Analysis Public Policy">
+<meta name="description" content="1 al 3 de Diciembre de 2021.  
+
+Para asistir al comgreso debe registrarse a la serie, que le permite atender todas las sesiones (webinars)
+
+El sitio web de la conferencia es http://www.srala2021.com
+
+El programa completo  está disponible en  https://rebrand.ly/SRALA2021-Programa 
+
+&lt;div id=&#x27;root&#x27;&gt; &lt;/div&gt;">
+<meta name="msvalidate.01" content="7FB67E680F127E1BBF8AF2977231BE73" />
+
+<meta property="og:title" content="SRALA2021: Congreso de la Sociedad de Análisis de Riesgo Latinoamericana"/>
+<meta property="og:description" content="1 al 3 de Diciembre de 2021.  
+
+Para asistir al comgreso debe registrarse a la serie, que le permite atender todas las sesiones (webinars)
+
+El sitio web de la conferencia es http://www.srala2021.com
+
+El programa completo  está disponible en  https://rebrand.ly/SRALA2021-Programa 
+
+&lt;div id=&#x27;root&#x27;&gt; &lt;/div&gt;"/>
+<meta property="og:url" content="https://www.bigmarker.com/series/SRALA2021/series_summit"/>
+<meta property="og:image" content="https://d5ln38p3754yc.cloudfront.net/conference_facebook_images/4107251/original/1624380604-7be5b58b74bfa3e1.png?1624380604"/>
+<meta property="og:image:width" content="300" />
+<meta property="og:image:height" content="300" />
+<meta property="og:type" content="website"/>
+
+<meta property="og:site_name" content="BigMarker.com"/>
+<meta property="fb:app_id" content="141882182498414"/>
+<meta name="google-site-verification" content="tagUoe1eXVgaWSbu03Mr51nqbLmGHpHeqHRGT4DSdP4" />
+<meta name="google-site-verification" content="f7cpqTo30-NwefIhO4kdI4MRpRa9q5Ur488QTe99ElY" />
+<meta name="google-site-verification" content="pKN6n-q6g6MF5Rx_HdB4m7KyAXXprCtimASccNUj5n8" />
+
+<link rel="canonical" href="https://www.bigmarker.com/series/SRALA2021/series_summit">
+
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="DT2OjFyhJhxV0tJAfxVpFqka+P+jjoRWiszSjeQU3gQ=" name="csrf-token" />
+  <link
+  href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+  rel="stylesheet"
+/>
+
+<script type="text/javascript" id="custom_code" defer>
+  let intervalId = setInterval(function () {
+    let el = document.getElementsByClassName(
+      "series-tmp-1-about-box hide_about_section js-custom-background-color"
+    );
+
+    console.log(el);
+
+    if (el) {
+      let content = document.createElement("div");
+      content.innerHTML = getHtmlContent();
+      el[0].after(content);
+
+      clearIntervalId();
+    }
+  }, 500);
+
+  function clearIntervalId() {
+    clearInterval(intervalId);
+  }
+
+  function getHtmlContent() {
+    return `
+
+    `;
+  }
+</script>
+
+
+    <link href="https://d1f74no97k6yi9.cloudfront.net/assets/favicon-c719ba5a13bbad672404132320de543c.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  
+</head>
+
+
+<body>
+<!-- Top navigation bar -->
+<!-- <div class="settings-2018-wrapper">
+  <div class="settings-2018-main clear">
+        <div class="series-left" id="series-left-editor">
+        </div>
+      <div class="series-right">
+      </div>
+  </div>
+</div> -->
+
+<div class="series-main-box">
+  
+  <div class="series-main-box-in">
+    <div class="series-main-box-right">
+       <div class="series-main-box-right-in">
+          <div class="series-right">
+            <div class="">
+  <div class="series-right-page-box">
+
+      <div class="series-tmp-1-header js-header-background-color" id="series-logo-link" style="background-color: #ffffff">
+          <div class="series-tmp-1-header-img series-logo-name" style="">
+    <img alt="1624379128-397d6e1fe9e689d9" src="https://d5ln38p3754yc.cloudfront.net/series_logos/24617/medium/1624379128-397d6e1fe9e689d9.png?1624379128" />
+  </div>
+<div class="series-tmp-1-header-name js-series-font-color" style="color:#2b374d; ">
+    Society for Risk Analysis LA
+</div>
+<div class="series-tmp-1-header-right">
+  <div class="series-tmp-1-header-nav-btn series-conference-button js-series-techweek-register">
+    
+            <a href="/conferences/6843e9ef8522/registration_modal?open_modal_in_standalone=false&amp;series_register=series_register&amp;show_register_box=true" data-maxWidth="480px" id="e4778d36-1683-47d3-af92-c4429200d8ec" rel="modal:open" style="background-color:#fff; color:#002051;">
+                Registrarse ahora
+
+</a>
+
+  <a href="/conferences/6843e9ef8522/conference_registrations/verify_email_registered" class="series-button-text-color" data-maxWidth="480px" id="cf429a39-e45f-40c8-bd72-1c3b1e035b4d" rel="modal:open" style="background-color:#fff;color:#002051;">Iniciar Sesión</a>
+
+  </div>
+</div>
+      </div>
+    <div id="series-banner-ll">
+      <div class="series-banner-outbox">
+
+  <div class="series-tmp-1-banner2 banner-overflow has_image" style="display:;">
+    <div class="conf-creation-landing-banner-mask" style="background-color: rgba(21, 26, 37, 0.42);"></div>
+    <div class="channel-2018-cover-box-blur lazyload-item"
+      id="template_banner_virtual"
+      data-bg="url(https://d5ln38p3754yc.cloudfront.net/conference_background_images/4107251/original/1628866706-6be842bbb2384e6d.png?1628866706)">
+    </div>
+    <div class="channel-2018-list-box-contents-list-icon banner-fix lazyload-item umg-width"
+      id="template_banner"
+      data-bg="url(https://d5ln38p3754yc.cloudfront.net/conference_background_images/4107251/original/1628866706-6be842bbb2384e6d.png?1628866706)">
+    </div>
+  </div>
+
+  <div class="series-tmp-1-banner umg-height has_gradient" style="display:none; background-image: linear-gradient(to right, #eaedf0, #eaedf0);">
+  </div>
+
+  <div class="series-tmp-1-banner umg-height no_gradient" style="display:none; background-color: #eaedf0;">
+  </div>
+
+  <div class="series-tmp-1-contents series-temp-1-article">
+      <div class="series-tmp-1-banner-title js-series-banner series-banner-color custom-font-title close" style="color: #fff">
+        <h1 class="series-banner-color" style="color: #fff">
+            SRALA2021: Congreso de la Sociedad de Análisis de Riesgo Latinoamericana
+        </h1>
+      </div>
+      <div class="series-tmp-1-banner-text series-banner-color" style="color: #fff">
+          
+      </div>
+      <div class="series-tmp-1-banner-btn series-conference-button js-series-banner-button " style="color: #fff">
+                  <a href="/conferences/6843e9ef8522/registration_modal?open_modal_in_standalone=false&amp;series_register=series_register&amp;show_register_box=true" data-maxWidth="480px" id="5920269f-d7d3-4c20-ba16-328aa4495f7a" rel="modal:open" style="background-color:#fff; color:#002051;">
+                Registrarse ahora
+
+</a>
+
+      </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+</script>
+    </div>
+
+      <div class="series-tmp-1-about-box hide_about_section js-custom-background-color" style="">
+        <div class="series-tmp-1-contents" id="series-about">
+          <div class="series-tmp-1-about-title js-series-font-color">
+  <h2 class="custom-font-sub-title" style="color:#2b374d">
+    V Congreso de la Sociedad de Análisis de Riesgo Latinoamericana 
+  </h2>
+</div>
+<div class="series-tmp-1-about-text js-series-font-color" style="color:#2b374d">
+    1 al 3 de Diciembre de 2021.  <br /><br />Para asistir al comgreso debe registrarse a la serie, que le permite atender todas las sesiones (webinars)<br /><br />El sitio web de la conferencia es <a href="http://www.srala2021.com" rel="nofollow" target="_blank">http://www.srala2021.com</a><br /><br />El programa completo  está disponible en  <a href="https://rebrand.ly/SRALA2021-Programa" rel="nofollow" target="_blank">https://rebrand.ly/SRALA2021-Programa</a> <br /><br /><div id="root"> </div>
+</div>
+
+        </div>
+      </div>
+
+            <div class="series-tmp-1-presenters js-custom-background-color summit-presenter hide_featured_presenter" style="display: none;background-image: linear-gradient(to right, #14a6db, #0d7dc0); margin-bottom: 80px;">
+        <div class="series-tmp-1-contents">
+          <div id="series-presenter-next">
+            
+          </div>
+          <div id="series-presenter-prev">
+            
+          </div>
+          <div class="series-tmp-1-presenters-title">
+            <h2>
+              <span class="presenter_title_default js-series-presenter-title-color custom-font-sub-title">
+                  Meet The <span class="presenter_alias_capitalize">Presentador</span>
+              </span>
+            </h2>
+          </div>
+          <ul class="series-tmp-1-presenters-list" id="series-right-presenter-list">
+            <li class="clear series-presenter-8745db7bd8f3">
+    <div class="series-tmp-1-presenters-list-box clear">
+        <div class="series-tmp-1-presenters-list-img">
+              <img alt="1624035232-a5f1cfe8adf30f34" src="https://d5ln38p3754yc.cloudfront.net/member_photos/20661600/medium/1624035232-a5f1cfe8adf30f34.txt?1624035232" />
+        </div>
+        <div class="series-tmp-1-presenters-list-right js-series-font-color" style="color:#2b374d">
+            <div class="series-tmp-1-presenters-list-right-in">
+                <div class="series-tmp-1-presenters-list-name js-series-font-color" style="color:#2b374d">
+                    Equipo Organizador SRALA2021-A
+                </div>
+                <div class="series-tmp-1-presenters-list-company js-series-font-color" style="color:#2b374d">
+                    
+                </div>
+                <div class="series-tmp-1-presenters-list-text js-series-font-color" style="color:#2b374d">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</li><li class="clear series-presenter-8909688d2d7d">
+    <div class="series-tmp-1-presenters-list-box clear">
+        <div class="series-tmp-1-presenters-list-img">
+              <img alt="1637288742-0856e094f104184e" src="https://d5ln38p3754yc.cloudfront.net/member_photos/16467772/medium/1637288742-0856e094f104184e.txt?1637288742" />
+        </div>
+        <div class="series-tmp-1-presenters-list-right js-series-font-color" style="color:#2b374d">
+            <div class="series-tmp-1-presenters-list-right-in">
+                <div class="series-tmp-1-presenters-list-name js-series-font-color" style="color:#2b374d">
+                    Luis Abdón Cifuentes
+                </div>
+                <div class="series-tmp-1-presenters-list-company js-series-font-color" style="color:#2b374d">
+                    Presidente de la Sociedad de Análisis de Riesgo Latinoamericana
+                </div>
+                <div class="series-tmp-1-presenters-list-text js-series-font-color" style="color:#2b374d">
+                    Profesor de la Facultad de Ingeniería de la Pontificia Universidad Católica de Chile.
+<br />Investigador y Cofundador del Centro de Cambio Global UC
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+
+    <div class="series-tmp-1-sessions-box js-custom-background-color">
+      <div class="series-tmp-1-contents">
+        <div class="series-tmp-1-sessions-title js-series-font-color custom-font-sub-title" style="color:#2b374d">
+                  <span class="presenter_title_sub_default">
+                      Sesiones V Congreso SRALA
+                  </span>
+        </div>
+        <ul class="series-tmp-1-sessions-list" id="series-section-summit">
+          <li class="series-section-82324">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/Inauguraci-n?show_live_page=true">
+          <img alt="1637368297-deb86d2c8f26aa56" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/4108757/medium/1637368297-deb86d2c8f26aa56.png?1637368297" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      Inauguración
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      Bienvenida del presidente de la Sociedad de Análisis de Riesgo Latinoamerican...
+    </div>
+  </div>
+</li>
+<li class="series-section-69698">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/Charla-Magistral-Dr-Baruch-Fischhoff?show_live_page=true">
+          <img alt="1636747912-4a59b383b8355ef4" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/4108794/medium/1636747912-4a59b383b8355ef4.jpeg?1636747912" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      Dr. Baruch Fischhoff
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      Conferencia Inagural: Risk Analysis and the Pandemic
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      He holds a BS (mathematics, psychology) from Wayne State University and a PhD...
+    </div>
+  </div>
+</li>
+<li class="series-section-82322">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/T1-Sesiones-Paralelas?show_live_page=true">
+          <img alt="1638288492-7b76c5a870aee5dc" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5057800/medium/1638288492-7b76c5a870aee5dc.png?1638288492" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      1A COVID-19: Impacto en personal médico
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Estrategias de protección para los psicólogos intervenientes...
+    </div>
+  </div>
+</li>
+<li class="series-section-82296">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/1B-Sesi-n-tem-tica-Percepci-n-y-comunicaci-n-de-riesgos-ambientales-en-zonas-urbanas-y-rurales-de-M-xico?show_live_page=true">
+          <img alt="1638288528-4a60cd719f851170" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5188723/medium/1638288528-4a60cd719f851170.png?1638288528" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      1B Sesión temática: Percepción y comunicación de riesgos ambientales en zonas urbanas y rurales de México
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Percepción social de riesgos ambientales en la Ciudad de Méxi...
+    </div>
+  </div>
+</li>
+<li class="series-section-82297">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/1C-Mesta-Redonda-Public-Policy-Considerations-for-Forced-IDPs-in-the-Context-of-Social-and-Environmental-Disasters-in-Latin-America-and-the-Caribbean?show_live_page=true">
+          <img alt="1638288591-998be3c0b38fcc6c" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5188920/medium/1638288591-998be3c0b38fcc6c.png?1638288591" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      1C Mesa Redonda: Public Policy Considerations for Forced IDPs in the Context of Social and Environmental Disasters in Latin America and the Caribbean
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      Social and environmental disasters in Latin American and Caribbean countries ...
+    </div>
+  </div>
+</li>
+<li class="series-section-82332">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/PL1-Plenaria?show_live_page=true">
+          <img alt="1638288651-fe644f7f8601a75e" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5057808/medium/1638288651-fe644f7f8601a75e.png?1638288651" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      2A Sesión temática: Factores psicosociales de riesgo y factores protectores en trabajadores durante la pandemia.
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Factores de riesgo y protectores en docentes de Lima, Perú, d...
+    </div>
+  </div>
+</li>
+<li class="series-section-82298">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/Riesgos-naturales-Gesti-n?show_live_page=true">
+          <img alt="1638366591-b104cbabb10678f6" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5188927/medium/1638366591-b104cbabb10678f6.png?1638366591" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      2B Riesgos naturales: Gestión del Riesgo
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      &lt;ul&gt;&lt;li&gt;&lt;strong&gt;KimGenData: Prospective scenarios in the framework of disaste...
+    </div>
+  </div>
+</li>
+<li class="series-section-82299">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/3C-Mesa-Redonda-Procesos-de-reconstrucci-n-en-Chile-experiencias-y-desaf-os-para-las-pol-ticas-p-blicas?show_live_page=true">
+          <img alt="1638288707-64a77f6c86fa91d2" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5188936/medium/1638288707-64a77f6c86fa91d2.png?1638288707" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      2C Mesa Redonda: Procesos de reconstrucción en Chile: experiencias y desafíos para las políticas públicas
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      Durante los últimos 10 años, Chile ha debido enfrentar 13 procesos de reconst...
+    </div>
+  </div>
+</li>
+<li class="series-section-82301">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/Actividad-de-Bienvenida?show_live_page=true">
+          <img alt="1638366634-b8e586b1ae2f139e" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5057851/medium/1638366634-b8e586b1ae2f139e.png?1638366634" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      Actividad de Bienvenida
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-81194">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/Charla-Magistral-rsula-Oswald?show_live_page=true">
+          <img alt="1638054126-e507711fe0b723bc" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5098518/medium/1638054126-e507711fe0b723bc.png?1638054126" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      Dra. Úrsula Oswald Spring
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      Conferencia Magistral: Sinergias y retroalimentaciones entre desastres climáticos y seguridad de género
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      La Dra. Úrsula Oswald Spring es investigadora del Centro Regional de Investig...
+    </div>
+  </div>
+</li>
+<li class="series-section-82302">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/3A-Riesgos-ambientales?show_live_page=true">
+          <img alt="1638288787-cfc19dcb0326b29d" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5189002/medium/1638288787-cfc19dcb0326b29d.png?1638288787" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      3A: Riesgos ambientales
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82303">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/3B-COVID-19-Percepci-n-y-conductas?show_live_page=true">
+          <img alt="1638288802-37a3bdb18e2bd5e0" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5189011/medium/1638288802-37a3bdb18e2bd5e0.png?1638288802" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      3B: COVID-19: Percepción y conductas
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82304">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/3C-Mesa-Redonda-Coordinaci-n-de-los-equipos-de-salud-mental-en-situaciones-de-emergencia-y-desastre?show_live_page=true">
+          <img alt="1638288825-617717a1a809ce66" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5189014/medium/1638288825-617717a1a809ce66.png?1638288825" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      3C: Mesa Redonda: Coordinación de los equipos de salud mental en situaciones de emergencia y desastre
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82305">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/4A-Riesgos-naturales-Inundaciones?show_live_page=true">
+          <img alt="1638288855-fdceff47a73c67e1" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5189019/medium/1638288855-fdceff47a73c67e1.png?1638288855" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      4A: Riesgos naturales: Inundaciones
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82306">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/4B-Sesi-n-tem-tica-Percepci-n-de-riesgo-y-resiliencia-en-desastres-naturales?show_live_page=true">
+          <img alt="1638366656-e7b3975f5742d450" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5189021/medium/1638366656-e7b3975f5742d450.png?1638366656" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      4B: Sesión temática: Percepción de riesgo y resiliencia en desastres naturales
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82308">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/Plenaria-ARClim-Atlas-de-Riesgo-Clim-tico-2050?show_live_page=true">
+          <img alt="1638289047-ee771a7fcf25713f" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5189026/medium/1638289047-ee771a7fcf25713f.png?1638289047" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      Plenaria: ARClim: Atlas de Riesgo Climático 2050
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82311">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/5C-MESA-REDONDA-Transferring-Modern-Risk-Assessment-Models-from-Academia-and-Research-Institutions-to-the-Industry-en-ingl-s?show_live_page=true">
+          <img alt="1638366679-dd3b25f23fa4dffa" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5189044/medium/1638366679-dd3b25f23fa4dffa.png?1638366679" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      5: MESA REDONDA: Transferring Modern Risk Assessment Models from Academia and Research Institutions to the Industry (en inglés)
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82313">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/6A-Riesgos-geol-gicos?show_live_page=true">
+          <img alt="1638289199-2870179bf7d715e8" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5189049/medium/1638289199-2870179bf7d715e8.png?1638289199" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      6A: Riesgos geológicos
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82314">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/6B-MESA-REDONDA-Riesgos-costeros-eventos-extremos-y-desaf-os-para-la-resiliencia-de-la-costa-en-Chile?show_live_page=true">
+          <img alt="1638289206-fa6298f9bddab023" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5189054/medium/1638289206-fa6298f9bddab023.png?1638289206" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      6B: Presentación y discusión de POSTERS
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82312">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/Reuni-n-de-miembros-SRA-LA?show_live_page=true">
+          <img alt="1638289170-e4bab2134c282107" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5057861/medium/1638289170-e4bab2134c282107.jpeg?1638289170" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      Reunión de Miembros SRA-LA
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-81195">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/Conferencia-Magistral-An-lisis-de-Riesgo-Ambiental-y-acceso-a-Justicia-Ambiental?show_live_page=true">
+          <img alt="1636749767-9081320f9eacba60" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5086121/medium/1636749767-9081320f9eacba60.png?1636749767" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      Dr. Cristobal de la Maza
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      Conferencia Magistral: Análisis de Riesgo Ambiental y acceso a Justicia Ambiental
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82631">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/7B-MESA-REDONDA-Desafios-e-casos-exitosos-na-gest-o-de-risco-tecnol-gico-no-Estado-de-S-o-Paulo-sesi-n-en-Portugu-s?show_live_page=true">
+          <img alt="1638482882-9f1391a6a880b4cd" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5223365/medium/1638482882-9f1391a6a880b4cd.png?1638482882" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+        7B: MESA REDONDA: Desafios e casos exitosos na gestão de risco tecnológico no Estado de São Paulo (sesión en Portugués)
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82635">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/8A-Uso-ambiental-y-humano-del-Agua-cab94b094cf9f43f6d7563c2?show_live_page=true">
+          <img alt="1638483523-e494766fdd776764" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5223426/medium/1638483523-e494766fdd776764.png?1638483523" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      8A: Uso ambiental y humano del Agua
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82636">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/8B-Riesgos-naturales-Vulcanismo-y-sismos?show_live_page=true">
+          <img alt="1638483883-57a0e3bedf046531" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5223431/medium/1638483883-57a0e3bedf046531.png?1638483883" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      8B: Riesgos naturales: Vulcanismo y sismos
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82637">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/Mesa-de-Conclusiones-y-Clausura-del-V-Congreso-SRALA?show_live_page=true">
+          <img alt="1638484097-aad5c3cf3669540d" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5223435/medium/1638484097-aad5c3cf3669540d.jpeg?1638484097" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      Mesa de Conclusiones y Clausura del V Congreso SRALA
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+<li class="series-section-82668">
+  <div class="series-tmp-1-sessions-list-box">
+    <div class="series-tmp-1-sessions-list-img series-link ">
+
+        <a href="/society-for-risk-analysis-la1/7A-Riesgos-Geologicos-NUEVA?show_live_page=true">
+          <img alt="1638546005-b520ec5eb48ab88f" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/5228155/medium/1638546005-b520ec5eb48ab88f.png?1638546005" />
+</a>    </div>
+    <div class="series-tmp-1-sessions-list-date custom-font-sub-title">
+      
+    </div>
+    <div class="series-tmp-1-sessions-list-title js-series-font-color" style="color:#2b374d">
+      7A Riesgos Geologicos NUEVA
+    </div>
+    <div class="series-tmp-1-sessions-list-text">
+      
+    </div>
+  </div>
+</li>
+
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="js-hide-cta-section" id="series-summit-cta" style="">
+          <div class="series-tmp-1-buy" style="background-image: linear-gradient(to right, #14a6db, #0d7dc0);">
+  <div class="series-tmp-1-contents">
+    <div class="series-tmp-1-buy-title series-banner-color" style="color: #fff">
+      <h2 class="custom-font-sub-title">
+          Te esperamos del 1 al 3 de Diciembre
+      </h2>
+    </div>
+    <div class="series-tmp-1-buy-btn series-cta-button">
+                <a href="/conferences/6843e9ef8522/registration_modal?open_modal_in_standalone=false&amp;series_register=series_register&amp;show_register_box=true" data-maxWidth="480px" id="2ef8f2c6-893a-43c2-a48f-55bf8524b3c2" rel="modal:open" style="background-color:#fff; color:#002051;">
+              Registrarse ahora
+
+</a>
+
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="series-tmp-1-footer js-custom-background-color js-series-font-color" id="series-right-footer" style="color:#2b374d">
+      <div class="series-tmp-1-contents clear">
+    <div class="series-tmp-1-footer-left" style="float: none;">
+          <!-- <div class="series-tmp-1-footer-left-icon">
+          </div> -->
+        <div class="series-tmp-1-footer-left-copyright">
+            <div class="series-tmp-1-footer-left-copyright-in">
+                <div class="series-tmp-1-footer-left-copyright-title js-series-font-color" style="color:#2b374d">
+                    
+                </div>
+                <div class="series-tmp-1-footer-left-copyright-text js-series-font-color" style="color:#2b374d">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="series-tmp-1-footer-right" style="float: none; width: 100%; text-align: center;">
+        Powered by BigMarker
+    </div>
+</div>
+
+    </div>
+  </div>
+</div>
+          </div>
+       </div>
+    </div>
+  </div>
+  <a href="/conferences/6843e9ef8522/add_to_calendar" class="theme-custom-color" data-maxWidth="900px" id="add_to_calender" rel="modal:open" style="display: none;">
+	Añadir al calendario
+</a>
+</div>
+
+<link href="https://d1f74no97k6yi9.cloudfront.net/assets/happening_now_box-233bd8b77b3af644185f4b5760d0bf5b.css" media="all" rel="stylesheet" type="text/css" />
+
+<script src="https://d1f74no97k6yi9.cloudfront.net/assets/lazyload-59ca3f8c871c504dbb93a2641125a70c.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+  var lazyLoadWorker = new LazyLoad({
+      elements_selector: ".lazyload-item",
+      callback_enter: function(ele){
+          // console.log('------ enter', ele.src)
+      },
+      callback_exit: function(ele){
+          // console.log('------ exit', ele.src)
+      },
+      callback_reveal: function(ele){
+          // console.log('------ reveal', ele.src)
+      },
+      callback_loaded: function(ele){
+          // console.log('------ loaded', ele.src)
+      },
+      callback_error: function(ele){
+          // console.log('------ error', ele.src)
+      },
+      callback_finish: function(ele){
+          // console.log('------ finish', ele.src)
+      },
+  });
+  $('a[data-remote][data-disable-with], a[data-act-as-disabled]').bindDisableOnRemote();
+  // $(document).ready(function(){
+  //   var heights = $('.series-tmp-1-presenters-list li').map(function ()
+  //       {
+  //           return $(this).height();
+  //       }).get(),
+  //   maxHeight = Math.max.apply(null, heights);
+  //    $('.series-tmp-1-presenters-list-box').css('height', maxHeight);
+  // });
+});
+</script>
+<style type="text/css" media="all">
+  .series-main-box{
+    padding-top: 0px !important;
+  }
+  .series-main-box-right{
+    width: 100% !important;
+  }
+  .series-main-box{
+    padding-top: 0 !important;
+  }
+  .series-main-box-right{
+    width: 100% !important;
+  }
+     .js-series-font-color{
+       color: #2b374d;
+     }
+
+    .js-custom-background-color{
+      background-color: #FFFFFF;
+    }
+
+    .js-series-presenter-title-color{
+      color: ;
+    }
+
+    #series-summit-svg svg{
+      fill: ;
+    }
+
+    .series-tmp-1-presenters-arr-left a span svg{
+      fill: ;
+    }
+    .series-tmp-1-presenters-arr-right a span svg{
+      fill: ;
+    }
+
+</style>
+
+
+    <script type="text/javascript">
+      $(function() {
+        $('#add_to_calender').click();
+      });
+    </script>
+
+<script type="text/javascript">
+    $(function () {
+    })
+</script>
+<script src="https://series-notification.bigmarker.com/socket.io/socket.io.js"></script>
+<script src="https://d1f74no97k6yi9.cloudfront.net/assets/series_notification-3f8af391b76cfac75f9b2f2450991656.js" type="text/javascript"></script>
+<link href="https://d1f74no97k6yi9.cloudfront.net/assets/fonts-m-7ca8c0aa70a3f8aaf95b9d8f86bef7e8.css" media="all" rel="stylesheet" type="text/css" />
+<link href="https://d1f74no97k6yi9.cloudfront.net/assets/event-notification-d43fd4614dfdba75cd9c35eb4a375704.css" media="all" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+    $(function(){
+          var bn_24617 = new BigmarkerNotification({
+            server: "https://series-notification.bigmarker.com",
+            room_id: "52f63978014e",
+            user_id: "Guest-Member"
+          });
+          bn_24617.start();
+      $(document).on('click','.js-notification-close',function(e){
+        $(this).parents('.ead-message-notifications-box-fixed').removeClass('onactive');
+      });
+    });
+	</script>
+
+<div class="ead-message-notifications-box-fixed" id="js-series-notification">
+  <div class="ead-message-notifications-box message-notifications-box">
+    <div class="ead-message-notifications-icon">
+    	<img alt="Ead-messages-offsite-icon-1" src="https://d1f74no97k6yi9.cloudfront.net/assets/series/ead-messages-offsite-icon-1-994e52aaf9510fcbb101295c69af92cb.png" />
+    </div>
+    <div class="ead-message-notifications-close">
+      <a href="#" class="js-notification-close">
+        <svg version="1.1" width="8" height="8" viewBox="0 0 1024 1024">
+          <path d="M696.022 512.051l312.741 312.741c20.316 20.316 20.316 53.303 0 73.619l-110.352 110.352c-20.316 20.316-53.252 20.316-73.619 0l-312.792-312.741-312.792 312.741c-20.316 20.316-53.252 20.316-73.568 0l-110.403-110.352c-20.316-20.316-20.316-53.252 0-73.619l312.792-312.741-312.792-312.792c-20.316-20.316-20.316-53.303 0-73.619l110.454-110.352c20.316-20.316 53.252-20.316 73.568 0l312.741 312.792 312.792-312.792c20.316-20.316 53.252-20.316 73.619 0l110.352 110.403c20.316 20.316 20.316 53.252 0 73.619l-312.741 312.741z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="ead-message-notifications-subtitle">
+    </div>
+    <div class="ead-message-notifications-title">
+    </div>
+    <div class="ead-message-notifications-link">
+      <a href="#" target="_blank">
+      </a>
+    </div>
+  </div>
+</div>
+
+<script type='text/javascript'>
+    var data = {
+        'token': '662b7e0af2e41209e8dbcd1300abb30a0db0ee9a',
+        'series_id': '24617',
+        'conference_id': '',
+        'referer': document.referrer,
+        'domain': document.domain,
+        'url': document.URL,
+        'user_agent': navigator.userAgent,
+        'requested_uri': '/series/SRALA2021/series_summit?add_to_calendar=true&amp;bmid=',
+        'action_url': document.location.pathname,
+        'ip_address': '3.236.225.157',
+        'member_id': '',
+        'session_id': 'acaf2a6e7944739f55f6fbcf1b7660689f7af340c02e30da8ad2eb074cdbf23a656c7f28dbb104be5b47359541e25ec8'
+      }
+    data = window.btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+    $.ajax({
+      url: 'https://logger-load-balancer-2.bigmarker.com/event_tracker/create',
+      type: 'post',
+      data: {data: data}
+    })
+
+</script>
+  <script type="text/javascript">
+      document.cookie = 'time_zone_detection=' + jstz.determine().name() + ';';
+  </script>
+
+
+<input id="chat_with_id" name="chat_with_id" type="hidden" />
+<style type="text/css" media="all">
+    .series-button-text-color{
+        background-color: #fff;
+        color: #002051;
+    }
+</style>
+<script type="text/javascript">
+    $(document).on('click', '.js-open-connect', function (e) {
+        if ($('.new-stage-main-chat-stage').length > 0) {
+            $('.new-stage-main-chat-icon').click();
+            $('.js-network-user-box').removeClass('onactive');
+            $.ajax({
+                url: "/series/SRALA2021/change_chat_connnect?chat_with_id=" + $('#chat_with_id').val()
+            });
+        }
+        e.preventDefault();
+        e.stopPropagation();
+    });
+  $(document).on('click', '.js-open-connect-status', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if($(this).siblings('.new-networking-user-box-section-states').hasClass('onactive')){
+      $(this).siblings('.new-networking-user-box-section-states').removeClass('onactive');
+    }else{
+      $(this).siblings('.new-networking-user-box-section-states').addClass('onactive');
+    }
+  });
+  $(document).on('click', '.js-chat-visible', function (e){
+
+    if($(this).hasClass('onactive')){
+      $(this).removeClass('onactive');
+      var type = false;
+    }else{
+      $(this).addClass('onactive');
+      var type = true;
+    }
+    $.ajax({
+      url: "/series/SRALA2021/change_chat_visible?chat_visible=" + type
+    });
+      e.preventDefault();
+      e.stopPropagation();
+  });
+  $(document).on('click', '.new-networking-user-box-section-states li', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $('.new-networking-user-box-section-states li').removeClass('onactive');
+    $(this).addClass('onactive');
+    var type = $(this).data('type');
+    $('.js-networking-chat-status').attr('class', 'js-networking-chat-status onactive allow-connect');
+    if (type == 'online'){
+      $('.js-networking-chat-status').attr('class', 'js-networking-chat-status onactive allow-connect');
+      $('.js-network-connecting').html('Open to Connecting');
+    }else if(type == 'away'){
+      $('.js-networking-chat-status').attr('class', 'js-networking-chat-status onactive away');
+      $('.js-network-connecting').html('Away');
+    }else if(type == 'offline'){
+      $('.js-networking-chat-status').attr('class', 'js-networking-chat-status onactive offline');
+      $('.js-network-connecting').html('Offline');
+    }
+    $.ajax({
+      url: "/series/SRALA2021/change_chat_connnect?chat_type=status&chat_status=" + type
+    });
+  });
+
+  $(window).click(function(){
+    $('.new-networking-user-box-section-states').removeClass('onactive');
+  });
+</script>
+<script type="text/javascript">
+    $(document).on('click', '.js-virtual-mobile', function (e) {
+        if($('.virtual-box-left').hasClass('onactive')){
+            $('.virtual-box-left').removeClass('onactive');
+        }else{
+            $('.virtual-box-left').addClass('onactive');
+        }
+    });
+    $(document).on('click', '.js-navigation-header', function (event){
+      event.stopPropagation();
+      event.preventDefault();
+      if($(this).siblings('.new-stage-header-nav-show').hasClass('onactive')){
+        $(this).siblings('.new-stage-header-nav-show').removeClass('onactive');
+      } else{
+        $(this).siblings('.new-stage-header-nav-show').addClass('onactive');
+      }
+    });
+    $(window).click(function(){
+      $('.new-stage-header-nav-show').removeClass('onactive');
+    });
+
+</script>
+
+
+<div class="callback-details" id="callback-details-1659944472993">
+  <script type="text/javascript">
+    (function(){
+      
+      // Do not continue if Paloma.js is not found.
+      if (window['Paloma'] === undefined && window['console'] !== undefined){
+        console.warn("Paloma.js not found. Require it in your application.js.");
+        return true;
+      }
+      
+      
+      var id = "callback-details-1659944472993",
+        callbacks = [];
+        
+      // Remove any callback details if any 
+      $('.callback-details[id!=' + id + ']').remove(); 
+      
+      
+      // Convert callbacks to javascript variable      
+        callbacks.push({
+          controller: 'series', 
+          action:     'series_summit', 
+          params:     {"controller_path":"series","action":"series_summit"}
+        }); 
+      
+      
+      // Run Callbacks
+      $(document).ready(function(){
+        for (var i = 0, len = callbacks.length; i < len; i++){
+          var callback = callbacks[i];
+          Paloma.execute(callback.controller, callback.action, callback.params);
+        }
+      });
+    })();
+  </script>
+</div>
+</body>
+</html>

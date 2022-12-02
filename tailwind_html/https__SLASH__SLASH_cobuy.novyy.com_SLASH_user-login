@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novyy | User Login</title>
+<style>
+    @import  url('https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css');
+    #otpPart .form-control {
+        -webkit-transition: none;
+        transition: none;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        padding: 0 !important;
+        font-size: 17px;
+        font-family: 'Blinker-Semi' !important;
+    }
+
+    #otpPart .form-control:focus {
+      color: #3F4254;
+      background-color: #ffffff;
+      border-color: #884377;
+      outline: 0;
+    }
+
+    #otpPart .form-control.form-control-solid {
+      background-color: #F3F6F9;
+      border-color: #F3F6F9;
+      color: #3F4254;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    #otpPart .form-control.form-control-solid:active,
+    #otpPart .form-control.form-control-solid.active,
+    #otpPart .form-control.form-control-solid:focus,
+    #otpPart .form-control.form-control-solid.focus {
+      background-color: #EBEDF3;
+      border-color: #EBEDF3;
+      color: #3F4254;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    a.signupnow {
+        color: #FD4455;
+        font-family: 'Blinker-Semi';
+    }
+</style>
+<link href="https://cobuy.novyy.com/assets/novyybuy/vendor/fontawesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
+<link href="https://cobuy.novyy.com/assets/novyy/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="https://cobuy.novyy.com/assets/novyy/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!-- =================== Preloader =================== -->
+<div class="preloader">
+    <div class="spinner"></div>
+    <span id="loading-msg"></span>
+</div>
+<!-- ./Preloader -->
+<div class="main-section d-flex align-items-center">
+  <div class="left-aside">
+    <div class="login-sec">
+      <h2 class=" semi">LOG IN</h2>
+      <div class="d-flex location-main flex-wrap">
+        <div class="form-sec">
+          <div id="email-section">
+            <div class="input_wrap full">
+              <div class="input-field">
+                <input type="email" id="email" name="email"  required />
+                <label>Enter Email</label>
+              </div>
+            </div>
+            <label id="email-error" class="error" style="display: none;"></label>
+            <div class="send-otp text-center">
+              <button class="btn pink-btn otp-btn">Continue</button>
+              <br>
+            </div>
+            <div class="text-center">
+              <p>Don't have an account? <a class="signupnow" href="https://cobuy.novyy.com/user-register">Sign Up</a></p>
+            </div>
+          </div>
+          <div id="otp-section" style="display: none;">
+            <label id="otp-success" class="success" style="display: none;"></label>
+            <div class="input_wrap full">
+              <div class="input-field">
+                <div class="mb-6 text-center" id="otpPart">
+                  <div id="otp" class="flex justify-center">
+                    <input class="first_place_focus m-2 text-center form-control form-control-solid rounded focus:border-blue-400 focus:shadow-outline" type="text" id="first" maxlength="1" onkeypress="return isNumberKey(event)" autofocus />
+                    <input class="m-2 text-center form-control form-control-solid rounded focus:border-blue-400 focus:shadow-outline" type="text" id="second" maxlength="1" onkeypress="return isNumberKey(event)" />
+                    <input class="m-2 text-center form-control form-control-solid rounded focus:border-blue-400 focus:shadow-outline" type="text" id="third" maxlength="1" onkeypress="return isNumberKey(event)" />
+                    <input class="m-2 text-center form-control form-control-solid rounded focus:border-blue-400 focus:shadow-outline" type="text" id="fourth" maxlength="1" onkeypress="return isNumberKey(event)" />
+                    <input class="m-2 text-center form-control form-control-solid rounded focus:border-blue-400 focus:shadow-outline" type="text" id="fifth" maxlength="1" onkeypress="return isNumberKey(event)" />
+                    <input class="m-2 text-center form-control form-control-solid rounded focus:border-blue-400 focus:shadow-outline" type="text" id="sixth" maxlength="1" onkeypress="return isNumberKey(event)" />
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <label id="otp-error" class="error" style="display: none;"></label>
+            <div class="enter-otp text-center">
+              <button class="btn pink-btn" id="loginBtn">Sign In</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-aside">
+    <div class="right-content">
+      <div class="logo-sec"><img src="https://cobuy.novyy.com/assets/novyy/images/logo.png" alt="logo"/></div>
+      <div class="right-cont-sec">
+        <h3 class="semi">With Novyy, you can</h3>
+        <ul class="listed">
+          <li>Access leading Real Estate Private Equity Funds from UK, Europe, Americas and Asia</li>
+          <li>Invest with minimums set at 5 figures</li>
+          <li>Build your Property Investment Portfolio with our Fractional Investing opportunities</li>
+          <li>Buy into premium second homes across Europe</li>
+        </ul>
+        <h3 class="semi">Our Promise</h3>
+        <ul class="listed">
+          <li>Lowest minimums and lowest costs</li>
+          <li>Rigourous due diligence</li>
+          <li>Seamless digital investing experience</li>
+          <li>Decades of expertise</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+<script type="text/javascript" src="https://cobuy.novyy.com/assets/novyy/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="https://cobuy.novyy.com/assets/novyy/js/custom.js"></script>
+<script>
+    
+    function OTPInput() {
+      const inputs = document.querySelectorAll('#otp > *[id]');
+      for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('keydown', function(event) {
+          if (event.key === "Backspace") {
+            inputs[i].value = '';
+            if (i !== 0)
+              inputs[i - 1].focus();
+          } else {
+            if (i === inputs.length - 1 && inputs[i].value !== '') {
+              return true;
+            } else if (event.keyCode > 47 && event.keyCode < 58) {
+              inputs[i].value = event.key;
+              if (i !== inputs.length - 1)
+                inputs[i + 1].focus();
+              event.preventDefault();
+            } else if (event.keyCode > 64 && event.keyCode < 91) {
+              inputs[i].value = String.fromCharCode(event.keyCode);
+              if (i !== inputs.length - 1)
+                inputs[i + 1].focus();
+              event.preventDefault();
+            }else {
+
+                setTimeout(function() {
+                    inputs[i + 1].focus();
+                }, 20);
+                event.preventDefault();  
+                
+            }
+          }
+        });
+      }
+    }
+    OTPInput();
+    var site_url = "https://cobuy.novyy.com";
+
+    $(document).on('blur','#email, #otp',function(){
+    	if($(this).val().trim() != '') {
+    		$(this).addClass('valid');
+    	} else {
+    		$(this).removeClass('valid');
+    	}
+    });
+
+    $('#email').keydown(function(event){ 
+        var keyCode = (event.keyCode ? event.keyCode : event.which);
+        if (keyCode == 13) {
+            $('.otp-btn').trigger('click');
+        }
+    });
+
+    $('#otp').keydown(function(event){ 
+        var keyCode = (event.keyCode ? event.keyCode : event.which);
+        if (keyCode == 13) {
+            $('#loginBtn').trigger('click');
+        }
+    });
+
+    $(document).on('click','.otp-btn', function() {
+        var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+        var email = $('#email').val().trim();
+        $('#otp-success').html('').hide();
+
+        if(email == '') {
+            $('#email-error').html('The email field is required.').show();
+            return false;
+        } else if(!pattern.test(email)) {
+            $('#email-error').html('The email must be a valid email address.').show();
+            return false;
+        }
+
+        $.ajax({
+            url: site_url+ "/send-login-otp",
+            type:'POST',
+            data: {_token:'njQK3hCoiRHedTSjG4IF3JLWQju5WSH6iEmsluxz', email:email},
+            beforeSend: function() {
+                $(".preloader").fadeIn("100");
+            },
+            success: function(data) {
+                $(".preloader").fadeOut("100");
+                if(data.status == 1) {
+                    $('#email-error').html('').hide();
+                    $('#otp-success').html(data.msg).show();
+                    $('#email-section').hide();
+                    $('#otp-section').show();
+                    $('#first').focus();
+                }
+                else if(data.status == 2) {
+                    $.each( data.msg, function( key, value ) {
+                        $('#'+key+'-error').html(value).show();
+                    });
+                }
+                else {
+                    $('#email-error').html(data.msg).show();
+                }
+            }
+        });
+    });
+
+    $('#otpPart input').keydown(function(event){ 
+        var keyCode = (event.keyCode ? event.keyCode : event.which);
+        if (keyCode == 13) {
+            $('#loginBtn').trigger('click');
+        }
+    });
+
+    $(document).on('click','#loginBtn', function() {
+        var email = $('#email').val().trim();
+        /*var otp = $('#otp').val().trim();*/
+
+        if(email == '') {
+            $('#otp-error').html('The otp field is required.').show();
+            return false;
+        }
+        if ($('input#first').val() == '' || $('input#second').val() == '' || $('input#third').val() == '' || $('input#fourth').val() == '' || $('input#fifth').val() == '' || $('input#sixth').val() == '') {
+            $('#otp-error').html('The otp field is required.').show();
+            return false;   
+        }else {
+            var otp = $('input#first').val() + $('input#second').val() + $('input#third').val() + $('input#fourth').val() + $('input#fifth').val() + $('input#sixth').val();
+        }
+
+
+
+        $.ajax({
+            url: site_url+ "/verify-otp",
+            type:'POST',
+            data: {_token:'njQK3hCoiRHedTSjG4IF3JLWQju5WSH6iEmsluxz', email:email, otp:otp},
+            beforeSend: function() {
+                $(".preloader").fadeIn("100");
+            },
+            success: function(data) {
+                if(data.status != 1 && data.status != 3) {
+                    $(".preloader").fadeOut("100");
+                }
+                $('#otp-error').html('').hide();
+                if(data.status == 1) {
+                    window.location.replace("https://cobuy.novyy.com/opportunities");
+                }
+                else if(data.status == 2) {
+                    $.each( data.msg, function( key, value ) {
+                        $('#'+key+'-error').html(value).show();
+                    });
+                }
+                else if(data.status == 3) {
+                    window.location.replace("https://cobuy.novyy.com/register-process?token="+data.msg);
+                }
+                else {
+                    $('#otp-error').html(data.msg).show();
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

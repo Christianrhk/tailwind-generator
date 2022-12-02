@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <!-- Tailwind and Vue.js -->
+        
+            <link href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">
+            <script src="https://unpkg.com/vue@3.1.2/dist/vue.global.prod.js"></script>
+        
+        <!-- /// -->
+
+    
+
+</head>
+<body>
+    <div id="app">
+        
+    <title>DFG | Outstanding Projects</title>
+    <!-- <link type="text/css" rel="stylesheet" href="/static/css/destacated_projects.css" /> -->
+
+
+        
+
+  <nav class="py-3 px-3 md:px-8">
+    <div class="flex items-center justify-between">
+      <a class="flex items-center flex-shrink-0" href="/">
+        <img id="logo_menu" class="w-14 md:w-full" src="/static/img/logo-menu.png">
+      </a>
+      <button id='menu_botton' class="flex items-center focus:outline-none focus:ring-opacity-50">
+          <img class="w-10" src="/static/img/button-menu.png">
+      </button>
+      <button id='close_botton' class="hidden items-center focus:outline-none focus:ring-opacity-50">
+          <img class="w-8" src="/static/img/close-button.png">
+      </button>
+    </div>
+    <div id="border_menu" class="">
+      <hr class="border-black border-b-1 mt-4 border-opacity-30">
+  </div>
+    <a id="logo_menu_md" href="/" class="hidden"> 
+      <img src="/static/img/logo-menu.png" class="mx-auto my-24">
+    </a>
+    <div id="menu" class="hidden">
+      <div class="text-center my-4 md:flex md:space-x-6 md:justify-center xl:space-x-20">
+        <div class="text-lg pb-4">
+          <a href="/" class="block font-bold text-2xl xl:text-3xl pb-3">
+            Home
+          </a>
+        </div>
+
+        <div class="text-lg pb-4">
+          <a href="/empresa" class="block font-bold text-2xl xl:text-3xl pb-3">
+            The Company
+          </a>
+          <a href="/sostenibilidad" class="block pb-3">
+            Sustainability
+          </a>
+          <a href="/piedra_natural" class="block pb-3">
+          Natural stone
+          </a>
+        </div>
+
+        <div class="text-lg pb-4">
+          <a href="/canteras" class="block font-bold text-2xl xl:text-3xl pb-3">
+          Quarries
+          </a>
+          <a href="/materiales" class="block pb-3">
+            Materials
+          </a>
+        </div>
+
+        <div class="text-lg pb-4">
+          <a href="/proyectos" class="block font-bold text-2xl xl:text-3xl pb-3">
+            Projects
+          </a>
+          <a href="/proyectos_destacados" class="block pb-3">
+            Outstanding projects
+          </a>
+          <a href="/acabados" class="block pb-3">
+            Finishes
+          </a>
+        </div>
+
+        <div class="text-lg pb-4">
+          <a href="/tablas" class="block font-bold text-2xl xl:text-3xl pb-3">
+            Slabs
+          </a>
+          <a href="https://www.dfgnaturalstone.es" class="block pb-3" target="_blank">
+            Stock online
+          </a>
+          <a href="/alma" class="block pb-3">
+            Alma collection
+          </a>
+        </div>
+        <div class="text-lg pb-4">
+          <a href="/contacto" class="block font-bold text-2xl xl:text-3xl pb-3">
+            Contact
+          </a>
+        </div>
+      </div>
+      <form action="/i18n/setlang/" method="post" class="text-lg py-4 border-t-2 border-b-2 border-black flex space-x-4 justify-center border-opacity-25 md:space-x-20 lg:container lg:m-auto">
+        <input type="hidden" name="csrfmiddlewaretoken" value="JNP1flqweBzgfJSXq7qwVUq7itxLAwPZfJgueZo2DDbRgQjstXXS2whGRcQ2aXft">
+        
+        
+        
+        
+          <button type="submit" name="language" value="es">
+            Spanish
+          </button>
+        
+          <button type="submit" name="language" value="en">
+            English
+          </button>
+        
+      </form>
+    </div>
+  </nav>
+  
+
+  
+
+    <!-- block 1 -->
+    <!-- <div class="block1 p-4 h-56 md:p-8">
+        <button class="focus:outline-none inline-flex focus:ring-opacity-50 py-2 font-medium md:py-4">
+            <img class="self-center w-4 h-3 mr-1 md:w-3 md:h-2" src="/static/img/flecha-izq.png">
+            <a  href="/proyectos" class="text-xs text-left">Projects</a>
+        </button>
+        <div class="p-2 text-center">
+            <span class="inline-flex text-black font-medium items-center text-3xl">
+                <img class="w-10 mr-2 mt-2" src="/static/img/linea-recta.png">
+                Outstanding projects
+                <img class="w-10 ml-2 mt-2" src="/static/img/linea-recta.png">
+            </span>
+        </div>
+    </div> -->
+    
+    <div class="lg:container lg:m-auto">
+        <div class="md:mx-20 mx-10">
+            <button class="focus:outline-none inline-flex focus:ring-opacity-50 py-2 font-medium md:py-4 md:mb-4">
+                <img class="w-4 h-4 mr-2 mt-1" src="/static/img/flecha-izq.png">
+                <a  href="/proyectos" class="text-base">Projects</a>
+              </button>
+            <div class="p-2 text-center">
+                <span class="inline-flex text-black font-bold items-center text-3xl">
+                    <img class="w-10 mr-2 mt-2" src="/static/img/linea-recta.png">
+                    Outstanding projects
+                    <img class="w-10 ml-2 mt-2" src="/static/img/linea-recta.png">
+                </span>
+            </div>
+        </div>
+        <!-- block 2 -->
+        <div class="grid grid-cols-2 gap-3 mb-20 md:grid-cols-3 justify-items-center md:mx-20 mx-10">
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Negro_Angola_Azul_Platino_Monchique._Rusia.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=abLaGzgSHnOQfEAcihONr%2BQy8SQ%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Negro Angola, Azul Platino, Monchique. Rusia</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Zambezia._Polonia.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=AEwCjdCm9g9K13aQVm2GHcNRbOU%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Zambezia. Poland</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Amarillo_San_Martino._Bulgaria.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=LP7YyT58pGOQaDEbFZr9OZzV%2FVw%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Amarillo San Martiño. Bulgaria</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Amarillo_San_Martino_Portugal.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=5xTJIUv56t32nEUPEUFbW7JHlKo%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Amarillo San Martiño. Portugal</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Amarillo_San_Martino_Rojo_Multicolor_Salmon_Tropical_Blanco_Berrocal._Francia.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=G6dSNspNlPhM60Ex8U7g0tgk8Ow%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Amarillo San Martino, Rojo Multicolor, Salmón Tropical, Blanco Berrocal. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Amarillo_San_Martino._Andorra.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=VgCpKxI6B%2FTJ9P9uyNECcPARYws%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Amarillo San Martiño. Andorra</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Amarillo_San_Martino._Portugal.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=1EOX4AxTG6K3sgiv62qjbZ%2BmQIg%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Amarillo San Martiño. Portugal</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Angola_Azul_Extremadura._Francia.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=LugkyLVCXyIyaCOOiNsbFxE1%2Fdo%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Angola, Azu Extremadura. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Azul_Platino._Espana.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=bVt6X0xmEDIb%2B72W8UAttKuCoT4%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Azul Platino. Spain</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Azul_Platino._Espana1.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=T8ybeRmdGme28Zt0iXWC7bJLoUQ%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Azul Platino. Spain</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Baobab_Brown._Espana.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=%2BtvvBh9Keq%2BktsJlvrRe5t7GPO0%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Baobab Brown. Spain</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Baobab_Brown._Francia.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=6E6zeS57z0ctKwYoGs8DIqOT9Ts%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Baobab Brown. Francia</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Bicolor._Francia.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=11IW2eQnn3v37TKBaZI0I2tr2Sc%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Bicolor. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Bicolor._Francia1.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=Jk2WFTGzLEiNSAK7Q9cNbABoENI%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Bicolor. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Blanco_Atlantico._Francia.tif.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=6KBf7asLH8CXw%2BoanGbA723i2lc%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Blanco Atlántico. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Blanco_Berrocal_Negro_Angola._Francia.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=cQ8AOaT0Oxnd1%2FvlC4InQywPMHM%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Blanco Berrocal, Negro Angola. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Blanco_Berrocal._Alemania.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=R3bVuwH28CfVJnEksN36hly6ieQ%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Blanco Berrocal. Germany</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Blanco_Berrocal._Alemania1.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=47XWvTBjArzMMyX3y%2FbqkOlVa%2FU%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Blanco Berrocal. Germany</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Blanco_Berrocal._Espana.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=oDChokqNAvjgIAQkxa1dd%2Bc0nmo%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Blanco Berrocal. Spain</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Blanco_Berrocal._Francia.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=1ZYfG8QhY%2B0RNio8HiQtwkyYNgo%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Blanco Berrocal. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Blanco_Berrocal._Francia.tif.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=wVjRUo8ZxfUrAqz%2BJ1gK7LRTxcQ%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Blanco Berrocal. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Golden_DFG._Espana.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=8HSH0o9scuk%2BEXSI%2BtEIaC%2BD%2Fp4%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Golden DFG. Spain</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Golden_DFG._Espana1.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=J6vhBqBdm7S91Xq%2Fu5rLil%2FN5vI%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Golden DFG. Spain</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Gris_Perla_Crema_Negro_Ochavo_Blanco_Berrocal._Francia.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=JWC946Wvqo%2BIU0E3t9NLMV%2FAA%2FY%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Gris Perla Crema, Negro Ochavo, Blanco Berrocal. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Gris_Perla_Crema_Negro_Ochavo_Blanco_Berrocal._Francia_dvj4ok6.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=XzmV%2F2CJjO7wjM7jolyY0KtlODs%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Gris Perla Crema, Negro Ochavo, Blanco Berrocal. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Monchique_Tragal_Rojo_Multicolor._Andorra.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=gTNJ1n2lN%2Fxm1xyUlo1LZ7YexYA%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Monchique, Tragal, Rojo Multicolor. Andorra</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Multicolor_Salmon_Tropical__Angola_Duna_Blanco_Berrocal._Francia.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=W17XEx0Awl63IUgi5Im5va3KgHY%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Multicolor, Salmón Tropical,  Angola, Duna, Blanco Berrocal. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Negro_Angola._Espana.png.451x451_q85_crop.png?AWSAccessKeyId=dfg-prod&amp;Signature=dLJQjx%2BXOMXGXsc0pis6BJoiCs0%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Negro Angola. Spain</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Negro_Angola._Francia.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=fqfL1fniDlDV2x5VEbXbdo3EYK4%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Negro Angola. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Rojo_Multicolor._Francia.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=Q7Iay%2FFjZH1iOBeF4KymvIdB8ic%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Rojo Multicolor. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Rosa_Porrino._Qatar.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=YbF1na74RYb%2B%2Bon6i5H1qg7%2Brfo%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Rosa Porriño. Qatar</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Salmon_Tropical_Rojo_Multicolor._Francia.tif.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=PywWZdGIqnv20%2B7X2MyfluZQCXg%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Salmón Tropical, Rojo Multicolor. France</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Silvestre._Irlanda.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=Q8IYKG6xEI%2FJzPLurPL7XvgtbcM%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Silvestre. Ireland</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Titanium._Espana.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=7u80cCRr4sG8IEgUqCacCLiG5vE%3D&amp;Expires=1659902862">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Titanium. Spain</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Titanium_Marruecos.jpg.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=63uICtPWEW6ogBT3tN4i9nRrIuM%3D&amp;Expires=1659902863">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Titanium. Morocco</span>
+                    </div>
+                </div>
+            
+                <div class="block">
+                    <img class="h-auto mt-5"  src="https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/Zimbabwe_Negro_Angola._Suiza.451x451_q85_crop.jpg?AWSAccessKeyId=dfg-prod&amp;Signature=DE7A3ZMAUsLxEFVNPYCuENel8Ew%3D&amp;Expires=1659902863">
+                    <div class="flex focus:outline-none focus:ring-opacity-50 py-2 font-medium md:py-4">
+                        <span class="text-xs text-left">Zimbabwe, Negro Angola. Switzerland</span>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+    
+
+    </div>
+    <script>
+        var data = {}
+    </script>
+    
+    
+
+    <script>
+        var app;
+        if(typeof app === "undefined"){
+            app = Vue.createApp({data() { return data}})
+            app.config.compilerOptions.delimiters = ['[[', ']]']
+        }
+        
+    </script>
+    
+    
+    <script src="/static/components/js/dfg-carousel-controller.js"></script>
+    <script>
+        if(typeof app !== "undefined" ){
+            app.mount('#app')
+        }
+    </script>
+</body>
+<script src="/static/menu.js" type="application/javascript"></script>
+
+
+<footer class="inset-x-0 bottom-0 mt-4">
+    <!-- The Modal -->
+<div id="myModal" class="modal w-full h-full fixed left-0 top-0 hidden">
+    <style>
+    /* The Modal (background) */
+        .modal {
+          z-index: 1; /* Sit on top */
+          padding-top: 100px; /* Location of the box */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        
+        /* Modal Content */
+        .modal-content {
+          background-color: #fefefe;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%;
+        }
+        
+        /* The Close Button */
+        .close {
+          color: #aaaaaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        </style>
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="flex justify-center">
+        <img src="/static/img/link-banner-xunta.jpg">
+      </div>
+    </div>
+  
+  </div>
+    <div class="p-5 sm:px-20 bg-gray-100 items-center justify-between md:grid md:grid-cols-2">
+        <div class="mb-8 w-auto xl:ml-14 md:mb-0 flex flex-col xl:flex-row justify-center xl:justify-left items-center xl:items-left">
+            <img class="w-40 h-24" src="/static/img/logo%40aysinnova.jpg">
+            <a href="/static/pdf/PAVESTONE-FichaProjeto-PT2020.pdf" target="_blanck">
+                <img class="pt-4 xl:pt-0 2xl:h-24 xl:pr-8" src="/static/img/barra_feder.jpg">
+            </a>
+        </div>
+        <div class="grid grid-cols-4 gap-1 sm:gap-4" id="myBtn">
+            <img class="w-24 h-32 md:w-32" src="/static/img/logo-xunta.svg">
+            <img class="w-16 h-32 md:w-16 m-auto" src="/static/img/logo-UE.svg">
+            <img class="w-16 h-32 md:w-32" src="/static/img/logo-igape.svg">
+            <img class="w-16 h-32 md:w-32" src="/static/img/logo-galicia.svg">
+        </div>
+    </div>
+
+    <div class="bg-black text-gray-800 md:flex lg:px-20 md:justify-between">
+        <div class="md:inline-flex md:space-x-10 md:m-10">
+            <div class="p-2 justify-left ml-4">
+                <div class="text-xs uppercase text-white font-medium mb-2 text-left">
+                    direction
+                </div>
+                <span class="text-xs text-gray-400 text-left block">David Fernández Grande</span>
+                <span class="text-xs text-gray-400 text-left block">C/ Pontevedra, 4, 4o</span>
+                <span class="text-xs text-gray-400 text-left block">Vigo 36201 Spain</span>
+            </div>
+
+            <div class="p-2 justify-center ml-4">
+                <div class="text-xs uppercase text-white font-medium mb-2 text-left">
+                    phone number
+                </div>
+                <span class="text-xs text-gray-400 text-left block">+34 986 432 822</span>
+                <span class="text-xs text-gray-400 text-left block">+34 986 434 279</span>
+            </div>
+
+            <div class="p-2 justify-center ml-4">
+                <div class="text-xs uppercase text-white font-medium mb-2 text-left">
+                    email
+                </div>
+                <span class="text-xs text-gray-400 text-left block">dfg@dfg.es</span>
+            </div>
+        </div>
+        <div class="grid grid-rows-1 divide-y divide-gray-600">
+            <div class="flex-grow sm:hidden"></div>
+            <div class="bg-black flex p-5 flex-row justify-center items-center lg:p-5 lg:pr-20">
+                <!-- <img class="md:flex-row-reverse md:px-0 px-25 w-5/12" src="/static/img/prueba.png"> -->
+                <img class="md:flex-row-reverse md:px-0 px-25 w-5/12 object-scale-down md:w-3/4"
+                    src="/static/img/prueba.png">
+                <div class="flex-grow"></div>
+                <div class="flex flex-col bg-black p-2 lg:p-5 lg:pr-20 text-right ml-10 block md:hidden">
+                    <div class="space-y-4">
+                        <li class="block mx-2">
+                            <a class="block text-sm text-gray-400" href="/aviso-legal">Legal Advice</a>
+                        </li>
+                    </div>
+                    <div class="space-y-4">
+                        <li class="block mx-2">
+                            <a class="block text-sm text-gray-400" href="politica-de-cookies">Cookies Policy</a>
+                        </li>
+                    </div>
+                    <div class="space-y-4">
+                        <li class="block mx-2">
+                            <a class="block text-sm text-gray-400" href="/politica-de-privacidad">Privacy Policy</a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-grow h-px bg-gray-100 hidden md:block"></div>
+    <div class="flex bg-black p-2 lg:p-5 lg:pr-32 justify-end hidden md:flex">
+        <div class="space-y-4">
+            <li class="block mx-2">
+                <a class="block text-sm text-gray-400" href="/aviso-legal">Legal Advice</a>
+            </li>
+        </div>
+        <div class="space-y-4">
+            <li class="block mx-2">
+                <a class="block text-sm text-gray-400" href="/politica-de-cookies">Cookies Policy</a>
+            </li>
+        </div>
+        <div class="space-y-4">
+            <li class="block mx-2">
+                <a class="block text-sm text-gray-400" href="/politica-de-privacidad">Privacy Policy</a>
+            </li>
+        </div>
+    </div>
+</footer>
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+</script>
+</html>

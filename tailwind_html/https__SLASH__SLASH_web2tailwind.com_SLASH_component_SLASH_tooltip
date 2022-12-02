@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tailwind Tooltip | bootstrap style tooltip example using tippy js and tailwind css - web2tailwind.com | web2tailwind
+</title>
+    <script src='/assets/lib/fontawesome/js/all.js'></script>
+    <link rel="stylesheet" href="/assets/css/markdown.css">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="icon" href="/assets/img/icon.png" type="image/png">
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link href="/assets/css/style.css?id=2" rel="stylesheet">
+<script src="/assets/js/alpine.min.js" defer></script>
+<script src="/assets/js/highlight.min.js"></script>
+<link rel="stylesheet" href="/assets/css/dracula.min.css">
+<link
+    href="https://fonts.googleapis.com/css?family=Mulish:wght@300|Manjari:wght@100;400;700|Source+Code+Pro&family=Fira+Sans:wght@300&display=swap"
+    rel="stylesheet">
+    <meta name="keywords" content="how to, tooltips, popovers, tailwind, css, bootstrap, popper js, tippy js,">
+<meta name="description" content="Tailwind doesnot support tooltip out of the box. We use tippy js for tooltip and Tailwind Popover to acheive bootstrap style tooltips and popovers.[tippy js uses popper js library under the hood in which bootstrap directly uses popper js to achieve tooltip and popovers]. Here we explain the how to make tooltips using tippy js with tailwind css in step by step.">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://web2tailwind.com/component/tooltip" />
+<meta property="og:title" content="Tailwind Tooltip | bootstrap style tooltip example using tippy js and tailwind css - web2tailwind.com" />
+<meta property="og:image" content="http://web2tailwind.com/storage/documents/hiVmLeNlpoGn4egPPwr02kADUyUMFoAfFERoERTP.png" />
+<meta property="og:site_name" content="Tailwind Component" />
+<meta property="og:description" content="Tailwind doesnot support tooltip out of the box. We use tippy js for tooltip and Tailwind Popover to acheive bootstrap style tooltips and popovers.[tippy js uses popper js library under the hood in which bootstrap directly uses popper js to achieve tooltip and popovers]. Here we explain the how to make tooltips using tippy js with tailwind css in step by step." />
+<meta property="og:updated_time" content="2020-05-30T08:03:46+05:00">
+<meta property="article:author" content="@tailwindcomponent">
+
+<meta name="twitter:site" content="@tailwindcomponent">
+<meta name="twitter:creator" content="@tailwindcomponent">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:domain" content="https://web2tailwind.com" />
+<meta name="twitter:title" property="og:title" itemprop="title" content="Tailwind Tooltip | bootstrap style tooltip example using tippy js and tailwind css - web2tailwind.com" />
+<meta name="twitter:image" property="og:image" content="http://web2tailwind.com/storage/documents/hiVmLeNlpoGn4egPPwr02kADUyUMFoAfFERoERTP.png" />
+<meta name="twitter:description" property="og:description" itemprop="description"
+    content="Tailwind doesnot support tooltip out of the box. We use tippy js for tooltip and Tailwind Popover to acheive bootstrap style tooltips and popovers.[tippy js uses popper js library under the hood in which bootstrap directly uses popper js to achieve tooltip and popovers]. Here we explain the how to make tooltips using tippy js with tailwind css in step by step." />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+</head>
+
+<body>
+<div id="app">
+        <div class="bg-white border-b-2 border-red-500 sticky shadow-lg md:shadow-none top-0 z-10">
+    <div
+    style="background: #c21500;background: -webkit-linear-gradient(to right, #c21500, #ffc500); background: linear-gradient(to right, #c21500, #ffc500);">
+    <div class="container mx-auto md:px-20 text-center px-6 py-2 ">
+        <a href="https://web2tailwind.com/laratail/introduction" class="text-gray-100 text-lg hover:text-gray-200">
+            Laratail is Out !!! Laravel and Tailwind css based free admin panel starter kit.
+        </a>
+    </div>
+</div>
+    <nav x-data="{show:false}"
+        class="container mx-auto px-6 2xl:px-0 flex items-center justify-between flex-wrap bg-white py-2">
+        <a href="https://web2tailwind.com" class="flex items-center">
+            <img src="/assets/img/logo.png" alt="web2tailwind.com logo" class="h-8 md:h-10 mr-12 md:mr-0">
+        </a>
+        <div class="flex items-center md:hidden">
+            <div class="px-3 py-4 lg:py-3">
+                <a target="_blank" href="/tailwind/try"
+                    class="flex items-center bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-4 md:px-8 rounded-full font-hairline">
+                    <span class="hidden md:inline">Try  Online</span>
+                    <span class="material-icons inline md:hidden">moving</span>
+                </a>
+            </div>
+            <div>
+                <button @click="show=!show"
+                    class="flex items-center px-3 py-2 border rounded text-gray-700 border-gray-200">
+                    <svg class="fill-current h-4 w-4 font-bold" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div @click.away="show = false" :class="{ 'block': show, 'hidden': !show }"
+            class="border-t md:border-t-0 w-full flex-grow md:flex items-center md:justify-end md:w-auto">
+            <div>
+                <a href="https://web2tailwind.com"
+                class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Components</a>
+                <a href="https://web2tailwind.com/blogs"
+                    class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Blogs</a>
+                <a href="https://web2tailwind.com/design"
+                    class="block md:inline-block font-bold text-base px-2 md:px-3 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Design</a>
+            </div>
+            <div class="hidden md:block pl-3 py-6 md:py-3 ">
+                <a target="_blank" href="/tailwind/try"
+                    class="bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-8 rounded-full font-hairline">Try
+                    Online
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+    <div class="container mx-auto">
+        <div class="md:flex">
+            <div class="md:bg-gray-100 w-full md:w-56 xl:w-64">
+                <div id="sidebar" class="md:fixed overflow-y-auto w-full md:w-56 xl:w-64 md:mt-12">
+                    <div x-data="{show:false}" class="px-8 md:pb-10">
+                        <div class="border-b-2 flex justify-between items-center">
+    <div>
+        <h2 class="text-lg font-semibold pt-6 pb-3 md:pb-2 my-0">Components</h2>
+    </div>
+    <div class="block md:hidden">
+        <button x-on:click="show=!show" class="flex items-center text-gray-700">
+                    <span class="material-icons">
+                        view_module
+                    </span>
+        </button>
+    </div>
+</div>
+<ul class="px-1 my-2 hidden md:block" :class="{'block':show,'hidden md:block':!show}">
+    <li class="py-1">
+        <a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/introduction">Introduction</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/alert">Alert</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/badge">Badge</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/button">Button</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/card">Card</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/carousel">Carousel</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/column">Column</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600"
+                        href="https://web2tailwind.com/component/collapse-accordion">Collapse</a>
+    </li>
+    <li class="py-1">
+        <a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/dropdown">Dropdowns</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/list-group">List
+                                                                                                      Group</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/media-object">Media
+                                                                                                        Object</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/modal">Modal</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/popover">Popovers</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/navbar">Navbar</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/form">Form</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/login-form">Login
+                                                                                                      Form</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/tooltip">Tooltips</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/table">Table</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/admin-theme">Admin
+                                                                                                       Theme</a>
+    </li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+            <div id="content" class="w-full md:flex-1">
+                <div class="w-full px-8 py-10 lg:w-4/5">
+                        <h1 class="text-gray-700 font-bold text-2xl md:text-3xl leading-snug">Tailwind Tooltip</h1>
+<hr class="border-t-2 border-b-0 border-gray-100 mt-2 mb-8">
+<h2 class="font-bold mb-4 text-gray-700 text-xl">Tailwind Tooltip Example</h2>
+<p class="my-4 leading-relaxed text-gray-700">Tailwind doesnot support tooltip out of the box. We use tippy js for tooltip and <a href="/component/popover">Tailwind Popover</a> to acheive bootstrap style tooltips and popovers.[tippy js uses popper js library under the hood in which bootstrap directly uses popper js to achieve tooltip and popovers]. Here we explain the how to make tooltips using tippy js with tailwind css in step by step.</p>
+<div class="flex justify-center p-4 border rounded-t-lg">
+    <img src="/assets/docs/master/image-12.png">
+</div>
+<div class="p-6 border text-center rounded-t-lg mt-16">
+    <a href="/editors/tooltips-hovers-update-2-34b133d0af55" class="leading-tight bg-blue-600 hover:text-gray-100 text-gray-200 rounded px-6 py-3 text-sm">Try Online</a>
+</div>
+<h2 class="font-bold mb-4 text-gray-700 mt-16 text-xl">Step 1: First add Tippy Js from CDN as follows</h2>
+<p class="my-4 leading-relaxed text-gray-700">You can use either cdn or npm and yarn to install tippy js. CDN for tooltips is given below, Please refer to tippy js websites for detail information. <a alt="Tippy Js Installtion Detail guides" href="https://atomiks.github.io/tippyjs/v6/getting-started/">Tippy Js Installtion Detail guides</a></p>
+<pre><code class="language-html">&lt;!-- Development --&gt;
+&lt;script src=&quot;https://unpkg.com/@popperjs/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="99faf6ebfcd9ab">[email&#160;protected]</a>/dist/umd/popper.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="66120f16161f480c152650">[email&#160;protected]</a>/dist/tippy-bundle.umd.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Production --&gt;
+&lt;script src=&quot;https://unpkg.com/@popperjs/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="35565a47507507">[email&#160;protected]</a>&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="62160b12121b4c08112254">[email&#160;protected]</a>&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h2 class="font-bold mb-4 text-gray-700 mt-16 text-xl">Step 2: Add Buttons for Tooltips</h2>
+<p class="my-4 leading-relaxed text-gray-700">We are adding four buttons from <a href="component/button">Button</a> section for left, right, top and button tooltips. Use data-title and data-placement properties for data and placement respectively.</p>
+<pre><code class="language-html">&lt;button type=&quot;button&quot; data-title='This is right tooltip' data-placement=&quot;right&quot; class=&quot;bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none&quot;&gt;Right&lt;/button&gt;
+&lt;button type=&quot;button&quot; data-title='This is bottom tooltip' data-placement=&quot;bottom&quot; class=&quot;bg-gray-600 text-gray-100 rounded hover:bg-gray-500 px-4 py-2 focus:outline-none&quot;&gt;Bottom&lt;/button&gt;
+&lt;button type=&quot;button&quot; data-title='This is top tooltip' data-placement=&quot;top&quot; class=&quot;bg-green-500 text-gray-100 rounded hover:bg-green-400 px-4 py-2 focus:outline-none&quot;&gt;Top&lt;/button&gt;
+&lt;button type=&quot;button&quot; data-title='This is left tooltip' data-placement=&quot;left&quot; class=&quot;bg-red-500 text-gray-200 rounded hover:bg-red-400 px-4 py-2 focus:outline-none&quot;&gt;Left&lt;/button&gt;
+</code></pre>
+<h2 class="font-bold mb-4 text-gray-700 mt-16 text-xl">Step 3: Initialize tooltip scripts.</h2>
+<p class="my-4 leading-relaxed text-gray-700">We are dynamically reding data content from <b>data-title</b> attributes and placement is from <b>data-placement</b> attributes. You can customize the name of attributes as your need.</p>
+<pre><code class="language-html">&lt;script&gt;
+tippy('button', {
+    content:(reference)=&gt;reference.getAttribute('data-title'),
+    onMount(instance) {
+        instance.popperInstance.setOptions({
+        placement :instance.reference.getAttribute('data-placement')
+        });
+    }
+});
+&lt;/script&gt;
+</code></pre>
+<div class="p-6 border text-center rounded-t-lg mt-16">
+    <a href="/editors/tooltips-hovers-update-2-34b133d0af55" class="leading-tight bg-blue-600 hover:text-gray-100 text-gray-200 rounded px-6 py-3 text-sm">Try Online</a>
+</div>
+
+                        <div class="px-8 py-20" style="font-family: Mulish">
+    <div class="flex justify-center mb-2">
+        <div class="font-light text-sm text-gray-600">
+            &copy; 2019 - 2022
+            <a href="https://web2tailwind.com"
+                class="text-base text-gray-600 hover:text-gray-600" style="font-family: 'Source Code Pro';">Web2tailwind.com</a>
+        </div>
+    </div>
+    <div class="flex flex-wrap justify-center text-blue-400">
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/about-us"> About Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/contact-us">Contact Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/copyright">Copyright</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/code-of-conduct">Code of Conduct</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/privacy-and-policy">Privacy & Policy</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        hljs.initHighlightingOnLoad()
+    </script>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const mySwiper = new Swiper(".swiper-container", {
+            // Optional parameters
+            direction: "horizontal",
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: ".swiper-pagination",
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: ".swiper-scrollbar",
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/assets/img/icon.png" type="image/png">
+    <title>Tailwind css components examples</title>
+    <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+    <script src="/assets/js/alpine.min.js" defer></script>
+    <script src="/assets/js/highlight.min.js"></script>
+    <link rel="stylesheet" href="/dist/css/markdown.css?id=70d13c76663fdb0fa2bc">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/github-gist.min.css">
+    <script src='/assets/lib/fontawesome/js/all.js'></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Mulish:wght@300|Manjari:wght@100;400;700|Source+Code+Pro&family=Fira+Sans:wght@300&display=swap"
+        rel="stylesheet">
+    </head>
+
+<body style="font-family: 'Mulish', sans-serif;">
+    <div id="app">
+        <div class="bg-white border-b-2 border-red-500 sticky shadow-lg md:shadow-none top-0 z-10">
+    <div
+    style="background: #c21500;background: -webkit-linear-gradient(to right, #c21500, #ffc500); background: linear-gradient(to right, #c21500, #ffc500);">
+    <div class="container mx-auto md:px-20 text-center px-6 py-2 ">
+        <a href="https://web2tailwind.com/laratail/introduction" class="text-gray-100 text-lg hover:text-gray-200">
+            Laratail is Out !!! Laravel and Tailwind css based free admin panel starter kit.
+        </a>
+    </div>
+</div>
+    <nav x-data="{show:false}"
+        class="container mx-auto px-6 2xl:px-0 flex items-center justify-between flex-wrap bg-white py-2">
+        <a href="https://web2tailwind.com" class="flex items-center">
+            <img src="/assets/img/logo.png" alt="web2tailwind.com logo" class="h-8 md:h-10 mr-12 md:mr-0">
+        </a>
+        <div class="flex items-center md:hidden">
+            <div class="px-3 py-4 lg:py-3">
+                <a target="_blank" href="/tailwind/try"
+                    class="flex items-center bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-4 md:px-8 rounded-full font-hairline">
+                    <span class="hidden md:inline">Try  Online</span>
+                    <span class="material-icons inline md:hidden">moving</span>
+                </a>
+            </div>
+            <div>
+                <button @click="show=!show"
+                    class="flex items-center px-3 py-2 border rounded text-gray-700 border-gray-200">
+                    <svg class="fill-current h-4 w-4 font-bold" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div @click.away="show = false" :class="{ 'block': show, 'hidden': !show }"
+            class="border-t md:border-t-0 w-full flex-grow md:flex items-center md:justify-end md:w-auto">
+            <div>
+                <a href="https://web2tailwind.com"
+                class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Components</a>
+                <a href="https://web2tailwind.com/blogs"
+                    class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Blogs</a>
+                <a href="https://web2tailwind.com/design"
+                    class="block md:inline-block font-bold text-base px-2 md:px-3 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Design</a>
+            </div>
+            <div class="hidden md:block pl-3 py-6 md:py-3 ">
+                <a target="_blank" href="/tailwind/try"
+                    class="bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-8 rounded-full font-hairline">Try
+                    Online
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+        <div class="container mx-auto px-6">
+            <div class="md:flex">
+                <div class="w-full md:w-3/4 lg:w-4/5 mx-auto">
+                        <div class="w-full lg:w-4/5 mx-auto">
+        <div class="my-4 font-semibold text-3xl md:text-5xl leading-tight text-gray-700">
+            Decorator Pattern to Cache  in Laravel PHP
+        </div>
+        <div class="flex items-center justify-between my-4">
+            <div class="w-16">
+                <img class="w-12 h-12 rounded-full" src="https://bedramtamang.com.np/img/profile.jpg"
+                     style="border-width:1px !important;">
+            </div>
+            <div class="flex-1" style="font-family: Roboto;">
+                <div class="font-light" style="color:rgb(41, 41, 41);">
+                    Bedram Tamang
+                </div>
+                <div class="text-sm leading-tight" style="color:rgb(117, 117, 117);">
+                    Oct 31, 2018 · 2 min read
+                </div>
+            </div>
+        </div>
+        <img src="https://web2tailwind.com/storage/documents/WZpe067D4ksfQ81g0pjm9pEehkj06MEYCbfLnyLR.png">
+        <div class="markdown-body">
+            <h3>Decorator Pattern to Cache  in Laravel PHP</h3>
+<p>Consider that we defined a route <code>http://localhost/users</code> in <code>web.php</code> which returns the list of users in our application.<code>index</code> method of <code>UsersController</code> will invoke while hitting this route. as</p>
+<pre><code class="language-php">&lt;?php
+
+use App\Http\Controllers\UsersConroller;    
+    
+    
+Route::get(&quot;users&quot;, [UsersController::class,'index']);
+    
+</code></pre>
+<p>List of users can be written from <code>UsersController</code> as:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Http\Controllers;
+
+...
+
+class UserController extends Controller
+{
+    public function index()
+    {
+        return response()-&gt;json([&quot;data&quot; =&gt; User::all()]);
+    }
+}
+</code></pre>
+<p>This is very simple example where only users data is returning from controller. In our real world application, it requires to return multiple model data (<strong>users</strong>, <strong>articles</strong>) from a single controller, so we create a dedicated class called Data access object (DAO) class, to access all the data required in controller.</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\DAO;
+
+use App\Models\User;
+
+class UserDAO
+{
+    public function getUser()
+    {
+        return User::all();
+    }
+}
+</code></pre>
+<p>Controller is updated to use <code>UserDAO</code> as:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\DAO\UserDAO;
+
+class UserController extends Controller
+{
+    public function index()
+    {
+        return response()-&gt;json([&quot;data&quot; =&gt; (new UserDAO)-&gt;getUser()]);
+    }
+}
+</code></pre>
+<p>Since the above code is directly dependent on actual implementation of <code>UserDAO</code> class, so let's create a interface to make code loose coupling.</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\DAO;
+
+interface UserDAOInterface
+{
+    public function getUser();
+}
+</code></pre>
+<p>and Implement this interface in <code>UserDAO</code> as:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\DAO;
+
+use App\Models\User;
+
+class UserDAO implements UserDAOInterface
+{
+    public function getUser()
+    {
+        return User::all();
+    }
+}
+</code></pre>
+<p>Now bind our <code>UserInterfaceClass</code>  in <code>AppServiceProvider</code> as:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Providers;
+
+use App\DAO\UserDAO;
+use App\DAO\UserDAOInterface;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this-&gt;app-&gt;singleton(UserDAOInterface::class, function ($app) {
+            return new UserDAO();
+        });
+    }
+}
+</code></pre>
+<p>Now controller can use <code>UserDAOInterface</code> as:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\DAO\UserDAOInterface;
+
+class UserController extends Controller
+{
+    /**
+     * @var UserDAOInterface
+     */
+    protected $userDAO;
+
+    public function __construct(UserDAOInterface $userDAO)
+    {
+        $this-&gt;userDAO = $userDAO;
+    }
+
+    public function index()
+    {
+        return response()-&gt;json([&quot;data&quot; =&gt; $this-&gt;userDAO-&gt;getUser()]);
+    }
+}
+</code></pre>
+<p>To cache the data, Laravel has given a fluent api. This example shows to cache the <code>users</code> data.</p>
+<pre><code class="language-php">&lt;?php
+
+$value = Cache::remember('users', $seconds, function () {
+    return $this-&gt;userDAO-&gt;getUser();
+});
+</code></pre>
+<p>To implement the <strong>decorator</strong> pattern, <code>UserDAOCache</code> class has been created as:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\DAO;
+
+use Illuminate\Support\Facades\Cache;
+
+/**
+ * Class UserDAOCache
+ * @package App\DAO
+ */
+class UserDAOCache implements UserDAOInterface
+{
+    /**
+     * @var UserDAOInterface
+     */
+    protected $next;
+
+    /**
+     * UserDAOCache constructor.
+     *
+     * @param UserDAOInterface $next
+     */
+    public function __construct(UserDAOInterface $next)
+    {
+        $this-&gt;next = $next;
+    }
+
+
+    public function getUser()
+    {
+        return Cache::remember(&quot;users&quot;, 20, function () {
+            return $this-&gt;next-&gt;getUser();
+        });
+    }
+}
+</code></pre>
+<p>This class implements the same <code>UserDAOInterface</code> interface, and accepts the same interface as well. The implementation of method simply call the interface method wrapping the method inside of cache.</p>
+<p>Now update the service provider as:</p>
+<pre><code class="language-php">public function boot()
+{
+    $this-&gt;app-&gt;singleton(UserDAOInterface::class, function ($app) {
+        return new UserDAOCache(new UserDAO());
+    });
+}
+</code></pre>
+<p>Here, In service provider, the actual implementation class (<strong>UserDAO</strong>) is being decorated in <strong>UserDAOCache</strong> class to facilitate the caching. The benefits of this implementation is that it enables caching without modifying the code of actual implementation. No changes is required in either of implementation or controller class.</p>
+
+        </div>
+        <hr class="border-t border-gray-200 my-6">
+        <div class="flex items-center justify-between my-4">
+            <div class="mr-4">
+                <img class="w-24 h-24 rounded-full" src="https://bedramtamang.com.np/img/profile.jpg"
+                     style="border-width:1px !important;">
+            </div>
+            <div class="flex-1" style="font-family: Roboto;">
+                <div class="leading-tight" style="color:rgb(117, 117, 117);font-size: 14px">
+                    WRITTEN BY
+                </div>
+                <div class="font-semibold text-2xl mb-2" style="color:rgb(41, 41, 41);">
+                    Bedram Tamang
+                </div>
+                <div class="text-lg leading-tight" style="color:rgb(117, 117, 117);">
+                    Laravel Developer
+                </div>
+            </div>
+        </div>
+        <hr class="border-t border-gray-200 my-6">
+    </div>
+
+    <div class="container mx-auto px-6 my-12 lg:px-20">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4" style="font-family: Roboto">More From Web2tailwind</h2>
+        <hr class="border-t mb-6">
+        <div class="md:flex flex-wrap -mx-4">
+                    </div>
+    </div>
+                </div>
+            </div>
+        </div>
+        <div class="px-8 py-20" style="font-family: Mulish">
+    <div class="flex justify-center mb-2">
+        <div class="font-light text-sm text-gray-600">
+            &copy; 2019 - 2022
+            <a href="https://web2tailwind.com"
+                class="text-base text-gray-600 hover:text-gray-600" style="font-family: 'Source Code Pro';">Web2tailwind.com</a>
+        </div>
+    </div>
+    <div class="flex flex-wrap justify-center text-blue-400">
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/about-us"> About Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/contact-us">Contact Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/copyright">Copyright</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/code-of-conduct">Code of Conduct</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/privacy-and-policy">Privacy & Policy</a>
+    </div>
+</div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+          // Optional parameters
+          direction: 'horizontal',
+          loop: true,
+
+          // If we need pagination
+          pagination: {
+            el: '.swiper-pagination',
+          },
+
+          // Navigation arrows
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+
+          // And if we need scrollbar
+          scrollbar: {
+            el: '.swiper-scrollbar',
+          },
+        })
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</body>
+
+</html>

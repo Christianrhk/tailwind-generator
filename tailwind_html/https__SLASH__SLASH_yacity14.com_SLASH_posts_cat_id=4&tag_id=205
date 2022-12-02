@@ -1,0 +1,1687 @@
+<!doctype html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="publisher" content="야동시티" />
+<meta name="author" content="야동시티" />
+<meta name="robots" content="index,follow" />
+<meta name="keywords" content="야동시티" />
+<meta name="description" content="야동시티" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:title" content="야동시티" />
+<meta property="og:site_name" content="야동시티" />
+<meta property="og:author" content="야동시티" />
+<meta property="og:type" content="" />
+<meta property="og:description" content="야동시티" />
+<meta property="og:url" content="/" />
+<link rel="canonical" href="/" />
+<title>야동도시</title>
+<link rel="shortcut icon" href="yacity.ico" type="image/x-icon">
+<link rel="icon" href="yacity.ico" type="image/x-icon">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKWSJGP8YW"></script>
+<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-XKWSJGP8YW');
+	</script>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+<link href="/vendor/tailwind.min.css" rel="stylesheet">
+<link href="/vendor/custom-forms.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=1116">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script src="https://unpkg.com/vue-cookies@1.5.12/vue-cookies.js"></script>
+</head>
+<body class="">
+<div id="app" class="mx-auto md:relative sm:max-w-6xl " v-cloak>
+<Transition name="fade">
+<div v-if="showing" class="fixed z-10 inset-0 w-full h-screen flex items-center justify-center bg-semi-75" @click.self="closeModal" @keydown.esc="alert('1')">
+<div class="fixed inset-0 w-6/12 h-screen flex items-top justify-center text-white text-base font-light">
+<div class="relative w-screen max-w-2xl bg-white shadow-lg rounded-lg p-3 bg-modal-foreground">
+<div class="font-medium text-base text-white mt-6">MENU</div>
+<a href='/posts?cat_id=1'>
+<div class="flex items-center justify-between border-b-2 border-white ">
+<div class="text-white text-base font-light p-3 ">
+서울야동</div>
+<div class="pr-3"> > </div>
+</div>
+</a>
+<a href='/posts?cat_id=2'>
+<div class="flex items-center justify-between border-b-2 border-white ">
+<div class="text-white text-base font-light p-3 ">
+도쿄야동</div>
+<div class="pr-3"> > </div>
+</div>
+</a>
+<a href='/posts?cat_id=3'>
+<div class="flex items-center justify-between border-b-2 border-white ">
+<div class="text-white text-base font-light p-3 ">
+홍콩야동</div>
+<div class="pr-3"> > </div>
+</div>
+</a>
+<a href='/posts?cat_id=4'>
+<div class="flex items-center justify-between border-b-2 border-white ">
+<div class="text-white text-base font-light p-3 ">
+LA야동</div>
+<div class="pr-3"> > </div>
+</div>
+</a>
+<a href='#' @click="dropdown1= !dropdown1">
+<div class="flex items-center justify-between border-b-2 border-white" :class="dropdown1 ? 'text-orange-500' : 'text-white' ">
+<div class="text-base font-light p-3 ">
+고객센터
+</div>
+<div v-if="! dropdown1" class="pr-3">
++
+</div>
+<div v-if="dropdown1" class="pr-3">
+<svg class="w-4 h-4 fill-current text-white font-light text-orange-500 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<path d="M7 10V2h6v8h5l-8 8-8-8h5z" />
+</svg>
+</div>
+</div>
+</a>
+<div v-if="dropdown1" class="w-full bg-modal-gray-2 rounded-lg  ">
+<a href="/customers?ccat_id=1"> <div class="text-base font-light py-3 px-5 border-b border-gray-100"> 1:1 문의 </div></a>
+<a href="/customers?ccat_id=2"> <div class="text-base font-light py-3 px-5 ">광고문의 </div></a>
+</div>
+<a href='#' @click="dropdown2= !dropdown2">
+<div class="flex items-center justify-between border-b-2 border-white" :class="dropdown2 ? 'text-orange-500' : 'text-white' ">
+<div class="text-base font-light p-3 ">
+제휴사이트
+</div>
+<div v-if="! dropdown2" class="pr-3">
++
+</div>
+<div v-if="dropdown2" class="pr-3">
+<svg class="w-4 h-4 fill-current text-white font-light text-orange-500 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<path d="M7 10V2h6v8h5l-8 8-8-8h5z" />
+</svg>
+</div>
+</div>
+</a>
+<div v-if="dropdown2" class="w-full bg-modal-gray-2 rounded-lg  ">
+<a href="https://www.mango22.net/" target='_blank'>
+<div class="text-base font-light py-3 px-5 border-b border-gray-100"> 야동망고 </div>
+</a>
+</div>
+<button aria-label="close" class="absolute top-0 right-0 text-xl text-gray-500 my-2 mx-4" @click.prevent="closeModal">
+×
+</button>
+<slot />
+</div>
+</div>
+</div>
+</Transition>
+<header>
+<div class="flex sm:hidden items-center justify-between p-0 bg-white">
+<div class="flex-1 text-left" @click="showing=!showing">
+<svg class="w-10 h-10 px-2 font-black text-base fill-current bg-white text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+</svg>
+</div>
+<div class="flex-1 ">
+<div class="text-center mx-auto">
+<a href="/">
+<img src="/images/city-logo.png" class="text-center mx-auto" alt="야동도시 메인" />
+</a>
+</div>
+</div>
+<div class="flex-1 text-center">
+</div>
+</div>
+<div class="hidden sm:block flex items-center justify-between p-0 bg-white ">
+<div class="flex-1 text-left">
+</div>
+<div class="flex-1 ">
+<div class="text-center mx-auto">
+<a href="/">
+<img src="/images/city-logo.png" class="text-center mx-auto" width="170" alt="야동도시 메인" />
+</a>
+</div>
+</div>
+<div class="flex-1 text-center">
+</div>
+</div>
+</header>
+<div class=" sm:hidden flex flex-no-wrap  items-center justify-between font-700 w-full py-2 flex-none whitespace-no-wrap overflow-x-auto bg-color-cyan">
+<div class="flex-none ml-2 px-3 text-lg text-color-for-wide">
+<a href="/">메인</a>
+</div>
+<div class="flex-none  px-2  text-lg  text-color-for-wide ">
+<a href="/posts?cat_id=1">서울야동</a>
+</div>
+<div class="flex-none  px-2  text-lg  text-color-for-wide ">
+<a href="/posts?cat_id=2">도쿄야동</a>
+</div>
+<div class="flex-none  px-2  text-lg  text-color-for-wide ">
+<a href="/posts?cat_id=3">홍콩야동</a>
+</div>
+<div class="flex-none  px-2  text-lg  text-red-600 ">
+<a href="/posts?cat_id=4">LA야동</a>
+</div>
+<div class="flex-none  px-2  text-lg text-color-for-wide  ">
+<a href="/customers?ccat_id=1">고객센터</a>
+</div>
+</div>
+<div class=" hidden sm:block sm:flex items-center content-center  justify-between font-700 w-full my-1 bg-color-cyan">
+<div class=" px-4 py-3 text-sm text-color-for-wide bg-color-cyan2">
+<svg class="fill-current text-color-for-wide py-1 px-3 w-12 h-6  bg-color-cyan2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<path d="M8 20H3V10H0L10 0l10 10h-3v10h-5v-6H8v6z" />
+</svg>
+</div>
+<div class=" px-2 py-3 mx-auto text-sm text-color-for-wide  ">
+<a href="/posts?cat_id=1" class="">서울야동</a>
+</div>
+<div class=" px-2 py-3 mx-auto text-sm text-color-for-wide  ">
+<a href="/posts?cat_id=2" class="">도쿄야동</a>
+</div>
+<div class=" px-2 py-3 mx-auto text-sm text-color-for-wide  ">
+<a href="/posts?cat_id=3" class="">홍콩야동</a>
+</div>
+<div class=" px-2 py-3 mx-auto text-sm text-red-600 ">
+<a href="/posts?cat_id=4" class="">LA야동</a>
+</div>
+<div class=" px-2 py-3 mx-auto text-sm  text-color-for-wide  " @mouseover="openDropdown2 = false ; openDropdown=!openDropdown" @click="goURL('/customers?ccat_id=1')">
+고객센터
+</div>
+<div v-if="openDropdown" class="relative mt-10 bg-color-cyan ">
+<div class="absolute right-0 mt-0 py-1 w-48 bg-color-cyan rounded-xs shadow-xl">
+<a href="/customers?ccat_id=1" class="block px-4 py-1 text-sm font-light hover:font-semibold  hover:bg-blue-800 text-color-for-wide hover:text-white">
+1:1 문의</a>
+<a href="/customers?ccat_id=2" class="block px-4 py-1 text-sm font-light hover:font-semibold hover:bg-blue-800 text-color-for-wide hover:text-white">광고문의</a>
+</div>
+</div>
+<div class=" px-2 py-3 mx-auto text-sm text-color-for-wide  " @mouseover="openDropdown = false ; openDropdown2=!openDropdown2">
+제휴사이트
+</div>
+<div v-if="openDropdown2" class="relative mt-10 bg-color-cyan">
+<div class="absolute right-0 mt-0 py-1 w-48 bg-color-cyan rounded-xs shadow-xl">
+<a href="https://www.mango22.net/" target='_blank' class="block px-4 py-1 text-sm font-light hover:font-semibold  hover:bg-blue-800 text-color-for-wide hover:text-white">
+야동망고
+</a>
+</div>
+</div>
+</div>
+<div class=" sm:hidden">
+<div class="flex ml-2">
+<div class="pb-1 my-1 font-semibold border-b-2 border-teal-600 ">
+LA야동
+</div>
+<div class="flex-grow pb-1 my-1 font-semibold border-b border-gray-400 "> </div>
+</div>
+</div>
+<div class="justify-between hidden w-full p-2 m-1 sm:block sm:flex sm:items-end sm:content-end">
+<div class="text-lg font-medium border-b-2 border-red-500">
+LA야동
+</div>
+<div class="flex items-center justify-end flex-grow text-right align-baseline border-b border-gray-400 ">
+<svg class="hidden w-3 h-3 text-gray-700 fill-current sm:block " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<path d="M8 20H3V10H0L10 0l10 10h-3v10h-5v-6H8v6z" />
+</svg>
+<span class="hidden px-2 text-xs text-gray-700 sm:block">
+홈 >
+LA야동
+>
+LA야동
+</span>
+</div>
+</div>
+<div class="my-3 ml-0 flex flex-wrap items-center  justify-start ">
+<a href="/click?id=1&url=https://bin-7799.com/?ref=33" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1657082186.jpg?v=07292020">
+</a>
+<a href="/click?id=2&url=https://smtb-7711.com/?ref=4000" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1655909301.jpg?v=07291240">
+</a>
+<a href="/click?id=3&url=http://gi-aa.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1655295317.gif?v=07291845">
+</a>
+<a href="/click?id=4&url=https://pp-001.com/?ref=0504" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1655176576.gif?v=07292008">
+</a>
+<a href="/click?id=5&url=https://tt-888.com/?ref=892" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1655176607.gif?v=07291808">
+</a>
+<a href="/click?id=6&url=http://orak-zzz.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1656802136.gif?v=07292125">
+ </a>
+<a href="/click?id=7&url=http://ptpt-tt.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1656584662.gif?v=07292057">
+</a>
+<a href="/click?id=8&url=http://po-aa.com/?code=gong" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1655481127.gif?v=07291911">
+</a>
+<a href="/click?id=9&url=https://tm-1144.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1659098371.jpg?v=07292139">
+</a>
+<a href="/click?id=10&url=http://xn--xz2b04l7wf.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1648446724.gif?v=07292036">
+</a>
+<a href="/click?id=11&url=http://wb-tt.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1644132854.gif?v=07292054">
+</a>
+<a href="/click?id=12&url=http://wn-xg.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1648806118.gif?v=07292119">
+</a>
+<a href="/click?id=30&url=http://cast-77.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1655207968.gif?v=07292013">
+</a>
+<a href="/click?id=31&url=http://cast-77.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1657940144.gif?v=07292110">
+</a>
+<a href="/click?id=32&url=http://gpdm-446.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1656584682.gif?v=07291748">
+</a>
+<a href="/click?id=33&url=https://nom-777.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1658384817.png?v=07291955">
+</a>
+<a href="/click?id=39&url=http://betmoa05.com/" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1648990125.gif?v=07292027">
+</a>
+<a href="/click?id=40&url=https://machuja-987.com/?ref=6320" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1657178872.gif?v=07291650">
+</a>
+<a href="/click?id=41&url=https://hts5525.com/?ref=3333" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1657635828.gif?v=07292126">
+</a>
+<a href="/click?id=42&url=https://hts5525.com/?ref=3333" class="w-1/2 sm:w-1/4 mb-1 pr-1 " target='_blank'>
+<img class="object-cover" src="/storage/upload/banners/1657635849.gif?v=07292002">
+</a>
+</div>
+<div class="px-1">
+<div class="w-full sm:flex my-2">
+<div class="p-1 m-0 w-full sm:w-1/2 ">
+<div class="flex  items-center w-full ">
+<div class="text-xs text-black font-semibold ">주간 베스트</div>
+<div class="flex-grow h-1 bg-gray-300 px-2 py-1 mx-2"></div>
+</div>
+<div class="mt-4 w-full">
+<div class="flex items-center w-full px-2" onClick="goview(17611 )">
+<button class="f-color-green text-white font-bold my-1 px-2   size-10">
+1
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600">
+[LA야동] 흔쾌히 구멍을 승낙해주는 엄마
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 08-01</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17628 )">
+<button class="f-color-green text-white font-bold my-1 px-2   size-10">
+2
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600">
+[LA야동] 남편대신 배달원 유혹하는 유부녀
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 08-02</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17630 )">
+<button class="f-color-green text-white font-bold my-1 px-2   size-10">
+3
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600">
+[LA야동] 자지를 목젖 깊쑥하게 쑤셔박아 세우는 이쁜이
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 08-02</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17688 )">
+<button class="f-color-green text-white font-bold my-1 px-2   size-10">
+4
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600">
+[LA야동] 빵빵한 보지도 옵션으로 주는 쿠키 판매원
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 08-04</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17631 )">
+<button class="f-color-green text-white font-bold my-1 px-2   size-10">
+5
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600">
+[LA야동] 격렬한 레슬링
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 08-02</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17689 )">
+<button class="f-color-green text-white font-bold my-1 px-2   size-10">
+6
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600">
+[LA야동] 탱탱한 누나의 보지속살
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 08-04</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17627 )">
+<button class="f-color-green text-white font-bold my-1 px-2   size-10">
+7
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600">
+[LA야동] 아들의 친구를 유혹하는 뜨거운 유부녀
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 08-02</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17629 )">
+<button class="f-color-green text-white font-bold my-1 px-2   size-10">
+8
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600">
+[LA야동] 빵빵한 색녀 치과 의사쌤의 부드로운 입
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 08-02</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17667 )">
+<button class="f-color-green text-white font-bold my-1 px-2   size-10">
+9
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600">
+[LA야동] 풋풋한 커플 떡질 저장
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 08-03</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17668 )">
+<button class="f-color-green text-white font-bold my-1 px-2   size-10">
+10
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600">
+[LA야동] 할것없을때는 자위가 최고
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 08-03</div>
+</div>
+</div>
+</div>
+<div class="p-1  w-full sm:w-1/2 ">
+<div class="flex  items-center w-full ">
+<div class="text-xs text-black font-semibold ">월간 베스트</div>
+<div class="flex-grow h-1 bg-gray-300 px-2 py-1 mx-2"></div>
+</div>
+<div class="mt-4 w-full">
+<div class="flex items-center w-full px-2" onClick="goview(17162 )">
+<button class="f-color-red text-white font-bold my-1 px-2   size-10">
+1
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600 ">
+[LA야동] 남친과 떡치는 딸을보고 흥분하는 엄마
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 07-08</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17561 )">
+<button class="f-color-red text-white font-bold my-1 px-2   size-10">
+2
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600 ">
+[LA야동] 화끈한 헬스
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 07-30</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17462 )">
+<button class="f-color-red text-white font-bold my-1 px-2   size-10">
+3
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600 ">
+[LA야동] 묶인상태로 복종하는 아름다운 처자
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 07-24</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17198 )">
+<button class="f-color-red text-white font-bold my-1 px-2   size-10">
+4
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600 ">
+[LA야동] 좋아하는 섹스 인형에 물총을 쏘는 색녀
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 07-10</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17199 )">
+ <button class="f-color-red text-white font-bold my-1 px-2   size-10">
+5
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600 ">
+[LA야동] 열정적으로 정자 교환
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 07-10</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17401 )">
+<button class="f-color-red text-white font-bold my-1 px-2   size-10">
+6
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600 ">
+[LA야동] 흑형에 숨넘어가는 색녀
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 07-20</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17222 )">
+<button class="f-color-red text-white font-bold my-1 px-2   size-10">
+7
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600 ">
+[LA야동] 쪼여주는 맛이 틀린 구멍들
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 07-11</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17611 )">
+<button class="f-color-red text-white font-bold my-1 px-2   size-10">
+8
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600 ">
+[LA야동] 흔쾌히 구멍을 승낙해주는 엄마
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 08-01</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17503 )">
+<button class="f-color-red text-white font-bold my-1 px-2   size-10">
+9
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600 ">
+[LA야동] 귀여운 동생들과 뜨거운 쓰리썸
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 07-26</div>
+</div>
+<div class="flex items-center w-full px-2" onClick="goview(17202 )">
+<button class="f-color-red text-white font-bold my-1 px-2   size-10">
+10
+</button>
+<div class="flex-grow ml-1 text-xs cursor-pointer hover:text-red-600 ">
+[LA야동] 해변에서 또 다른 보지를 선물해주는 여친
+</div>
+<div class=" pr-2 text-xs text-gray-700"> 07-10</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+        function goview( id) {
+            document.location.href ='/posts/' + id 
+        }
+    </script>
+</div>
+<div class="px-1">
+<div class="w-full my-4 border border-gray-400">
+<ul class="flex border-b ">
+<li class="">
+<a class="bg-white inline-block border-l  border-r rounded-t py-2 px-4 text-red-600 font-medium text-sm" href="#">카테고리</a>
+</li>
+<li class="mr-1">
+</li>
+</ul>
+<div class="flex flex-wrap ">
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=167">
+전체
+</a>
+</div>
+</div>
+ <div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=168">
+아마추어
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=169">
+커플
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=170">
+BJ
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=171">
+유부녀
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=172">
+teen
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=173">
+항문
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=174">
+레즈비언
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=175">
+거유
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=176">
+쓰리썸
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=177">
+스와핑
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=178">
+흑인
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=179">
+Old/Young
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=180">
+본디지
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+ <div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=181">
+공공장소
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=182">
+대물
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=183">
+질내사정
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=184">
+시오후키
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=185">
+윤간
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=186">
+여성절정
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=187">
+자위
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=188">
+리얼리티
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=189">
+난교
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=190">
+육덕(뚱보)
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=191">
+구강성교
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=192">
+큰엉덩이
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=193">
+격렬한
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=194">
+마사지
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=195">
+1인칭
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=196">
+대딸
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=197">
+붓카케
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=198">
+로멘틱
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=199">
+하드코어
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=200">
+대학생
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=201">
+페티쉬
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=202">
+방뇨
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=203">
+보빨
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=204">
+기구
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light text-red-500 ">
+<a href="/posts?cat_id=4&tag_id=205">
+코스프레
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=206">
+빈유
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=207">
+파티
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=208">
+발
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=209">
+학교
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=210">
+라틴
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=211">
+패러디
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=212">
+스트립쇼
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=213">
+모델
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=214">
+핑거링
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=215">
+금발
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=216">
+타투
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=217">
+야외
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=218">
+SM
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=223">
+뒷치기
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+ <a href="/posts?cat_id=4&tag_id=224">
+입싸
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=225">
+여성상위
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=230">
+풋잡
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=231">
+이라마치오
+</a>
+</div>
+</div>
+<div class="flex-initial pr-2">
+<div class="text-gray-700 text-center px-2 py-1 mb-1 text-xs font-light  ">
+<a href="/posts?cat_id=4&tag_id=232">
+딥 스로트
+</a>
+</div>
+</div>
+</div>
+</div> </div>
+<div class="p-2 m-0 w-full">
+<div class="mt-1 flex flex-wrap items-start  justify-start ">
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/17746?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1659848204.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1659848204.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/17746?cat_id=4&amp;tag_id=205">
+[LA야동]
+가디언즈 오브 갤럭시 페러디
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 90</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/10877?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1625839411.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1625839411.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/10877?cat_id=4&amp;tag_id=205">
+[LA야동]
+스크럴과 한판붙는 캡틴마블
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 6991</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/10229?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1622549836.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1622549836.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/10229?cat_id=4&amp;tag_id=205">
+[LA야동]
+집주인 없을때 메이드 레즈플
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 3381</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/9805?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1620382259.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1620382259.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/9805?cat_id=4&amp;tag_id=205">
+[LA야동]
+레즈플 즐기는 코스프레녀들
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 5503</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/8495?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1613502602.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1613502602.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/8495?cat_id=4&amp;tag_id=205">
+[LA야동]
+디바 코스프레녀 뒤로 박아주기
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 6994</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/8300?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1612296402.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1612296402.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/8300?cat_id=4&amp;tag_id=205">
+[LA야동]
+바니걸 존나 탐스럽네
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 5928</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/8263?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1612130256.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1612130256.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/8263?cat_id=4&amp;tag_id=205">
+[LA야동]
+코스프레 미소녀 존나 깜찍하네
+</a>
+</div>
+ </div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 5688</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/8213?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1611950041.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1611950041.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/8213?cat_id=4&amp;tag_id=205">
+[LA야동]
+코스프레녀 아주 꼴릿해
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 6161</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/7995?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1610744309.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1610744309.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/7995?cat_id=4&amp;tag_id=205">
+[LA야동]
+크리스마스라고 이벤트해주네
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 5491</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/7993?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1610743988.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1610743988.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/7993?cat_id=4&amp;tag_id=205">
+[LA야동]
+귀여운 바니걸 맛나보인다
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 5445</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/7619?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1608504412.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1608504412.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/7619?cat_id=4&amp;tag_id=205">
+[LA야동]
+여친년 할리퀸 코스프레
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 7767</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/7149?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1606073091.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1606073091.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/7149?cat_id=4&amp;tag_id=205">
+[LA야동]
+엘프녀 목까시에 입싸까지
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 9529</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/6917?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1604919961.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1604919961.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/6917?cat_id=4&amp;tag_id=205">
+[LA야동]
+메이드복 입은 서양년 개꼴리네
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 8070</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/6875?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1604773172.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1604773172.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/6875?cat_id=4&amp;tag_id=205">
+[LA야동]
+매혹적인 눈빛 빨리고싶다
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 7628</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/6793?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1604342700.png" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1604342700.png" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/6793?cat_id=4&amp;tag_id=205">
+[LA야동]
+젖소 코스프레 나름 귀여운데
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 5702</div>
+</div>
+</div>
+</div>
+</div>
+ <div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/6255?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1601041472.PNG" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1601041472.PNG" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/6255?cat_id=4&amp;tag_id=205">
+[LA야동]
+엘프녀 딥 스로트 입싸까지 12분18초
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 20112</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/6233?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1600924476.PNG" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1600924476.PNG" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+
+<a href="https://yacity14.com/posts/6233?cat_id=4&amp;tag_id=205">
+[LA야동]
+할로윈 엄마랑 누나한테 장난치기 11분...
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 38717</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/6081?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1600139945.PNG" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1600139945.PNG" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/6081?cat_id=4&amp;tag_id=205">
+[LA야동]
+매혹적인 눈빛 빨리고싶다 10분8초
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 20185</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/5456?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1597023588.PNG" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1597023588.PNG" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/5456?cat_id=4&amp;tag_id=205">
+[LA야동]
+코믹스콘 코스프레 참가후 10분3초
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 16364</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-1/2  sm:w-1/4 p-1 bg-white mb-3 mt-0 object-none object-top ">
+<div class=" rounded h-auto object-none object-top ">
+<div class=" p-1 rounded rounded-lg  spect-4x3 object-top">
+<a href="https://yacity14.com/posts/5272?cat_id=4&amp;tag_id=205">
+<img class=" hidden sm:block w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:150px;" src="/storage/upload/thumbs/1596177722.JPG" />
+<img class="sm:hidden w-full object-cover rounded cursor-pointer " style="min-height:100px; max-height:100px;" src="/storage/upload/thumbs/1596177722.JPG" />
+</a>
+</div>
+<div class=" flex flex-no-wrap h-12 text-base font-medium text-black  text-center my-2 px-1">
+<div class="w-full flex-none cursor-pointer hover:text-red-600 ">
+<a href="https://yacity14.com/posts/5272?cat_id=4&amp;tag_id=205">
+[LA야동]
+자위 코스플레이 7분39초
+</a>
+</div>
+</div>
+<div class="flex w-full items-center justify-between text-xs font-light text-gray-700 px-2">
+<div class="">최고관리자</div>
+<div class=" flex mx-2 items-center">
+<svg class="fill-current text-gray-500 mx-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z" />
+</svg>
+<div class="mx-1">0</div>
+<svg class="fill-current text-gray-500 mx-1  w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+<path class="heroicon-ui" d="M6 18.7V21a1 1 0 0 1-2 0v-5a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H7.1A7 7 0 0 0 19 12a1 1 0 1 1 2 0 9 9 0 0 1-15 6.7zM18 5.3V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1h-5a1 1 0 0 1 0-2h2.9A7 7 0 0 0 5 12a1 1 0 1 1-2 0 9 9 0 0 1 15-6.7z" />
+</svg>
+<div class="mx-1"> 18751</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" w-full text-xs  flex items-center  justify-center   p-1 bg-white mb-3 font-medium text-gray-700 text-center ">
+<div class="flex items-center">
+<a class="rounded-l rounded-sm border border-brand-light px-3 py-2 hover:bg-brand-light text-brand-dark no-underline text-xs " href="/posts?tag_id=205&amp;cat_id=4&amp;page=1" rel="first">
+<<
+</a>
+<span class="rounded-l rounded-sm border border-brand-light px-3 py-2 no-underline text-xs ">
+<
+</span>
+<span class="border-t border-b border-l border-brand-light px-3 py-2 bg-brand-light no-underline text-sm  text-red-600 ">1</span>
+<a class="border-t border-b border-l border-brand-light px-3 py-2 hover:bg-brand-light text-brand-dark no-underline text-sm " href="https://yacity14.com/posts?tag_id=205&amp;cat_id=4&amp;page=2">2</a>
+<a class="border-t border-b border-l border-brand-light px-3 py-2 hover:bg-brand-light text-brand-dark no-underline text-sm " href="https://yacity14.com/posts?tag_id=205&amp;cat_id=4&amp;page=3">3</a>
+
+<a class="rounded-r rounded-sm border border-brand-light px-3 py-2 hover:bg-brand-light text-brand-dark no-underline text-xs " href="https://yacity14.com/posts?tag_id=205&amp;cat_id=4&amp;page=2" rel="next">
+>
+</a>
+<a class="rounded-r rounded-sm border border-brand-light px-3 py-2 hover:bg-brand-light text-brand-dark no-underline text-xs  " href="/posts?tag_id=205&amp;cat_id=4&amp;page=4">
+>>
+</a>
+</div>
+</div>
+<div v-if="orderByBox" class="relative z-10 flex items-center -mt-16 w-full h-16 justify-end mb-0 mr-1 ">
+<div class=" bg-gray-800 text-xs text-white">
+<div class="m-1 px-3"><a href="/posts?cat_id=4&amp;tag_id=205&amp;page=1&amp;orderBy=">초기화</a></div>
+<div class="m-1 px-3"><a href="/posts?cat_id=4&amp;tag_id=205&amp;page=1&amp;orderBy=created_at">날짜순</a></div>
+<div class="m-1 px-3"><a href="/posts?cat_id=4&amp;tag_id=205&amp;page=1&amp;orderBy=visits">조회순</a></div>
+</div>
+</div>
+<div class="flex items-center  w-full justify-between p-1 text-white">
+<div class=" flex items-center justify-betwwen bg-gray-800 text-xs py-1 px-3" @click="search_modal=!search_modal">
+<svg class=" w-3 h-3 fill-current text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+</svg>
+<div class=" ml-3">검색</div>
+</div>
+<div class=" bg-green-300">
+<div class="bg-gray-800 text-xs py-1 px-3" id="btnOrderByBox" @click="orderByBox = !orderByBox ">정렬</div>
+</div>
+</div>
+<div v-if="search_modal" class="fixed inset-0 w-full h-full flex items-center justify-center bg-semi-75 pr-3" @click.self="closeSearchModal">
+<form name="frmsearch" action="/posts" method="GET" class="">
+<input type="hidden" name="cat_id" value="4">
+<div class=" w-full h-56 bg-white rounded-lg m-3 ">
+<div class="flex w-full ">
+<div class="w-10/12"></div>
+<button aria-label="close" class="w-2/12  text-xl text-gray-500 " @click.prevent="closeSearchModal">
+×
+</button>
+</div>
+<div class="w-full flex items-center justify-center mb-5">
+<svg class="  w-4 h-4 fill-current text-black text-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+</svg>
+<div class="text-lg font-semibold mx-3">Search</div>
+</div>
+<div class="flex w-full px-2">
+<select class=" flex-1 text-xs border border-black p-2 m-2" name="condition1">
+<option value="title">제목</option>
+<option value="content">내용</option>
+<option value="all">제목+내용</option>
+</select>
+<select class=" flex-1  text-xs border border-black p-2 m-2" name="condition2">
+<option value="and">그리고</option>
+<option value="or">또는</option>
+</select>
+</div>
+<div class="flex w-full px-2">
+<input type="text" name="search" class="w-full py-1 px-4 m-2 border border-gray-800 rounded text-xs " placeholder="검색어">
+</div>
+<div class="flex w-full px-2 ">
+<button type="submit" class=" flex-1 button bg-red-600 text-sm text-white hover:bg-red-700 m-2 px-4  py-1">검색</button>
+<button class=" flex-1 button bg-gray-700 text-sm text-white hover:bg-gray-900 m-2 px-4 py-1" @click="search_modal = ! search_modal">닫기</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="m-32 ">
+</div>
+<script src="/js/main.js?v=0005"></script>
+<div class="bg-green-500 h-0">
+<div id="recaptcha-service" class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="">
+</div>
+<div class="">
+<div id="recapcha-container">
+<div id="recaptcha-service" class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="">
+</div>
+<script src="https://www.google.com/recaptcha/api.js?render=6Le4ljcaAAAAAPvQQ7WMcJvtJUzKb3pUlkOM6d5F"></script>
+</div>
+<script>
+                    window.recaptchaCallback = undefined;
+
+                    grecaptcha.ready(function() {
+                        grecaptcha.execute("6Le4ljcaAAAAAPvQQ7WMcJvtJUzKb3pUlkOM6d5F", {action: 'homepage'}).then(function(token) {
+
+                        // console.log('token', token)
+                            var payload = {
+                                token : token
+                            }
+                            var data = new FormData();
+                            data.append( "json", JSON.stringify( payload ) );
+                            var headers = {
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content 
+                            }
+
+                            fetch('/recapcha-ajax', {
+                                method: 'POST', 
+                                headers: headers,
+                                body: data
+                            })
+                            .then(function (response) {
+                                return response.json();
+                            }).then( function( body ){
+                                // console.log(body);
+                                if( parseInt( body.success ) === 1 ) {
+                                    if( parseFloat( body.score ) < 0.5  ) {
+                                        window.location.replace("/empty");    
+                                    } 
+                                } else {
+                                    // window.location.replace("/empty");
+                                }
+                            })
+                        });
+                    });
+                </script>
+</div>
+</div>
+<footer class=" mt-5 py-2 justify-center ">
+<div class="flex items-center text-sm py-2 text-gray-800 justify-center border-b border-t border-gray-500 hover:text-red-500">
+<a href='/customers?ccat_id=1'>문의하기</a>
+</div>
+<div class="flex items-center text-sm py-2 text-gray-800 justify-center p-0 self-center ">
+<div class="px-2 ">야동도시 </div>
+<svg class="w-3 h-3 fill-current text-gray-900" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+<path fill="#444444" d="M8 1.5c3.6 0 6.5 2.9 6.5 6.5s-2.9 6.5-6.5 6.5-6.5-2.9-6.5-6.5 2.9-6.5 6.5-6.5zM8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8v0z"></path>
+<path fill="#444444" d="M9.9 10.3c-0.5 0.4-1.2 0.7-1.9 0.7-1.7 0-3-1.3-3-3s1.3-3 3-3c0.8 0 1.6 0.3 2.1 0.9l1.1-1.1c-0.8-0.8-2-1.3-3.2-1.3-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5c1.1 0 2-0.4 2.8-1l-0.9-1.2z"></path>
+</svg>
+<div class="px-2 ">All rights reserved.</div>
+</div>
+</footer>
+</body>
+</html>

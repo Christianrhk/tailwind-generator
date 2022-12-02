@@ -1,0 +1,403 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;700&display=swap'/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	
+	<title>KQ Live Chart</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <!--<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/1.0.7/require.min.js"></script>-->
+  
+   <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+   <link rel="stylesheet" href="/livedata/table.css?1639523117">
+
+   <style>
+		#table_body td:nth-child(1) { width: 40%; text-align: left; padding-left: 10px; }
+		#table_body td:nth-child(2) { width: 20%; }
+		#table_body td:nth-child(3) { width: 20%; }
+		#table_body td:nth-child(4) { width: 20%; }
+   </style>
+	
+</head>
+<body>
+	
+	<script>
+		var MARKETCLOSED = false;
+		var debug = true;
+		var dataRequestInterval = 4000;
+		
+		var content = {"id":3978392064703265750,"markets__type":"collection","markets":[{"id":4495721253723735230,"name__type":"text","name":"UK 100","ID__type":"number","ID":"99500","spread multiplier__type":"number","spread multiplier":"","static values front__type":"collection","static values front":[],"static values back__type":"collection","static values back":[]},{"id":3486670617854910210,"name__type":"text","name":"Wall Street","ID__type":"number","ID":"99498","spread multiplier__type":"number","spread multiplier":"","static values front__type":"collection","static values front":[],"static values back__type":"collection","static values back":[]},{"id":2150914777346129338,"name__type":"text","name":"Germany 40","ID__type":"number","ID":"99508","spread multiplier__type":"number","spread multiplier":"","static values front__type":"collection","static values front":[],"static values back__type":"collection","static values back":[]},{"id":5776453089820012887,"name__type":"text","name":"EUR\/USD","ID__type":"number","ID":"154290","spread multiplier__type":"number","spread multiplier":"10000","static values front__type":"collection","static values front":[],"static values back__type":"collection","static values back":[]},{"id":3260099875982926082,"name__type":"text","name":"GBP\/USD","ID__type":"number","ID":"154297","spread multiplier__type":"number","spread multiplier":"10000","static values front__type":"collection","static values front":[],"static values back__type":"collection","static values back":[]},{"id":7455638138409872435,"name__type":"text","name":"Gold","ID__type":"number","ID":"400156126","spread multiplier__type":"number","spread multiplier":"","static values front__type":"collection","static values front":[],"static values back__type":"collection","static values back":[]}],"other markets__type":"collection","other markets":[],"static columns front__type":"collection","static columns front":[],"static columns back__type":"collection","static columns back":[],"show spread__type":"boolean","show spread":true,"show change__type":"boolean","show change":false,"language--label":"english","language__type":"select","language":"english","desktop cols--label":"12\/12","desktop cols__type":"select","desktop cols":"12","tablet cols--label":"12\/12","tablet cols__type":"select","tablet cols":"12","phone cols--label":"12\/12","phone cols__type":"select","phone cols":"12","vertical align--label":"middle","vertical align__type":"select","vertical align":"middle","desktop shift--label":"0\/12","desktop shift__type":"select","desktop shift":"0","tablet shift--label":"0\/12","tablet shift__type":"select","tablet shift":"0","phone shift--label":"0\/12","phone shift__type":"select","phone shift":"0","margin-top--label":"none","margin-top__type":"select","margin-top":"none","margin-bottom--label":"none","margin-bottom__type":"select","margin-bottom":"none","custom CSS__type":"group","custom CSS":[{"id":471087439132399011,"desktop__type":"code","desktop":"","tablet__type":"code","tablet":"","phone__type":"code","phone":""}],"__schema":"live-data-table"};
+		var username = 'Kqmarkets';
+		var newSession = 'c7dcf387-cd16-4e81-abac-3e52d7a7b024';
+		
+		var closeValues = [];
+		var marketInfo = [];
+
+		function setUpMarket(marketID)
+		{
+			if(debug) console.log('setting up ' +  marketID);
+				
+			$.ajax({
+				type: "POST",
+				url: "allfunction.php",
+				data: {
+					"market": marketID,
+					"username": username,
+					"session": newSession,
+					"action": "startUpInfo"
+				},
+				success: function(xhrVal) {
+	
+					if(debug) console.log('startup info', xhrVal);
+					
+					var data = JSON.parse(xhrVal);
+					
+					//console.log(data);
+					closeValues[data.MarketId] = data.yesterdaysCloseValue;
+					data.nullValuesCounter = 0;
+					marketInfo[data.MarketId] = data;
+					marketInfo[data.MarketId]['null-values-counter'] = 0;
+					if(debug) console.log('marketInfo', marketInfo);
+					
+				},
+				error: function() {
+					if(debug) console.log('Error getting startup info for ' + marketID + '. Trying again.');
+					setTimeout(function(){setUpMarket(marketID)}, 4000);
+				}
+			});
+		}
+		
+		function initialSetup()
+		{
+			for(market of content['markets']) setUpMarket(market.ID);
+		}
+		
+		initialSetup();
+		setInterval(initialSetup, 2 * 60 * 1000);    // every 2 mins reset the setup values
+        	
+        // if we have more than X market, then every time we check the markets we should skip a few, so we don't overload the server and the browser
+        var checkEvery = Math.floor(content['markets'].length / 20);
+        if(checkEvery==0) checkEvery=1;
+        var checkCycle = 0;
+        var firstCycle = true;
+        
+        setInterval(function(){
+	        
+	        if(debug) console.log('---------LOOP START');
+	        
+	        for(marketID_i in content['markets'])
+			{
+				var market = content['markets'][marketID_i];
+				var marketID = market.ID;
+
+				// market hasn't been set up yet
+				if(!marketInfo[marketID]) continue;
+				
+				if(!firstCycle & (marketID_i-checkCycle)%checkEvery!=0)
+				{
+					if(debug) console.log('skip', marketID_i, checkCycle, checkEvery);
+					continue;
+				}
+				
+				//console.log('CHECK');
+	        
+		        $.ajax({
+		            type: "POST",
+		            url: "allfunction.php",
+		            data: {
+		              "market": marketID,
+		              "username": username,
+		              "session": newSession,
+		              "action": "delayedTick"
+		            },
+		            success: function(xhrVal) {
+						
+					  if(debug) console.log('got data', xhrVal);
+						
+		              var data = JSON.parse(xhrVal);
+		              
+		              var marketContent = content['markets'].find(m => m.ID==data.marketId );
+		              
+		              var SpreadMultiplier = marketContent['spread multiplier'] ? marketContent['spread multiplier'] : 1;
+		              
+					  //console.log('market info:', marketInfo[data.marketId]);
+
+		              if(marketInfo[data.marketId] != undefined)
+		              {
+			              var decimalCasesMultiplier = Math.pow(10, marketInfo[data.marketId].PriceDecimalPlaces); 
+			              
+			              data.mid = ((data.bid+data.ask)/2);
+			              data.mid = Math.round(data.mid * decimalCasesMultiplier) / decimalCasesMultiplier;
+			              data.open = marketInfo[data.marketId].Open;
+			              data.change = data.mid-data.open;
+			              data.change = Math.round(data.change * decimalCasesMultiplier) / decimalCasesMultiplier; 
+			              data.spread = Math.abs(data.ask-data.bid);
+			              data.spread = Math.round(data.spread * decimalCasesMultiplier * SpreadMultiplier) / decimalCasesMultiplier;
+			              //data.close = closeValues[data.marketId];
+			              
+			              updateValues(data, marketContent);
+			          }
+					  
+		            },
+					error: function(jqXHR, textStatus, errorThrown) {
+						if(debug) console.log('Error getting data ' + marketID + '.');
+						if(debug) console.log(textStatus, errorThrown);
+					}
+		        });	
+		    }
+		    
+		    firstCycle = false;
+		    
+		    checkCycle++;
+		    if(checkCycle>=checkEvery-1) checkCycle = 0;
+	        
+        }, dataRequestInterval);
+        
+        // data is a structure in the following format: {marketId, bid, ask, mid, open, change}
+        function updateValues(data, marketContent)
+        {
+	        //Name, Bid, Offer, Direction, Change, MarketId
+	        var Name = marketInfo[data.marketId].MarketName;
+			if(marketContent['name']) Name = marketContent['name'];
+	        var Bid = data.bid;
+	        var Offer = data.ask;
+	        var Change = data.change;
+	        var MarketId = data.marketId;
+	        
+	        var decimalPlaces = marketInfo[data.marketId].PriceDecimalPlaces;
+	        
+	        var changeSign = parseFloat(data.change)>=0 ? "+" : "";
+	        var postiveClassess = "positive";
+		    var negativeClasses = "negative";
+		    
+		    var BidClass = postiveClassess;
+		    var OfferClass = postiveClassess;
+		    var BidArrow = '<span class="arrow">&#x25B2;</span>';
+		    var OfferArrow = '<span class="arrow">&#x25B2;</span>';
+		    
+		    if ( data.bid < marketInfo[data.marketId].bid )
+		    {
+			    BidClass = negativeClasses;
+			    BidArrow = '<span class="arrow">&#x25BC;</span>';
+		    }
+		    // if the value is the same as before, then we should use the previous arrow or class
+		    else if ( data.bid == marketInfo[data.marketId].bid )
+		    {
+			    BidClass = marketInfo[data.marketId].bidClasses;
+			    BidArrow = marketInfo[data.marketId].bidArrow;
+		    }
+		    
+		    if ( data.ask < marketInfo[data.marketId].ask )
+		    {
+			    OfferClass = negativeClasses;
+			    OfferArrow = '<span class="arrow">&#x25BC;</span>';
+		    }
+		    // if the value is the same as before, then we should use the previous arrow or class
+		    else if ( data.ask == marketInfo[data.marketId].ask )
+		    {
+			    OfferClass = marketInfo[data.marketId].askClasses;
+			    OfferArrow = marketInfo[data.marketId].askArrow;
+		    }
+		    
+		    
+		    marketInfo[data.marketId].bid = data.bid;
+		    marketInfo[data.marketId].ask = data.ask;
+		    marketInfo[data.marketId].bidClasses = BidClass;
+		    marketInfo[data.marketId].askClasses = OfferClass;
+		    marketInfo[data.marketId].bidArrow = BidArrow;
+		    marketInfo[data.marketId].askArrow = OfferArrow;
+		    
+		    var marketIndex = $(".market-"+data.marketId).attr('data-market-index');
+		    
+		    //console.log('marketIndex: ', marketIndex);
+		    
+		    var row = ''; 
+		      
+		    for(var coli in content['static columns front'])
+			{	
+				var staticVal = '';
+				if(
+					marketContent['static values front'] && 
+					marketContent['static values front'][coli] && 
+					marketContent['static values front'][coli]['value'])
+						staticVal = marketContent['static values front'][coli]['value'];
+				row += '<td>' + staticVal + '</td>';
+			}
+			
+			var percentageChange = 100 * data.change / (((data.bid+data.ask)/2)+data.change);
+			percentageChange = Math.round(percentageChange * 100) / 100;
+			
+			row += `<td><span>${Name}</span></td>`;
+			
+			var updateRow = true;
+			
+			if(MARKETCLOSED || (data.bid==null && data.ask==null))// && marketInfo[data.marketId].Market24H!='false'))
+			{
+				// is this a glitch or market permanently closed?
+				marketInfo[data.marketId]['null-values-counter']++;
+				if(debug) console.log(marketInfo[data.marketId].MarketName + ' market is closed – null-values-counter: ' + marketInfo[data.marketId]['null-values-counter']);
+				if(marketInfo[data.marketId]['null-values-counter'] > 10)
+				{
+					row += "<td colspan='5' style='text-align: center'>Market Closed</td>";
+				}
+				else
+				{
+					updateRow = false;
+				}
+			}
+			//else if(data.bid!=null && data.ask!=null)
+			else
+			{
+				marketInfo[data.marketId]['null-values-counter'] = 0;
+				
+				var bidToDisplay = fixedDecimalPlaces(data.bid, decimalPlaces);
+				var askToDisplay = fixedDecimalPlaces(data.ask, decimalPlaces);
+				var spreadToDisplay = fixedDecimalPlaces(data.spread, decimalPlaces);
+				var openToDisplay = fixedDecimalPlaces(data.open, decimalPlaces);
+				var changeToDisplay = fixedDecimalPlaces(data.change, decimalPlaces);
+				var percentageChange = fixedDecimalPlaces(percentageChange, 2);
+
+				// arrows: &nbsp;${BidArrow}  &nbsp;${OfferArrow}
+				row += `
+				<td class="${BidClass}"><span class="bid price-${BidClass}">${bidToDisplay}&nbsp;${BidArrow}</span></td>
+				<td class="${OfferClass}"><span class="bid price-${OfferClass}">${askToDisplay}&nbsp;${OfferArrow}</span></td>`;
+				
+				if(content['show spread']) row += `
+					<td>
+						<span class="spread">${spreadToDisplay}</span>
+					</td>`;
+				
+				if(content['show open']) row += `<td><span class="open">${openToDisplay}</span></td>`;
+						
+		        if(content['show change']) row += `
+					<td><!-- parseint was direction-->
+						<span class="change-${data.change>=0?'positive':'negative'}">${changeSign}${changeToDisplay}</span>
+					</td>`;
+				
+						
+		        row += `<td><!-- parseint was direction-->
+						<span class="percentage change-${parseFloat(data.change)>=0?'positive':'negative'}">${changeSign}${percentageChange}%</span>
+					</td>`;
+
+			}
+			/*else
+			{
+				// we received null values, so we shouldn't update row just yet
+				updateRow = false;
+			}*/
+			
+			for(var coli in content['static columns back'])
+			{	
+				var staticVal = '';
+				if(
+					marketContent['static values back'] && 
+					marketContent['static values back'][coli] && 
+					marketContent['static values back'][coli]['value'])
+						staticVal = marketContent['static values back'][coli]['value'];
+				row += '<td>' + staticVal + '</td>';
+			}
+			
+						
+			if(updateRow)
+			{
+				$("#table_body .market-"+data.marketId).html(row);
+				
+				// remove loading anim if there is one
+				$('.loading').remove();
+			}
+			
+			        }
+        
+        function sortTable() {
+		  var table, rows, switching, i, x, y, shouldSwitch;
+		  table = document.getElementById("table_body");
+		  switching = true;
+		  /* Make a loop that will continue until
+		  no switching has been done: */
+		  while (switching) {
+		    // Start by saying: no switching is done:
+		    switching = false;
+		    rows = table.rows;
+		    /* Loop through all table rows (except the
+		    first, which contains table headers): */
+		    for (i = 1; i < (rows.length - 1); i++) {
+		      // Start by saying there should be no switching:
+		      shouldSwitch = false;
+		      /* Get the two elements you want to compare,
+		      one from current row and one from the next: */
+		      x = rows[i].getElementsByTagName("TD")[0];
+		      y = rows[i + 1].getElementsByTagName("TD")[0];
+		      // Check if the two rows should switch place:
+		      if (x != undefined && y != undefined && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+		        // If so, mark as a switch and break the loop:
+		        shouldSwitch = true;
+		        break;
+		      }
+		    }
+		    if (shouldSwitch) {
+		      /* If a switch has been marked, make the switch
+		      and mark that a switch has been done: */
+		      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		      switching = true;
+		    }
+		  }
+		}
+		
+		function setOddsAndEvens() {
+			
+		}
+		
+		function fixedDecimalPlaces(number, decimalPlaces)
+		{
+			return number.toFixed(Math.max(decimalPlaces, (number.toString().split('.')[1] || []).length));
+		}
+		
+		
+		// Search
+		$(function(){
+			var $search = $('.search');
+			var $rows = $('tr:not(:first-child)');
+			
+			$search.on('keyup change search', function(){
+			    var term = $search.val().toLowerCase();
+			    $rows.show();
+			    if(term) $rows.each(function(){
+			        if( $(this).text().toLowerCase().indexOf(term) === -1 ) 
+			            $(this).hide();
+			    });
+			});
+		});
+		
+        
+	</script>
+	
+	
+	
+		
+	  <table id="table_body">
+			  <tr>
+				  				  <td></td>
+				  <td>Bid</td>
+				  <td>Offer</td>
+				  <td >Spread</td>
+				  <td style="display:none;">Open</td> 
+				  <td style="display:none;">Change</td>
+				  <td style="text-align: right;">%</td>
+				  				  
+				  				  
+			  </tr>
+			  <tr class="loading"><td colspan="100" style="text-align: center">
+				  <img src="loading.gif" width="100" style="    display: inline;    filter: brightness(0.5);"/>
+			  </td></tr>
+			  <tr class='market-99500' data-market-index='0'></tr><tr class='market-99498' data-market-index='1'></tr><tr class='market-99508' data-market-index='2'></tr><tr class='market-154290' data-market-index='3'></tr><tr class='market-154297' data-market-index='4'></tr><tr class='market-400156126' data-market-index='5'></tr>	  </table>
+	  
+	
+	 
+	
+	
+</body>
+</html>

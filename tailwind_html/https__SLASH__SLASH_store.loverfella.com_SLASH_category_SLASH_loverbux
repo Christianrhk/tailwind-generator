@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>LoverFella - Store</title>
+    <meta charset="utf-8">
+    <meta name="description" content="A store for LoverFella by PlayerLands">
+    <meta name="author" content="PlayerLands">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175052388-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-175052388-1');
+    </script>
+    <script>
+        (function () {
+            function exec_heartbeat() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", 'https://external.api.playerlands.com/api/core/v3/tracking/store', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({
+                    path: window.location.pathname,
+                }));
+            }
+            setInterval(exec_heartbeat, 1000 * 15);
+            exec_heartbeat();
+        })();
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+    background-color: rgb(6, 15, 33);
+}
+
+.bg-lf-dark-blue {
+    background-color: rgb(6, 15, 33);
+}
+
+.font-title {
+    font-family: 'Bebas Neue', cursive;
+}
+
+.bg-lf-red {
+    background-color: #ff004f;
+}
+
+.text-lf-red {
+    color: #ff004f;
+} 
+
+.border-b-lf-red {
+    border-bottom-color: #ff004f !important;
+}
+
+.hover\:text-lf-red:hover {
+    color: #ff004f;
+}
+
+.bg-lf-blue {
+    background-color: #00ccfb;
+}
+
+.bg-lf-dark-blue {
+    background-color: rgb(6, 15, 33);
+}
+
+.text-lf-gray {
+    color: rgb(8, 44, 78);
+}
+
+.bg-lf-gray {
+    background-color: rgb(8, 44, 78);
+}
+
+.text-lf-blue {
+    color: #00f3ff;
+}
+
+.text-lf-alt-blue {
+    color: #01b8c1;
+}
+
+.shadow-lf-blue {
+    filter: drop-shadow(0 1rem 4rem #00f3ff55);
+    transition: ease-in-out 0.3s;
+}
+
+.hover\:shadow-lf-blue:hover img {
+    filter: drop-shadow(0 1rem 2rem #00f3ff20);
+    transition: ease-in-out 0.3s;
+}
+
+.bg-lf-dark {
+    background-color: rgb(6, 15, 33);
+}
+
+.gradient-lf-blue {
+    background: rgb(0,202,249);
+    background: linear-gradient(0deg, rgb(0, 172, 213) 0%, rgb(0, 219, 219) 100%);
+}
+
+.gradient-lf-red {
+     background: rgb(202,30,59);
+    background: linear-gradient(0deg, rgba(202,30,59,1) 0%, rgba(255,33,84,1) 100%); 
+}
+
+.survival_img{
+    opacity:0.4;
+    transition: ease-in-out .5s;
+}
+
+.survival {
+    transition: ease-in-out .5s;
+}
+
+.survival:hover .survival_img {
+    opacity:1;
+    transform:scale(1.03);
+}
+
+ul {
+    text-align:center;
+}
+
+li {
+    font-size:11px;
+    opacity:0.4;
+    transition: 0.3s;
+    text-align:center;
+    cursor:pointer;
+    
+}
+
+li:hover {
+    opacity:1;
+}
+
+.flip-x {
+    transform: scaleX(-1);
+}
+
+@media(max-width: 640px) {
+    .flip-x {
+        transform: scaleX(1);
+    }
+}
+
+.supporter-content {
+    display:none!important;
+}
+
+.supporter:hover .supporter-content {
+    display:block!important;
+}
+
+
+/*
+    Loading spinner
+*/
+
+.lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+}
+.lds-heart div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #e21f44;
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #e21f44;
+}
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+/*
+    end loading spinner
+*/
+
+.buy-button {
+  background: linear-gradient(to right, #ff004f 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .3s ease-out;
+}
+
+.buy-button:hover {
+  background-position: left bottom;
+}
+
+.text {
+  text-align: center;
+  color: #ff004f;
+  transition: all .2s ease-out;
+  display: block;
+}
+
+.text:hover {
+  color: white;  
+}
+    </style>
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+          /*
+      * CKEditor 5 (v31.1.0) content styles.
+      * Generated on Mon, 17 Jan 2022 14:15:25 GMT.
+      * For more information, check out https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/content-styles.html
+      */
+
+      :root {
+          --ck-color-image-caption-background: hsl(0, 0%, 97%);
+          --ck-color-image-caption-text: hsl(0, 0%, 20%);
+          --ck-color-mention-background: hsla(341, 100%, 30%, 0.1);
+          --ck-color-mention-text: hsl(341, 100%, 30%);
+          --ck-color-table-caption-background: hsl(0, 0%, 97%);
+          --ck-color-table-caption-text: hsl(0, 0%, 20%);
+          --ck-highlight-marker-blue: hsl(201, 97%, 72%);
+          --ck-highlight-marker-green: hsl(120, 93%, 68%);
+          --ck-highlight-marker-pink: hsl(345, 96%, 73%);
+          --ck-highlight-marker-yellow: hsl(60, 97%, 73%);
+          --ck-highlight-pen-green: hsl(112, 100%, 27%);
+          --ck-highlight-pen-red: hsl(0, 85%, 49%);
+          --ck-image-style-spacing: 1.5em;
+          --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2);
+          --ck-todo-list-checkmark-size: 16px;
+      }
+
+      /* ckeditor5-image/theme/imagecaption.css */
+      .ck-content .image > figcaption {
+          display: table-caption;
+          caption-side: bottom;
+          word-break: break-word;
+          color: var(--ck-color-image-caption-text);
+          background-color: var(--ck-color-image-caption-background);
+          padding: .6em;
+          font-size: .75em;
+          outline-offset: -1px;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-block-align-left,
+      .ck-content .image-style-block-align-right {
+          max-width: calc(100% - var(--ck-image-style-spacing));
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-align-left,
+      .ck-content .image-style-align-right {
+          clear: none;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-side {
+          float: right;
+          margin-left: var(--ck-image-style-spacing);
+          max-width: 50%;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-align-left {
+          float: left;
+          margin-right: var(--ck-image-style-spacing);
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-align-center {
+          margin-left: auto;
+          margin-right: auto;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-align-right {
+          float: right;
+          margin-left: var(--ck-image-style-spacing);
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-block-align-right {
+          margin-right: 0;
+          margin-left: auto;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-block-align-left {
+          margin-left: 0;
+          margin-right: auto;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content p + .image-style-align-left,
+      .ck-content p + .image-style-align-right,
+      .ck-content p + .image-style-side {
+          margin-top: 0;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-inline.image-style-align-left,
+      .ck-content .image-inline.image-style-align-right {
+          margin-top: var(--ck-inline-image-style-spacing);
+          margin-bottom: var(--ck-inline-image-style-spacing);
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-inline.image-style-align-left {
+          margin-right: var(--ck-inline-image-style-spacing);
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-inline.image-style-align-right {
+          margin-left: var(--ck-inline-image-style-spacing);
+      }
+      /* ckeditor5-font/theme/fontsize.css */
+      .ck-content .text-tiny {
+          font-size: .7em;
+      }
+      /* ckeditor5-font/theme/fontsize.css */
+      .ck-content .text-small {
+          font-size: .85em;
+      }
+      /* ckeditor5-font/theme/fontsize.css */
+      .ck-content .text-big {
+          font-size: 1.4em;
+      }
+      /* ckeditor5-font/theme/fontsize.css */
+      .ck-content .text-huge {
+          font-size: 1.8em;
+      }
+      /* ckeditor5-code-block/theme/codeblock.css */
+      .ck-content pre {
+          padding: 1em;
+          color: hsl(0, 0%, 20.8%);
+          background: hsla(0, 0%, 78%, 0.3);
+          border: 1px solid hsl(0, 0%, 77%);
+          border-radius: 2px;
+          text-align: left;
+          direction: ltr;
+          tab-size: 4;
+          white-space: pre-wrap;
+          font-style: normal;
+          min-width: 200px;
+      }
+      /* ckeditor5-code-block/theme/codeblock.css */
+      .ck-content pre code {
+          background: unset;
+          padding: 0;
+          border-radius: 0;
+      }
+      /* ckeditor5-image/theme/image.css */
+      .ck-content .image {
+          display: table;
+          clear: both;
+          text-align: center;
+          margin: 0.9em auto;
+          min-width: 50px;
+      }
+      /* ckeditor5-image/theme/image.css */
+      .ck-content .image img {
+          display: block;
+          margin: 0 auto;
+          max-width: 100%;
+          min-width: 100%;
+      }
+      /* ckeditor5-image/theme/image.css */
+      .ck-content .image-inline {
+          /*
+          * Normally, the .image-inline would have "display: inline-block" and "img { width: 100% }" (to follow the wrapper while resizing).;
+          * Unfortunately, together with "srcset", it gets automatically stretched up to the width of the editing root.
+          * This strange behavior does not happen with inline-flex.
+          */
+          display: inline-flex;
+          max-width: 100%;
+          align-items: flex-start;
+      }
+      /* ckeditor5-image/theme/image.css */
+      .ck-content .image-inline picture {
+          display: flex;
+      }
+      /* ckeditor5-image/theme/image.css */
+      .ck-content .image-inline picture,
+      .ck-content .image-inline img {
+          flex-grow: 1;
+          flex-shrink: 1;
+          max-width: 100%;
+      }
+      /* ckeditor5-image/theme/imageresize.css */
+      .ck-content .image.image_resized {
+          max-width: 100%;
+          display: block;
+          box-sizing: border-box;
+      }
+      /* ckeditor5-image/theme/imageresize.css */
+      .ck-content .image.image_resized img {
+          width: 100%;
+      }
+      /* ckeditor5-image/theme/imageresize.css */
+      .ck-content .image.image_resized > figcaption {
+          display: block;
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .marker-yellow {
+          background-color: var(--ck-highlight-marker-yellow);
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .marker-green {
+          background-color: var(--ck-highlight-marker-green);
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .marker-pink {
+          background-color: var(--ck-highlight-marker-pink);
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .marker-blue {
+          background-color: var(--ck-highlight-marker-blue);
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .pen-red {
+          color: var(--ck-highlight-pen-red);
+          background-color: transparent;
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .pen-green {
+          color: var(--ck-highlight-pen-green);
+          background-color: transparent;
+      }
+      /* ckeditor5-block-quote/theme/blockquote.css */
+      .ck-content blockquote {
+          overflow: hidden;
+          padding-right: 1.5em;
+          padding-left: 1.5em;
+          margin-left: 0;
+          margin-right: 0;
+          font-style: italic;
+          border-left: solid 5px hsl(0, 0%, 80%);
+      }
+      /* ckeditor5-block-quote/theme/blockquote.css */
+      .ck-content[dir="rtl"] blockquote {
+          border-left: 0;
+          border-right: solid 5px hsl(0, 0%, 80%);
+      }
+      /* ckeditor5-basic-styles/theme/code.css */
+      .ck-content code {
+          background-color: hsla(0, 0%, 78%, 0.3);
+          padding: .15em;
+          border-radius: 2px;
+      }
+      /* ckeditor5-table/theme/tablecaption.css */
+      .ck-content .table > figcaption {
+          display: table-caption;
+          caption-side: top;
+          word-break: break-word;
+          text-align: center;
+          color: var(--ck-color-table-caption-text);
+          background-color: var(--ck-color-table-caption-background);
+          padding: .6em;
+          font-size: .75em;
+          outline-offset: -1px;
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content .table {
+          margin: 0.9em auto;
+          display: table;
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content .table table {
+          border-collapse: collapse;
+          border-spacing: 0;
+          width: 100%;
+          height: 100%;
+          border: 1px double hsl(0, 0%, 70%);
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content .table table td,
+      .ck-content .table table th {
+          min-width: 2em;
+          padding: .4em;
+          border: 1px solid hsl(0, 0%, 75%);
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content .table table th {
+          font-weight: bold;
+          background: hsla(0, 0%, 0%, 5%);
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content[dir="rtl"] .table th {
+          text-align: right;
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content[dir="ltr"] .table th {
+          text-align: left;
+      }
+      /* ckeditor5-page-break/theme/pagebreak.css */
+      .ck-content .page-break {
+          position: relative;
+          clear: both;
+          padding: 5px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      /* ckeditor5-page-break/theme/pagebreak.css */
+      .ck-content .page-break::after {
+          content: '';
+          position: absolute;
+          border-bottom: 2px dashed hsl(0, 0%, 77%);
+          width: 100%;
+      }
+      /* ckeditor5-page-break/theme/pagebreak.css */
+      .ck-content .page-break__label {
+          position: relative;
+          z-index: 1;
+          padding: .3em .6em;
+          display: block;
+          text-transform: uppercase;
+          border: 1px solid hsl(0, 0%, 77%);
+          border-radius: 2px;
+          font-family: Helvetica, Arial, Tahoma, Verdana, Sans-Serif;
+          font-size: 0.75em;
+          font-weight: bold;
+          color: hsl(0, 0%, 20%);
+          background: hsl(0, 0%, 100%);
+          box-shadow: 2px 2px 1px hsla(0, 0%, 0%, 0.15);
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+      }
+      /* ckeditor5-media-embed/theme/mediaembed.css */
+      .ck-content .media {
+          clear: both;
+          margin: 0.9em 0;
+          display: block;
+          min-width: 15em;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list {
+          list-style: none;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list li {
+          margin-bottom: 5px;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list li .todo-list {
+          margin-top: 5px;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label > input {
+          -webkit-appearance: none;
+          display: inline-block;
+          position: relative;
+          width: var(--ck-todo-list-checkmark-size);
+          height: var(--ck-todo-list-checkmark-size);
+          vertical-align: middle;
+          border: 0;
+          left: -25px;
+          margin-right: -15px;
+          right: 0;
+          margin-left: 0;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label > input::before {
+          display: block;
+          position: absolute;
+          box-sizing: border-box;
+          content: '';
+          width: 100%;
+          height: 100%;
+          border: 1px solid hsl(0, 0%, 20%);
+          border-radius: 2px;
+          transition: 250ms ease-in-out box-shadow, 250ms ease-in-out background, 250ms ease-in-out border;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label > input::after {
+          display: block;
+          position: absolute;
+          box-sizing: content-box;
+          pointer-events: none;
+          content: '';
+          left: calc( var(--ck-todo-list-checkmark-size) / 3 );
+          top: calc( var(--ck-todo-list-checkmark-size) / 5.3 );
+          width: calc( var(--ck-todo-list-checkmark-size) / 5.3 );
+          height: calc( var(--ck-todo-list-checkmark-size) / 2.6 );
+          border-style: solid;
+          border-color: transparent;
+          border-width: 0 calc( var(--ck-todo-list-checkmark-size) / 8 ) calc( var(--ck-todo-list-checkmark-size) / 8 ) 0;
+          transform: rotate(45deg);
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label > input[checked]::before {
+          background: hsl(126, 64%, 41%);
+          border-color: hsl(126, 64%, 41%);
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label > input[checked]::after {
+          border-color: hsl(0, 0%, 100%);
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label .todo-list__label__description {
+          vertical-align: middle;
+      }
+      /* ckeditor5-language/theme/language.css */
+      .ck-content span[lang] {
+          font-style: italic;
+      }
+      /* ckeditor5-horizontal-line/theme/horizontalline.css */
+      .ck-content hr {
+          margin: 15px 0;
+          height: 4px;
+          background: hsl(0, 0%, 87%);
+          border: 0;
+      }
+      /* ckeditor5-mention/theme/mention.css */
+      .ck-content .mention {
+          background: var(--ck-color-mention-background);
+          color: var(--ck-color-mention-text);
+      }
+      @media print {
+          /* ckeditor5-page-break/theme/pagebreak.css */
+          .ck-content .page-break {
+              padding: 0;
+          }
+          /* ckeditor5-page-break/theme/pagebreak.css */
+          .ck-content .page-break::after {
+              display: none;
+          }
+      }
+
+    </style>
+    <script>
+
+    
+    
+
+      async function playerlands_Login(game, redirect) {
+        const username = document.getElementById("playerlands_username").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", window.location.href, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "LOGIN",
+            username,
+            game,
+            redirect,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_Logout() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "LOGOUT",
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_AddToBasket(productId, serverId) {
+        let giftedPlayerName = document.getElementById("playerlands_giftedPlayerName");
+        if(giftedPlayerName) {
+            giftedPlayerName = giftedPlayerName.value;
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "ADD_TO_BASKET",
+            productId: productId,
+            serverId: serverId,
+            giftedPlayerName,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_GiftProduct(productId, serverId, giftedPlayerName) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "ADD_TO_BASKET",
+            productId: productId,
+            serverId: serverId,
+            giftedPlayerName,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_GetGiftCardBalance(reference) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "GET_GIFTCARD_BALANCE",
+            reference,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_AddGiftCardToBasket(email, amount) {
+        if(!email || !amount) {
+            email = document.getElementById("playerlands_giftCardEmail").value;
+            amount = parseFloat(document.getElementById("playerlands_giftCardAmount").value) * 100;
+        }
+        
+        if(!amount){
+            alert('Invalid Gift Card Amount')
+            return;
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "ADD_GIFTCARD",
+            recipientEmail: email,
+            balance: amount,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_RemoveGiftCardFromBasket(email, amount) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "REMOVE_GIFTCARD",
+            recipientEmail: email,
+            balance: amount,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_ApplyGiftCardToBasket() {
+        const reference = document.getElementById("playerlands_giftCardReference").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "APPLY_GIFTCARD_TO_BASKET",
+            reference,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_ApplyCouponCodeToBasket(code) {
+          const xhr = new XMLHttpRequest();
+          xhr.open("POST", '#', true);
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.send(JSON.stringify({
+              action: "APPLY_COUPON_CODE",
+              couponCodeCode: code,
+          }))
+          playerlands_Postback(xhr);
+      }
+
+      function playerlands_RemoveCouponCodeFromBasket(code) {
+          const xhr = new XMLHttpRequest();
+          xhr.open("POST", '#', true);
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.send(JSON.stringify({
+              action: "REMOVE_COUPON_CODE",
+          }))
+          playerlands_Postback(xhr);
+      }
+
+      function playerlands_RemoveAppliedGiftCardFromBasket() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "REMOVE_APPLIED_GIFTCARD_FROM_BASKET",
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_IncrementQuantity(productId, serverId, quantity, giftedPlayerName) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "INCREMENT_QUANTITY",
+            productId: productId,
+            serverId: serverId,
+            quantity: quantity,
+            giftedPlayerName,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_Checkout() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "REQUEST_CHECKOUT",
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_Postback(xhr) {
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = JSON.parse(xhr.response);
+            if(!response.url) {
+              return;
+            }
+            if(response.url.includes("http")) {
+              window.location.href = response.url;
+              return;
+            }
+            window.location.pathname = response.url;
+          }
+        }
+      }
+      
+      function playerlands_GetPlayerCountData(element, serverUrl, formatter) {
+        const request = new XMLHttpRequest();
+        request.onreadystatechange = () => {
+          if (request.readyState !== 4 || request.status !== 200) return;
+          const response = JSON.parse(request.responseText);
+          let onlineNow = response.players.now;
+          if (formatter) {
+            const formatterX = eval(formatter);
+            onlineNow = formatterX(onlineNow);
+          }
+          element.innerText = onlineNow;
+        };
+        request.open('GET', 'https://mcapi.us/server/status?ip=' + serverUrl);
+        request.send();
+      }
+      function onDomLoaded() {
+        const elements = document.querySelectorAll('[data-playercounter-ip]');
+        if (elements && elements.length > 0) {
+            elements.forEach((element) => {
+                const serverUrl = element.getAttribute('data-playercounter-ip');
+                const formatter = element.getAttribute('data-playercounter-formatter');
+                playerlands_GetPlayerCountData(element, serverUrl, formatter);
+            });
+        }
+      }
+      window.onload = onDomLoaded;
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>

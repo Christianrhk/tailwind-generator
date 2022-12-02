@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+
+
+
+<html class="no-js">
+<head><meta http-equiv="X-UA-Compatible" content="IE=10" /><meta charset="utf-8" /><title>
+	Calendar | External Website
+</title>
+    
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+
+    <!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<meta name="generator" content="Rock v1.13.6.1" />
+
+	<!-- Included CSS Files -->
+    <link rel="stylesheet" href="/Themes/Grace/Styles/bootstrap.css?v=637955209158382318"/>
+	<link rel="stylesheet" href="/Themes/Grace/Styles/theme.css?v=637955209189944551"/>
+	<link rel="stylesheet" href="/Styles/developer.css"/>
+
+    <script src="/Scripts/modernizr.js" ></script>
+
+    
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="/Content/ExternalSite/Icons/favicon.ico?v=636054125420000000">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Content/ExternalSite/Icons/touch-icon-ipad-retina.png?v=636591315680000000">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Content/ExternalSite/Icons/touch-icon-iphone-retina.png?v=636591315680000000">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/Content/ExternalSite/Icons/touch-icon-ipad.png?v=636591315680000000">
+    <link rel="apple-touch-icon-precomposed" href="/Content/ExternalSite/Icons/touch-icon-iphone.png?v=636591315680000000">
+    
+
+	<link rel="shortcut icon" sizes="192x192" href="/GetImage.ashx?id=366007&width=192&height=192&mode=crop&format=png" />
+	<link rel="apple-touch-icon-precomposed" sizes="16x16" href="/GetImage.ashx?id=366007&width=16&height=16&mode=crop&format=png" />
+	<link rel="apple-touch-icon-precomposed" sizes="32x32" href="/GetImage.ashx?id=366007&width=32&height=32&mode=crop&format=png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/GetImage.ashx?id=366007&width=144&height=144&mode=crop&format=png" />
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/GetImage.ashx?id=366007&width=180&height=180&mode=crop&format=png" />
+	<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/GetImage.ashx?id=366007&width=192&height=192&mode=crop&format=png" /><style>
+    header {
+        background-image: url(/GetImage.ashx?guid=f3aff9b6-d7bf-42a2-8625-f120aa352213);
+        /* position: relative; */
+        /* transition: background-color 0.3s ease 0s, box-shadow 0.3s ease 0s, border-color 0.3s ease 0s, margin 0.25s ease-out 0s; */
+        background-color: rgba(25,27,29,0.5) !important;
+    }
+    
+    header > nav {
+        background-color: transparent !important;
+        background-color: rgba(25,27,29,0.5) !important;
+        padding-top: 26px;
+        padding-bottom: 26px;
+    }
+    
+    header .navbar.navbar-static-top {
+       background-color: transparent !important;
+       background-color: rgba(25,27,29,0.5) !important;
+    }
+    
+    #top-bar > div > div.col-md-8.nobottommargin > div > ul > li.give_top_bar.hidden-xs {
+        background: #286092;
+        color: #fff;
+    }
+    
+    #top-bar > div > div.col-md-8.nobottommargin > div > ul > li:nth-child(2) {
+        background:  #ab1a2f;
+        color: #fff;
+    }
+    
+    #top-bar > div > div.col-md-8.nobottommargin > div > ul > li:nth-child(1) {
+        background:  #286092;
+        color: #fff;
+    }
+    
+    .top-links li>a {
+        font-weight: 300;
+        text-transform: uppercase;
+        color: #fff !important;
+        font-family: 'Montserrat',sans-serif;
+        font-size: 14px !important;
+    }
+    
+    .top-links ul li {
+        border: 1px solid #ddd !important;
+    }
+    
+    .navbar-inverse .navbar-nav>.active>a {
+        background: transparent !important;
+        border-bottom: 2px solid #fff;
+    }
+    
+    navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover {
+        background: transparent !important;
+        border-bottom: 2px solid #fff;
+    }
+
+</style><script>
+//window.location.replace("https://gpch.org/calendar/");
+</script>
+
+<!--<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">-->
+
+<script>(function(){
+  
+    function displayChange() {
+        $( "a:contains('Categories')" ).html('Ministries');
+        var textDiv = document.createElement("div");
+            textDiv.setAttribute("class", "panel-intro");
+            textDiv.innerHTML = "<h3>Find an Event</h3><p>Find an Event that interests you by selecting a campus and/or ministry. Click on the card to see more details or to register.</p>";
+        $( ".panel-default" ).first().before(textDiv);
+        $( ".panel-intro" ).parent().attr('id', 'panel-filters');
+    }
+  //Create a dictionary with active campuses in correct order
+  function orderCampuses() {
+      var campuses = { 1: "Main Campus" };
+      //give all campuses in dropdown an identifying class
+      for (var key in campuses) {
+          var labelSpan = $("span").filter(function() { return ($(this).text() === campuses[key]) });
+          var parentDiv = labelSpan.parent().parent().addClass("campus-"+key);
+      }
+      //create a sort function
+      $.fn.orderChildren = function(order) {
+      	this.each(function() {
+      		var el = $(this);
+      		for(var i = order.length - 1; i >= 0; i--) {
+      			el.prepend(el.children(order[i]));
+      		}
+      	});
+      	return this;
+      };
+      //give the correct order to the sort function
+      $(".controls").orderChildren([".campus-1"]);
+    }
+    //Call both functions on post-back
+     $(function(){
+        Sys.Application.add_load(function () {
+            displayChange();
+            orderCampuses();
+        });
+     });
+     //Call both functions on window load.
+     $(window).on('load', function() {
+        displayChange();
+        orderCampuses();
+     });
+
+})();</script>
+</head>
+<body>
+
+    <form method="post" action="./events" id="form1">
+<input type="hidden" name="__CVIEWSTATESIZE" id="__CVIEWSTATESIZE" value="0" />
+<input type="hidden" name="__CVIEWSTATE" id="__CVIEWSTATE" value="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" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+
+<script src="/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvuyZ7woxCTumDrXvNK_nd0gKeDc1M-vszwnOAUKA12jzbzRlkdsfU8D-C1Et4cURhUXOO-XDdJR52dkaqGW2OUSg8jMq-ONp0Gu34EnuZyHTZ5DPQU1f07HjpyMljDxyWpP1ydk1&amp;t=2fe674eb" type="text/javascript"></script>
+<script src="/Scripts/Bundles/RockLibs?v=S2pnfwSvErkwuKjfxgq--Z9f1-CZBEGI5XOde95M3AI1" type="text/javascript"></script>
+<script src="/Scripts/Bundles/RockUi?v=p2KIt18CV06MK4ou4bqAbEihYtx4xrR4_6PmiT9_-EA1" type="text/javascript"></script>
+<script src="/Scripts/Bundles/RockValidation?v=ZGZVlETu5hySvggAPSHN2z4wwXVKeh9vUX8dHhpb7iQ1" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="MPsxhmjyHCALE/iTjADK06tG7H9mETXXzegCfWPzVQsbWnyXIqWckAU9UzWVUj8B6XsQN/+ZUxBmRwoMp8+XV039/eU1IG/lVDrf57IYpinzRpG3tblgXtv6KlLtQ8/BVG88oRpyKgXhvjeo8RAR3xPrmrPgI6EuzgYor2g5UYlvgb0fcpca/FWvb2vlAHCC7cgWb4XtYMUjHAjpyksGtwpl1DM=" />
+
+        <div id="top-bar">
+
+            <div class="container clearfix">
+
+                <div class="col-md-4 col-md-4 hidden-sm hidden-xs nobottommargin center-xs">
+
+                    <p class="nomargin top-tagline hidden-xs">LIVING TO MAKE JESUS VISIBLE</p>
+
+                </div>
+
+
+                <div class="col-md-8 nobottommargin">
+
+                    <!-- Top Social
+                    ============================================= -->
+                    <div class="top-links center-xs">
+                        <ul>
+                            <li><a class="" href="http://gpch.org/contact-us/" class="top-contact-us">Contact Us</a></li>
+                            <li><a href="#">(713) 781-7615</a></li>
+                            <li class="give_top_bar  hidden-xs"><a target="_blank" href="https://members.gpch.org/page/186">Give</a></li>
+                        </ul>
+                    </div>
+                    <!-- .top-links end -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Page Header -->
+        <header>
+
+            <!-- Brand Bar -->
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+					<div id="logo">
+                        <a href="http://gpch.org/" class="standard-logo" data-dark-logo="/Templates/Grace/images/logo-dark.png">
+                            <img src="/Themes/grace/Assets/img/grace_logo_white.png" alt="Grace Logo"></a>
+                        <a href="http://gpch.org/" class="retina-logo" data-dark-logo="/Templates/Grace/images/logo-dark@2x.png">
+                            <img src="/Themes/grace/Assets/img/logo@2x.png" alt="Grace Logo"></a>
+                    </div>
+			        <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <div id="zone-header" class="zone-instance"><div class="zone-content"><div id="bid_369" data-zone-location="Layout" class="block-instance js-block-instance html-content">
+	<div class="block-content">
+		<div id="ctl00_ctl19_ctl01_ctl00_upnlHtmlContentView">
+			
+        
+
+        
+        
+
+        <!-- 
+<a class="navbar-brand" href="/page/1"><img src="/GetImage.ashx?id=366489" alt="Grace Presbyterian Church"></a>
+-->
+    
+		</div>
+
+<div id="ctl00_ctl19_ctl01_ctl00_upnlHtmlContentEdit">
+			
+
+
+
+        
+        
+
+    
+		</div>
+
+	</div>
+</div></div></div>
+			        </div>	
+                    <div class="navbar-collapse collapse">   
+                        <!-- Main Navigation -->
+                        <div class="pull-right">
+                            <div id="zone-login" class="zone-instance"><div class="zone-content"><div id="bid_367" data-zone-location="Layout" class="block-instance js-block-instance login-status">
+	<div class="block-content">
+		
+
+<ul class="nav navbar-nav loginstatus">    
+    
+    <li id="ctl00_ctl21_ctl01_ctl00_liLogin"><a id="ctl00_ctl21_ctl01_ctl00_lbLogin" href="javascript:__doPostBack(&#39;ctl00$ctl21$ctl01$ctl00$lbLogin&#39;,&#39;&#39;)">Login</a></li>
+</ul>
+<input type="hidden" name="ctl00$ctl21$ctl01$ctl00$hfActionType" id="ctl00_ctl21_ctl01_ctl00_hfActionType" value="Log In" />
+
+
+	</div>
+</div></div></div>
+                        </div>
+                        <div id="zone-navigation" class="zone-instance"><div class="zone-content"><div id="bid_345" data-zone-location="Layout" class="block-instance js-block-instance page-menu">
+	<div class="block-content">
+		<div id="ctl00_ctl23_ctl01_ctl00_upContent">
+			
+    
+    <ul class="nav navbar-nav">
+
+		
+            <li>
+				<a href="/leadership-old">Leadership</a>
+            </li>
+        
+            <li>
+				<a href="/page/935">About Us</a>
+            </li>
+        
+            <li>
+				<a href="/page/936">Worship</a>
+            </li>
+        
+            <li>
+				<a href="/page/937">Ministries</a>
+            </li>
+        
+            <li>
+				<a href="/page/938">Bless</a>
+            </li>
+        
+            <li>
+				<a href="/moments">Moments of Grace</a>
+            </li>
+        
+            <li>
+				<a href="/Give">Give</a>
+            </li>
+        
+            <li>
+				<a href="/page/942">Standalone Pages</a>
+            </li>
+        
+    </ul>
+
+
+		</div>
+
+	</div>
+</div></div></div>
+						
+			        </div>	
+                </div>
+            </nav>
+
+        </header>
+		
+        
+
+        
+    
+	<main class="container">
+        
+        <!-- Start Content Area -->
+        
+        <!-- Page Title -->
+         <h1>Calendar</h1>
+        
+        <!-- Breadcrumbs -->    
+        <ol class="breadcrumb">
+	<li class="breadcrumb-item"><a href="/page/1" rel="rocknofollow">Home</a></li><li class="breadcrumb-item" class="active">Calendar</li>
+</ol>
+
+        <!-- Ajax Error -->
+        <div class="alert alert-danger ajax-error" style="display:none">
+            <p><strong>Error</strong></p>
+            <span class="ajax-error-message"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="zone-feature" class="zone-instance"><div class="zone-content"></div></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="zone-main" class="zone-instance"><div class="zone-content"><div id="bid_651" data-zone-location="Page" class="block-instance js-block-instance calendar-lava">
+	<div class="block-content">
+		<div id="ctl00_main_ctl09_ctl01_ctl00_upnlContent">
+			
+
+        
+
+        <div id="ctl00_main_ctl09_ctl01_ctl00_pnlDetails" class="row">
+				
+
+            
+
+            <div id="ctl00_main_ctl09_ctl01_ctl00_pnlList" class="col-md-12">
+					
+
+                <div class="btn-group hidden-print" role="group">
+                    
+                    
+                    
+                    <a id="ctl00_main_ctl09_ctl01_ctl00_btnYear" class="btn btn-default active" data-completed-text="" data-completed-message="" data-timeout-text="" data-init-text="Year" onclick="Rock.controls.bootstrapButton.showLoading(this);" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$main$ctl09$ctl01$ctl00$btnYear&quot;, &quot;&quot;, true, &quot;CalendarLava_651&quot;, &quot;&quot;, false, true))">Year</a>
+                    <a id="ctl00_main_ctl09_ctl01_ctl00_btnAll" class="btn btn-default" data-completed-text="" data-completed-message="" data-timeout-text="" data-init-text="All" onclick="Rock.controls.bootstrapButton.showLoading(this);" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$main$ctl09$ctl01$ctl00$btnAll&quot;, &quot;&quot;, true, &quot;CalendarLava_651&quot;, &quot;&quot;, false, true))">All</a>
+                </div>
+
+                </div></div>
+<style>
+    #panel-filters {
+        width:100%;
+    }
+    #panel-filters .panel {
+        float: left;
+        width:25%;
+        margin-left:5%;
+    }
+    #panel-filters .panel-intro {
+        float:left;
+        width:40%;
+    }
+    @media only screen and (max-width: 600px) {
+        #panel-filters .panel {
+            float: left;
+            width:100%;
+            margin-left:0;
+        }
+        #panel-filters .panel-intro {
+            float:left;
+            width:100%;
+            margin-left:0;
+        }
+    }
+    .row-conformity {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .row-conformity > [class*='col-'] {
+          padding: 20px;
+    }
+    .event-image-container {
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        height: 180px;
+    }
+    .img-hover {
+      position: relative;
+      overflow: hidden;
+      z-index: 3;
+    }
+    .event-image-container img {
+        z-index: -1;
+        background-color: white;
+        position: relative;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        -webkit-transform: scale(1.06);
+        -ms-transform: scale(1.06);
+        -o-transform: scale(1.06);
+        transform: scale(1.06);
+    }
+    .event-image-container img:hover {
+      -webkit-transform: scale(1.01);
+      -ms-transform: scale(1.01);
+      -o-transform: scale(1.01);
+      transform: scale(1.01);
+    }
+    .event-calendar h4, h5, h6 {
+      color: #333;
+      margin-left: 1.5rem !important;
+      margin-right: 1.5rem !important;
+    }
+    .event-calendar p {
+      color: #333;
+      margin:0;
+      font-size:14px;
+    }
+    .event-calendar h5 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #333;
+      line-height: 1.1;
+      padding-top: 1.25rem;
+    }
+    .event-calendar h6 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #333;
+      line-height: 1.0;
+      padding-top: 1.25rem;
+    }
+    .card {
+        -webkit-box-shadow: 0px 0px 15px 1px rgba(189,189,189,0.6);
+        -moz-box-shadow: 0px 0px 15px 1px rgba(189,189,189,0.6);
+        box-shadow: 0px 0px 15px 1px rgba(189,189,189,0.6);
+        -webkit-transition: 0.25s box-shadow;
+        transition: 0.25s box-shadow;
+        border-radius: 5px;
+    }
+    .card:hover {
+        -webkit-box-shadow: 0 22px 133px rgba(0,0,0,0.15);
+        box-shadow: 0 22px 133px rgba(0,0,0,0.15);
+        transform: translateY(-10px);
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    .text-center {
+        text-align: center !important;
+    }
+    
+    .card .card-divider {
+        border-top: 1px solid rgba(124,124,124,0.18);
+    }
+    .short-padding .card-body {
+        padding-bottom: 20px;
+    }
+    .card-body, .card-dropdown {
+        padding: 30px;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+    a {
+        color: #214F79;
+        text-decoration: none;
+    }
+    
+    a:hover, a:focus {
+        color: #214F79;
+        text-decoration: none;
+    }
+    #ctl00_main_ctl23_ctl01_ctl06_btnYear {
+        padding-left: 60px;
+        padding-right: 60px;
+        text-align: center;
+    }
+    #ctl00_main_ctl23_ctl01_ctl06_btnAll {
+        padding-left: 60px;
+        padding-right: 60px;
+        text-align: center;
+    }
+    #ctl00_main_ctl23_ctl01_ctl06_pnlList > div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+</style>
+<div class="row row-conformity">
+
+
+    <div class="panel panel-default margin-t-md">
+        <div class="margin-all-md">
+            There are no events in this time frame.
+        </div>
+    </div>
+
+
+
+</div><!-- div row -->
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $('.js-group-item').tooltip();
+    });
+</script>
+
+
+
+
+                
+
+            
+				</div>
+
+        
+			</div>
+
+    
+		</div>
+
+	</div>
+</div></div></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="zone-sectiona" class="zone-instance"><div class="zone-content"></div></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div id="zone-sectionb" class="zone-instance"><div class="zone-content"></div></div>
+            </div>
+            <div class="col-md-4">
+                <div id="zone-sectionc" class="zone-instance"><div class="zone-content"></div></div>
+            </div>
+            <div class="col-md-4">
+                <div id="zone-sectiond" class="zone-instance"><div class="zone-content"></div></div>
+            </div>
+        </div>
+
+        <!-- End Content Area -->
+
+	</main>
+
+
+
+	  <footer id="footer" class="dark">
+
+            <div class="container">
+
+                <!-- Footer Widgets
+                ============================================= -->
+                <div class="footer-widgets-wrap clearfix">
+
+
+
+                    <div class="col-md-4">
+
+
+                        <!-- Footer widget area 1 -->
+                        <div id="text-2" class="widget widget_text">
+                            <div class="textwidget ">
+                                <img src="/Themes/grace/Assets/img/grace_logo_white_ret.png" alt="Grace Logo" style="max-width: 188px; display: block; margin-bottom: 20px;">
+                                10221 Ella Lee Lane<br>
+                                Houston, TX 77042<br>
+                                <a href="https://www.google.com/maps/dir//10221+Ella+Lee+Ln,+Houston,+TX+77042/@29.7393062,-95.5563484,17z/data=!4m13!1m4!3m3!1s0x8640c3367c402af9:0x32c22c14cc4b3eb1!2s10221+Ella+Lee+Ln,+Houston,+TX+77042!3b1!4m7!1m0!1m5!1m1!1s0x8640c3367c402af9:0x32c22c14cc4b3eb1!2m2!1d-95.5563484!2d29.7393062">Get Directions</a><br>
+                                <br>
+                                713-781-7615
+                                <br>
+                                info@gpch.org
+                                <br>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+
+                        <!-- Footer widget area 2 -->
+                        <div id="text-3" class="widget widget_text">
+                            <h4>Service Times</h4>
+                            <div class="textwidget">
+                                <p>9:30 a.m. - In-Person Worship in the Sanctuary</p>
+
+				<p>9:30 a.m. - Livestream Worship on Website</p>
+
+				<p>10:50 a.m. Equipping Hour</p>
+
+				<p>11:15 a.m. - Grace en Español in The Founders' Chapel</p>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+
+
+                        <!-- Footer widget area 3 -->
+                        <div id="nav_menu-3" class="widget widget_nav_menu">
+                            <h4>Quick Links</h4>
+                            <div class="menu-main-menu-dummy-container">
+                                <ul id="menu-main-menu-dummy" class="menu">
+                                    <li id="menu-item-5951" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5951"><a href="http://gpch.org/about-us/leadership/staff/">Staff</a></li>
+                                    <li id="menu-item-5952" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5952"><a href="http://gpch.org/about-us/what-we-believe/">What we Believe</a></li>
+                                    <li id="menu-item-5953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5953"><a href="http://gpch.org/about-us/visit/">Plan Your Visit</a></li>
+                                    <li id="menu-item-5955" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5955"><a href="http://gpch.org/calendar/">Calendar</a></li>
+                                    <li id="menu-item-5954" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5954"><a href="http://gpch.org/about-us/special-services/giving/">Giving</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            </div>
+            <!-- .footer-widgets-wrap end -->
+   
+
+    <!-- Copyrights
+            ============================================= -->
+    <div id="copyrights">
+
+        <div class="container clearfix">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="nomargin"">© 2015 Grace Presbyterian Church. | site by <a href="http://coobomedia.com/">Coobo Media</a> | <a href="http://gpch.org/wp-admin">Staff Login</a> </p>
+
+                </div>
+
+                <div class="col-md-6 pull-right">
+                    <ul id="social">
+
+                        <li><a target="_blank" href="https://twitter.com/HoustonsGrace"><i class="icon-twitter"></i></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/HoustonsGrace"><i class="icon-facebook"></i></a></li>
+                        <li><a target="_blank" href=""><i class="icon-pinterest"></i></a></li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+             </div>
+    <!-- #copyrights end -->
+
+    </footer><!-- #footer end -->
+        
+        
+        <input type="hidden" name="ctl00$sManager" id="sManager" />
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.setServerId("sManager", "ctl00$sManager");
+Sys.Application._enableHistoryInScriptManager();
+//]]>
+</script>
+
+        <div id="updateProgress" style="display:none;">
+	
+		            <div class="updateprogress-status">
+                        <div class="spinner">
+                          <div class="rect1"></div>
+                          <div class="rect2"></div>
+                          <div class="rect3"></div>
+                          <div class="rect4"></div>
+                          <div class="rect5"></div>
+                        </div>
+                    </div>
+                    <div class="updateprogress-bg modal-backdrop"></div>
+		        
+</div>
+
+    <div id="ctl16" style="display:none">
+	<input type="submit" name="ctl00$rock-config-trigger" value="" id="rock-config-trigger" /><input type="hidden" name="ctl00$rock-config-trigger-data" id="rock-config-trigger-data" />
+</div><div id="modal-popup" class="modal container modal-content rock-modal rock-modal-frame">
+	<div id="modal-popup_contentPanel" class="iframe">
+		<iframe id="modal-popup_iframe" scrolling="no" style="height:auto;"></iframe>
+	</div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+Rock.settings.initialize({
+    siteId: 3,
+    layoutId: 7,
+    pageId: 397,
+    layout: 'FullWidth',
+    baseUrl: '/'
+});Rock.controls.modal.closeModalDialog($('#ctl00_ctl19_ctl01_ctl00_mdEdit_modal_dialog_panel'));//]]>
+</script>
+</form>
+
+</body>
+
+</html>

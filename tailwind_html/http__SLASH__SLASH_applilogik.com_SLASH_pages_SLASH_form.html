@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulaire de contact</title>
+    <link rel="stylesheet" href="./css/tailwind.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body class="bg-black">
+      <main class='hero-section w-screen 2xl:h-screen flex flex-col relative items-center '>
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+
+
+        <div class="hdr-logo inline-block z-50 absolute left-28" role="banner">
+                <div class="hdr-logo-bg "></div>
+                <img src="../assets/Logo.svg.jpg" alt="" class="site-logo z-40 left-22 absolute">
+            </a>
+        </div>
+
+        <div class="form-content mt-40 2xl:mt-0 2xl:absolute 2xl:top-1/3 container mx-auto w-5/6 2xl:w-1/2">
+
+            <h1 class="title text-xl 2xl:text-6xl text-white text-center uppercase mb-6 2xl:mb-20 tracking-wider">
+                contactez-nous
+            </h1>
+
+            <form action="../data/index.php" method='POST' name='form' class=' flex flex-col py-2 border border-white relative' onsubmit="return isreCaptchaChecked()">
+
+                <!-- <div class="absolute inset-0 bg-black bg-opacity-25"></div> -->
+                <div class="flex flex-col space-y-4 2xl:space-y-0 2xl:flex-row justify-between py-2 px-4 2xl:px-2">
+                    <div class="">
+                        <label for="nom" class='text-yellow-500 uppercase'>Nom:</label>
+                        <input type="text" id="nom" name="nom" value="" required class='rounded-md w-full 2xl:w-80 2xl:ml-4'>
+                    </div>
+                    <div class="">
+                        <label for="prenom" class='text-yellow-500 uppercase'>prénom:</label>
+                        <input type="text" id="prenom" name="prenom" value="" required  class='rounded-md w-full 2xl:w-80 2xl:ml-4'>
+                    </div>
+                </div>
+                <div class="flex flex-col space-y-4 2xl:space-y-0 2xl:flex-row justify-between py-2 px-4 2xl:px-2">
+                    <div class="">
+                        <label for="email" class='text-yellow-500 uppercase'>adresse mail:</label>
+                        <input type="email" id="email" name="email" value="" required class='rounded-md w-full 2xl:w-80 2xl:ml-4'>
+                    </div>
+                    <div class="">
+                        <label for="tel" class='text-yellow-500 uppercase'>téléphone:</label>
+                        <input type="tel" id="tel" name="tel" value="" required class='rounded-md w-full 2xl:w-60 2xl:ml-4'>
+                    </div>
+                </div>
+                <div class="flex flex-col 2xl:flex-row justify-between py-2 px-4 2xl:px-2">
+                    <label for="message" class='text-yellow-500 uppercase'>message:</label>
+                    <textarea  class='rounded-md 2xl:ml-4' name="message" required id="message" cols="91" rows="5" ></textarea>
+                </div>
+
+                <!-- google recaptcha -->
+                <div class="g-recaptcha brochure__form__captcha ml-4 2xl:ml-0 mt-3 2xl:mt-0 2xl:absolute right-2 bottom-2" data-sitekey="6Lex-kAcAAAAAJc42NTABtq6dKUV728p1h3FaPq_" data-callback="recaptchaCallback" >
+                </div>
+
+                <div class="flex justify-center p-6 cursor-pointer">
+                    <input type='submit'value="valider" href="#" class='cursor-pointer uppercase text-white bg-yellow-500 text-lg py-1 px-7 rounded-full font-semibold hover:bg-transparent border-2 border-transparent hover:border-yellow-500'></input>
+                </div>
+            </form>
+        </div>
+
+        <div class="bottom-bar mt-6 2xl:mt-0 2xl:absolute 2xl:bottom-0 2xl:left-0 2xl:right-0 bg-transparent flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 items-start pl-8 2xl:pl-0 justify-center text-white w-full 2xl:space-x-10 py-6 2xl:py-10">
+
+
+            <div class='flex flex-row w-auto justify-center space-x-3 items-center text-md 2xl:text-lg '>
+                <img src="../assets/Pict-habitat.png" alt="logo" class='h-5 2xl:h-7 object-cover'>
+                <span>Allée du Bois 59287 Lewarde</span>
+            </div>
+            <div class='flex flex-row w-auto justify-center space-x-3 items-center text-md 2xl:text-lg'>
+                <img src="../assets/picto-telephone.png" alt="logo" class='h-5 2xl:h-7 object-cover'>
+                <span>03 27 71 37 37</span>
+            </div>
+            <a href="https://www.facebook.com/coeurdostrevent/">
+                <div class='flex flex-row w-auto justify-center space-x-3 items-center text-md 2xl:text-lg'>
+                    <img src="../assets/picto-facebook.png" alt="logo" class='h-5 2xl:h-7 object-cover'>
+                    <span>@coeurdostrevent</span>
+                </div>
+            </a>
+
+        </div>
+
+        </main>
+	<script src="./js/script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+
+        var recaptchachecked=false;
+        function recaptchaCallback() {
+            recaptchachecked = true;
+        }
+        function isreCaptchaChecked()
+        {
+            return recaptchachecked;
+        }
+
+        </script>
+  </body>
+</html>

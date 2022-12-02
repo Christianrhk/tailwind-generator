@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>    Fix My Markups!
+</title>
+    <meta name="description" content="    A calculator to help ticket resellers properly set their markup fees to offset seller fees charged by the marketplaces.
+">
+
+    <!-- Tailwind -->
+    <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import  url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+    </style>
+
+    <!-- AlpineJS -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <!-- clipboard.js -->
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" defer></script>
+    <!-- animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    
+    <style >[wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {display:none;}[wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {animation-duration: 50000s;animation-name: livewireautofill;}@keyframes livewireautofill { from {} }</style>
+
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-CB85P7987H"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-CB85P7987H');
+        </script>
+    
+</head>
+<body class="bg-white">
+
+<!-- Top Bar Nav -->
+<nav class="w-full py-4 bg-blue-800 shadow">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
+
+        <nav>
+            <p class="flex items-baseline justify-between font-bold text-white no-underline px-4"><span class="text-2xl">FixMyMarkups</span> <span class="text-base ml-6">A tool to help you sell more tickets.</span></p>
+
+
+
+
+        </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+</nav>
+
+<!-- Text Header -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="container mx-auto flex-wrap py-6">
+        <h1 class="my-2 text-4xl font-bold">Fix My Markups?</h1>
+        <h2 class="my-2 text-2xl font-bold text-gray-600 py-4">Why do you allow one marketplace to pay you less for your tickets than another?</h2>
+        <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+            Sell fees, the amount a marketplace charges for each order they send you, vary greatly and some are as high as 15%. If <span class="italic">Marketplace A</span> charges you a 15% sell fee, but <span class="italic">Marketplace B</span> only charges you a 3% sell fee you are giving <span class="italic">Marketplace A</span> a huge pricing advantage.
+        </p>
+        <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+            <span class="font-bold">“They sell more of my tickets”,</span> you say.
+        </p>
+        <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+            <span class="font-semibold underline">Of course they do.</span> <span class="italic">Marketplace A</span> gets to pay you $85.00 for your $100.00 ticket while <span class="italic">Marketplace B</span> has to pay you $97.00. No marketplace could ever sell as many tickets when they have to pay you so much more.
+        </p>
+
+
+
+
+
+
+
+
+
+
+        <h2 class="my-2 text-3xl font-bold">How do I Fix My Markups?</h2>
+
+        <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+            The tool below will help illustrate the payment differences between marketplaces. Once you have entered your information click the button under to the lowest payout and you will see the markups/markdowns you should apply to all of your marketplaces so they all pay you the same.
+        </p>
+    </section>
+
+    <section class="container mx-auto flex-wrap p-6 m-6 border-2 rounded-lg">
+        <h2 class="my-2 text-4xl font-bold w-full">1. Select your marketplaces</h2>
+        <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+            Check each marketplace to which you upload your inventory.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
+                            <div>
+                    <input
+                        type="checkbox"
+                        id="vivid-checkbox"
+                        value="vivid"
+                                                checked="checked"
+                                                onchange="toggleMarketplaces(this, 'vivid')"
+                    >
+                    <label for="vivid-checkbox"> Vivid Seats</label>
+                </div>
+                            <div>
+                    <input
+                        type="checkbox"
+                        id="stubhub-checkbox"
+                        value="stubhub"
+                                                checked="checked"
+                                                onchange="toggleMarketplaces(this, 'stubhub')"
+                    >
+                    <label for="stubhub-checkbox"> StubHub</label>
+                </div>
+                            <div>
+                    <input
+                        type="checkbox"
+                        id="tevo-checkbox"
+                        value="tevo"
+                                                checked="checked"
+                                                onchange="toggleMarketplaces(this, 'tevo')"
+                    >
+                    <label for="tevo-checkbox"> Ticket Evolution</label>
+                </div>
+                            <div>
+                    <input
+                        type="checkbox"
+                        id="ticketmaster-checkbox"
+                        value="ticketmaster"
+                                                checked="checked"
+                                                onchange="toggleMarketplaces(this, 'ticketmaster')"
+                    >
+                    <label for="ticketmaster-checkbox"> Ticketmaster</label>
+                </div>
+                            <div>
+                    <input
+                        type="checkbox"
+                        id="tnet-checkbox"
+                        value="tnet"
+                                                onchange="toggleMarketplaces(this, 'tnet')"
+                    >
+                    <label for="tnet-checkbox"> Ticket Network</label>
+                </div>
+                            <div>
+                    <input
+                        type="checkbox"
+                        id="seatgeek-checkbox"
+                        value="seatgeek"
+                                                onchange="toggleMarketplaces(this, 'seatgeek')"
+                    >
+                    <label for="seatgeek-checkbox"> SeatGeek</label>
+                </div>
+                            <div>
+                    <input
+                        type="checkbox"
+                        id="gametime-checkbox"
+                        value="gametime"
+                                                onchange="toggleMarketplaces(this, 'gametime')"
+                    >
+                    <label for="gametime-checkbox"> Gametime</label>
+                </div>
+                            <div>
+                    <input
+                        type="checkbox"
+                        id="tickpick-checkbox"
+                        value="tickpick"
+                                                onchange="toggleMarketplaces(this, 'tickpick')"
+                    >
+                    <label for="tickpick-checkbox"> TickPick</label>
+                </div>
+                    </div>
+    </section>
+
+    <section class="container mx-auto flex-wrap p-6 m-6 border-2 rounded-lg" id="actual-pricing">
+        <h2 class="my-2 text-4xl font-bold w-full">2. Input your Sell Fee and Markup or Markdown</h2>
+
+        <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+            Your <span class="font-bold">sell fee</span> is the amount a marketplace takes from each sale and may include discounts applied on their side. If you have your automator apply a markup or a markdown to your tickets before they are uploaded, enter that in the appropriate box. Be sure to use a negative number for a markdown.
+        </p>
+
+        <div class="grid gap-2 auto-cols-auto grid-flow-col text-lg justify-start">
+            <div class="flex-shrink-1">
+                <div class="whitespace-nowrap border-solid border-r-2 border-gray-600 text-right pr-2">
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent text-center">&nbsp;</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip border border-opacity-0" data-title="How much does the marketplace take from each sale?" data-placement="right">Sell Fee <i class="far fa-question-circle text-blue-800"></i></div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip border border-opacity-0" data-title="How much do you have your automator configured to mark up your tickets to the marketplace? (Use a negative number for markdown)" data-placement="right">Markup/Markdown <i class="far fa-question-circle text-blue-800"></i></div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip" data-title="This is the price at which the ticket is in your Point of Sale." data-placement="right">Ticket Price</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip" data-title="This is the price at which the ticket will be uploaded to the marketplace." data-placement="right">Uploads At</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip" data-title="This is how much the marketplace will take from the sale." data-placement="right">Marketplace Fee</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip font-bold" data-title="This is how much you would be paid for the sale." data-placement="right">Payout</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip" data-title="This is the “net” sell fee you are paying the marketplace." data-placement="right">Net Sell Fee</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip text-xs">Click one of the buttons <br>to see how to match that<br> payout across all marketplaces</div>
+                </div>
+            </div>
+            <div class="grid grid-flow-col grid-rows-1 auto-cols-max gap-x-0 overflow-x-auto overflow-y-visible">
+                                    <div wire:id="AoDorPxJlt2ZHS5vgXAb" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;AoDorPxJlt2ZHS5vgXAb&quot;,&quot;name&quot;:&quot;marketplace-actual&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;vividCheckboxClicked&quot;,&quot;matchThisPayout&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;26997034&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Vivid Seats&quot;,&quot;slug&quot;:&quot;vivid&quot;,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;2.4&quot;,&quot;marketplacePercentOfAnnualSales&quot;:44.1,&quot;isChecked&quot;:true},&quot;isChecked&quot;:null,&quot;display&quot;:&quot;&quot;,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;2.4&quot;,&quot;sellFeeShadow&quot;:&quot;15&quot;,&quot;markupShadow&quot;:&quot;2.4&quot;,&quot;uploadsAt&quot;:102.4,&quot;ticketSellFee&quot;:15.36,&quot;ticketPayout&quot;:87.04,&quot;netSellFeeDollars&quot;:12.959999999999994,&quot;netSellFeePercent&quot;:12.959999999999994,&quot;cleanValue&quot;:null,&quot;marketplaceSlugToMatch&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;96d226d2ce60d34d9c21e3c2cbc05216eb97d957698b99de20cbbbff63cc69fc&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 actual-marketplace  " id="vivid-actual">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        Vivid Seats
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="vivid-sellfee" type="text" wire:model="sellFee"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="vivid-markup" type="text" wire:model="markup"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $102.40
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$15.36
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black">
+        $87.04
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-gray-700">
+        $12.96 / 12.96<span class="">%</span>
+    </div>
+
+    <div class="py-3 px-2 bg-clip-padding">
+        <button class="tooltip inline-flex items-center h-8 px-2 text-indigo-100 transition-colors duration-150 bg-blue-600 rounded-lg focus:shadow-outline hover:bg-blue-800 text-base animate__animated animate__pulse animate__delay-2s animate__repeat-3" data-title="Click to see how to configure your markups/markdowns so that you get paid this amount by every marketplace." data-placement="top" onclick="selectMarketPlaceToMatch('vivid');"
+        >
+
+
+            Get Paid $87.04</button>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:AoDorPxJlt2ZHS5vgXAb -->                                    <div wire:id="426EYJ32gKhTwvBXM0Ds" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;426EYJ32gKhTwvBXM0Ds&quot;,&quot;name&quot;:&quot;marketplace-actual&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;stubhubCheckboxClicked&quot;,&quot;matchThisPayout&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;6b5ac816&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;StubHub&quot;,&quot;slug&quot;:&quot;stubhub&quot;,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;6.8&quot;,&quot;marketplacePercentOfAnnualSales&quot;:15.1,&quot;isChecked&quot;:true},&quot;isChecked&quot;:null,&quot;display&quot;:&quot;&quot;,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;6.8&quot;,&quot;sellFeeShadow&quot;:&quot;15&quot;,&quot;markupShadow&quot;:&quot;6.8&quot;,&quot;uploadsAt&quot;:106.8,&quot;ticketSellFee&quot;:16.02,&quot;ticketPayout&quot;:90.78,&quot;netSellFeeDollars&quot;:9.219999999999999,&quot;netSellFeePercent&quot;:9.219999999999999,&quot;cleanValue&quot;:null,&quot;marketplaceSlugToMatch&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;9d0991ee718381d2443ce112f2564720a8693736c673710f569a4038f8c7b05f&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 actual-marketplace  " id="stubhub-actual">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        StubHub
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="stubhub-sellfee" type="text" wire:model="sellFee"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="stubhub-markup" type="text" wire:model="markup"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $106.80
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$16.02
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black">
+        $90.78
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-gray-700">
+        $9.22 / 9.22<span class="">%</span>
+    </div>
+
+    <div class="py-3 px-2 bg-clip-padding">
+        <button class="tooltip inline-flex items-center h-8 px-2 text-indigo-100 transition-colors duration-150 bg-blue-600 rounded-lg focus:shadow-outline hover:bg-blue-800 text-base animate__animated animate__pulse animate__delay-2s animate__repeat-3" data-title="Click to see how to configure your markups/markdowns so that you get paid this amount by every marketplace." data-placement="top" onclick="selectMarketPlaceToMatch('stubhub');"
+        >
+
+
+            Get Paid $90.78</button>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:426EYJ32gKhTwvBXM0Ds -->                                    <div wire:id="KFYFgl3uinvkOKVsGRvK" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;KFYFgl3uinvkOKVsGRvK&quot;,&quot;name&quot;:&quot;marketplace-actual&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;tevoCheckboxClicked&quot;,&quot;matchThisPayout&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;ca57a541&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Ticket Evolution&quot;,&quot;slug&quot;:&quot;tevo&quot;,&quot;sellFee&quot;:&quot;3&quot;,&quot;markup&quot;:&quot;0&quot;,&quot;marketplacePercentOfAnnualSales&quot;:1.1,&quot;isChecked&quot;:true},&quot;isChecked&quot;:null,&quot;display&quot;:&quot;&quot;,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:&quot;3&quot;,&quot;markup&quot;:&quot;0&quot;,&quot;sellFeeShadow&quot;:&quot;3&quot;,&quot;markupShadow&quot;:&quot;0&quot;,&quot;uploadsAt&quot;:100,&quot;ticketSellFee&quot;:3,&quot;ticketPayout&quot;:97,&quot;netSellFeeDollars&quot;:3,&quot;netSellFeePercent&quot;:3,&quot;cleanValue&quot;:null,&quot;marketplaceSlugToMatch&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;1571723d45b5ab2376ab222925545c9c02c3b54380b77d1f579f1a1c1fce4d11&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 actual-marketplace  " id="tevo-actual">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        Ticket Evolution
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="tevo-sellfee" type="text" wire:model="sellFee"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="tevo-markup" type="text" wire:model="markup"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$3.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black">
+        $97.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-gray-700">
+        $3.00 / 3.00<span class="">%</span>
+    </div>
+
+    <div class="py-3 px-2 bg-clip-padding">
+        <button class="tooltip inline-flex items-center h-8 px-2 text-indigo-100 transition-colors duration-150 bg-blue-600 rounded-lg focus:shadow-outline hover:bg-blue-800 text-base animate__animated animate__pulse animate__delay-2s animate__repeat-3" data-title="Click to see how to configure your markups/markdowns so that you get paid this amount by every marketplace." data-placement="top" onclick="selectMarketPlaceToMatch('tevo');"
+        >
+
+
+            Get Paid $97.00</button>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:KFYFgl3uinvkOKVsGRvK -->                                    <div wire:id="fVox9JWF4Tt5685NSPq6" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;fVox9JWF4Tt5685NSPq6&quot;,&quot;name&quot;:&quot;marketplace-actual&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;ticketmasterCheckboxClicked&quot;,&quot;matchThisPayout&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;97d994f9&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Ticketmaster&quot;,&quot;slug&quot;:&quot;ticketmaster&quot;,&quot;sellFee&quot;:&quot;8.5&quot;,&quot;markup&quot;:&quot;3&quot;,&quot;marketplacePercentOfAnnualSales&quot;:12.2,&quot;isChecked&quot;:true},&quot;isChecked&quot;:null,&quot;display&quot;:&quot;&quot;,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:&quot;8.5&quot;,&quot;markup&quot;:&quot;3&quot;,&quot;sellFeeShadow&quot;:&quot;8.5&quot;,&quot;markupShadow&quot;:&quot;3&quot;,&quot;uploadsAt&quot;:103,&quot;ticketSellFee&quot;:8.76,&quot;ticketPayout&quot;:94.24,&quot;netSellFeeDollars&quot;:5.760000000000005,&quot;netSellFeePercent&quot;:5.760000000000005,&quot;cleanValue&quot;:null,&quot;marketplaceSlugToMatch&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;12a9f3d051c0433039217bb87327ff42b9ed26be44ef5def4634fc0ffa35d405&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 actual-marketplace  " id="ticketmaster-actual">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        Ticketmaster
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="ticketmaster-sellfee" type="text" wire:model="sellFee"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="ticketmaster-markup" type="text" wire:model="markup"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $103.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$8.76
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black">
+        $94.24
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-gray-700">
+        $5.76 / 5.76<span class="">%</span>
+    </div>
+
+    <div class="py-3 px-2 bg-clip-padding">
+        <button class="tooltip inline-flex items-center h-8 px-2 text-indigo-100 transition-colors duration-150 bg-blue-600 rounded-lg focus:shadow-outline hover:bg-blue-800 text-base animate__animated animate__pulse animate__delay-2s animate__repeat-3" data-title="Click to see how to configure your markups/markdowns so that you get paid this amount by every marketplace." data-placement="top" onclick="selectMarketPlaceToMatch('ticketmaster');"
+        >
+
+
+            Get Paid $94.24</button>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:fVox9JWF4Tt5685NSPq6 -->                                    <div wire:id="cEVaEGZfRyMVVaxwWohJ" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;cEVaEGZfRyMVVaxwWohJ&quot;,&quot;name&quot;:&quot;marketplace-actual&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;tnetCheckboxClicked&quot;,&quot;matchThisPayout&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;49de76b3&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Ticket Network&quot;,&quot;slug&quot;:&quot;tnet&quot;,&quot;sellFee&quot;:9,&quot;markup&quot;:5,&quot;marketplacePercentOfAnnualSales&quot;:7.2,&quot;isChecked&quot;:false},&quot;isChecked&quot;:null,&quot;display&quot;:&quot;hidden&quot;,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:9,&quot;markup&quot;:5,&quot;sellFeeShadow&quot;:9,&quot;markupShadow&quot;:5,&quot;uploadsAt&quot;:105,&quot;ticketSellFee&quot;:9.45,&quot;ticketPayout&quot;:95.55,&quot;netSellFeeDollars&quot;:4.450000000000003,&quot;netSellFeePercent&quot;:4.450000000000003,&quot;cleanValue&quot;:null,&quot;marketplaceSlugToMatch&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;756600804da52e867e4695840968786ab4a1d9f69a3c079af71ef9f35c5cad16&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 actual-marketplace hidden " id="tnet-actual">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        Ticket Network
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="tnet-sellfee" type="text" wire:model="sellFee"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="tnet-markup" type="text" wire:model="markup"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $105.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$9.45
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black">
+        $95.55
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-gray-700">
+        $4.45 / 4.45<span class="">%</span>
+    </div>
+
+    <div class="py-3 px-2 bg-clip-padding">
+        <button class="tooltip inline-flex items-center h-8 px-2 text-indigo-100 transition-colors duration-150 bg-blue-600 rounded-lg focus:shadow-outline hover:bg-blue-800 text-base animate__animated animate__pulse animate__delay-2s animate__repeat-3" data-title="Click to see how to configure your markups/markdowns so that you get paid this amount by every marketplace." data-placement="top" onclick="selectMarketPlaceToMatch('tnet');"
+        >
+
+
+            Get Paid $95.55</button>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:cEVaEGZfRyMVVaxwWohJ -->                                    <div wire:id="Pb2oEakra0Ik9WGgbjRK" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;Pb2oEakra0Ik9WGgbjRK&quot;,&quot;name&quot;:&quot;marketplace-actual&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;seatgeekCheckboxClicked&quot;,&quot;matchThisPayout&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;4250c795&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;SeatGeek&quot;,&quot;slug&quot;:&quot;seatgeek&quot;,&quot;sellFee&quot;:15,&quot;markup&quot;:6.88,&quot;marketplacePercentOfAnnualSales&quot;:13.3,&quot;isChecked&quot;:false},&quot;isChecked&quot;:null,&quot;display&quot;:&quot;hidden&quot;,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:15,&quot;markup&quot;:6.88,&quot;sellFeeShadow&quot;:15,&quot;markupShadow&quot;:6.88,&quot;uploadsAt&quot;:106.88,&quot;ticketSellFee&quot;:16.03,&quot;ticketPayout&quot;:90.85,&quot;netSellFeeDollars&quot;:9.150000000000006,&quot;netSellFeePercent&quot;:9.150000000000006,&quot;cleanValue&quot;:null,&quot;marketplaceSlugToMatch&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;f8babfb4eea3712bd16c1cefcec4a8afc6c9938a2af9247f32319945dc33abe5&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 actual-marketplace hidden " id="seatgeek-actual">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        SeatGeek
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="seatgeek-sellfee" type="text" wire:model="sellFee"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="seatgeek-markup" type="text" wire:model="markup"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $106.88
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$16.03
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black">
+        $90.85
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-gray-700">
+        $9.15 / 9.15<span class="">%</span>
+    </div>
+
+    <div class="py-3 px-2 bg-clip-padding">
+        <button class="tooltip inline-flex items-center h-8 px-2 text-indigo-100 transition-colors duration-150 bg-blue-600 rounded-lg focus:shadow-outline hover:bg-blue-800 text-base animate__animated animate__pulse animate__delay-2s animate__repeat-3" data-title="Click to see how to configure your markups/markdowns so that you get paid this amount by every marketplace." data-placement="top" onclick="selectMarketPlaceToMatch('seatgeek');"
+        >
+
+
+            Get Paid $90.85</button>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:Pb2oEakra0Ik9WGgbjRK -->                                    <div wire:id="DJztbrGXv44EpSEfWJgS" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;DJztbrGXv44EpSEfWJgS&quot;,&quot;name&quot;:&quot;marketplace-actual&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;gametimeCheckboxClicked&quot;,&quot;matchThisPayout&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;e4dfe789&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Gametime&quot;,&quot;slug&quot;:&quot;gametime&quot;,&quot;sellFee&quot;:10,&quot;markup&quot;:2,&quot;marketplacePercentOfAnnualSales&quot;:1.6,&quot;isChecked&quot;:false},&quot;isChecked&quot;:null,&quot;display&quot;:&quot;hidden&quot;,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:10,&quot;markup&quot;:2,&quot;sellFeeShadow&quot;:10,&quot;markupShadow&quot;:2,&quot;uploadsAt&quot;:102,&quot;ticketSellFee&quot;:10.2,&quot;ticketPayout&quot;:91.8,&quot;netSellFeeDollars&quot;:8.200000000000003,&quot;netSellFeePercent&quot;:8.200000000000003,&quot;cleanValue&quot;:null,&quot;marketplaceSlugToMatch&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;d59f7a93cc28dfc52519d6d04339ed3ea62e592a089f87dee347a2ef73a45978&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 actual-marketplace hidden " id="gametime-actual">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        Gametime
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="gametime-sellfee" type="text" wire:model="sellFee"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="gametime-markup" type="text" wire:model="markup"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $102.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$10.20
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black">
+        $91.80
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-gray-700">
+        $8.20 / 8.20<span class="">%</span>
+    </div>
+
+    <div class="py-3 px-2 bg-clip-padding">
+        <button class="tooltip inline-flex items-center h-8 px-2 text-indigo-100 transition-colors duration-150 bg-blue-600 rounded-lg focus:shadow-outline hover:bg-blue-800 text-base animate__animated animate__pulse animate__delay-2s animate__repeat-3" data-title="Click to see how to configure your markups/markdowns so that you get paid this amount by every marketplace." data-placement="top" onclick="selectMarketPlaceToMatch('gametime');"
+        >
+
+
+            Get Paid $91.80</button>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:DJztbrGXv44EpSEfWJgS -->                                    <div wire:id="Q0FEytukYwW42z4YX5cd" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;Q0FEytukYwW42z4YX5cd&quot;,&quot;name&quot;:&quot;marketplace-actual&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;tickpickCheckboxClicked&quot;,&quot;matchThisPayout&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;6d766d83&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;TickPick&quot;,&quot;slug&quot;:&quot;tickpick&quot;,&quot;sellFee&quot;:3,&quot;markup&quot;:0,&quot;marketplacePercentOfAnnualSales&quot;:2.2,&quot;isChecked&quot;:false},&quot;isChecked&quot;:null,&quot;display&quot;:&quot;hidden&quot;,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:3,&quot;markup&quot;:0,&quot;sellFeeShadow&quot;:3,&quot;markupShadow&quot;:0,&quot;uploadsAt&quot;:100,&quot;ticketSellFee&quot;:3,&quot;ticketPayout&quot;:97,&quot;netSellFeeDollars&quot;:3,&quot;netSellFeePercent&quot;:3,&quot;cleanValue&quot;:null,&quot;marketplaceSlugToMatch&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;f5bee648b97d910055c2bca55d90fc6e7bc8e3860a30788bdc9af4ecf9f254bc&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 actual-marketplace hidden " id="tickpick-actual">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        TickPick
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="tickpick-sellfee" type="text" wire:model="sellFee"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        <input class="text-right border border-gray-400 px-2 rounded w-16" id="tickpick-markup" type="text" wire:model="markup"><span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$3.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black">
+        $97.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-gray-700">
+        $3.00 / 3.00<span class="">%</span>
+    </div>
+
+    <div class="py-3 px-2 bg-clip-padding">
+        <button class="tooltip inline-flex items-center h-8 px-2 text-indigo-100 transition-colors duration-150 bg-blue-600 rounded-lg focus:shadow-outline hover:bg-blue-800 text-base animate__animated animate__pulse animate__delay-2s animate__repeat-3" data-title="Click to see how to configure your markups/markdowns so that you get paid this amount by every marketplace." data-placement="top" onclick="selectMarketPlaceToMatch('tickpick');"
+        >
+
+
+            Get Paid $97.00</button>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:Q0FEytukYwW42z4YX5cd -->                            </div>
+        </div>
+
+    </section>
+
+
+    <section class="container mx-auto flex-wrap p-6 m-6 border-2 rounded-lg hidden" id="neutral-pricing">
+        <h2 class="my-2 text-4xl font-bold w-full">3. See the Markups or Markdowns you <span class="italic">should</span> be using</h2>
+
+        <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+            Below you can see the markup or markdown that you should apply for each marketplace in order to net the same payout from each one. Below the table you can find links and instructions on how to apply those settings via your automator.
+        </p>
+
+        <div class="grid gap-2 auto-cols-auto grid-flow-col text-lg justify-start">
+            <div class="flex-shrink-1">
+                <div class="whitespace-nowrap border-solid border-r-2 border-gray-600 text-right pr-2">
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent text-center">&nbsp;</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip border border-opacity-0" data-title="How much does the marketplace take from each sale?" data-placement="right">Sell Fee</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip border border-opacity-0 font-black" data-title="How much do you have your automator configured to mark up your tickets to the marketplace? (Use a negative number for markdown)" data-placement="right">Correct Adjustment <i class="far fa-question-circle text-blue-800"></i></div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip" data-title="This is the price at which the ticket is in your Point of Sale." data-placement="right">Ticket Price</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip" data-title="This is the price at which the ticket will be uploaded to the marketplace." data-placement="right">Uploads At</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip" data-title="This is how much the marketplace will take from the sale." data-placement="right">Marketplace Fee</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip font-black" data-title="This is how much you would be paid for the sale." data-placement="right">Payout</div>
+                    <div class="py-1 px-2 bg-clip-padding border-b border-transparent tooltip" data-title="This is the “net” sell fee you are paying the marketplace." data-placement="right">Net Sell Fee</div>
+                </div>
+            </div>
+            <div class="grid grid-flow-col grid-rows-1 auto-cols-max gap-x-0 overflow-x-auto overflow-y-visible">
+                                    <div wire:id="njikvn4elca85VtTIq4D" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;njikvn4elca85VtTIq4D&quot;,&quot;name&quot;:&quot;marketplace-neutral&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;emits&quot;:[{&quot;event&quot;:&quot;vividNeutralMarkupUpdated&quot;,&quot;params&quot;:[2.4,&quot;+2.40&quot;]},{&quot;event&quot;:&quot;markupsLink&quot;,&quot;params&quot;:[&quot;vivid&quot;,&quot;15&quot;,&quot;2.4&quot;,null,null]}],&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;vividCheckboxClicked&quot;,&quot;vividSellFeeChanged&quot;,&quot;vividMarkupChanged&quot;,&quot;matchAllPayouts&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;e218249f&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Vivid Seats&quot;,&quot;slug&quot;:&quot;vivid&quot;,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;2.4&quot;,&quot;marketplacePercentOfAnnualSales&quot;:44.1,&quot;isChecked&quot;:true},&quot;isChecked&quot;:null,&quot;display&quot;:null,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;2.4&quot;,&quot;neutralMarkup&quot;:2.4,&quot;neutralMarkupDisplay&quot;:&quot;+2.40&quot;,&quot;neutralUploadsAt&quot;:102.4,&quot;neutralTicketSellFee&quot;:15.36,&quot;neutralTicketPayout&quot;:87.04,&quot;neutralNetSellFeeDollars&quot;:12.959999999999994,&quot;neutralNetSellFeePercent&quot;:12.959999999999994,&quot;marketplaceSlugToMatch&quot;:null,&quot;netSellFeePercentToMatch&quot;:null,&quot;sellFeeToMatch&quot;:&quot;15&quot;,&quot;markupToMatch&quot;:&quot;2.4&quot;,&quot;cleanValue&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;5270e4443a540110a2381db96a2933a7dc43617eff9036ce1b781e69bb131f0f&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 neutral-marketplace  " id="vivid-neutral">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        Vivid Seats
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        15.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-green-200">
+        +2.40<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $102.40
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$15.36
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-blue-100">
+        
+        $87.04
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding text-gray-700">
+        $12.96 / 12.96<span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:njikvn4elca85VtTIq4D -->                                    <div wire:id="PqgIEf90Mfz8Z0t5nDfT" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;PqgIEf90Mfz8Z0t5nDfT&quot;,&quot;name&quot;:&quot;marketplace-neutral&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;emits&quot;:[{&quot;event&quot;:&quot;stubhubNeutralMarkupUpdated&quot;,&quot;params&quot;:[6.8,&quot;+6.80&quot;]},{&quot;event&quot;:&quot;markupsLink&quot;,&quot;params&quot;:[&quot;stubhub&quot;,&quot;15&quot;,&quot;6.8&quot;,null,null]}],&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;stubhubCheckboxClicked&quot;,&quot;stubhubSellFeeChanged&quot;,&quot;stubhubMarkupChanged&quot;,&quot;matchAllPayouts&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;e18240bb&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;StubHub&quot;,&quot;slug&quot;:&quot;stubhub&quot;,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;6.8&quot;,&quot;marketplacePercentOfAnnualSales&quot;:15.1,&quot;isChecked&quot;:true},&quot;isChecked&quot;:null,&quot;display&quot;:null,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;6.8&quot;,&quot;neutralMarkup&quot;:6.8,&quot;neutralMarkupDisplay&quot;:&quot;+6.80&quot;,&quot;neutralUploadsAt&quot;:106.8,&quot;neutralTicketSellFee&quot;:16.02,&quot;neutralTicketPayout&quot;:90.78,&quot;neutralNetSellFeeDollars&quot;:9.219999999999999,&quot;neutralNetSellFeePercent&quot;:9.219999999999999,&quot;marketplaceSlugToMatch&quot;:null,&quot;netSellFeePercentToMatch&quot;:null,&quot;sellFeeToMatch&quot;:&quot;15&quot;,&quot;markupToMatch&quot;:&quot;6.8&quot;,&quot;cleanValue&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;f3448bfbbabf8bc42200cc3de86bd59244c1c8456ba9e836499eec569367d2b1&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 neutral-marketplace  " id="stubhub-neutral">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        StubHub
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        15.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-green-200">
+        +6.80<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $106.80
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$16.02
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-blue-100">
+        
+        $90.78
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding text-gray-700">
+        $9.22 / 9.22<span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:PqgIEf90Mfz8Z0t5nDfT -->                                    <div wire:id="Y1OgvMjDCm2VxylCmJgU" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;Y1OgvMjDCm2VxylCmJgU&quot;,&quot;name&quot;:&quot;marketplace-neutral&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;emits&quot;:[{&quot;event&quot;:&quot;tevoNeutralMarkupUpdated&quot;,&quot;params&quot;:[0,&quot;+0.00&quot;]},{&quot;event&quot;:&quot;markupsLink&quot;,&quot;params&quot;:[&quot;tevo&quot;,&quot;3&quot;,&quot;0&quot;,null,null]}],&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;tevoCheckboxClicked&quot;,&quot;tevoSellFeeChanged&quot;,&quot;tevoMarkupChanged&quot;,&quot;matchAllPayouts&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;94c67d7a&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Ticket Evolution&quot;,&quot;slug&quot;:&quot;tevo&quot;,&quot;sellFee&quot;:&quot;3&quot;,&quot;markup&quot;:&quot;0&quot;,&quot;marketplacePercentOfAnnualSales&quot;:1.1,&quot;isChecked&quot;:true},&quot;isChecked&quot;:null,&quot;display&quot;:null,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:&quot;3&quot;,&quot;markup&quot;:&quot;0&quot;,&quot;neutralMarkup&quot;:0,&quot;neutralMarkupDisplay&quot;:&quot;+0.00&quot;,&quot;neutralUploadsAt&quot;:100,&quot;neutralTicketSellFee&quot;:3,&quot;neutralTicketPayout&quot;:97,&quot;neutralNetSellFeeDollars&quot;:3,&quot;neutralNetSellFeePercent&quot;:3,&quot;marketplaceSlugToMatch&quot;:null,&quot;netSellFeePercentToMatch&quot;:null,&quot;sellFeeToMatch&quot;:&quot;3&quot;,&quot;markupToMatch&quot;:&quot;0&quot;,&quot;cleanValue&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;ef9446064ecce9a5a12e1707e48ca794e1730055334a7c721d5c68e79996107f&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 neutral-marketplace  " id="tevo-neutral">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        Ticket Evolution
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        3.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-green-200">
+        +0.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$3.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-blue-100">
+        
+        $97.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding text-gray-700">
+        $3.00 / 3.00<span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:Y1OgvMjDCm2VxylCmJgU -->                                    <div wire:id="unQFM3dJeeAujs8BKydd" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;unQFM3dJeeAujs8BKydd&quot;,&quot;name&quot;:&quot;marketplace-neutral&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;emits&quot;:[{&quot;event&quot;:&quot;ticketmasterNeutralMarkupUpdated&quot;,&quot;params&quot;:[3,&quot;+3.00&quot;]},{&quot;event&quot;:&quot;markupsLink&quot;,&quot;params&quot;:[&quot;ticketmaster&quot;,&quot;8.5&quot;,&quot;3&quot;,null,null]}],&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;ticketmasterCheckboxClicked&quot;,&quot;ticketmasterSellFeeChanged&quot;,&quot;ticketmasterMarkupChanged&quot;,&quot;matchAllPayouts&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;b1c96fe0&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Ticketmaster&quot;,&quot;slug&quot;:&quot;ticketmaster&quot;,&quot;sellFee&quot;:&quot;8.5&quot;,&quot;markup&quot;:&quot;3&quot;,&quot;marketplacePercentOfAnnualSales&quot;:12.2,&quot;isChecked&quot;:true},&quot;isChecked&quot;:null,&quot;display&quot;:null,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:&quot;8.5&quot;,&quot;markup&quot;:&quot;3&quot;,&quot;neutralMarkup&quot;:3,&quot;neutralMarkupDisplay&quot;:&quot;+3.00&quot;,&quot;neutralUploadsAt&quot;:103,&quot;neutralTicketSellFee&quot;:8.76,&quot;neutralTicketPayout&quot;:94.24,&quot;neutralNetSellFeeDollars&quot;:5.760000000000005,&quot;neutralNetSellFeePercent&quot;:5.760000000000005,&quot;marketplaceSlugToMatch&quot;:null,&quot;netSellFeePercentToMatch&quot;:null,&quot;sellFeeToMatch&quot;:&quot;8.5&quot;,&quot;markupToMatch&quot;:&quot;3&quot;,&quot;cleanValue&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;77016b9b2ca38df7c3bef6f110826eb2b2c135db6bbf0f071537483353ca841e&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 neutral-marketplace  " id="ticketmaster-neutral">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        Ticketmaster
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        8.50<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-green-200">
+        +3.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $103.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$8.76
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-blue-100">
+        
+        $94.24
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding text-gray-700">
+        $5.76 / 5.76<span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:unQFM3dJeeAujs8BKydd -->                                    <div wire:id="ox0Sl0lOokg5wNlkutTu" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;ox0Sl0lOokg5wNlkutTu&quot;,&quot;name&quot;:&quot;marketplace-neutral&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;emits&quot;:[{&quot;event&quot;:&quot;tnetNeutralMarkupUpdated&quot;,&quot;params&quot;:[5,&quot;+5.00&quot;]},{&quot;event&quot;:&quot;markupsLink&quot;,&quot;params&quot;:[&quot;tnet&quot;,9,5,null,null]}],&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;tnetCheckboxClicked&quot;,&quot;tnetSellFeeChanged&quot;,&quot;tnetMarkupChanged&quot;,&quot;matchAllPayouts&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;aa17d36e&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Ticket Network&quot;,&quot;slug&quot;:&quot;tnet&quot;,&quot;sellFee&quot;:9,&quot;markup&quot;:5,&quot;marketplacePercentOfAnnualSales&quot;:7.2,&quot;isChecked&quot;:false},&quot;isChecked&quot;:null,&quot;display&quot;:null,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:9,&quot;markup&quot;:5,&quot;neutralMarkup&quot;:5,&quot;neutralMarkupDisplay&quot;:&quot;+5.00&quot;,&quot;neutralUploadsAt&quot;:105,&quot;neutralTicketSellFee&quot;:9.45,&quot;neutralTicketPayout&quot;:95.55,&quot;neutralNetSellFeeDollars&quot;:4.450000000000003,&quot;neutralNetSellFeePercent&quot;:4.450000000000003,&quot;marketplaceSlugToMatch&quot;:null,&quot;netSellFeePercentToMatch&quot;:null,&quot;sellFeeToMatch&quot;:9,&quot;markupToMatch&quot;:5,&quot;cleanValue&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;5ceedfb30e37f254325213bd0f5a7794f0d7a0038c6720a9c7f3d9121006c63b&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 neutral-marketplace hidden " id="tnet-neutral">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        Ticket Network
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        9.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-green-200">
+        +5.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $105.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$9.45
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-blue-100">
+        
+        $95.55
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding text-gray-700">
+        $4.45 / 4.45<span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:ox0Sl0lOokg5wNlkutTu -->                                    <div wire:id="VHCsptL4ZCWvZvBd6nXj" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;VHCsptL4ZCWvZvBd6nXj&quot;,&quot;name&quot;:&quot;marketplace-neutral&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;emits&quot;:[{&quot;event&quot;:&quot;seatgeekNeutralMarkupUpdated&quot;,&quot;params&quot;:[6.88,&quot;+6.88&quot;]},{&quot;event&quot;:&quot;markupsLink&quot;,&quot;params&quot;:[&quot;seatgeek&quot;,15,6.88,null,null]}],&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;seatgeekCheckboxClicked&quot;,&quot;seatgeekSellFeeChanged&quot;,&quot;seatgeekMarkupChanged&quot;,&quot;matchAllPayouts&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;f24fc103&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;SeatGeek&quot;,&quot;slug&quot;:&quot;seatgeek&quot;,&quot;sellFee&quot;:15,&quot;markup&quot;:6.88,&quot;marketplacePercentOfAnnualSales&quot;:13.3,&quot;isChecked&quot;:false},&quot;isChecked&quot;:null,&quot;display&quot;:null,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:15,&quot;markup&quot;:6.88,&quot;neutralMarkup&quot;:6.88,&quot;neutralMarkupDisplay&quot;:&quot;+6.88&quot;,&quot;neutralUploadsAt&quot;:106.88,&quot;neutralTicketSellFee&quot;:16.03,&quot;neutralTicketPayout&quot;:90.85,&quot;neutralNetSellFeeDollars&quot;:9.150000000000006,&quot;neutralNetSellFeePercent&quot;:9.150000000000006,&quot;marketplaceSlugToMatch&quot;:null,&quot;netSellFeePercentToMatch&quot;:null,&quot;sellFeeToMatch&quot;:15,&quot;markupToMatch&quot;:6.88,&quot;cleanValue&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;7e9437fb190ade2a272fea4a454a7086b4b27386ab1de74b83a7d333b8681194&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 neutral-marketplace hidden " id="seatgeek-neutral">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        SeatGeek
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        15.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-green-200">
+        +6.88<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $106.88
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$16.03
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-blue-100">
+        
+        $90.85
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding text-gray-700">
+        $9.15 / 9.15<span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:VHCsptL4ZCWvZvBd6nXj -->                                    <div wire:id="6KH1s4Q6GAVaXQghnuTS" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;6KH1s4Q6GAVaXQghnuTS&quot;,&quot;name&quot;:&quot;marketplace-neutral&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;emits&quot;:[{&quot;event&quot;:&quot;gametimeNeutralMarkupUpdated&quot;,&quot;params&quot;:[2,&quot;+2.00&quot;]},{&quot;event&quot;:&quot;markupsLink&quot;,&quot;params&quot;:[&quot;gametime&quot;,10,2,null,null]}],&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;gametimeCheckboxClicked&quot;,&quot;gametimeSellFeeChanged&quot;,&quot;gametimeMarkupChanged&quot;,&quot;matchAllPayouts&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;e2fe6597&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Gametime&quot;,&quot;slug&quot;:&quot;gametime&quot;,&quot;sellFee&quot;:10,&quot;markup&quot;:2,&quot;marketplacePercentOfAnnualSales&quot;:1.6,&quot;isChecked&quot;:false},&quot;isChecked&quot;:null,&quot;display&quot;:null,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:10,&quot;markup&quot;:2,&quot;neutralMarkup&quot;:2,&quot;neutralMarkupDisplay&quot;:&quot;+2.00&quot;,&quot;neutralUploadsAt&quot;:102,&quot;neutralTicketSellFee&quot;:10.2,&quot;neutralTicketPayout&quot;:91.8,&quot;neutralNetSellFeeDollars&quot;:8.200000000000003,&quot;neutralNetSellFeePercent&quot;:8.200000000000003,&quot;marketplaceSlugToMatch&quot;:null,&quot;netSellFeePercentToMatch&quot;:null,&quot;sellFeeToMatch&quot;:10,&quot;markupToMatch&quot;:2,&quot;cleanValue&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;c05c8a1267bda06fc92036916395be60806f4b20b42e07036ff28e973f4a9bb4&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 neutral-marketplace hidden " id="gametime-neutral">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        Gametime
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        10.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-green-200">
+        +2.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $102.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$10.20
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-blue-100">
+        
+        $91.80
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding text-gray-700">
+        $8.20 / 8.20<span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:6KH1s4Q6GAVaXQghnuTS -->                                    <div wire:id="7S1LgETzGEkjeI3Iio4B" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;7S1LgETzGEkjeI3Iio4B&quot;,&quot;name&quot;:&quot;marketplace-neutral&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;emits&quot;:[{&quot;event&quot;:&quot;tickpickNeutralMarkupUpdated&quot;,&quot;params&quot;:[0,&quot;+0.00&quot;]},{&quot;event&quot;:&quot;markupsLink&quot;,&quot;params&quot;:[&quot;tickpick&quot;,3,0,null,null]}],&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;tickpickCheckboxClicked&quot;,&quot;tickpickSellFeeChanged&quot;,&quot;tickpickMarkupChanged&quot;,&quot;matchAllPayouts&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;f0ac014c&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;TickPick&quot;,&quot;slug&quot;:&quot;tickpick&quot;,&quot;sellFee&quot;:3,&quot;markup&quot;:0,&quot;marketplacePercentOfAnnualSales&quot;:2.2,&quot;isChecked&quot;:false},&quot;isChecked&quot;:null,&quot;display&quot;:null,&quot;exampleTicketPrice&quot;:100,&quot;sellFee&quot;:3,&quot;markup&quot;:0,&quot;neutralMarkup&quot;:0,&quot;neutralMarkupDisplay&quot;:&quot;+0.00&quot;,&quot;neutralUploadsAt&quot;:100,&quot;neutralTicketSellFee&quot;:3,&quot;neutralTicketPayout&quot;:97,&quot;neutralNetSellFeeDollars&quot;:3,&quot;neutralNetSellFeePercent&quot;:3,&quot;marketplaceSlugToMatch&quot;:null,&quot;netSellFeePercentToMatch&quot;:null,&quot;sellFeeToMatch&quot;:3,&quot;markupToMatch&quot;:0,&quot;cleanValue&quot;:null,&quot;extraClasses&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;9b7431dc05334265d19803b4bf75c1eafdd92128f6f143520cc83a59e12eba82&quot;}}" class="whitespace-nowrap text-right px-0 mx-0 bg-clip-padding border-r border-gray-300 neutral-marketplace hidden " id="tickpick-neutral">
+    <div class="py-1 px-2 bg-clip-border border-b border-gray-600 text-center font-bold">
+        TickPick
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        3.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-green-200">
+        +0.00<span class="">%</span>
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200">
+        $100.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 text-red-600">
+        -$3.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding border-b border-gray-200 font-black bg-blue-100">
+        
+        $97.00
+    </div>
+
+    <div class="py-1 px-2 bg-clip-padding text-gray-700">
+        $3.00 / 3.00<span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:7S1LgETzGEkjeI3Iio4B -->                            </div>
+        </div>
+        <div wire:id="9VlN391qP4aSWJUBwOzW" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;9VlN391qP4aSWJUBwOzW&quot;,&quot;name&quot;:&quot;markups-link&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;checkboxClicked&quot;,&quot;matchThisPayout&quot;,&quot;sellFeeChanged&quot;,&quot;markupChanged&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;4a24fde9&quot;,&quot;data&quot;:{&quot;marketplaces&quot;:[{&quot;name&quot;:&quot;Vivid Seats&quot;,&quot;slug&quot;:&quot;vivid&quot;,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;2.4&quot;,&quot;marketplacePercentOfAnnualSales&quot;:44.1,&quot;isChecked&quot;:true},{&quot;name&quot;:&quot;StubHub&quot;,&quot;slug&quot;:&quot;stubhub&quot;,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;6.8&quot;,&quot;marketplacePercentOfAnnualSales&quot;:15.1,&quot;isChecked&quot;:true},{&quot;name&quot;:&quot;Ticket Evolution&quot;,&quot;slug&quot;:&quot;tevo&quot;,&quot;sellFee&quot;:&quot;3&quot;,&quot;markup&quot;:&quot;0&quot;,&quot;marketplacePercentOfAnnualSales&quot;:1.1,&quot;isChecked&quot;:true},{&quot;name&quot;:&quot;Ticketmaster&quot;,&quot;slug&quot;:&quot;ticketmaster&quot;,&quot;sellFee&quot;:&quot;8.5&quot;,&quot;markup&quot;:&quot;3&quot;,&quot;marketplacePercentOfAnnualSales&quot;:12.2,&quot;isChecked&quot;:true},{&quot;name&quot;:&quot;Ticket Network&quot;,&quot;slug&quot;:&quot;tnet&quot;,&quot;sellFee&quot;:9,&quot;markup&quot;:5,&quot;marketplacePercentOfAnnualSales&quot;:7.2,&quot;isChecked&quot;:false},{&quot;name&quot;:&quot;SeatGeek&quot;,&quot;slug&quot;:&quot;seatgeek&quot;,&quot;sellFee&quot;:15,&quot;markup&quot;:6.88,&quot;marketplacePercentOfAnnualSales&quot;:13.3,&quot;isChecked&quot;:false},{&quot;name&quot;:&quot;Gametime&quot;,&quot;slug&quot;:&quot;gametime&quot;,&quot;sellFee&quot;:10,&quot;markup&quot;:2,&quot;marketplacePercentOfAnnualSales&quot;:1.6,&quot;isChecked&quot;:false},{&quot;name&quot;:&quot;TickPick&quot;,&quot;slug&quot;:&quot;tickpick&quot;,&quot;sellFee&quot;:3,&quot;markup&quot;:0,&quot;marketplacePercentOfAnnualSales&quot;:2.2,&quot;isChecked&quot;:false}],&quot;markups&quot;:{&quot;vivid&quot;:{&quot;isShown&quot;:true,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;2.4&quot;},&quot;stubhub&quot;:{&quot;isShown&quot;:true,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;6.8&quot;},&quot;tevo&quot;:{&quot;isShown&quot;:true,&quot;sellFee&quot;:&quot;3&quot;,&quot;markup&quot;:&quot;0&quot;},&quot;ticketmaster&quot;:{&quot;isShown&quot;:true,&quot;sellFee&quot;:&quot;8.5&quot;,&quot;markup&quot;:&quot;3&quot;},&quot;tnet&quot;:{&quot;isShown&quot;:false,&quot;sellFee&quot;:9,&quot;markup&quot;:5},&quot;seatgeek&quot;:{&quot;isShown&quot;:false,&quot;sellFee&quot;:15,&quot;markup&quot;:6.88},&quot;gametime&quot;:{&quot;isShown&quot;:false,&quot;sellFee&quot;:10,&quot;markup&quot;:2},&quot;tickpick&quot;:{&quot;isShown&quot;:false,&quot;sellFee&quot;:3,&quot;markup&quot;:0}},&quot;marketplaceSlugToMatch&quot;:null,&quot;url&quot;:&quot;https:\/\/fixmymarkups.com?vivid%5BsellFee%5D=15&amp;vivid%5Bmarkup%5D=2.4&amp;stubhub%5BsellFee%5D=15&amp;stubhub%5Bmarkup%5D=6.8&amp;tevo%5BsellFee%5D=3&amp;tevo%5Bmarkup%5D=0&amp;ticketmaster%5BsellFee%5D=8.5&amp;ticketmaster%5Bmarkup%5D=3&quot;,&quot;shortUrl&quot;:&quot;http:\/\/fixmymarkups.com\/r\/k4x9e&quot;,&quot;encodedUrl&quot;:null},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;74e92d2ad8a9267fcb97c447998f7cfe70de75d2432708d3074e738fb890682e&quot;}}" class="text-right text-xs my-3">
+    <a href="http://fixmymarkups.com/r/k4x9e">Link to this page</a> <button class="clipboardJS tooltip inline-flex items-center h-6 px-2 ml-1 align-middle text-indigo-100 transition-colors duration-150 bg-blue-400 rounded-lg focus:shadow-outline hover:bg-blue-700 text-sm" data-clipboard-text="http://fixmymarkups.com/r/k4x9e" data-title="Click to copy URL" data-placement="top"><i class="fa fa-copy text-sm"></i></button>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<!-- Livewire Component wire-end:9VlN391qP4aSWJUBwOzW -->    </section>
+
+
+    <section class="container mx-auto flex-wrap p-6 m-6 border-2 rounded-lg hidden" id="adjust-markups">
+        <h2 class="my-2 text-4xl font-bold w-full">4. Get paid the same by all marketplaces</h2>
+
+        <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+            Now that you know the correct settings for each marketplace you need to let your automator know to apply these settings to your uploads.
+        </p>
+
+        <div class="container mx-auto flex flex-wrap py-6">
+            <!-- Sidebar Section -->
+            <aside class="w-full md:w-1/3 flex flex-col items-left px-3">
+                <div class="bg-white border-2 border-blue-800 overflow-hidden sm:rounded-lg">
+                    <div class="px-4 py-5 sm:px-6 bg-blue-800">
+                        <h3 class="text-xl leading-6 font-black text-gray-200 tracking-wider">
+                            Your New Adjustments
+                        </h3>
+                        <p class="mt-1 max-w-2xl text-base text-gray-200">
+                            These settings will result in the same payout from each marketplace. You can copy and paste these into an email to your automator.
+                        </p>
+                    </div>
+                    <div class="border-t border-gray-200">
+                        <dl>
+                                                            <div wire:id="TirDa9K8QiXazw6PPRna" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;TirDa9K8QiXazw6PPRna&quot;,&quot;name&quot;:&quot;markups-summary&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;vividNeutralMarkupUpdated&quot;,&quot;vividCheckboxClicked&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;b0ed94ed&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Vivid Seats&quot;,&quot;slug&quot;:&quot;vivid&quot;,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;2.4&quot;,&quot;marketplacePercentOfAnnualSales&quot;:44.1,&quot;isChecked&quot;:true},&quot;display&quot;:null,&quot;neutralMarkup&quot;:null,&quot;neutralMarkupDisplay&quot;:null},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;29eb6fe0d028acb0a65c5dc92d0e28c16223af85e2f0d0c180f75f9485a503c1&quot;}}" class="grid grid-cols-3 gap-4 bg-gray-50 px-4 py-5  ">
+    <div class="text-lg font-medium text-gray-900">
+        Vivid Seats
+    </div>
+    <div class="mt-1 text-lg text-gray-900 font-bold sm:mt-0 sm:col-span-2">
+        <span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:TirDa9K8QiXazw6PPRna -->                                                            <div wire:id="ZNNInVk4XmZKJClwpIMn" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;ZNNInVk4XmZKJClwpIMn&quot;,&quot;name&quot;:&quot;markups-summary&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;stubhubNeutralMarkupUpdated&quot;,&quot;stubhubCheckboxClicked&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;5df8571c&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;StubHub&quot;,&quot;slug&quot;:&quot;stubhub&quot;,&quot;sellFee&quot;:&quot;15&quot;,&quot;markup&quot;:&quot;6.8&quot;,&quot;marketplacePercentOfAnnualSales&quot;:15.1,&quot;isChecked&quot;:true},&quot;display&quot;:null,&quot;neutralMarkup&quot;:null,&quot;neutralMarkupDisplay&quot;:null},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;c54222166e188d3b20b8947d980e0bc1dc91e53290ff1b8b34e212857af53f2d&quot;}}" class="grid grid-cols-3 gap-4 bg-gray-50 px-4 py-5  ">
+    <div class="text-lg font-medium text-gray-900">
+        StubHub
+    </div>
+    <div class="mt-1 text-lg text-gray-900 font-bold sm:mt-0 sm:col-span-2">
+        <span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:ZNNInVk4XmZKJClwpIMn -->                                                            <div wire:id="apfzm67niZdqkG3g4uRZ" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;apfzm67niZdqkG3g4uRZ&quot;,&quot;name&quot;:&quot;markups-summary&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;tevoNeutralMarkupUpdated&quot;,&quot;tevoCheckboxClicked&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;9632ef70&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Ticket Evolution&quot;,&quot;slug&quot;:&quot;tevo&quot;,&quot;sellFee&quot;:&quot;3&quot;,&quot;markup&quot;:&quot;0&quot;,&quot;marketplacePercentOfAnnualSales&quot;:1.1,&quot;isChecked&quot;:true},&quot;display&quot;:null,&quot;neutralMarkup&quot;:null,&quot;neutralMarkupDisplay&quot;:null},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;71f1a3808943b6c0da6c3835535ef4fd7d1413a006d332b3e093b71a93f4ba5e&quot;}}" class="grid grid-cols-3 gap-4 bg-gray-50 px-4 py-5  ">
+    <div class="text-lg font-medium text-gray-900">
+        Ticket Evolution
+    </div>
+    <div class="mt-1 text-lg text-gray-900 font-bold sm:mt-0 sm:col-span-2">
+        <span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:apfzm67niZdqkG3g4uRZ -->                                                            <div wire:id="afje2eQYVJ9kuF0anQqh" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;afje2eQYVJ9kuF0anQqh&quot;,&quot;name&quot;:&quot;markups-summary&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;ticketmasterNeutralMarkupUpdated&quot;,&quot;ticketmasterCheckboxClicked&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;d4648775&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Ticketmaster&quot;,&quot;slug&quot;:&quot;ticketmaster&quot;,&quot;sellFee&quot;:&quot;8.5&quot;,&quot;markup&quot;:&quot;3&quot;,&quot;marketplacePercentOfAnnualSales&quot;:12.2,&quot;isChecked&quot;:true},&quot;display&quot;:null,&quot;neutralMarkup&quot;:null,&quot;neutralMarkupDisplay&quot;:null},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;e7f8431d155979fcec9991573cc6065ac376a8c5c3056eeef0590206afcdbd98&quot;}}" class="grid grid-cols-3 gap-4 bg-gray-50 px-4 py-5  ">
+    <div class="text-lg font-medium text-gray-900">
+        Ticketmaster
+    </div>
+    <div class="mt-1 text-lg text-gray-900 font-bold sm:mt-0 sm:col-span-2">
+        <span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:afje2eQYVJ9kuF0anQqh -->                                                            <div wire:id="UbyVUWJnCgcruPhY6Jjm" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;UbyVUWJnCgcruPhY6Jjm&quot;,&quot;name&quot;:&quot;markups-summary&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;tnetNeutralMarkupUpdated&quot;,&quot;tnetCheckboxClicked&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;0166520b&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Ticket Network&quot;,&quot;slug&quot;:&quot;tnet&quot;,&quot;sellFee&quot;:9,&quot;markup&quot;:5,&quot;marketplacePercentOfAnnualSales&quot;:7.2,&quot;isChecked&quot;:false},&quot;display&quot;:null,&quot;neutralMarkup&quot;:null,&quot;neutralMarkupDisplay&quot;:null},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;44e61b2e1a6f1bb46393e27c2ecbaeee169307f0f5a8fbde94a0ae182f4232aa&quot;}}" class="grid grid-cols-3 gap-4 bg-gray-50 px-4 py-5  hidden">
+    <div class="text-lg font-medium text-gray-900">
+        Ticket Network
+    </div>
+    <div class="mt-1 text-lg text-gray-900 font-bold sm:mt-0 sm:col-span-2">
+        <span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:UbyVUWJnCgcruPhY6Jjm -->                                                            <div wire:id="vvBEFnU9wIz2a3WZgMJc" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;vvBEFnU9wIz2a3WZgMJc&quot;,&quot;name&quot;:&quot;markups-summary&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;seatgeekNeutralMarkupUpdated&quot;,&quot;seatgeekCheckboxClicked&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;eb3a972c&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;SeatGeek&quot;,&quot;slug&quot;:&quot;seatgeek&quot;,&quot;sellFee&quot;:15,&quot;markup&quot;:6.88,&quot;marketplacePercentOfAnnualSales&quot;:13.3,&quot;isChecked&quot;:false},&quot;display&quot;:null,&quot;neutralMarkup&quot;:null,&quot;neutralMarkupDisplay&quot;:null},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;0d5c53bef97ed0046ab778e784832d13a98026cf04262152ee5340b7dc4e23b6&quot;}}" class="grid grid-cols-3 gap-4 bg-gray-50 px-4 py-5  hidden">
+    <div class="text-lg font-medium text-gray-900">
+        SeatGeek
+    </div>
+    <div class="mt-1 text-lg text-gray-900 font-bold sm:mt-0 sm:col-span-2">
+        <span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:vvBEFnU9wIz2a3WZgMJc -->                                                            <div wire:id="bv2QIqzlWLvmKohoQyb9" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;bv2QIqzlWLvmKohoQyb9&quot;,&quot;name&quot;:&quot;markups-summary&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;gametimeNeutralMarkupUpdated&quot;,&quot;gametimeCheckboxClicked&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;b7eca025&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;Gametime&quot;,&quot;slug&quot;:&quot;gametime&quot;,&quot;sellFee&quot;:10,&quot;markup&quot;:2,&quot;marketplacePercentOfAnnualSales&quot;:1.6,&quot;isChecked&quot;:false},&quot;display&quot;:null,&quot;neutralMarkup&quot;:null,&quot;neutralMarkupDisplay&quot;:null},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;4274f06af3e815816a598df45ac0b07af81d065f088c09d45019c69aa010c415&quot;}}" class="grid grid-cols-3 gap-4 bg-gray-50 px-4 py-5  hidden">
+    <div class="text-lg font-medium text-gray-900">
+        Gametime
+    </div>
+    <div class="mt-1 text-lg text-gray-900 font-bold sm:mt-0 sm:col-span-2">
+        <span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:bv2QIqzlWLvmKohoQyb9 -->                                                            <div wire:id="T0M9WxuomBuliOXICaNJ" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;T0M9WxuomBuliOXICaNJ&quot;,&quot;name&quot;:&quot;markups-summary&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;tickpickNeutralMarkupUpdated&quot;,&quot;tickpickCheckboxClicked&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;406d99dc&quot;,&quot;data&quot;:{&quot;marketplace&quot;:{&quot;name&quot;:&quot;TickPick&quot;,&quot;slug&quot;:&quot;tickpick&quot;,&quot;sellFee&quot;:3,&quot;markup&quot;:0,&quot;marketplacePercentOfAnnualSales&quot;:2.2,&quot;isChecked&quot;:false},&quot;display&quot;:null,&quot;neutralMarkup&quot;:null,&quot;neutralMarkupDisplay&quot;:null},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;b91b1834f0a6dd3ccfd3789ddeaa514564682b03a16d0bbf8b82b7854ac60639&quot;}}" class="grid grid-cols-3 gap-4 bg-gray-50 px-4 py-5  hidden">
+    <div class="text-lg font-medium text-gray-900">
+        TickPick
+    </div>
+    <div class="mt-1 text-lg text-gray-900 font-bold sm:mt-0 sm:col-span-2">
+        <span class="">%</span>
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:T0M9WxuomBuliOXICaNJ -->                                                    </dl>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Contacts Section -->
+            <section class="w-full md:w-2/3 flex flex-col items-left px-3">
+                <article class="flex flex-col my-4">
+                    <h3 class="my-2 text-2xl font-bold w-full">1Ticket</h3>
+                    <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+                        Follow the <a class="underline text-blue-700 hover:text-blue-900" href="https://support.1ticket.com/support/solutions/articles/35000049976-adjust-inventory-broadcast-markups-and-markdowns">directions shown here.</a> If you need assistance contact <a href="mailto:support@1ticket.com?subject=Fix%20My%20Markups%20please">support@1ticket.com</a>.
+                    </p>
+
+
+
+
+
+
+                    <h3 class="my-2 text-2xl font-bold w-full">Logitix</h3>
+                    <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+                        Contact <a class="underline text-blue-700 hover:text-blue-900" href="mailto:support@logitix.com?subject=Fix%20My%20Markups%20please">support@logitix.com</a>.
+                    </p>
+
+                    <h3 class="my-2 text-2xl font-bold w-full">Seat Scouts</h3>
+                    <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+                        Follow the <a class="underline text-blue-700 hover:text-blue-900" href="https://help.seatscouts.com/en/articles/5098258-manage-markups-and-markdowns-for-each-marketplace">directions shown here.</a> If you need assistance contact <a class="underline text-blue-700 hover:text-blue-900" href="mailto:support@seatscouts.com?subject=Fix%20My%20Markups%20please">support@seatscouts.com</a>.
+                    </p>
+
+                    <h3 class="my-2 text-2xl font-bold w-full">Ticket Attendant</h3>
+                    <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+                        Contact <a class="underline text-blue-700 hover:text-blue-900" href="mailto:support@ticketattendant.com?subject=Fix%20My%20Markups%20please">support@ticketattendant.com</a>.
+                    </p>
+
+                    <h3 class="my-2 text-2xl font-bold w-full">Ticket Vault</h3>
+                    <p class="text-base font-light leading-relaxed mb-4 text-gray-900">
+                        Contact <a class="underline text-blue-700 hover:text-blue-900" href="mailto:support@ticketvaultpos.com?subject=Fix%20My%20Markups%20please">support@ticketvaultpos.com</a>.
+                    </p>
+                </article>
+            </section>
+
+        </div>
+    </section>
+
+
+
+
+<footer class="w-full border-t bg-white pb-12">
+    <div class="w-full container mx-auto flex flex-col items-center">
+
+
+
+
+
+
+        <div class="uppercase pb-6"><a href="https://www.ticketevolution.com/broker-services/">Provided by <img class="inline-block" src="https://www.ticketevolution.com/wp-content/uploads/2017/04/cropped-ticket-evolution.png" border="0" alt="Ticket Evolution"></a></div>
+    </div>
+</footer>
+
+<script src="https://fixmymarkups.com/js/app.js"></script>
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <script>
+
+        
+        function selectMarketPlaceToMatch(marketplaceSlug)
+        {
+            Livewire.emit('matchThisPayout', marketplaceSlug);
+            document.getElementById('adjust-markups').classList.remove('hidden');
+
+            let neutral = document.getElementById('neutral-pricing');
+            neutral.classList.remove('hidden');
+            neutral.scrollIntoView({block: "end", inline: "nearest", behavior: "smooth"});
+        }
+
+        tippy('.tooltip', {
+            content:(reference)=>reference.getAttribute('data-title'),
+            onMount(instance) {
+                instance.popperInstance.setOptions({
+                    placement :instance.reference.getAttribute('data-placement')
+                });
+            }
+        });
+
+
+
+        function toggleMarketplaces(checkboxElem, slug)
+        {
+            Livewire.emit(slug + 'CheckboxClicked', slug, checkboxElem.checked);
+            Livewire.emit('checkboxClicked', slug, checkboxElem.checked);
+        }
+
+
+    </script>
+
+<script src="/livewire/livewire.js?id=c69d0f2801c01fcf8166" data-turbo-eval="false" data-turbolinks-eval="false" ></script><script data-turbo-eval="false" data-turbolinks-eval="false" >window.livewire = new Livewire();window.Livewire = window.livewire;window.livewire_app_url = '';window.livewire_token = '5g9W1gJuv6ZBGOziavQdBfEgMzRjizTA8NrF2y8z';window.deferLoadingAlpine = function (callback) {window.addEventListener('livewire:load', function () {callback();});};let started = false;window.addEventListener('alpine:initializing', function () {if (! started) {window.livewire.start();started = true;}});document.addEventListener("DOMContentLoaded", function () {if (! started) {window.livewire.start();started = true;}});</script>
+
+</body>
+</html>

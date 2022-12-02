@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Realtime At Best Ever Rates - PieSocket Realtime</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <!-- † -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="AGJ29hS96In63Wbj6qNfmiCLa5FbTSFbMzGvT1sF">
+    <meta name="url" content="https://www.piesocket.com">
+    <meta name="docsearch:version" content="3.0" />
+
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+
+    
+    
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+
+            <meta name="description"
+            content="Managed WebSocket Server API, pub-sub and scalable biredetional communication solutions">
+    
+    <!-- Styles -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <link href="/css/websocket.css" rel="stylesheet">
+    
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KCPHTW3');
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body class="pricing">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCPHTW3" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="app" data-sticky-wrap>
+        <div class="bg-gray-50">
+            <div class="relative overflow-hidden">               
+                <div class="relative pt-4 pb-8">
+                    <div>
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                            <nav class="relative flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
+    <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
+        <div class="flex items-center justify-between w-full md:w-auto">
+            <a href="/">
+                <span class="sr-only">PieSocket</span>
+                <img class="h-8 w-auto sm:h-10" src="/img/piesocket-text.png" alt="PieSocket">
+            </a>
+            <div class="-mr-2 flex items-center md:hidden">
+                <button @click="showNav=!showNav" type="button"
+                    class="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <!-- Heroicon name: outline/menu -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="hidden md:flex mt-4 md:space-x-10">
+
+        <div>
+            <a v-on:clickout="showMoreMenu=false" @click="showMoreMenu=!showMoreMenu"
+                class="text-gray-500 cursor-pointer group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                aria-expanded="false">
+                <span>Products</span>
+                <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </a>
+            <div v-cloak v-if="showMoreMenu" class="v-cloak absolute mt-4 z-10 left-1/3 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <a href="/channels" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Channels
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                PubSub SDK For Web
+                            </p>
+                        </a>
+                        <a href="/portals" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Portals
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                WebRTC SDK For Web
+                            </p>
+                        </a>                        
+                        <a href="/docs/3.0/websocket-api" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                WebSocket API
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500"> 
+                                WebSocket API for Web, Mobile and IoT
+                            </p>
+                        </a>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <a href="/pricing" class="font-medium text-gray-500 hover:text-gray-900">Pricing</a>
+
+        
+        <div>
+            <a v-on:clickout="showCompareNav=false" @click="showCompareNav=!showCompareNav"
+                class="text-gray-500 cursor-pointer group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                aria-expanded="false">
+                <span>Why us</span>
+                <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </a>
+            <div v-cloak v-if="showCompareNav" class="v-cloak absolute mt-4 z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <a href="/pusher-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                PieSocket vs Pusher
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Compare PieSocket and Pusher
+                            </p>
+                        </a>
+
+                        <a href="/ably-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                PieSocket vs Ably
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Compare PieSocket and Ably
+                            </p>
+                        </a>
+
+                        <a href="/socketio-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Buy vs Build
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                PieSocket or In-house solution?
+                            </p>
+                        </a>
+
+                        <a href="/realtime-blockchain" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Realtime Blockchain
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                Send signed messages over blockchain.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <a v-on:clickout="showResourcesNav=false" @click="showResourcesNav=!showResourcesNav"
+                class="text-gray-500 cursor-pointer group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                aria-expanded="false">
+                <span>Tools</span>
+                <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </a>
+            <div v-cloak v-if="showResourcesNav" class="v-cloak absolute mt-4 z-10 left-2/3 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <a href="/websocket-tester" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                WebSocket Tester
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Test WebSocket Servers Online.
+                            </p>
+                        </a>
+
+                        <a href="/socketio-tester" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Socket.IO Tester
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Test Socket.IO Servers Online
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="/blog" class="font-medium text-gray-500 hover:text-gray-900">Blog</a>
+
+        <a href="/docs" class="font-medium text-gray-500 hover:text-gray-900">Docs</a>
+    </div>
+
+    <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
+                    <span class="inline-flex rounded-md shadow">
+                <a href="/login"
+                    class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500">
+                    Log in
+                </a>
+            </span>
+            <span class="inline-flex ml-4 rounded-md shadow ">
+                <a href="/pricing"
+                    class="bg-indigo-600 hover:bg-indigo-700 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white">
+                    Get Started
+                </a>
+            </span>
+            </div>
+</nav>
+                        </div>
+                        <div v-cloak  v-if="showNav" class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+    <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+        <div class="px-5 pt-4 flex items-center justify-between">
+            <div>
+                <a href="/"><img class="h-8 w-auto" src="/img/piesocket-text.png" alt="PieSocket"></a>
+            </div>
+            <div class="-mr-2">
+                <button @click="showNav=!showNav" type="button"
+                    class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <span class="sr-only">Close main menu</span>
+                    <!-- Heroicon name: outline/x -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <div class="v-cloak ml-3">
+                <a v-on:clickout="showMoreMenu=false" @click="showMoreMenu=!showMoreMenu"
+                    class="text-gray-700 cursor-pointer group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    aria-expanded="false">
+                    <span>Products</span>
+                    <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <div v-cloak v-if="showMoreMenu" class="v-cloak absolute mt-4 z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
+                    <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                        <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                            <a href="/channels" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                                <p class="text-base font-medium text-gray-900">
+                                    Channels
+                                </p>
+                                <p class="mt-1 text-sm text-gray-500">
+                                    PubSub SDK For Web
+                                </p>
+                            </a>
+                            <a href="/portals" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                                <p class="text-base font-medium text-gray-900">
+                                    Portals
+                                </p>
+                                <p class="mt-1 text-sm text-gray-500">
+                                    WebRTC SDK For Web
+                                </p>
+                            </a>
+                            <a href="/docs/3.0/websocket-api" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                                <p class="text-base font-medium text-gray-900">
+                                    WebSocket API
+                                </p>
+                                <p class="mt-1 text-sm text-gray-500">
+                                    WebSocket API for Web, Mobile and IoT
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="/use-cases"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Use Cases</a>
+            <a href="/pricing"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Pricing</a>
+            <div>
+            <a  v-on:clickout="showCompareNav=false" @click="showCompareNav=!showCompareNav"
+                class="inline-flex  px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                aria-expanded="false">
+                <span>Why us</span>
+                <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </a>
+            <div v-cloak="true" v-if="showCompareNav" class="v-cloak absolute mt-10 z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <a href="/pusher-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                PieSocket vs Pusher
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Compare PieSocket and Pusher
+                            </p>
+                        </a>
+
+                        <a href="/ably-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                PieSocket vs Ably
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Compare PieSocket and Ably
+                            </p>
+                        </a>
+
+                        <a href="/socketio-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Buy vs Build
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                PieSocket or In-house solution?
+                            </p>
+                        </a>
+
+                        <a href="/realtime-blockchain" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Realtime Blockchain
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                Send signed messages over blockchain.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <a href="/docs"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Documentation</a>
+    
+        </div>
+        <a href="/login"
+            class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700">
+            Log in
+        </a>
+        <a href="/register?plan=development"
+            class="block w-full px-5 py-3 text-center font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+            Get Started
+        </a>
+    </div>
+</div>
+                    </div>
+
+                    <div class="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6">
+                        <div class="text-center">
+                            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">
+                                Pricing</h2>
+                            <p
+                                class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+                                Realtime At Best Ever Rates</p>
+                            <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">PieSocket cuts your realtime costs by half! Try PieSocket free for 14 days, no credit card
+    required.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white">
+                    
+    <div class="mt-4 relative max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 lg:mt-5">
+
+        
+        <div class="max-w-md mx-auto lg:max-w-5xl">
+
+
+            
+            <div class="rounded-md bg-blue-50 p-4 m-4">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <!-- Heroicon name: solid/information-circle -->
+                        <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="ml-3 flex-1 md:flex md:justify-between">
+                        <p class="text-sm text-blue-700">
+                            Test our services without an account.
+                        </p>
+                        <p class="mt-3 text-sm md:mt-0 md:ml-6">
+                            <a href="/websocket-tester#demo-credentials" target="_blank"
+                                class="whitespace-nowrap font-medium text-blue-700 hover:text-blue-600">Show demo
+                                credentials <span aria-hidden="true">&rarr;</span></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="rounded-lg bg-gray-100 px-6 py-8 sm:p-10 lg:flex lg:items-center">
+                <div class="flex-1">
+                    <div>
+                        <h3
+                            class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-white text-gray-800">
+                            Starter Plan
+                        </h3>
+                    </div>
+                    <div class="mt-4 text-lg text-gray-600">
+                        Most suited for small and under-development projects,<br />
+                        200k messages per day, 300 concurrent connections, 10 portal participants.
+                    </div>
+                </div>
+                <div class="mt-6 lg:mt-0 lg:ml-10 lg:flex-shrink-0">
+                    <div>
+                        <p class="mt-2 mb-4 text-center">
+                            <span class="text-4xl font-extrabold text-gray-900">{{ getMonthlyPrice("development") }}</span>
+                            <span class="text-base font-medium text-gray-500">/mo</span> <br />
+                            <span class=" font-small text-gray-500">
+                                Charged {{ getInvoicePrice("development") }} {{ pricingMonthly ? "monthly" : "annually" }}
+                            </span>
+                        </p>
+                    </div>
+
+                    <button @click="selectPlanToOrder('development')"
+  class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50 w-full">
+      Start 14 days trial
+  </button>
+                </div>
+            </div>
+
+            <div class="m-4 flex justify-center">
+                <div class="relative inline-block self-center mt-6 bg-gray-100 rounded-lg p-0.5 flex sm:mt-8">
+                    <button @click="pricingMonthly=true" type="button"
+                        v-bind:class='"relative py-2 px-4 rounded-md  text-sm font-medium  whitespace-nowrap focus:outline-none  focus:z-10 sm:w-auto sm:px-8 " + (!pricingMonthly ? "border-transparent text-gray-700":"bg-white border-gray-200 shadow-sm text-gray-900")'>Monthly
+                        billing</button>
+                    <button @click="pricingMonthly=false" type="button"
+                        v-bind:class='"ml-0.5 relative py-2 px-4 border  rounded-md text-sm font-medium whitespace-nowrap focus:outline-none  focus:z-10 sm:w-auto sm:px-8 " + (pricingMonthly ? "border-transparent text-gray-700":"bg-white border-gray-200 shadow-sm text-gray-900")'>Yearly
+                        billing</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white">
+        <div class="max-w-7xl mx-auto pb-24 px-4 sm:px-6 lg:px-8">
+            <div
+                class="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-4">
+
+                
+                <div class="border border-gray-200 rounded-lg shadow-sm divide-x divide-y divide-gray-200">
+                    <div class="p-6">
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">Individual</h2>
+                        <p class="mt-4 text-sm text-gray-500">Unlock production features and auto-scaling.</p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">{{ getMonthlyPrice("individual") }}</span>
+                            <span class="text-base font-medium text-gray-500">/mo</span>
+                        <div class=" font-small text-gray-500">
+                            Charged {{ getInvoicePrice("individual") }} {{ pricingMonthly ? "monthly" : "annually" }}
+                        </div>
+                        </p>
+                        <button @click="selectPlanToOrder('starter-plus')"
+  class="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900">
+      Start 14 days trial
+  </button>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <h3 class-="text-xs font-medium text-gray-900 tracking-wide uppercase">What's included</h3>
+                        <ul role="list" class="mt-6 space-y-4">
+                                                                                        <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">Production Features: Autoscaling, Force Authentication, Domain whitelist, etc</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">Webhooks</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">1 million messages/day</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">1,000 concurrent connections</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">Origin Validation</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">Channel Protection</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">Email support</span>
+                                </li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                
+                <div class="relative z-10 rounded-lg shadow-xl">
+                    <div class="pointer-events-none absolute inset-0 rounded-lg border-2 border-indigo-600"
+                        aria-hidden="true"></div>
+                    <div class="absolute inset-x-0 top-0 transform translate-y-px">
+                        <div class="flex justify-center transform -translate-y-1/2">
+                            <span
+                                class="inline-flex rounded-full bg-indigo-600 px-4 py-1 text-sm font-semibold tracking-wider uppercase text-white">
+                                Most popular
+                            </span>
+                        </div>
+                    </div>
+                    <div class="rounded-lg divide-y divide-gray-200">
+                        <div class="p-6">
+                            <h2 class="text-lg leading-6 font-medium text-gray-900">Startup</h2>
+                            <p class="mt-4 text-sm text-gray-500">Unlock preferred server region and teams.</p>
+                            <p class="mt-8">
+                                <span class="text-4xl font-extrabold text-gray-900">{{ getMonthlyPrice("agency") }}</span>
+                                <span class="text-base font-medium text-gray-500">/mo</span>
+                            <div class=" font-small text-gray-500">
+                                Charged {{ getInvoicePrice("agency") }} {{ pricingMonthly ? "monthly" : "annually" }}
+                            </div>
+                            </p>
+                            <button @click="selectPlanToOrder('professionalplus')"
+  class="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900">
+      Start 14 days trial
+  </button>
+                        </div>
+                        <div class="pt-6 pb-8 px-6">
+                            <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">What's included</h3>
+                            <ul role="list" class="mt-6 space-y-4">
+                                                                                                    <li class="flex space-x-3">
+                                        <!-- Heroicon name: solid/check -->
+                                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm text-gray-500">All in Individual</span>
+                                    </li>
+                                                                    <li class="flex space-x-3">
+                                        <!-- Heroicon name: solid/check -->
+                                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm text-gray-500">5 million messages/day</span>
+                                    </li>
+                                                                    <li class="flex space-x-3">
+                                        <!-- Heroicon name: solid/check -->
+                                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm text-gray-500">5,000 concurrent connections</span>
+                                    </li>
+                                                                    <li class="flex space-x-3">
+                                        <!-- Heroicon name: solid/check -->
+                                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm text-gray-500">Preferred Server Region</span>
+                                    </li>
+                                                                    <li class="flex space-x-3">
+                                        <!-- Heroicon name: solid/check -->
+                                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm text-gray-500">Blockchain Support</span>
+                                    </li>
+                                                                    <li class="flex space-x-3">
+                                        <!-- Heroicon name: solid/check -->
+                                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm text-gray-500">5 Team members</span>
+                                    </li>
+                                                                    <li class="flex space-x-3">
+                                        <!-- Heroicon name: solid/check -->
+                                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-sm text-gray-500">Priority support</span>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                
+                <div class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
+                    <div class="p-6">
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">Growth</h2>
+                        <p class="mt-4 text-sm text-gray-500">Get 100% hold on your data with no-log policy.
+                        </p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">{{ getMonthlyPrice("startup") }}</span>
+                            <span class="text-base font-medium text-gray-500">/mo</span>
+                        <div class=" font-small text-gray-500">
+                            Charged {{ getInvoicePrice("startup") }} {{ pricingMonthly ? "monthly" : "annually" }}
+                        </div>
+                        </p>
+                        <button @click="selectPlanToOrder('premium-plus')"
+  class="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900">
+      Start 14 days trial
+  </button>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">What's included</h3>
+                        <ul role="list" class="mt-6 space-y-4">
+                                                                                        <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">All in Startup</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">15 million messages/day</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">10,000 concurrent connections</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">No-Log Contract</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">Support over shared Slack channel</span>
+                                </li>
+                                                    </ul>
+                    </div>
+                </div>
+
+                
+                <div class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
+                    <div class="p-6">
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">Business</h2>
+                        <p class="mt-4 text-sm text-gray-500">For busy applications and growing businesses, 99.99% uptime SLA.</p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">{{ getMonthlyPrice("business") }}</span>
+                            <span class="text-base font-medium text-gray-500">/mo</span>
+                        <div class=" font-small text-gray-500">
+                            Charged {{ getInvoicePrice("business") }} {{ pricingMonthly ? "monthly" : "annually" }}
+                        </div>
+                        </p>
+                        <button @click="selectPlanToOrder('business')"
+  class="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900">
+      Start 14 days trial
+  </button>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">What's included</h3>
+                        <ul role="list" class="mt-6 space-y-4">
+                                                                                        <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">All in Growth</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">30 million messages/day</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">15,000 concurrent connections</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">MQTT support</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">99.99% uptime SLA</span>
+                                </li>
+                                                            <li class="flex space-x-3">
+                                    <!-- Heroicon name: solid/check -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-500">24*7 Phone support</span>
+                                </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gray-50 pt-24 pb-24">
+        <div class="bg-gray-50">
+            <div class="relative">
+                <div class="absolute inset-0 h-1/2"></div>
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+                        <div class="flex-1 bg-white px-6 py-8 lg:p-12">
+                            <h3 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">
+                                Build Your Own Plan
+                            </h3>
+
+                            Cost per thousand connections: $7 <br />
+                            Cost per million messages: $1
+                            </p>
+                            <p class="mt-6 text-base text-gray-400">
+                                Auto-scales at $14 per thousand connections,
+                                $2 per million messages.
+                            </p>
+                            <p class="mt-6 text-base text-gray-500">
+                            </p>
+                            <div class="mt-8">
+                                <div class="flex items-center">
+                                    <h4
+                                        class="flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600">
+                                        Calculator
+                                    </h4>
+                                    <div class="flex-1 border-t-2 border-gray-200"></div>
+                                </div>
+                                <div class="mt-1 sm:mt-0 sm:col-span-2 grid sm:grid-cols-1 md:grid-cols-2 md:space-x-4">
+                                    <div class="w-full mt-6 sm:mt-5">
+
+                                        <div class="max-w-lg flex rounded-md shadow-sm">
+                                            <span
+                                                class="inline-flex items-center p-4 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                                                Connections
+                                            </span>
+                                            <input
+                                                 v-model="calculatorConnections"                                                 step="500" min="200" max="100000" type="number"
+                                                class="p-4 border border-gray-300 text-2xl flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm">
+                                        </div>
+                                    </div>
+                                    <div class="w-full mt-6 sm:mt-5">
+
+                                        <div class="max-w-lg flex rounded-md shadow-sm">
+                                            <span
+                                                class="inline-flex items-center p-4 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                                                Messages/day in million
+                                            </span>
+                                            <input
+                                                 v-model="calculatorMessages"                                                 step="1" min="1" max="100" type="number"
+                                                class="p-4 border border-gray-300 text-2xl flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
+                            <p class="text-lg leading-6 font-medium text-gray-900">
+                                Calculated price for your custom plan.
+                            </p>
+                            <div class="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900">
+                                <span>
+                                                                            {{ userCurrency == "INR" ? "₹" : "$" }}{{ calculatorResult.toLocaleString() }}
+                                                                    </span>
+                                <span class="ml-3 text-xl font-medium text-gray-500">
+                                    /month
+                                </span>
+                            </div>
+
+                            <div class="mt-6">
+                                <div class="rounded-md shadow">
+                                                                            <button @click="selectPlanToOrder('custom')"
+  class="p-4 mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md text-sm font-semibold text-white text-center hover:bg-gray-900">
+      Subscribe
+  </button>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
+                <span class="block">Enterprise Plan Features</span>
+                <span class="block text-indigo-600">Talk to sales to setup Enterprise plans.</span>
+            </h2>
+            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div class="inline-flex rounded-md shadow">
+                    <a target="_blank" href="/contact?type=enterprise_enquiry"
+                        class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                        Let's talk
+                        <svg class="-mr-1 ml-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                            <path
+                                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-24 pb-24">
+
+        <div
+            class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
+            <div
+                class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+                <div>
+                    <span class="rounded-lg inline-flex p-3 bg-yellow-50 text-yellow-700 ring-4 ring-white">
+                        <!-- Heroicon name: outline/clock -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="mt-8">
+                    <h3 class="text-lg font-medium">
+                        <!-- Extend touch target to entire panel -->
+                        <span class="absolute inset-0" aria-hidden="true"></span>
+                        Unlimited Messages And Connections
+                    </h3>
+                    <p class="mt-2 text-sm text-gray-500">Get a plan tailor-made just for your organization with upto
+                        unlimited messages and connections.</p>
+                </div>
+            </div>
+
+            <div
+                class="sm:rounded-tr-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+                <div>
+                    <span class="rounded-lg inline-flex p-3 bg-purple-50 text-purple-700 ring-4 ring-white">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg> </span>
+                </div>
+                <div class="mt-8">
+                    <h3 class="text-lg font-medium">
+                        <span class="absolute inset-0" aria-hidden="true"></span>
+                        Discounted Rates
+                    </h3>
+                    <p class="mt-2 text-sm text-gray-500">Get messages and connections at heavily discounted rates to meet
+                        your requirements at scale.</p>
+                </div>
+            </div>
+
+            <div
+                class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+                <div>
+                    <span  class="rounded-lg inline-flex p-3 bg-purple-50 text-purple-700 ring-4 ring-white">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                          </svg>                    </span>
+                </div>
+                <div class="mt-8">
+                    <h3 class="text-lg font-medium">
+                        <span class="absolute inset-0" aria-hidden="true"></span>
+                        Dedicated Customer Success Representative
+                    </h3>
+                    <p class="mt-2 text-sm text-gray-500">Get access to a dedicated account manager over Whatsapp/Slack to
+                        ensure your success with PieSocket. </p>
+                </div>
+            </div>
+
+            <div
+                class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+                <div>
+                    <span class="rounded-lg inline-flex p-3 bg-yellow-50 text-yellow-700 ring-4 ring-white">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                          </svg>                    </span>
+                </div>
+                <div class="mt-8">
+                    <h3 class="text-lg font-medium">
+                        <!-- Extend touch target to entire panel -->
+                        <span class="absolute inset-0" aria-hidden="true"></span>
+                        Implementation Engineer Access
+                    </h3>
+                    <p class="mt-2 text-sm text-gray-500">Have an implementation engineer work with your team to make sure
+                        PieSocket's full potential is utilized in your organization.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="relative bg-gray-800">
+        <div class="h-56 bg-indigo-600 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
+            <img class="w-full h-full object-cover"
+                src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&blend=6366F1&sat=-100&blend-mode=multiply"
+                alt="">
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+            <div class="md:ml-auto md:w-1/2 md:pl-10">
+                <h2 class="text-base font-semibold uppercase tracking-wider text-gray-300">
+                    PieSocket Partners
+                </h2>
+                <p class="mt-2 text-white text-3xl font-extrabold tracking-tight sm:text-4xl">
+                    Using PieSocket For Your Clients?
+                </p>
+                <p class="mt-3 text-lg text-gray-300">
+                    We have a special partnership program for agencies. Make recurring revenue with 10% of the billings on
+                    your client's invoices.
+                </p>
+                <div class="mt-8">
+                    <div class="inline-flex rounded-md shadow">
+                        <a href="/partners"
+                            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
+                            View partners program
+                            <svg class="-mr-1 ml-3 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                <path
+                                    d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-white">
+  <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
+    <div class="lg:grid lg:grid-cols-3 lg:gap-8">
+      <div>
+        <h2 class="text-3xl font-extrabold text-gray-900">
+          Frequently asked questions
+        </h2>
+        <p class="mt-4 text-lg text-gray-500">Can’t find the answer you’re looking for? Reach out to our <a href="/contact" class="font-medium text-indigo-600 hover:text-indigo-500">customer support</a> team.</p>
+      </div>
+      <div class="mt-12 lg:mt-0 lg:col-span-2">
+        <dl class="space-y-12">
+                              <div>
+            <dt class="text-lg leading-6 font-medium text-gray-900">
+              What are concurrent connections?
+            </dt>
+            <dd class="mt-2 text-base text-gray-500">
+              It is the total number channel connections using your API keys. Your concurrent connection limit is the peak number of connections allowed at any given time.
+            </dd>
+          </div>
+                    <div>
+            <dt class="text-lg leading-6 font-medium text-gray-900">
+              How are messages counted?
+            </dt>
+            <dd class="mt-2 text-base text-gray-500">
+              A message is counted as number of messages delivered. Let's assume, there are 100 peers connected
+                            to your channel and one of them sends a message, it will be counted as 100 messages (99 if
+                            notifySelf is disabled).
+            </dd>
+          </div>
+                    <div>
+            <dt class="text-lg leading-6 font-medium text-gray-900">
+              Why chose a bigger plan when I can enable autoscaling?
+            </dt>
+            <dd class="mt-2 text-base text-gray-500">
+              Paying fixed price upfront for the resource usage results in cost-saving over auto-scaling.
+            </dd>
+          </div>
+                    <div>
+            <dt class="text-lg leading-6 font-medium text-gray-900">
+              How much does auto-scaling cost?
+            </dt>
+            <dd class="mt-2 text-base text-gray-500">
+              Autoscaling is available with all paid plans, it costs  <b>$2 per million messages</b> and <b>$14 per thousand connections</b>.
+                            If autoscaling is disabled, extra connections/messages will be droppped.
+            </dd>
+          </div>
+                    <div>
+            <dt class="text-lg leading-6 font-medium text-gray-900">
+              What happens if I exceed my daily message quota?
+            </dt>
+            <dd class="mt-2 text-base text-gray-500">
+              With auto-scaling enabled, you will be charged $2 per million message
+                            for all extra messages sent over your plan's daily limit. To help you stay alert, we send
+                            out daily usage alerts every mid-night (UTC time).
+
+                            If you have auto-scaling disabled for your API key, post quota-exhaustion the server will
+                            refuse all connections.
+            </dd>
+          </div>
+                    <div>
+            <dt class="text-lg leading-6 font-medium text-gray-900">
+              What happens if I reach my concurrent connections limit?
+            </dt>
+            <dd class="mt-2 text-base text-gray-500">
+              Same as messages, with auto-scaling enabled the cluster will accept extra connections beyond
+                            your quota. Charges will apply as $14 per thousand connections. If autoscaling is disabled, extra connections will be droppped.
+            </dd>
+          </div>
+                  </dl>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="bg-gray-50">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+      <span class="block">Get started for free</span>
+      <span class="block text-indigo-600">Sign up to generate your API keys.</span>
+    </h2>
+    <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+      <div class="inline-flex rounded-md shadow">
+        <a href="/register?plan=development" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+          Try For Free
+        </a>
+      </div>
+      <div class="ml-3 inline-flex rounded-md shadow">
+        <a href="/pricing" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
+          View Plans
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+                    </div>
+            </div>
+        </div>
+
+        <footer class="bg-gray-800" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <div class="grid grid-cols-2 gap-8 xl:col-span-2">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+              RESOURCES
+            </h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="/websocket-tester" class="text-base text-gray-300 hover:text-white">
+                 WebSocket Tester
+                </a>
+              </li>
+
+              <li>
+                <a href="/blog" class="text-base text-gray-300 hover:text-white">
+                  Blog
+                </a>
+              </li>
+
+              <li>
+                <a href="/redeem-coupon" class="text-base text-gray-300 hover:text-white">
+                  Coupons
+                </a>
+              </li>
+
+              <li>
+                <a href="/changelog" class="text-base text-gray-300 hover:text-white">
+                  Changelog
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-12 md:mt-0">
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+              Support
+            </h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="/contact?type=report_bug" class="text-base text-gray-300 hover:text-white">
+                  Report a bug
+                </a>
+              </li>
+
+              <li>
+                <a href="/community" class="text-base text-gray-300 hover:text-white">
+                  Community
+                </a>
+              </li>
+
+              <li>
+                <a href="/contact" class="text-base text-gray-300 hover:text-white">
+                  Contact us
+                </a>
+              </li>
+
+              <li>
+                <a href="https://calendly.com/piesocket" target="_blank" class="text-base text-gray-300 hover:text-white">
+                  Schedule a call
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+              Company
+            </h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="https://saasvillage.com/about/" class="text-base text-gray-300 hover:text-white">
+                  About
+                </a>
+              </li>
+
+              <li>
+                <a href="https://saasvillage.com/press/" class="text-base text-gray-300 hover:text-white">
+                  Press
+                </a>
+              </li>
+
+              <li>
+                <a href="/partners" class="text-base text-gray-300 hover:text-white">
+                  Partners
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-12 md:mt-0">
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+              Legal
+            </h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="/legal/service-level-agreement" class="text-base text-gray-300 hover:text-white">
+                  Service Level Agreement
+                </a>
+              </li>
+
+              <li>
+                <a href="/legal/privacy-policy" class="text-base text-gray-300 hover:text-white">
+                  Privacy
+                </a>
+              </li>
+
+              <li>
+                <a href="/legal/terms-and-conditions" class="text-base text-gray-300 hover:text-white">
+                  Terms
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 xl:mt-0">
+        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+          Get your API key
+        </h3>
+        <p class="mt-4 text-base text-gray-300">
+          Start a trial, get a free account for 30 days.
+        </p>
+        <form action="/pricing" class="mt-4 sm:flex sm:max-w-md">
+          <label for="email-address" class="sr-only">Email address</label>
+          <input type="email" name="email" id="email-address" autocomplete="email" required class="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400" placeholder="Enter your email">
+          <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+            <button type="submit" class="w-full bg-indigo-500 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
+              Get Started
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+      <div class="flex space-x-6 md:order-2">
+        <a href="https://www.facebook.com/piesocket" target="_blank" class="text-gray-400 hover:text-gray-300">
+          <span class="sr-only">Facebook</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+          </svg>
+        </a>
+
+        <a href="https://twitter.com/PieSocketAPI" target="_blank" class="text-gray-400 hover:text-gray-300">
+          <span class="sr-only">Twitter</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+          </svg>
+        </a>
+
+        <a href="https://github.com/piesocket" target="_blank" class="text-gray-400 hover:text-gray-300">
+          <span class="sr-only">GitHub</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+          </svg>
+        </a>
+
+      </div>
+      <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+        &copy; 2022 SaaS Village LLP. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+        <script>
+        
+                window.userCurrency = "none"; //"USD";
+    </script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>

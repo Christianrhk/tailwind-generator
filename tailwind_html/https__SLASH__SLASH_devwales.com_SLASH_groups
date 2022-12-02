@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="google-site-verification" content="g7HiCSbrtyAOep07fTxqL7DJl-U5i80d8F1ax-k2KNo">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Groups - Dev Wales</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:700|Open+Sans|Open+Sans:700|Open+Sans:600" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <script>
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+      analytics.load("hyKlUloBTlBCrIOn8LeYaIxIbk3mKyMh");
+      analytics.page();
+      }}();
+    </script>
+  </head>
+  <body>
+    <header class="bg-red-700 py-3">
+      <div class="container px-4 mx-auto flex items-center justify-between flex-wrap">
+        <div class="flex-no-shrink mr-10">
+          <a href="/">
+            <img src="/static/logo-alt.png" width="124" height="56" alt="website logo" />
+          </a>
+        </div>
+        <div class="block md:hidden">
+          <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-red-100 border-red-200 hover:text-white hover:border-white">
+            <p class="mr-3">Menu</p>
+            <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              </svg>
+            </button>
+          </div>
+          <nav id="nav-items" class="w-full flex-grow hidden md:block md:flex md:items-center md:w-auto">
+            <div class="text-sm md:flex-grow">
+              <a href="/groups" class="flex md:inline-flex items-center mt-4 no-underline md:mt-0 hover:text-white mr-6 text-white">
+                <span class="text-lg mr-2">🍺</span> Groups
+              </a>
+              <a href="/companies" class="flex md:inline-flex items-center mt-4 no-underline md:mt-0 hover:text-white mr-6 text-red-200">
+                <span class="text-lg mr-2">📖</span> Companies
+              </a>
+              <a href="/jobs" class="flex md:inline-flex items-center mt-4 no-underline md:mt-0 hover:text-white mr-6 text-red-200">
+                <span class="text-lg mr-2">👩‍💻</span> Jobs
+              </a>
+              <a href="/about" class="flex md:inline-flex items-center mt-4 no-underline md:mt-0 hover:text-white text-red-200">
+                <span class="text-lg mr-2">🚀</span> About
+              </a>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <main class="bg-gray-100 relative">
+        <header class="bg-red-700 pt-6 md:pt-12 pb-10 md:pb-16">
+  <div class="container mx-auto px-4">
+    <div class="w-full md:w-3/4 lg:w-1/2">
+      <h1 class="text-white text-4xl">The best shows in town 🤩</h1>
+      <p class="mt-4 text-lg text-red-200 leading-normal">
+        Communities grow when like-minded people come together and share their passions.
+      </p>
+      <p class="mt-4 text-lg text-red-200 leading-normal">
+        Find a group that resonates with you and get involved.
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSewz_bJdPB-Nzt9O9Lia5v--_KLhILBldGjMLe378hZXibI7A/viewform?usp=sf_link" target="_blank" class="inline-flex items-center mt-6 py-4 px-6 md:p-6 bg-yellow-400 hover:bg-yellow-500 text-black font-bold md:leading-none underline-none rounded">
+        <img src="/static/icons/plus.svg" class="mr-4 h-6" width="24" height="24" />
+        Add a group
+      </a>
+    </div>
+  </div>
+</header>
+<div class="pt-4 pb-12 px-4">
+  <div class="container mx-auto flex flex-col lg:flex-row">
+    <div class="w-full">
+      <div id="meetups-list" class="md:flex md:flex-row md:flex-wrap">
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/2ec561afe1b525f6e731c81bb3d1af43/a6010531/ai-wales.jpg?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;6492834297f281d1)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">AI Wales</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/AI-Wales/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/ai_wales" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">AWS South Wales User Group</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/AWS-South-Wales-User-Group/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/AWSSWalesUG" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Bitcoin SV Wales</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Bitcoin-SV-Wales" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/Bitcoinsv_Wales" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Bitcoin Wales</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/all-about-bitcoin-meetup-group-wales/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://www.twitter.com/BitcoinWales" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+                <a href="http://bitcoinwales.org/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <span class="text-gray-700 font-bold">Website</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">BridgendCodeCamp</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://twitter.com/bridgendcoders" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+                <a href="https://bridgend.cc/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <span class="text-gray-700 font-bold">Website</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/2611fc166421f037c9238067300a4a2b/ee69bb62/cardiff.png?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;a60ffaf210c8a877)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">CaRdiff - the Cardiff R User Group</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Cardiff-R-User-Group/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://www.twitter.com/CardiffRUG" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Cardiff Coders</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://mobile.twitter.com/cardiffcoders" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+                <a href="https://cardiffcoders.com/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <span class="text-gray-700 font-bold">Website</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/2e23d7f7df1a6afd3acd435eae282fa0/cd63f5f4/630129344436_4841e703d1a8491de19d_132.png?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;c3f5bcb56ded10a6)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Cardiff Dev</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://cardiffdev.herokuapp.com/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/slack.svg" class="h-6" alt="Slack" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/c45bc455e895f1c141a0c431d6812cb6/f2094fb6/cardiff-go.jpeg?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;37f25bf5d3064ffa)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Cardiff Go Meetup</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Cardiff-Go-Meetup/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/cdfgolang" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Cardiff Scala Meetup Group</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Cardiff-Scala-Meetup-Group/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Cardiff SEO Meet</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Cardiff-SEO-Meet/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/CardiffSEOMeet" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Cardiff Tech Talk</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Cardiff-Tech-Talk/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Cardiff WordPress Meetup</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Cardiff-WordPress-Meetup/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://www.twitter.com/cardiff_wp" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/118a8743fe8a10e621c2f0c73e0fdc23/bd577e98/2019-06-1014.33.03.jpg?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;346b9e2c84527325)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Cardiff-JS</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Cardiff-JS/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://join.slack.com/t/cardiff-js/shared_invite/enQtODk4NDIyNjg2MDY2LWQ0OWYxZGM0NzdkNjZiNTM2Mjk0ODJkN2MwMzg1NjY3YWE2YmFkNzI1YzMwMjk2OWNiZDAzZjg4ZDFmNDZhNDA" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/slack.svg" class="h-6" alt="Slack" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/a523f28a62795da480b266a86e683528/20a8d208/cardiffrb.png?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;cc8d1cd3799fee05)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">cardiffrb</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://twitter.com/cardiffrb" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/8e77bd0e61bbfb4726c4aba48bbdac44/f1b35932/cloud-native.jpeg?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;7fc44664ff156a40)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Cloud Native Wales</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Cloud-Native-Wales/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/CloudNativeWal" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/c145565afeaa7b2e2067ed5dfba4b52c/099e52c2/code-club.png?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;22b2ebafee095193)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Code Club Wales</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://twitter.com/codeclubwales" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+                <a href="https://codeclub.org" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <span class="text-gray-700 font-bold">Website</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/7be1770dc29d3943b17edf7debdea498/e99e7a23/2020-02-2205.35.32?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;7a8de058503eda18)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Design Swansea</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://twitter.com/DesignSwansea" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+                <a href="https://www.eventbrite.co.uk/o/design-swansea-11479341815" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/eventbrite.svg" class="h-6" alt="Eventbrite" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">DevOps and Dine</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/DevOps-And-Dine/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/DevopsDine" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/c55ce213a7b8050a9a6ecfef3f5bb351/3531b463/z_skW4d5_400x400.jpg?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;c7c9abd63d00dc48)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Games Wales</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://twitter.com/gameswales" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+                <a href="https://discordapp.com/invite/FgCQTu7" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/discord.svg" class="h-6" alt="Discord" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/f8984fd9360b2de61a990b29973d762a/26849b37/gdg-cardiff.jpeg?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;2939cd5d7e1234f3)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">GDG Cardiff</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/GDGCardiff/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/GDGCardiff" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Gray Rhinos Tech Meetup</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Gray-Rhinos-Tech-Meet-Up/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">MSFT Stack</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/MSFT-Stack/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/msft_stack" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/2185b040e281e0e166f7ebb78fd0f396/a108032b/north-wales-tech.png?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;76fa422aeabe4fec)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">North Wales Tech</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/NorthWalesTech/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/northwalestech" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/f5a17af4b2d90125a4966fd9ae7cf43a/56a460bd/php-sw.jpeg?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;6d44ad384e8df13d)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">PHP South Wales</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/PHP-South-Wales/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/phpSouthWales" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+                <a href="https://www.youtube.com/channel/UCzQRSSaIV2Ajvl81BxPQDZA" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/youtube.svg" class="h-6" alt="YouTube" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">PHP Wales</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.twitter.com/PhpWales" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+                <a href="https://discord.gg/kjw448" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/discord.svg" class="h-6" alt="Discord" />
+                </a>
+                <a href="https://www.phpwales.co.uk/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <span class="text-gray-700 font-bold">Website</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">PowerShell Cardiff UK</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/PowerShell-Cardiff-UK/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/fa656dd502a57951b12238439066be9a/33a7a295/product-tank.jpg?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;2ebb598afcf71564)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Product Tank Cardiff</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/ProductTank-Cardiff/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="http://meetu.ps/c/45GtL/1NzQS/d" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/dccbe13acb50ab72d040e253a709b65e/ec1550d5/py-data.jpg?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;6b92300101e68d2d)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">PyData Cardiff</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/PyData-Cardiff-Meetup/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/pydatacardiff" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">PyDiff</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/PyDiff/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/PyDiff" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Rust and C++ Cardiff</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/rust-and-c-plus-plus-in-cardiff/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/f359e73a8773a936741609b785ebeb85/19cde246/agile-sw.jpg?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;12a40f47e9e1ee54)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">South Wales Agile Group</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/South-Wales-Agile-Group/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/SWAgileGroup" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/afd09a836494136001cdb85419f99776/c8e5df76/2020-03-0217.56.22?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;faadd60b0ffda0b6)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">South Wales Linux User Group</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://twitter.com/SWLUG" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Subject Data: Cardiff</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/DataCardiff/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Swansea Digital Marketing &amp; SEO Meetup</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Swansea-SEO/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Swansea Software Development Meet-up</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Swansea-Software-Development-Meetup/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/SwanseaSDC" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(/static/logo-mark-black.svg)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Test Talks Wales</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/Cardiff-Software-Testers-Meetup/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/f0d417ce3217f6d8cdf7391ecd7b397f/6f314646/healthtech.png?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;268ee7670a3a065e)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">The HealthTech Meetup</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/The-HealthTech-Meetup/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/5ce982e19862cc967e02773273e6c515/6ce04775/unified-diff.png?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;fcd84a7932abe5ed)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">unified.diff</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/unified-diff/" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/UnifiedDiff" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/ef753252597ccccc85101671bc9ccb31/dccc741d/2020-02-2205.37.03?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;67dc28aef517194b)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">UX Wales</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://www.meetup.com/uxwales" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/meetup.svg" class="h-6" alt="Meetup" />
+                </a>
+                <a href="https://twitter.com/uxwales" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/3 md:mt-12 md:px-4 lg:mt-16">
+          <div class="bg-white mb-2 p-4 shadow rounded flex items-center md:inline-flex md:flex-col md:w-full md:h-full md:p-6">
+            <div class="w-16 h-16 flex-shrink-0 rounded bg-center bg-no-repeat bg-contain md:-mt-12 md:shadow md:mb-6 md:bg-white lg:w-24 lg:h-24" style="background-image: url(https://dl.airtable.com/.attachments/95aaea4cdd084838778cf30880fbe612/85a54648/women-in-tech.jpg?ts&#x3D;1659965293&amp;userId&#x3D;usrglhLHwLIbAXcWC&amp;cs&#x3D;5f1dcb45c8b5e89c)"></div>
+            <div class="ml-4 flex flex-col sm:flex-row sm:items-center flex-1 md:flex-col md:items-center md:ml-0">
+              <span class="text-gray-800 font-bold md:text-center sm:flex-1 md:text-lg lg:text-xl">Women Tech Cymru</span>
+              <div class="flex items-center mt-2 md:mt-6 sm:flex-row-reverse md:flex-row">
+                <a href="https://twitter.com/CymruTech" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/twitter-solid.svg" class="h-6" alt="Twitter" />
+                </a>
+                <a href="https://www.eventbrite.com/o/women-in-tech-cymru-merched-mewn-technoleg-cymru-14004193922" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <img src="/static/eventbrite.svg" class="h-6" alt="Eventbrite" />
+                </a>
+                <a href="https://womenintech.cymru" target="_blank" class="flex items-center bg-gray-200 hover:bg-red-200 h-8 px-2 rounded-full mr-2 sm:mr-0 sm:ml-2 md:ml-0 md:mr-2">
+                  <span class="text-gray-700 font-bold">Website</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+      </main>
+      <footer class="py-12 bg-gray-900 text-white">
+        <div class="container px-4 mx-auto">
+          <div class="w-full flex flex-col sm:flex-row justify-between items-start sm:px-0">
+            <div class="text-sm md:flex-grow">
+              <a href="/groups" class="block mt-4 no-underline lg:inline-block lg:mt-0 hover:text-white mr-4 text-white">Groups</a>
+              <a href="/companies" class="block mt-4 no-underline lg:inline-block lg:mt-0 hover:text-white mr-4 text-gray-500">Companies</a>
+              <a href="/jobs" class="block mt-4 no-underline lg:inline-block lg:mt-0 hover:text-white mr-4 text-gray-500">Jobs</a>
+              <a href="/about" class="block mt-4 no-underline lg:inline-block lg:mt-0 hover:text-white text-gray-500">About</a>
+            </div>
+            <div>
+              <div class="text-sm flex flex-col md:flex-row sm:items-end">
+                <a class="flex items-center text-gray-500 hover:text-white no-underline mt-8 sm:mt-0" href="https://twitter.com/myguysi" target="_blank">
+                  <span class="mr-2">Built by Simon Anthony</span>
+                  <img class="opacity-50" src="/static/twitter.svg" alt="Twitter logo" width="25" height="20" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script>
+    const navToggle = document.getElementById("nav-toggle");
+    const navItems = document.getElementById("nav-items")
+    navToggle.onclick = function () {
+      navItems.classList.toggle("hidden");
+    }
+  </script>
+    </body>
+  </html>

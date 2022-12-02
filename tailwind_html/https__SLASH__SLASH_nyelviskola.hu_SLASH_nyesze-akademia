@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<title>NYESZE Akadémia &raquo; Nyelviskolák Szakmai Egyesülete</title>
+    <link rel="stylesheet" href="https://nyelviskola.hu/css/flickity.min.css">
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://nyelviskola.hu/css/style.css?v=4" />
+	<link rel="shortcut icon" href="https://nyelviskola.hu/favicon.ico" />
+	<meta name="description" content="Támogató:&nbsp;&nbsp; &nbsp;Szakmai továbbképzések, tréningeknyelvtanároknak és nyelviskola&nbsp;vezetőknekNe maradj&nbsp;le képzéseinkről! Hírlevél feliratkozás ITT!            ">
+	<meta name="keywords" content="nyelviskola, nyesze">
+	<meta name="author" content="netpeople.hu" />
+	<meta name="robots" content="index, follow" />
+	<script src="https://nyelviskola.hu/lib/jquery/jquery-latest.js"></script>
+	<script src="https://nyelviskola.hu/lib/jquery/jquery-ui-latest.js"></script>
+	<script src="https://nyelviskola.hu/js/browsers.js"></script>
+	<script src="https://nyelviskola.hu/js/functions.js"></script>
+    <script type="text/javascript" src="https://nyelviskola.hu/js/flickity.pkgd.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="https://nyelviskola.hu/js/css3-mediaqueries.js"></script>
+		<script src="https://nyelviskola.hu/js/selectivizr-min.js"></script>
+	<![endif]-->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67560726-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	</head>
+
+<body>
+
+	<div class="wrapper">
+
+		<header id="header">
+			<a class="home" href="https://nyelviskola.hu">Kezdőlap</a>
+			<a class="logo" href="https://nyelviskola.hu"></a>
+			<h1><span>Nye</span>lviskolák <span>Sz</span>akmai <span>E</span>gyesülete</h1>
+
+			<form id="login" name="loginForm" action="https://nyelviskola.hu/login.php" method="post">
+				<p><b>Nyesze tagiskoláknak</b></p>
+				<div class="field-wrapper">
+											<input type="text" class="text-input" name="email" placeholder="e-mail cím" />
+						<input type="password" class="text-input" name="password" placeholder="jelszó" />
+						<input type="submit" class="login-submit" name="login" value="belépés" />
+									</div>
+			</form>
+
+			<div class="top-line">
+				<ul>
+					<li><a href="https://nyelviskola.hu/elerhetosegek">Elérhetőségek</a></li>
+					<li><a href="https://nyelviskola.hu/sajtoszoba">Sajtószoba</a></li>
+					<li><a href="https://nyelviskola.hu/projektek">Projektek</a></li>
+					<li><a href="https://nyelviskola.hu/nyesze-akademia">NYESZE Akadémia</a></li>
+                    <li>
+                        <a href="https://nyelviskola.hu/naptar">NYESZE eseménynaptár</a>
+                    </li>
+				</ul>
+				<form id="search" name="searchForm" action="https://nyelviskola.hu/kereses" method="post">
+					<input type="text" class="search-input" name="phrase" placeholder="Keresés" />
+					<input type="submit" class="search-submit" name="go" value="" />
+				</form>
+			</div>
+			<a class="facebook" href="http://www.facebook.com/nyesze" target="_blank">Csatlakozzon hozzánk a Facebook-on!</a>
+
+
+		</header>
+
+		<nav id="menubar">
+			<ul>
+									<li><a href="tagjaink">Tagjaink</a>
+													<ul class="submenu">
+																	<li><a href="minositett-tagnyelviskolak">Minősített tagnyelviskolák</a></li>
+																	<li><a href="tagnyelviskolak">Tagnyelviskolák</a></li>
+																	<li><a href="tiszteletbeli-tagok">Tiszteletbeli Tagok</a></li>
+															</ul>
+											</li>
+									<li><a href="nyelvtanuloknak">Nyelvtanulóknak</a>
+													<ul class="submenu">
+																	<li><a href="mmm-dij---nyelvtanuloi-palyazat">MMM DÍJ - Nyelvtanulói pályázat</a></li>
+																	<li><a href="kozos-europai-referenciakeret-szintek">Közös Európai Referenciakeret szintek</a></li>
+																	<li><a href="minositett-nyelviskola-kereso">Nyelviskola kereső</a></li>
+																	<li><a href="a-nyelviskola-kivalasztasa">A nyelviskola kiválasztása</a></li>
+															</ul>
+											</li>
+									<li><a href="vallalatoknak">Vállalatoknak</a>
+													<ul class="submenu">
+																	<li><a href="a-kepzo-kivalasztasa">A képző kiválasztása</a></li>
+															</ul>
+											</li>
+									<li><a href="nyelvtanaroknak">Nyelvtanároknak</a>
+													<ul class="submenu">
+																	<li><a href="mmm-dij---nyelvtanari-palyazat">MMM DÍJ - Nyelvtanári pályázat</a></li>
+																	<li><a href="http://www.nyelviskola.hu/nyesze-akademia">NYESZE AKADÉMIA</a></li>
+																	<li><a href="konferencia">NYESZE KONFERENCIA</a></li>
+															</ul>
+											</li>
+									<li><a href="nyelviskolaknak">Nyelviskoláknak</a>
+													<ul class="submenu">
+																	<li><a href="tagfelvetel">Tagfelvétel</a></li>
+															</ul>
+											</li>
+									<li><a href="rolunk">Rólunk</a>
+													<ul class="submenu">
+																	<li><a href="az-egyesulet-mukodese">Az Egyesület működése</a></li>
+																	<li><a href="egyuttmukodo-partnereink">Együttműködő partnereink</a></li>
+																	<li><a href="alapdokumentumaink">Alapdokumentumaink</a></li>
+																	<li><a href="ugyvezeto-testulet">Ügyvezető Testület</a></li>
+																	<li><a href="partnereink">Partnereink</a></li>
+															</ul>
+											</li>
+							</ul>
+		</nav>
+
+		<section id="main" role="main">
+            <div class="left page-content main-wrapper">
+			<h2 class="page-title">NYESZE Akadémia</h2>
+					<div class="lead"><div><strong><br></strong></div><span style="font-size:medium;color:#000066">Támogató:&nbsp;</span><div><span style="font-size:medium;color:#000066"><strong></strong></span><div><span style="font-size:medium;color:#000000"><strong></strong></span><div><strong style="font-size:x-large">&nbsp; &nbsp;<a href="https://www.lingea.hu/?utm_campaign=onl-szotar&amp;utm_medium=nyesze&amp;utm_source=sp_logo&amp;utm_content=akademia" target="_blank"><img src="https://nyelviskola.hu/dynamic/NYESZE AKADÃMIA/2022/Lingea_logo.jpg" style="border:0px  #0000ee;width:170px;height:40px;vertical-align:baseline"></a></strong><br></div><div><div><strong style="font-size:x-large;color:#000066"><br></strong></div><div><strong style="font-size:x-large;color:#000066">Szakmai továbbképzések, tréningek</strong><br></div><div><div><span style="color:#000066;font-size:x-large"><strong><br></strong></span><strong style="font-size:x-large;color:#000066"></strong><div><strong style="font-size:x-large;color:#000066">nyelvtanároknak és nyelviskola&nbsp;vezetőknek</strong><div><br></div><h4 style="font-size:large">Ne maradj&nbsp;le képzéseinkről! <a href="https://forms.gle/YmvPn9fhvMcE2v4e8" target="_blank">Hírlevél feliratkozás ITT!</a></h4>  </div>  </div>  </div>  </div>  </div>  </div></div>
+				<div><div><p>Az alábbiakban meghirdetésre kerülő <em>workshopjaink,&nbsp;továbbképzéseink, tréningjeink&nbsp;nyílt képzések</em>, bárki jelentkezhet rájuk. Igény szerint egyéb
+időpontokban és helyszíneken kihelyezett zárt tréningek, előadások
+megszervezését is vállaljuk.</p>
+<p>A képzéseket a résztvevők és az előadók visszajelző
+kérdőívei segítségével rendszeresen értékeljük, és az értékelések alapján
+folyamatosan fejlesztjük tevékenységünket.<br></p>
+<p>A kontaktórás&nbsp;képzések, workshopok&nbsp;minimális létszáma 14&nbsp;fő, maximális létszáma (a
+képzés jellegétől függően) a trénerrel, előadóval egyeztetve 20-30 fő. Elfogadunk
+jelentkezést a határidő letelte után is, amennyiben van szabad férőhely az
+adott alkalomra.<br></p>
+<p style="margin:0cm;margin-bottom:.0001pt">Felnőttképzési nyilvántartási számunk: B/2020/000424</p><div><br></div>
+<p><strong>Részvételi díj és kedvezmény:</strong>&nbsp;minden&nbsp;képzés, workshopok tájékoztatójában közzétesszük.</p>
+<p><strong><a href="https://nyelviskola.hu/dynamic/NYESZE AKADÃMIA/2020/2020_09_akademia_reszveteli_feltetelek.pdf" target="_blank">Részvételi feltételek</a></strong><br></p></div><div><p><br></p><p>AKTUÁLIS WORKSHOPOK, KÉPZÉSEK:</p><div><br></div></div><div><strong><em style="color:#000066">TANÉVKEZDŐ MÓDSZERTANI NAPOK (online workshopok)</em></strong>  <br></div><div><strong><em style="color:#000066"><br></em></strong></div><div><p style="margin-bottom:0cm;line-height:normal"><span style="text-decoration:underline"><strong>2022. augusztus
+24., szerda (12.00 – 15.15)</strong></span></p><p>HATÉKONY GAMIFIKÁCIÓ&nbsp;2.0 - PRIEVARA TIBOR (nyelvtanár, tanárképző oktató)&nbsp;</p>  <p style="margin-bottom:0cm;line-height:normal"><span style="text-decoration:underline"><strong>2022. augusztus
+25., csütörtök (12.00 – 15.15)</strong></span></p><p>HOGYAN
+KÉSZÍTSÜK FEL TANULÓINKAT ÁLLÁSINTERJÚKRA? - DERECSKEI ANITA (nyelvtanár, CELTA
+tréner)</p>
+<p>GIF-EK A
+NYELVÓRÁN - CSÍKY ANNA (nyelvtanár, tanárképző oktató)&nbsp;</p>  <p style="margin-bottom:0cm;line-height:normal"><span style="text-decoration:underline"><strong>2022. augusztus
+26., péntek (12.00 – 15.15)</strong></span></p><p>MAKING GRAMMAR
+PRACTICE FUN - NEIL ANDERSON (teacher, teacher trainer) </p>
+<p>INTEGRATING
+LANGUAGE EXAM PREPARATION INTO GENERAL ENGLISH CLASSROOMS - CLAUDIA MOLNAR (teacher,
+teacher trainer)&nbsp;</p>  <p style="" margin-top:0cm;margin-right:-14.2pt;margin-bottom:0cm;margin-left:-7.1pt;line-height:normal""=""><strong><span style="text-decoration:underline">2022. augusztus 26., péntek (12.00 – 15.15)</span></strong>  <br></p></div><div><p style="margin-bottom:0cm;line-height:normal">NACHSCHLAGEN
+WILL GELERNT SEIN: PRAXISORIENTIERTE ANREGUNGEN ZUR WÖRTERBUCHARBEIT - DR.
+TRIPPÓ SÁNDOR (nyelvtanár, tanárképző oktató)</p>MIT NEUEM SCHWUNG AB SEPTEMBER - KONCSAG RÉKA (nyelvtanár,
+nyelvi coach)  <p><br></p><p><strong><em><a href="https://nyelviskola.hu/dynamic/NYESZE AKADÃMIA/2022/20220824_modszertani_napok.pdf" target="_blank">RÉSZLETEK ÉS JELENTKEZÉS ITT</a><a href="https://nyelviskola.hu/dynamic/NYESZE AKADÃMIA/2022/20220824_modszertani_napok.pdf" target="_blank"></a></em></strong></p></div><div><br></div><div><br></div><div><strong><span style="text-decoration-line:underline">WORKHOPOK KÉPZÉSEK UTÓLAG (2019-2022)</span></strong><br></div><div><div><strong>Az alábbi online 2x50 perces módszertani&nbsp;workshopokról&nbsp;készült felvételek elérhetőek&nbsp;(vágott formában)&nbsp;utólag.</strong><br>&nbsp;</div><div><strong><a href="https://nyelviskola.hu/dynamic/NYESZE AKADÃMIA/2022/webinar_leirasok_betekintok.pdf" target="_blank">Részletek -&nbsp;leírások - megrendelő&nbsp;ITT</a></strong></div><div><br></div><div>A workshopok&nbsp;rövid (1,5&nbsp;- 2 perces)&nbsp;betekintő videói&nbsp;itt érhetők el:&nbsp;<a href="https://bit.ly/nyeszeakademia_betekintok">https://bit.ly/nyeszeakademia_betekintok</a><br><a href="https://bit.ly/nyeszeakademia_betekintok"></a></div><div>  <br></div><div>Creating
+Successful Conversation in One-to-One - Neil Anderson (2022.03.30.)<br></div><div>Érdekes, értelmes és hasznos házi feladatok -&nbsp;Szőke Johanna&nbsp;(2022.02.10.)<br></div><div><p>A differenciálás tanár-, és tanuló-barát lehetőségei -&nbsp;Enyedi Ágnes&nbsp;(2022.01.25.)</p></div><div>Christmas cracker -&nbsp;Rachel
+Homer és Csíky Anna&nbsp;(2021.12.02.)&nbsp;  <br></div><div>TikTok/Youtube Shorts&nbsp;a nyelvórán -&nbsp;Bujtás Barbara (2021.10.28.)<br></div><div>
+<p>Óralátogatás&nbsp;stressz&nbsp;nélkül -&nbsp;Enyedi&nbsp;Ágnes&nbsp;(2021.05.27.)</p>
+<p>Tanulói autonómia az órán és azon
+túl -&nbsp;Csíky Anna és&nbsp;Szenttornyai Eszter (2021.05.12.)</p>
+<p>Teaching One:One - online and
+offline strategies - Rachel Appleby&nbsp;(2021.03.26.)</p>
+<p>A nyelvóra kimaxolása - Sipos
+Piroska&nbsp;(2021.03.03.)</p>
+<p>Agilis&nbsp;szemléletmód a
+vállalati, üzleti nyelvoktatásban - Csősz Ildikó&nbsp;(2021.02.19.)</p>
+<p>Nyelvtantanítás az online térben -
+Szőke Johanna&nbsp;(2021.02.09)</p>
+<p>"Vigyázz magadra!" -
+Nyűgök, vágyak és lehetőségek 2021-ben&nbsp;- Enyedi Ágnes&nbsp;(2021.01.18.)</p>
+<p>Online Collaborative Writing -
+Neil&nbsp;Anderson&nbsp;(2020.12.08)</p>
+<p>Az olvasott&nbsp;szöveg értésének
+fejlesztése - Csíky Anna&nbsp;(2020.10.20.)</p>
+<p>Hatékony távoktatás, avagy hogyan
+lássuk rendszerben online tanfolyamainkat - Szőke Johanna&nbsp;(2020.10.09.)</p>
+<p>A hallott szöveg értésének
+fejlesztése -&nbsp;Csíky Anna&nbsp;(2020.09.24.)</p>
+<p>Szókincs fejlesztő feladatok a
+nyelvórán&nbsp;-&nbsp;különös tekintettel a nyári intenzív
+tanfolyamokra&nbsp;-&nbsp;Sipos Piroska&nbsp;(2020.06.18.)</p>
+<p>Virtuális könyvespolc avagy hogyan
+készítsünk app- és linkgyűjteményt a nyelvoktatáshoz&nbsp; -&nbsp;Feketéné
+Kovács Zsuzsanna&nbsp;(2020.05.20.)</p>
+<p>Tesztek, beadandók, értékelés az
+online tanításban - Csíky Anna&nbsp;(2020.05.05.)</p>
+<p>A kevesebb több - hány és milyen
+eszköz kell a módszertanilag hatékony online órához?&nbsp; -&nbsp;Csíky Anna&nbsp;(2020.04.15.)</p>
+<p>Virtuális tanári - hogyan tudja az
+iskolavezetés a tanárait támogatni a koronavírus idején?&nbsp; -&nbsp;Csíky
+Anna&nbsp;(2020.04.06.)</p>
+<p>Íráskészség-fejlesztés órán és órák
+között - Csíky Anna&nbsp;(2020.03.25.)</p>
+<p>Beszédkészség-fejlesztés órán és
+órák között - Csíky Anna&nbsp;(2020.02.19.)</p>
+<p>A tankönyv személyre szabása&nbsp;-
+Csíky Anna&nbsp;(2019.11.27.)</p>
+<p>Guided discovery of real language
+use&nbsp;-&nbsp;Csíky Anna&nbsp;(2019.11.08.)</p>
+Videók a
+nyelvtanításban&nbsp;-&nbsp;Csíky Anna&nbsp;&nbsp;(2019.09.25.)  <br></div><div><strong><p><br></p></strong></div></div></div>
+
+		
+			</div>
+
+<aside id="sidebar">
+			<article>
+			<h3><a href="http://www.nyelviskola.hu/nyesze-akademia">NYESZE AKADÉMIA Továbbképzések</a></h3>
+							<p class="date">2020. január 1.</p>
+						<div><h6> <strong></strong><strong><strong><strong><strong class="<img src=" http:="" www.nyelviskola.hu="" lib="" elrte="" images="" pixel.gif"="" title="" rel="media05591634648344135" width="150" height="100" style="color: rgb(0, 51, 255);"><strong><strong><strong class="<img src=" http:="" www.nyelviskola.hu="" lib="" elrte="" images="" pixel.gif"="" title="" rel="media05591634648344135" width="150" height="100" style="color: rgb(0, 0, 0);"></strong></strong></strong></strong></strong></strong></strong><strong><strong><strong class="<img src=" http:="" www.nyelviskola.hu="" lib="" elrte="" images="" pixel.gif"="" title="" rel="media05591634648344135" width="150" height="100" style="color: rgb(0, 51, 255);"><strong class="<img src=" http:="" www.nyelviskola.hu="" lib="" elrte="" images="" pixel.gif"="" title="" rel="media05591634648344135" width="150" height="100" style="color: rgb(0, 0, 0);"><strong></strong></strong></strong></strong></strong><div style="font-size:large;color:#0033ff"><p><br></p><p><span style="text-decoration-line:underline">2022.08.24-26. <span style="font-weight:normal">(</span></span><span class="<img src=" https:="" nyelviskola.hu="" lib="" elrte="" images="" pixel.gif"="" title="https://nyelviskola.hu/dynamic/NYESZE AKADÃMIA/2022/Lingea_logo_transparent-bg.png" rel="media1712884047302261" width="150" height="100" style="text-decoration-line: underline; font-weight: normal;">12.00-15:15)</span><br></p></div><div style="font-size:large;color:#0033ff"><p>Tanévkezdő&nbsp;Módszertani&nbsp;Napok</p><p>online workshopok</p><p><em><br></em></p><p><em>Részletek, jelentkezés <a href="https://nyelviskola.hu/dynamic/NYESZE AKADÃMIA/2022/20220824_modszertani_napok.pdf" target="_blank">ITT</a></em></p>  <p><em><br></em></p><p><br><em></em></p></div></h6><h6><strong style="color:#333333">A&nbsp;KORÁBBI </strong><strong style="color:#333333">KÉPZÉSEK, WORKSHOPOK</strong><br></h6><h6><strong style="color:#333333">FELVÉTELRŐL <span style="color:#ff0000">UTÓLAG IS</span> ELÉRHETŐEK</strong><strong style="color:#333333">!</strong></h6><h6><strong style="color:#333333"><br></strong></h6><h6><strong style="color:#333333">A NYESZE Akadémia támogatója 2022-ben:</strong></h6><h6><strong style="color:#333333"><br></strong></h6><h6><strong style="color:#333333"><a href="https://www.lingea.hu/?utm_campaign=onl-szotar&amp;utm_medium=nyesze&amp;utm_source=sp_logo&amp;utm_content=akademia" target="_blank"><img src="https://nyelviskola.hu/dynamic/NYESZE AKADÃMIA/2022/Lingea_logo_transparent-bg.png" style="border:0px  #333333;width:150px;height:30px;vertical-align:baseline"></a><br></strong></h6><div><div><div>  </div>  </div>  </div></div>
+					</article>
+			<article>
+			<h3><a href="hirlevel-feliratkozas">HÍRLEVÉL FELIRATKOZÁS</a></h3>
+							<p class="date">2019. november 10.</p>
+						<div><p style="color:#333333"><strong><em>Ha szeretnél mindig időben tájékoztatást kapni&nbsp;a nyelvtanároknak szóló lehetőségekről, ajánlatokról,</em></strong></p>
+<p style="color:#ff0033"><strong><em><span style="color:#333333">iratkozz fel
+</span><a href="https://forms.gle/AfUdttB5zHmkpaew9" target="_blank">ITT</a><span style="color:#333333">!</span></em></strong></p></div>
+					</article>
+	
+    <article>
+        <h3><a>Támogatóink</a></h3>
+        <h4 style="font-size: 16px; margin: 1em 0;">GYÉMÁNT FOKOZATÚ TÁMOGATÓK:</h4>
+
+        <a href="https://szotar.net/" target="_blank" style="display: inline-block; width: 45%; margin: 0 5px;">
+            <img src="./img/tamogatok/szotar.jpg" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+        <a href="http://klett.hu/" target="_blank" style="display: inline-block; width: 45%; margin: 0 5px;">
+            <img src="./img/tamogatok/Klett-logo.jpg" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+        <a href="https://www.schooldrive.net/" target="_blank" style="display: inline-block; width: 45%; margin: 0 5px;">
+            <img src="./img/tamogatok/schooldrive_logo.png" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>        
+        <a href="https://www.osd.at/en/" target="_blank" style="display: inline-block; width: 45%; margin: 0 5px;">
+            <img src="./img/tamogatok/Logo-osd.png" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+        <a href="https://www.elthungary.hu" target="_blank" style="display: inline-block; width: 95%; margin: 0 5px;">
+            <img src="./img/tamogatok/MMP_ELT_logo.jpg" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+
+        <h4 style="font-size: 16px; margin: 1em 0;">ARANY FOKOZATÚ TÁMOGATÓK:</h4>
+        <a href="http://www.corvinusnyelvvizsga.hu/" target="_blank" style="display: inline-block; width: 45%; margin: 0 5px;">
+            <img src="./img/tamogatok/corvinus.png" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+        <a href="https://telc.hu/" target="_blank" style="display: inline-block; width: 45%; margin: 0 5px;">
+            <img src="./img/tamogatok/telc.png" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+        <a href="https://elt.oup.com/?cc=hu&selLanguage=hu" target="_blank" style="display: inline-block; width: 95%; margin: 0 5px;">
+            <img src="./img/tamogatok/OUP-logo.jpg" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+        <a href="https://www.fernuni-hagen.de/stz/budapest/hu/" target="_blank" style="display: inline-block; width: 95%; margin: 0 5px;">
+            <img src="./img/tamogatok/hagen-logo.png" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+
+        <h4 style="font-size: 16px; margin: 1em 0;">EZÜST FOKOZATÚ TÁMOGATÓ:</h4>
+        <a href="https://www.britishcouncil.hu/" target="_blank" style="display: inline-block; width: 45%; margin: 0 5px;">
+            <img src="./img/tamogatok/BC_logo.png" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+        <a href="http://www.onyc.hu/" target="_blank" style="display: inline-block; width: 45%; margin: 0 5px;">
+            <img src="./img/tamogatok/1_origo.png" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+        <a href="http://nyelvkonyvbolt.hu/" target="_blank" style="display: inline-block; width: 45%; margin: 0 5px;">
+            <img src="./img/tamogatok/5_libra_books.JPG" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+        <a href="https://www.lingea.hu/" target="_blank" style="display: inline-block; width: 45%; margin: 0 5px;">
+            <img src="./img/tamogatok/Lingea-logo.png" alt="photo" style="display: block; width: 100%; height: auto; margin: 1em 0;">
+        </a>
+</article>
+</aside>
+		</section>
+
+		<div id="bottom-menu">
+							<a href="https://nyelviskola.hu/impresszum">Impresszum</a> | 							<a href="https://nyelviskola.hu/adatkezelesi-nyilatkozat">Adatkezelési nyilatkozat</a>					</div>
+
+	</div><!-- /wrapper -->
+
+	<footer id="footer">
+		<!-- <a href="http://www.nfu.hu/uj_magyarorszag_fejlesztesi_terv_2" target="_blank"><img src="https://nyelviskola.hu/img/footer-ujmagyar.png" /></a>
+		<a href="http://www.britishcouncil.org/hu/hungary.htm" target="_blank"><img src="https://nyelviskola.hu/img/footer-bc.png" /></a> -->
+		<!-- <p class="small">A projekt az Európai Unió támogatásával, az Európai Regionális Fejlesztési Alap társfinanszírozásával valósul meg. KMOP-1.5.2-2008<br />Európai Uniós támogatással, GVOP-113/B-06/1-2006-06-0021/2.0 támogatási szerződés alapján fejlesztett rendszer.</p> -->
+        <br>
+        <p class="small">
+			<a href="https://nyelviskola.hu">nyelviskola</a> |
+			<a href="https://nyelviskola.hu/angol-nyelvtanfolyam">angol nyelvtanfolyam</a> |
+			<a href="https://nyelviskola.hu/francia-nyelvtanfolyam">francia nyelvtanfolyam</a> |
+			<a href="https://nyelviskola.hu/nemet-nyelvtanfolyam">német nyelvtanfolyam</a> |
+			<a href="https://nyelviskola.hu/olasz-nyelvtanfolyam">olasz nyelvtanfolyam</a> |
+			<a href="https://nyelviskola.hu/orosz-nyelvtanfolyam">orosz nyelvtanfolyam</a> |
+			<a href="https://nyelviskola.hu/spanyol-nyelvtanfolyam">spanyol nyelvtanfolyam</a>
+		</p>
+	</footer>
+
+<script src="https://nyelviskola.hu/js/qaptcha.js"></script>
+<script src="https://nyelviskola.hu/js/loader.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$('#courses').submit(function() {
+			var response =
+			$.ajax({
+				url: "https://nyelviskola.hu/get_course_url.php",
+				data: { language: $("#language").val() },
+				async: false,
+				success: function(result) {
+					return result;
+				}
+			}).responseText;
+
+			document.forms.coursesForm.url.value = response;
+			document.forms.coursesForm.action = 'https://nyelviskola.hu/' + response;
+		});
+	});
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1016654155;
+var google_conversion_label = "4a7nCK3jggUQy9Lj5AM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+	<div style="display:inline;">
+	<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1016654155/?value=0&amp;label=4a7nCK3jggUQy9Lj5AM&amp;guid=ON&amp;script=0"/>
+	</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>KnobCloud</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/main.min.css?ver=1004">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/select2.min.css" />
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/all.min.css" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" /> -->
+    <link  rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"></link>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.knobcloud.com/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.knobcloud.com/img/favicon-32x32.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0c476e">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed" media="all">
+    <link rel="stylesheet" type="text/css" href="https://www.knobcloud.com/vendor/cookie-consent/css/cookie-consent.css">
+
+    <meta name="apple-mobile-web-app-title" content="KnobCloud">
+    <meta name="application-name" content="KnobCloud">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:title" content="KnobCloud" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="" />
+    <meta property="og:description" content="The first dedicated marketplace for audio production software licenses." />
+    <meta property="og:url" content="http://knobcloud.com" />
+    <meta property="og:image" content="http://knobcloud.com/img/knobcloud-logo_1200x630.png" />
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="KnobCloud Logo" />
+    <meta name="description" content="KnobCloud">
+</head>
+    <script type="text/javascript" src="https://www.knobcloud.com/js/app.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/select2.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/js.cookie.min.js"></script>
+<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/developer-database.js?v=1"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://www.knobcloud.com/sw.js"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
+</head>
+<body class="flex flex-col h-screen justify-between" style=" height: 100%;">
+<header>
+        <nav class="mainmenu navbar navbar-light navbar-expand-md navigation-clean-button">
+    <div class="menu-full container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="/img/knobcloud-logo.svg" alt="KnobCloud logo" height="32" width="185">
+        </a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navCollapse">
+            <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="menu-nav collapse navbar-collapse mt-2 md:text-center lg:text-auto" id="navCollapse">
+            <ul class="nav navbar-nav mr-auto md:space-x-4 lg:space-x-0 md:justify-center  lg:justify-auto">
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/developer">Developer</a>
+                </li>
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/sell-license">Sell your License</a>
+                </li>
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/transfers">Messages
+                                            </a>
+                </li>
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/information">Information</a>
+                </li>
+                <li class="dropdown nav-item">
+                    <div class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">My Account</div>
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item " role="presentation"
+                           href="/my-items">My Items</a>
+                        <a class="dropdown-item " role="presentation"
+                           href="/my-account">Account Settings</a>
+                    </div>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                                    <!-- <div class="d-none d-sm-inline">
+                        <a class="btn btn-outline-primary btn-sm action-button" role="button" href="/login"><i
+                                class="fas fa-sign-in-alt"></i> Login with PayPal</a>
+                    </div> -->
+                        <div class="d-none d-sm-inline">
+                      <span class="mr-4"><a class="nav-textlink" href="https://www.knobcloud.com/register">Register</a></span>
+                        <a class="btn btn-outline-primary btn-sm action-button" role="button"
+                           href="https://www.knobcloud.com/login"><i class="fad fa-sign-in-alt"></i> Sign In</a>
+                    </div>
+                                </span>
+        </div>
+    </div>
+</nav>
+    <div id="searchBar" class="bg-dark-blue">
+    <div class="container max-w-6xl mx-auto md:px-5">
+        <div class="row pt-3 pb-3">
+            <div class="col">
+                <form>
+                    <div class="input-group">
+                        <input class="form-control input-search" type="search"
+                               placeholder="Search for developers or titles" id="inputSearch" name="search_key"
+                                 >
+                        <input type="hidden" name="view" value="">
+                        <a href="/" class="d-none d-sm-block" aria-label="ClearButton" id="btnClear">
+                            <i class="fad fa-times-circle rounded-full" id="deleteButton"></i>
+                        </a>
+                        <div class="input-group-append">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-primary" id="buttonSearch" type="submit">
+                                    <i class="fad fa-search"></i> <span>Search</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('form').each(function () {
+            $(this).find('input').keypress(function (e) {
+                // Enter pressed?
+                if (e.which == 10 || e.which == 13) {
+                    this.form.submit();
+                }
+            });
+
+            $(this).find('input[type=submit]').hide();
+        });
+    });
+</script>
+</header>
+<div class="lg:mx-3 my-3 mb-auto">
+    <main role="main" class="flex-shrink-0 max-w-6xl mx-auto">
+                <div class="modal fade" id="ResultModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div class="modal-dialog modal-dialog-centered" id="modalContent">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Notification:
+                </div>
+                <div class="modal-body" id="modalBody">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" id="modalShowInfoContent">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-light-blue">
+                <div class="modal-header d-block pt-5 pb-2">
+                    <h1 class="modal-title text-center h1">Show Transfer Info</h1>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="lead mb-1">Please check your PayPal account for the buyer payment before transferring the
+                        license!</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="jsShowSentInfo" type="button" class="btn btn-smx btn-secondary ml-3"
+                            data-dismiss="modal">OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-4">
+        <div class="block flex flex-col sm:flex-row">
+            <!-- THREADS -->
+    <div class="col-md-12 lg:col-md-6 col-xl-5 mb-4 lg:mb-0 order-2 sm:order-1">
+        <div class="card bg-white p-4 text-center">
+                        <script type="text/javascript" src="https://www.knobcloud.com/js/app.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/select2.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/js.cookie.min.js"></script>
+<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/developer-database.js?v=1"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://www.knobcloud.com/sw.js"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>KnobCloud</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/main.min.css?ver=1004">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/select2.min.css" />
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/all.min.css" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" /> -->
+    <link  rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"></link>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.knobcloud.com/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.knobcloud.com/img/favicon-32x32.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0c476e">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed" media="all">
+    <link rel="stylesheet" type="text/css" href="https://www.knobcloud.com/vendor/cookie-consent/css/cookie-consent.css">
+
+    <meta name="apple-mobile-web-app-title" content="KnobCloud">
+    <meta name="application-name" content="KnobCloud">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:title" content="KnobCloud" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="" />
+    <meta property="og:description" content="The first dedicated marketplace for audio production software licenses." />
+    <meta property="og:url" content="http://knobcloud.com" />
+    <meta property="og:image" content="http://knobcloud.com/img/knobcloud-logo_1200x630.png" />
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="KnobCloud Logo" />
+    <meta name="description" content="KnobCloud">
+</head>
+            <h2 class="h2 mt-2">You are not signed in</h2>
+            <p>If you wish to buy this item or send a message to the seller, please sign in.</p>
+            <form class="mt-4 mb-0" role="form" action="https://www.knobcloud.com/login" method="POST"
+                  id="frmSignIn">
+                <input type="hidden" name="_token" value="2Ihft0eOhfsK1bCz8sxEfymFRVax7MdcZh32Qwoc">                <input name="o" type="hidden" id="o" value="index.php">
+
+                <div class="form-group text-left">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Email"
+                           name="input-email" id="inputEmail" autocomplete="email" required="">
+                </div>
+                <div class="form-group text-left">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" name="password" class="form-control"
+                           placeholder="Password" name="input-password" id="inputPassword"
+                           autocomplete="password" required="">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-2"><i
+                        class="fas fa-sign-in-alt"></i> Sign In
+                </button>
+                <a href="https://www.knobcloud.com/forgot-password" style="color: rgb(63, 136, 197);">
+                    <small class="text-sm">Forgot password?</small>
+                </a>
+
+                <p class="text-center mt-2 mb-1">
+                    <small class="text-sm">You don't have an account yet?</small>
+                </p>
+                <a class="btn btn-outline-primary btn-block" href="https://www.knobcloud.com/register">Create
+                    an Account</a>
+            </form>
+            <div class="separator">or</div>
+            <div class="d-flex justify-content-center">
+                <span id="cwppButton">
+                    <a id="LIwPPundefined"
+                       class="LIwPP_V2 PPBlue_V2 CWPP_rectangle CWPP_medium flex items-center rounded-lg"
+                       text="Connect with PayPal" href="https://www.paypal.com/connect/?flowEntry=static&amp;client_id=AX8wI07-YSUaOVYZMSXoKod5UtHHLMamQcq6JRmrk1WugQSKNYcH65viVFcK60NXOUv3zqRWLubCzx27&amp;response_type=code&amp;scope=openid%20profile%20email%20address%20https://uri.paypal.com/services/paypalattributes&amp;redirect_uri=https://www.knobcloud.com/paypal/callback">
+                        <svg id="CWPP_SVG_PPTM" class="PPTM" xmlns="http://www.w3.org/2000/svg"
+                             version="1.1" width="18px" height="18px" viewBox="0 0 18 18"
+                             focusable="false">
+                            <path id="Fill-8" class="PPTM-btm" fill="#009cde"
+                                  d="M13.6023044,4.67342223 C13.8196336,3.28812419 13.6008532,2.34542498 12.8514484,1.49160831 C12.0263956,0.551629995 10.5359309,0.148937623 8.62894883,0.148937623 L3.09322219,0.148937623 C2.70355347,0.148937623 2.37175455,0.43245482 2.3109822,0.817370681 L0.00598653054,15.4327457 C-0.0395473836,15.7211605 0.183405526,15.9818221 0.475294243,15.9818221 L3.89269613,15.9818221 L3.65686311,17.4774071 C3.61713431,17.7297247 3.81196867,17.957917 4.06739398,17.957917 L6.94782221,17.957917 C7.28887304,17.957917 7.57912907,17.7097715 7.63228221,17.3731061 L7.66058217,17.226722 L8.20317953,13.7860604 L8.23819166,13.5959605 C8.29134479,13.2591138 8.58160082,13.0111496 8.92247024,13.0111496 L9.35331903,13.0111496 C12.1439493,13.0111496 14.329033,11.8774436 14.9674148,8.59894727 C15.2342689,7.22906764 15.0963973,6.08556642 14.3908938,5.28163282 C14.1773742,5.03856625 13.9119713,4.83740146 13.6023044,4.67342223"></path>
+                            <path id="Fill-9" class="PPTM-top" fill="#012169"
+                                  d="M13.6023044,4.67384766 C13.8196336,3.28841937 13.6008532,2.34563151 12.8514484,1.49173456 C12.0263956,0.55166786 10.5359309,0.148937623 8.62894883,0.148937623 L3.09322219,0.148937623 C2.70355347,0.148937623 2.37175455,0.432481479 2.3109822,0.817433533 L0.00598653054,15.4341828 C-0.0395473836,15.7226247 0.183405526,15.9833109 0.475294243,15.9833109 L3.89269613,15.9833109 L4.75112833,10.5399219 L4.72446105,10.7106288 C4.78523341,10.3256767 5.11431118,10.0419515 5.50397989,10.0419515 L7.12832518,10.0419515 C10.3182389,10.0419515 12.815892,8.7459583 13.5457045,4.99802736 C13.5672923,4.88718584 13.5857961,4.7796097 13.6023044,4.67384766"
+                                  fill-opacity="0.699999988079071"></path>
+                            <path id="Fill-10" class="PPTM-top" fill="#003087"
+                                  d="M5.67323544,4.69235148 C5.70988026,4.46069089 5.85845507,4.27111742 6.05855031,4.17515152 C6.14961814,4.13161312 6.25120775,4.10730418 6.35769543,4.10730418 L10.6968416,4.10730418 C11.2109576,4.10730418 11.6902429,4.14104644 12.128348,4.21161494 C12.2537024,4.23175145 12.3754285,4.25497193 12.4938892,4.28127638 C12.6121686,4.30739943 12.7271825,4.33678785 12.8383869,4.36944165 C12.8940797,4.38558714 12.9486841,4.40263969 13.0025629,4.42059928 C13.2177152,4.49189341 13.4179919,4.57624907 13.6023044,4.67384766 C13.8196336,3.28841937 13.6008532,2.34563151 12.8514484,1.49173456 C12.0263956,0.55166786 10.5359309,0.148937623 8.62894883,0.148937623 L3.09322219,0.148937623 C2.70355347,0.148937623 2.37175455,0.432481479 2.3109822,0.817433533 L0.00598653054,15.4341828 C-0.0395473836,15.7226247 0.183405526,15.9833109 0.475294243,15.9833109 L3.89269613,15.9833109 L5.67323544,4.69235148"></path>
+                        </svg>
+                        <b class="" aria-label="Connect with PayPal">Connect with PayPal</b>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+            <div class="modal fade show" id="modalBuyerInfo" tabindex="-1" aria-modal="true"
+                 style="padding-right: 17px; display: block;display:none">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content bg-light-blue">
+                        <div class="modal-header d-block pt-5 pb-2">
+                            <h1 class="modal-title text-center h1">Item purchased</h1>
+                        </div>
+                        <div class="modal-body text-center">
+                            <p class="lead mb-1">1. Payment</p>
+                            <p class="mt-2">
+                                If you haven´t done so already, please go to your PayPal-account and transfer the
+                                payment to the seller. PayPal buyer protection fees are included in the price.
+                            </p>
+                            <p class="lead mb-1">2. I have already paid, but the seller is not responding</p>
+                            <p class="mt-2">
+                                If the seller is not showing signs of life, you can claim your money back via PayPal.
+                                You should at least wait 48 hrs. before claiming your money back. Please consider that
+                                most Knobcloud-users are not professional sellers.
+                            </p>
+                            <p class="lead mb-1">3. How long does it take for the seller to transfer the license?</p>
+                            <p class="mt-2">
+                                This depends not only on the seller, but also on the developer, who has to process the
+                                transfer request of the seller. The processing time of the developer may vary; it
+                                usually takes less than a week. It is important that you communicate well and politely
+                                with the seller. Please ask him/her if you are in doubt about the details of the
+                                transfer.
+                            </p>
+                            <p class="lead mb-1">4. The seller is offering me an unregistered license</p>
+                            <p class="mt-2">
+                                If the seller is offering you an unregistered license, we advise not to take it, claim
+                                your money back via the PayPal buyer protection and inform us under <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0960676f66496267666b6a65667c6d276a666427">[email&#160;protected]</a>
+                                The reason we do not allow unregistered licenses to be sold is that they are often not
+                                meant to be resold, because they were given away for free or as part of a promotion, a
+                                purchase or a magazine.
+                            </p>
+                            <p class="lead mb-1">5. Accidental purchase</p>
+                            <p class="mt-2">
+                                If you bought this item accidentally and want out of the contract, please contact the
+                                seller and inform him about it. Please note that accidental buys can be a reason for
+                                being excluded from this platform. If a buyer is excluded or not will be decided by the
+                                administration team.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-smx btn-secondary ml-3" data-dismiss="modal">Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade show" id="modalSellerInfo" tabindex="-1" aria-modal="true"
+                 style="padding-right: 17px; display: block;display:none">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content bg-light-blue">
+                        <div class="modal-header d-block pt-5 pb-2">
+                            <h1 class="modal-title text-center h1">Item sold</h1>
+                        </div>
+                        <div class="modal-body text-center">
+                            <p class="lead mb-1">1. Payment has not arrived yet.</p>
+                            <p class="mt-2">
+                                If your Item has not been paid for and one hour has transpired since the purchase, you
+                                are technically within your right to republish your item and give the buyer a bad
+                                rating. However we advise to always communicate politely with the buyer first; he may
+                                have a reason for the delayed payment. It is up to you how long you want to wait before
+                                you call the deal off and republish the item.
+                            </p>
+                            <p class="lead mb-1">2. The deal was cancelled - how to republish</p>
+                            <p class="mt-2">
+                                Go to “My Account”-“My items”, click “show sold”, mark the item in question and click on
+                                republish. Choose the thumbs down to indicate that the deal was cancelled.
+                            </p>
+                            <p class="lead mb-1">3. General advise</p>
+                            <p class="mt-2">
+                                Please always communicate politely with the buyer. Let him know when you have requested
+                                a transfer. It is a good idea to include him in CC if you are submitting a transfer
+                                request via email.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-smx btn-secondary ml-3" data-dismiss="modal">Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade show" id="modalFlag" tabindex="-1" aria-modal="true"
+                 style="padding-right: 17px; display: block;display:none">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header pb-2">
+                            <h3 class="modal-title h3">Flag this Item?</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mb-1"><strong>Please give a reason</strong>:</p>
+                            <div class="custom-control custom-radio mt-1">
+                                <input type="radio" id="radioFlagReason1" name="radioFlagReason" value="1"
+                                       class="custom-control-input radio-reason">
+                                <label class="custom-control-label" for="radioFlagReason1">This is an unregistered
+                                    licence.</label>
+                            </div>
+                            <div class="custom-control custom-radio mt-1">
+                                <input type="radio" id="radioFlagReason2" name="radioFlagReason" value="2"
+                                       class="custom-control-input radio-reason">
+                                <label class="custom-control-label" for="radioFlagReason2">The seller is forgetting a
+                                    fee.</label>
+                            </div>
+                            <div class="custom-control custom-radio mt-1">
+                                <input type="radio" id="radioFlagReasonOther" name="radioFlagReason" value="0"
+                                       class="custom-control-input radio-reason">
+                                <label class="custom-control-label" for="radioFlagReasonOther">Other (please
+                                    specify):</label>
+                            </div>
+                            <div class="form-group mt-2">
+                                <textarea class="form-control" id="reasonOtherTxt" rows="2" maxlength="500"
+                                          readonly></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger" id="btnSendFlag"><i class="far fa-flag"></i>
+                                Flag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                 id="modalPayPalProtection">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-light-blue">
+                        <div class="modal-header pt-4 pb-1">
+                            <h1 class="modal-title h1">Protect yourself with PayPal</h1>
+                        </div>
+                        <div class="modal-body text-center">
+                            <div class="mb-4">
+                                <img src="/img/paypal-small.png" alt="PayPal logo">
+                            </div>
+                            <p class="lead">Remember to send money selecting <strong class="d-inline-block">goods or
+                                    services</strong> so your payment is covered by the <strong
+                                    class="font-italic d-inline-block">PayPal buyer protection policy</strong>.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="checkHidePPMsg">
+                                <label class="form-check-label" for="checkHidePPMsg">don't show this again</label>
+                            </div>
+                            <button type="button" class="btn btn-smx btn-secondary ml-3" data-dismiss="modal">Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 md:col-md-6 col-xl-7 order-1 sm:order-2" id="InfoMessagePanel"
+                 data-item-id="46504" data-seller-id="1243">
+                <div class="card p-2 mb-2 shadow item-info-card">
+                    <div class="" id="itemInfo">
+                        <div class="row mb-2">
+                    <div class="col">
+                        <div class="d-flex">
+                            <div class="mr-auto">
+                                <h3 class="mb-0 h3">GetGood Drums</h3>
+                                <h1 class="h1">Invasion kit</h1>
+                            </div>
+                            <h3 class="text-right mb-0 ml-1 h3">
+                                        <span class="badge badge-primary">
+                                                                                        $ &nbsp;65 </span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-5 pr-sm-0">
+                                                    <img src="https://www.knobcloud.com/storage/user-screenshots/ggd.jpg" alt="GetGood Drums Invasion kit" class="img-fluid d-block">
+                                                                        <small class="mt-1">Published on Sat, 6 Aug 2022</small>
+                        <p class="mb-2">
+                            by <a class="text-blue-500" href="https://www.knobcloud.com/user-profile/1243">
+                                                                    Velianhq
+                                                            </a>
+                        </p>
+                                                                    </div>
+                                            <div class="col" id="detailInfo">
+    <h4 class="mb-0 h4">Required Info</h4>
+        <p class="mb-0">
+                                    Full Name  -                   Email    </p>
+                                    <div class="d-flex align-items-baseline mt-3">
+                <h4 class="mb-0 h4">Platforms</h4>
+                <p class="ml-2 mb-0">
+                                        <i class="fab fa-apple color-blue"></i>
+                                                            <i class="fab fa-windows color-blue"></i>
+                                                        </p>
+            </div>
+            <h4 class="mb-0 mt-3 h4">Developer Transfer Info</h4>
+                        <small class="d-block">
+                <a class="text-blue-500" href="https://www.getgooddrums.com/pages/policies" target="_blank"><i class="fas fa-external-link-alt"></i> external link</a>
+            </small>
+                        <h4 class="mb-0 mt-3 h4">Licence Type</h4>
+                        <p class="small mb-0">Registered</p>
+                        <h4 class="mb-0 mt-3 h4">Payment Method</h4>
+            <p class="small mb-0">PayPal with <i>Buyer Protection</i></p>
+            <div class="mt-3">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#shareButtons" aria-expanded="false" aria-controls="shareButtons"><i class="fas fa-share-alt"></i> Share
+                </button>
+                <div class="collapse" id="shareButtons">
+                    <a href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fknobcloud.com%2Fi%2F10710%2Fplugin-alliance-elysia-phils-cascade" target="_blank" rel="noopener" aria-label="Facebook" class="btn btn-primary btn-sm btn-facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/intent/tweet/?text=Plugin%20Alliance-Elysia%20Phil%27s%20Cascade%20%5B%2415%5D%20for%20sale%20on%20KnobCloud%21&amp;url=https%3A%2F%2Fknobcloud.com%2Fi%2F10710%2Fplugin-alliance-elysia-phils-cascade" target="_blank" rel="noopener" aria-label="Twitter" class="btn btn-primary btn-sm btn-twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="/cdn-cgi/l/email-protection#edd29e988f87888e99d0bd81988a8483c8dfddac8181848c838e88c0a881949e848cc8dfddbd858481c8dfda9ec8dfddae8c9e8e8c8988c8dfddc8d8afc8dfd9dcd8c8d8a9c8dfdd8b829fc8dfdd9e8c8188c8dfdd8283c8dfdda683828fae81829889c8dfdccb8c809dd68f828994d08599999d9ec8deacc8dfabc8dfab8683828f8e81829889c38e8280c8dfab84c8dfabdcdddadcddc8dfab9d81988a8483c08c8181848c838e88c08881949e848cc09d8584819ec08e8c9e8e8c8988" target="_self" rel="noopener" aria-label="Email" class="btn btn-primary btn-sm btn-email"><i class="fas fa-envelope"></i></a>
+                    <a href="whatsapp://send?text=Plugin%20Alliance-Elysia%20Phil%27s%20Cascade%20%5B%2415%5D%20for%20sale%20on%20KnobCloud%21%20https%3A%2F%2Fknobcloud.com%2Fi%2F10710%2Fplugin-alliance-elysia-phils-cascade" target="_blank" rel="noopener" aria-label="WhatsApp" class="btn btn-primary btn-sm btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+</div>                                    </div>
+                <div class="row mt-2">
+                    <div class="col">
+                        
+                    </div>
+                </div>
+            </div>
+                                            </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const checkBox = () => {
+            let committedCheck = document.getElementById('committedCheck');
+            let btnBuyNow = document.getElementById('btnBuyNow');
+            if (committedCheck.checked) {
+                btnBuyNow.disabled = false;
+                btnBuyNow.classList.remove('disabled')
+            } else {
+                btnBuyNow.disabled = true;
+                btnBuyNow.classList.add('disabled')
+            }
+        };
+
+        $("#btnSendMessage").click(function () {
+            var textMessage = $("#newMsgInput").val();
+            if ($.trim(textMessage).length == 0) {
+                $('#ResultModal').modal('show');
+                $('#modalBody').html('Your Message can not be null');
+            } else {
+                $('#ResultModal').modal('show');
+                $('#modalContent').addClass("d-none");
+                var itemId = $("#InfoMessagePanel").attr("data-item-id");
+                var sellerId = $("#InfoMessagePanel").attr("data-seller-id");
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/send-message',
+                    dataType: 'json',
+                    data: ({
+                        "message": textMessage,
+                        "sellerId": sellerId,
+                        "itemId": itemId
+                    }),
+                    success: function (data) {
+                        if (data.message == "success") {
+
+                            var str = '<div class="card bg-white mb-2" msg-id="' + data.messageInfo.message_id + '"><div class="card-body"><p class="card-text mb-0"><small class="text-muted">' +
+                                'by <a href="https://www.knobcloud.com/my-account">you</a> on ' + data.messageInfo.message_date + ' at ' + data.messageInfo.message_time + '</small></p>' +
+                                '<p class="card-text">' + data.messageInfo.message_content + '</p>' +
+                                '<div class="read-check"><i class="fas fa-check"></i></div>' +
+                                '</div></div>';
+
+                            $("#sentMessagesContent").append(str);
+                            $("#newMsgInput").val('');
+
+                            $('#ResultModal').modal('hide');
+                            $('#modalContent').addClass("d-none");
+
+                        } else {
+                            $('#ResultModal').modal('show');
+                            $('#modalBody').html('Your Message not send please try again');
+                        }
+                    },
+                });
+            }
+        });
+
+
+        $("#btnBuyNow").click(function () {
+            var itemId = $("#InfoMessagePanel").attr("data-item-id");
+            var sellerId = $("#InfoMessagePanel").attr("data-seller-id");
+            $('#ResultModal').modal('show');
+            $('#modalContent').addClass("d-none");
+            $.ajax({
+                type: 'POST',
+                url: '/buy-item',
+                dataType: 'json',
+                data: ({
+                    "itemId": itemId,
+                    "sellerId": sellerId,
+                }),
+                success: function (data) {
+                    if (data.message == "success") {
+                        $('#ResultModal').modal('show');
+                        $('#modalBody').html(data.message_content);
+                        location.reload();
+                    } else {
+                        $('#ResultModal').modal('show');
+                        $('#modalContent').removeClass("d-none");
+                        $('#modalBody').html(data.message_content);
+                    }
+
+                },
+            });
+        })
+
+        $('#btnSendFeedback').click(function () {
+            var rating = $('input[name="rating"]:checked').val();
+            var text = $.trim($("#txt-feedback").val());
+            var itemId = $("#InfoMessagePanel").attr("data-item-id");
+
+            $.ajax({
+                type: 'POST',
+                url: '/sendFeedback',
+                dataType: 'json',
+                data: ({
+                    "rating": rating,
+                    "text": text,
+                    "itemId": itemId
+                }),
+                success: function (data) {
+                    $("#feedbackBox").addClass("d-none");
+                    $(".feed-back-result").removeClass("d-none");
+
+                    if (data.status == "success") {
+                        $('#feedback-result-message').html(data.message);
+                    } else {
+                        $('#feedback-result-message').html(data.message);
+                    }
+
+                    $("#txt-feedback").val('');
+                    location.reload();
+                },
+            });
+        });
+
+        $("#btnEditSendFeedback").click(function () {
+            var rating = $('input[name="rating"]:checked').val();
+            var text = $.trim($("#edit-txt-feedback").val());
+            var itemId = $("#InfoMessagePanel").attr("data-item-id");
+            $.ajax({
+                type: 'POST',
+                url: '/edit-feedback',
+                dataType: 'json',
+                data: ({
+                    "rating": rating,
+                    "text": text,
+                    "itemId": itemId
+                }),
+                success: function (data) {
+                    $("#feedbackBox").addClass("d-none");
+                    $(".feed-back-result").removeClass("d-none");
+
+                    if (data.status == "success") {
+                        $("#EditfeedbackBox").removeClass("show");
+                        $("#EditfeedbackBox").addClass("d-none");
+                    } else {
+                        $("#EditfeedbackBox").removeClass("show");
+                        $("#EditfeedbackBox").addClass("d-none");
+                    }
+                    location.reload();
+                },
+            });
+        });
+
+
+        $('#feedbackView').click(function () {
+            var itemId = $("#InfoMessagePanel").attr("data-item-id");
+            $.ajax({
+                url: '/get-feedback-by-user-and-item',
+                dataType: 'json',
+                data: ({
+                    "itemId": itemId
+                }),
+                success: function (response) {
+                    $("#EditfeedbackBox").removeClass("d-none");
+                    $("#EditfeedbackBox").addClass("show");
+                    $("#edit-txt-feedback").html(response.data.txt);
+                },
+            });
+        })
+
+        $("#btnBuyerInfo").click(function () {
+            $("#modalBuyerInfo").modal('show');
+        })
+
+        $("#btnSellerInfo").click(function () {
+            $("#modalSellerInfo").modal('show');
+        })
+
+
+        $('#btnFlag').on('click', function (e) {
+            e.preventDefault();
+            $('#modalFlag').modal('show');
+        });
+
+        $('#btnSendFlag').click(function () {
+            $('#btnSendFlag').attr("disabled", true);
+            var flagMessage = $("#reasonOtherTxt").val();
+            var itemId = $("#InfoMessagePanel").attr("data-item-id");
+            var flagResoneId = $("input[name='radioFlagReason']:checked").val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/set-flag',
+                dataType: 'json',
+                data: ({
+                    "flagMessage": flagMessage,
+                    "flagResoneId": flagResoneId,
+                    "itemId": itemId
+                }),
+                success: function (data) {
+                    if (data.message == "success") {
+                        // $("#btnFlag").html('<i class="fas fa-flag-checkered"></i>You Flagged This Item')
+                        $('#ResultModal').modal('show');
+                        $('#modalContent').removeClass("d-none");
+                        $('#modalBody').html("You Flagged this Item");
+                        $('#btnSendFlag').attr("disabled", false);
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000);
+                        $("#btnFlag").html('<span style="color:red">You Flagged This Item</span>')
+                    }
+                    $('#modalFlag').modal('hide');
+                },
+            });
+        });
+
+        $("#btnSendReqInfo").click(function (e) {
+
+            e.preventDefault();
+
+            let formValid = true;
+
+            $('#requireInfoForm input[required]').each(function () {
+                if ($(this).val() == '') {
+                    formValid = false;
+                    $(this).addClass('alert-required');
+                }
+            });
+
+            if (formValid) {
+                $('#ResultModal').modal('show');
+                $('#modalContent').addClass("d-none");
+                $.post('/send-requireinfo', $('form#requireInfoForm').serialize(), function (data) {
+                    $('#ResultModal').modal('show');
+                    $('#modalContent').removeClass("d-none");
+                    // setTimeout(function(){
+                    $('#modalBody').html('Required form sent');
+                    // }, 2000);
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                },);
+                return false;
+            }
+        });
+
+
+        $("#btnMarkTransferred").click(function () {
+            var itemId = $("#InfoMessagePanel").attr("data-item-id");
+            $.ajax({
+                type: 'POST',
+                url: '/set-trandfered',
+                dataType: 'json',
+                data: ({
+                    "itemId": itemId
+                }),
+                success: function (data) {
+                    $("#markTransferred").html('');
+                    location.reload();
+                },
+            });
+        })
+
+
+        $("#btnMarkPaid").click(function () {
+            var itemId = $("#InfoMessagePanel").attr("data-item-id");
+            $.ajax({
+                url: '/mark-as-paid/' + itemId,
+                dataType: 'json',
+                success: function (data) {
+                    location.reload();
+                },
+            });
+        })
+
+        $('#newMsgInput').keyup(function () {
+            var str = $(this).val();
+            var txtCharCountLength = str.length;
+
+            if (txtCharCountLength <= 500) {
+                var remainingChar = 500 - txtCharCountLength;
+                $("#divChar").html(remainingChar);
+                var rows = str.split("\n");
+                var cols = rows.sort(function (a, b) {
+                    return b.length - a.length
+                })[0].length;
+
+                $(this).attr('rows', rows.length + 1);
+                $(this).attr('cols', cols);
+            } else {
+                $(this).val($(this).val().substring(0, 300));
+            }
+        });
+
+        $('#requireInfoForm input[required]').keyup(function () {
+            $(this).removeClass('alert-required');
+        });
+
+        $("input[type='radio'][name='rating']").on("click", function (e) {
+            var inp = $(this); //cache the selector
+            if (inp.is(".theone")) { //see if it has the selected class
+                inp.prop("checked", false).removeClass("theone");
+                return;
+            }
+            $("input:radio[name='" + inp.prop("name") + "'].theone").removeClass("theone");
+            inp.addClass("theone");
+        });
+
+        $('#jsShowSentInfo').click(function () {
+            $('.require-info-detail').toggle();
+            $('#btnShowInfoContent').addClass('hidden');
+        });
+
+        $('.radio-reason').click(function () {
+            var Flag = $("input[name='radioFlagReason']:checked").val();
+            switch (Flag) {
+                case '1', '2':
+                    $('#reasonOtherTxt').attr("readonly", true);
+                    break;
+                case '0':
+                    $('#reasonOtherTxt').removeAttr('readonly');
+                    break;
+            }
+        })
+
+    </script>
+    <style>
+        .feed-back-result {
+            padding: 10px !important;
+            background-color: #daeaec !important;
+        }
+
+        #send-feedback {
+            padding: 10px !important;
+        }
+
+        #editFeedback {
+            float: right !important;
+        }
+    </style>
+    </main>
+</div>
+
+<footer class="bg-dark-blue py-3">
+    <div class="container mx-auto">
+    <div class="w-full">
+        <div class="row justify-content-center">
+            <div class="col-md-3 offset-md-1 item">
+                <h3 class="h3 mb-2">Legal</h3>
+                <ul>
+                    <li><a href="https://www.knobcloud.com/terms-of-use">Terms of Use</a></li>
+                    <li><a href="https://www.knobcloud.com/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="https://www.knobcloud.com/imprint">Imprint</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 item mt-3 mt-md-0">
+                <h3 class="h3 mb-2">Help</h3>
+                <ul>
+                    <li><a href="https://www.knobcloud.com/faq">FAQ</a></li>
+                    <li><a href="/developer">Developer Database</a></li>
+                    <li><a href="https://www.knobcloud.com/contact">Contact</a></li>
+                </ul>
+            </div>
+        <div class="col-md-4 d-xl-flex justify-content-xl-end align-items-xl-end item social">
+            <ul class="md:text-right">
+                <li class="align-text-bottom">Knobcloud © 2020</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+</footer>
+
+<div class="lcc-backdrop js-lcc-backdrop" style="display: none;"></div>
+<div role="dialog" aria-labelledby="lcc-modal-alert-label" aria-describedby="lcc-modal-alert-desc" aria-modal="true" class="lcc-modal lcc-modal--alert js-lcc-modal js-lcc-modal-alert" style="display: none;"
+     data-cookie-key="__cookie_consent"
+     data-cookie-value-analytics="2"
+     data-cookie-value-marketing="3"
+     data-cookie-value-both="true"
+     data-cookie-value-none="false"
+     data-cookie-expiration-days="365"
+     data-gtm-event="cookie_refresh"
+     data-ignored-paths=""
+>
+    <div class="p-4 pb-5 container-fluid bg-blue collapse show js-cookie-consent cookie-consent" style="border-top: 1.5em solid #fff">
+        <div class="d-flex flex-column flex-md-row align-items-md-end">
+            <div class="mr-md-5 ml-md-5">
+                <i class="fad fa-cookie-bite fa-5x"></i>
+            </div>
+            <div class="mr-md-5 mt-1">
+                <h3 class="h3 mt-2">We use cookies only for functional purposes!</h3>
+
+                <p class="text-sm p-1">You accept the <a href="/privacy-policy" target="_blank"><u>use of cookies</u></a> or other identifiers by closing or dismissing this notice, by clicking a link or button or by continuing to browse otherwise.</p>
+            </div>
+            <div class="mr-md-5 mt-4 d-flex flex-row">
+                <div class="lcc-modal__actions">
+                    <button type="button" class="js-lcc-accept btn btn-outline-light btn-sm js-cookie-consent-agree cookie-consent__agree"
+                            data-toggle="collapse" data-target="#cookieConsent">
+                        Reject
+                    </button>
+                    <button type="button" class="js-lcc-accept btn btn-secondary btn-sm js-cookie-consent-agree cookie-consent__agree"
+                            data-toggle="collapse" data-target="#cookieConsent">
+                        Accept
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div role="dialog" aria-labelledby="lcc-modal-settings-label" aria-describedby="lcc-modal-settings-desc" aria-modal="true" class="lcc-modal lcc-modal--settings js-lcc-modal js-lcc-modal-settings" style="display: none;">
+    <button class="lcc-modal__close js-lcc-settings-toggle" type="button">
+        <span class="lcc-u-sr-only">
+            Close        </span>
+        &times;
+    </button>
+    <div class="lcc-modal__content">
+        <div class="lcc-modal__content">
+            <h2 id="lcc-modal-settings-label" class="lcc-modal__title">
+                Cookie settings            </h2>
+            <p id="lcc-modal-settings-desc" class="lcc-text">
+                Our website keeps three levels of cookies. You can adjust your preferences at any time. If you want more information about what cookies are and which cookies we collect, please read our <a href="">cookie policy</a>.            </p>
+            <div class="lcc-modal__section lcc-u-text-center">
+                <button type="button" class="lcc-button js-lcc-accept">
+                    Accept all cookies                </button>
+            </div>
+            <div class="lcc-modal__section">
+                <label for="lcc-checkbox-essential" class="lcc-label">
+                    <input type="checkbox" id="lcc-checkbox-essential" disabled="disabled" checked="checked">
+                    <span>Functional cookies</span>
+                </label>
+                <p class="lcc-text">
+                    are essential cookies that ensure that the website functions properly and that your preferences (e.g. language, region) are saved.                </p>
+            </div>
+            <div class="lcc-modal__section">
+                <label for="lcc-checkbox-analytics" class="lcc-label">
+                    <input type="checkbox" id="lcc-checkbox-analytics">
+                    <span>Analytical cookies</span>
+                </label>
+                <p class="lcc-text">
+                    allow us to analyse website use and to improve the visitor's experience.                </p>
+            </div>
+            <div class="lcc-modal__section">
+                <label for="lcc-checkbox-marketing" class="lcc-label">
+                    <input type="checkbox" id="lcc-checkbox-marketing">
+                    <span>Marketing cookies</span>
+                </label>
+                <p class="lcc-text">
+                    allow us to personalise your experience and to send you relevant content and offers, on this website and other websites.                </p>
+            </div>
+        </div>
+    </div>
+    <div class="lcc-modal__actions">
+        <button type="button" class="lcc-button lcc-button--link js-lcc-settings-toggle">
+            Cancel        </button>
+        <button type="button" class="lcc-button js-lcc-settings-save">
+            Save        </button>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://www.knobcloud.com/vendor/cookie-consent/js/cookie-consent.js"></script>
+</body>
+</html>

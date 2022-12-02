@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <title>Slack style loader ||  R3ID</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="last-modified" content="2022-06-28">
+    <meta name="description" content="A software engineer based in Hertfordshire who specializes in developing (and occasionally designing) exceptional, high-quality websites and applications.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.1/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" media="screen">
+    <link rel="stylesheet" href="/assets/css/main.css" media="print">
+    <link rel="icon" type="image/png" href="https://r3id.dev/favicon.ico">
+  </head>
+  <body class="home-page text-gray-500">
+
+    <nav class="max-w-5xl m-auto p-5 flex justify-between border-solid border-b border-gray-100 bg-white dark:border-black dark:bg-blackish sticky top-0 opacity-90 z-10">
+  <div class="flex items-center">
+    <a href="/" class="transition-colors">
+      <i class="far fa-arrow-left text-sm text-glow hover:text-gray-700"></i>
+    </a>
+  </div>
+</nav>
+
+
+
+
+<div class="default-container">
+  <div class="pt-20 pb-1 inline-flex overflow-x-auto space-x-2">
+		<a href="/">
+			<p class="cursor-pointer text-sm text-gray-400 dark:text-gray-600 hover:font-medium hover:text-gray-700 dark:hover:text-gray-300 min-w-max">Home /</p>
+		</a>
+    <a href="/notes">
+			<p class="cursor-pointer text-sm text-gray-400 dark:text-gray-600 hover:font-medium hover:text-gray-700 dark:hover:text-gray-300 min-w-max">Notes to self /</p>
+		</a>
+		<a href="/notes/slack-loader">
+			<p class="cursor-pointer text-sm text-glow dark:text-glow hover:font-medium hover:text-gray-700 dark:hover:text-gray-300 min-w-max">Slack style loader</p>
+		</a>
+	</div>
+	<div class="mb-6">
+		<h1 class="pb-2 font-bold text-3xl text-gray-600">Slack style loader</h1>
+    
+      <p class="text-sm italic mb-4">It's a 3 minute read</p>
+    
+	</div>
+  <div class="text-content">
+    <p>Loaders are a nice way to keeping users informed that a page is loading, or that its simply doing something. It provides a gentle reassurance and feedback that we’ve not forgotten about the user, or that the page hasn’t crashed or hung.</p>
+
+<p>In todays post we are going to create a really simple loader based off of the one used by <a href="https://www.slack.com" target="_blank">Slack</a>.</p>
+
+<div class="image-center">
+<img src="https://r3id.dev/assets/images/articles/slack-logo.png" width="160" />
+</div>
+
+<hr />
+
+<p>So to start off we need to add an element which will allow our CSS to build our loader. So lets create our element and give it the class name <code class="language-plaintext highlighter-rouge">loader</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="loader"&gt;&lt;/div&gt;
+</code></pre></div></div>
+
+<p>Now on to creating our our Sass code. The first things we need to create are our variables, this will allow us to reference them later, and it keeps our SCSS clean and tidy - feel free to change the colours to suit your project.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+$colors:
+  rgba(225, 22, 101, 0.75)
+  rgba(61, 186, 145, 0.75)
+  rgba(112, 204, 220, 0.75)
+  rgba(223, 168, 35, 0.75);
+$size: 2.5em;
+$thickness: 0.5em;
+
+// Calculated variables.
+$lat: ($size - $thickness) / 2;
+$offset: $lat - $thickness;
+
+</code></pre></div></div>
+
+<p>With our variables in hand lets start to create our <code class="language-plaintext highlighter-rouge">.loader</code> class.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+.loader {
+  position: relative;
+  width: $size;
+  height: $size;
+  transform: rotate(165deg);
+
+  &amp;:before,
+  &amp;:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: $thickness;
+    height: $thickness;
+    border-radius: $thickness / 2;
+    transform: translate(-50%, -50%);
+  }
+
+  &amp;:before {
+    animation: before 2s infinite;
+  }
+
+  &amp;:after {
+    animation: after 2s infinite;
+  }
+}
+
+</code></pre></div></div>
+
+<p>Now lets create our animations.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+@keyframes before {
+  0% {
+    width: $thickness;
+    box-shadow:
+      $lat (-$offset) nth($colors, 1),
+      (-$lat) $offset nth($colors, 3);
+  }
+  35% {
+    width: $size;
+    box-shadow:
+      0 (-$offset) nth($colors, 1),
+      0   $offset  nth($colors, 3);
+  }
+  70% {
+    width: $thickness;
+    box-shadow:
+      (-$lat) (-$offset) nth($colors, 1),
+      $lat $offset nth($colors, 3);
+  }
+  100% {
+    box-shadow:
+      $lat (-$offset) nth($colors, 1),
+      (-$lat) $offset nth($colors, 3);
+  }
+}
+
+@keyframes after {
+  0% {
+    height: $thickness;
+    box-shadow:
+      $offset $lat nth($colors, 2),
+      (-$offset) (-$lat) nth($colors, 4);
+  }
+  35% {
+    height: $size;
+    box-shadow:
+        $offset  0 nth($colors, 2),
+      (-$offset) 0 nth($colors, 4);
+  }
+  70% {
+    height: $thickness;
+    box-shadow:
+      $offset (-$lat) nth($colors, 2),
+      (-$offset) $lat nth($colors, 4);
+  }
+  100% {
+    box-shadow:
+      $offset $lat nth($colors, 2),
+      (-$offset) (-$lat) nth($colors, 4);
+  }
+}
+
+</code></pre></div></div>
+
+<p>Finally, this bit is optional, but this will let us centre our loader.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+html,
+body {
+  height: 100%;
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - #{$size / 2});
+  left: calc(50% - #{$size / 2});
+}
+
+</code></pre></div></div>
+
+<p>Below is a demo of our code, and you can download it <a href="https://gist.github.com/r3id/f84c2234d08d2c2082cb538f03ace9c4" target="_blank">here</a>.</p>
+
+<div class="demo-holder">
+<div class="loader"></div>
+
+<style>
+.demo-holder { margin-top: 50px; }
+.loader {
+  margin: 0 auto;
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(165deg);
+}
+.loader:before, .loader:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.25em;
+  transform: translate(-50%, -50%);
+}
+.loader:before {
+  animation: before 2s infinite;
+}
+.loader:after {
+  animation: after 2s infinite;
+}
+
+@keyframes before {
+  0% {
+    width: 0.5em;
+    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+  35% {
+    width: 2.5em;
+    box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+  }
+  70% {
+    width: 0.5em;
+    box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+  100% {
+    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+}
+@keyframes after {
+  0% {
+    height: 0.5em;
+    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+  }
+  35% {
+    height: 2.5em;
+    box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+  }
+  70% {
+    height: 0.5em;
+    box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+  }
+  100% {
+    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+  }
+}
+</style>
+</div>
+
+  </div>
+</div>
+
+
+    <div class="py-20 grid justify-center">
+  <div class="w-full flex align-middle space-x-4">
+    <a href="https://www.linkedin.com/in/alanr3id/" title="LinkedIn">
+      <i class="fab fa-linkedin-in text-xl text-blue-600"></i>
+    </a>
+    <a href="https://twitter.com/alan_r3id" target="_blank" title="Twitter">
+      <i class="fab fa-twitter text-xl text-blue-300"></i>
+    </a>
+    <a href="https://dribbble.com/r3id" target="_blank" title="Dribbble">
+      <i class="fab fa-dribbble text-xl text-pink-600"></i>
+    </a>
+    <a href="https://github.com/r3id" target="_blank" title="GitHub">
+      <i class="fab fa-github text-xl text-black"></i>
+    </a>
+    <a href="https://medium.com/@r3id" target="_blank" title="Medium">
+      <i class="fab fa-medium text-xl text-black"></i>
+    </a>
+  </div>
+  <p class="pt-5 pb-5 text-xs font-medium text-center text-gray-400 dark:text-gray-200">
+    <a href="/privacy">Privacy</a>
+  </p>
+  <p class="pt-5 pb-5 text-xs font-medium text-center text-gray-300 dark:text-gray-200">
+    © 2021 Alan Reid
+  </p>
+</div>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68933763-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68933763-1');
+    </script>
+  </body>
+</html>

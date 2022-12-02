@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple GST Invoicing, POS Billing, Inventory for SMEs</title>
+    <meta name="description" content="Swipe is simple & fast GST billing software for small businesses. Manage Invoices, Quotations, Purchase Orders, Payments, Inventory." />
+    <meta name="keywords" content="Easy Invoice Manager, Billing, Professional Invoices, Payments for SMEs, Tally alternative, Billing software, GST Billing Software, Inventory Management software, Invoicing for Distributors, Wholesalers, Retailers, Retail billing software, Book keeping software, WhatsApp payment reminders, Manage Expenses, Customer Ledgers, Send festival messages to Customers and Vendors, Khatabook for small businesses" />
+    <meta name="content-language" content="english" />
+    <meta property="og:title" content="Simple GST Invoicing, POS Billing, Inventory for SMEs" />
+    <meta property="og:description" content="Swipe is simple and fast GST billing software for small businesses. Manage Invoices, Quotations, Purchase Orders, Payments, Inventory at a single place. Start free trial today!" />
+    <meta property="og:image" content="/static/img/swipe_logo.jpeg" />
+    <meta property="og:url" content="https://getswipe.in" />
+    <meta property="og:site_name" content="Swipe" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:title" content="Simple GST Invoicing, POS Billing, Inventory for SMEs" />
+    <meta name="twitter:description" content="Swipe is simple and fast GST billing software for small businesses. Manage Invoices, Quotations, Purchase Orders, Payments, Inventory at a single place. Start free trial today!" />
+    <meta name="twitter:image" content="/static/img/swipe_logo.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="shortcut icon" href="/static/img/favicon.png" />
+    <!-- <link href="https://unpkg.com/tailwindcss@^3.0.0/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link rel="apple-touch-icon" href="/static/img/favicon.png" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="canonical" href="https://getswipe.in/" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+    <!-- <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" /> -->
+    <link href="/static/css/custom.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- <link href="/static/css/flickity.css" rel="stylesheet" type="text/css" media="all" /> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="manifest" href="/static/manifest.json" />
+    <meta name="theme-color" content="black" />
+    <meta name="google-site-verification" content="67LJq2bfQVomOGDEqjRq-o7xEItNhm2xHKzdPJNljrA" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <meta
+      name="google-site-verification"
+      content="67LJq2bfQVomOGDEqjRq-o7xEItNhm2xHKzdPJNljrA"
+    />
+    <meta
+      name="facebook-domain-verification"
+      content="etgvvzwi9319m1d4o2j32krp9ot6w4"
+    />
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "398275045292051");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=398275045292051&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+    <div class="relative bg-white" id="start">
+        <div class="relative bg-white ">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="flex justify-between items-center py-6 ">
+                    <div class="flex justify-start lg:w-0 lg:flex-1">
+                        <a href="#">
+                            <img class="h-8 w-auto sm:h-10" src="/static/img/logo.svg" alt="swipe logo" />
+                        </a>
+                    </div>
+                    <div class="-mr-2 -my-2 lg:hidden">
+                        <button type="button" onclick="openMobileMenu()" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-neutral-400 hover:text-neutral-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-expanded="false">
+                            <span class="sr-only">Open menu</span>
+                            <!-- Heroicon name: outline/menu -->
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    <nav class="hidden lg:flex space-x-8">
+                        <a href="#features" class="text-base font-medium text-neutral-700 hover:text-neutral-900">
+                            Features
+                        </a>
+                        <a href="#invoiceFormats" class="text-base font-medium text-neutral-700 hover:text-neutral-900">
+                            Invoice Formats
+                        </a>
+                        <a href="https://www.youtube.com/channel/UC4S-qpp7BCBiNHGRcpbQXEA/playlists" target="_blank" class="text-base font-medium text-neutral-700 hover:text-neutral-900">
+                            Tutorials
+                        </a>
+                        <a href="https://blog.getswipe.in/" target="_blank" class="text-base font-medium text-neutral-700 hover:text-neutral-900">
+                            Blogs
+                        </a>
+                        <a href="#faq" class="text-base font-medium text-neutral-700 hover:text-neutral-900">
+                            FAQs
+                        </a>
+                        <div class="relative">
+                        </div>
+                    </nav>
+                    <div class="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
+                        <a href="https://app.getswipe.in/auth/login" target="_blank" class="whitespace-nowrap text-base font-medium ml-6 text-neutral-700 hover:text-neutral-900">
+                            Login
+                        </a>
+                        <a href="https://app.getswipe.in/auth/login" target="_blank" class="ml-6 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-bold text-white bg-storeBlue hover:bg-storeBlue">
+                            Sign Up
+                        </a>
+                        <a class="ml-6 whitespace-nowrap sm:hidden md:block inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-bold text-white hover:bg-storeBlue" id="adding-button" href="#" style="border-color: #2754ff; color: #2754ff; ">
+                            <span class="btn__text" style="color: #2754ff; font-size: 14px; ">
+                                Download for Desktop
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--
+      Mobile menu, show/hide based on mobile menu state.
+
+      Entering: "duration-200 ease-out"
+        From: "opacity-0 scale-95"
+        To: "opacity-100 scale-100"
+      Leaving: "duration-100 ease-in"
+        From: "opacity-100 scale-100"
+        To: "opacity-0 scale-95"
+    -->
+            <div class="absolute top-0 inset-x-0 z-10 p-2  origin-top-right lg:hidden hidden" id="mobileMenu">
+                <div class="rounded-md shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+                    <div class="pt-5 pb-6 px-5">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <img class="h-8 w-auto" src="/static/img/logo.svg" alt="swipe logo" />
+                            </div>
+                            <div class="-mr-2">
+                                <button type="button" onclick="closeMobileMenu()" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-neutral-400 hover:text-neutral-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                                    <span class="sr-only">Close menu</span>
+                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <nav class="grid gap-y-8">
+                                <a href="#features" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50" onclick="closeMobileMenu()">
+                                    <span class="ml-3 text-base font-medium text-neutral-900">
+                                        Features
+                                    </span>
+                                </a>
+                                <a href="#invoiceFormats" onclick="closeMobileMenu()" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                                    <span class="ml-3 text-base font-medium text-neutral-900">
+                                        Invoice Formats
+                                    </span>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UC4S-qpp7BCBiNHGRcpbQXEA/playlists" target="_blank" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                                    <span class="ml-3 text-base font-medium text-neutral-900">
+                                        Tutorials
+                                    </span>
+                                </a>
+                                <a href="https://blog.getswipe.in/" target="_blank" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                                    <span class="ml-3 text-base font-medium text-neutral-900">
+                                        Blogs
+                                    </span>
+                                </a>
+                                <a href="#faq" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50" onclick="closeMobileMenu()">
+                                    </svg>
+                                    <span class="ml-3 text-base font-medium text-neutral-900">
+                                        FAQs
+                                    </span>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="py-6 px-5 space-y-6">
+                        <div>
+                            <a href="https://app.getswipe.in/auth/login" class="w-full flex items-center justify-center px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-storeBlue hover:bg-storeBlue">
+                                Sign up
+                            </a>
+                            <p class="mt-6 text-center text-base font-medium text-neutral-700">
+                                Existing customer?
+                                <a href="https://app.getswipe.in/auth/login" class="text-blue-600 hover:text-blue-500">
+                                    Sign in
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main class="lg:relative">
+            <div class="mx-auto max-w-7xl w-full md:pt-14 md:pb-14 py-5 md:text-center lg:py-48 lg:text-left">
+                <div class="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
+                    <span class="text-sm text-white rounded-full p-1 px-2 mb-2" style="background: #06c167">
+                        <i class="fa fa-check-circle"></i> 100% Safe &amp; Secure!
+                    </span>
+                    <h1 class="text-4xl tracking-tight flex mx-0 md:max-w-md md:mx-auto lg:mx-0 font-bold text-neutral-900 sm:text-5xl md:text-5xl lg:text-5xl xl:text-5xl mt-5">
+                        <span class="block xl:inline">Simple</span>
+                        <!-- <span
+                class="mb-1 typed-text typed-text--cursor text-blue-600"
+                data-typed-strings="GST Billing, Invoicing, Accounting, Payments, Online Store"
+              ></span> -->
+                        <div class="words ml-3 text-storeBlue">
+                            <span>GST Billing</span>
+                            <span>Invoicing</span>
+                            <span>Accounting</span>
+                            <span>Payments</span>
+                            <span>Online Store</span>
+                        </div>
+                    </h1>
+                    <p class="mt-3 max-w-md mx-auto text-lg text-neutral-800 sm:text-xl md:mt-5 md:max-w-3xl" style="line-height: 32px;">
+                        Create Invoices, Purchases & Quotations in less than 10 seconds.
+                        Share on WhatsApp with payment links and get paid faster!
+                    </p>
+                    <div class="mt-8 flex mx-0 md:max-w-md md:mx-auto lg:mx-0 ">
+                        <div class=" inline-flex">
+                            <a href="https://app.getswipe.in/auth/login" target="_blank" class="inline-flex text-xl items-center justify-center px-6 h-12 border border-transparent text-base font-bold rounded-md text-white bg-storeBlue hover:bg-storeBlue">
+                                Sign Up
+                            </a>
+                        </div>
+                        <div class="inline-flex rounded-md shadow ml-3">
+                            <a class="" href="https://play.google.com/store/apps/details?id=in.swipe.app" target="_blank">
+                                <img src="/static/img/google-play-badge.png" class="h-12" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative pb-5 w-full md:max-w-md lg:max-w-full md:mx-auto  lg:mx-0  h-80 sm:h-full md:h-96 flex justify-center items-center md:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-[90%]">
+                <img class="absolute md:inset-0 h-full sm:w-full md:w-auto object-cover rounded " src="../static/img/hero-banner.gif" alt="swipe mobile app" />
+            </div>
+        </main>
+        <div class="text-2xl px-4 text-center md:flex justify-center md:block my-4" style="font-weight: 400">
+            <p class="mx-3 mt-3">Trusted by</p>
+            <p style="font-size: 56px; font-weight: bold" class="my-5 md:my-0">2,00,000+</p>
+            <p class="mx-3 mt-3">SMEs</p>
+        </div>
+        <div class="flex justify-center mt-2 my-4">
+            <div class="mt-4 flex items-center text-orange-600" style="font-size: 18px; font-weight: bold; letter-spacing: 0">
+                <span class="font-semibold mr-2" style="font-family: 'Kalam'; font-size: 26px">#AtmaNirbharBharat
+                </span>
+                <img alt="India Flag" src="../static/img/ind.png" class="w-8 h-6" />
+            </div>
+        </div>
+       
+        <h2 class="text-center my-5 py-12 text-xl md:text-4xl font-bold mt-5" id="invoiceFormats">Awesome Invoice Formats 🚀 🎉 </h2>
+        <div class="flex overflow-x-auto max-w-[90rem] md:m-auto my-10 mx-4 " id="style-9">
+            <img class="h-96 mr-3 my-3" src="https://raw.githubusercontent.com/vectorx5/InvoiceTemplates/main/format%20M%20amazon%20(1)_page-0001.jpg" />
+            <img class="h-96 mr-3 my-3" src="https://vx-erp-resources.s3.ap-south-1.amazonaws.com/Template2.png" />
+            <img class="h-96 mr-3 my-3" src="https://raw.githubusercontent.com/vectorx5/InvoiceTemplates/main/Dmart%20revised%20(1)_page-0001.jpg" />
+            <img class="h-96 mr-3 my-3" src="https://raw.githubusercontent.com/vectorx5/InvoiceTemplates/main/ELEGANT%20WITHOUT%20IMAGES%20TEMPLATE_page-0001.jpg" />
+            <img class="h-96 mr-3 my-3" src="https://vx-erp-resources.s3.ap-south-1.amazonaws.com/Template5.png" />
+            <img class="h-96 mr-3 my-3" src="https://vx-erp-resources.s3.ap-south-1.amazonaws.com/Template6.png" />
+            <img class="h-96 mr-3 my-3" src="https://vx-erp-resources.s3.ap-south-1.amazonaws.com/Template7.png" />
+            <img class="h-96 mr-3 my-3" src="https://vx-erp-resources.s3.ap-south-1.amazonaws.com/Template4.png" />
+            <img class="h-96 mr-3 my-3" src="https://raw.githubusercontent.com/vectorx5/InvoiceTemplates/main/Classic%20template_page-0001.jpg" />
+            <img class="h-96 mr-3 my-3" src="https://vx-erp-resources.s3.ap-south-1.amazonaws.com/Template7.png" />
+        </div>
+        <br />
+        <br />
+        <br />
+        <!-- <img src=""/> -->
+        <div class="text-center">
+            <div class="w-full flex justify-center">
+                <div class="flex items-center">
+                    <span class="text-2xl font-base">Backed by</span>
+                    <img src="/static/logos/ycombinator.png" alt="ycombinator" width="auto" class="h-16" />
+                </div>
+            </div>
+            <h4 class="my-2">Partnered with</h4>
+            <div class="flex justify-center">
+                <ul class="list-inline social-list flex flex-wrap justify-center">
+                    <li class="list-inline-item">
+                        <img alt="Arthayan" class="h-16 mr-5 mt-5" src="../static/img/partners/arthayan.png" />
+                    </li>
+                    <li class="list-inline-item">
+                        <img alt="Bhau Institute" class="h-16 mr-5 mt-5" src="../static/img/partners/bhau_institute.png" />
+                    </li>
+                    <li class="list-inline-item">
+                        <img alt="Riidl" class="h-16 mr-5 mt-5" src="../static/img/partners/riidl.png" />
+                    </li>
+                    <li class="list-inline-item">
+                        <img alt="MY Cute Office" class="h-16 mr-5 mt-5" src="../static/img/partners/mycuteoffice.jpeg" />
+                    </li>
+                    <li class="list-inline-item">
+                        <img alt="GUSEC" class="h-16 mr-5 mt-5" src="../static/img/partners/gusec.png" />
+                    </li>
+                    <li class="list-inline-item">
+                        <img alt="Parul University" class="h-16 mr-5 mt-5" src="../static/img/partners/pu_vss.png" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="bg-storeBlue mt-5">
+            <div class="max-w-3xl mx-auto text-center py-16 px-4 lg:px-8">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    <span class="block">Simple Billing and Payments App</span>
+                </h2>
+                <p class="mt-4 text-lg leading-6 text-blue-200">
+                    Swipe is a free GST billing software, helps you track your sales,
+                    purchases & estimates in real-time. With Swipe, you can easily
+                    manage your inventory, file GST returns, create & share professional
+                    invoices.
+                </p>
+                <a href="https://play.google.com/store/apps/details?id=in.swipe.app" target="_blank" class="mt-8 inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-bold rounded-md text-blue-600 bg-white hover:bg-storeBlue sm:w-auto">
+                    Sign up for Free
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="overflow-hidden">
+        <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl ">
+            <!-- <svg
+          class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4"
+          width="404"
+          height="784"
+          fill="none"
+          viewBox="0 0 404 784"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern
+              id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7"
+              x="0"
+              y="0"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="4"
+                height="4"
+                class="text-neutral-200"
+                fill="currentColor"
+              />
+            </pattern>
+          </defs>
+          <rect
+            width="404"
+            height="784"
+            fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)"
+          />
+        </svg> -->
+            <div class="relative pt-12 lg:pt-24 pb-12 lg:pb-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center w-full">
+                <div class="relative">
+                    <h2 class="text-3xl font-bold text-neutral-800">
+                        Create invoices in less than 10 seconds
+                    </h2>
+                    <p class="my-4 pb-6 text-lg text-gray-600">
+                        Swipe helps you track your sales, manage inventory, customers &
+                        vendors and be in control of your business. Create GST compliant
+                        invoices & share with customers easily.
+                    </p>
+                    <a class="py-4 bg-storeBlue text-white font-bold mb-2 px-5 rounded-md" href="https://play.google.com/store/apps/details?id=in.swipe.app">
+                        <span class="">Create Invoices for FREE</span>
+                    </a>
+                    <ul class="accordion accordion-1 accordion--oneopen mt-8">
+                        <li>
+                            <div class="accordion__title">
+                                <span><i class="fa fa-arrow-down"></i> Read more</span>
+                            </div>
+                            <div class="accordion__content" style="font-size: 14px">
+                                <h3 style="font-size: 12px; font-weight: bold">
+                                    Unlimited Invoices, Purchase Orders, Quotations, Delivery
+                                    Challans using Swipe. Sales & GST reports.
+                                </h3>
+                                <p>
+                                    Swipe is the best billing software using which you can
+                                    create GST compliant bills easily. Using Swipe billing
+                                    software with GST, small businesses including retailers,
+                                    wholesalers, distributors, startups, service based
+                                    companies can grow their business and keep their accounts
+                                    and books updated.
+                                </p>
+                                <p>
+                                    Swipe software offers a free trial for 14 days to try and
+                                    check how it can benefit your business. Swipe free GST
+                                    billing Software offers the business a complete option for
+                                    easily saving more time in creating instant bills. We are
+                                    sure you would like to manage your business with higher
+                                    productivity and in a professional way for your valued
+                                    customers to come back again.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-10 -mx-4 relative lg:mt-0" aria-hidden="true">
+                    <!-- <svg
+              class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden"
+              width="784"
+              height="404"
+              fill="none"
+              viewBox="0 0 784 404"
+            >
+              <defs>
+                <pattern
+                  id="ca9667ae-9f92-4be7-abcb-9e3d727f2941"
+                  x="0"
+                  y="0"
+                  width="20"
+                  height="20"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <rect
+                    x="0"
+                    y="0"
+                    width="4"
+                    height="4"
+                    class="text-neutral-200"
+                    fill="currentColor"
+                  />
+                </pattern>
+              </defs>
+              <rect
+                width="784"
+                height="404"
+                fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"
+              />
+            </svg> -->
+                    <!-- <img class="relative mx-auto" width="490" src="https://tailwindui.com/img/features/feature-example-1.png" alt=""> -->
+                    <img class="relative mx-auto rounded-xl shadow md:w-[490px] sm:w-[300px]" style="max-width: 95%;" width="540" alt="Sales Dashboard" src="../static/img/swipe_software.jpeg" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overflow-hidden">
+        <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl ">
+            <!-- <svg
+          class="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12"
+          width="404"
+          height="784"
+          fill="none"
+          viewBox="0 0 404 784"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern
+              id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d"
+              x="0"
+              y="0"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="4"
+                height="4"
+                class="text-neutral-200"
+                fill="currentColor"
+              />
+            </pattern>
+          </defs>
+          <rect
+            width="404"
+            height="784"
+            fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)"
+          />
+        </svg> -->
+            <div class="relative pt-12 lg:pt-24 pb-12 lg:pb-24">
+                <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
+                    <div class="lg:col-start-2">
+                        <h3 class="text-2xl font-extrabold text-neutral-900 tracking-tight sm:text-3xl">
+                            Share invoices on WhatsApp & Email
+                        </h3>
+                        <p class="my-4 pb-6 text-lg text-gray-600">
+                            Swipe helps you reach your customers and vendors wherever they
+                            are. Share invoices and purchase orders on WhatsApp and Email.
+                        </p>
+                        <!-- <a class="btn btn--lg py-3 btn--green mb-2" href="https://play.google.com/store/apps/details?id=in.swipe.app"><span class="btn__text">Get Started with Swipe</span></a> -->
+                        <a class="py-4 bg-storeBlue text-white font-bold mb-2 px-5 rounded-md" href="https://play.google.com/store/apps/details?id=in.swipe.app"><span class="btn__text">Get Started with Swipe</span></a>
+                        <ul class="accordion accordion-1 accordion--oneopen mt-8">
+                            <li>
+                                <div class="accordion__title">
+                                    <span><i class="fa fa-arrow-down"></i> Read more</span>
+                                </div>
+                                <div class="accordion__content" style="font-size: 14px">
+                                    <h3 style="font-size: 12px; font-weight: bold">
+                                        Using Swipe, create GST Compliant Invoices & Share with
+                                        Customers Easily on WhatsApp and Email
+                                    </h3>
+                                    <p>
+                                        Using Swipe free GST billing software, you can easily
+                                        create GST Invoices, Bills, Quotations, Estimates,
+                                        Purchase Orders. With the seamless user experience these
+                                        bills can be created in less than 10 seconds. Now you can
+                                        simply share these bills using whatsapp and email. You can
+                                        also convert quotations and estimates into sale easily
+                                        using Swipe software for billing.
+                                    </p>
+                                    <p>
+                                        Swipe is the best free GST billing software that provides
+                                        a seamless user experience. It allows you to create and
+                                        print highly customised invoice pdfs according to your
+                                        brand colors &amp; logo and send them to your customers.
+                                        You can choose from multiple size options like A4, A5, 2
+                                        inches, and 3 inches thermal prints. You can add custom
+                                        columns to your invoices.
+                                    </p>
+                                    <p>
+                                        For that, choosing an advanced Software for GST billing
+                                        would be one of the significant things you can do. Now you
+                                        can easily use the GST software for billing and
+                                        accounting! Swipe GST Billing Software helps in sending
+                                        your Invoice, Purchase Invoices, Purchase Orders,
+                                        Quotations online (WhatsApp, email)
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
+                        <!-- <svg
+                class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden"
+                width="784"
+                height="404"
+                fill="none"
+                viewBox="0 0 784 404"
+                aria-hidden="true"
+              >
+                <defs>
+                  <pattern
+                    id="e80155a9-dfde-425a-b5ea-1f6fadd20131"
+                    x="0"
+                    y="0"
+                    width="20"
+                    height="20"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <rect
+                      x="0"
+                      y="0"
+                      width="4"
+                      height="4"
+                      class="text-neutral-200"
+                      fill="currentColor"
+                    />
+                  </pattern>
+                </defs>
+                <rect
+                  width="784"
+                  height="404"
+                  fill="url(#e80155a9-dfde-425a-b5ea-1f6fadd20131)"
+                />
+              </svg> -->
+                        <img class="relative mx-auto rounded-xl shadow md:w-[490px] sm:w-[300px]" style="max-width: 95%;" width="490" src="../static/img/share_invoices_on_whatsapp_1.jpeg" alt="share invoices on whatsapp" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overflow-hidden">
+        <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl ">
+            <!-- <svg
+          class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-12"
+          width="404"
+          height="784"
+          fill="none"
+          viewBox="0 0 404 784"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern
+              id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7"
+              x="0"
+              y="0"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="4"
+                height="4"
+                class="text-neutral-200"
+                fill="currentColor"
+              />
+            </pattern>
+          </defs>
+          <rect
+            width="404"
+            height="784"
+            fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)"
+          />
+        </svg> -->
+            <div class="relative pt-12 lg:pt-24 pb-12 lg:pb-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+                <div class="relative">
+                    <h3 class="text-2xl font-extrabold text-neutral-900 tracking-tight sm:text-3xl">
+                        GST filings made easy
+                    </h3>
+                    <p class="my-4 pb-6 text-lg text-gray-600">
+                        Using Swipe, you can quickly generate GST reports to instantly
+                        file your returns.
+                    </p>
+                    <a class="py-4 bg-storeBlue text-white font-bold mb-2 px-5 rounded-md" href="https://play.google.com/store/apps/details?id=in.swipe.app"><span class="btn__text">Get GST Reports in One-Click</span></a>
+                    <ul class="accordion accordion-1 accordion--oneopen mt-8">
+                        <li>
+                            <div class="accordion__title">
+                                <span><i class="fa fa-arrow-down"></i> Read more</span>
+                            </div>
+                            <div class="accordion__content" style="font-size: 14px">
+                                <h3 style="font-size: 12px; font-weight: bold">
+                                    Swipe is a Simple & Free GST Billing & Accounting Software
+                                    for SMEs. Quick Bills and Payments.
+                                </h3>
+                                <p>
+                                    GST filing is no longer a long process for Swipe software
+                                    users. If GST applies to your business, you can quickly
+                                    generate GST reports using the Swipe app like GSTR1,
+                                    GSTR2. It will help you avoid penalties to goods and
+                                    service tax department. Using the GST filing app is
+                                    beneficial, especially when you are not able to hire an
+                                    extra permanent employee to take good care of your
+                                    accounting requirements.
+                                </p>
+                                <p>
+                                    By using the Swipe free GST billing software with GST, you
+                                    can make sure that all the bills are accounted for before
+                                    filing taxes. It saves a ton of time required each time
+                                    you file tax by simply recording every transaction.
+                                    Further, you can download all data to ensure that you have
+                                    data backups and no data is lost in any case.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-10 -mx-4 relative lg:mt-0" aria-hidden="true">
+                    <!-- <svg
+              class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden"
+              width="784"
+              height="404"
+              fill="none"
+              viewBox="0 0 784 404"
+            >
+              <defs>
+                <pattern
+                  id="ca9667ae-9f92-4be7-abcb-9e3d727f2941"
+                  x="0"
+                  y="0"
+                  width="20"
+                  height="20"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <rect
+                    x="0"
+                    y="0"
+                    width="4"
+                    height="4"
+                    class="text-neutral-200"
+                    fill="currentColor"
+                  />
+                </pattern>
+              </defs>
+              <rect
+                width="784"
+                height="404"
+                fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"
+              />
+            </svg> -->
+                    <!-- <img class="relative mx-auto" width="490" src="https://tailwindui.com/img/features/feature-example-1.png" alt=""> -->
+                    <img class="relative mx-auto rounded-xl shadow md:w-[490px] sm:w-[300px]" style="max-width: 95%;" width="540" alt="Sales Dashboard" src="../static/img/gst_filings.jpeg" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overflow-hidden">
+        <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl ">
+            <!-- <svg
+          class="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12"
+          width="404"
+          height="784"
+          fill="none"
+          viewBox="0 0 404 784"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern
+              id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d"
+              x="0"
+              y="0"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="4"
+                height="4"
+                class="text-neutral-200"
+                fill="currentColor"
+              />
+            </pattern>
+          </defs>
+          <rect
+            width="404"
+            height="784"
+            fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)"
+          />
+        </svg> -->
+            <div class="relative pt-12 lg:pt-24 pb-12 lg:pb-24">
+                <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
+                    <div class="lg:col-start-2">
+                        <h3 class="text-2xl font-extrabold text-neutral-900 tracking-tight sm:text-3xl">
+                            Manage inventory
+                        </h3>
+                        <p class="my-4 pb-6 text-lg text-gray-600">
+                            Swipe Inventory is designed to help you spend less time in front
+                            of the screen and more time with your customers. Download
+                            reports on current inventory and update inventory quantities in
+                            bulk, which is helpful when adding new inventory.
+                        </p>
+                        <!-- <a class="btn btn--lg py-3 btn--green mb-2" href="https://play.google.com/store/apps/details?id=in.swipe.app"><span class="btn__text">Get Started with Swipe</span></a> -->
+                        <a class="py-4 bg-storeBlue text-white font-bold mb-2 px-5 rounded-md" href="https://play.google.com/store/apps/details?id=in.swipe.app"><span class="btn__text">Manage Inventory for FREE</span></a>
+                        <ul class="accordion accordion-1 accordion--oneopen mt-8">
+                            <li>
+                                <div class="accordion__title">
+                                    <span><i class="fa fa-arrow-down"></i> Read more</span>
+                                </div>
+                                <div class="accordion__content" style="font-size: 14px">
+                                    <h3 style="font-size: 12px; font-weight: bold">
+                                        Swipe easy POS Billing, Stock and Payments for Small
+                                        Businesses. Get Sales & Stock Reports.
+                                    </h3>
+                                    <p>
+                                        The Swipe billing & invoicing software system helps you
+                                        track all your inventory instantly. By using Swipe
+                                        inventory tracking software, you can track complete
+                                        inventory with StockIn and StockOut options as soon as
+                                        they arrive or dispatched. Using Swipe free GST billing
+                                        software, you can check the live status of your inventory.
+                                        Our inventory management app allows you to perform all
+                                        inventory tracking tasks peacefully.
+                                    </p>
+                                    <p>
+                                        Using our instant invoicing app, you can have the full
+                                        inventory controlled by a single employee. Swipe inventory
+                                        management software allows you to enter a large amount of
+                                        inventory supply data directly by importing an excel sheet
+                                        using bulk import options. It gives you better statistics
+                                        of your sales and what you need to avoid buying in large
+                                        quantities and maximize the profits.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
+                        <img class="relative mx-auto rounded-xl shadow md:w-[490px] sm:w-[300px]" style="max-width: 95%;" width="490" data-aos="" src="../static/img/inventory_management.jpeg" alt="swipe inventory management" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overflow-hidden">
+        <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl ">
+            <!-- <svg
+          class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-12"
+          width="404"
+          height="784"
+          fill="none"
+          viewBox="0 0 404 784"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern
+              id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7"
+              x="0"
+              y="0"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="4"
+                height="4"
+                class="text-neutral-200"
+                fill="currentColor"
+              />
+            </pattern>
+          </defs>
+          <rect
+            width="404"
+            height="784"
+            fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)"
+          />
+        </svg> -->
+            <div class="relative py-12 lg:py-24  lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+                <div class="relative">
+                    <h3 class="text-2xl font-extrabold text-neutral-900 tracking-tight sm:text-3xl">
+                        Get payments faster
+                    </h3>
+                    <p class="my-4 pb-6 text-lg text-gray-600">
+                        With Swipe you can send payment links and even QR codes so that
+                        customers can pay you quickly. Send payment reminders easily. Make
+                        payments to your suppliers conveniently from your trusted UPI
+                        apps.
+                    </p>
+                    <a class="py-4 bg-storeBlue text-white font-bold mb-2 px-5 rounded-md" href="https://play.google.com/store/apps/details?id=in.swipe.app"><span class="btn__text">Try Swipe for Free</span></a>
+                    <ul class="accordion accordion-1 accordion--oneopen mt-8">
+                        <li>
+                            <div class="accordion__title">
+                                <span><i class="fa fa-arrow-down"></i> Read more</span>
+                            </div>
+                            <div class="accordion__content" style="font-size: 14px">
+                                <h3 style="font-size: 12px; font-weight: bold">
+                                    Quick Invoicing for Retailers, Distributors, Startups,
+                                    Freelancers, Service Providers using Swipe invoicing app
+                                </h3>
+                                <p>
+                                    Swipe is best GST billing and accounting software that
+                                    allows you to generate all kinds of reports like Daily
+                                    Sale Reports, Bill-wise profit, Item-wise and Party-wise
+                                    Sale Reports, Purchase Reports, Quotation Reports,
+                                    Inventory StockIn and StockOut Reports, Expense Reports,
+                                    Party Ledgers, Payments Reports, Category-wise Sale
+                                    Reports, Profit and Loss Statements etc.
+                                </p>
+                                <p>
+                                    With the use of the Swipe GST software, it is quite easier
+                                    to track sales, purchases, quotations and expenses. You
+                                    can add multiple users, businesses, price lists for whole
+                                    sale price, retail price, distributor price etc. Recording
+                                    the expenses in the business is most important to maintain
+                                    the accounts and even for tax filing. It is easier to
+                                    record expenses in Swipe GST billing and invoicing
+                                    software.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-10 -mx-4 relative lg:mt-0" aria-hidden="true">
+                    <!-- <svg
+              class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden"
+              width="784"
+              height="404"
+              fill="none"
+              viewBox="0 0 784 404"
+            >
+              <defs>
+                <pattern
+                  id="ca9667ae-9f92-4be7-abcb-9e3d727f2941"
+                  x="0"
+                  y="0"
+                  width="20"
+                  height="20"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <rect
+                    x="0"
+                    y="0"
+                    width="4"
+                    height="4"
+                    class="text-neutral-200"
+                    fill="currentColor"
+                  />
+                </pattern>
+              </defs>
+              <rect
+                width="784"
+                height="404"
+                fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"
+              />
+            </svg> -->
+                    <!-- <img class="relative mx-auto" width="490" src="https://tailwindui.com/img/features/feature-example-1.png" alt=""> -->
+                    <img class="relative mx-auto rounded-xl shadow   md:w-[490px] sm:w-[300px]" style="max-width: 95%;" width="540" alt="Sales Dashboard" src="../static/img/fast_payments.jpeg" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overflow-hidden">
+        <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl ">
+            <!-- <svg
+          class="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12"
+          width="404"
+          height="784"
+          fill="none"
+          viewBox="0 0 404 784"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern
+              id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d"
+              x="0"
+              y="0"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="4"
+                height="4"
+                class="text-neutral-200"
+                fill="currentColor"
+              />
+            </pattern>
+          </defs>
+          <rect
+            width="404"
+            height="784"
+            fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)"
+          />
+        </svg> -->
+            <div class="relative py-12 lg:py-24">
+                <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
+                    <div class="lg:col-start-2">
+                        <h3 class="text-2xl font-extrabold text-neutral-900 tracking-tight sm:text-3xl">
+                            Get your store Online
+                        </h3>
+                        <p class="my-4 pb-6 text-lg text-gray-600">
+                            With Swipe you can setup your online store and grow your
+                            business.
+                        </p>
+                        <!-- <a class="btn btn--lg py-3 btn--green mb-2" href="https://play.google.com/store/apps/details?id=in.swipe.app"><span class="btn__text">Get Started with Swipe</span></a> -->
+                        <a class="py-4 bg-storeBlue text-white font-bold mb-2 px-5 rounded-md" href="https://play.google.com/store/apps/details?id=in.swipe.app"><span class="btn__text">Create Online Store Now</span></a>
+                        <ul class="accordion accordion-1 accordion--oneopen mt-8">
+                            <li>
+                                <div class="accordion__title">
+                                    <span><i class="fa fa-arrow-down"></i> Read more</span>
+                                </div>
+                                <div class="accordion__content" style="font-size: 14px">
+                                    <h3 style="font-size: 12px; font-weight: bold">
+                                        Swipe is the best Invoicing & GST Billing Software for
+                                        SMEs. Get Free Trial Today.
+                                    </h3>
+                                    <p>
+                                        Swipe free Online Store allows you to setup online store
+                                        in a click. End to end order management is available to
+                                        track all the orders at one place. Swipe Online Store
+                                        allows you to send notifications to users about the real
+                                        time order status. You can also generate gst bills
+                                        directly from the online orders using Swipe Online store
+                                        easily, hence considered as the best online store software
+                                        by many of our users.
+                                    </p>
+                                    <p>
+                                        You can setup multiple categories and share product
+                                        catalogues on Whatsapp instantly. Swipe Online Store
+                                        allows you to add multiple images for unlimited products
+                                        and even discount offers.
+                                    </p>
+                                    <p>
+                                        Using the free Swipe invoicing software with GST, you can
+                                        share your invoices easily on whatsapp with your customers
+                                        and vendors. Unlike any other billing software, Swipe
+                                        billing software enables you to create GST invoices and
+                                        send within 10 seconds.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
+                        <!-- <svg
+                class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden"
+                width="784"
+                height="404"
+                fill="none"
+                viewBox="0 0 784 404"
+                aria-hidden="true"
+              >
+                <defs>
+                  <pattern
+                    id="e80155a9-dfde-425a-b5ea-1f6fadd20131"
+                    x="0"
+                    y="0"
+                    width="20"
+                    height="20"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <rect
+                      x="0"
+                      y="0"
+                      width="4"
+                      height="4"
+                      class="text-neutral-200"
+                      fill="currentColor"
+                    />
+                  </pattern>
+                </defs>
+                <rect
+                  width="784"
+                  height="404"
+                  fill="url(#e80155a9-dfde-425a-b5ea-1f6fadd20131)"
+                />
+              </svg> -->
+                        <img class="relative mx-auto rounded-xl shadow md:w-[490px] sm:w-[300px]" style="max-width: 95%;" width="490" src="../static/img/online_store.jpeg" alt="swipe online store" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overflow-hidden">
+        <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
+            <!-- <svg
+          class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-12"
+          width="404"
+          height="784"
+          fill="none"
+          viewBox="0 0 404 784"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern
+              id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7"
+              x="0"
+              y="0"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="4"
+                height="4"
+                class="text-neutral-200"
+                fill="currentColor"
+              />
+            </pattern>
+          </defs>
+          <rect
+            width="404"
+            height="784"
+            fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)"
+          />
+        </svg> -->
+            <div class="relative py-12 lg:py-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center sm:px-4">
+                <div class="relative">
+                    <h3 class="text-2xl font-extrabold text-neutral-900 tracking-tight sm:text-3xl">
+                        Powerful business analytics and Reports
+                    </h3>
+                    <p class="my-4 pb-6 text-lg text-gray-600">
+                        Swipe automatically generates all the business analytics you will
+                        ever need to answer any question about the product/categorywise
+                        sales or to understand your users and payments.
+                    </p>
+                    <a class="py-4 bg-storeBlue text-white font-bold mb-2 px-5 rounded-md" href="https://play.google.com/store/apps/details?id=in.swipe.app"><span class="btn__text">Get Sale Reports</span></a>
+                    <ul class="accordion accordion-1 accordion--oneopen mt-8">
+                        <li>
+                            <div class="accordion__title">
+                                <span><i class="fa fa-arrow-down"></i> Read more</span>
+                            </div>
+                            <div class="accordion__content" style="font-size: 14px">
+                                <h3 style="font-size: 12px; font-weight: bold">
+                                    Quick Invoicing for Retailers, Distributors, Startups,
+                                    Freelancers, Service Providers using Swipe invoicing app
+                                </h3>
+                                <p>
+                                    Swipe is best GST billing and accounting software that
+                                    allows you to generate all kinds of reports like Daily
+                                    Sale Reports, Bill-wise profit, Item-wise and Party-wise
+                                    Sale Reports, Purchase Reports, Quotation Reports,
+                                    Inventory StockIn and StockOut Reports, Expense Reports,
+                                    Party Ledgers, Payments Reports, Category-wise Sale
+                                    Reports, Profit and Loss Statements etc.
+                                </p>
+                                <p>
+                                    With the use of the Swipe GST software, it is quite easier
+                                    to track sales, purchases, quotations and expenses. You
+                                    can add multiple users, businesses, price lists for whole
+                                    sale price, retail price, distributor price etc. Recording
+                                    the expenses in the business is most important to maintain
+                                    the accounts and even for tax filing. It is easier to
+                                    record expenses in Swipe GST billing and invoicing
+                                    software.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-10 -mx-4 relative lg:mt-0" aria-hidden="true">
+                    <!-- <svg
+              class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden"
+              width="784"
+              height="404"
+              fill="none"
+              viewBox="0 0 784 404"
+            >
+              <defs>
+                <pattern
+                  id="ca9667ae-9f92-4be7-abcb-9e3d727f2941"
+                  x="0"
+                  y="0"
+                  width="20"
+                  height="20"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <rect
+                    x="0"
+                    y="0"
+                    width="4"
+                    height="4"
+                    class="text-neutral-200"
+                    fill="currentColor"
+                  />
+                </pattern>
+              </defs>
+              <rect
+                width="784"
+                height="404"
+                fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"
+              />
+            </svg> -->
+                    <!-- <img class="relative mx-auto" width="490" src="https://tailwindui.com/img/features/feature-example-1.png" alt=""> -->
+                    <img class="relative mx-auto rounded-xl shadow md:w-[490px] sm:w-[300px]" style="max-width: 95%;" alt="Sales Dashboard" src="../static/img/business_analytics.jpeg" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white" id="features">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-extrabold text-neutral-900">Features</h2>
+                <p class="mt-4 text-lg text-neutral-700">
+                </p>
+            </div>
+            <dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 lg:grid-cols-3 lg:gap-x-6">
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Create invoice within 10 seconds
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Customize invoices
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Multiple invoice templates
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Delivery Challan
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            GSTR report
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Credit note
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Share invoices on WhatsApp and Email
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Payment reminders
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Integrated payment gateway
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Payment ledger
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            POS billing
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Thermal printing
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Edit bills
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Purchase orders and purchase invoices
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Generate Estimates/Quotation
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Generate ProForma Invoices
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Stock and Inventory Management
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Unlimited Logins
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Unlimited Customers
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Unlimited Products/ Bulk Upload
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Multiple User/Business accounts
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            User Role Settings
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Multiple GSTs Accounting
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Multiple Pricing (Wholesale/Retail)
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Customer/Vendor details
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Manage Expenses
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Profit/Loss statement
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Real time Analytics
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Online Store
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Generate and Print barcode for products
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Add Product Variants
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            E-way Bills
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            E-Invoices
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            TDS <span class="bg-storeBlue text-white p-1 hidden-xs ml-1" style="font-size: 10px; border-radius: 5px">NEW</span>
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Cess <span class="bg-storeBlue text-white p-1 hidden-xs ml-1" style="font-size: 10px; border-radius: 5px">NEW</span>
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            Recurring Invoices/ Subscriptions <span class="bg-storeBlue text-white p-1 ml-1" style="font-size: 10px; border-radius: 5px">NEW</span>
+                        </p>
+                    </dt>
+                </div>
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-neutral-900">
+                            SMS Campaigns <span class="bg-storeBlue text-white p-1 ml-1" style="font-size: 10px; border-radius: 5px">NEW</span>
+                        </p>
+                    </dt>
+                </div>
+            </dl>
+        </div>
+    </div>
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div class="bg-white">
+        <div class="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <h2 class="text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+                <!-- <span class="block">Ready to dive in?</span> -->
+                <span class="block">Get started in less than 60 seconds</span>
+            </h2>
+            <div class="mt-8 flex justify-center">
+                <div class="inline-flex rounded-md shadow">
+                    <a class="" href="https://play.google.com/store/apps/details?id=in.swipe.app" target="_blank">
+                        <img src="/static/img/google-play-badge.png" class="h-16" />
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex">
+                    <a href="https://app.getswipe.in/auth/login" target="_blank" class="inline-flex text-xl items-center justify-center px-6 py-2 h-16 border border-transparent text-base font-bold rounded-md text-white bg-storeBlue hover:bg-storeBlue">
+                        Sign Up for Free
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white" id="faq">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto divide-y-2 divide-gray-200">
+                <h2 class="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Frequently asked questions
+                </h2>
+                <dl class="mt-6 space-y-6 divide-y divide-gray-200">
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    What can I do with Swipe?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                With Swipe you can create all categories of Billing documents like Sales Invoices, Sales Returns, Purchase Invoices, Purchase Orders, Estimates, Manage Inventory in real time with Stock In & Stock Out options, and generate Delivery Challans for Invoices directly. Barcode Scanner and Thermal Print options are also available.
+                            </p>
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Is my data safe on Swipe?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                Swipe stores user data on its cloud using "Bank Grade" 256-bit SSL encryption. Data is not shared with any external parties. Please find the Privacy Policy and Terms for more details.
+                            </p>
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Can I add my Company’s details and logo on Swipe?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                Yes, you can add your Company Name, GSTIN, Address and Logo to your invoices.
+                            </p>
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Can I use Swipe for Free?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                Yes, Swipe Mobile app & Web version are absolutely free to use for life-time with features to create unlimited invoices, purchases, quotations, manage customers/vendors, stock, payments, expenses, share bills via WhatsApp, Email or SMS etc. Start using Swipe for Free!
+                            </p>
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Who all can use Swipe?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                Swipe is a software for all kinds of small businesses, freelancers and Indian Startups. Anyone can start using Swipe to generate Invoices and other documents. All you need to do is sign-up with your mobile number and start using it!
+                            </p>
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Can I share my invoices or other documents with my customers?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                Yes, you can share your Invoices either on Whatsapp, Email or as an invoice link.
+                            </p>
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Is there any limit on the number of GSTINs I can add on Swipe?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                As long as the user remains the same, there is no limit to the number of GSTINs you can add on Swipe.
+                            </p>
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Is it possible to add multiple users?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                Yes
+                            </p>
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Can I control user permission for multiple users ?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                Yes with Swipe you can set user Role Settings for different users.
+                            </p>
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Does my data on Swipe web sync to Swipe mobile app?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                Yes, if you have used the same mobile number to login to Swipe on both mobile app as well as the web. All your data including invoices created, customers added, items added etc. will be synced.
+                            </p>
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Can I receive payments on Swipe?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                Yes
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Can I send reminders for pending payments on Swipe?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                Yes , you can directly send reminders to customers for their outstanding payment and keep track of payment ledger on a single Dashboard Screen .
+                            </p>
+                        </dd>
+                    </div>
+                    <div class="pt-6" x-data="{isOpen:false}">
+                        <dt class="text-lg">
+                            <button type="button" @click="isOpen = !isOpen" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
+                                <span class="font-medium text-gray-900">
+                                    Can I recover my data if my system crashes?
+                                </span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" class="h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0">
+                            <p class="text-base text-gray-500">
+                                Yes, you need not worry about data recovery at all since all the data is stored on cloud servers. Even if your system or mobile crashes, you can login via another system with your mobile number and recover your data there.
+                            </p>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="max-w-2xl mx-auto py-6 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:py-10 lg:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8">
+            <div class="lg:col-span-5">
+                <img alt="India Flag" src="../static/img/customer review.png" class="shadow-lg rounded-2xl" />
+            </div>
+            <div class="mt-16 lg:mt-0 lg:col-start-6 lg:col-span-7">
+                <h3 class="sr-only">Recent reviews</h3>
+                <div class="flow-root lg:ml-5">
+                    <div class="-my-12">
+                        <div class="">
+                            <div class="flex items-center">
+                                <!-- <img
+                    src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
+                    alt="Emily Selman."
+                    class="h-12 w-12 rounded-full"
+                  /> -->
+                            </div>
+                            <div class="mt-4 space-y-6 text-base italic text-neutral-600">
+                                <p class="text-lg">
+                                    We have been using Swipe for AgriVijay - Invoicing along
+                                    with book keeping and the experience has been amazing. Their
+                                    10 sec Invoicing and Quotation creation feature is true and
+                                    best. I am sure they are going to disrupt the market with
+                                    their unique set of features.
+                                </p>
+                            </div>
+                            <div class=" mt-2">
+                                <h4 class="text-sm font-bold text-neutral-900">
+                                    Vimal Panjwani &nbsp;<span class="font-normal">(Founder & CEO - AgriVijay)</span>
+                                </h4>
+                                <div class="mt-1 flex items-center">
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                </div>
+                                <p class="sr-only">5 out of 5 stars</p>
+                            </div>
+                        </div>
+                        <div class="pt-3">
+                            <div class="flex items-center">
+                                <!-- <img
+                    src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
+                    alt="Emily Selman."
+                    class="h-12 w-12 rounded-full"
+                  /> -->
+                            </div>
+                            <div class="mt-4 space-y-6 text-base italic text-neutral-600">
+                                <p class="text-lg">
+                                    Discovered Swipe recently. Total kick-ass billing software.
+                                    Making my life easy and one temple very happy.
+                                </p>
+                            </div>
+                            <div class="mt-2">
+                                <h4 class="text-sm font-bold text-neutral-900">
+                                    Dinesh Thirumurthy &nbsp;<span class="font-normal">(Sri Ganesh Store)</span>
+                                </h4>
+                                <div class="mt-1 flex items-center">
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                </div>
+                                <p class="sr-only">5 out of 5 stars</p>
+                            </div>
+                        </div>
+                        <div class="pt-3">
+                            <div class="flex items-center">
+                                <!-- <img
+                    src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
+                    alt="Emily Selman."
+                    class="h-12 w-12 rounded-full"
+                  /> -->
+                            </div>
+                            <div class="mt-4 space-y-6 text-base italic text-neutral-600">
+                                <p class="text-lg">
+                                    Amazing Product. Have been using it for last few months and
+                                    it has solved all my invoicing woes! Kudos to the team :)
+                                </p>
+                            </div>
+                            <div class="mt-2">
+                                <h4 class="text-sm font-bold text-neutral-900">
+                                    Rishabh Nagpal &nbsp;<span class="font-normal">(Co-Founder - Parksmart | IIT Delhi)</span>
+                                </h4>
+                                <div class="mt-1 flex items-center">
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                </div>
+                                <p class="sr-only">5 out of 5 stars</p>
+                            </div>
+                        </div>
+                        <div class="pt-3">
+                            <div class="flex items-center">
+                                <!-- <img
+                    src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
+                    alt="Emily Selman."
+                    class="h-12 w-12 rounded-full"
+                  /> -->
+                            </div>
+                            <div class="mt-4 space-y-6 text-base italic text-neutral-600">
+                                <p class="text-lg">
+                                    Swipe has helped our startup incubator 'riidl.org' to
+                                    streamline our invoices , generate quotations quickly and
+                                    instantly send the same over WhatsApp. Our support staff was
+                                    able to use it on the go without any formal training. It’s
+                                    simple to understand and has been super useful! I am sure
+                                    swipe is going to be a market leader and add value to many.
+                                </p>
+                            </div>
+                            <div class="">
+                                <h4 class="text-sm font-bold text-neutral-900">
+                                    Gaurang Shetty &nbsp;<span class="font-normal">(Chief Innovation Catalyst, riidl)</span>
+                                </h4>
+                                <div class="mt-1 flex items-center">
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                </div>
+                                <p class="sr-only">5 out of 5 stars</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-white mt-5" aria-labelledby="footer-heading">
+        <h2 id="footer-heading" class="sr-only">Footer</h2>
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                <div class="space-y-8 xl:col-span-1">
+                    <img class="h-10" src="/static/img/logo.svg" alt="Company name" />
+                    <p class="text-neutral-700" style="
+                font-family: Kalam;
+                font-weight: 400;
+                font-size: 16px;
+                margin-top: 15px;
+              ">
+                        Ab Business Karo, Tension Free!
+                    </p>
+                    <div class="flex space-x-6" style="margin-top: 15px">
+                        <a href="https://www.facebook.com/getswipeindia" target="_blank" class="text-neutral-400 hover:text-neutral-700">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/getswipeindia" target="_blank" class="text-neutral-400 hover:text-neutral-700">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/getswipeindia" target="_blank" class="text-neutral-400 hover:text-neutral-700">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/getswipeindia" target="_blank">
+                            <i class="fa fa-linkedin fa-lg text-neutral-400 hover:text-neutral-700"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UC4S-qpp7BCBiNHGRcpbQXEA" target="_blank" class="text-neutral-400 hover:text-neutral-700">
+                            <span class="sr-only">youtube</span>
+                            <i class="fa fa-youtube fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-neutral-400 tracking-wider uppercase">
+                                Quick Links
+                            </h3>
+                            <ul role="list" class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#features" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Features
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#invoiceFormats" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Invoice Formats
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#faq" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        FAQs
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/channel/UC4S-qpp7BCBiNHGRcpbQXEA/playlists" target="_blank" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Tutorials
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-neutral-400 tracking-wider uppercase">
+                                Explore
+                            </h3>
+                            <ul role="list" class="mt-4 space-y-4">
+                                <li>
+                                    <a href="https://blog.getswipe.in" target="_blank" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Blog
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://blog.getswipe.in/category/explore-gst/" target="_blank" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Explore GST
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://blog.getswipe.in/category/tech/" target="_blank" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Tech
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://blog.getswipe.in/category/trending/" target="_blank" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Trending
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-neutral-400 tracking-wider uppercase">
+                                Company
+                            </h3>
+                            <ul role="list" class="mt-4 space-y-4">
+                                <li>
+                                    <a href="/contact" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Contact
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://blog.getswipe.in" target="_blank" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Blog
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/company/getswipeindia" class="text-base text-neutral-700 hover:text-neutral-900" target="_blank">
+                                        Jobs
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/company/getswipeindia" class="text-base text-neutral-700 hover:text-neutral-900" target="_blank">
+                                        Press
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-neutral-400 tracking-wider uppercase">
+                                Legal
+                            </h3>
+                            <ul role="list" class="mt-4 space-y-4">
+                                <li>
+                                    <a href="/policy" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Privacy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/refund" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Refund
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/terms" class="text-base text-neutral-700 hover:text-neutral-900">
+                                        Terms
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-200 pt-8">
+                <p class="text-base text-neutral-600 xl:text-center">
+                    &copy; 2022 Nextspeed Technologies Pvt. Ltd. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <a class="back-to-top inner-link " href="#start" data-scroll-class="100vh:active">
+        <i class="fa fa-arrow-up fa-lg mt-2 mb-0 pb-0"></i>
+    </a>
+    <a
+      class=" inner-link font-bold  text-white px-5 py-2 m-5 rounded-full fixed right-1 bottom-2 static"
+      
+      href="https://wa.me/918121335436?text=Hello%20Swipe!%20I%20am%20interested%20to%20know%20more"
+      data-scroll-class="100vh:active"
+      target="_blank"
+      style="background-color: #25d366;"
+    >
+    <i class="fa fa-brands font-bold  fa-whatsapp mr-2 text-lg"></i><span>Help?</span>
+    </a>
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/flickity.min.js"></script>
+    <script src="/static/js/smooth-scroll.min.js"></script>
+    <script src="/static/js/scripts.js"></script>
+    <script src="/static/js/granim.min.js"></script>
+    <script src="/static/js/typed.min.js"></script>
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+    <script>
+    function openMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.remove("hidden");
+        // hint.style.display = 'block';
+        window.setTimeout(function() {
+            mobileMenu.style.opacity = 1;
+            mobileMenu.style.transform = 'scale(1)';
+        }, 0);
+    }
+
+    function closeMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.style.opacity = 0;
+        mobileMenu.style.transform = 'scale(0)';
+        window.setTimeout(function() {
+            mobileMenu.classList.add("hidden");
+        }, 300);
+
+    }
+    </script>
+    <!-- <script>
+      AOS.init();
+    </script> -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-354450304"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "AW-354450304");
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71930908-8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "UA-71930908-8");
+    </script>
+    <script>
+    window.addEventListener("load", function() {
+        let deferredPrompt;
+        const addBtn = document.querySelector("#adding-button");
+        let userAgent = navigator.userAgent;
+        let browserName;
+
+        if (userAgent.match(/chrome|chromium|crios/i)) {
+            browserName = "chrome";
+        } else if (userAgent.match(/firefox|fxios/i)) {
+            browserName = "firefox";
+        } else if (userAgent.match(/safari/i)) {
+            browserName = "safari";
+        } else if (userAgent.match(/opr\//i)) {
+            browserName = "opera";
+        } else if (userAgent.match(/edg/i)) {
+            browserName = "edge";
+        } else {
+            browserName = "No browser detection";
+        }
+
+        if (browserName != "chrome") {
+            addBtn.style.display = "none";
+        }
+
+        if ("serviceWorker" in navigator && browserName == "chrome") {
+            window.addEventListener("beforeinstallprompt", (e) => {
+                // Prevent Chrome 67 and earlier from automatically showing the prompt
+                e.preventDefault();
+                // Stash the event so it can be triggered later.
+                deferredPrompt = e;
+                // Update UI to notify the user they can add to home screen
+                addBtn.style.display = "inline-block";
+
+                addBtn.addEventListener("click", (e) => {
+                    // hide our user interface that shows our A2HS button
+                    addBtn.style.display = "none";
+                    // Show the prompt
+                    deferredPrompt.prompt();
+                    // Wait for the user to respond to the prompt
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === "accepted") {
+                            console.log("User accepted the A2HS prompt");
+                        } else {
+                            console.log("User dismissed the A2HS prompt");
+                        }
+                        deferredPrompt = null;
+                    });
+                });
+            });
+
+            navigator.serviceWorker
+                .register("/sw.js")
+                .then(function(registration) {
+                    return registration;
+                })
+                .catch(function(err) {
+                    console.error(err);
+                });
+            navigator.serviceWorker.ready.then(function(registration) {});
+        }
+
+        var web_url = "https://app.getswipe.in/auth/login";
+        var app_url =
+            "https://play.google.com/store/apps/details?id=in.swipe.app";
+        if (window.location.search != "") {
+            web_url = web_url + window.location.search;
+            var params = window.location.search.substring(
+                1,
+                window.location.search.length
+            );
+            params = params.replace(/=/g, "%3D");
+            params = params.replace(/&/g, "%26");
+            app_url = app_url + "&referrer=" + params;
+            $("a[href='https://app.getswipe.in/auth/login']").attr(
+                "href",
+                web_url
+            );
+            $(
+                "a[href='https://play.google.com/store/apps/details?id=in.swipe.app']"
+            ).attr("href", app_url);
+        }
+        jQuery('[href="' + web_url + '"]').click(function() {
+            gtag("event", "conversion", {
+                send_to: "AW-354450304/3RoHCLeugf0CEID3gakB",
+            });
+        });
+        jQuery('[href="' + app_url + '"]').click(function() {
+            gtag("event", "conversion", {
+                send_to: "AW-354450304/3RoHCLeugf0CEID3gakB",
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>

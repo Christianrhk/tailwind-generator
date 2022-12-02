@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
+    <link rel="stylesheet" href="https://tailwindcomponents.com/css/component.checkboxes.css">
+    <title>Ingresar</title>
+</head>
+
+<body class="h-screen flex items-center justify-center" style="background: #edf2f7;">
+
+    <div class="flex-1 h-full items-center justify-center p-10 hidden lg:flex" style="background: #a340ff; width: 50%;">
+        <object data="../../assets/img/svg/undraw/undraw_unlock_-24-mb.svg" class="w-full" type="image/svg+xml">
+            <img src="../../assets/img/svg/undraw/undraw_unlock_-24-mb.svg" alt="">
+        </object>
+    </div>
+    <div class="flex-1 flex items-center justify-center p-10">
+        <form action="login" method="post" class="grid grid-cols-1">
+            <div class="text-3xl text-center mb-10">
+                <h1>INICIAR SESIÓN</h1>
+            </div>
+                        <div class="grid grid-cols-1 w-full">
+                <div class="items-center w-full space-x-2 md:flex-1 flex my-5 relative">
+
+                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center leading-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                        </svg>
+                    </span>
+                    <input placeholder="Email" name="email" autofocus value="" class="px-4 pl-8 py-3 rounded-md w-full hover:bg-gray-100 md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
+                </div>
+                <div class="items-center w-full space-x-2 md:flex-1 flex my-5 relative" x-data="{ show: true }">
+
+                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center leading-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                        </svg>
+                    </span>
+                    <input :type="show ? 'password' : 'text'" placeholder="Contraseña" name="password" id="password" value="" class="pr-9 pl-8 py-3 rounded-md w-full hover:bg-gray-100 md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
+
+                    <div class="absolute inset-y-0 right-0 pr-2 flex items-center text-sm leading-5">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 text-gray-500 hover:text-gray-700" fill="none" @click="show = !show" :class="{'hidden': !show, 'block':show }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 text-gray-500 hover:text-gray-700" fill="none" @click="show = !show" :class="{'block': !show, 'hidden':show }" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="items-center px-2 w-full space-x-2 md:flex-1 flex my-5">
+                    <label>
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600"><span class="ml-2 text-gray-700">Recordarme</span>
+                    </label>
+                </div>
+                <div class="items-center px-2 w-full my-5">
+                    <button type="submit" value="ingresar" name="submit" class="px-4 py-3 rounded-md w-full bg-gray-800 text-white hover:bg-gray-700 focus:outline-none focus:shadow-outline">
+                        INGRESAR
+                    </button>
+                </div>
+                <div class="items-center px-2 w-full space-x-2 md:flex-1 flex my-2">
+                    <p>
+                        ¿No tienes una cuenta? <a href="/util/registrar" class="cursor-pointer tracking-tighter text-purple-800 border-b-2 border-gray-200 hover:border-gray-400 mx-1">
+                            CREA UNA </a></p>
+                </div>
+                <div class="items-center px-2 w-full space-x-2 md:flex-1 flex my-2">
+                    <a href="/util/recuperar" class="cursor-pointer tracking-tighter text-purple-800 border-b-2 border-gray-200 hover:border-gray-400">¿Olvido
+                        su contraseña?</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="absolute right-0 top-0 p-5 hidden md:block ">
+        <a href="/" class="flex items-center justify-center hover:text-purple-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-1 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Volver al inicio
+        </a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"></script>
+
+</body>
+
+</html>

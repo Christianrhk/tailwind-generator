@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Krompaco</title><link>http://krompaco.nu/</link><description /><language>en</language><copyright>Johan Kronberg</copyright><item><guid isPermaLink="true">http://krompaco.nu/2022/06/sendgridforepi-fixed-to-work-with-cms-12/</guid><link>http://krompaco.nu/2022/06/sendgridforepi-fixed-to-work-with-cms-12/</link><category>Episerver</category><category>ASP.NET</category><category>Development</category><title>SendGridForEpi fixed to work with CMS 12</title><description>&lt;p&gt;The versions published on Optimizely's NuGet now has a version 2.0.2 that is compatible with .NET 6.0 and CMS 12.4.2 or newer.&lt;/p&gt;&lt;p&gt;Once upon a time I created this package that handles SendGrid messages asynchronously. The typical use case is probably when you have a subscription feature and want to send e-mails to subscribers from an Optimizely Content Cloud app through SendGrid and use Handlebars with their template designer.&lt;/p&gt;
+&lt;p&gt;It has a sort of local queue and scheduled job that processes it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://nuget.optimizely.com/package/?id=Krompaco.SendGridForEpi.SqlServer"&gt;Krompaco.SendGridForEpi.SqlServer on the feed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/krompaco/sendgrid-for-epi"&gt;Package source code on Github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some quick notes from upgrading:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Given the amount of code it seemed easiest to not upgrade anything and instead create empty .NET 6.0 class libraries and then move code over.&lt;/li&gt;
+&lt;li&gt;Removed the .nuspec files and moved over to package settings within the .csproj file.&lt;/li&gt;
+&lt;li&gt;Chose to take dependencies on &lt;a href="https://nuget.optimizely.com/package/?id=EPiServer.CMS.AspNetCore"&gt;EPiServer.CMS.AspNetCore&lt;/a&gt; (&amp;ge; 12.4.2 &amp;amp;&amp;amp; &amp;lt; 13.0.0) and &lt;a href="https://nuget.optimizely.com/package/?id=EPiServer.Framework.AspNetCore"&gt;EPiServer.Framework.AspNetCore&lt;/a&gt; (&amp;ge; 12.4.2 &amp;amp;&amp;amp; &amp;lt; 13.0.0) instead of the wrapping EPiServer.CMS package.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you have used the package with CMS 11 there are no changes in the database tables. The only thing you need to set up is the new way of configuring the connection string and the SendGrid API Key when using DI.&lt;/p&gt;
+&lt;p&gt;In &lt;code&gt;Startup.cs&lt;/code&gt; and inside &lt;code&gt;ConfigureServices()&lt;/code&gt;, add these lines. Replace the connection string with the SQL Server database that you want to use.&lt;/p&gt;
+&lt;p&gt;In most cases you would have these secret values in environment variables and fetched through &lt;code&gt;IConfiguration&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class="prettyprint"&gt;&lt;code&gt;// Set the SendGrid API Key
+services.AddSendGrid(options =&amp;gt; { options.ApiKey = "your-key-that-usually-starts-with-SG."; });
+
+// Add a connection string for some SQL Server db
+var mailService = new SqlServerMailService("a-sql-server-connection-string");
+
+// Check that the tables are in database
+mailService.CreateTablesIfNeeded();
+
+// Register it
+services.AddSingleton&amp;lt;IMailService&amp;gt;(mailService);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check the &lt;a href="https://github.com/krompaco/sendgrid-for-epi"&gt;Github README&lt;/a&gt; on how to construct a message and work the personalization variables.&lt;/p&gt;</description><pubDate>Sun, 05 Jun 2022 16:23:55 Z</pubDate></item><item><guid isPermaLink="true">http://krompaco.nu/2022/05/webperf-ratings-for-blogs-of-optimizely-mvps/</guid><link>http://krompaco.nu/2022/05/webperf-ratings-for-blogs-of-optimizely-mvps/</link><category>Episerver</category><category>Development</category><title>Webperf ratings for blogs of Optimizely MVPs</title><description>&lt;p&gt;I've mashed up my open source project Record Collector with the great Webperf Core test routine.&lt;/p&gt;&lt;p&gt;&lt;a href="https://github.com/Webperf-se/webperf_core/"&gt;Webperf Core&lt;/a&gt; is a Python based project that has put together various test tools and services. The tests can run in GitHub Actions and the friendly people building it, who also run the popular &lt;a href="https://webperf.se/"&gt;Webperf.se site&lt;/a&gt;, have put together a 1 to 5 rating calculation and common report format making it easy to benchmark sites.&lt;/p&gt;
+&lt;p&gt;I previously created another leaderboard project for Webperf Core leaning on their SQLite database and that used Blazor Server but I've had the idea for a while to instead generate the leaderboard as static pages...&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://record-collector.net/en/"&gt;The static site generator I know best&lt;/a&gt; is my own and the recent addition of GitHub Action regression tests in Webperf Core helped me out a lot.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/krompaco/webperf-omvp-rc-leaderboard/blob/main/.github/workflows/run-tests.yml"&gt;The YAML steps&lt;/a&gt; involved should help you see how it's set up.&lt;/p&gt;
+&lt;p&gt;Take a look at &lt;a href="https://omvp-webperf.krompaco.nu/"&gt;the generated OMVP blog leaderboard site&lt;/a&gt; and put some stars on our GitHub repositories if you start using it for your sites!&lt;/p&gt;</description><pubDate>Sun, 08 May 2022 21:24:49 Z</pubDate></item><item><guid isPermaLink="true">http://krompaco.nu/2021/02/please-do-this-with-your-swagger-enabled-web-apis/</guid><link>http://krompaco.nu/2021/02/please-do-this-with-your-swagger-enabled-web-apis/</link><category>Episerver</category><category>ASP.NET</category><category>MVC</category><category>Development</category><title>Please do this with your Swagger-enabled Web APIs</title><description>&lt;p&gt;Quite often I encounter APIs that have a Swagger UI but lacking much of the rest (hehe) of the Swagger tooling support.&lt;/p&gt;&lt;p&gt;This is a shame when you know what a quality OpenAPI specification with attention to detail can offer. My endorsed checklist contains the following steps.&lt;/p&gt;
+&lt;h2&gt;Generate code in languages your consumers are using&lt;/h2&gt;
+&lt;p&gt;Download and install &lt;a href="https://github.com/RicoSuter/NSwag/wiki/NSwagStudio"&gt;NSwagStudio&lt;/a&gt; and try generating API client code. If this works and you get good affordance you can take comfort in knowing you are somewhat following API conventions and good practices. Here it is also easy to spot junk data in your specification and route mistakes resulting in silly names after generating.&lt;/p&gt;
+&lt;p&gt;When you have the settings you prefer you can use the included CLI and push a PowerShell script similar to this for re-generating C#.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;add-type @"
+    using System.Net;
+    using System.Security.Cryptography.X509Certificates;
+    public class TrustAllCertsPolicy :ICertificatePolicy {
+        public bool CheckValidationResult(
+            ServicePoint srvPoint, X509Certificate certificate,
+            WebRequest request, int certificateProblem) {
+            return true;
+        }
+    }
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+$url = "https://localhost:5001/swagger/v1/swagger.json"
+$output = "$PSScriptRoot\swagger.json"
+$start_time = Get-Date
+
+Invoke-WebRequest -Uri $url -OutFile $output
+Write-Output "Time taken:$((Get-Date).Subtract($start_time).Seconds) second(s)"
+
+nswag swagger2csclient /input:"swagger.json" /generateUpdateJsonSerializerSettingsMethod:true /generateClientClasses:true /generateClientInterfaces:true /injectHttpClient:"true" /disposeHttpClient:"false" /generateExceptionClasses:true /exceptionClass:"ApiException" /wrapDtoExceptions:true /useHttpClientCreationMethod:false /httpClientType:"System.Net.Http.HttpClient" /useHttpRequestMessageCreationMethod:false /useBaseUrl:false /generateBaseUrlProperty:false /generateSyncMethods:false /exposeJsonSerializerSettings:true /clientClassAccessModifier:"public" /typeAccessModifier:"public" /generateContractsOutput:false /parameterDateTimeFormat:"s" /generateUpdateJsonSerializerSettingsMethod:false /serializeTypeInformation:false /queryNullValue:"" /className:"{controller}Client" /operationGenerationMode:"MultipleClientsFromPathSegments" /generateOptionalParameters:false /generateJsonMethods:false /enforceFlagEnums:false /parameterArrayType:"System.Collections.Generic.IEnumerable" /parameterDictionaryType:"System.Collections.Generic.IDictionary" /responseArrayType:"System.Collections.Generic.ICollection" /responseDictionaryType:"System.Collections.Generic.IDictionary" /wrapResponses:false /generateResponseClasses:true /responseClass:"SwaggerResponse" /namespace:"WebApp.Services.Generated" /requiredPropertiesMustBeDefined:true /dateType:"System.DateTimeOffset" /anyType:"object" /dateTimeType:"System.DateTimeOffset" /timeType:"System.TimeSpan" /timeSpanType:"System.TimeSpan" /arrayType:"System.Collections.Generic.ICollection" /arrayInstanceType:"System.Collections.ObjectModel.Collection" /dictionaryType:"System.Collections.Generic.IDictionary" /dictionaryInstanceType:"System.Collections.Generic.Dictionary" /arrayBaseType:"System.Collections.ObjectModel.Collection" /dictionaryBaseType:"System.Collections.Generic.Dictionary" /classStyle:"Poco" /generateDefaultValues:true /generateDataAnnotations:true /handleReferences:false /generateImmutableArrayProperties:false /generateImmutableDictionaryProperties:false /inlineNamedArrays:false /inlineNamedDictionaries:false /inlineNamedTuples:true /inlineNamedAny:false /generateDtoTypes:true /generateOptionalPropertiesAsNullable:false /output:"src\WebApp\Services\Generated\ApiClient.cs"&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;First part is to accept any dodgy self-signed certificate you might run on your local development site. Then you can see that it makes an HTTP request and writes the swagger.json to disk to finally run the the NSwag console application with all the options specified explicitly.&lt;/p&gt;
+&lt;p&gt;For the recommended setup part below two key switches are /generateClientInterfaces:true and /injectHttpClient:true. Of course provide this script as part of your documentation.&lt;/p&gt;
+&lt;h2&gt;Use the generated code in your integration tests&lt;/h2&gt;
+&lt;p&gt;Lookup on how to use the WebApplicationFactory from the Microsoft.AspNetCore.Mvc.Testing package and use an HttpClient from there with the generated &lt;em&gt;ApiClient.cs&lt;/em&gt; in a (for example XUnit) Test Project. This means you will have all your (hopefully well documented) API models and async methods for each endpoint available to use when writing tests, and you will use the API in the same manor as the smart/experienced ones of your consumers. The test runner will start the web app internally and run impressively fast.&lt;/p&gt;
+&lt;h2&gt;Validate and recommend this setup with ASP.NET Core/5.0&lt;/h2&gt;
+&lt;p&gt;The generated code has put everything in place for you to do something like the following in your consuming client app's &lt;em&gt;Startup.ConfigureServices()&lt;/em&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;services.AddHttpClient&amp;lt;IApiClient, ApiClient&amp;gt;(c =&amp;gt;
+    {
+        c.BaseAddress = new Uri(apiBaseUrlFromSomeSettingEtc);
+        c.DefaultRequestHeaders.Accept.Clear();
+        c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    })
+    .ConfigurePrimaryHttpMessageHandler(messageHandler =&amp;gt;
+    {
+        var handler = new HttpClientHandler();
+    
+        if (handler.SupportsAutomaticDecompression)
+        {
+            handler.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
+        }
+    
+        return handler;
+    });&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To be extra cool I'm then using Blazor to validate and in a Razor Component I can now just do something like this.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@inject IApiClient ApiClient
+..
+@code {
+    private async Task LoadCompanies(int segmentId)
+    {
+        this.Companies = await this.ApiClient.CompaniesAsync(segmentId);    
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hopefully Content and Commerce Cloud sites will be able to run on 5.0 in not too long making this the favored setup for calling APIs from those as well. Meanwhile &lt;a href="https://world.episerver.com/blogs/Daniel-Ovaska/Dates/2020/1/creating-the-perfect-httpclient-api-call/"&gt;Daniel Ovaska's HttpClient blog post&lt;/a&gt; should be followed for the HttpClient handling but in all other ways this blog post's example &lt;em&gt;ApiClient.cs&lt;/em&gt; is fully compatible with &lt;em&gt;Newtonsoft.Json&lt;/em&gt; on old framework 4.8 for example.&lt;/p&gt;
+&lt;p&gt;I'm not on top of the whole background but there are &lt;a href="https://github.com/RicoSuter/NJsonSchema/issues/1014"&gt;things missing for NSwag to be able to generate clients that use System.Text.Json&lt;/a&gt; for deserialization.&lt;/p&gt;
+&lt;h2&gt;Provide documentation for authorization header values handling&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;This part is only if your API is protected by some OIDC flow.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Test and describe how to acquire tokens and a recommended cache approach with retry mechanism for when tokens have expired or don't work for other reasons. Add this to your Integration Test project and make available as a type of documentation.&lt;/p&gt;
+&lt;p&gt;Make sure that you are there re-using the HttpClient for the OIDC token issuer with a similar &lt;em&gt;services.AddHttpClient()&lt;/em&gt; approach as the API client use above.&lt;/p&gt;
+&lt;p&gt;Setup your Swagger UI so that you can use the Authorize button and at least paste an access token there when wanting to execute actions in the UI.&lt;/p&gt;
+&lt;p&gt;Thanks!&lt;/p&gt;</description><pubDate>Tue, 16 Feb 2021 23:09:13 Z</pubDate></item><item><guid isPermaLink="true">http://krompaco.nu/2021/01/troubleshooting-a-large-increase-in-episerver-sql-server-calls/</guid><link>http://krompaco.nu/2021/01/troubleshooting-a-large-increase-in-episerver-sql-server-calls/</link><category>Episerver</category><category>Microsoft SQL Server</category><category>Troubleshooting</category><title>Troubleshooting a large increase in Epi SQL Server calls</title><description>&lt;p&gt;Recently spent some time investigating massive database dependency counts on an Epi CMS site that was using Geta Tags.&lt;/p&gt;&lt;p&gt;The &lt;a href="https://github.com/Geta/Tags/blob/master/src/TagsScheduledJob.cs"&gt;Geta Tags maintenance job&lt;/a&gt; was running fine but possibly due to a bunch of recently removed content types was not able to remove now missing ContentGUIDs while cleaning up.&lt;/p&gt;
+&lt;p&gt;Looks like this resulted in uncached &lt;code&gt;netFindContentCoreDataByContentGuid&lt;/code&gt; stored procedure calls with non-existing ContentGUIDs when &lt;code&gt;ITagEngine.GetContentReferencesByTags()&lt;/code&gt; was used.&lt;/p&gt;
+&lt;p&gt;I put together an analysis query that returned rows showing that content GUIDs in Geta Tags DDS store had no content relation.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SELECT t.*, c.* FROM (
+	SELECT DISTINCT GuidValue FROM tblBigTableReference WHERE [Index] &amp;gt; -1 AND GuidValue IS NOT NULL AND PropertyName = 'PermanentLinks'
+	AND pkId IN (
+		SELECT StoreId FROM [VW_Geta.Tags.Models.Tag]
+	)
+) AS t
+LEFT JOIN tblContent c ON t.GuidValue = c.ContentGUID
+WHERE c.ContentGuid IS NULL&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To get sorted (hopefully) I made it into this DELETE-statement.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;DELETE FROM tblBigTableReference WHERE [Index] &amp;gt; -1 AND GuidValue IS NOT NULL AND PropertyName = 'PermanentLinks' AND pkId IN
+(
+	SELECT StoreId FROM [VW_Geta.Tags.Models.Tag]
+)
+AND GuidValue IN
+(
+	SELECT GuidValue FROM
+	(
+		SELECT DISTINCT GuidValue FROM tblBigTableReference WHERE [Index] &amp;gt; -1 AND GuidValue IS NOT NULL AND PropertyName = 'PermanentLinks' AND pkId IN
+		(
+			SELECT StoreId FROM [VW_Geta.Tags.Models.Tag]
+		)
+	) AS t
+	LEFT JOIN tblContent c ON t.GuidValue = c.ContentGUID
+	WHERE c.ContentGuid IS NULL
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Things seem to be back in shape now.&lt;/p&gt;</description><pubDate>Wed, 27 Jan 2021 04:42:00 Z</pubDate></item><item><guid isPermaLink="true">http://krompaco.nu/2020/10/notes-on-my-part-of-the-ewcw-cloud-talk/</guid><link>http://krompaco.nu/2020/10/notes-on-my-part-of-the-ewcw-cloud-talk/</link><category>Episerver</category><category>ASP.NET</category><category>Development</category><title>Notes on my part of the EWCW Cloud talk</title><description>&lt;p&gt;Maybe you listened in to the Cloud talk on Monday of the &lt;a href="https://world.episerver.com/ewcw/"&gt;Episerver World Community Week&lt;/a&gt; and wondered what I was talking about?&lt;/p&gt;&lt;p&gt;&lt;em&gt;Note that the page on World now has a video recording of the session.&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;CD with the EpiCloud PowerShell Module&lt;/h2&gt;
+&lt;p&gt;The&amp;nbsp;&lt;a href="https://world.episerver.com/documentation/developer-guides/digital-experience-platform/deploying/episerver-digital-experience-cloud-deployment-api/how-to-deploy-using-deployment-api/"&gt;DXP Deployment API documentation section on World&lt;/a&gt; is easy to follow so be sure to read up and start using it.&lt;/p&gt;
+&lt;h2&gt;A KQL example&lt;/h2&gt;
+&lt;p&gt;Run in Application Insights Logs section.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// Total requests to app per day&lt;br /&gt;let start=startofday(datetime("2020-09-01"));&lt;br /&gt;let end=endofday(datetime("2020-09-23"));&lt;br /&gt;let timeGrain=1d;&lt;br /&gt;requests&lt;br /&gt;| where timestamp &amp;gt; start and timestamp &amp;lt; end and client_Type != "Browser"&lt;br /&gt;| summarize count_=sum(itemCount) by bin(timestamp, timeGrain)&lt;br /&gt;| render timechart&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Trace with custom properties&lt;/h2&gt;
+&lt;p&gt;This is a nice blog post on &lt;a href="https://camerondwyer.com/2020/05/26/how-to-use-application-insights-custom-properties-in-azure-monitor-log-kusto-queries/"&gt;how to do custom tracing with Application Insights&lt;/a&gt;. Doing custom events is very similar.&lt;/p&gt;
+&lt;h2&gt;W3C Trace Context for Telemetry Correlation&lt;/h2&gt;
+&lt;p&gt;W3C Trace Context offers correlation between layers and applications with Application Insights and also between other APM services such as Elastic APM or New Relic.&lt;/p&gt;
+&lt;p&gt;The specification: &lt;a href="https://www.w3.org/TR/trace-context/"&gt;w3.org/TR/trace-context/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Application Insights is transitioning to W3C Trace Context and this will likely be more straight-forward later but for a typical Epi DXP app currently:&lt;/p&gt;
+&lt;p&gt;Install &lt;em&gt;System.Diagnostics.DiagnosticSource&lt;/em&gt; 4.7 or later, and &lt;em&gt;Microsoft.ApplicationInsights&lt;/em&gt; 2.8 or later.&lt;/p&gt;
+&lt;p&gt;Then set on app startup:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Activity.ForceDefaultIdFormat = true;&lt;br /&gt;Activity.DefaultIdFormat = ActivityIdFormat.W3C;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can then check Activity.Current to see the ID of the ongoing request that your telemetry gets automatically.&lt;/p&gt;
+&lt;p&gt;If you don't see IDs in the remote app you might need to add the headers to the outbound call yourself, check this &lt;a href="https://github.com/dotnet/runtime/blob/4f9ae42d861fcb4be2fcd5d3d55d5f227d30e723/src/libraries/System.Net.Http/src/System/Net/Http/DiagnosticsHandler.cs#L254"&gt;source code of the System.Net.Http.DiagnosticsHandler&lt;/a&gt; to see how it could be done.&lt;/p&gt;</description><pubDate>Thu, 22 Oct 2020 08:13:09 Z</pubDate></item><item><guid isPermaLink="true">http://krompaco.nu/2020/09/putting-custom-data-in-azure-table-storage-from-episerver/</guid><link>http://krompaco.nu/2020/09/putting-custom-data-in-azure-table-storage-from-episerver/</link><category>Episerver</category><category>Development</category><title>Putting custom data in Azure Table Storage from Episerver</title><description>&lt;p&gt;It's completely normal to feel not so good when thinking about Entity Framework migrations or Episerver's Dynamic Data Store.&lt;/p&gt;&lt;p&gt;If your Episerver site is running on Azure and is using Blob Storage, either self-serviced or on the DXP, using Azure Table Storage instead can be a good alternative that's already available to use.&lt;/p&gt;
+&lt;p&gt;To illustrate; here is my simple string service example.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public interface ISimpleStorageService
+{
+  string Get(string partitionKey, string rowKey);
+
+  void Insert(string partitionKey, string rowKey, string value);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When implementing it with Azure Table Storage all the packages are already installed in your solution, since they are required by the EPiServer.Azure package, and the connection string name is fixed so this class should work out of the box as a simple key-value store.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;using System;
+using System.Configuration;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+
+public class AzureSimpleStorageService : ISimpleStorageService
+{
+  public string Get(string partitionKey, string rowKey)
+  {
+    var entity = GetEntity(partitionKey, rowKey);
+    return entity?.Value;
+  }
+
+  public void Insert(string partitionKey, string rowKey, string value)
+  {
+    if (string.IsNullOrWhiteSpace(partitionKey))
+    {
+      throw new Exception("PartitionKey must have value");
+    }
+
+    if (string.IsNullOrWhiteSpace(rowKey))
+    {
+      throw new Exception("RowKey must have value");
+    }
+
+    var table = GetSimpleStorageTable();
+    var updateEntity = GetEntity(partitionKey, rowKey);
+
+    if (updateEntity != null)
+    {
+      updateEntity.Value = value;
+      var updateOperation = TableOperation.Replace(updateEntity);
+      table.Execute(updateOperation);
+    }
+    else
+    {
+      var storageItem = new SimpleStorageItem { PartitionKey = partitionKey, RowKey = rowKey, Value = value };
+      table.Execute(TableOperation.Insert(storageItem));
+    }
+  }
+
+  private static CloudStorageAccount GetStorageAccount()
+  {
+    return CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["EPiServerAzureBlobs"].ConnectionString);
+  }
+
+  private static CloudTable GetSimpleStorageTable()
+  {
+    var storageAccount = GetStorageAccount();
+    var tableClient = storageAccount.CreateCloudTableClient();
+
+    // Create the table if it doesn't exist
+    var table = tableClient.GetTableReference("SimpleStorageItems");
+    table.CreateIfNotExists();
+
+    return table;
+  }
+
+  private static SimpleStorageItem GetEntity(string partitionKey, string rowKey)
+  {
+    try
+    {
+      var table = GetSimpleStorageTable();
+      var retrieveOperation = TableOperation.Retrieve(partitionKey, rowKey);
+      var retrievedResult = table.Execute(retrieveOperation);
+      var entity = (SimpleStorageItem)retrievedResult.Result;
+      return entity;
+    }
+    catch (System.Data.Services.Client.DataServiceQueryException ex)
+    {
+      if (ex.Response.StatusCode == (int)System.Net.HttpStatusCode.NotFound)
+      {
+        return null;
+      }
+
+      throw;
+    }
+  }
+
+  private class SimpleStorageItem : TableEntity
+  {
+    // The .NET Client supports more property types as well
+    // but not very complex types...
+    public string Value { get; set; }
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To see what's going on and which tables exist, download &lt;a href="https://azure.microsoft.com/en-us/features/storage-explorer/"&gt;Azure Storage Explorer&lt;/a&gt; and then use the connection string to connect, in my experience that usually works better than listing through your Azure AD authentication. This accesss is only there for Integration environment, of course code works fine for Preproduction and Production but you need views or other own things to look at the data there.&lt;/p&gt;
+&lt;p&gt;Note that even with the new Deployment API available I think you still need to create a support ticket if you want to copy table data between environments.&lt;/p&gt;
+&lt;p&gt;This has been a slightly secretive option but it has been around since the start of the DXC Service and it has served us well for data we didn't want taking up space in our SQL database.&lt;/p&gt;</description><pubDate>Wed, 09 Sep 2020 07:24:31 Z</pubDate></item><item><guid isPermaLink="true">http://krompaco.nu/2019/11/episerver-stockholm-meetup-on-wednesday-november-20/</guid><link>http://krompaco.nu/2019/11/episerver-stockholm-meetup-on-wednesday-november-20/</link><category>Episerver</category><title>Episerver Stockholm Meetup on Wednesday November 20</title><description>&lt;p&gt;The two sessions are on Auth0 and Episerver .NET Core &amp;amp; Content Delivery API. We still have a few seats available. Welcome to our new office at Magnus Ladul&amp;aring;sgatan 3!&lt;/p&gt;&lt;p&gt;17:30 Sign in, pizza and something to drink&lt;/p&gt;
+&lt;p&gt;18:00 Build vs Buy of an IDaaS, an opinionated Auth0 perspective and walkthrough (Yvo van Doorn, &lt;a href="https://auth0.com/"&gt;Auth0&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;19:00 Break&lt;/p&gt;
+&lt;p&gt;19:15 .NET Core &amp;amp; Content Delivery API (Johan Bj&amp;ouml;rnfot, &lt;a href="https://www.episerver.com/"&gt;Episerver&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;20:15 Something to drink&lt;/p&gt;
+&lt;p&gt;21:00 Go home&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Sessions will be in English.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The event is sponsored by my employer &lt;a href="https://www.netrelations.com/"&gt;NetRelations&lt;/a&gt; + &lt;a href="https://www.evry.com/"&gt;EVRY&lt;/a&gt; and the address is Magnus Ladul&amp;aring;sgatan 3.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.meetup.com/EPiServer-Stockholm/events/265741149/"&gt;Sign up at the event page on Meetup.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><pubDate>Tue, 19 Nov 2019 13:07:43 Z</pubDate></item><item><guid isPermaLink="true">http://krompaco.nu/2019/10/boilerplate-admin-mvc-plugin-with-tailwind-css/</guid><link>http://krompaco.nu/2019/10/boilerplate-admin-mvc-plugin-with-tailwind-css/</link><category>Episerver</category><category>Development</category><title>Boilerplate admin MVC plugin with Tailwind CSS</title><description>&lt;p&gt;I just put a Webpack project with Tailwind config and an Alloy-ready starter view with a setup mimicking Episerver's design up on Github.&lt;/p&gt;&lt;p&gt;As promised in &lt;a href="http://krompaco.nu/2019/08/alloy-startpage-with-tailwind-css-lab/"&gt;my first post on Tailwind CSS and Epi&lt;/a&gt; you can now grab a minifed CSS file off the repo and use when building your own views.&lt;/p&gt;
+&lt;p&gt;Hopefully reducing the amount of Backend Developer Design&lt;span class="st"&gt;&amp;trade;&lt;/span&gt; in plugins worldwide.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/krompaco/tailwindcss-plugin-for-epi"&gt;Screenshots and full instructions on Github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><pubDate>Thu, 24 Oct 2019 21:54:19 Z</pubDate></item><item><guid isPermaLink="true">http://krompaco.nu/2019/10/adding-a-custom-episerver-forms-consent-element-type/</guid><link>http://krompaco.nu/2019/10/adding-a-custom-episerver-forms-consent-element-type/</link><category>Episerver</category><category>Development</category><title>Adding a custom Episerver Forms consent element type</title><description>&lt;p&gt;Having a site wide form policy consent text and checkbox available might be useful when editors start using Episerver Forms.&lt;/p&gt;&lt;p&gt;In my case the requirement was to not store any consent text as Arild describes in his &lt;a href="https://www.epinova.no/en/blog/gdpr-and-episerver-storing-consent-context-in-submitted-form-data/"&gt;post on storing consent context in submitted form data&lt;/a&gt; but if you want that it's just a matter of removing IExcludeInSubmission and setting a suitable new value other than the "1" in my example. Of course the editor can also take the longer route and create a default choice element manually.&lt;/p&gt;
+&lt;p&gt;This is the content type I added to set it up. Notice ValidatableElementBlockBase, IExcludeInSubmission and the hack to get the RequiredValidator activated.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;namespace DemoProject.Models.FormElements
+{
+    using EPiServer.DataAbstraction;
+    using EPiServer.DataAnnotations;
+    using EPiServer.Forms.Core;
+    using EPiServer.Forms.EditView;
+    using EPiServer.Forms.EditView.DataAnnotations;
+    using EPiServer.Forms.Implementation.Elements.BaseClasses;
+    using EPiServer.Forms.Implementation.Validation;
+
+    [ContentType(
+        GUID = "6d96df96-118c-4c7f-8630-4af51e4afaed",
+        DisplayName = "Site form consent checkbox",
+        Description = "Label text is fetched from the site setting.",
+        GroupName = ConstantsFormsUI.FormElementGroup,
+        Order = 2230)]
+    [AvailableValidatorTypes(Include = new[] { typeof(RequiredValidator) })]
+    ////[ImageUrl("~/static/img/thumbnails/CustomTextArea.png")]
+    ////If you need a custom icon...
+    public class AutoConsentElementBlock : ValidatableElementBlockBase,
+                                                IExcludeInSubmission
+    {
+        public override void SetDefaultValues(ContentType contentType)
+        {
+            base.SetDefaultValues(contentType);
+
+            // Seems to be the way to get "Required" by default
+            // when adding the element to a form container
+            this.Validators = typeof(RequiredValidator).FullName;
+
+            this.Content.Name = "Site form consent checkbox";
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And in &lt;em&gt;Views\Shared\ElementBlocks\&lt;/em&gt; I put &lt;em&gt;AutoConsentElementBlock.cshtml&lt;/em&gt; and this markup boilerplate.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@using EPiServer.Forms.Helpers.Internal
+@model AutoConsentElementBlock
+
+@using (Html.BeginElement(Model, new { id = Model.FormElement.Guid,
+    @class = Model.GetValidationCssClasses(), data_f_type = "choice" }, true, "div"))
+{
+    &amp;lt;div&amp;gt;
+        @{
+            var id = $"{Model.FormElement.Guid}-1";
+        }
+
+        &amp;lt;input type="checkbox"
+            name="@Model.FormElement.ElementName"
+            value="1"
+            data-f-datainput
+            id="@id" /&amp;gt;
+
+        &amp;lt;label for="@id"&amp;gt;
+            @GetSiteSettingFromSomewhere().SomeTextProperty
+        &amp;lt;/label&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    @Html.ValidationMessageFor(Model)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The editor can now just drop this new element to the appropriate place, likely just before the submit button, and don't need to edit anything further. A centrally managed text will be used for the label and the INPUT-element won't clutter the form data but will require being checked before submission can occur.&lt;/p&gt;</description><pubDate>Mon, 07 Oct 2019 20:58:23 Z</pubDate></item><item><guid isPermaLink="true">http://krompaco.nu/2019/08/alloy-startpage-with-tailwind-css-lab/</guid><link>http://krompaco.nu/2019/08/alloy-startpage-with-tailwind-css-lab/</link><category>Episerver</category><category>Development</category><title>Alloy startpage with Tailwind CSS lab</title><description>&lt;p&gt;I've really taken a liking to Tailwind CSS and to help spread the word I did a quick lab of using it on the Alloy startpage.&lt;/p&gt;&lt;p&gt;&lt;a href="https://tailwindcss.com/"&gt;Tailwind CSS&lt;/a&gt; is not your typical CSS framework. Basically it just provides utility classes that work on any semantic structure so that you can do most work without leaving your HTML. It's very smartly composed so even if you're competent in CSS it doesn't hinder you, instead you probably work faster with Tailwind than you would writing our own CSS.&lt;/p&gt;
+&lt;p&gt;Outside of the official web site these are some useful links:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://tailwind.run/"&gt;Tailwind.run&lt;/a&gt; is Fiddle type of thing where you can try it out.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://tailwindcomponents.com/"&gt;Tailwind CSS Components&lt;/a&gt; has plenty of examples to learn from.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/tailwindcss"&gt;Tailwind CSS on Github&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In my quick lab I reference Tailwind CSS straight off the CDN so everything is the default configuration. For production you would have your own configuration and in my cases I've used a Webpack project that generate bundled files. I'll post a config and boilerplate project with a sensible Epi styling to use for Edit/Admin Mode plugins shortly. But here I just replace &lt;code&gt;@Styles.Render("~/bundles/css")&lt;/code&gt; with a CDN reference.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;link href="https://unpkg.com/tailwindcss@("@")^1.0/dist/tailwind.min.css" rel="stylesheet" /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then change the first wrapping DIV in the Root layout file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class="container mx-auto py-4 px-2"&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Quoting &lt;a href="https://tailwindcss.com/docs/container"&gt;Tailwind's documentation on the container class&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;The .container class sets the max-width of an element to match the min-width of the current breakpoint. This is useful if you'd prefer to design for a fixed set of screen sizes instead of trying to accommodate a fully fluid viewport.&lt;/blockquote&gt;
+&lt;p&gt;I make some small adjustments to the TeaserBlock views, just adding some padding and typography classes, similar to these modifications in the Jumbotron view.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class="px-2 py-6 clearfix"&amp;gt;
+    &amp;lt;div class="max-w-sm md:float-left"&amp;gt;
+        @Html.PropertyFor(m =&amp;gt; m.Image)
+    &amp;lt;/div&amp;gt;
+    &amp;lt;h1 class="mb-2 leading-tight text-5xl text-gray-800" @Html.EditAttributes(m =&amp;gt; m.Heading)&amp;gt;@Model.Heading&amp;lt;/h1&amp;gt;
+    &amp;lt;p class="mb-6 text-xl text-gray-800" @Html.EditAttributes(m =&amp;gt; m.SubHeading)&amp;gt;@Model.SubHeading&amp;lt;/p&amp;gt;
+    &amp;lt;a class="float-right bg-gray-800 text-white font-bold py-2 px-4 border rounded"&lt;br /&gt;       href="@Model.ButtonLink" id="jumboLink" @Html.EditAttributes(m =&amp;gt; m.ButtonText)&amp;gt;&lt;br /&gt;         @Model.ButtonText&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In &lt;em&gt;Views\StartPage\Index.cshtml&lt;/em&gt; I need to get some classes on the ContentArea wrapping div.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@Html.PropertyFor(x =&amp;gt; x.CurrentPage.MainContentArea,&lt;br /&gt;  new { CssClass = "flex flex-wrap", tag = Global.ContentAreaTags.FullWidth })&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then of course also change to Tailwind names in the AlloyContentAreaRenderer class and try to mimic the old Bootstrap behaviour.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;private static string GetCssClassForTag(string tagName)
+{
+  const string DefaultBlockClasses = "w-full sm:w-6/12 xl:w-4/12";
+
+  if (string.IsNullOrEmpty(tagName))
+  {
+    return DefaultBlockClasses;
+  }
+
+  switch (tagName.ToLower())
+  {
+    case "span12":
+      return "w-full";
+    case "span8":
+      return "w-full xl:w-8/12";
+    case "span6":
+      return "w-full md:w-6/12";
+    default:
+      return DefaultBlockClasses;
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A note on the breakpoints (md, xl etc) is to aim for a config with as few screen breakpoints as possible. Every breakpoint will add to the file size. I got away with just one that I named &lt;em&gt;pc&lt;/em&gt; in my biggest project thus far.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;screens: {
+  'pc': '700px'
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally I put some classnames in the footer with the following structure.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;hr class="my-8" /&amp;gt;
+&amp;lt;div class="flex flex-wrap px-8 lg:justify-center"&amp;gt;
+  &amp;lt;div class="mb-6 w-40"&amp;gt;
+    &amp;lt;h3 class="text-lg text-gray-800"&amp;gt;@Html.Translate("/footer/products")&amp;lt;/h3&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Running the site now we got the modified startpage in order. I added some copied blocks and set the Display Option for last the one to take up more width space.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://krompaco.nu/contentassets/7b9f0f3e60544977854d7da9b06ef113/alloy-start.gif"&gt;View screen recording (animated GIF, 6.32 MB)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The responsive behaviour of Alloy is a bit dated but as you can see it was really fast and simple to mimic it using Tailwind CSS. Hopefully you've gotten a feel for how it works and an interest to learn more. I especially recommend watching &lt;a href="https://tailwindcss.com/screencasts/"&gt;the screencasts&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;When you move further and got TinyMCE generated markup in an element modifying every element with classes might be a bit out of reach so something like shown in this &lt;a href="https://github.com/tailwindcss/discuss/issues/243#issuecomment-481175230"&gt;issue comment on article text approach on Github from Adam Wathan&lt;/a&gt; is what you need to tweak (pasted below just in case) and scope around the TinyMCE content. Of course you'll use this class in the Episerver CMS Edit Mode setup of TinyMCE as well.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.markdown {
+  @apply text-lg text-grey-darkest leading-normal;
+  &amp;amp; &amp;gt; * + *,  &amp;amp; li + li, &amp;amp; li &amp;gt; p + p {
+    @apply mt-6;
+  }
+  &amp;amp; strong {
+    @apply text-black font-bold;
+  }
+  &amp;amp; a {
+    @apply text-black font-semibold;
+  }
+  &amp;amp; strong a {
+    @apply font-bold;
+  }
+  &amp;amp; h2 {
+    @apply leading-tight text-xl font-bold text-black mb-2 mt-10;
+  }
+  &amp;amp; h3 {
+    @apply leading-tight text-lg font-bold text-black mt-8 -mb-2;
+  }
+  &amp;amp; code {
+    @apply font-mono text-sm inline bg-grey-lighter px-1;
+  }
+  &amp;amp; pre code {
+    @apply block bg-black p-4 rounded;
+  }
+  &amp;amp; blockquote {
+    @apply border-l-4 border-grey-light pl-4 italic;
+  }
+  &amp;amp; ul, &amp;amp; ol {
+    @apply pl-5;
+    @screen sm {
+      @apply pl-10;
+    }
+  }
+}&lt;/code&gt;&lt;/pre&gt;</description><pubDate>Thu, 22 Aug 2019 11:24:13 Z</pubDate></item></channel></rss>

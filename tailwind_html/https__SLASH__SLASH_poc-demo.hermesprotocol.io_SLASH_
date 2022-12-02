@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes Protocol | Homepage</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="icon" href="images/hermes-logo.svg" type="image/x-icon">
+<link href="css/all.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="tailwind.css" rel="stylesheet">
+<style>
+        /* CHECKBOX TOGGLE SWITCH */
+        /* @apply rules for documentation, these do not work as inline style */
+        .toggle-checkbox:checked {
+        @apply: right-0 border-green-400;
+        right: 0;
+        border-color: #68d391;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+        @apply: bg-green-400;
+        background-color: #68d391;
+        }
+    </style>
+</head>
+<body>
+<section class="pb-40 antialiased bg-white dark:bg-gray-800">
+<div class="px-12 mx-auto max-w-7xl">
+
+<div class="flex flex-wrap items-center justify-between w-full h-24 text-black" x-data="{ showMenu: false }">
+<div class="relative z-10 flex items-center w-auto px-0 leading-10 md:px-2 lg:flex-grow-0 lg:flex-shrink-0 lg:text-left">
+<a href="#_" class="inline-block font-sans text-2xl font-extrabold text-left text-black no-underline bg-transparent cursor-pointer focus:no-underline">
+<img class="object-contain w-20 h-20 " src="images/hermes-logo.svg" />
+</a>
+</div>
+<div class="relative hidden mt-2 font-medium leading-10 md:inline-block lg:flex-grow-0 lg:flex-shrink-0 lg:mt-0 lg:text-right">
+<a href="https://hermesprotocol.io" class="px-5 py-4 text-lg font-medium text-white bg-muddywaters-500 shadow-xl hover:bg-muddywaters-600 rounded-2xl">Website</a>
+</div>
+<div @click="showMenu = !showMenu" class="absolute right-0 z-10 flex flex-col items-center items-end justify-center w-10 h-10 mr-8 rounded-full cursor-pointer md:hidden hover:bg-gray-100">
+<svg class="w-6 h-6 text-gray-700" x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+<path d="M4 6h16M4 12h16M4 18h16"></path>
+</svg>
+<svg class="w-6 h-6 text-gray-700" x-show="showMenu" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+</svg>
+</div>
+</div>
+
+
+<div class="relative w-full items-center py-8  mt-4 px-4 bg-muddywaters-200 rounded-2xl shadow-lg">
+<div class="px-4 center flex-col">
+<section class="flex flex-col w-full">
+<h1 class=" w-full justify-between my-4 text-3xl font-bold text-muddywaters-700">Wallet</h1>
+<div class="flex">
+<input id="wallet" class="w-3/5 flew justify-between text-center m-4 bg-muddywaters-100 py-1 px-2 text-2xl text-muddywaters-700 rounded-2xl shadow-inner focus:ring-2 focus:ring-muddywaters-400 focus:outline-none " value="terra1vlm42u2z5kkhkkujpd0l2840aysjmxf0y3dufa"></input>
+<div id="edit-wallet">
+<svg xmlns="http://www.w3.org/2000/svg" class="my-5 h-8 w-8 text-muddywaters-700 hover:text-muddywaters-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+</svg>
+</div>
+<div id="ok-wallet">
+<svg xmlns="http://www.w3.org/2000/svg" class="my-5 h-8 w-8 text-muddywaters-700 hover:text-muddywaters-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+</div>
+</div>
+</section>
+</div>
+</div>
+
+<div class="relative w-full flex items-center py-8 px-4 mt-4 bg-muddywaters-100 rounded-2xl shadow-lg">
+<div class="px-4 center flex-col">
+<section class="flex flex-col w-full">
+<h1 class=" w-full justify-between my-4 text-3xl font-bold text-muddywaters-700">Social Channels</h1>
+<div class="flex items-center justify-center space-x-3">
+<button class="bg-blue-500 px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded-2xl shadow-lg relative group cursor-not-allowed">
+<svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+<span>Facebook</span>
+<div class="opacity-0 w-28 bg-muddywaters-700 text-white text-center rounded-lg py-2 absolute z-10 group-hover:opacity-50 top-full -left-1/2 ml-14 px-3 pointer-events-none">
+Not available yet!
+</div>
+</button>
+<button class="bg-blue-300 px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded-2xl shadow-lg relative group cursor-not-allowed">
+<svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" /></svg>
+<span>Twitter</span>
+<div class="opacity-0 w-28 bg-muddywaters-700 text-white text-center rounded-lg py-2 absolute z-10 group-hover:opacity-50 top-full -left-1/2 ml-14 px-3 pointer-events-none">
+Not available yet!
+</div>
+</button>
+<button class="bg-cornflowerblue-500 m-1 px-4 py-2 font-semibold text-white inline-flex relative items-center space-x-2 rounded-2xl shadow-lg ">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 18 18">
+<path d="M15.8 4.2c-1.2-1-2.7-1.5-4.3-1.6l-.2.2c1.4.4 2.7 1.1 3.8 2-1.4-.8-3-1.3-4.6-1.5-1-.1-2.1-.1-3.1 0h-.3c-1.2.2-2.4.5-3.5 1-.6.3-1 .4-1 .4 1.2-1 2.5-1.6 4-2l-.1-.1c-1.6 0-3.1.6-4.3 1.6C.8 6.9 0 10 0 13.1c1.1 1.5 2.8 2.4 4.7 2.4 0 0 .6-.7 1-1.3-1.1-.3-2-.9-2.7-1.8.1.1.3.2.4.3h.1l.1.1c.4.2.7.4 1.1.5.7.3 1.5.6 2.3.8 1.3.2 2.7.2 4 0 .8-.1 1.5-.4 2.2-.7.6-.2 1.2-.5 1.8-.9-.7.9-1.7 1.6-2.8 1.8l1 1.2c1.9 0 3.6-.8 4.7-2.4 0-3.1-.7-6.2-2.1-8.9zm-9.7 7.5c-.9 0-1.6-.8-1.6-1.7 0-.9.7-1.7 1.6-1.7h.1c.8 0 1.5.7 1.5 1.6v.1c0 .9-.7 1.6-1.6 1.7zm5.7 0c-.9 0-1.6-.8-1.6-1.7 0-.9.6-1.7 1.5-1.7s1.6.8 1.6 1.7c.1.9-.7 1.6-1.5 1.7z"></path>
+</svg>
+<span>Discord</span>
+<span class="absolute -top-2 -right-2 text-xs font-medium leading-tight text-white bg-green-400 rounded-full">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+</span>
+</button>
+<button class="bg-telegram px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded-2xl shadow-lg relative group cursor-not-allowed">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+<defs></defs>
+<path fill-rule="evenodd" d="M18.4 21.8c.3.2.7.3 1.1.1.4-.1.6-.5.7-.8.9-4.1 3-14.4 3.8-18.1.1-.3 0-.6-.3-.8-.2-.2-.5-.3-.8-.2C18.7 3.6 5.8 8.4.5 10.4c-.3.1-.5.4-.5.8s.2.7.6.8c2.4.7 5.5 1.7 5.5 1.7s1.5 4.4 2.2 6.6c.1.3.3.5.6.6.3.1.6 0 .8-.2 1.2-1.1 3.1-2.9 3.1-2.9s3.6 2.5 5.6 4zm-11-8.7l1.7 5.5.4-3.5S16 9.2 19.7 5.9c.1-.1.1-.3 0-.4-.1-.1-.3-.1-.4-.1C15 8.2 7.4 13.1 7.4 13.1z" clip-rule="evenodd"></path>
+</svg>
+<span>Telegram</span>
+<div class="opacity-0 w-28 bg-muddywaters-700 text-white text-center rounded-lg py-2 absolute z-10 group-hover:opacity-50 top-full -left-1/2 ml-14 px-3 pointer-events-none">
+Not available yet!
+</div>
+</button>
+</div>
+</section>
+</div>
+</div>
+
+<div class="relative w-full flex items-center py-8 mt-4 px-4 bg-muddywaters-200 rounded-2xl shadow-lg">
+<div class="px-4 center flex-col w-full">
+<section class="flex flex-col w-full">
+<h1 class=" w-full justify-between my-4 text-3xl font-bold text-muddywaters-700">Subscriptions</h1>
+<div class="flex w-full justify-between">
+<div class="flex w-full justify-start" id="subscription">
+<button class="flex flex-col cart-subscription justify-center items-center text-2xl font-bold text-muddywaters-700 border-2 border-muddywaters-300 rounded-2xl border-dashed cursor-pointer focus:outline-none transition duration-200 hover:shadow-2xl mx-6" onclick="toggleModal('new_subscription')">
+<div>+</div>
+<div class="mx-6">New Subscription</div>
+</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+
+<section class="bg-white dark:bg-gray-400">
+<div class="px-8 py-12 mx-auto text-gray-600 bg-white xl:pb-24 max-w-7xl xl:px-12">
+<div class="grid gap-6 mx-auto md:grid-cols-3 lg:grid-cols-3 lg:gap-x-8">
+<div class="mx-auto mb-6 lg:mb-8">
+<div>
+<a class="text-xl font-black leading-none text-gray-900 select-none logo">
+<img class="object-contain w-32 h-32 " src="images/hermes-full-logo.svg">
+</a>
+</div>
+</div>
+<div>
+<h5 class="text-xl font-bold text-gray-700">Product</h5>
+<nav class="mt-4">
+<ul class="space-y-2">
+<li>
+<a href="#" class="text-base dark:text-gray-300 hover:text-gray-500">Features</a>
+</li>
+<li>
+<a href="#" class="text-base dark:text-gray-300 hover:text-gray-500">Integrations</a>
+</li>
+<li>
+<a href="#" class="text-base dark:text-gray-300 hover:text-gray-500">Documentation</a>
+</li>
+</ul>
+</nav>
+</div>
+<div>
+<h5 class="text-xl font-bold text-gray-700 dark:text-gray-300">Resources</h5>
+<nav class="mt-4">
+<ul class="space-y-2">
+<li>
+<a href="#" class="text-base hover:text-gray-500 dark:text-gray-300">Help Center</a>
+</li>
+<li>
+<a href="#" class="text-base hover:text-gray-500 dark:text-gray-300">Developer API</a>
+</li>
+
+</ul>
+</nav>
+</div>
+</div>
+<div class="flex flex-col items-center justify-between mx-auto mt-16 space-y-4 md:space-y-0 md:flex-row lg:mt-20">
+<div class="space-y-4 text-sm text-center md:space-y-0 md:text-left">
+<p class="text-gray-500 dark:text-gray-300">© 2021 Momentum Free. All rights reserved.</p>
+<p class="my-4 text-xs leading-normal text-gray-500 dark:text-gray-300" data-c2c-process="1">Creating beautiful websites since 2020.</p>
+</div>
+</div>
+<div class="flex flex-col items-center justify-between mx-auto mt-8 space-y-4 md:space-y-0 md:flex-row lg:mt-16">
+<nav class="flex flex-wrap justify-center space-x-6">
+<a href="#" class="mb-2 text-sm hover:text-gray-700 dark:text-gray-300">Privacy Policy</a>
+<a href="#" class="mb-2 text-sm hover:text-gray-700 dark:text-gray-300">Disclaimers</a>
+<a href="#" class="mb-2 text-sm hover:text-gray-700 dark:text-gray-300">Terms and Conditions</a>
+<a href="#" class="mb-2 text-sm hover:text-gray-700 dark:text-gray-300">Refund Policy</a>
+<a href="#" class="mb-2 text-sm hover:text-gray-700 dark:text-gray-300">Legal</a>
+</nav>
+<nav class="flex items-center space-x-2">
+<a href="https://twitter.com/hermesprotocol" class="text-gray-500 hover:text-gray-600 dark:text-gray-300">
+<span class="sr-only">Twitter</span>
+<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 18 18">
+<path d="M5.9 15.7c5.3 0 9.6-4.2 9.7-9.5v-.1-.4c.7-.5 1.2-1.1 1.7-1.8-.6.3-1.3.5-2 .5.7-.4 1.2-1.1 1.5-1.8-.7.4-1.4.7-2.2.8C13.3 2 11.1 2 9.8 3.3c-.6.6-1 1.5-1 2.3 0 .3 0 .5.1.8-2.7-.1-5.3-1.4-7-3.5-.9 1.6-.5 3.5 1 4.5-.5 0-1-.1-1.5-.4 0 1.6 1.1 3 2.7 3.3-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.4 1.7 2.3 3.2 2.3-1.2.9-2.7 1.4-4.2 1.4H.8c1.5 1.2 3.3 1.7 5.1 1.7"></path>
+</svg>
+</a>
+<a href="https://discord.com/invite/RkZvDsWaGk" class="text-gray-500 hover:text-gray-600 dark:text-gray-300">
+<span class="sr-only">Discord</span>
+<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 18 18">
+<path d="M15.8 4.2c-1.2-1-2.7-1.5-4.3-1.6l-.2.2c1.4.4 2.7 1.1 3.8 2-1.4-.8-3-1.3-4.6-1.5-1-.1-2.1-.1-3.1 0h-.3c-1.2.2-2.4.5-3.5 1-.6.3-1 .4-1 .4 1.2-1 2.5-1.6 4-2l-.1-.1c-1.6 0-3.1.6-4.3 1.6C.8 6.9 0 10 0 13.1c1.1 1.5 2.8 2.4 4.7 2.4 0 0 .6-.7 1-1.3-1.1-.3-2-.9-2.7-1.8.1.1.3.2.4.3h.1l.1.1c.4.2.7.4 1.1.5.7.3 1.5.6 2.3.8 1.3.2 2.7.2 4 0 .8-.1 1.5-.4 2.2-.7.6-.2 1.2-.5 1.8-.9-.7.9-1.7 1.6-2.8 1.8l1 1.2c1.9 0 3.6-.8 4.7-2.4 0-3.1-.7-6.2-2.1-8.9zm-9.7 7.5c-.9 0-1.6-.8-1.6-1.7 0-.9.7-1.7 1.6-1.7h.1c.8 0 1.5.7 1.5 1.6v.1c0 .9-.7 1.6-1.6 1.7zm5.7 0c-.9 0-1.6-.8-1.6-1.7 0-.9.6-1.7 1.5-1.7s1.6.8 1.6 1.7c.1.9-.7 1.6-1.5 1.7z"></path>
+</svg>
+</a>
+<a href="https://t.me/Hermes_Protocol_DevBot" class="text-gray-500 hover:text-gray-600 dark:text-gray-300">
+<span class="sr-only">Telegram</span>
+<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+<defs></defs>
+<path fill-rule="evenodd" d="M18.4 21.8c.3.2.7.3 1.1.1.4-.1.6-.5.7-.8.9-4.1 3-14.4 3.8-18.1.1-.3 0-.6-.3-.8-.2-.2-.5-.3-.8-.2C18.7 3.6 5.8 8.4.5 10.4c-.3.1-.5.4-.5.8s.2.7.6.8c2.4.7 5.5 1.7 5.5 1.7s1.5 4.4 2.2 6.6c.1.3.3.5.6.6.3.1.6 0 .8-.2 1.2-1.1 3.1-2.9 3.1-2.9s3.6 2.5 5.6 4zm-11-8.7l1.7 5.5.4-3.5S16 9.2 19.7 5.9c.1-.1.1-.3 0-.4-.1-.1-.3-.1-.4-.1C15 8.2 7.4 13.1 7.4 13.1z" clip-rule="evenodd"></path>
+</svg>
+</a>
+<a href="https://github.com/MomentumFree/hermes-protocol/" class="text-gray-500 hover:text-gray-600 dark:text-gray-300">
+<span class="sr-only">GitHub</span>
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+<path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+</svg>
+</a>
+</nav>
+</div>
+</div>
+</section>
+</div>
+</section>
+
+<div id="loan_liquidtion" class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-20 outline-none focus:outline-none justify-center items-center">
+<div class=" bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+<div class="modal-content py-4 text-left px-6">
+ 
+<div class="flex justify-between inline-block align-top ">
+<div class="flex justify-between w-full flex-row items-center">
+<div>
+<p class="text-2xl font-bold">Loan Liquidation</p>
+<p class="text-2xl font-bold pb-3">Setup</p>
+<p class="text-xl font-bold">Alert Configuration</p>
+</div>
+<div>
+<img class="h-10 w-auto" src="images/partners/LogoAnchor.png">
+</div>
+</div>
+<div class="modal-close cursor-pointer z-50 focus:outline-none" onclick="toggleModal('loan_liquidtion')">
+<svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+<path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+</svg>
+</div>
+</div>
+<div x-data="range()" x-init="mintrigger(); maxtrigger()" class="relative max-w-xl w-full mt-8">
+<div>
+<input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="mintrigger" x-model="minprice" class="absolute pointer-events-none appearance-none z-50 h-2 w-full opacity-0 cursor-pointer">
+<input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="maxtrigger" x-model="maxprice" class="absolute pointer-events-none appearance-none z-50 h-2 w-full opacity-0 cursor-pointer">
+<div class="relative z-50 h-2">
+<div class="absolute z-50 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
+<div class="absolute z-50 top-0 bottom-0 left-0 rounded-md bg-black" x-bind:style="'right:'+maxthumb+'%;'"></div>
+<div class="absolute z-50 w-6 h-6 top-0 right-0 bg-green-500 border-solid border-4 border-black rounded-full -mt-2" x-bind:style="'right: '+maxthumb+'%'">
+<div class="relative -mt-8 -ml-4  m-1 text-xs font-bold "><spam class="bg-green-500 rounded-xl p-1" id="ltv_pct" value = maxthumb>55%<spam></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end  pt-5 space-x-2 text-sm text-gray-700">
+<div>
+<input id="input_ltv" type="text" maxlength="2" x-on:input.debounce.300="maxtrigger" x-model="maxprice" wire:model.debounce="maxPrice" class="w-16 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none mr-2" onchange="calculateLTV()">
+</div> %
+</div>
+</div>
+
+<p class="text-xl font-bold mt-8">Social Channel</p>
+<div class="mt-2 flex flex-row " x-data="{toggle: '1'}">
+<div class="relative rounded-full w-12 h-6 transition duration-200 ease-linear" :class="[toggle === '1' ? 'bg-green-400' : 'bg-gray-400']">
+<label for="toggle1" class="  absolute left-0 bg-white border-2 mb-2 w-6 h-6 rounded-full transition transform duration-100 ease-linear cursor-pointer" :class="[toggle === '1' ? 'translate-x-full border-green-500' : 'translate-x-0 border-gray-400']"></label>
+<input type="checkbox" id="toggle1" name="toggle" class="Discord_toggle appearance-none w-full h-full active:outline-none focus:outline-none" checked="true" @click="toggle === '0' ? toggle = '1' : toggle = '0'" />
+</div>
+<label for="toggle1" class="text-lg px-4  align-middle font-semibold text-cornflowerblue-500 inline-flex relative items-center space-x-2">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 18 18">
+<path d="M15.8 4.2c-1.2-1-2.7-1.5-4.3-1.6l-.2.2c1.4.4 2.7 1.1 3.8 2-1.4-.8-3-1.3-4.6-1.5-1-.1-2.1-.1-3.1 0h-.3c-1.2.2-2.4.5-3.5 1-.6.3-1 .4-1 .4 1.2-1 2.5-1.6 4-2l-.1-.1c-1.6 0-3.1.6-4.3 1.6C.8 6.9 0 10 0 13.1c1.1 1.5 2.8 2.4 4.7 2.4 0 0 .6-.7 1-1.3-1.1-.3-2-.9-2.7-1.8.1.1.3.2.4.3h.1l.1.1c.4.2.7.4 1.1.5.7.3 1.5.6 2.3.8 1.3.2 2.7.2 4 0 .8-.1 1.5-.4 2.2-.7.6-.2 1.2-.5 1.8-.9-.7.9-1.7 1.6-2.8 1.8l1 1.2c1.9 0 3.6-.8 4.7-2.4 0-3.1-.7-6.2-2.1-8.9zm-9.7 7.5c-.9 0-1.6-.8-1.6-1.7 0-.9.7-1.7 1.6-1.7h.1c.8 0 1.5.7 1.5 1.6v.1c0 .9-.7 1.6-1.6 1.7zm5.7 0c-.9 0-1.6-.8-1.6-1.7 0-.9.6-1.7 1.5-1.7s1.6.8 1.6 1.7c.1.9-.7 1.6-1.5 1.7z"></path>
+</svg>
+<span>Discord</span>
+</label>
+</div>
+<div class="mt-2 flex flex-row " x-data="{toggle: '0'}">
+<div class="relative rounded-full w-12 h-6 transition duration-200 ease-linear" :class="[toggle === '1' ? 'bg-green-400' : 'bg-gray-400']">
+<label for="toggle2" class="  absolute left-0 bg-white border-2 mb-2 w-6 h-6 rounded-full transition transform duration-100 ease-linear cursor-pointer" :class="[toggle === '1' ? 'translate-x-full border-green-500' : 'translate-x-0 border-gray-400']"></label>
+<input type="checkbox" id="toggle2" name="toggle" class="Telegram_Toggle appearance-none w-full h-full active:outline-none focus:outline-none" @click="toggle === '0' ? toggle = '1' : toggle = '0'" />
+</div>
+<label for="toggle2" class="text-lg px-4  align-middle font-semibold text-telegram inline-flex relative items-center space-x-2">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+<defs></defs>
+<path fill-rule="evenodd" d="M18.4 21.8c.3.2.7.3 1.1.1.4-.1.6-.5.7-.8.9-4.1 3-14.4 3.8-18.1.1-.3 0-.6-.3-.8-.2-.2-.5-.3-.8-.2C18.7 3.6 5.8 8.4.5 10.4c-.3.1-.5.4-.5.8s.2.7.6.8c2.4.7 5.5 1.7 5.5 1.7s1.5 4.4 2.2 6.6c.1.3.3.5.6.6.3.1.6 0 .8-.2 1.2-1.1 3.1-2.9 3.1-2.9s3.6 2.5 5.6 4zm-11-8.7l1.7 5.5.4-3.5S16 9.2 19.7 5.9c.1-.1.1-.3 0-.4-.1-.1-.3-.1-.4-.1C15 8.2 7.4 13.1 7.4 13.1z" clip-rule="evenodd"></path>
+</svg>
+<span>Telegram</span>
+</label>
+</div>
+
+<div class="flex justify-end pt-2">
+<button class="px-4 bg-transparent p-3 rounded-lg text-muddywaters-900 hover:bg-gray-100 hover:text-muddywaters-400 mr-2 focus:outline-none " onclick="toggleModal('loan_liquidtion')">Close</button>
+<button class="px-4 bg-muddywaters-900 p-3 rounded-lg text-white hover:bg-muddywaters-600 focus:outline-none " onclick="applyLTV()">Apply</button>
+</div>
+</div>
+</div>
+</div>
+<div class=" hidden opacity-40 fixed inset-0 z-10 bg-black" id="loan_liquidtion-backdrop"></div>
+
+<div id="price_alert" class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-20 outline-none focus:outline-none justify-center items-center">
+<div class="bg-white w-11/12 md:max-w-md mx-auto rounded-xl shadow-lg z-50 overflow-y-auto">
+<div class="modal-content py-4 text-left px-6">
+
+<div class="flex justify-between inline-block align-top ">
+<div class="flex justify-between w-full flex-row items-center">
+<div>
+<p class="text-2xl font-bold pb-3">Price Alert</p>
+<p class="text-xl font-bold">Alert Configuration</p>
+</div>
+<div>
+<img class="h-8 w-auto" src="images/partners/LogoTerraSwap.png">
+</div>
+</div>
+<div class="modal-close cursor-pointer z-50 focus:outline-none" onclick="toggleModal('price_alert')">
+<svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+<path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+</svg>
+</div>
+</div>
+<div class="shadow-md rounded-xl mt-2 bg-muddywaters-200 flex flex-col items-center">
+<div class="bg-muddywaters-400 w-full p-2 rounded-t-xl flex flex-col items-center">
+<div class="uppercase tracking-wide text-gray-700 text-sm font-bold flex flex-row items-center">
+<img src="images/coin/bluna.svg" class="w-6 h-auto mr-2 align-middle shadow-lg">
+<p> bLuna-Luna</p>
+<img src="images/coin/luna.png" class="w-6 h-auto ml-2 align-middle shadow-lg">
+</div>
+</div>
+<div class="flex flex-row mb-2">
+<div class="w-full md:w-1/2 px-3  mt-3 mb-6 md:mb-0 flex flex-col items-center">
+<lable class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex flex-row inline-block align-middle " for="price">
+Alert Price
+</lable>
+<input class="appearance-none block w-1/2 bg-white text-black border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 align-center" id="price" type="text" value="0.98">
+</div>
+<div class="w-full md:w-1/2 px-3  mt-3 mb-6 md:mb-0 flex flex-col items-center">
+<p class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 flex flex-row inline-block align-middle ">
+Current Price
+</p>
+<span class="text-gray-700 text-xl font-bold flex flex-row inline-block align-middle" id="bluna-price">
+Loading...
+</span>
+</div>
+</div>
+</div>
+
+<p class="text-xl font-bold mt-8">Social Channel</p>
+<div class="mt-2 flex flex-row " x-data="{toggle: '0'}">
+<div class="relative rounded-full w-12 h-6 transition duration-200 ease-linear" :class="[toggle === '1' ? 'bg-green-400' : 'bg-gray-400']">
+<label for="toggle3" class="absolute left-0 bg-white border-2 mb-2 w-6 h-6 rounded-full transition transform duration-100 ease-linear cursor-pointer" :class="[toggle === '1' ? 'translate-x-full border-green-500' : 'translate-x-0 border-gray-400']"></label>
+<input type="checkbox" id="toggle3" name="toggle" class="Discord_toggle appearance-none w-full h-full active:outline-none focus:outline-none" @click="toggle === '0' ? toggle = '1' : toggle = '0'" />
+</div>
+<label for="toggle3" class="text-lg px-4  align-middle font-semibold text-cornflowerblue-500 inline-flex relative items-center space-x-2">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 18 18">
+<path d="M15.8 4.2c-1.2-1-2.7-1.5-4.3-1.6l-.2.2c1.4.4 2.7 1.1 3.8 2-1.4-.8-3-1.3-4.6-1.5-1-.1-2.1-.1-3.1 0h-.3c-1.2.2-2.4.5-3.5 1-.6.3-1 .4-1 .4 1.2-1 2.5-1.6 4-2l-.1-.1c-1.6 0-3.1.6-4.3 1.6C.8 6.9 0 10 0 13.1c1.1 1.5 2.8 2.4 4.7 2.4 0 0 .6-.7 1-1.3-1.1-.3-2-.9-2.7-1.8.1.1.3.2.4.3h.1l.1.1c.4.2.7.4 1.1.5.7.3 1.5.6 2.3.8 1.3.2 2.7.2 4 0 .8-.1 1.5-.4 2.2-.7.6-.2 1.2-.5 1.8-.9-.7.9-1.7 1.6-2.8 1.8l1 1.2c1.9 0 3.6-.8 4.7-2.4 0-3.1-.7-6.2-2.1-8.9zm-9.7 7.5c-.9 0-1.6-.8-1.6-1.7 0-.9.7-1.7 1.6-1.7h.1c.8 0 1.5.7 1.5 1.6v.1c0 .9-.7 1.6-1.6 1.7zm5.7 0c-.9 0-1.6-.8-1.6-1.7 0-.9.6-1.7 1.5-1.7s1.6.8 1.6 1.7c.1.9-.7 1.6-1.5 1.7z"></path>
+</svg>
+<span>Discord</span>
+</label>
+</div>
+<div class="mt-2 flex flex-row " x-data="{toggle: '0'}">
+<div class="relative rounded-full w-12 h-6 transition duration-200 ease-linear" :class="[toggle === '1' ? 'bg-green-400' : 'bg-gray-400']">
+<label for="toggle4" class=" absolute left-0 bg-white border-2 mb-2 w-6 h-6 rounded-full transition transform duration-100 ease-linear cursor-pointer" :class="[toggle === '1' ? 'translate-x-full border-green-500' : 'translate-x-0 border-gray-400']"></label>
+<input type="checkbox" id="toggle4" name="toggle" class="Telegram_Toggle appearance-none w-full h-full active:outline-none focus:outline-none" @click="toggle === '0' ? toggle = '1' : toggle = '0'" />
+</div>
+<label for="toggle4" class="text-lg px-4  align-middle font-semibold text-telegram inline-flex relative items-center space-x-2">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+<defs></defs>
+<path fill-rule="evenodd" d="M18.4 21.8c.3.2.7.3 1.1.1.4-.1.6-.5.7-.8.9-4.1 3-14.4 3.8-18.1.1-.3 0-.6-.3-.8-.2-.2-.5-.3-.8-.2C18.7 3.6 5.8 8.4.5 10.4c-.3.1-.5.4-.5.8s.2.7.6.8c2.4.7 5.5 1.7 5.5 1.7s1.5 4.4 2.2 6.6c.1.3.3.5.6.6.3.1.6 0 .8-.2 1.2-1.1 3.1-2.9 3.1-2.9s3.6 2.5 5.6 4zm-11-8.7l1.7 5.5.4-3.5S16 9.2 19.7 5.9c.1-.1.1-.3 0-.4-.1-.1-.3-.1-.4-.1C15 8.2 7.4 13.1 7.4 13.1z" clip-rule="evenodd"></path>
+</svg>
+<span>Telegram</span>
+</label>
+</div>
+
+<div class="flex justify-end pt-2">
+<button class="modal-close px-4 bg-transparent p-3 rounded-lg text-muddywaters-900 hover:bg-gray-100 hover:text-muddywaters-400 mr-2 focus:outline-none " onclick="toggleModal('price_alert')">Close</button>
+<button class="modal-close px-4 bg-muddywaters-900 p-3 rounded-lg text-white hover:bg-muddywaters-600 focus:outline-none " onclick="applyPriceAlert()">Apply</button>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden opacity-40 fixed inset-0 z-10 bg-black" id="price_alert-backdrop"></div>
+
+<div id="new_subscription" class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-20 outline-none focus:outline-none justify-center items-center">
+<div class=" bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+<div class="modal-content py-4 text-left px-6">
+
+<div class="flex justify-between items-center pb-3">
+<p class="text-2xl font-bold">New Subscription</p>
+<div class="modal-close cursor-pointer z-50 focus:outline-none " onclick="toggleModal('new_subscription')">
+<svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+<path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+</svg>
+</div>
+</div>
+
+<p class="text-xl font-bold">Platform/dApp</p>
+<div class="inline-block relative w-64 mt-2 ">
+<select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline icon-menu" id="platform">
+<option data-icon="images/partners/Anchor_Icon.png">Anchor Protocol</option>
+<option data-icon="images/partners/terraswap_ico.svg">TerraSwap</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+</div>
+</div>
+<img id="protocol-image">
+<div class="inline-block relative w-64 mt-2">
+<select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline icon-menu" id="alert_type">
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+</div>
+</div>
+
+
+<div class="flex justify-end pt-2">
+<button class="modal-close px-4 bg-transparent p-3 rounded-lg text-muddywaters-900 hover:bg-gray-100 hover:text-muddywaters-400 mr-2 focus:outline-none " onclick="toggleModal('new_subscription')">Close</button>
+<button class="modal-close px-4 bg-muddywaters-900 p-3 rounded-lg text-white hover:bg-muddywaters-600 focus:outline-none " onclick="add_new_subscription()">Next</button>
+</div>
+</div>
+</div>
+</div>
+<div class=" hidden opacity-40 fixed inset-0 z-10 bg-black" id="new_subscription-backdrop"></div>
+<script>
+        $(document).ready(function () {
+
+            $("#platform").on('change', function () {
+                var el = $(this);
+                if (el.val() === "Anchor Protocol") {
+                    $("#alert_type").find('option').remove().end();
+                    $("#alert_type").append('<option>Loan Liquidation</option>');
+                
+                }
+                if (el.val() == "TerraSwap") {
+                    $("#alert_type").find('option').remove().end();
+                    $("#alert_type").append('<option>Price Alert</option>');
+                }
+        
+            
+            })
+        });
+    </script>
+</body>
+<footer>
+<script src="./js/subscriptions/liquid_providing.js"></script>
+<script src="./js/subscriptions/price_alert.js"></script>
+<script src="./js/subscriptions/new_subscription.js"></script>
+<script src="./js/pop-up.js"></script>
+<script src="./js/wallet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+<script src="./js/ws/utils/general.js" type="module"></script>
+<script src="./js/ws/utils/finance.js" type="module"></script>
+<script src="./js/ws/app.js" type="module"></script>
+</footer>
+</html>

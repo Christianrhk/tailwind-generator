@@ -1,0 +1,493 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="keywords" content="htmlcss bootstrap, multi level menu, submenu, treeview nav menu examples" />
+<meta name="description" content="Bootstrap 5 navbar multilevel treeview examples for any type of project, Bootstrap 5" />  
+
+<title>Division of Davao del Norte</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> <!-- carousel header */ -->
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+<style>
+	div.container {
+		max-width: 1290px;
+		margin: auto;
+	}
+
+	div.page-header{
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	nav.navbar{
+		font-size:16px;
+		margin-top: 0;
+		margin-bottom: 0;		
+	}
+
+	.dropdown-menu{
+		font-size:15px;
+		
+	}
+
+	.dropdown-menu li {
+		padding-top:7px;
+		padding-bottom:7px;
+	}	
+
+	.sticky {
+		position: fixed;
+		top: 0;
+		width: 1260px;
+		z-index: 1;
+	}
+	.sticky + .content {
+		padding-top: 60px;
+	}
+}
+
+</style>
+
+<style type="text/css">
+
+/* ============ desktop view ============ */
+@media  all and (min-width: 992px) {
+
+  .navbar .nav-item .dropdown-menu{ display: none; }
+  .navbar .nav-item:hover .nav-link{   }
+  .navbar .nav-item:hover .dropdown-menu{ display: block; }
+  .navbar .nav-item .dropdown-menu{ margin-top:0; }
+  .navbar .nav-item .dropdown-menu .submenu{ display: none; }
+  .navbar .nav-item .dropdown-menu > li:hover > .submenu{display: block; }
+
+
+	.dropdown-menu li{
+		position: relative;
+	}
+	.dropdown-menu .submenu{ 
+		display: none;
+		position: absolute;
+		left:100%; top:-7px;
+	}
+	.dropdown-menu .submenu-left{ 
+		right:100%; left:auto;
+	}
+
+	.dropdown-menu > li:hover{ background-color: #f1f1f1 }
+	.dropdown-menu > li:hover > .submenu{
+		display: block;
+	}
+}	
+
+@media (max-width: 991px) {
+
+.dropdown-menu .dropdown-menu{
+		margin-left:0.7rem; margin-right:0.7rem; margin-bottom: .5rem;
+}
+}	
+
+</style>
+
+<script type="text/javascript">
+//	window.addEventListener("resize", function() {
+//		"use strict"; window.location.reload(); 
+//	});
+
+
+	document.addEventListener("DOMContentLoaded", function(){
+        
+		document.querySelectorAll('.dropdown-menu').forEach(function(element){
+			element.addEventListener('click', function (e) {
+			  e.stopPropagation();
+			});
+		})
+	
+		if (window.innerWidth < 992) {	
+			document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
+				everydropdown.addEventListener('hidden.bs.dropdown', function () {				
+					  this.querySelectorAll('.submenu').forEach(function(everysubmenu){	
+					  	everysubmenu.style.display = 'none';
+					  });
+				})
+			});
+			
+			document.querySelectorAll('.dropdown-menu a').forEach(function(element){
+				element.addEventListener('click', function (e) {
+		
+				  	let nextEl = this.nextElementSibling;
+				  	if(nextEl && nextEl.classList.contains('submenu')) {
+				  		e.preventDefault();
+				  		console.log(nextEl);
+				  		if(nextEl.style.display == 'block'){
+				  			nextEl.style.display = 'none';
+				  		} else {
+				  			nextEl.style.display = 'block';
+				  		}
+				  	}
+				});
+			})
+		}
+	}); 
+	
+</script>
+
+</head>
+<body >
+
+<div class="container">
+
+
+	
+
+	<div class="flex flex-wrap w-full bg-gray-300">
+      <div class="p-4 lg:w-2/12">
+	  	<div class="h-full rounded-lg">
+			<img class="mx-auto py-2 d-block" src="http://depeddavnor.ph/images/DepEd_DavNor_Logo.png" alt="" width="125px" height="125px" />
+	  	</div>
+	  </div>
+	  <div class="p-4 lg:w-6/12" >
+		<div class="h-full py-4 rounded-lg overflow-hidden text-center relative">
+		<h1 class="text-5xl text-left font-bold  pb-2 mb-4">Department of Education</h1>
+		<h1 class="border-t-4 border-dark text-6xl pt-2 text-left font-bold">DIVISION OF DAVAO DEL NORTE</h1>
+		</div>
+	  </div>
+	  <div class="p-4 lg:w-2/12">
+		<div class="h-full rounded-lg">
+	  	</div>
+	  </div>
+	  <div class="p-4 lg:w-2/12">
+		<div class="h-full rounded-lg">
+			<a href="http://depeddavnor.ph/transparencyseal"><img class="mx-auto py-4 d-block" src="http://depeddavnor.ph/images/Transparency-seal-philippine-transparency-seal-png.png" alt="" width="100px" height="100px" /></a>
+	  	</div>
+	  </div>
+	</div>
+
+
+
+  <!-- ============= COMPONENT ============== -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+ 	<div class="container-fluid">
+ 		<a class="navbar-brand" href="http://depeddavnor.ph/login">DepEd DavNor</a>
+  		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
+      		<span class="navbar-toggler-icon"></span>
+    	</button>
+  	<div class="collapse navbar-collapse" id="main_nav">
+	
+
+	<ul class="navbar-nav">
+		<li class="nav-item active mx-2"> <a class="nav-link" href="http://depeddavnor.ph/index">Home </a> </li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle mx-2" href="#" data-bs-toggle="dropdown">  About  </a>
+		    <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/ourdivision"> Our Division </a></li>
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/orgchart"> Organizational Chart </a></li> 
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/programs"> Programs </a></li>
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/citizencharter"> Citizen's Charter </a></li>       
+  			</ul>
+		</li>
+    	<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle mx-2" href="#" data-bs-toggle="dropdown">  Profile  </a>
+		    <ul class="dropdown-menu">			  
+			  <li><a class="dropdown-item" href="#"> Schools Division Office  <span class="glyphicon glyphicon glyphicon-triangle-right float-right"></span></a> 
+			  	<ul class="submenu dropdown-menu">
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/sds"> SDS Office </a></li>					
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/asds"> &nbsp;&nbsp;&nbsp; ASDS Office &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a></li> 
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/legal"> &nbsp;&nbsp;&nbsp; Legal </a></li>
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/ict"> &nbsp;&nbsp;&nbsp; ICT </a></li>
+					<li><a class="dropdown-item" href="#">&nbsp;&nbsp;&nbsp; Administrative <span class="glyphicon glyphicon glyphicon-triangle-right float-right"> </a>
+						<ul class="submenu dropdown-menu">
+							<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/adminoffice"> Office of the AO </a></li>
+							<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/cashier"> &nbsp;&nbsp;&nbsp; Cashier </a></li>
+							<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/personnel"> &nbsp;&nbsp;&nbsp; Personnel </a></li>
+							<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/records"> &nbsp;&nbsp;&nbsp; Records </a></li>
+							<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/supply"> &nbsp;&nbsp;&nbsp; Property and Supply </a></li>
+							<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/genservices"> &nbsp;&nbsp;&nbsp; General Services </a></li> 
+						</ul>
+                	<li><a class="dropdown-item" href="#">&nbsp;&nbsp;&nbsp; Finance <span class="glyphicon glyphicon glyphicon-triangle-right float-right"> </a>
+						<ul class="submenu dropdown-menu">
+							<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/accounting">  Accounting </a></li>
+							<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/budget"> Budget </a></li>                  
+						</ul>    
+					</li>				    
+				</ul>
+			  </li>
+			  <li><a class="dropdown-item" href="#"> &nbsp;&nbsp;&nbsp; School Governance and Operations Division <span class="glyphicon glyphicon glyphicon-triangle-right"></a> 
+			  	 <ul class="submenu dropdown-menu">
+           			<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/sgodoffice">Office of the SGOD Chief</a></li>
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/moneval"> &nbsp;&nbsp;&nbsp; School Management Monitoring and Evaluation </a></li>
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/socmob"> &nbsp;&nbsp;&nbsp; Social Mobilization and Networking </a></li>
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/planres"> &nbsp;&nbsp;&nbsp; Planning and Research </a></li>
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/hrd"> &nbsp;&nbsp;&nbsp; Human Resource Development </a></li>
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/educfac"> &nbsp;&nbsp;&nbsp; Education Facilities </a></li>
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/health"> &nbsp;&nbsp;&nbsp; School Health </a></li>				        
+				    </li>				    
+				</ul>
+			  </li>
+			  <li><a class="dropdown-item" href="#"> &nbsp;&nbsp;&nbsp; Curriculum and Implementation Division <span class="glyphicon glyphicon glyphicon-triangle-right float-right"></a>
+			  	 <ul class="submenu dropdown-menu">
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/cidoffice">  Office of the CID Chief </a></li>
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/lrms"> &nbsp;&nbsp;&nbsp; Learning Resource Management </a></li>
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/eps"> &nbsp;&nbsp;&nbsp; Instructional Management </a></li>
+					<li><a class="dropdown-item"  href="http://depeddavnor.ph/office/psds"> &nbsp;&nbsp;&nbsp; District Instructional Supervision </a></li>				        
+				    </li>				    
+				  </ul>
+			  </li>
+			  <li><a class="dropdown-item"  href="http://depeddavnor.ph/office/coa"> Commission on Audit </a></li>
+		    </ul>
+		</li>
+    	<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle mx-2" href="#" data-bs-toggle="dropdown">  School Links  </a>
+		    <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#"> Public Schools</a></li>
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/elem"> &nbsp;&nbsp;&nbsp;  - Elementary </a>                    
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/sec"> &nbsp;&nbsp;&nbsp;  - Secondary </a></li>
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/integ"> &nbsp;&nbsp;&nbsp;  - Integrated </a></li>
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/priv"> Private Schools </a></li>
+  			</ul>
+		</li>
+    	<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle mx-2" href="#" data-bs-toggle="dropdown">  Resources  </a>
+		    <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#"> Issuances <span class="glyphicon glyphicon glyphicon-triangle-right float-right"></a>
+					<ul class="submenu dropdown-menu">
+					<li><a class="dropdown-item" href="#"> Division Memoranda <span class="glyphicon glyphicon glyphicon-triangle-right"></span></a>
+						<ul class="submenu dropdown-menu">
+							<li><a class="dropdown-item" href="http://depeddavnor.ph/numbered"> Numbered </a></li>
+							<li><a class="dropdown-item" href="http://depeddavnor.ph/unnumbered"> Unnumbered </a></li>                          
+						</ul>   
+					<li><a class="dropdown-item" href="http://depeddavnor.ph/advisory"> Division Advisories </a></li>
+					<li><a class="dropdown-item" href="http://depeddavnor.ph/order"> DepEd Order </a></li>                        
+					</ul>  										
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/calendar"> Calendar of Activities </a></li>
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/form"> Forms </a></li>				          
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/multimedia"> Multimedia </a></li> 
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/resmat"> Resource Materials </a></li>
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/rpms"> RPMS </a></li>
+  			</ul>
+		</li>
+    	<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle mx-2" href="#" data-bs-toggle="dropdown">  Procurement  </a>
+		    <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#"> Bids and Awards <span class="glyphicon glyphicon glyphicon-triangle-right float-right"></span></a>
+				    <ul class="submenu dropdown-menu">
+					    <li><a class="dropdown-item" href="http://depeddavnor.ph/invitation"> Invitation to Bid </a></li>
+					    <li><a class="dropdown-item" href="http://depeddavnor.ph/timeline"> Timeline </a></li>                          
+					    <li><a class="dropdown-item" href="http://depeddavnor.ph/noa"> Notice of Award </a></li>                          
+					    <li><a class="dropdown-item" href="http://depeddavnor.ph/ntp"> Notice of Proceed </a></li>                          
+					    <li><a class="dropdown-item" href="http://depeddavnor.ph/bulliten"> Bid Bulliten </a></li>                          
+				    </ul> 
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/app"> Annual Procurement Plan</a></li>
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/earlyproc"> Early Procurement Activities </a></li>
+				<li><a class="dropdown-item" href="http://depeddavnor.ph/procmonitoring"> Procurement Monitoring </a></li> 
+  			</ul>
+		</li>	
+				<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle mx-2" href="#" data-bs-toggle="dropdown">  Careers(Hiring)  </a>
+		    <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#"> Notice of Appointment Issued </a></li>
+  			</ul>
+		</li>
+    	<li class="nav-item active mx-2"> <a class="nav-link" href="http://depeddavnor.ph/contact"> Contact Us </a> </li>    			
+	</ul>	
+
+  </div> <!-- navbar-collapse.// -->
+ </div> <!-- container-fluid.// -->
+</nav>
+
+<!-- ============= COMPONENT END// ============== -->
+</div> <!--container //  -->
+
+<div class="container">
+  
+<section class="text-gray-600 body-font">
+  <h1 class="text-5xl pt-20 ml-12 font-medium title-font text-gray-900 mb-2 text-left">Information and Communication Technology Section</h1>
+  
+  <div class="container px-5 pt-24 pb-12 mx-auto">  
+	    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+      <div class="p-4 md:w-1/3 flex mb-8 flex-col text-center items-center"> </div>
+              <div class="p-4 md:w-1/3 flex mb-8 flex-col text-center items-center">                 
+          <div class=" inline-flex items-left justify-left rounded-full mb-4 flex-shrink-0">
+            <img alt="team" class="bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" width="150px" height="150px" src="http://depeddavnor.ph/personnel/employee/Paul E. Arsolon.jpg">             
+          </div>
+          <div class="flex-grow">
+            <h2 class="text-3xl text-gray-900 font-medium title-font mb-4">Paul E. Arsolon</h2>
+            <p class="text-2xl font-bold leading-relaxed text-base">Information Technology Officer I</p>
+            <p class="text-2xl leading-relaxed text-base">paul.arsolon@deped.gov.ph</p>            
+          </div>              
+        </div>
+            <div class="p-4 md:w-1/3 flex mb-8 flex-col text-center items-center"> </div>
+    </div>
+	          <div class="flex flex-wrap mt-12 mb-3">
+                          
+            <div class="p-4 md:w-1/3 flex mb-8 flex-col text-center items-center">
+              <div class=" inline-flex items-left justify-left rounded-full mb-4 flex-shrink-0">
+                <img alt="team" class="bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" width="150px" height="150px" src="http://depeddavnor.ph/personnel/employee/Franklin N. Maynucas.jpg">             
+              </div>
+              <div class="flex-grow">
+                <h2 class="text-3xl text-gray-900 font-medium title-font mb-4">Franklin N. Maynucas</h2>
+                <p class="text-2xl font-bold leading-relaxed text-base">Administrative Aide VI</p>
+                <p class="text-2xl leading-relaxed text-base">franklin.maynucas@deped.gov.ph</p>            
+              </div>
+            </div>          
+                                    
+            <div class="p-4 md:w-1/3 flex mb-8 flex-col text-center items-center">
+              <div class=" inline-flex items-left justify-left rounded-full mb-4 flex-shrink-0">
+                <img alt="team" class="bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" width="150px" height="150px" src="http://depeddavnor.ph/personnel/employee/Bryan B. Cordova.png">             
+              </div>
+              <div class="flex-grow">
+                <h2 class="text-3xl text-gray-900 font-medium title-font mb-4">Bryan B. Cordova</h2>
+                <p class="text-2xl font-bold leading-relaxed text-base">Staff</p>
+                <p class="text-2xl leading-relaxed text-base">bryan.cordova@deped.gov.ph</p>            
+              </div>
+            </div>          
+                                    
+            <div class="p-4 md:w-1/3 flex mb-8 flex-col text-center items-center">
+              <div class=" inline-flex items-left justify-left rounded-full mb-4 flex-shrink-0">
+                <img alt="team" class="bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" width="150px" height="150px" src="http://depeddavnor.ph/personnel/employee/Herbert John G. Miras.png">             
+              </div>
+              <div class="flex-grow">
+                <h2 class="text-3xl text-gray-900 font-medium title-font mb-4">Herbert John G. Miras</h2>
+                <p class="text-2xl font-bold leading-relaxed text-base">Staff</p>
+                <p class="text-2xl leading-relaxed text-base">herbertjohn.miras@deped.gov.ph</p>            
+              </div>
+            </div>          
+                        </div>
+      </div>
+
+   <div class="container px-5 pt-1 pb-12 mx-auto">     
+  <h1 class="text-3xl pt-1 font-medium title-font text-gray-900 mb-12 text-left">  Specific Functions:</h1> 
+  <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">        
+    <p class="leading-relaxed ml-6 mb-6 text-justify text-2xl">1. Manage and maintain the Information and Communication Technology (ICT) Systems and Infrastructure of the divisions to effectively support operations.</p>
+  </div>
+  <div class="flex-grow sm:text-left text-center my-6 sm:mt-0">        
+    <p class="leading-relaxed ml-6 mb-6 text-justify text-2xl">2. Manage and implement ICT programs and projects in the division to ensure data validity and effective utilization of the systems.</p>      
+  </div>
+  <div class="flex-grow sm:text-left text-center my-6 sm:mt-0">        
+    <p class="leading-relaxed ml-6 mb-6 text-justify text-2xl">3. Formulate plans for the division to effectively allocate the necessary ICT resources of the region to support regional strategy, operations, programs and projects</p>      
+  </div>
+  <div class="flex-grow sm:text-left text-center my-6 sm:mt-0">        
+    <p class="leading-relaxed ml-6 mb-6 text-justify text-2xl">4. Participate and communicate with Central Office and other ICT Units across levels with regard to the implementation of national ICT and ICT-related programs.</p>      
+  </div>
+</div></section>
+
+</div>
+
+<div class="container">
+  <footer class="width: 100% text-gray-600 body-font">
+  <div class="bg-gray-300 container px-5 py-12 rounded mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+    <div class="w-90 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <span><img src="http://depeddavnor.ph/images/DepEd_DavNor_Logo.png" alt="" width="80px" height="80px" /></span>
+        <span class="ml-3 text-4xl text-left" >DepEd <br><strong>Davao del Norte</strong></span>
+      </a>
+      <p class="mt-3 text-1xl text-gray-500 text-left mt-2">Address: Provincial Government Center, Mankilam, <br/>Tagum City, Davao del Norte, <br/>Philippines 8100</p>
+      <p class="mt-3 text-1xl text-gray-500 text-left mt-1">Email Address: depeddavnor.sdo@deped.gov.ph</p>
+    </div>
+    <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+      <div class="lg:w-3/8 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-3xl mb-3">Quick Links</h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" href="https://www.deped.gov.ph">DepEd Central Office</a>
+          </li>
+          <li class="mb-3">
+            <a class="text-gray-600 hover:text-gray-800" href="https://www.depedroxi.ph">DepEd Region XI</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" href="https://www.csc.gov.ph">Civil Service Commission (CSC)</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" href="https://dbm.gov.ph">Department of Budget and Management (DBM)</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" href="https://www.coa.gov.ph">Commission on Audit (COA)</a>
+          </li>
+
+        </nav>
+      </div>
+      <div class="lg:w-5/8 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-3xl mb-3">DepEd Portals</h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" href="https://ebeis.deped.gov.ph/">Enhanced Basic Education Information System (EBEIS)</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" href="https://lis.deped.gov.ph/">Learner Information System (LIS)</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" href="https://lrmds.deped.gov.ph/">Learning Resources Management and Development System (LRMDS)</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" href="https://deped-wins.sysdb.site/">WASH in Schools Online Monitoring System (WinS OMS)</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" href="https://pmis.deped.gov.ph/">Program Management Information System (PMIS)</a>
+          </li>
+        </nav>
+      </div>
+      
+    </div>
+  </div>
+  <div class="bg-gray-900">
+    <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+      <p class="text-gray-200 text-5sm text-center sm:text-left">© 2021 DepEd DavNor —
+        <a >ICT Unit</a>
+        
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+        <a class="text-gray-100" href="https://facebook.com/DepEdDavNor">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-100">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-100">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-100">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+</div>  
+
+<script>
+	window.onscroll = function() {myFunction()};
+
+	var navbar = document.getElementById("navbar");
+	var sticky = navbar.offsetTop;
+
+	function myFunction() {
+	if (window.pageYOffset >= sticky) {
+		navbar.classList.add("sticky")
+	} else {
+		navbar.classList.remove("sticky");
+	}
+	}
+</script>
+
+</body>
+</html

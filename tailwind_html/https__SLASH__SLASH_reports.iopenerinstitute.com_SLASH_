@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="vaiewport" content="width=device-width, initial-scale=1.0">
+    <title>The iOpener People & Performance Questionnaire (iPPQ)
+        for St. Christopher's Hospice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+</head>
+<body>
+    <div class="h-full w-full bg-white">
+        <div class="h-screen w-full flex flex-col justify-center items-center">
+            <img src="https://images.typeform.com/images/XYxD7x5XAxYf/image/default-firstframe.png" alt="IPPQ Logo">
+            <p class="text-xl text-blue-400 font-bold mt-6">Registering for our free iPPQ</p>
+            <div class="flex space-x-6 mt-4 items-center justify-center">
+                <button type="button" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md" onclick="smoothScroll(document.getElementById('start'))">Fill it in!</button>
+            
+            </div>
+            <p class="text-blue-400 mt-4">Takes 2 min</p>
+        </div>
+
+        <form action="/questionnaire" method="POST" id="form" name="registration">
+
+        <input type="hidden" name="report_id" id="report" value="FIPPQ" >
+
+        <!-- Quote -->
+        <div class="h-screen max-w-4xl px-8 mx-auto flex flex-col justify-center items-start relative" id='start'>
+            <p class="text-2xl text-blue-400">
+                We're excited that you're interested in taking our iPPQ survey. This is a Happiness at Work questionnaire which measures the link between your happiness at work and performance. Just give us a bit of information and we'll be on our way!</p>
+                <div class="flex space-x-6 mt-8 items-center justify-start">
+                    <button type="button" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md" onclick="smoothScroll(document.getElementById('firstName'))">Continue</button>
+                
+                </div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="h-screen max-w-4xl px-8 mx-auto flex flex-col justify-center relative" id='firstName'>
+            <div class="flex">
+                <span class="text-lg absolute -left-5">1 &#8594;</span>
+                <p class="text-2xl text-blue-400">
+                    What is your first name? *
+                </p>
+            </div>
+                <input class="mt-8 pt-2 border-b border-gray-700 pb-3 text-2xl pl-2" type="text" name="firstName" id="firstName" placeholder="Type your answer here..." outline="none" >
+                <div class="flex space-x-3 mt-4 items-center justify-start">
+                    <button type="button" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md" onclick="smoothScroll(document.getElementById('lastName'))">OK &#10003;</button>
+                </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="h-screen max-w-4xl px-8 mx-auto flex flex-col justify-center relative" id='lastName'>
+            <div class="flex">
+                <span class="text-lg absolute -left-5">2 &#8594;</span>
+                <p class="text-2xl text-blue-400">
+                    Thanks, and what's your last name? *
+                </p>
+            </div>
+                <input class="mt-8 pt-2 border-b border-gray-700 pb-3 text-2xl pl-2" type="text" name="lastName" id="lastName" placeholder="Type your answer here..." outline="none" >
+                <div class="flex space-x-3 mt-4 items-center justify-start">
+                    <button type="button" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md" onclick="smoothScroll(document.getElementById('language'))">OK &#10003;</button>
+                </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="h-screen max-w-4xl px-8 mx-auto flex flex-col justify-center relative" id='language'>
+            <div class="flex">
+                <span class="text-lg absolute -left-5">3 &#8594;</span>
+                <p class="text-2xl text-blue-400">
+                    What is your preferable language? *
+                </p>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="radio" id="English" value="English" name="language">
+                <label for="English">English</label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="radio" id="Italian" value="Italian" name="language">
+                <label for="Italian">Italian</label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="radio" id="French" value="French" name="language">
+                <label for="French">French</label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="radio" id="Spanish" value="Spanish" name="language">
+                <label for="Spanish">Spanish</label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="radio" id="Dutch" value="Dutch" name="language">
+                <label for="Dutch">Dutch</label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="radio" id="German" value="German" name="language">
+                <label for="German">German</label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="radio" id="Portuguese" value="Portuguese" name="language">
+                <label for="Portuguese">Portuguese</label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="radio" id="Turkish" value="Turkish" name="language">
+                <label for="Turkish">Turkish</label>
+            </div>
+                <div class="flex space-x-3 mt-4 items-center justify-start">
+                    <button type="button" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md" onclick="smoothScroll(document.getElementById('email'))">OK &#10003;</button>
+                </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="h-screen max-w-4xl px-8 mx-auto flex flex-col justify-center relative" id='email'>
+            <div class="flex">
+                <span class="text-lg absolute -left-5">4 &#8594;</span>
+                <p class="text-2xl text-blue-400 overflow-wrap -mt-1">
+                    And what's your email address? We will use this to send you the iPPQ and your report *
+                </p>
+            </div>
+                <input class="mt-8 pt-2 border-b border-gray-700 pb-3 text-2xl pl-2" type="text" name="email" id="email" placeholder="name@example.com" outline="none" >
+                <div class="flex space-x-3 mt-4 items-center justify-start">
+                    <button type="button" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md" onclick="smoothScroll(document.getElementById('contact'))">OK &#10003;</button>
+                </div>
+        </div>
+
+
+        <!-- Question 5 -->
+        <div class="h-screen max-w-4xl px-8 mx-auto flex flex-col justify-center relative" id='contact'>
+            <div class="flex">
+                <span class="text-lg absolute -left-5">5 &#8594;</span>
+                <p class="text-2xl text-blue-400 -mt-1">
+                    We'd like to keep in touch every now and then with our latest insights, info and programs. You may unsubscribe from these communications at any time. And, if you have any questions, you can view our <span class="font-medium underline">
+
+                        <a href="http://" target="_blank">Privacy Policy.
+                    </span>
+                    </a> 
+                </p>
+            </div>
+            <div class="flex items-center space-x-4 mt-8">
+                <input type="radio" id="yes" value="Yes, please keep in touch by email" name="contact">
+                <label for="yes">Yes, please keep in touch by email</label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="radio" id="no" value="No thank you" name="contact">
+                <label for="no">No thank you</label>
+            </div>
+                <div class="flex space-x-3 mt-4 items-center justify-start">
+                    <button type="button" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md" onclick="smoothScroll(document.getElementById('connect'))">OK &#10003;</button>
+                </div>
+        </div>
+
+           <!-- Question 6 -->
+           <div class="h-screen max-w-4xl px-8 mx-auto flex flex-col justify-center relative" id='connect'>
+            <div class="flex">
+                <span class="text-lg absolute -left-5">6 &#8594;</span>
+                <p class="text-2xl text-blue-400 -mt-1">
+                    In addition to receiving your free iPPQ report, select one or more of the following if you’re interested in connecting with us to chat about: *
+                </p>
+            </div>
+            <p class="mt-8 text-sm">Choose as many as you like</p>
+            <div class="flex items-center space-x-4 mt-3">
+                <input type="checkbox" id="change" name="connecting" value="using the iPPQ with your team or organization to create positive cultural change">
+                <label for="change">using the iPPQ with your team or organization to create positive cultural change</label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="checkbox" id="leader" name="connecting" value="exploring what it means to be a Conscious Leader and how to be one">
+                <label for="leader">exploring what it means to be a Conscious Leader and how to be one
+                </label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="checkbox" id="exec-coach" name="connecting" value="finding and working with the right Executive Coach that can help you unleash your potential">
+                <label for="exec-coach">finding and working with the right Executive Coach that can help you unleash your potential
+
+                </label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="checkbox" id="dev-program" name="connecting" value="co-creating a bespoke, transformational Leadership Development program for your people">
+                <label for="dev-program">co-creating a bespoke, transformational Leadership Development program for your people
+
+                </label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="checkbox" id="booking" name="connecting" value="booking an in-house leadership or communication skills development workshop">
+                <label for="booking">booking an in-house leadership or communication skills development workshop
+
+                </label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="checkbox" id="online-learning" name="connecting" value="exploring what online learning iOpener offers">
+                <label for="online-learning">exploring what online learning iOpener offers
+
+                </label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="checkbox" id="nothing" name="connecting" value="nothing right now, thank you">
+                <label for="nothing">nothing right now, thank you
+                </label>
+            </div>
+                <div class="flex space-x-3 mt-4 items-center justify-start">
+                    <button type="button" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md" onclick="smoothScroll(document.getElementById('phone'))">OK &#10003;</button>
+                </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="h-screen max-w-4xl px-8 mx-auto flex flex-col justify-center relative" id='phone'>
+            <div class="flex">
+                <span class="text-lg absolute -left-5">7 &#8594;</span>
+                <p class="text-2xl text-blue-400">
+                    Would you be happy to provide us with your phone number, so we can get in touch to discuss your interests further? Your number will only be used for the purpose of following up with you, and will not be used for any other purpose. We hold all data in line with GDPR. Otherwise, we will follow up via email.
+                </p>
+            </div>
+            <div class="flex items-center space-x-4 mt-8">
+                <input type="radio" id="yes" name="phone" value="Yes" onclick="showNext()">
+                <label for="yes">Yes</label>
+            </div>
+            <div class="flex items-center space-x-4 mt-2">
+                <input type="radio" id="no" name="phone" value="No" onclick="hideNext()">
+                <label for="no">No</label>
+            </div>
+                <div class="flex space-x-3 mt-4 items-center justify-start">
+                    <button type="button" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md" onclick="scrollRefer()">OK &#10003;</button>
+                </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="h-screen max-w-4xl px-8 mx-auto flex flex-col justify-center relative" id='number'>
+            <div class="flex">
+                <span class="text-lg absolute -left-5">8 &#8594;</span>
+                <p class="text-2xl text-blue-400">
+                    Great! Please provide us with your phone number below:
+                </p>
+            </div>
+                <input class="mt-8 pt-2 border-b border-gray-700 pb-3 text-2xl pl-2" type="tel" name="number" id="number" placeholder="Type your answer here..." outline="none" >
+                <div class="flex space-x-3 mt-4 items-center justify-start">
+                    <button type="button" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md" onclick="smoothScroll(document.getElementById('refer'))">OK &#10003;</button>
+                </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="h-screen max-w-4xl px-8 mx-auto flex flex-col justify-center relative" id='refer'>
+            <div class="flex">
+                <span class="text-lg absolute -left-5" id="dynamicQ">9 &#8594;</span>
+                <p class="text-2xl text-blue-400">
+                   And finally, where did you hear about our free iPPQ?
+                </p>
+            </div>
+                <input class="mt-8 pt-2 border-b border-gray-700 pb-3 text-2xl pl-2" type="text" name="refer" id="answer" placeholder="Type your answer here..." outline="none" >
+                <div class="flex space-x-3 mt-4 items-center justify-start">
+                    <button type="button" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md" onclick="smoothScroll(document.getElementById('end'))">OK &#10003;</button>
+                </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="h-screen max-w-4xl px-8 mx-auto flex flex-col justify-center items-start relative" id='end'>
+            <p class="text-2xl text-blue-400">
+            Thank you so much for filling us in! Click the submit button below and you'll get an email with a link for your iPPQ survey.</p>
+                <div class="flex space-x-6 mt-8 items-center justify-start">
+                    <button type="submit" class="p-2 w-28 bg-gray-300 font-bold text-xl rounded-md">Submit</button>
+                </div>
+                <div class="mt-6 font-bold text-lg text-center" id="submitting" style="display: none;">Submitting...</div>
+        </div>
+    </form>
+  </div>
+    <script>
+
+// document.getElementById("form").addEventListener("click", function(event){
+//   event.preventDefault()
+// });
+
+// Wait for the DOM to be ready
+$(function() {
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("form[name='registration']").validate({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      firstName: "required",
+      lastName: "required",
+      email: {
+        required: true,
+        // Specify that email should be validated
+        // by the built-in "email" rule
+        email: true
+      },
+      language: "required",
+      contact: "required",
+      connecting: "required",
+    },
+    // Specify validation error messages
+    messages: {
+        firstName: "Please enter your firstname",
+        lastName: "Please enter your lastname",
+      email: "Please enter a valid email address"
+    },
+
+    submitHandler: function(form) {
+            $( "#submitting" ).show( "slow" );
+            let data = new FormData(form);
+            axios({
+                method: "POST",
+                url: '/store-questionnaire',
+                data: data,
+            })
+            .then((res) => {
+                window.location.href = '/complete';
+                console.log(res);
+            })
+            .catch((err) => {throw err})
+    }
+  });
+});
+
+
+
+        function showNext() {
+          let x = document.getElementById("number");
+          if (x.style.display === "none")
+            x.style.display = "block"
+            document.getElementById("dynamicQ").innerHTML = "9 &#8594;"
+        }
+
+        function hideNext() {
+            let x = document.getElementById("number");
+            if (x.style.display === "none") {
+              x.style.display = "block";
+            } else {
+                x.style.display = "none";
+                document.getElementById("dynamicQ").innerHTML = "8 &#8594;"
+
+            }
+          }
+
+          function scrollRefer() {
+            let x = document.getElementById("number");
+            if (x.style.display === "none"){
+              smoothScroll(document.getElementById('refer'))
+            } else {
+              smoothScroll(document.getElementById('number'))
+            }
+          }
+
+
+    // Scroll functions
+        window.smoothScroll = function(target) {
+    var scrollContainer = target;
+    do { //find scroll container
+        scrollContainer = scrollContainer.parentNode;
+        if (!scrollContainer) return;
+        scrollContainer.scrollTop += 1;
+    } while (scrollContainer.scrollTop == 0);
+
+    var targetY = 0;
+    do { //find the top of target relatively to the container
+        if (target == scrollContainer) break;
+        targetY += target.offsetTop;
+    } while (target = target.offsetParent);
+
+    scroll = function(c, a, b, i) {
+        i++; if (i > 30) return;
+        c.scrollTop = a + (b - a) / 30 * i;
+        setTimeout(function(){ scroll(c, a, b, i); }, 20);
+    }
+    // start scrolling
+    scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+}
+    </script>
+</body>
+</html>

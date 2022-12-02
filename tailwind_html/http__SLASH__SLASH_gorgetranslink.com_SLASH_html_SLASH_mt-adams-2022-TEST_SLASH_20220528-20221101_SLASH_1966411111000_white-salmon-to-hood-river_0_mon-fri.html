@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/timetable_styles.css">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlaG9sem1hbiIsImEiOiJjazA1cHc0bGwyc25zM29xZGptdnJ3N2FlIn0.c6NVNxyMLyAONXtQtpUjyg';
+  </script>
+  <script src="../js/timetable-map.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Timetable generated on Tue Jun 21 2022 10:24:13 GMT-0700 (Pacific Daylight Time) using GTFS-to-HTML version 2.0.3 -->
+  <div class="timetable-page menu-type-simple">
+    <div class="container mx-4 md:mx-auto">
+      <h1 class="timetable-page-label text-2xl pt-4 flex items-center">
+        <div class="route-color-swatch-large mr-2 flex-none" style="background-color: #d38f2b; color: #000000"></div>
+        <div>Route White Salmon to Hood River</div>
+      </h1>
+      <div class="effective-date text-gray-600 mb-2">Effective May 26, 2022</div>
+      <div class="timetable mb-5" id="timetable_id_1966411111000" data-day-list="Mon-Fri" data-direction-name="Waucoma Building" data-timetable-id="19664|1111100|0" data-direction-id="0" data-route-id="19664">
+        <h2 class="text-xl">Route White Salmon to Hood River - Pioneer Center and Senior Services 501 NE Washington Street, White Salmon to Waucoma Building 902 Wasco Hood River | monday-friday</h2>
+        <div class="service-notes"></div>
+        <div class="map" id="map_timetable_id_1966411111000"></div>
+        <script>
+          (function() {
+            const id = 'timetable_id_1966411111000';
+            const geojson = {
+              "type": "FeatureCollection",
+              "features": [{
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Mount Adams Transportation Service",
+                  "route_id": "19664",
+                  "agency_id": "1815",
+                  "route_long_name": "White Salmon to Hood River",
+                  "route_type": 3,
+                  "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                  "route_color": "#d38f2b",
+                  "route_text_color": "#000000",
+                  "route_sort_order": 0,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.4807, 45.72907],
+                    [-121.48098, 45.72907],
+                    [-121.48098, 45.72894],
+                    [-121.48045, 45.72894],
+                    [-121.48046, 45.72918],
+                    [-121.48044, 45.72924],
+                    [-121.48014, 45.72967],
+                    [-121.48013, 45.72975],
+                    [-121.48663, 45.72975],
+                    [-121.48665, 45.7283],
+                    [-121.48667, 45.72797],
+                    [-121.48672, 45.72777],
+                    [-121.48648, 45.72773],
+                    [-121.48409, 45.72715],
+                    [-121.48201, 45.72673],
+                    [-121.48184, 45.72668],
+                    [-121.48143, 45.72651],
+                    [-121.47991, 45.7258],
+                    [-121.47742, 45.72461],
+                    [-121.47697, 45.72441],
+                    [-121.47602, 45.72395],
+                    [-121.47572, 45.72378],
+                    [-121.47389, 45.72261],
+                    [-121.47263, 45.72165],
+                    [-121.47177, 45.72111],
+                    [-121.47142, 45.72097],
+                    [-121.46932, 45.72033],
+                    [-121.46886, 45.72015],
+                    [-121.46832, 45.71992],
+                    [-121.46759, 45.71957],
+                    [-121.46718, 45.71934],
+                    [-121.46697, 45.71919],
+                    [-121.46661, 45.71884],
+                    [-121.46577, 45.7176],
+                    [-121.46522, 45.7169],
+                    [-121.46516, 45.71675],
+                    [-121.46514, 45.71666],
+                    [-121.46517, 45.71649],
+                    [-121.46522, 45.71642],
+                    [-121.46646, 45.7148],
+                    [-121.46532, 45.71437],
+                    [-121.46627, 45.71315],
+                    [-121.46636, 45.71295],
+                    [-121.46641, 45.71248],
+                    [-121.46172, 45.71174],
+                    [-121.46077, 45.71156],
+                    [-121.46039, 45.71146],
+                    [-121.46, 45.71132],
+                    [-121.45915, 45.71099],
+                    [-121.45857, 45.71073],
+                    [-121.45874, 45.71046],
+                    [-121.45878, 45.71038],
+                    [-121.45966, 45.70729],
+                    [-121.45888, 45.70712],
+                    [-121.45935, 45.70606],
+                    [-121.45934, 45.70598],
+                    [-121.45888, 45.70579],
+                    [-121.45857, 45.70558],
+                    [-121.45846, 45.70554],
+                    [-121.4584, 45.7056],
+                    [-121.45932, 45.70597],
+                    [-121.45935, 45.70601],
+                    [-121.45935, 45.70606]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Mount Adams Transportation Service",
+                  "route_id": "19664",
+                  "agency_id": "1815",
+                  "route_long_name": "White Salmon to Hood River",
+                  "route_type": 3,
+                  "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                  "route_color": "#d38f2b",
+                  "route_text_color": "#000000",
+                  "route_sort_order": 0,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.46549, 45.71443],
+                    [-121.46634, 45.71475]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Mount Adams Transportation Service",
+                  "route_id": "19664",
+                  "agency_id": "1815",
+                  "route_long_name": "White Salmon to Hood River",
+                  "route_type": 3,
+                  "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                  "route_color": "#d38f2b",
+                  "route_text_color": "#000000",
+                  "route_sort_order": 0,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.46646, 45.7148],
+                    [-121.46969, 45.716],
+                    [-121.4704, 45.71636],
+                    [-121.47101, 45.71672],
+                    [-121.47461, 45.71909],
+                    [-121.47533, 45.71953],
+                    [-121.47605, 45.71987],
+                    [-121.47701, 45.72023],
+                    [-121.47803, 45.72059],
+                    [-121.47874, 45.72087],
+                    [-121.48054, 45.72173],
+                    [-121.48272, 45.72249],
+                    [-121.48333, 45.72267],
+                    [-121.48394, 45.72283],
+                    [-121.48999, 45.724],
+                    [-121.49161, 45.72428],
+                    [-121.49169, 45.7241],
+                    [-121.49219, 45.72419],
+                    [-121.49222, 45.72412],
+                    [-121.49172, 45.72403],
+                    [-121.49161, 45.72428]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Mount Adams Transportation Service",
+                  "route_id": "19664",
+                  "agency_id": "1815",
+                  "route_long_name": "White Salmon to Hood River",
+                  "route_type": 3,
+                  "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                  "route_color": "#d38f2b",
+                  "route_text_color": "#000000",
+                  "route_sort_order": 0,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.48999, 45.724],
+                    [-121.49015, 45.72341],
+                    [-121.49021, 45.72289],
+                    [-121.49024, 45.72276],
+                    [-121.49032, 45.72259],
+                    [-121.49047, 45.72239],
+                    [-121.50082, 45.7127],
+                    [-121.50113, 45.71239],
+                    [-121.50134, 45.71211],
+                    [-121.50155, 45.71173],
+                    [-121.50167, 45.71136],
+                    [-121.50175, 45.71129],
+                    [-121.50194, 45.71116],
+                    [-121.50285, 45.71079],
+                    [-121.5032, 45.7107],
+                    [-121.50351, 45.71065],
+                    [-121.50587, 45.71044],
+                    [-121.50721, 45.7104],
+                    [-121.50793, 45.71039],
+                    [-121.50837, 45.71041],
+                    [-121.50957, 45.71056],
+                    [-121.50993, 45.71064],
+                    [-121.51036, 45.71076],
+                    [-121.51084, 45.71095],
+                    [-121.51122, 45.71118],
+                    [-121.51173, 45.71153],
+                    [-121.51189, 45.71159],
+                    [-121.51202, 45.71161],
+                    [-121.51227, 45.71162],
+                    [-121.51227, 45.7117],
+                    [-121.51233, 45.71203],
+                    [-121.51241, 45.71215],
+                    [-121.51271, 45.71239],
+                    [-121.51298, 45.71254],
+                    [-121.51282, 45.71268],
+                    [-121.5127, 45.71274],
+                    [-121.51253, 45.71278],
+                    [-121.51171, 45.71277],
+                    [-121.51171, 45.71238]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Mount Adams Transportation Service",
+                  "route_id": "19664",
+                  "agency_id": "1815",
+                  "route_long_name": "White Salmon to Hood River",
+                  "route_type": 3,
+                  "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                  "route_color": "#d38f2b",
+                  "route_text_color": "#000000",
+                  "route_sort_order": 0,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.51171, 45.71239],
+                    [-121.51156, 45.71239],
+                    [-121.51154, 45.71277],
+                    [-121.51171, 45.71277]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Mount Adams Transportation Service",
+                  "route_id": "19664",
+                  "agency_id": "1815",
+                  "route_long_name": "White Salmon to Hood River",
+                  "route_type": 3,
+                  "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                  "route_color": "#d38f2b",
+                  "route_text_color": "#000000",
+                  "route_sort_order": 0,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.51227, 45.71162],
+                    [-121.51229, 45.70957],
+                    [-121.51446, 45.70959],
+                    [-121.51639, 45.70959],
+                    [-121.51733, 45.70956],
+                    [-121.51733, 45.71046],
+                    [-121.51736, 45.71058],
+                    [-121.51746, 45.71066],
+                    [-121.51762, 45.71073],
+                    [-121.51922, 45.71111],
+                    [-121.51987, 45.71124]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753607",
+                  "stop_name": "Pioneer Center and Senior Services 501 NE Washington Street, White Salmon",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19664",
+                    "agency_id": "1815",
+                    "route_long_name": "White Salmon to Hood River",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.4807, 45.72922]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753608",
+                  "stop_name": "White Salmon West: Main and Jewett",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19664",
+                    "agency_id": "1815",
+                    "route_long_name": "White Salmon to Hood River",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.48677, 45.72793]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753611",
+                  "stop_name": "Port of Klickitat Columbia River Way and Spruce, Bingen",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19664",
+                    "agency_id": "1815",
+                    "route_long_name": "White Salmon to Hood River",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.45924, 45.70603]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753612",
+                  "stop_name": "Gorge Building, Maple & Steuben",
+                  "tts_stop_name": "Gorge Building, Maple and Steuben",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19664",
+                    "agency_id": "1815",
+                    "route_long_name": "White Salmon to Hood River",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.46565, 45.71439]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753613",
+                  "stop_name": "Port Transfer Site Riverside Drive and N 1st Street, Hood River",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19664",
+                    "agency_id": "1815",
+                    "route_long_name": "White Salmon to Hood River",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.51186, 45.71238]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753614",
+                  "stop_name": "Park and Ride Transfer MP 65 Hwy 14",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19664",
+                    "agency_id": "1815",
+                    "route_long_name": "White Salmon to Hood River",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.49192, 45.72419]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753621",
+                  "stop_name": "Waucoma Building 902 Wasco Hood River",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19664",
+                    "agency_id": "1815",
+                    "route_long_name": "White Salmon to Hood River",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.51984, 45.71131]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753622",
+                  "stop_name": "West Bingen/Public Parking Lot Hwy 14 and Walnut",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19664",
+                    "agency_id": "1815",
+                    "route_long_name": "White Salmon to Hood River",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/white-salmon-to-hood-river-loop-monday-friday/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.46984, 45.71618]
+                }
+              }]
+            };
+            createMap(id, geojson);
+          })();
+        </script>
+        <div class="table-container">
+          <table class="table-horizontal" summary="This table shows schedules for a selection of key stops on the route for Route White Salmon to Hood River - Pioneer Center and Senior Services 501 NE Washington Street, White Salmon to Waucoma Building 902 Wasco Hood River Mon-Fri. Stops and their schedule times are listed in the columns." data-orientation="horizontal">
+            <caption class="sr-only">Route White Salmon to Hood River - Pioneer Center and Senior Services 501 NE Washington Street, White Salmon to Waucoma Building 902 Wasco Hood River | Mon-Fri</caption>
+            <colgroup>
+              <col>
+              <col class="run_0 " id="trip_id_t_1545924_b_31077_tn_0">
+              <col class="run_1 " id="trip_id_t_1545925_b_31077_tn_0">
+              <col class="run_2 " id="trip_id_t_1545926_b_31077_tn_0">
+              <col class="run_3 " id="trip_id_t_1545927_b_31077_tn_0">
+              <col class="run_4 " id="trip_id_t_1545928_b_31077_tn_0">
+              <col class="run_5 " id="trip_id_t_1545929_b_31077_tn_0">
+              <col class="run_6 " id="trip_id_t_1545930_b_31077_tn_0">
+              <col class="run_7 " id="trip_id_t_1545931_b_31077_tn_0">
+              <col class="run_8 " id="trip_id_t_1545932_b_31077_tn_0">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="stop-header" scope="col">Stop</th>
+                <th class="run-header" scope="col">Run #1</th>
+                <th class="run-header" scope="col">Run #2</th>
+                <th class="run-header" scope="col">Run #3</th>
+                <th class="run-header" scope="col">Run #4</th>
+                <th class="run-header" scope="col">Run #5</th>
+                <th class="run-header" scope="col">Run #6</th>
+                <th class="run-header" scope="col">Run #7</th>
+                <th class="run-header" scope="col">Run #8</th>
+                <th class="run-header" scope="col">Run #9</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="city-row">
+                <th scope="row" colspan="10">White Salmon</th>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753607" data-stop-id="2753607">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Pioneer Center and Senior Services 501 NE Washington Street, White Salmon</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:00am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:15am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:30am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:15am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:00pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:45pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753608" data-stop-id="2753608">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">White Salmon West: Main and Jewett</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:03am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:18am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:33am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:18am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:33pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:33pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:48pm</span></td>
+              </tr>
+              <tr class="city-row">
+                <th scope="row" colspan="10">Bingen</th>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753612" data-stop-id="2753612">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Gorge Building, Maple &amp; Steuben</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:07am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:22am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:37am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:22am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:37pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:52pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:07pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:37pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:52pm</span></td>
+              </tr>
+              <tr class="city-row">
+                <th scope="row" colspan="10"></th>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753611" data-stop-id="2753611">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Port of Klickitat Columbia River Way and Spruce, Bingen</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:11am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:26am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:41am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:26am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:41pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:56pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:11pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:41pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:56pm</span></td>
+              </tr>
+              <tr class="city-row">
+                <th scope="row" colspan="10">Bingen</th>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753622" data-stop-id="2753622">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">West Bingen/Public Parking Lot Hwy 14 and Walnut</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:15am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:30am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:45am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:30am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:00pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:15pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:00pm</span></td>
+              </tr>
+              <tr class="city-row">
+                <th scope="row" colspan="10">White Salmon</th>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753614" data-stop-id="2753614">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Park and Ride Transfer MP 65 Hwy 14</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:18am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:33am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:48am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:33am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:18pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:03pm</span></td>
+              </tr>
+              <tr class="city-row">
+                <th scope="row" colspan="10">Hood River</th>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753613" data-stop-id="2753613">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Port Transfer Site Riverside Drive and N 1st Street, Hood River</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:24am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:39am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:54am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:39am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:54pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:09pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:24pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:54pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:09pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753621" data-stop-id="2753621">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Waucoma Building 902 Wasco Hood River</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:28am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:43am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:58am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:43am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:58pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:13pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:28pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:58pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:13pm</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div class="excluded-dates">Service not provided on: Independence Day, Labor Day</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

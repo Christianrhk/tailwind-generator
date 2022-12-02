@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0" /><title>
+	MensaMax - Login
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="shortcut icon" href="favicon.ico" type="image/icon" /><link rel="icon" href="favicon.ico" type="image/icon" />
+
+    <!-- TailwindCSS -> generiert (inkl. purge) in ./mensamax/css/tailwind, siehe readme -->
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" /> -->
+    <link href="mensamax/css/tailwind/login.min.css" rel="stylesheet" />
+    <style type="text/css">
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .mm-no-scrollbar:: -webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .mm-no-scrollbar {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+    </style>
+
+    <!-- Styles aus mensamax/css/NewStyles.css - benötigt für Hinweise -->
+    <style type="text/css">
+        .iFrame,
+        .iFrameHinweis {
+            padding: 0px;
+            border: solid 1px black;
+            -webkit-border-radius: 0.5em;
+            -moz-border-radius: 0.5em;
+            border-radius: 0.5em;
+            -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .iFrameHinweis {
+            position: absolute;
+            left: 50% !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%);
+            box-shadow: 1px 1px 4px #00000038;
+            border: 1px solid #e7e7e7;
+            border-radius: 2px;
+        }
+
+        .step {
+        }
+
+            .step.current {
+                font-weight: bold;
+            }
+            .step.inactive {
+                color: Gray;
+                cursor: default;
+            }
+    </style>
+
+</head>
+<body class="body">
+    <div class="flex items-stretch">
+        <div class="bg-gray-300 w-1/2 h-min-screen hidden md:block">
+
+        <div
+            class="w-full h-full bg-cover"
+            style="background-image: url('/mensamax/img/background.jpg'); background-position: 72% 50%;">
+        </div>
+                    </div>
+
+        <div class="py-6 shadow w-full md:w-1/2 min-h-screen">
+            <form name="form1" method="post" action="./LOGIN.ASPX?P=HH2309&amp;E=ADW" id="form1" class="h-full px-6 md:px-12 md:py-6 flex flex-col items-center max-w-2xl mx-auto">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="cXivAYwG+X59ipyn7ogHobz8aWylH8dns4dId8ATvBtxRM8kPHVUBORBd7INhTqluOsJm7FBv/MhmK4B0VpHRYOLzmkWvZdQjmlA/SPzrd6u3GXpxTMukIe1USsyBNLC3g2C8gyiEP+ZBvT08GTKmpFnRP2lA2KAG+JY2FJTsN6xpuvuoYPFGdMmroVbGXRe" />
+
+
+<script src="/ScriptResource.axd?d=QEYGzjfrSIuHG2pwUsHWOSfVSm0oRuOAfiTCUcGjQ6kuuM8SIAG7MZt774cp1YG3PiGqIdqMW49ZSj7ZQi7b6_3n1bbMt_-INbN6i7q_vWyL42UrLJuyx5SY_KxO4ltwWNMRhp8Fi6OPaNCKFNGyFQMNnRtFQxJvVQCl7nc392c1&amp;t=49337fe8" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('Fehler beim Laden des clientseitigen ASP.NET Ajax-Frameworks.');
+//]]>
+</script>
+
+<script src="mensamax/javascript/jquery/jquery-1.11.1.js" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C2EE9ABB" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="2w8tNjnyBHRqiDF08nReaz3ueFlK+oOpY3fv4FGAoZFuBU9UniwoLZn0TpKFINbXcJJfwnU6y4gmJv2XUjmCtEEVtZuN54Jpv3eqIv2TLcXbT1uVKGzyjS5cWER2UX1um9xUK9GAUWPvsSjTmMC0440e+KyO5uIH3Mo3/rXfLRltbIDkBid1yhH5dHLe9DsspQo7XOhGa+imKVnfIP+MCkyzztL7PkgVaWy3/17HSxTfhvHFoXwKKE8zHZT89OFTQrhAf5XGAj7/abl7KwRpzMazbIsOwbgTIDysXBq/qAI=" />
+                <div class="flex flex-col items-center space-y-6">
+
+                    <!-- LOGO - mit Versionstext (über ID "divLoginLogo") -->
+                    <div id="divLoginLogo" class="relative h-24 w-24 flex-shrink-0" title="MensaMax 3.117.02.07">
+                        <svg
+                            class="absolute w-full h-full"
+                            style="fill: #ffc400"
+                            id="mensamaxbubble"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512">
+                            <path
+                                d="M49.4,111.65C-22.49,220.88-11,369.41,98.22,441.3s290,67.24,361.94-42S524.34,142.12,415.1,70.23,121.29,2.43,49.4,111.65Z"
+                                class="jsx-450582894">
+                            </path>
+                        </svg>
+                        <svg
+                            id="mensamaxm"
+                            class="absolute inset-1/3 w-1/3 h-1/3"
+                            style="fill: #444"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512">
+                            <path
+                                id="Pfad_1177"
+                                d="M7.31,509.1V3.84H76.14L255.29,322.91,434.08,3.84h68.84V509.1H435.19V126.72L283.44,398H226.83L75.08,126.72V509.1Z">
+                            </path>
+                        </svg>
+                    </div>
+
+                    <!-- WELCOME - Text bzw. Statusanzeige -->
+                    <div class="text-center text-gray-500 text-md leading-6">
+                        <h3 class="font-semibold">Willkommen bei MensaMax</h3>
+                        <span>Die Zugangsdaten für Ihr Konto erhalten Sie von Ihrer Einrichtung.
+                        </span>
+                    </div>
+
+                    
+
+                </div>
+                <div class="flex-1"></div>
+
+                <!-- FORMULAR -->
+                <div class="w-full mt-12 max-w-md">
+                    <div class="flex flex-col space-y-4 items-center">
+
+                        <!-- WELCOME - Hinweisanzeige -->
+                        <!--
+                        <div class="flex justify-start items-center w-full bg-red-50 rounded py-2 px-4 text-gray-700 text-md leading-6">
+                            <div class="flex-shrink-0 w-12 mx-4 text-red-700">
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class="fill-current"
+                                    viewBox="0 0 24 24" style="enable-background: new 0 0 24 24;" xml:space="preserve">
+                                    <title>alert-triangle</title>
+                                    <g>
+                                        <path d="M12,20.251c-0.62,0-1.125-0.505-1.125-1.125s0.505-1.125,1.125-1.125c0.62,0,1.125,0.505,1.125,1.125
+		    S12.62,20.251,12,20.251z" />
+                                        <path d="M12,16.501c-0.414,0-0.75-0.336-0.75-0.75v-7.5c0-0.414,0.336-0.75,0.75-0.75c0.413,0,0.75,0.336,0.75,0.75v7.5
+		    C12.75,16.164,12.413,16.501,12,16.501z" />
+                                        <path d="M2.272,24.001c-0.347,0-0.693-0.081-1.003-0.233c-0.543-0.267-0.951-0.731-1.147-1.305s-0.157-1.191,0.111-1.734
+		    L9.705,1.43c0.248-0.505,0.663-0.919,1.167-1.167c0.354-0.174,0.732-0.262,1.124-0.262c0.984,0,1.865,0.547,2.298,1.429
+		    l9.473,19.298C23.919,21.038,24,21.384,24,21.731c0,0.607-0.237,1.178-0.667,1.606c-0.428,0.428-0.998,0.664-1.604,0.664H2.272z
+		     M11.997,1.501c-0.161,0-0.318,0.036-0.463,0.108c-0.208,0.102-0.38,0.274-0.482,0.482L1.579,21.39
+		    c-0.188,0.382-0.03,0.845,0.352,1.032c0.105,0.052,0.222,0.079,0.339,0.079h19.458c0.207,0,0.4-0.08,0.546-0.225
+		    c0.146-0.146,0.226-0.339,0.227-0.545c0-0.118-0.027-0.235-0.079-0.34L12.947,2.091C12.771,1.733,12.399,1.501,11.997,1.501z" />
+                                    </g>
+                                </svg>
+
+                            </div>
+                            <span>Wegen intensiverer Wartungsarbeiten an unseren Servern wird der Zugang am Mittwoch, 
+                                    21.09.2016, ab 16.00 Uhr für voraussichtlich 3 Stunden gesperrt werden!
+                            </span>
+                        </div>
+                        -->
+
+                        <!-- Projekt -->
+                        <div class="rounded relative w-full">
+                            <input name="tbxProjekt" value="HH2309" id="tbxProjekt" class="w-full h-9 bg-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out" type="text" name="projekt" value="" style="padding-left: 145px" />
+                            <div class="absolute inset-y-0 left-0 pl-3 h-full flex items-center pointer-events-none">
+                                <span id="lblProjekt" class="text-gray-500 font-semibold" for="tbxProjekt">Projekt:</span>
+                            </div>
+                        </div>
+
+                        <!-- Einrichtung -->
+                        <div class="rounded relative w-full">
+                            <input name="tbxEinrichtung" value="ADW" id="tbxEinrichtung" class="w-full h-9 bg-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out" onchange="setImpressum();" type="text" name="einrichtung" value="" style="padding-left: 145px" />
+                            <div class="absolute inset-y-0 left-0 pl-3 h-full flex items-center pointer-events-none">
+                                <span id="lblEinrichtung" class="text-gray-500 font-semibold" for="tbxEinrichtung">Einrichtung:</span>
+                            </div>
+                        </div>
+
+                        <!-- Benutzername -->
+                        <div class="rounded relative w-full">
+                            <input name="tbxBenutzername" id="tbxBenutzername" class="w-full h-9 bg-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out" onchange="setImpressum();" type="text" name="benutzername" value="" style="padding-left: 145px" />
+                            <div class="absolute inset-y-0 left-0 pl-3 h-full flex items-center pointer-events-none">
+                                <span id="lblBenutzername" class="text-gray-500 font-semibold" for="tbxBenutzername">Benutzername:</span>
+                            </div>
+                        </div>
+
+                        <!-- Kennwort -->
+                        <div class="rounded relative w-full">
+                            <input name="tbxKennwort" type="password" id="tbxKennwort" class="w-full h-9 bg-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out" type="text" name="kennwort" value="" style="padding-left: 145px" />
+                            <div class="absolute inset-y-0 left-0 pl-3 h-full flex items-center pointer-events-none">
+                                <span id="lblKennwort" class="text-gray-500 font-semibold" for="tbxKennwort">Passwort:</span>
+                            </div>
+                        </div>
+
+                        <!-- Hinweis / Fehlermeldung -->
+                        <span id="lblHinweis" class="block text-center text-red-600"><font color="Red"></font></span>
+
+                        <!-- Submit-Button -->
+                        <input type="submit" name="btnLogin" value="Anmelden" onclick="show(&#39;true&#39;);" id="btnLogin" class="appearance-none inline-flex items-center px-12 py-2 border border-transparent text-sm font-semibold rounded-md text-gray-800 bg-yellow-300 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out" style="" />
+                    </div>
+                    <div class="w-full my-6 flex flex-col items-center text-center space-y-4 text-gray-500">
+
+                        <!-- SELBSTREGISTRIERUNG -->
+                        <div class="flex flex-wrap space-x-2 justify-center">
+                            <span>
+                                                            Freischaltcode erhalten?
+
+                            </span>
+                            <div id="newAccount" class="inline border-b-2 border-yellow-300">
+                                <a
+                                    href="#"
+                                    onclick="createAcc();"
+                                    class="rounded font-semibold text-gray-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out">
+                                    <span id="Label1">Hier neues Konto anlegen</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- PASSWORT VERGESSEN -->
+                        <div id="forgottenPw" class="block">
+                            <div class="inline border-b-2 border-yellow-300">
+                                <a href="#"
+                                    onclick="doreset();"
+                                    class="font-semibold text-gray-600 hover:text-gray-500 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out">
+                                    <span id="lblPWforgotten">Passwort vergessen?</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App Banner -->
+                    <div class="flex justify-center items-center space-x-3 mb-6">
+
+                        <!-- GOOGLE PLAY STORE -->
+
+                        <div class="">
+                            <a href='https://play.google.com/store/apps/details?id=de.mensamax.mobile&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' class="block rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out">
+                                <img alt='Jetzt bei Google Play' src='mensamax/img/google-play-store.jpg' class="h-10" />
+                            </a>
+                        </div>
+
+                        <!-- APPLE APP STORE -->
+                        <div class="">
+                            <a href="https://apps.apple.com/de/app/mensamax/id1521284373" class="block rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out">
+                                <img alt='Laden im App Store' src="mensamax/img/apple-app-store.jpg" class="h-10"/>
+                            </a>
+                        </div>
+                    </div>
+                   
+                <div class="flex-1"></div>
+
+                <!-- LEGAL Info -->
+                <div class="prose text-center text-sm text-gray-600">
+                    <div>
+                            Diese Anwendung ist ein Angebot der MensaMax GmbH. Mit der
+                        Verwendung der Anwendung stimmen Sie den
+                        <a
+                            target="_blanc"
+                            class="underline rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out"
+                            href="https://www.mensamax.de/datenschutz">Datenschutzbestimmungen</a>
+                        zu. Hilfe erhalten Sie bei unserem
+                        <a
+                            target="_blanc"
+                            class="underline rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out"
+                            href="https://www.mensamax.de/support">Support</a>. Rechtliche Hinweise finden Sie in unserem
+          
+                        <div id="divImpressum" class="inline">
+                            <a href="#" class="underline rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition duration-150 ease-in-out">
+                                <span id="lblImpressum">Impressum</span>
+                            </a>
+
+                        </div>
+                        . Google Play und das Google Play-Logo sind Marken von Google LLC.
+
+                    </div>
+
+                    <input type="hidden" name="hdfCheck" id="hdfCheck" />
+                    <input type="hidden" name="hdfLanguage" id="hdfLanguage" value="german" />
+                    <input type="hidden" name="hdfLogin" id="hdfLogin" />
+                    <input type="submit" name="btnCheck" value="" id="btnCheck" class="button invisible" />
+
+                    
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // IE detect
+            var ua = window.navigator.userAgent;
+            var isIE = ua.indexOf("MSIE") > -1 || ua.indexOf("Trident/") > -1;
+            if (isIE) {
+                alert("Der Internet Explorer wird nicht mehr von MensaMax unterstützt. Bitte verwenden Sie einen anderen Browser.");
+            }
+            //Dies ist ein Test in Branch/ Dies wurde im Stamm hinzugefügt 
+            // dies ist eine Korrektur in Stamm
+            var project, check;
+            project = $('#tbxProjekt').val();
+            check = $('#hdfCheck').val();
+            if (project != "" && check != 'True' && project.toLowerCase() != 'maxdorf' && project.toLowerCase() != 'support') {
+                document.getElementById("btnCheck").click();
+            }
+            setImpressum();
+        });
+
+        function setImpressum() {
+            try {
+                var winwidth, winheight;
+                winwidth = $(window).width();
+                winheight = $(window).height();
+
+                $('#divImpressum').css("cursor", "pointer");
+                //if ($('#tbxProjekt').val() != "" && $('#tbxEinrichtung').val() != "") {
+                $('#divImpressum').removeAttr("alt");
+                $('#divImpressum').removeAttr("title");
+                $('#divImpressum').unbind('click');
+                $('#divImpressum').click(function () {
+                    goImpressum();
+                });
+                //} else {
+                //	$('#divImpressum').css("color", "#51595A");
+                //	$('#divImpressum').attr("alt", "Bitte Projekt und Einrichtung eingeben");
+                //	$('#divImpressum').attr("title", "Bitte Projekt und Einrichtung eingeben");
+                //	$('#divImpressum').unbind('click');
+                //	$('#divImpressum').click(function () {
+                //		jAlert("Bitte Projekt und Einrichtung eingeben!", "Hinweis", function (r) {
+                //			if (r) {
+                //				if ($('#tbxProjekt').val() == '') {
+                //					$('#tbxProjekt').focus();
+                //				} else {
+                //					$('#tbxEinrichtung').focus();
+                //				}
+                //			}
+                //		});
+                //	});
+                //}
+
+            } catch (err) {
+                alert(err.Message);
+            }
+        }
+
+        function goImpressum() {
+            try {
+                //jWait("Bitte warten", "Login wird durchgeführt");
+                var proj = $('#tbxProjekt').val();
+                var einr = $('#tbxEinrichtung').val();
+                document.location = "ImpressumForm.aspx?projekt=" + proj + "&einrichtung=" + einr;
+            } catch (err) {
+                alert(err.Message);
+            }
+        }
+
+        function show(value) {
+            try {
+                //jWait("Bitte warten", "Login wird durchgeführt");
+                $("#btnLogin").addClass("loading");
+            } catch (err) {
+                //alert(err.message);
+            }
+        }
+
+        function createAcc() {
+            try {
+                document.location = './mensamax/Account/CreateAccount01.aspx';
+                //document.location = './KundenkontoAnlegen';
+            } catch (err) {
+                alert(err.Message);
+            }
+        }
+        function doreset() {
+            try {
+                var projekt = document.getElementById('tbxProjekt').value;
+                var einrichtung = document.getElementById('tbxEinrichtung').value;
+                var loginname = document.getElementById('tbxBenutzername').value;
+                document.location = './mensamax/Account/PWReminder01Form.aspx?projekt=' + projekt + '&einrichtung=' + einrichtung + '&loginname=' + loginname;
+            } catch (err) {
+                alert(err.Message);
+            }
+        }
+    </script>
+</body>
+
+</html>

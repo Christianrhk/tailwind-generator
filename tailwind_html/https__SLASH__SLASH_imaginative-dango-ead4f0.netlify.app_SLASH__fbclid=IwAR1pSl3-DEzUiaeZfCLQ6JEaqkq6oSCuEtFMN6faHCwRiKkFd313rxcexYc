@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruity Caves</title>
+    <link id="pagestyle" rel="stylesheet" href="./css/effect.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script> -->
+    <script type="module" src="index2.js"></script>
+    
+</head>
+<body>
+
+    <!-- score top left -->
+    <div id ="modalScoreEl" stule="display: none;">
+    <div style="float: top; max-width: 1920px;">
+      <div style="float: left; max-width: 700px;">
+        <div style="float: left;"> Score: </div><div style="float: left;" id="scoreEl">0</div>
+        <div style="float: left; padding-left: 16px;"> Timer: </div><div style="float: left;" id="timerEl">0</div><div style="float: left;" id="tickerEl">0</div>
+      </div>
+      <div style="float: left; max-width: 500px; padding-left: 48px;">
+        <div style="float: left;" id="fruitimg" class="image2"><img src="./gfx/fruiticon.png" alt="Fruit Icon"></div><div style="float: left;" id="fruitEl">0</div>
+      </div>
+      <div style="float: left; max-width: 400px; padding-left: 28px;">
+        <!-- <div style="float: left;" id="fruitimg" class="image2"><img src="/gfx/fruiticon.png" alt="Fruit Icon"></div><div style="float: left;" class="text1" id="fruitEl">0</div> -->
+        
+        <div style="float: left; padding-left: 8px;" id="dynaimg" class="image2"><img src="./gfx/dynamiteicon.png" alt="Dynamite Icon"></div><div style="float: left; " id="dynaEl">0</div> 
+        <div style="float: left; padding-left: 8px;" id="constimg" class="image2"><img src="./gfx/constructoricon.png" alt="Constructor Icon"></div><div style="float: left; " id="constEl">0</div>
+        <div style="float: left; padding-left: 8px;" id="magnimg" class="image2"><img src="./gfx/magneticon.png" alt="Magnet Icon"></div><div style="float: left;" id="magnEl">0</div>
+      </div>      
+      <div style="float: left; max-width: 800px; padding-left: 40px;">
+        <div style="float: left;"> Level: </div><div style="float: left;" id="levelEl">0/50</div>
+        <div style="float: left; padding-left: 8px;" id="levelNameEl">""</div>
+      </div>
+      <div style="float: right; max-width: 200px; color: grey;">
+        <div style="float: left;"> FPS: </div><div style="float: right; padding-left: 12px;" id="fpsEl">0</div>
+      </div>
+    </div>
+    </div>
+    <!-- game over popup -->
+    <div style="padding: 0px; ">
+      <div class="fixed inset-0 flex items-center justify-center" id="modalEl">
+          <div class="bg-white max-w-md w-full p-2 text-center">
+              <h1 class="myh1" id="bigScoreEl">FRUITY CAVES</h1>
+              <div style="width: 480px;" class="flex items-center justify-center">
+                <button class="fc_button float: left;" style="margin-right: 4px;" id="menuplayerBtn">Player</button>
+                <input class ="float: left;" style="font-size: large; color: black;" id="playerName" maxlength="10" type="text"/>
+              </div>
+              <!-- <div>
+                  <button class="bg-purple-700 text-white w-4/12 py-1 rounded-full mb-2" id="menulevelsetBtn">Levelset</button>
+              </div> -->
+              <div style="width: 450px;" class="flex items-center justify-center">
+                <button class="fc_button float: left;" id="menuLevelBtn">Level</button>
+                <p class ="float: left; p-4" style="font-size: large; color: black;" id="levelMenuEl">0/50</p>
+                <button class="fc_button_sml float: left;" id="menuLevelPlusBtn">+</button>
+                <button class="fc_button_sml float: left;" id="menuLevelMinusBtn">-</button>
+                
+              </div>
+              <div>
+                  <button class="fc_button" id="menuHighscoresBtn">Highscores</button>
+              </div>
+              <!-- <div>
+                <button class="fc_button" id="menuOptionsBtn">Options</button>
+              </div> -->
+              <!-- <div>
+                  <button class="fc_button" id="menuEditorBtn">Editor</button>
+              </div> -->
+              <div>
+                <button class="fc_button" id="menuStartGameBtn">Start Game</button>
+              </div>
+              <div>
+                  <button class="fc_button" id="menuHelpBtn">Help</button>
+              </div>
+              <div>
+                <button class="fc_button" id="menuCreditsBtn">Credits</button>
+              </div>
+          </div>
+      </div>
+
+      
+  </div>
+  <div style="position: absolute; top: 50px;" id="modalCanvasEl">
+    <canvas id="canvas" class="#canvas"></canvas>
+  </div>
+  <div id="modalMessageEL" class="demo" style="padding-right: 32px; padding-left: 32px; background-color:black; border-width: 2px; font-size:xxx-large; position: absolute; top: 300px; left: 500px; text-shadow: 4px 0 0 rgb(0, 0, 0), 0 -4px 0 #000, 0 4px 0 #000, -4px 0 0 #000;">Message Goes here.....</div>
+</body>
+</html>
+
+
+
+
+
+
+

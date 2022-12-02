@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fluid</title>
+  <base href="/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/fonts/feather/style.min.css" rel="stylesheet">
+  <link href="assets/fonts/simple-line-icons/style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Montserrat:300,400,500,600,700,800,900'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="assets/vendor/pace/themes/black/pace-theme-flash.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@5"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/three@0.124.0/build/three.min.js"></script>
+  <script crossorigin src="https://unpkg.com/three@0.124.0/examples/js/controls/OrbitControls.js"></script>
+  <script crossorigin src="https://unpkg.com/three@0.124.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
+  <script id="fragmentShader" type="x-shader/x-vertex"> 
+    uniform sampler2D baseTexture;
+    uniform float showSuites;
+    uniform float showCirculation;
+    uniform float showPause;
+    uniform float showSemiPrivate;
+    uniform float showAffordance;
+    uniform float showMandatory;
+    varying vec2 vUv;
+    
+    void main() 
+    {
+        vec4 baseColor = texture2D( baseTexture, vUv );
+
+        // Pause Space
+        if (baseColor.r == 234.0 / 255.0 && baseColor.g == 148.0 / 255.0 && baseColor.b == 141.0 / 255.0)
+        {
+            baseColor.a = showSuites;
+        }
+        else if (baseColor.r == 141.0 / 255.0 && baseColor.g == 128.0 / 255.0 && baseColor.b == 159.0 / 255.0)
+        {
+            baseColor.a = showCirculation;
+        }
+        else if (baseColor.r == 232.0 / 255.0 && baseColor.g == 187.0 / 255.0 && baseColor.b == 83.0 / 255.0)
+        {
+            baseColor.a = showPause;
+        }
+        else if (baseColor.r == 72.0 / 255.0 && baseColor.g == 183.0 / 255.0 && baseColor.b == 209.0 / 255.0)
+        {
+            baseColor.a = showSemiPrivate;
+        }
+        else
+        {
+            baseColor.a = 0.0;
+        }
+        gl_FragColor = baseColor;
+        if (texture2D(baseTexture,vUv).a < 0.5) discard;
+    }  
+  </script>
+
+  <script id="vertexShader" type="x-shader/x-vertex">
+  varying vec2 vUv;
+  void main() 
+  { 
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+  }
+  </script>
+
+  <!-- <script type="module"
+            src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
+    </script> -->
+  <style type="text/css">
+    .pace .pace-activity {
+      top: 19px;
+      right: 19px;
+      display: none;
+    }
+    .page-loading {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      overflow: hidden;
+      background: rgba(51, 51, 51, 1.00);
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: -1;
+    }
+    .loading-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 38px;
+      height: 38px;
+      margin-left: -19px;
+      margin-top: -19px;
+    }
+    app-root:empty ~ .page-loading {
+      opacity: 1;
+      z-index: 1;
+    }
+  </style>
+<link rel="stylesheet" href="styles.761caea756f46eba83f7.css"></head>
+<body>
+  
+  <app-root></app-root>
+  <div class="page-loading">
+    <img src="assets/img/oval.svg" class="loading-icon" />
+  </div>
+<script src="runtime-es2015.bd89fcf7baea57448c9a.js" type="module"></script><script src="runtime-es5.bd89fcf7baea57448c9a.js" nomodule defer></script><script src="polyfills-es5.0a4b39831b12ae7e22cd.js" nomodule defer></script><script src="polyfills-es2015.38bab20e727b72369878.js" type="module"></script><script src="scripts.ec95d2ee55fc74ac5ee9.js" defer></script><script src="main-es2015.2a99a4646205afb98f31.js" type="module"></script><script src="main-es5.2a99a4646205afb98f31.js" nomodule defer></script></body>
+</html>

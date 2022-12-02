@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangunindo - Our Works</title>
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css">
+    <link rel="stylesheet" href="https://bangunindo.com/frontend_assets/css/styling.css">
+    <link rel="stylesheet" href="https://bangunindo.com/backend_assets/css/mediabox.min.css">
+    <!-- <link rel="stylesheet" href="https://bangunindo.com/backend_assets/css/swal2.min.css"> -->
+
+    <!-- FONT OPEN SANS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/1d81ccf367.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://kit.fontawesome.com/e25b852c87.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+</head>
+
+<body data-spy="scroll" data-target="fullpage">
+       <!-- NAVBAR -->
+   <div class="flex justify-center">
+        <nav class="navs container fixed z-50 h-24 bg-transparent max-w-full" x-data="{showMenu: false}">
+            <div class="container relative flex flex-wrap items-center justify-between h-24 mx-auto max-w-7xl font-semibold border-gray-200 lg:justify-center sm:px-4 md:px-2">
+                <!-- LOGO BTJ -->
+                <a href="/" class="py-4 md:py-0">
+                    <img class="w-20 md:w-16 lg:w-20 xl:w-24" style="display: inline-block;" id="anniv-logo" src="backend_assets/img/btj-anniv.png" alt="">
+                    <img class="w-20 md:w-16 lg:w-20 xl:w-24" style="display: inline-block;" id="white-logo" src="backend_assets/img/Image-01.png" alt="">    
+                    <img class="w-24 md:w-20 lg:w-28 xl:w-32 ml-8 md:ml-8 hidden" id="color-logo" src="backend_assets/img/logo.png" alt="">    
+                </a>
+                <!-- MENUS -->
+                <div class="top-0 left-0 items-start hidden w-full h-full p-4 text-sm bg-gray-900 bg-opacity-50 md:w-5/6 md:absolute lg:text-base md:h-auto md:bg-transparent md:p-0 md:relative md:flex" :class="{'flex fixed': showMenu, 'hidden': !showMenu }">
+                    <div class="flex-col w-full h-auto overflow-hidden bg-gray-400 rounded-lg select-none md:bg-transparent md:rounded-none md:relative md:flex md:flex-row md:overflow-auto">
+                        <div class="flex flex-col items-start justify-center w-full text-center md:mt-0 md:flex-row md:items-center">
+                            <a href="/about" id="about" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">ABOUT US</a>
+                            <a href="/services" id="services" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">SERVICES</a>
+                            <a href="/works" id="works" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">WORKS</a>
+                            <a href="/contact" id="contact" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">CONTACT</a>
+                            <!-- <a href="/blog" id="blog" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">BLOG</a> -->
+                            <a href="/careers" id="blog" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">CAREERS</a>
+                            <!-- <a href="/zabbix" id="blog" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">ZABBIX</a> -->
+                        </div>
+                        <div class="flex flex-col items-start justify-end w-full pt-4 md:items-center md:w-1/6 md:mr-8 md:flex-row md:py-0">
+                            <span class="inline-flex w-full shadow-sm md:rounded-full md:w-auto">
+                                <a href="/product" id="careers" class="inline-flex items-center w-full px-6 py-3 text-sm font-semibold leading-4 btn-primary md:px-2 md:w-auto lg:px-4" style="border-radius: 9999px 0px 9999px 9999px;">SEMERU TOOLS</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- MENU/HAMBURGER ICON FOR MOBILE VIEW -->
+                <div @click="showMenu = !showMenu" class="absolute mr-8 right-0 flex flex-col items-center items-end justify-center w-10 h-10 rounded-full cursor-pointer md:hidden hover:bg-gray-100">
+                    <svg class="w-6 h-6 text-gray-800" x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" x-cloak>
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg class="w-6 h-6 text-gray-800" x-show="showMenu" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" x-cloak>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+<script>
+    $(window).on("scroll", function(){
+        if($(window).scrollTop() > 50){
+            $(".navs").addClass("active");
+            $("#color-logo").removeClass('hidden')
+            $("#white-logo").css('display', 'none')
+            $("#anniv-logo").css('display', 'none')
+        } else {
+            $(".navs").removeClass("active");
+            $("#color-logo").addClass('hidden')
+            $("#white-logo").css('display', 'inline-block')
+            $("#anniv-logo").css('display', 'inline-block')
+        }
+    });
+
+    // $(document).ready(function(){
+    //     setTimeout(function(){
+    //         $('#anniv-logo').fadeOut(500)
+    //         $('#white-logo').fadeIn(1000)
+    //     }, 2000)
+    // })
+
+    var currURL = window.location.pathname.split('/');
+
+    if(currURL[1] == "home") {
+        var home = document.getElementById("home");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "about") {
+        var home = document.getElementById("about");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "product") {
+        var home = document.getElementById("product");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "services") {
+        var home = document.getElementById("services");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "works") {
+        var home = document.getElementById("works");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "blog") {
+        var home = document.getElementById("blog");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "contact") {
+        var home = document.getElementById("contact");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "careers") {
+        var home = document.getElementById("careers");
+        // home.classList.add("active");
+    }
+
+    if(currURL[1] == "zabbix") {
+        var home = document.getElementById("zabbix");
+        // home.classList.add("active");
+    }
+</script>
+	<!-- TITLE -->
+    <div class="parallax"
+        style="background-image:url('https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80');">
+        <div class="flex justify-left pt-16 pb-6 md:pb-4 pl-10 md:pl-20 lg:pt-24 xl:pt-32 xl:pb-12 bg-linear-black">
+            <div class="text-white w-auto">
+                <h1
+                    class="md:text-left text-center text-2xl pt-28 leading-tight md:leading-tight md:text-4xl lg:leading-tight lg:text-4xl">
+                    Works</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+	<section class="w-full bg-white px-32 py-8 mt-24 justify-center items-center">
+        <div class="flex flex-col w-full md:w-full justify-center items-center md:items-start text-center md:text-left md:pl-0 mb-10">
+            <p class="my-2 md:text-4xl font-serif text-4xl md:mx-0 mx-4 font-bold text-gray-800 md:leading-snug">
+				Our proud clients who have used our products and services
+            </p>
+        </div>
+		<div class="flex flex-wrap flex-col md:flex-row items-center py-16">
+			<div class="md:w-1/3 md:overflow-hidden z-50">
+				<img src="backend_assets/Images/illustration/3x/works_pms_bakti@3x.png" alt="PMS Bakti" class="block object-contain" style="max-width:100%" />
+			</div>
+			
+			<div id="service_1" class="flex flex-col w-full md:w-2/3 justify-center items-center md:items-start text-center md:text-left md:pr-0 md:pl-16">
+				<h1 class="text-xl md:text-3xl font-bold tracking-wide text-center md:text-left text-gray-800 mb-6">Network Management System</h1>
+				<p class="leading-normal text-xl md:text-2xl text-base text-gray-800 md:mx-0 mx-4">
+				Bangunindo created a monitoring application that enables BAKTI Kominfo to keep track of the ongoing progress towards providing internet access and to monitor and measure real-time internet consumptions.
+				</p>
+				<a id="button" href="https://www.youtube.com/watch?v=0fsDBnEKSpc" class="mediabox cursor-pointer inline-flex justify-center items-center w-auto text-center px-4 py-4 mt-4 text-sm font-bold leading-4 text-white transition duration-150 border-2 border-white rounded-full md:px-4 lg:px-4 hover: transform hover:scale-110 motion-reduce:transform-none uppercase" style="background-color: #150035;">Watch Video</a>
+			</div>
+		</div>
+		<div class="flex flex-wrap flex-col md:flex-row items-center py-16">
+			<div id="service_1" class="flex flex-col w-full md:w-2/3 justify-center items-center md:items-start text-center md:text-left md:pr-24 md:pl-0">
+				<h1 class="text-xl md:text-3xl font-bold tracking-wide text-center md:text-left text-gray-800 mb-6">Telkomsel Big Data</h1>
+				<p class="leading-normal text-xl md:text-2xl text-base text-gray-800 md:mx-2 mx-4">
+				Bangunindo was able to create a dashboard system for Telkomsel that helps them monitor the activities, performances, and behaviors of their 150 million service users. This real-time dashboard contains visualizations that are automatically updated with the most current data available
+				</p>
+				<a id="button" href="https://www.youtube.com/watch?v=mAsxKOPYICY" class="mediabox cursor-pointer inline-flex justify-center items-center w-auto text-center px-4 py-4 mt-4 text-sm font-bold leading-4 text-white transition duration-150 border-2 border-white rounded-full md:px-4 lg:px-4 hover: transform hover:scale-110 motion-reduce:transform-none uppercase" style="background-color: #C83844;">Watch Video</a>
+			</div>
+			<div class="md:w-1/3 md:overflow-hidden z-50">
+				<img src="backend_assets/Images/illustration/3x/works_tsbg@3x.png" alt="PMS Bakti" class="block object-contain" style="max-width:100%" />
+			</div>
+		</div>
+		<div class="flex flex-wrap flex-col md:flex-row items-center py-16">
+			<div class="md:w-1/3 md:overflow-hidden z-50">
+				<img src="backend_assets/Images/illustration/3x/works_nms_bakti@3x.png" alt="PMS Bakti" class="block object-contain" style="max-width:100%" />
+			</div>
+			
+			<div id="service_1" class="flex flex-col w-full md:w-2/3 justify-center items-center md:items-start text-center md:text-left md:pr-0 md:pl-16">
+				<h1 class="text-xl md:text-3xl font-bold tracking-wide text-center md:text-left text-gray-800 mb-6">BKPM & KEMENAG</h1>
+				<p class="leading-normal text-xl md:text-2xl text-base text-gray-800 md:mx-0 mx-4">
+				Bangunindo builds Command Center that lets BKPM to be more efficient in delivering orders, coordinating, and thus helping them in decision making
+				</p>
+				<a id="button" href="https://www.youtube.com/watch?v=JUhCW-NYxjk" class="mediabox cursor-pointer inline-flex justify-center items-center w-auto text-center px-4 py-4 mt-4 text-sm font-bold leading-4 text-white transition duration-150 border-2 border-white rounded-full md:px-4 lg:px-4 hover: transform hover:scale-110 motion-reduce:transform-none uppercase" style="background-color: #BD1B19;">Watch Video</a>
+			</div>
+		</div>
+    </section>
+
+    <!-- Works -->
+		<section class="w-full px-32 py-8 mb-10">
+			<div class="flex flex-col w-3/4 md:w-3/4 justify-center items-center md:items-start text-center md:text-left md:pl-0 mb-10">
+				<p class="my-2 md:text-2xl font-serif text-2xl md:mx-0 mx-4 font-bold color-txt md:leading-snug">
+					We have also successfully completed more projects and developments from a wide range of clients
+				</p>
+			</div>
+			<div class="max-w-full mx-auto">
+				<div class="grid lg:grid-cols-3">
+					<div class="w-full py-2 px-2">
+						<div class="rounded-xl">
+							<article
+								class="w-full h-32 shadow-md bg-center bg-cover rounded-xl transform duration-500 hover:-translate-y-2 cursor-pointer group"
+								style="background-image:url('../backend_assets/Images/Works/1_airnav.png');height:50vh">
+								<div
+									class="justify-center text-center bg-black bg-opacity-5 rounded-xl flex flex-wrap flex-col h-32 hover:bg-opacity-75 p-12 transform duration-300"
+									style="height:50vh">
+									<p class="opacity-0 text-white text-xl group-hover:opacity-80 transform duration-500">
+										Airnav Employees Apps and SPPD
+									</p>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="w-full py-2 px-2">
+						<div class="rounded-xl">
+							<article
+								class="w-full h-32 shadow-md bg-center bg-cover rounded-xl transform duration-500 hover:-translate-y-2 cursor-pointer group"
+								style="background-image:url('../backend_assets/Images/Works/2_all_islamic_apps.png');height:50vh">
+								<div
+									class="justify-center text-center bg-black bg-opacity-5 rounded-xl flex flex-wrap flex-col h-32 hover:bg-opacity-75 p-12 transform duration-300"
+									style="height:50vh">
+									<p class="opacity-0 text-white text-xl group-hover:opacity-80 transform duration-500">
+										All Islamic Apps
+									</p>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="w-full py-2 px-2">
+						<div class="rounded-xl">
+							<article
+								class="w-full h-32 shadow-md bg-center bg-cover rounded-xl transform duration-500 hover:-translate-y-2 cursor-pointer group"
+								style="background-image:url('../backend_assets/Images/Works/10_lodify.png');height:50vh">
+								<div
+									class="justify-center text-center bg-black bg-opacity-5 rounded-xl flex flex-wrap flex-col h-32 hover:bg-opacity-75 p-12 transform duration-300"
+									style="height:50vh">
+									<p class="opacity-0 text-white text-xl group-hover:opacity-80 transform duration-500">
+										Lodify
+									</p>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="w-full py-2 px-2">
+						<div class="rounded-xl">
+							<article
+								class="w-full h-32 shadow-md bg-center bg-cover rounded-xl transform duration-500 hover:-translate-y-2 cursor-pointer group"
+								style="background-image:url('../backend_assets/Images/Works/11_medulab.png');height:50vh">
+								<div
+									class="justify-center text-center bg-black bg-opacity-5 rounded-xl flex flex-wrap flex-col h-32 hover:bg-opacity-75 p-12 transform duration-300"
+									style="height:50vh">
+									<p class="opacity-0 text-white text-xl group-hover:opacity-80 transform duration-500">
+										MEDULAB
+									</p>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="w-full py-2 px-2">
+						<div class="rounded-xl">
+							<article
+								class="w-full h-32 shadow-md bg-center bg-cover rounded-xl transform duration-500 hover:-translate-y-2 cursor-pointer group"
+								style="background-image:url('../backend_assets/Images/Works/5_kemenpar.png');height:50vh">
+								<div
+									class="justify-center text-center bg-black bg-opacity-5 rounded-xl flex flex-wrap flex-col h-32 hover:bg-opacity-75 p-12 transform duration-300"
+									style="height:50vh">
+									<p class="opacity-0 text-white text-xl group-hover:opacity-80 transform duration-500">
+										Ministry of Tourism Republic of Indonesia
+									</p>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="w-full py-2 px-2">
+						<div class="rounded-xl">
+							<article
+								class="w-full h-32 shadow-md bg-center bg-cover rounded-xl transform duration-500 hover:-translate-y-2 cursor-pointer group"
+								style="background-image:url('../backend_assets/Images/Works/4_bitmedia.png');height:50vh">
+								<div
+									class="justify-center text-center bg-black bg-opacity-5 rounded-xl flex flex-wrap flex-col h-32 hover:bg-opacity-75 p-12 transform duration-300"
+									style="height:50vh">
+									<p class="opacity-0 text-white text-xl group-hover:opacity-80 transform duration-500">
+										On-Flight Entertainment
+									</p>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+    <!-- ACTION -->
+    <section class="py-8 leading-7 text-gray-900 bg-color sm:py-12 md:py-16 lg:py-24">
+        <div class="container mx-auto items-center">
+            <div class="flex flex-col px-10 items-start leading-7 text-white md:item-left items-center justify-center lg:flex-row">
+                <div class="box-border flex-1 text-center sm:text-left md:border-r-4">
+                    <h1 class="m-0 text-2xl leading-tight tracking-tight md:text-left text-center lg:text-4xl md:text-3xl capitalize">Find out how to get partnered and start create magic</h1>
+                </div>
+                <div class="bg-white md:w-1/3 w-full text-gray-400 rounded-lg md:ml-32 md:mt-2 mt-4">
+                    <div class="relative flex w-full flex-wrap items-stretch">
+                        <input type="text" placeholder="Enter Your Email..." id="form-email"
+                            class="md:py-4 py-3 pl-4 pr-20 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full pr-10" />
+                        <button id="submit-email"
+                            class="mx-2 md:my-2 my-1 rounded-full bg-color cursor-pointer z-10 h-auto font-normal  absolute text-center text-white rounded text-sm items-center justify-center w-auto right-0 px-4 py-2 font-bold">SUBMIT
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<script>
+    $('#submit-email').on('click', function(){
+        var email = $('#form-email').val()
+        
+        if(email !== ''){
+            Swal.fire(
+                'Thank You!',
+                'We will send you more information about us!',
+                'success'
+            )
+        }
+    })
+    </script>
+
+<!-- </div> -->
+<footer class="footer bg-gray-700 relative pt-1">
+    <div class="container mx-auto px-6 py-4">
+        <div class="sm:flex sm:mt-8">
+            <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
+                <div class="flex flex-col mx-4 md:mr-2 md:pr-44 text-center md:text-left py-2">
+                    <span class="font-bold text-white md:text-2xl capitalize mb-2">Bangunindo Teknusa Jaya</span>
+                    <p class="my-2 text-white text-md md:mr-12">Lt. 2 Gedung Wisma Semeru Jalan Taman Kemang No. 18, Bangka Kec. Mampang Prapata, Jakarta Selatan DKI Jakarta 12730</p>
+                    <span class="py-6 inline-flex justify-center mt-4 space-x-5 sm:mt-0 sm:justify-start">
+                <a onclick="window.open('https://www.linkedin.com/company/bangunindo/')" class="text-gray-400 hover:text-gray-500">
+                    <i class="fab fa-linkedin-in fa-lg"></i>
+                </a>
+                <a onclick="window.open('https://www.instagram.com/bangunindoteknusajaya/?hl=en')" class="text-gray-400 hover:text-gray-500">
+                    <i class="fab fa-instagram fa-lg"></i>
+                </a>
+            </span>
+                </div>
+                <div class="flex flex-col mx-4 md:mr-2 md:pr-44 text-center md:text-left py-2">
+                <span class="font-bold text-white md:text-2xl capitalize mb-2">Company</span>
+                    <span class="my-1"><a href="/about" class="text-white text-md">About Us</a></span>
+                    <span class="my-1"><a href="/product" class="text-white text-md">Product</a></span>
+                    <span class="my-1"><a href="/service" class="text-white text-md">Services</a></span>
+                    <span class="my-1"><a href="/works" class="text-white text-md">Works</a></span>
+                    <span class="my-1"><a href="/contact" class="text-white text-md">Contact</a></span>
+                    <span class="my-1"><a href="/blog" class="text-white text-md">Blog</a></span>
+                </div>
+                <div class="flex flex-col mx-4 md:mr-2 md:pr-44 text-center md:text-left py-2">
+                <span class="font-bold text-white md:text-2xl capitalize mb-2">Support</span>
+                    <span class="my-2"><a href="#" class="text-white text-md">API Support</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto px-14">
+        <div class="mt-4 border-t-2 border-gray-300 flex flex-col items-center">
+            <div class="sm:w-2/3 text-center py-6">
+                <p class="text-sm text-white font-bold mb-2">
+                    &copy; Designed in 2021 - by Bangunindo Teknusa Jaya
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+    <script src="https://bangunindo.com/backend_assets/js/mediabox.min.js"></script>
+    <!-- <script src="https://bangunindo.com/backend_assets/js/swal2.min.js"></script> -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        MediaBox('.mediabox');
+    </script>
+</body>
+
+</html>

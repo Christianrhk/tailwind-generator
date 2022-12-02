@@ -1,0 +1,597 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <!-- Tailwind and Vue.js -->
+        
+            <link href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">
+            <script src="https://unpkg.com/vue@3.1.2/dist/vue.global.prod.js"></script>
+        
+        <!-- /// -->
+
+    
+
+</head>
+<body>
+    <div id="app">
+        
+    <title>DFG | Projects</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/projects.css" />
+
+
+        
+
+  <nav class="py-3 px-3 md:px-8">
+    <div class="flex items-center justify-between">
+      <a class="flex items-center flex-shrink-0" href="/">
+        <img id="logo_menu" class="w-14 md:w-full" src="/static/img/logo-menu.png">
+      </a>
+      <button id='menu_botton' class="flex items-center focus:outline-none focus:ring-opacity-50">
+          <img class="w-10" src="/static/img/button-menu.png">
+      </button>
+      <button id='close_botton' class="hidden items-center focus:outline-none focus:ring-opacity-50">
+          <img class="w-8" src="/static/img/close-button.png">
+      </button>
+    </div>
+    <div id="border_menu" class="">
+      <hr class="border-black border-b-1 mt-4 border-opacity-30">
+  </div>
+    <a id="logo_menu_md" href="/" class="hidden"> 
+      <img src="/static/img/logo-menu.png" class="mx-auto my-24">
+    </a>
+    <div id="menu" class="hidden">
+      <div class="text-center my-4 md:flex md:space-x-6 md:justify-center xl:space-x-20">
+        <div class="text-lg pb-4">
+          <a href="/" class="block font-bold text-2xl xl:text-3xl pb-3">
+            Home
+          </a>
+        </div>
+
+        <div class="text-lg pb-4">
+          <a href="/empresa" class="block font-bold text-2xl xl:text-3xl pb-3">
+            The Company
+          </a>
+          <a href="/sostenibilidad" class="block pb-3">
+            Sustainability
+          </a>
+          <a href="/piedra_natural" class="block pb-3">
+          Natural stone
+          </a>
+        </div>
+
+        <div class="text-lg pb-4">
+          <a href="/canteras" class="block font-bold text-2xl xl:text-3xl pb-3">
+          Quarries
+          </a>
+          <a href="/materiales" class="block pb-3">
+            Materials
+          </a>
+        </div>
+
+        <div class="text-lg pb-4">
+          <a href="/proyectos" class="block font-bold text-2xl xl:text-3xl pb-3">
+            Projects
+          </a>
+          <a href="/proyectos_destacados" class="block pb-3">
+            Outstanding projects
+          </a>
+          <a href="/acabados" class="block pb-3">
+            Finishes
+          </a>
+        </div>
+
+        <div class="text-lg pb-4">
+          <a href="/tablas" class="block font-bold text-2xl xl:text-3xl pb-3">
+            Slabs
+          </a>
+          <a href="https://www.dfgnaturalstone.es" class="block pb-3" target="_blank">
+            Stock online
+          </a>
+          <a href="/alma" class="block pb-3">
+            Alma collection
+          </a>
+        </div>
+        <div class="text-lg pb-4">
+          <a href="/contacto" class="block font-bold text-2xl xl:text-3xl pb-3">
+            Contact
+          </a>
+        </div>
+      </div>
+      <form action="/i18n/setlang/" method="post" class="text-lg py-4 border-t-2 border-b-2 border-black flex space-x-4 justify-center border-opacity-25 md:space-x-20 lg:container lg:m-auto">
+        <input type="hidden" name="csrfmiddlewaretoken" value="M87NOXekKpdQgG7LRxhMTyZ4IkstgKgx3NENgJJE1N41Yqb4xejHagruPchgnF5t">
+        
+        
+        
+        
+          <button type="submit" name="language" value="es">
+            Spanish
+          </button>
+        
+          <button type="submit" name="language" value="en">
+            English
+          </button>
+        
+      </form>
+    </div>
+  </nav>
+  
+
+  
+    <!-- block 1 -->
+    <div class="p-4 md:p-12">
+        <div class="p-2 text-center">
+            <span class="inline-flex text-black font-bold items-center text-3xl">
+                <img class="w-10 mr-2 mt-2" src="/static/img/linea-recta.png">
+                Projects
+                <img class="w-10 ml-2 mt-2" src="/static/img/linea-recta.png">
+            </span>
+        </div>
+        <div class="p-2 text-center">
+            <span class="text-xl text-black md:block font-semibold">Integral project management</span>
+        </div>
+    </div>
+    <div class="lg:max-w-screen-lg lg:m-auto">
+        <!-- block 2-->
+        <div >
+            <!-- carousel -->
+            <dfg-carousel
+              :slides="factory"
+              :full="true"
+            ></dfg-carousel>
+        </div>
+        <!-- block-->
+        <div class="img-banner2 my-8 px-8 py-4 md:px-6 md:py-8">
+            <div class="p-2 grid grid-rows-1 gap-2 md:grid-cols-4 md:gap-5 md:justify-items-center md:px-0">
+                <div class="  p-4 border-2 border-gray-300 text-center border-opacity-60">
+                    <div class="flex flex-row md:flex-col justify-between md:justify-center items-center">
+                        <span  class="block text-gray-300 md:text-base md:mb-4">Design</span>
+                        <button id="open_diseño" onclick="toggleProjects('diseño')" class="block md:hidden collapsible w-4 justify-end items-center h-full color-white outline-none focus:outline-none" type="button">
+                            <img src="/static/img/company/flecha.png" style="filter: invert(1);">
+                        </button>
+                        <button id='close_diseño'  onclick="toggleProjects('diseño')" class="hidden items-center focus:outline-none focus:ring-opacity-50">
+                            <img class="w-4" src="/static/img/close-button.png" style="filter: invert(1);">
+                        </button>
+                    </div>
+                    <p id="diseño" class=" pt-2 md:pt:0 hidden md:block text-xs text-gray-300"> Our multidisciplinary team will advise you when determining the optimal construction solution for each project: materials, finishes, thicknesses, exploded views, ...</p>
+                    </p>
+                </div>
+                <div class="p-4 border-2 border-gray-300 text-center border-opacity-60">
+                    <div class="flex flex-row md:flex-col justify-between md:justify-center items-center">
+                    <span class="block md:text-base md:mb-4 text-gray-300">Manufacturing</span>
+                        <button id="open_fabricacion" onclick="toggleProjects('fabricacion')" class="block md:hidden collapsible w-4 justify-end items-center h-full color-white outline-none focus:outline-none" type="button">
+                            <img src="/static/img/company/flecha.png" style="filter: invert(1);">
+                        </button>
+                        <button id='close_fabricacion'  onclick="toggleProjects('fabricacion')" class="hidden items-center focus:outline-none focus:ring-opacity-50">
+                            <img class="w-4" src="/static/img/close-button.png" style="filter: invert(1);">
+                        </button>
+                    </div>
+                    <p id="fabricacion" class=" pt-2 md:pt:0 hidden md:block text-xs text-gray-300"> For each project we choose the most suitable production method to the specifications received.</p>
+                    </p>
+                </div>
+                <div class="p-4 border-2 border-gray-300 text-center border-opacity-60">
+                    <div class="flex flex-row md:flex-col justify-between md:justify-center items-center">
+                    <span class="block md:text-base md:mb-4 text-gray-300">Supply</span>
+                        <button id="open_suministro" onclick="toggleProjects('suministro')" class="block md:hidden collapsible w-4 justify-end items-center h-full color-white outline-none focus:outline-none" type="button">
+                            <img src="/static/img/company/flecha.png" style="filter: invert(1);">
+                        </button>
+                        <button id='close_suministro'  onclick="toggleProjects('suministro')" class="hidden items-center focus:outline-none focus:ring-opacity-50">
+                            <img class="w-4" src="/static/img/close-button.png" style="filter: invert(1);">
+                        </button>
+                    </div>
+                    <p id="suministro" class=" pt-2 md:pt:0 hidden md:block text-xs text-gray-300"> We provide the best logistics solution to deliver the merchandise within the indicated period.</p>
+                    </p>
+                </div>
+                <div class="p-4 border-2 border-gray-300 text-center border-opacity-60">
+                    <div class="flex flex-row md:flex-col justify-between md:justify-center items-center">
+                    <span class="block md:text-base md:mb-4 text-gray-300">Experience</span>
+                        <button id="open_experiencia" onclick="toggleProjects('experiencia')" class="block md:hidden collapsible w-4 justify-end items-center h-full color-white outline-none focus:outline-none" type="button">
+                            <img src="/static/img/company/flecha.png" style="filter: invert(1);">
+                        </button>
+                        <button id='close_experiencia'  onclick="toggleProjects('experiencia')" class="hidden items-center focus:outline-none focus:ring-opacity-50">
+                            <img class="w-4" src="/static/img/close-button.png" style="filter: invert(1);">
+                        </button>
+                    </div>
+                    <p id="experiencia" class=" pt-2 md:pt:0 hidden md:block text-xs text-gray-300"> Based on direct and personalized assistance, a technical team will be assigned to each project that will monitor all phases of the project.</p>
+                    </p>
+                </div>
+                <div class="p-4 border-2 border-gray-300 text-center border-opacity-60">
+                    <div class="flex flex-row md:flex-col justify-between md:justify-center items-center">
+                    <span class="block text-gray-300 md:text-base md:mb-4">Quality</span>
+                        <button id="open_calidad" onclick="toggleProjects('calidad')" class="block md:hidden collapsible w-4 justify-end items-center h-full color-white outline-none focus:outline-none" type="button">
+                            <img src="/static/img/company/flecha.png" style="filter: invert(1);">
+                        </button>
+                        <button id='close_calidad'  onclick="toggleProjects('calidad')" class="hidden items-center focus:outline-none focus:ring-opacity-50">
+                            <img class="w-4" src="/static/img/close-button.png" style="filter: invert(1);">
+                        </button>
+                    </div>
+                    <p id="calidad" class=" pt-2 md:pt:0 hidden md:block text-xs text-gray-300"> We have a total quality management model that is applied to all processes to efficiently respond to the needs and expectations of our customers.</p>
+                    </p>
+                </div>
+                <div class="p-4 border-2 border-gray-300 text-center border-opacity-60">
+                    <div class="flex flex-row md:flex-col justify-between md:justify-center items-center">
+                    <span class="block md:text-base md:mb-4 text-gray-300">Traceability</span>
+                        <button id="open_trazabilidad" onclick="toggleProjects('trazabilidad')" class="block md:hidden collapsible w-4 justify-end items-center h-full color-white outline-none focus:outline-none" type="button">
+                            <img src="/static/img/company/flecha.png" style="filter: invert(1);">
+                        </button>
+                        <button id='close_trazabilidad'  onclick="toggleProjects('trazabilidad')" class="hidden items-center focus:outline-none focus:ring-opacity-50">
+                            <img class="w-4" src="/static/img/close-button.png" style="filter: invert(1);">
+                        </button>
+                    </div>
+                    <p id="trazabilidad" class=" pt-2 md:pt:0 hidden md:block text-xs text-gray-300"> Our management model allows us to register and identify each product from its origin to its final destination.</p>
+                    </p>
+                </div>
+                <div class="p-4 border-2 border-gray-300 text-center border-opacity-60">
+                    <div class="flex flex-row md:flex-col justify-between md:justify-center items-center">
+                    <span class="block md:text-base md:mb-4 text-gray-300">Capacity</span>
+                        <button id="open_capacidad" onclick="toggleProjects('capacidad')" class="block md:hidden collapsible w-4 justify-end items-center h-full color-white outline-none focus:outline-none" type="button">
+                            <img src="/static/img/company/flecha.png" style="filter: invert(1);">
+                        </button>
+                        <button id='close_capacidad'  onclick="toggleProjects('capacidad')" class="hidden items-center focus:outline-none focus:ring-opacity-50">
+                            <img class="w-4" src="/static/img/close-button.png" style="filter: invert(1);">
+                        </button>
+                    </div>
+                    <p id="capacidad" class=" pt-2 md:pt:0 hidden md:block text-xs text-gray-300"> We base our production capacity on a flexible, highly automated production system equipped with versatile and high-precision machinery.</p>
+                    </p>
+                </div>
+                <div class="p-4 border-2 border-gray-300 text-center border-opacity-60">
+                    <div class="flex flex-row md:flex-col justify-between md:justify-center items-center">
+                    <span class="block md:text-base md:mb-4 text-gray-300">Control from origin</span>
+                        <button id="open_origen" onclick="toggleProjects('origen')" class="block md:hidden collapsible w-4 flex justify-end items-center h-full color-white outline-none focus:outline-none" type="button">
+                            <img src="/static/img/company/flecha.png" style="filter: invert(1);">
+                        </button>
+                        <button id='close_origen'  onclick="toggleProjects('origen')" class="hidden items-center focus:outline-none focus:ring-opacity-50">
+                            <img class="w-4" src="/static/img/close-button.png" style="filter: invert(1);">
+                        </button>
+                    </div>
+                    <p id="origen" class=" pt-2 md:pt:0 hidden md:block text-xs text-gray-300"> Thanks to direct access to materials from our own quarries, we can track the material used for each project from the source.</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- block 3-->
+        <div class="mb-20" style="height: 25rem;">
+            <!-- carousel projects -->
+            <dfg-carousel
+            title='projects'
+            :slides="projects"
+            :slidecount="3"
+            :stylenum="1"
+            :url="{title: 'See all projects', url: 'proyectos_destacados'}"
+            :showslidename="true"
+            ></dfg-carousel>
+        </div>
+        <!-- block 4-->
+        <!-- carousel materials -->
+        <div class="">
+            <dfg-carousel
+            title='Finishes'
+            :slides="acabados"
+            :slidecount="8"
+            :stylenum="2"
+            :url="{title: 'See all finishes', url: 'acabados'}"
+            :showSlideName="false"
+            ></dfg-carousel>
+        </div>
+
+    </div>
+
+    
+
+    </div>
+    <script>
+        var data = {}
+    </script>
+    
+    <script>
+        data["projects"] = JSON.parse("[{\u0022title\u0022: \u0022Negro Angola, Azul Platino, Monchique. Rusia\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Negro_Angola_Azul_Platino_Monchique._Rusia.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DuiKFVzLtvCIFV3BNCSPUTosGq4E%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Negro_Angola_Azul_Platino_Monchique._Rusia.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DVAMJ%2FMs4Pjv5BwdmQdBEJolvfqM%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Zambezia. Poland\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Zambezia._Polonia.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Da091Ze%2BZgUoZ0LI0m3G%2FUW5U5V4%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Zambezia._Polonia.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DHxGN9WaEu5LCZhFk5ELa1W0oZwo%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Amarillo San Marti\u005Cu00f1o. Bulgaria\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino._Bulgaria.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DXVf1dQw54x%2FFdwA3YzQrY8LZBcw%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino._Bulgaria.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Dn0cImIpDr2v%2BrasZvimGWWcSm44%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Amarillo San Marti\u005Cu00f1o. Portugal\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino_Portugal.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003D4qBGnwDxijxMuwsUUhY%2FFKCCozw%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino_Portugal.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DQA34O1YdpwCaVHX4Oy71fb2BU98%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Amarillo San Martino, Rojo Multicolor, Salm\u005Cu00f3n Tropical, Blanco Berrocal. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino_Rojo_Multicolor_Salmon_Tropical_Blanco_Berrocal._Francia.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DyQP5J64N2oaxagY0LK4VI5FOTYk%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino_Rojo_Multicolor_Salmon_Tropical_Blanco_Berrocal._Francia.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DQpdLKKVvy946yv%2BjHqM9L9VFX5Y%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Amarillo San Marti\u005Cu00f1o. Andorra\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino._Andorra.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003D5WNljOaF7jmCfBq4mN1KWOIHKHo%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino._Andorra.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Dw2%2FuEINXvgxZN0dIilv9jjBRWQE%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Amarillo San Marti\u005Cu00f1o. Portugal\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino._Portugal.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DGbDsQYngsplwt86fUdEoMIIwEgo%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino._Portugal.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DbDyO7hgXDuGhBTzpmihVo58I42I%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Angola, Azu Extremadura. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Angola_Azul_Extremadura._Francia.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DceN9jBewqSzZ%2F7Jq4yt%2FD5RMuzk%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Angola_Azul_Extremadura._Francia.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DivOntI%2Bj3UrdiVkntztasEhs%2B9k%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Azul Platino. Spain\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Azul_Platino._Espana.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DWsJhOXG4QsDPlTBDBmeVLodL3xg%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Azul_Platino._Espana.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Dv8cQ4tyDc4aPGY2xbiFFYt6lxBc%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Azul Platino. Spain\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Azul_Platino._Espana1.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DfAtmi3GX3piIW5A1nRyGKYiD2no%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Azul_Platino._Espana1.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DjMNVz8nuZrSxOXOvoe94p0WlbCA%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Baobab Brown. Spain\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Baobab_Brown._Espana.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Dh0gmPd44E02uJHN9%2BiIq32BPzck%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Baobab_Brown._Espana.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DsX0C1X1zF%2FrDXhua5Pej%2Fd38Kec%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Baobab Brown. Francia\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Baobab_Brown._Francia.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DhPQ8XVoMxWfG9zKl8TyfM7fsHxo%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Baobab_Brown._Francia.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DAis6zr7jue4QcKC8uPO8jWi1BXk%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Bicolor. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Bicolor._Francia.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DriTE%2BLE4t0Pk8fRG3oLsN1VIqbo%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Bicolor._Francia.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Dy9kkzJjyKcx5TKMErS%2FMDXAJYUQ%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Bicolor. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Bicolor._Francia1.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003D3mTt0VtZOw09e1YwQJ%2F0iOKnOXA%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Bicolor._Francia1.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DY92q2gc%2Fm79Idn7K6rXfToGv41c%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Blanco Atl\u005Cu00e1ntico. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Atlantico._Francia.tif.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003D96Pw2i9GcJVzvD4QRFAJOWa5Mhk%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Atlantico._Francia.tif.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DFsgZ7hg2XZq82EdFfYmhah%2BJ0UY%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Blanco Berrocal, Negro Angola. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal_Negro_Angola._Francia.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DsqLjSB7ys8UZ6rAVzgKj0Xkxrpo%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal_Negro_Angola._Francia.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Ddm9c4nG0hrZQ782MdXOXMYX7Eog%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Blanco Berrocal. Germany\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Alemania.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003D38EISkIszmnroUGpZ8oO43%2BR4L4%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Alemania.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DzJKFFS%2FXS8iB3%2Fee0UsYs%2BpI1qs%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Blanco Berrocal. Germany\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Alemania1.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DyqyWQHdQUyg0UrWA0fyIvkVo%2Fp8%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Alemania1.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Djwk%2B%2BpHmSnPUJ7bt59qTSsX%2B5Q4%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Blanco Berrocal. Spain\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Espana.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003D6eL962PgMOGw3txMJiOe%2FydE%2F7M%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Espana.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DyMeh3GmgZYIjocKbZvDdk7YVu6M%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Blanco Berrocal. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Francia.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DmkJaB5odA5QVIdNcRe8%2BiG3bxm8%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Francia.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Dv0ZxLFpWDAI%2FtuUgwXnfVqA3PO4%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Blanco Berrocal. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Francia.tif.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003De3ygmjiCVXe6i9wvTUO7YUlXU2o%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Francia.tif.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DFPe%2BjaBS7e%2FFCe0VWUyeqxoyNWI%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Golden DFG. Spain\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Golden_DFG._Espana.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DnbBKfzbnlR%2B%2FGRB35X3aTNTLvsQ%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Golden_DFG._Espana.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DLGQaTBl1ga6VEVPPQHPG%2BkZ07ZY%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Golden DFG. Spain\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Golden_DFG._Espana1.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DSKk5v0fX2VSye4hCCSbhnJ5BTYg%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Golden_DFG._Espana1.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DbSOSE955ffhYcItAw6llNVR5o5c%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Gris Perla Crema, Negro Ochavo, Blanco Berrocal. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Gris_Perla_Crema_Negro_Ochavo_Blanco_Berrocal._Francia.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DY9KcA4mcGZaYp5EFjyED3GvBd8A%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Gris_Perla_Crema_Negro_Ochavo_Blanco_Berrocal._Francia.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DGChKD8NtSsLZre%2B2ZYGhirJQI3Q%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Gris Perla Crema, Negro Ochavo, Blanco Berrocal. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Gris_Perla_Crema_Negro_Ochavo_Blanco_Berrocal._Francia_dvj4ok6.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DyrKdJjgOOmbeZEnTUuYkLtnfsVc%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Gris_Perla_Crema_Negro_Ochavo_Blanco_Berrocal._Francia_dvj4ok6.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Da%2F8AuhjzdnbYrHQlBapgI%2Fhq%2Fkg%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Monchique, Tragal, Rojo Multicolor. Andorra\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Monchique_Tragal_Rojo_Multicolor._Andorra.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DWp5%2FhdHb8HMldLiKmZ007mN75sc%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Monchique_Tragal_Rojo_Multicolor._Andorra.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Dd26jBYwzpnSkhJ%2Fi8wIyQw7C9Sc%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Multicolor, Salm\u005Cu00f3n Tropical,  Angola, Duna, Blanco Berrocal. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Multicolor_Salmon_Tropical__Angola_Duna_Blanco_Berrocal._Francia.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DMdiip0sufDYUkpJ5e17wmAYdV88%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Multicolor_Salmon_Tropical__Angola_Duna_Blanco_Berrocal._Francia.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DHIzcZoW%2Fl%2FfkOQhyXZkN06t9GtU%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Negro Angola. Spain\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Negro_Angola._Espana.png.1280x960_q85_crop.png?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DHwKPLqkfa9%2BtdKyR0yJLHypokA8%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Negro_Angola._Espana.png.441x331_q85_crop.png?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DOuDEdfXwjPRFFhpuKxd8U4LgV7s%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Negro Angola. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Negro_Angola._Francia.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DMQnxFZR0jZ%2BG9%2Bk6gx33e8tiOKA%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Negro_Angola._Francia.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003D%2F2KMBJVEax8bFLNTW4tf%2FVM2gus%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Rojo Multicolor. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Rojo_Multicolor._Francia.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Db%2FlmDlMZnc%2F7Fz9oSSMQIPhk0Cs%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Rojo_Multicolor._Francia.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003D5d6vrV8aDHQO%2B8q2BkEyF4PxwfA%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Rosa Porri\u005Cu00f1o. Qatar\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Rosa_Porrino._Qatar.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DLKAGSk90wTwExEVcOHmHvTAA9KU%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Rosa_Porrino._Qatar.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DzaQ9bLRUzQTyh3cJ7MqN0NpXJUY%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Salm\u005Cu00f3n Tropical, Rojo Multicolor. France\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Salmon_Tropical_Rojo_Multicolor._Francia.tif.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DCM3TI0HuHiRRqqcO7r5eaZWfup0%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Salmon_Tropical_Rojo_Multicolor._Francia.tif.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DGiSnKssAqmXXUX0VCJbUtOXc32I%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Silvestre. Ireland\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Silvestre._Irlanda.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Djh6qPU0GV3ExrDl9Hwdv%2FdSNF%2Fo%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Silvestre._Irlanda.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DGlKSgZioTlyG0cad7eKOostay5c%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Titanium. Spain\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Titanium._Espana.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DW5PkirDhGuO8fM7cpiZjVbD8Mm8%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Titanium._Espana.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DjcJaOqdR688yo0vCANyhhVALK4k%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Titanium. Morocco\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Titanium_Marruecos.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003D8S3BZN9KMTT88KEE6XlKPru333k%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Titanium_Marruecos.jpg.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DRY40DixyyqJljIO8RjWUCo8CX%2Bk%3D\u0026Expires\u003D1659902626\u0022}, {\u0022title\u0022: \u0022Zimbabwe, Negro Angola. Switzerland\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Zimbabwe_Negro_Angola._Suiza.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DaC2VQvSamxUFIGJ%2BW8T%2BsC6R15w%3D\u0026Expires\u003D1659902626\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Zimbabwe_Negro_Angola._Suiza.441x331_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Dl%2FBvuaBLqiUXKlpZtQIFiJesF%2BA%3D\u0026Expires\u003D1659902627\u0022}]");
+        data["acabados"] = JSON.parse("[{\u0022id\u0022: 2, \u0022description\u0022: \u0022Polished\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_DFG._Pulido_uTft49U.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DJ7027C5Qc66Pn1rouTclQWL%2B3js%3D\u0026Expires\u003D1659902627\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_DFG._Pulido_uTft49U.jpg.174x131_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Du%2FWLj4trpBIHN3tNfPA8AAmXFCQ%3D\u0026Expires\u003D1659902627\u0022}, {\u0022id\u0022: 3, \u0022description\u0022: \u0022Honed\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Azul_Platino._Apomazado.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DqEIQjdQibydEN%2B%2B9Sg%2BdtxMBioE%3D\u0026Expires\u003D1659902627\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Azul_Platino._Apomazado.jpg.174x131_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DcCgHNAlOK8M3UpDS2yzlnK8Qz4E%3D\u0026Expires\u003D1659902627\u0022}, {\u0022id\u0022: 4, \u0022description\u0022: \u0022Leather\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Green_Army._Leather_qOyo97b.jpeg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003D3Gjgvg8Ey4aZK63UnmoWEkh88uo%3D\u0026Expires\u003D1659902627\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Green_Army._Leather_qOyo97b.jpeg.174x131_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DfOUSA7HEeyPk7C0lJ5IA0ZnH0fw%3D\u0026Expires\u003D1659902627\u0022}, {\u0022id\u0022: 5, \u0022description\u0022: \u0022Flamed\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Crema_Terra._Flameado.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DzHAfoJdoulexn%2F%2BFlVMlGqvAong%3D\u0026Expires\u003D1659902627\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Crema_Terra._Flameado.jpg.174x131_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DYXByCf9ZnXEA0zTjqf6JXNwZJrk%3D\u0026Expires\u003D1659902627\u0022}, {\u0022id\u0022: 6, \u0022description\u0022: \u0022Gritted\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino._Granallado.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003D2pCKPfei8TCE8ejCGfOP7DwdHVI%3D\u0026Expires\u003D1659902627\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino._Granallado.jpg.174x131_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DML4VeRGFka4WUj91TULRCg%2BaL2I%3D\u0026Expires\u003D1659902627\u0022}, {\u0022id\u0022: 7, \u0022description\u0022: \u0022Anticatto\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Negro_Angola._Anticatto.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DLYTPfL%2Fuo1E%2FJyxCvjFRycD%2BfzQ%3D\u0026Expires\u003D1659902627\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Negro_Angola._Anticatto.jpg.174x131_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DX5fSLvtzzjn1esWuBF1Cln4pS9A%3D\u0026Expires\u003D1659902627\u0022}, {\u0022id\u0022: 8, \u0022description\u0022: \u0022Anticatto Brillo\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Negro_Angola._Anticatto_Brillo.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DSBpSyL%2FTwEaQYyK3axWcKMM1YXQ%3D\u0026Expires\u003D1659902627\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Negro_Angola._Anticatto_Brillo.jpg.174x131_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DsF%2FhRTue%2Fni2n3dKVjoLDyc6mG4%3D\u0026Expires\u003D1659902627\u0022}, {\u0022id\u0022: 9, \u0022description\u0022: \u0022Wool\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Wool.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Da3JM5f3GwllA0cquh1yeSm%2BrUNY%3D\u0026Expires\u003D1659902627\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Berrocal._Wool.174x131_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DSTao%2BN4ba%2BNJcm3sWkkij8QTIIQ%3D\u0026Expires\u003D1659902627\u0022}, {\u0022id\u0022: 10, \u0022description\u0022: \u0022Silk\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino._Silk.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DYpIoIVc4OO%2F7kqa0ElCaWwVxmR8%3D\u0026Expires\u003D1659902627\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Amarillo_San_Martino._Silk.174x131_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003Dq5KBrhxbB6a%2Begskr%2FxPkAXl46g%3D\u0026Expires\u003D1659902627\u0022}, {\u0022id\u0022: 11, \u0022description\u0022: \u0022Velvet\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Castilla._Velvet.jpg.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DbuA3%2BLryKNoaWCDImhL8gEePyLE%3D\u0026Expires\u003D1659902627\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Blanco_Castilla._Velvet.jpg.174x131_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DPUN17M5rFJ18tJRLmj0kH51U7rM%3D\u0026Expires\u003D1659902627\u0022}, {\u0022id\u0022: 12, \u0022description\u0022: \u0022Limens\u0022, \u0022image\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Azul_Platino._Limens.JPG.1280x960_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DWLxuUCqBpJ7y94Gq6qDgVrzTYEM%3D\u0026Expires\u003D1659902627\u0022, \u0022image_custom\u0022: \u0022https://minio.dns.dsw2.possibleinc.com/dfg\u002Dprod/media/Azul_Platino._Limens.JPG.174x131_q85_crop.jpg?AWSAccessKeyId\u003Ddfg\u002Dprod\u0026Signature\u003DhG1MnVcowrByAMthnWYhBREFOc0%3D\u0026Expires\u003D1659902627\u0022}]");
+
+        data["factory"] = [
+          {title: "factory1", description:"Factorias", image: "https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/img/proyectos/pavetone_projects_04.jpg.1280x960_q100.jpg?AWSAccessKeyId=dfg-prod&Signature=BRilfOrOk%2FQCRHeywRhq%2BMYCk8M%3D&Expires=1659902627"},
+          {title: "factory1", description:"Factorias", image: "https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/img/proyectos/pavetone_projects_06b.jpg.1280x960_q100.jpg?AWSAccessKeyId=dfg-prod&Signature=gfbkz%2FgAPTpw2BiGR4r%2FMB5ErwI%3D&Expires=1659902627"},
+          {title: "factory1", description:"Factorias", image: "https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/img/proyectos/pavetone_projects_19.jpg.1280x960_q100.jpg?AWSAccessKeyId=dfg-prod&Signature=fAUQhUVjFMMp8DSrqD%2BBeuFXp4g%3D&Expires=1659902627"},
+          {title: "factory1", description:"Factorias", image: "https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/img/proyectos/pavetone_projects_28.jpg.1280x960_q100.jpg?AWSAccessKeyId=dfg-prod&Signature=%2Bv9SQ07KBFuQsrnQry%2F1Ony%2FC0M%3D&Expires=1659902627"},
+          {title: "factory1", description:"Factorias", image: "https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/img/proyectos/taladros.jpg.1280x960_q100.jpg?AWSAccessKeyId=dfg-prod&Signature=yWaqLM7%2BIZ35olV7kB3LhH4EykY%3D&Expires=1659902627"},
+          {title: "factory1", description:"Factorias", image: "https://minio.dns.dsw2.possibleinc.com/dfg-prod/media/img/proyectos/tronzadora.jpeg.1280x960_q100.jpg?AWSAccessKeyId=dfg-prod&Signature=E3C%2FD%2BwJPWV1NjBjku1ggaDTO5w%3D&Expires=1659902627"},
+        ];
+
+        function toggleProjects(elementId){
+            document.querySelector('#'+elementId).classList.toggle('hidden');
+            document.querySelector('#open_'+elementId).classList.toggle('hidden');
+            document.querySelector('#close_'+elementId).classList.toggle('hidden');
+        }
+    </script>
+    
+
+    <script>
+        var app;
+        if(typeof app === "undefined"){
+            app = Vue.createApp({data() { return data}})
+            app.config.compilerOptions.delimiters = ['[[', ']]']
+        }
+        
+    </script>
+    
+    
+    
+     
+<script type="text/x-template" id="dfg-carousel-template">
+  <div class="relative items-center md:my-10 " :class="[containerStyle],{'h-full': showSlideName}">
+      <div v-if="slides.length > 0" class="mt-4 mx-4" :class="[containerStyle2]">
+          <div class="flex flex-row items-center font-bold md:px-2 pb-4" v-if="title && showTitle" :class="{'mb-0': totalSlides < 3,'mb-8': totalSlides >= 3}" ><span>[[title.toUpperCase()]]</span>
+              <!-- <div class="ml-4 w-24 border-2 border-gray-500 h-1"></div> -->
+            <img class="w-8 ml-2" src="/static/img/linea-recta.png">
+          </div>
+          <div class="flex justify-end items-end  md:items-center mb-10">
+              <div class="contenedor-carousel w-full" id="contenedor-carousel">
+                  <div class="relative flex flex-col justify-center w-full">
+                      <div class="flex flex-row flex-nowrap w-full justify-center items-center" :class="{'items-baseline': showSlideName}">
+                          <div v-for="(slide, index) in slidesParsed" :key="index"
+                               class="project flex flex-col items-center justify-center w-full h-full" :class="[slideStyle]"
+                               v-show="!checkShow(index)" >
+                              <div class="flex flex-col items-center w-full h-auto justify-center" :class="{'relative': index === 2 && noGallery, 'aspect-ratio': (styleNum === 1 && totalSlides >= 3) || (styleNum === 2 && totalSlides >= 8) ||full , 'max-width': showSlideName}" style=" max-height: 40rem;" >
+                                  <img :id="'slide-'+index" loading="lazy" class="w-auto align-top bg-gray-500" style="aspect-ratio: 4/3;" :style="maxHeightStyle," :src="slide.src"
+                                       :alt="slide.name" :class="[slideStyle]">
+                                       <div v-if="index === 2 && noGallery"
+                                        :class="{'bg-gradient-to-r from-transparent via-white to-white': index === 2 && noGallery}"
+                                         class="absolute w-full h-full"></div>
+                                       <div v-if="showSlideName" class="md:px-2 mb-6 font-bold  text-sm">
+                                        <span v-if="!slide.titleUrl">[[slide.name]]</span>
+                                        <div v-if="slide.titleUrl" class="flex">
+                                        <a :href="slide.titleUrl"
+                                            class="focus:outline-none focus:ring-opacity-50 py-2 inline-flex items-center font-medium md:justify-end">
+                                            <span class="uppercase text-sm font-bold">[[slide.name.toUpperCase()]]</span>
+                                            <img class="w-4 h-4 ml-2" src="/static/img/flecha.png">
+                                        </a>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div :class="[carouselStyle]" v-if="allowButtons && slides.length > 0">
+          <div class="flex pt-2 md:pt-0 " :class="[buttonStyle]">
+              <button @click="prev"
+                      class="bg-white flecha-izquierda focus:outline-none focus:ring-opacity-50 border p-2 mr-1 border-black rounded-full left-0 hover:bg-gray-100 md:mr-2 md:p-4"
+                      id="flecha-izquierda" role="button">
+                  <img class="w-4 h-4 items-center" src="/static/img/flecha-izq.png">
+              </button>
+              <button @click="next"
+                      class="bg-white flecha-derecha focus:outline-none focus:ring-opacity-50 border p-2 ml-1 border-black rounded-full right-0 hover:bg-gray-100 md:ml-2 md:p-4"
+                      id="flecha-derecha" role="button">
+                  <img class="w-4 h-4 items-center" src="/static/img/flecha.png">
+              </button>
+          </div>
+      </div>
+  </div>
+  <div v-if="showdescription && slides.length > 0" class="flex justify-center">
+    <span class="text-xl md:mb-16 md:text-2xl">
+      [[currentDescription]]
+    </span>
+  </div>
+  <div v-if="localUrl && slides.length > 0" class="flex mt-4 mb-4 md:mx-10" :class="[mobile && styleNum !==2 ? 'justify-center' : 'justify-end pr-5']">
+      <a :href="localUrl.url"
+         class="focus:outline-none focus:ring-opacity-50 py-2 inline-flex items-center font-medium md:justify-end">
+          <span class="uppercase text-sm font-bold">[[localUrl.title.toUpperCase()]]</span>
+          <img class="w-4 h-4 ml-2" src="/static/img/flecha.png">
+      </a>
+  </div>
+  <div v-if="title && slides.length === 0" class="flex justify-center">
+    <span class="font-bold uppercase">No existen registros de [[title]]</span>
+  </div>
+</script>
+<style>
+  .aspect-ratio {
+    aspect-ratio: 4/3;
+  }
+  .max-width {
+    max-width: 331px;
+  }
+  .top-50 {
+    top: calc(50%);
+    transform: translatey(-50%);
+  }
+  .top-50-title {
+    top: calc(50%);
+    transform: translatey(8%);
+  }
+
+  .top-90 {
+    top: calc(100%);
+    transform: translatey(-50%);
+  }
+  .top-100 {
+    top: calc(100%);
+    transform: translatey(-130%);
+  }
+
+  @media screen and (max-width: 766px) {
+    .top-90 {
+      transform: translatey(-57%);
+    }
+    .top-100 {
+      transform: translatey(-155%);
+    }
+  }
+</style>
+  
+  
+    <script src="/static/components/js/dfg-carousel-controller.js"></script>
+    <script>
+        if(typeof app !== "undefined" ){
+            app.mount('#app')
+        }
+    </script>
+</body>
+<script src="/static/menu.js" type="application/javascript"></script>
+
+
+<footer class="inset-x-0 bottom-0 mt-4">
+    <!-- The Modal -->
+<div id="myModal" class="modal w-full h-full fixed left-0 top-0 hidden">
+    <style>
+    /* The Modal (background) */
+        .modal {
+          z-index: 1; /* Sit on top */
+          padding-top: 100px; /* Location of the box */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        
+        /* Modal Content */
+        .modal-content {
+          background-color: #fefefe;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%;
+        }
+        
+        /* The Close Button */
+        .close {
+          color: #aaaaaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        </style>
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="flex justify-center">
+        <img src="/static/img/link-banner-xunta.jpg">
+      </div>
+    </div>
+  
+  </div>
+    <div class="p-5 sm:px-20 bg-gray-100 items-center justify-between md:grid md:grid-cols-2">
+        <div class="mb-8 w-auto xl:ml-14 md:mb-0 flex flex-col xl:flex-row justify-center xl:justify-left items-center xl:items-left">
+            <img class="w-40 h-24" src="/static/img/logo%40aysinnova.jpg">
+            <a href="/static/pdf/PAVESTONE-FichaProjeto-PT2020.pdf" target="_blanck">
+                <img class="pt-4 xl:pt-0 2xl:h-24 xl:pr-8" src="/static/img/barra_feder.jpg">
+            </a>
+        </div>
+        <div class="grid grid-cols-4 gap-1 sm:gap-4" id="myBtn">
+            <img class="w-24 h-32 md:w-32" src="/static/img/logo-xunta.svg">
+            <img class="w-16 h-32 md:w-16 m-auto" src="/static/img/logo-UE.svg">
+            <img class="w-16 h-32 md:w-32" src="/static/img/logo-igape.svg">
+            <img class="w-16 h-32 md:w-32" src="/static/img/logo-galicia.svg">
+        </div>
+    </div>
+
+    <div class="bg-black text-gray-800 md:flex lg:px-20 md:justify-between">
+        <div class="md:inline-flex md:space-x-10 md:m-10">
+            <div class="p-2 justify-left ml-4">
+                <div class="text-xs uppercase text-white font-medium mb-2 text-left">
+                    direction
+                </div>
+                <span class="text-xs text-gray-400 text-left block">David Fernández Grande</span>
+                <span class="text-xs text-gray-400 text-left block">C/ Pontevedra, 4, 4o</span>
+                <span class="text-xs text-gray-400 text-left block">Vigo 36201 Spain</span>
+            </div>
+
+            <div class="p-2 justify-center ml-4">
+                <div class="text-xs uppercase text-white font-medium mb-2 text-left">
+                    phone number
+                </div>
+                <span class="text-xs text-gray-400 text-left block">+34 986 432 822</span>
+                <span class="text-xs text-gray-400 text-left block">+34 986 434 279</span>
+            </div>
+
+            <div class="p-2 justify-center ml-4">
+                <div class="text-xs uppercase text-white font-medium mb-2 text-left">
+                    email
+                </div>
+                <span class="text-xs text-gray-400 text-left block">dfg@dfg.es</span>
+            </div>
+        </div>
+        <div class="grid grid-rows-1 divide-y divide-gray-600">
+            <div class="flex-grow sm:hidden"></div>
+            <div class="bg-black flex p-5 flex-row justify-center items-center lg:p-5 lg:pr-20">
+                <!-- <img class="md:flex-row-reverse md:px-0 px-25 w-5/12" src="/static/img/prueba.png"> -->
+                <img class="md:flex-row-reverse md:px-0 px-25 w-5/12 object-scale-down md:w-3/4"
+                    src="/static/img/prueba.png">
+                <div class="flex-grow"></div>
+                <div class="flex flex-col bg-black p-2 lg:p-5 lg:pr-20 text-right ml-10 block md:hidden">
+                    <div class="space-y-4">
+                        <li class="block mx-2">
+                            <a class="block text-sm text-gray-400" href="/aviso-legal">Legal Advice</a>
+                        </li>
+                    </div>
+                    <div class="space-y-4">
+                        <li class="block mx-2">
+                            <a class="block text-sm text-gray-400" href="politica-de-cookies">Cookies Policy</a>
+                        </li>
+                    </div>
+                    <div class="space-y-4">
+                        <li class="block mx-2">
+                            <a class="block text-sm text-gray-400" href="/politica-de-privacidad">Privacy Policy</a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-grow h-px bg-gray-100 hidden md:block"></div>
+    <div class="flex bg-black p-2 lg:p-5 lg:pr-32 justify-end hidden md:flex">
+        <div class="space-y-4">
+            <li class="block mx-2">
+                <a class="block text-sm text-gray-400" href="/aviso-legal">Legal Advice</a>
+            </li>
+        </div>
+        <div class="space-y-4">
+            <li class="block mx-2">
+                <a class="block text-sm text-gray-400" href="/politica-de-cookies">Cookies Policy</a>
+            </li>
+        </div>
+        <div class="space-y-4">
+            <li class="block mx-2">
+                <a class="block text-sm text-gray-400" href="/politica-de-privacidad">Privacy Policy</a>
+            </li>
+        </div>
+    </div>
+</footer>
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+</script>
+</html>

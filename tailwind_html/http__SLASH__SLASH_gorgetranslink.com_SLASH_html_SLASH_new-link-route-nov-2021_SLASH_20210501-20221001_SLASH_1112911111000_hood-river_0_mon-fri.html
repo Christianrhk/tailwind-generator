@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/timetable_styles.css">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlaG9sem1hbiIsImEiOiJjazA1cHc0bGwyc25zM29xZGptdnJ3N2FlIn0.c6NVNxyMLyAONXtQtpUjyg';
+  </script>
+  <script src="../js/timetable-map.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Timetable generated on Wed Nov 10 2021 11:26:06 GMT-0800 (Pacific Standard Time) using GTFS-to-HTML version 2.1.1 -->
+  <div class="timetable-page menu-type-simple">
+    <div class="container mx-4 md:mx-auto">
+      <h1 class="timetable-page-label text-2xl pt-4 flex items-center">
+        <div class="route-color-swatch-large mr-2 flex-none" style="background-color: #cc3530; color: #ffffff"></div>
+        <div>Route Hood River</div>
+      </h1>
+      <div class="effective-date text-gray-600 mb-2">Effective November 10, 2021</div>
+      <div class="timetable mb-5" id="timetable_id_1112911111000" data-day-list="Mon-Fri" data-timetable-id="11129|1111100|0" data-direction-id="0" data-route-id="11129">
+        <h2 class="text-xl">Route Hood River - Hood River - Loop | monday-friday</h2>
+        <div class="service-notes"></div>
+        <div class="map" id="map_timetable_id_1112911111000"></div>
+        <script>
+          (function() {
+            const id = 'timetable_id_1112911111000';
+            const geojson = {
+              "type": "FeatureCollection",
+              "features": [{
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Columbia Area Transit",
+                  "route_id": "11129",
+                  "agency_id": "37",
+                  "route_long_name": "Hood River",
+                  "route_type": 3,
+                  "route_url": "https://www.ridecatbus.org/hood-river/",
+                  "route_color": "#cc3530",
+                  "route_text_color": "#ffffff",
+                  "route_sort_order": 1,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.53522, 45.71154],
+                    [-121.53526, 45.71166],
+                    [-121.53534, 45.71168],
+                    [-121.5364, 45.71169],
+                    [-121.5365, 45.71168],
+                    [-121.53655, 45.71162],
+                    [-121.53652, 45.71099],
+                    [-121.53732, 45.71099],
+                    [-121.53811, 45.71108],
+                    [-121.53829, 45.71107],
+                    [-121.53891, 45.71096],
+                    [-121.53903, 45.71097],
+                    [-121.53921, 45.71106],
+                    [-121.53931, 45.71107],
+                    [-121.54019, 45.71106],
+                    [-121.54029, 45.71108],
+                    [-121.54031, 45.71111],
+                    [-121.54033, 45.7114],
+                    [-121.53914, 45.71139],
+                    [-121.53916, 45.71223],
+                    [-121.54082, 45.71224],
+                    [-121.54083, 45.71124],
+                    [-121.54034, 45.71123],
+                    [-121.54032, 45.71113],
+                    [-121.54028, 45.7111],
+                    [-121.5393, 45.71111],
+                    [-121.5392, 45.71108],
+                    [-121.53912, 45.71103],
+                    [-121.53907, 45.71097],
+                    [-121.53906, 45.7106],
+                    [-121.53546, 45.70998],
+                    [-121.53548, 45.70987],
+                    [-121.53546, 45.70908],
+                    [-121.53452, 45.70907],
+                    [-121.53204, 45.7091],
+                    [-121.53206, 45.70738],
+                    [-121.53196, 45.70738],
+                    [-121.53379, 45.70739],
+                    [-121.53377, 45.7048],
+                    [-121.53391, 45.70448],
+                    [-121.53426, 45.70413],
+                    [-121.53438, 45.70395],
+                    [-121.53438, 45.70382],
+                    [-121.52961, 45.7038],
+                    [-121.52935, 45.70385],
+                    [-121.529, 45.70398],
+                    [-121.52517, 45.70412],
+                    [-121.52515, 45.7037],
+                    [-121.52499, 45.70334],
+                    [-121.52481, 45.70302],
+                    [-121.52477, 45.70287],
+                    [-121.52474, 45.70265],
+                    [-121.52473, 45.70025],
+                    [-121.52471, 45.69972],
+                    [-121.52465, 45.69954],
+                    [-121.52453, 45.69945],
+                    [-121.52441, 45.69937],
+                    [-121.52415, 45.69927],
+                    [-121.52391, 45.69912],
+                    [-121.52382, 45.69902],
+                    [-121.52368, 45.69879],
+                    [-121.52365, 45.69798],
+                    [-121.52366, 45.69659],
+                    [-121.51855, 45.69663],
+                    [-121.51854, 45.69302],
+                    [-121.5236, 45.69301],
+                    [-121.52358, 45.69459],
+                    [-121.52249, 45.6946],
+                    [-121.5225, 45.69532],
+                    [-121.52239, 45.6954],
+                    [-121.52235, 45.69662],
+                    [-121.52366, 45.69659]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Columbia Area Transit",
+                  "route_id": "11129",
+                  "agency_id": "37",
+                  "route_long_name": "Hood River",
+                  "route_type": 3,
+                  "route_url": "https://www.ridecatbus.org/hood-river/",
+                  "route_color": "#cc3530",
+                  "route_text_color": "#ffffff",
+                  "route_sort_order": 1,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.52366, 45.6967],
+                    [-121.52365, 45.69798]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Columbia Area Transit",
+                  "route_id": "11129",
+                  "agency_id": "37",
+                  "route_long_name": "Hood River",
+                  "route_type": 3,
+                  "route_url": "https://www.ridecatbus.org/hood-river/",
+                  "route_color": "#cc3530",
+                  "route_text_color": "#ffffff",
+                  "route_sort_order": 1,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.52368, 45.69879],
+                    [-121.52364, 45.69891],
+                    [-121.52368, 45.69952],
+                    [-121.52367, 45.70094],
+                    [-121.52371, 45.70413],
+                    [-121.52171, 45.70414],
+                    [-121.52171, 45.70483],
+                    [-121.52159, 45.70495],
+                    [-121.52143, 45.7052],
+                    [-121.52128, 45.70534],
+                    [-121.52092, 45.70557],
+                    [-121.52059, 45.70564],
+                    [-121.5205, 45.70567],
+                    [-121.5203, 45.7058],
+                    [-121.52021, 45.70589],
+                    [-121.52018, 45.70613],
+                    [-121.52015, 45.70798],
+                    [-121.51642, 45.70814],
+                    [-121.5123, 45.70815],
+                    [-121.51227, 45.71133],
+                    [-121.51227, 45.71162],
+                    [-121.5123, 45.71189],
+                    [-121.51237, 45.71206],
+                    [-121.51254, 45.71226],
+                    [-121.51271, 45.71239],
+                    [-121.51298, 45.71254],
+                    [-121.51282, 45.71268],
+                    [-121.5127, 45.71274],
+                    [-121.51253, 45.71278],
+                    [-121.51171, 45.71277],
+                    [-121.51172, 45.71239],
+                    [-121.51156, 45.71239],
+                    [-121.51154, 45.71277],
+                    [-121.51253, 45.71278],
+                    [-121.5127, 45.71273],
+                    [-121.51282, 45.71268],
+                    [-121.51332, 45.71223],
+                    [-121.51353, 45.7121],
+                    [-121.51369, 45.71203],
+                    [-121.51401, 45.71197],
+                    [-121.5143, 45.71197],
+                    [-121.51536, 45.71212],
+                    [-121.51589, 45.71223],
+                    [-121.51711, 45.71257],
+                    [-121.51812, 45.71283],
+                    [-121.5191, 45.71305],
+                    [-121.51902, 45.7149],
+                    [-121.51759, 45.71488],
+                    [-121.51701, 45.71485],
+                    [-121.51376, 45.71481],
+                    [-121.51382, 45.71359],
+                    [-121.51381, 45.71336],
+                    [-121.51376, 45.71317],
+                    [-121.51366, 45.71301],
+                    [-121.51356, 45.7129],
+                    [-121.51338, 45.71276],
+                    [-121.51271, 45.71239],
+                    [-121.51253, 45.71227],
+                    [-121.51237, 45.71206],
+                    [-121.5123, 45.71189],
+                    [-121.51227, 45.71133],
+                    [-121.51229, 45.70957],
+                    [-121.51437, 45.7096],
+                    [-121.51437, 45.7103],
+                    [-121.51606, 45.71031],
+                    [-121.51733, 45.71028],
+                    [-121.51733, 45.71046],
+                    [-121.51736, 45.71058],
+                    [-121.51746, 45.71066],
+                    [-121.51762, 45.71073],
+                    [-121.51922, 45.71111],
+                    [-121.52084, 45.71144],
+                    [-121.52118, 45.7115],
+                    [-121.52156, 45.71154],
+                    [-121.52218, 45.71155],
+                    [-121.5246, 45.71147],
+                    [-121.52979, 45.71148],
+                    [-121.53108, 45.71147],
+                    [-121.53129, 45.71145],
+                    [-121.53176, 45.71137],
+                    [-121.53317, 45.71107],
+                    [-121.53356, 45.71102],
+                    [-121.53389, 45.71101],
+                    [-121.53513, 45.71101],
+                    [-121.53513, 45.71132],
+                    [-121.53522, 45.71154]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2455471",
+                  "stop_name": "Port Transfer (Sinclair Gas)",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "237",
+                    "agency_id": "37",
+                    "route_long_name": "The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/the-dalles/",
+                    "route_color": "#f49d3f",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 4,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "3643",
+                    "agency_id": "37",
+                    "route_long_name": "Columbia Gorge Express",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/columbia-gorge-express/",
+                    "route_color": "#14aaed",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.5118, 45.71245]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2455472",
+                  "stop_name": "Waucoma Center",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "3643",
+                    "agency_id": "37",
+                    "route_long_name": "Columbia Gorge Express",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/columbia-gorge-express/",
+                    "route_color": "#14aaed",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.52041, 45.71143]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2455478",
+                  "stop_name": "Safeway, Hood River",
+                  "stop_url": "http://catransit.org/service-routes/",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.5354, 45.70905]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2455480",
+                  "stop_name": "Hood River Aquatic Center",
+                  "stop_url": "http://catransit.org/service-routes/",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.52858, 45.70394]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2455481",
+                  "stop_name": "Pacific Avenue and 12th Street",
+                  "stop_url": "http://catransit.org/service-routes/",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.5238, 45.69672]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2455482",
+                  "stop_name": "Hood River Public Library",
+                  "stop_url": "http://catransit.org/service-routes/",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.5143, 45.70804]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2455483",
+                  "stop_name": "8th Street and Portway Avenue",
+                  "stop_url": "http://catransit.org/service-routes/",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.5189, 45.71477]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2506080",
+                  "stop_name": "4th Street and Columbia Street",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "3643",
+                    "agency_id": "37",
+                    "route_long_name": "Columbia Gorge Express",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/columbia-gorge-express/",
+                    "route_color": "#14aaed",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.51445, 45.71037]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2736170",
+                  "stop_name": "Pacific Ave & 8th St - One Community Health",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.51862, 45.69657]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2736171",
+                  "stop_name": "May St & 11th St - Hospital",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.52255, 45.70409]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2736321",
+                  "stop_name": "20th St & Cascade Ave - Rite Aid",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.53296, 45.70904]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "9457",
+                  "stop_name": "Rosauer's Super Market",
+                  "zone_id": "1469",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "9768",
+                    "agency_id": "37",
+                    "route_long_name": "Upper Valley",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/upper-valley/",
+                    "route_color": "#52c1d5",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 2,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.52242, 45.69504]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "9460",
+                  "stop_name": "Wal-Mart",
+                  "zone_id": "1469",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.53911, 45.712]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "9469",
+                  "stop_name": "CAT Transit Center - Hood River",
+                  "zone_id": "1469",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "12170",
+                    "agency_id": "37",
+                    "route_long_name": "Cascade Locks",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/cascade-locks/",
+                    "route_color": "#9e84bc",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 6,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "237",
+                    "agency_id": "37",
+                    "route_long_name": "The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/the-dalles/",
+                    "route_color": "#f49d3f",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 4,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "3643",
+                    "agency_id": "37",
+                    "route_long_name": "Columbia Gorge Express",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/columbia-gorge-express/",
+                    "route_color": "#14aaed",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "9768",
+                    "agency_id": "37",
+                    "route_long_name": "Upper Valley",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/upper-valley/",
+                    "route_color": "#52c1d5",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 2,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Columbia Area Transit"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.53528, 45.71153]
+                }
+              }]
+            };
+            createMap(id, geojson);
+          })();
+        </script>
+        <div class="table-container">
+          <table summary="This table shows schedules for a selection of key stops on the route for Route Hood River - Hood River - Loop Mon-Fri. Stops and their schedule times are listed in the columns." data-orientation="vertical">
+            <caption class="sr-only">Route Hood River - Hood River - Loop | Mon-Fri</caption>
+            <colgroup>
+              <col class="stop-0" id="stop_id_9469" data-stop-id="9469">
+              <col class="stop-1" id="stop_id_9460" data-stop-id="9460">
+              <col class="stop-2" id="stop_id_2455478" data-stop-id="2455478">
+              <col class="stop-3" id="stop_id_2736321" data-stop-id="2736321">
+              <col class="stop-4" id="stop_id_2455480" data-stop-id="2455480">
+              <col class="stop-5" id="stop_id_2455481" data-stop-id="2455481">
+              <col class="stop-6" id="stop_id_2736170" data-stop-id="2736170">
+              <col class="stop-7" id="stop_id_9457" data-stop-id="9457">
+              <col class="stop-8" id="stop_id_2736171" data-stop-id="2736171">
+              <col class="stop-9" id="stop_id_2455482" data-stop-id="2455482">
+              <col class="stop-10" id="stop_id_2455471" data-stop-id="2455471">
+              <col class="stop-11" id="stop_id_2455483" data-stop-id="2455483">
+              <col class="stop-12" id="stop_id_2506080" data-stop-id="2506080">
+              <col class="stop-13" id="stop_id_2455472" data-stop-id="2455472">
+              <col class="stop-14" id="stop_id_9469" data-stop-id="9469">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="city-column">Hood River</th>
+                <th class="stop-header" scope="col" width="5.88%">
+                  <div class="stop-name">CAT Transit Center - Hood River</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%">
+                  <div class="stop-name">Wal-Mart</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%"><a class="stop-name" href="http://catransit.org/service-routes/">Safeway, Hood River</a>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%">
+                  <div class="stop-name">20th St &amp; Cascade Ave - Rite Aid</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%"><a class="stop-name" href="http://catransit.org/service-routes/">Hood River Aquatic Center</a>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%"><a class="stop-name" href="http://catransit.org/service-routes/">Pacific Avenue and 12th Street</a>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%">
+                  <div class="stop-name">Pacific Ave &amp; 8th St - One Community Health</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%">
+                  <div class="stop-name">Rosauer's Super Market</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%">
+                  <div class="stop-name">May St &amp; 11th St - Hospital</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%"><a class="stop-name" href="http://catransit.org/service-routes/">Hood River Public Library</a>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%">
+                  <div class="stop-name">Port Transfer (Sinclair Gas)</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%"><a class="stop-name" href="http://catransit.org/service-routes/">8th Street and Portway Avenue</a>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%">
+                  <div class="stop-name">4th Street and Columbia Street</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="5.88%">
+                  <div class="stop-name">Waucoma Center</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="city-column"></th>
+                <th class="stop-header" scope="col" width="5.88%">
+                  <div class="stop-name">CAT Transit Center - Hood River</div>
+                  <div class="stop-code"></div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="trip-row" id="trip_id_t_1565140_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">8:30am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:33am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:36am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:37am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:39am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:42am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:43am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:45am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:48am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">8:51am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:00am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:03am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:06am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:09am</span></td>
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">9:15am</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565141_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">9:15am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:18am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:21am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:22am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:24am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:27am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:28am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:30am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:33am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:36am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:45am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:48am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:50am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">9:53am</span></td>
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">10:00am</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565142_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">10:00am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:03am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:06am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:07am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:09am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:12am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:13am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:15am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:18am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:21am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:30am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:33am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:35am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:38am</span></td>
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">10:45am</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565143_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">10:45am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:48am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:51am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:52am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:54am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:57am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:58am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:00am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:03am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:06am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:15am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:18am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:20am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:23am</span></td>
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">11:30am</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565144_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time am"><span class="stop-time-text">11:30am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:33am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:36am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:37am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:39am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:42am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:43am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:45am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:48am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:51am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:00pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:05pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:08pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:15pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565145_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:15pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:18pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:21pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:22pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:24pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:27pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:28pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:33pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:36pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:50pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">12:53pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:00pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565146_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:00pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:06pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:07pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:09pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:12pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:13pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:15pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:18pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:21pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:33pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:35pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:38pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:45pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565147_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:51pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:52pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:54pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:57pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:58pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:00pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:06pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:15pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:18pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:20pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:23pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:30pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565148_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:33pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:36pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:37pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:39pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:42pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:43pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:51pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:00pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:05pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:08pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:15pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565149_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:15pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:18pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:21pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:22pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:24pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:27pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:28pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:33pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:36pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:50pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:53pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:00pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565150_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:00pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:06pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:07pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:09pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:12pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:13pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:15pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:18pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:21pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:33pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:35pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:38pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:45pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565151_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:51pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:52pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:54pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:57pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:58pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:00pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:06pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:15pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:18pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:20pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:23pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:30pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565152_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:33pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:36pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:37pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:39pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:42pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:43pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:51pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:00pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:05pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:08pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:15pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1565153_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:15pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:18pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:21pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:22pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:24pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:27pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:28pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:33pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:36pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:50pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">6:53pm</span></td>
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">7:00pm</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1560468_b_31142_tn_0">
+                <td></td>
+                <td class="stop-time pm"><span class="stop-time-text">7:00pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">7:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">7:06pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">7:07pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">7:09pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">7:12pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">7:13pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">7:15pm</span></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-11129|1111100|0-no-service">—</a></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-11129|1111100|0-no-service">—</a></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-11129|1111100|0-no-service">—</a></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-11129|1111100|0-no-service">—</a></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-11129|1111100|0-no-service">—</a></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-11129|1111100|0-no-service">—</a></td>
+                <td></td>
+                <td class="stop-time skipped"><span class="stop-time-text"></span><a class="symbol" href="#note-11129|1111100|0-no-service">—</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div class="notes">
+            <div class="note" id="note-11129|1111100|0-no-service">— = No service at this stop</div>
+          </div>
+          <div class="excluded-dates">Service not provided on: Thanksgiving Day, Day After Thanksgiving, Martin Luther King Jr. Day, President's Day, Memorial Day, Independence Day, Labor Day</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

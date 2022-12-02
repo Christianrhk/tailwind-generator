@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <link rel="icon" type="image/svg+xml" href="favicon.svg" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+
+  <!--
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+  <link rel='stylesheet' href='/css/calendarmain.css' />
+
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Parroquia San Jose Maria</title>
+</head>
+
+
+<body class="overflow-hidden">
+
+  <!-- barra navegacion mobile -->
+  <div class="bar-navigation mobile fixed right-0 flex md:hidden justify-end">
+      <div
+          class="mobile-navigation flex md:hidden flex-row flex-wrap items-center content-around w-28 mr-1 rounded-full shadow  py-2 cursor-pointer">
+          <p class="w-2/3 text-center">Menu</p>
+          <span class="toggle w-1/3 mr-1"></span>
+      </div> <!-- .mobile-navigation -->
+  
+      <nav class="fixed w-1/2 bottom-0 mb-20 text-right">
+          <ul class="mr-2">
+              <li
+                  class="flex justify-between items-center py-2 px-2 text-white uppercase rounded-r-lg cursor-pointer transition duration-300 ease-in-out active">
+                  <a href="/" class="w-full flex justify-between items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-4" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                      </svg>
+                      <p>inicio</p>
+                  </a>
+              </li>
+              <li
+                  class="flex justify-between items-center py-2 px-2 text-white uppercase rounded-r-lg cursor-pointer transition duration-300 ease-in-out ">
+                  <a href="/schedule" class="w-full flex justify-between items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-4" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <p>horarios</p>
+                  </a>
+              </li>
+              <li
+                  class="flex justify-between items-center py-2 px-2 text-white uppercase rounded-r-lg cursor-pointer transition duration-300 ease-in-out ">
+                  <a href="/donate" class="w-full flex justify-between items-center">
+                      <svg class="h-5 w-5 ml-4 fill-current" viewBox="0 -24 511.99906 511"
+                          xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                          <path
+                              d="m50 262.597656c-5.519531 0-10 4.480469-10 10 0 5.519532 4.480469 10 10 10s10-4.480468 10-10c0-5.519531-4.480469-10-10-10zm0 0"
+                              stroke-width="2" />
+                          <path
+                              d="m459.617188 297.273438-94.273438 32.410156c.417969-2.320313.652344-4.6875.652344-7.089844 0-22.054688-17.941406-40-40-40h-64.757813c-1.71875 0-3.414062-.441406-4.910156-1.285156l-52.832031-29.714844c-10.445313-5.886719-22.316406-9-34.328125-9h-70.890625c-4.125-11.636719-15.242188-19.996094-28.277344-19.996094h-60c-5.523438 0-10 4.476563-10 10v179.996094c0 5.523438 4.476562 10 10 10h60c12.738281 0 23.660156-8.003906 27.996094-19.246094 11.320312 1.40625 24.417968 4.753906 32.648437 9.691406l52.296875 31.378907c19.8125 11.890625 42.496094 18.175781 65.605469 18.175781 18.3125 0 36.054687-3.84375 52.738281-11.421875l186.644532-82.183594c20.671874-8.386719 30.878906-33.1875 19.0625-55.046875-8.691407-16.085937-29.046876-23.242187-47.375-16.667968zm-379.617188 95.367187c-.023438 5.492187-4.503906 9.953125-10 9.953125h-50v-159.996094h50c5.511719 0 10 4.484375 10 10zm400.332031-42.148437c-.105469.039062-.210937.085937-.316406.128906 0 0-186.921875 82.304687-186.957031 82.320312-14.082032 6.40625-29.058594 9.652344-44.511719 9.652344-19.484375 0-38.609375-5.296875-55.3125-15.324219l-52.300781-31.378906c-11.195313-6.714844-27.226563-10.808594-40.933594-12.449219v-120.84375h69.167969c8.578125 0 17.054687 2.21875 24.519531 6.425782l52.832031 29.714843c4.476563 2.523438 9.570313 3.859375 14.71875 3.859375h64.757813c11.027344 0 20 8.96875 20 20 0 10.988282-8.976563 20-20 20h-101.65625c-5.523438 0-10 4.476563-10 10 0 5.519532 4.476562 9.996094 10 9.996094h101.65625c6.558594 0 13.015625-1.628906 18.746094-4.683594 0 0 121.542968-41.78125 121.589843-41.796875 8.960938-3.234375 19.09375-.015625 23.066407 7.335938 5.957031 11.019531 1.03125 23-9.066407 27.042969zm0 0"
+                              stroke-width="2" />
+                          <path
+                              d="m291.246094 243.054688c1.882812 1.628906 4.214844 2.441406 6.550781 2.441406s4.671875-.8125 6.550781-2.441406c81.589844-70.710938 132.058594-106.496094 132.058594-162.105469 0-43.992188-31.144531-80.449219-74.898438-80.449219-28.734374 0-50.738281 16.5625-64.910156 41.417969-14.140625-24.800781-36.121094-41.417969-64.898437-41.417969-33.496094 0-61.5 21.707031-71.34375 55.296875-1.554688 5.300781 1.484375 10.855469 6.785156 12.410156 5.300781 1.554688 10.855469-1.484375 12.40625-6.785156 7.285156-24.859375 27.753906-40.921875 52.152344-40.921875 28.527343 0 48.539062 25.332031 55.261719 48.917969 1.199218 4.332031 5.144531 7.332031 9.636718 7.332031 4.496094 0 8.4375-3 9.636719-7.332031.136719-.488281 14.027344-48.917969 55.273437-48.917969 31.296876 0 54.898438 25.984375 54.898438 60.449219 0 44.484375-43.484375 76.554687-118.617188 141.335937-45.777343-39.3125-82.140624-66.984375-102.808593-94.054687-3.351563-4.390625-9.625-5.234375-14.015625-1.882813-4.390625 3.351563-5.230469 9.625-1.882813 14.019532 23.296875 30.511718 62.625 59.746093 112.164063 102.6875zm0 0" />
+                          <path
+                              d="m169 88.597656c-5.519531 0-10 4.480469-10 10 0 5.519532 4.480469 10 10 10s10-4.480468 10-10c0-5.519531-4.480469-10-10-10zm0 0"
+                              stroke-width="2" />
+                      </svg>
+                      <p>donativos</p>
+                  </a>
+              </li>
+              <li
+                  class="flex justify-between items-center py-2 px-2 text-white uppercase rounded-r-lg cursor-pointer transition duration-300 ease-in-out ">
+                  <a href="/charity" class="w-full flex justify-between items-center">
+  
+                      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-4 fill-current"
+                          viewBox="0 0 960.000000 845.000000" preserveAspectRatio="xMidYMid meet">
+                          <g transform="translate(0.000000,845.000000) scale(0.100000,-0.100000)" stroke="currentColor">
+                              <path
+                                  d="M3369 8219 c-303 -41 -588 -218 -749 -465 -52 -80 -103 -200 -120 -284 -31 -151 -1 -371 85 -619 14 -41 23 -76 21 -79 -3 -2 -45 10 -94 27 -132 46 -323 74 -447 67 -390 -22 -641 -172 -783 -466 -159 -331 -164 -645 -13 -948 86 -173 315 -390 487 -462 151 -63 98 -61 1444 -58 l1225 3 3 1208 c2 1148 1 1213 -17 1300 -76 375 -385 676 -781 761 -91 19 -186 25 -261 15z m236 -686 c53 -28 100 -78 119 -128 30 -77 36 -255 36 -1038 l0 -777 -882 2 -883 3 -41 22 c-61 33 -111 97 -134 171 -23 75 -25 118 -6 187 18 70 39 107 81 143 62 55 92 65 190 66 105 0 158 -19 265 -99 93 -69 175 -103 292 -122 235 -39 462 37 589 196 109 137 167 328 156 521 -6 111 -23 157 -118 307 -103 163 -121 206 -121 287 -1 88 20 135 91 198 68 62 151 90 251 85 51 -3 88 -10 115 -24z"
+                                  stroke-width="2" />
+                              <path
+                                  d="M5460 8190 c-301 -66 -560 -266 -690 -535 -95 -194 -89 -116 -90 -1285 0 -564 -3 -1121 -7 -1238 l-6 -212 1264 2 1264 3 70 23 c281 94 533 347 628 632 39 116 47 168 47 322 1 122 -3 157 -24 239 -52 198 -148 381 -247 475 -114 106 -294 196 -439 218 -187 29 -230 29 -475 0 -22 -3 -87 -21 -144 -40 -57 -19 -106 -32 -109 -29 -3 3 9 49 26 102 72 226 77 254 77 443 0 186 -8 226 -68 345 -85 169 -286 364 -472 457 -180 90 -412 120 -605 78z m322 -675 c77 -39 114 -70 145 -123 24 -41 28 -58 28 -127 0 -75 -3 -85 -42 -157 -23 -42 -60 -105 -83 -139 -88 -132 -120 -223 -120 -335 0 -215 105 -459 243 -563 160 -121 378 -159 583 -103 88 24 140 51 228 115 105 76 174 100 266 95 86 -5 137 -26 188 -76 58 -59 77 -113 76 -222 0 -146 -45 -222 -160 -276 l-51 -24 -869 2 -869 3 0 835 c0 897 1 921 51 1007 50 87 133 125 256 119 57 -3 89 -11 130 -31z"
+                                  stroke-width="2" />
+                              <path
+                                  d="M1960 4663 c-234 -39 -453 -183 -614 -403 -75 -101 -147 -258 -162 -350 -3 -14 -9 -47 -14 -73 -26 -127 -5 -334 51 -502 31 -90 100 -231 135 -275 147 -182 320 -279 562 -316 226 -34 504 -1 655 77 10 5 22 7 26 5 5 -3 -9 -62 -30 -130 -124 -403 -106 -629 70 -884 70 -101 215 -236 311 -289 162 -89 244 -120 390 -143 137 -23 348 9 495 74 180 80 382 257 464 406 69 125 102 218 121 335 8 50 10 415 8 1270 l-3 1200 -1220 1 c-671 1 -1231 -1 -1245 -3z m1798 -1428 c4 -997 -1 -1051 -97 -1138 -49 -44 -105 -61 -196 -60 -187 2 -334 139 -320 298 5 69 32 127 127 278 102 163 120 217 117 359 -1 63 -10 137 -21 180 -45 183 -173 356 -312 423 -223 107 -514 82 -696 -59 -114 -88 -167 -109 -280 -108 -118 0 -195 47 -246 149 -25 50 -28 70 -28 143 0 132 50 226 146 274 l52 26 876 -2 875 -3 3 -760z"
+                                  stroke-width="2" />
+                              <path
+                                  d="M4687 3138 c-2 -843 -5 -1537 -5 -1543 -4 -34 9 -167 23 -233 55 -257 183 -492 370 -683 203 -206 412 -315 730 -379 93 -18 358 -8 472 18 113 26 277 89 356 137 32 19 60 35 63 35 15 0 224 175 260 217 105 126 199 290 253 448 34 96 71 296 77 419 9 157 -23 372 -75 505 -22 55 -18 61 32 42 48 -18 277 -62 349 -67 392 -26 666 47 928 247 151 115 279 267 366 436 97 189 140 374 138 593 -4 379 -135 709 -378 952 -174 173 -361 283 -576 338 -200 51 -175 50 -1834 50 l-1546 0 -3 -1532z m3088 841 c85 -27 151 -66 221 -131 225 -211 290 -519 156 -751 -39 -67 -166 -192 -242 -238 -77 -45 -121 -62 -213 -79 -118 -22 -241 15 -346 105 -112 95 -282 217 -343 244 -35 16 -95 34 -134 41 -127 23 -278 -22 -417 -123 -126 -92 -218 -215 -257 -346 -20 -64 -22 -89 -17 -190 4 -104 8 -124 39 -196 42 -99 94 -174 195 -284 43 -46 91 -107 107 -135 28 -48 30 -57 30 -166 0 -107 -2 -120 -33 -195 -63 -154 -175 -282 -315 -359 -160 -90 -358 -83 -551 17 -86 45 -202 164 -247 253 -70 140 -68 95 -68 1383 0 637 3 1161 7 1165 4 3 540 5 1192 3 1042 -2 1192 -5 1236 -18z"
+                                  stroke-width="2" />
+                          </g>
+                      </svg>
+                      <p>caritas parroquial</p>
+                  </a>
+              </li>
+          </ul>
+      </nav>
+  
+  </div>
+  
+
+  <div id="app" class="app h-screen overflow-y-auto">
+
+    <header id="header" class="w-full">
+      <div class="hero relative">
+        <img src="https://parroquiadesanjosemaria.com/wp-content/uploads/2019/12/retablo-scaled.jpg"
+          class="w-full h-full object-cover" alt="img-hero">
+
+        <!-- style="background-image:url(<php echo get_template_directory_uri() ?>/img/retablo.jpg); " imagen fondo header-->
+        <div class="contenido-header absolute top-0 right-0 w-full h-full flex items-end">
+
+          <div class="w-full h-full md:h-3/4 flex flex-col md:flex-col-reverse">
+            <div class="w-full h-1/2 mb-0 md:mb-20 flex justify-center items-center md:items-end">
+              <h1 class="nombre-sitio w-full text-center text-5xl md:text-9xl font-bold text-gray-800 md:text-white">
+                Parroquia <br class="block md:hidden">
+                San Josemaria
+              </h1>
+            </div>
+
+            <div class="clearfix info w-full flex justify-center items-center mb-2 md:mb-0">
+              <a href="https://goo.gl/maps/tpRe4X1YvDwiJESXA" target="_blank"
+                class="p-2 flex flex-row font-medium group transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 mr-1 text-orange group-hover:text-gray-800 transition duration-300" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                    clip-rule="evenodd" />
+                </svg>
+                <p class="ciudad text-xl text-gray-800 font-semibold transition duration-300">
+                  Alcorcon,Madrid</p>
+              </a><!-- #mapa -->
+            </div>
+
+            <div class="redes-sociales w-1/2 md:w-1/5 lg:w-1/12 mx-auto md:mb-6 flex flex-col items-center">
+              <div class="w-full h-auto flex flex-row justify-around">
+                <a h-ref="#">
+                  <figure>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="fill-current text-gray-800 h-
+                  8 w-8" viewBox="0 0 24 24" style="">
+                      <path
+                        d="M19.077,4.928c-2.082-2.083-4.922-3.134-7.904-2.894C7.164,2.356,3.65,5.144,2.474,8.99 c-0.84,2.748-0.487,5.617,0.881,7.987L2.059,21.28c-0.124,0.413,0.253,0.802,0.67,0.691l4.504-1.207 c1.459,0.796,3.101,1.215,4.773,1.216h0.004c4.195,0,8.071-2.566,9.412-6.541C22.728,11.563,21.762,7.616,19.077,4.928z M16.898,15.554c-0.208,0.583-1.227,1.145-1.685,1.186c-0.458,0.042-0.887,0.207-2.995-0.624c-2.537-1-4.139-3.601-4.263-3.767 c-0.125-0.167-1.019-1.353-1.019-2.581S7.581,7.936,7.81,7.687c0.229-0.25,0.499-0.312,0.666-0.312c0.166,0,0.333,0,0.478,0.006 c0.178,0.007,0.375,0.016,0.562,0.431c0.222,0.494,0.707,1.728,0.769,1.853s0.104,0.271,0.021,0.437s-0.125,0.27-0.249,0.416 c-0.125,0.146-0.262,0.325-0.374,0.437c-0.125,0.124-0.255,0.26-0.11,0.509c0.146,0.25,0.646,1.067,1.388,1.728 c0.954,0.85,1.757,1.113,2.007,1.239c0.25,0.125,0.395,0.104,0.541-0.063c0.146-0.166,0.624-0.728,0.79-0.978 s0.333-0.208,0.562-0.125s1.456,0.687,1.705,0.812c0.25,0.125,0.416,0.187,0.478,0.291 C17.106,14.471,17.106,14.971,16.898,15.554z">
+                      </path>
+                    </svg>
+                  </figure>
+                </a>
+                <a href="https://www.youtube.com/channel/UCYOm7tD4rQKb3jHNJGD6tJQ">
+                  <figure>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="fill-current text-gray-800 h-
+                  8 w-8" viewBox="0 0 50 50">
+                      <path
+                        d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z">
+                      </path>
+                    </svg>
+                  </figure>
+                </a>
+                <a href="https://www.instagram.com/parroquiasanjosemaria.alcorcon/">
+                  <figure>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="fill-current text-gray-800 h-
+                  8 w-8" viewBox="0 0 24 24">
+                      <path
+                        d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z">
+                      </path>
+                    </svg>
+                  </figure>
+                </a>
+              </div>
+            </div><!-- redes-sociales -->
+
+          </div><!-- informacion-evento -->
+
+        </div><!-- contenido-header -->
+
+      </div><!-- .hero -->
+
+    </header>
+
+    <main class="relative">
+
+      <!-- barra navegacion web -->
+      <div
+          class="bar-navigation web hidden md:sticky md:top-4 w-9/12 m-auto left-0 right-0 md:flex md:flex-row justify-end md:justify-center mt-4">
+          <div class="web-navigation hidden md:block w-full rounded-md shadow hover:shadow-md">
+              <div class="p-6"></div>
+          </div>
+      
+          <nav class="absolute w-full h-full m-auto p-1.5">
+              <ul class="h-full flex flex-row justify-around">
+                  <li
+                      class="w-full flex justify-center items-center mr-5 text-white uppercase rounded transition duration-300 easy-in-out cursor-pointer active">
+                      <a href="/" class="w-full h-full flex justify-center items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                          </svg>
+                          <p>inicio</p>
+                      </a>
+                  </li>
+                  <li
+                      class="w-full flex justify-center items-center mr-5 text-white uppercase rounded transition duration-300 easy-in-out cursor-pointer ">
+                      <a id="a-schedule" href="/schedule" class="w-full h-full flex justify-center items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <p>horarios</p>
+                      </a>
+                  </li>
+                  <li
+                      class="w-full flex justify-center items-center mr-5 text-white uppercase rounded transition duration-300 easy-in-out cursor-pointer ">
+                      <a id="a-donate" href="/donate" class="w-full h-full flex justify-center items-center">
+                          <svg class="h-5 w-5 mr-2 fill-current" viewBox="0 -24 511.99906 511"
+                              xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                              <path
+                                  d="m50 262.597656c-5.519531 0-10 4.480469-10 10 0 5.519532 4.480469 10 10 10s10-4.480468 10-10c0-5.519531-4.480469-10-10-10zm0 0"
+                                  stroke-width="2" />
+                              <path
+                                  d="m459.617188 297.273438-94.273438 32.410156c.417969-2.320313.652344-4.6875.652344-7.089844 0-22.054688-17.941406-40-40-40h-64.757813c-1.71875 0-3.414062-.441406-4.910156-1.285156l-52.832031-29.714844c-10.445313-5.886719-22.316406-9-34.328125-9h-70.890625c-4.125-11.636719-15.242188-19.996094-28.277344-19.996094h-60c-5.523438 0-10 4.476563-10 10v179.996094c0 5.523438 4.476562 10 10 10h60c12.738281 0 23.660156-8.003906 27.996094-19.246094 11.320312 1.40625 24.417968 4.753906 32.648437 9.691406l52.296875 31.378907c19.8125 11.890625 42.496094 18.175781 65.605469 18.175781 18.3125 0 36.054687-3.84375 52.738281-11.421875l186.644532-82.183594c20.671874-8.386719 30.878906-33.1875 19.0625-55.046875-8.691407-16.085937-29.046876-23.242187-47.375-16.667968zm-379.617188 95.367187c-.023438 5.492187-4.503906 9.953125-10 9.953125h-50v-159.996094h50c5.511719 0 10 4.484375 10 10zm400.332031-42.148437c-.105469.039062-.210937.085937-.316406.128906 0 0-186.921875 82.304687-186.957031 82.320312-14.082032 6.40625-29.058594 9.652344-44.511719 9.652344-19.484375 0-38.609375-5.296875-55.3125-15.324219l-52.300781-31.378906c-11.195313-6.714844-27.226563-10.808594-40.933594-12.449219v-120.84375h69.167969c8.578125 0 17.054687 2.21875 24.519531 6.425782l52.832031 29.714843c4.476563 2.523438 9.570313 3.859375 14.71875 3.859375h64.757813c11.027344 0 20 8.96875 20 20 0 10.988282-8.976563 20-20 20h-101.65625c-5.523438 0-10 4.476563-10 10 0 5.519532 4.476562 9.996094 10 9.996094h101.65625c6.558594 0 13.015625-1.628906 18.746094-4.683594 0 0 121.542968-41.78125 121.589843-41.796875 8.960938-3.234375 19.09375-.015625 23.066407 7.335938 5.957031 11.019531 1.03125 23-9.066407 27.042969zm0 0"
+                                  stroke-width="2" />
+                              <path
+                                  d="m291.246094 243.054688c1.882812 1.628906 4.214844 2.441406 6.550781 2.441406s4.671875-.8125 6.550781-2.441406c81.589844-70.710938 132.058594-106.496094 132.058594-162.105469 0-43.992188-31.144531-80.449219-74.898438-80.449219-28.734374 0-50.738281 16.5625-64.910156 41.417969-14.140625-24.800781-36.121094-41.417969-64.898437-41.417969-33.496094 0-61.5 21.707031-71.34375 55.296875-1.554688 5.300781 1.484375 10.855469 6.785156 12.410156 5.300781 1.554688 10.855469-1.484375 12.40625-6.785156 7.285156-24.859375 27.753906-40.921875 52.152344-40.921875 28.527343 0 48.539062 25.332031 55.261719 48.917969 1.199218 4.332031 5.144531 7.332031 9.636718 7.332031 4.496094 0 8.4375-3 9.636719-7.332031.136719-.488281 14.027344-48.917969 55.273437-48.917969 31.296876 0 54.898438 25.984375 54.898438 60.449219 0 44.484375-43.484375 76.554687-118.617188 141.335937-45.777343-39.3125-82.140624-66.984375-102.808593-94.054687-3.351563-4.390625-9.625-5.234375-14.015625-1.882813-4.390625 3.351563-5.230469 9.625-1.882813 14.019532 23.296875 30.511718 62.625 59.746093 112.164063 102.6875zm0 0" />
+                              <path
+                                  d="m169 88.597656c-5.519531 0-10 4.480469-10 10 0 5.519532 4.480469 10 10 10s10-4.480468 10-10c0-5.519531-4.480469-10-10-10zm0 0"
+                                  stroke-width="2" />
+                          </svg>
+                          <p>donativos</p>
+                      </a>
+                  </li>
+                  <li
+                      class="w-full flex justify-center items-center text-white uppercase rounded transition duration-300 easy-in-out cursor-pointer ">
+                      <a id="a-charity" href="/charity" class="w-full h-full flex justify-center items-center">
+                          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 fill-current"
+                              viewBox="0 0 960.000000 845.000000" preserveAspectRatio="xMidYMid meet">
+                              <g transform="translate(0.000000,845.000000) scale(0.100000,-0.100000)" stroke="currentColor">
+                                  <path
+                                      d="M3369 8219 c-303 -41 -588 -218 -749 -465 -52 -80 -103 -200 -120 -284 -31 -151 -1 -371 85 -619 14 -41 23 -76 21 -79 -3 -2 -45 10 -94 27 -132 46 -323 74 -447 67 -390 -22 -641 -172 -783 -466 -159 -331 -164 -645 -13 -948 86 -173 315 -390 487 -462 151 -63 98 -61 1444 -58 l1225 3 3 1208 c2 1148 1 1213 -17 1300 -76 375 -385 676 -781 761 -91 19 -186 25 -261 15z m236 -686 c53 -28 100 -78 119 -128 30 -77 36 -255 36 -1038 l0 -777 -882 2 -883 3 -41 22 c-61 33 -111 97 -134 171 -23 75 -25 118 -6 187 18 70 39 107 81 143 62 55 92 65 190 66 105 0 158 -19 265 -99 93 -69 175 -103 292 -122 235 -39 462 37 589 196 109 137 167 328 156 521 -6 111 -23 157 -118 307 -103 163 -121 206 -121 287 -1 88 20 135 91 198 68 62 151 90 251 85 51 -3 88 -10 115 -24z"
+                                      stroke-width="2" />
+                                  <path
+                                      d="M5460 8190 c-301 -66 -560 -266 -690 -535 -95 -194 -89 -116 -90 -1285 0 -564 -3 -1121 -7 -1238 l-6 -212 1264 2 1264 3 70 23 c281 94 533 347 628 632 39 116 47 168 47 322 1 122 -3 157 -24 239 -52 198 -148 381 -247 475 -114 106 -294 196 -439 218 -187 29 -230 29 -475 0 -22 -3 -87 -21 -144 -40 -57 -19 -106 -32 -109 -29 -3 3 9 49 26 102 72 226 77 254 77 443 0 186 -8 226 -68 345 -85 169 -286 364 -472 457 -180 90 -412 120 -605 78z m322 -675 c77 -39 114 -70 145 -123 24 -41 28 -58 28 -127 0 -75 -3 -85 -42 -157 -23 -42 -60 -105 -83 -139 -88 -132 -120 -223 -120 -335 0 -215 105 -459 243 -563 160 -121 378 -159 583 -103 88 24 140 51 228 115 105 76 174 100 266 95 86 -5 137 -26 188 -76 58 -59 77 -113 76 -222 0 -146 -45 -222 -160 -276 l-51 -24 -869 2 -869 3 0 835 c0 897 1 921 51 1007 50 87 133 125 256 119 57 -3 89 -11 130 -31z"
+                                      stroke-width="2" />
+                                  <path
+                                      d="M1960 4663 c-234 -39 -453 -183 -614 -403 -75 -101 -147 -258 -162 -350 -3 -14 -9 -47 -14 -73 -26 -127 -5 -334 51 -502 31 -90 100 -231 135 -275 147 -182 320 -279 562 -316 226 -34 504 -1 655 77 10 5 22 7 26 5 5 -3 -9 -62 -30 -130 -124 -403 -106 -629 70 -884 70 -101 215 -236 311 -289 162 -89 244 -120 390 -143 137 -23 348 9 495 74 180 80 382 257 464 406 69 125 102 218 121 335 8 50 10 415 8 1270 l-3 1200 -1220 1 c-671 1 -1231 -1 -1245 -3z m1798 -1428 c4 -997 -1 -1051 -97 -1138 -49 -44 -105 -61 -196 -60 -187 2 -334 139 -320 298 5 69 32 127 127 278 102 163 120 217 117 359 -1 63 -10 137 -21 180 -45 183 -173 356 -312 423 -223 107 -514 82 -696 -59 -114 -88 -167 -109 -280 -108 -118 0 -195 47 -246 149 -25 50 -28 70 -28 143 0 132 50 226 146 274 l52 26 876 -2 875 -3 3 -760z"
+                                      stroke-width="2" />
+                                  <path
+                                      d="M4687 3138 c-2 -843 -5 -1537 -5 -1543 -4 -34 9 -167 23 -233 55 -257 183 -492 370 -683 203 -206 412 -315 730 -379 93 -18 358 -8 472 18 113 26 277 89 356 137 32 19 60 35 63 35 15 0 224 175 260 217 105 126 199 290 253 448 34 96 71 296 77 419 9 157 -23 372 -75 505 -22 55 -18 61 32 42 48 -18 277 -62 349 -67 392 -26 666 47 928 247 151 115 279 267 366 436 97 189 140 374 138 593 -4 379 -135 709 -378 952 -174 173 -361 283 -576 338 -200 51 -175 50 -1834 50 l-1546 0 -3 -1532z m3088 841 c85 -27 151 -66 221 -131 225 -211 290 -519 156 -751 -39 -67 -166 -192 -242 -238 -77 -45 -121 -62 -213 -79 -118 -22 -241 15 -346 105 -112 95 -282 217 -343 244 -35 16 -95 34 -134 41 -127 23 -278 -22 -417 -123 -126 -92 -218 -215 -257 -346 -20 -64 -22 -89 -17 -190 4 -104 8 -124 39 -196 42 -99 94 -174 195 -284 43 -46 91 -107 107 -135 28 -48 30 -57 30 -166 0 -107 -2 -120 -33 -195 -63 -154 -175 -282 -315 -359 -160 -90 -358 -83 -551 17 -86 45 -202 164 -247 253 -70 140 -68 95 -68 1383 0 637 3 1161 7 1165 4 3 540 5 1192 3 1042 -2 1192 -5 1236 -18z"
+                                      stroke-width="2" />
+                              </g>
+                          </svg>
+                          <p>caritas parroquial</p>
+                      </a>
+                  </li>
+              </ul>
+          </nav>
+      
+      </div>
+<!--calendario y noticias destacadas-->
+<div class="container flex flex-col lg:flex-row content-center pt-5 pb-10">
+    <div class="calendar-container w-full mr-0 md:mr-2 mb-4 md:mb-0">
+        <link href='/css/CalendarMain.css' rel='stylesheet' />
+        <style>
+            #calendar {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+        
+            .calendario--noticia {
+                margin-top: 10px;
+                display: grid;
+                grid-template-columns: 70% 30%;
+                gap: 10px;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+        
+            .fc-event-main {
+                width: 100%;
+            }
+        
+            .fc-toolbar-title:first-letter {
+                text-transform: capitalize;
+            }
+        
+            .fc-direction-ltr .fc-toolbar>*> :not(:first-child) {
+                margin: 0 !important;
+            }
+        
+            .fc-header-toolbar>.fc-toolbar-chunk:last-child {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        
+            .fc-view-harness.fc-view-harness-active {
+                border-radius: 0.125rem;
+                --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                /* box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); */
+                overflow: hidden;
+            }
+        
+            .fc-view-harness.fc-view-harness-passive {
+                border-radius: 0.125rem;
+                --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                /* box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); */
+                overflow: hidden;
+            }
+        
+            .fc-scroller.fc-scroller-liquid-absolute {
+                overflow: hidden !important;
+            }
+        
+            .fc-theme-standard .fc-scrollgrid {
+                border: none;
+            }
+        
+            .fc-theme-standard td,
+            .fc-theme-standard th {
+                border: none;
+            }
+        
+            /* TODO  button today*/
+            .fc-today-button {
+                width: 100%;
+                background-color: rgb(217, 217, 217) !important;
+                border: none !important;
+                outline: none !important;
+                color: black !important;
+                font-weight: bold !important;
+                transition: all 0.3s;
+            }
+        
+            .fc-today-button:hover {
+                background-color: rgb(164, 164, 164) !important;
+            }
+        
+        
+        
+            .noticia {
+                display: block;
+                border: 2px;
+                border-color: aqua;
+                border-radius: 3px;
+                width: 100%;
+                background-color: aquamarine;
+                height: 100px;
+            }
+        
+            @media (max-width: 1082px) {
+                .calendario--noticia {
+                    display: inline;
+                }
+            }
+        
+            .fc-col-header-cell {
+                background-color: white !important;
+                font-size: 12px !important;
+                text-transform: uppercase;
+                color: #99a1a7 !important;
+                text-align: center !important;
+                border-bottom: 2px solid rgba(166, 168, 179, 0.12) !important;
+                line-height: 50px !important;
+            }
+        
+            .fc-col-header-cell-cushion {
+                font-weight: lighter !important;
+            }
+        
+            .fc-event-time {
+                width: 100%;
+                font-size: small;
+            }
+        
+            .fc-daygrid-body tr {
+                background-color: white !important;
+                border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+            }
+        
+        
+            .fc-daygrid-day-frame {
+                margin: 0 5px;
+                border-right: 1px solid rgba(166, 168, 179, 0.12);
+                font-size: 12px;
+                box-sizing: border-box;
+                color: #98a0a6;
+                position: relative;
+                z-index: 1;
+            }
+        
+            .fc-event-title,
+            .fc-daygrid-day-number {
+                font-size: medium;
+                font-weight: 100 !important;
+            }
+        
+            /*  .fc-day-sun {
+                    background-color: rgb(193, 193, 230);
+                }
+        
+                .fc-day-sat {
+                    background-color: rgb(240, 220, 220);
+                } */
+        
+            .fc-event-title {
+                width: 100%;
+                /* force events to be one-line tall */
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
+            }
+        
+            .fc-prev-button.fc-button,
+            .fc-next-button.fc-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 2.5rem;
+                height: 2.5rem;
+                background: transparent !important;
+                border: 0;
+                border-radius: 100%;
+                transition: all 0.3s ease-in-out;
+            }
+        
+            .fc .fc-button:focus {
+                outline: none !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+        
+            .fc-prev-button.fc-button:hover,
+            .fc-next-button.fc-button:hover {
+                background: #e8e8e8 !important;
+            }
+        
+            .fc-prev-button.fc-button span,
+            .fc-next-button.fc-button span {
+                color: gray;
+                font-weight: bold;
+            }
+        
+            .fc-daygrid-event {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: center;
+                background: #4786ff;
+                border: 0;
+                border-radius: 4px;
+                grid-column: 3/span 3;
+                grid-row: 4;
+                align-self: end;
+                color: #fff;
+                box-shadow: 0 10px 14px rgba(71, 134, 255, 0.4);
+            }
+        
+            .fc-event-time {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                max-width: min-content !important;
+            }
+        
+            .fc-daygrid-event-dot {
+                display: none;
+            }
+        
+            .fc-daygrid-event .fc-event-title {
+                white-space: normal !important;
+            }
+        
+            .modal-event.show {
+                transform: translateX(0rem);
+            }
+        </style>
+        
+        
+        <div id="calendar"></div>
+        
+        
+        <script src='./js/locales-all.js'></script>    </div>
+    <div class="carousel-container mt-2 md:mt-0">
+        <div id="carousel-wrapper"
+            class="relative w-auto h-full flex flex-row items-center justify-center overflow-hidden cursor-pointer"
+            data-action="view">
+            <div id="menu"
+                class="w-full flex flex-col justify-center items-center align-middle font-bold leading-none overflow-hidden transition-all duration-600 ease-in-out">
+                <div id="current-option"
+                    class="relative w-full h-64 flex flex-col items-center justify-start overflow-hidden transform translate-y-3/4">
+                    <span id="current-option-text1"
+                        class="w-56 mb-4 flex flex-col items-center text-2xl text-center leading-10"
+                        data-previous-text="" data-next-text=""></span>
+                    <span id="current-option-text2" class="w-56 h-10 flex flex-col items-start justify-end text-sm"
+                        data-previous-text="" data-next-text=""></span>
+                </div>
+                <button id="previous-option" class="absolute w-7 h-7 block border-none bg-cover	cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button id="next-option" class="absolute w-7 h-7 block border-none bg-cover	cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+            </div>
+
+            <div id="image" class="absolute w-60 h-80 md:h-60 lg:h-80 bg-center bg-no-repeat bg-cover z-50"></div>
+
+            <div class="progress-bar absolute bottom-0 left-0 h-1 w-full">
+                <div class="progress-bar__fill w-0 h-full bg-red-600 transition-all duration-200" style="width: 85%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--noticias-->
+<section class="pb-10">
+    <header class="container">
+        <h2 class="text-3xl mb-4">Noticias</h2>
+        <div class="line flex flex-row-reverse flex-wrap items-center justify-between mb-4">
+            <button id="btn-more-news" class="flex pointer btn-more relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1 fill-current text-white z-10"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                <p class="z-10 transition duration-300 ease-in-out font-bold">Más noticias</p>
+            </button>
+        </div>
+    </header>
+    <div id="container-news" class="container grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+
+        <div class="w-full ">
+            <article
+                class="card-news w-full bg-white rounded-md overflow-hidden shadow hover:shadow-md group cursor-pointer">
+                <a class="block w-full h-full p-4" href="/noticia/25" data-action="view">
+                    <div class="div-img w-full rounded-lg overflow-hidden">
+                        <!-- div-img  -->
+                        <figure class="w-full h-full transition duration-200 ease-in-out z-0">
+                            <img class="w-full h-full object-cover" src=https://info.parroquiadesanjosemaria.com/uploads/1655390530061.jpg alt="" />
+                        </figure>
+                    </div><!-- div-img -->
+                    <div class="div-content w-full pt-3 overflow-hidden z-20">
+                        <!-- div-content -->
+                        <div class="h-2/4 md:h-20 max-h-28 flex flex-col justify-between">
+                            <h2>Horario misas de verano</h2>
+                            <div class="flex text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 " fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <div class="news-date number">16-5-2022</div>
+                            </div>
+                        </div> <!-- div-content -->
+                        <div class="h-2/4 md:h-32 mt-3 flex flex-col justify-between">
+                            <p class="p-2">
+                                No tiene descripcion
+                            </p>
+                            <button class="p-2 rounded">
+                                Más informacion
+                            </button>
+                        </div>
+                    </div> <!-- div-content -->
+                </a>
+            </article>
+        </div> <!-- article -->
+        <div class="w-full ">
+            <article
+                class="card-news w-full bg-white rounded-md overflow-hidden shadow hover:shadow-md group cursor-pointer">
+                <a class="block w-full h-full p-4" href="/noticia/24" data-action="view">
+                    <div class="div-img w-full rounded-lg overflow-hidden">
+                        <!-- div-img  -->
+                        <figure class="w-full h-full transition duration-200 ease-in-out z-0">
+                            <img class="w-full h-full object-cover" src=https://info.parroquiadesanjosemaria.com/uploads/1654957323181.jpg alt="" />
+                        </figure>
+                    </div><!-- div-img -->
+                    <div class="div-content w-full pt-3 overflow-hidden z-20">
+                        <!-- div-content -->
+                        <div class="h-2/4 md:h-20 max-h-28 flex flex-col justify-between">
+                            <h2>Cursos prematrimoniales 22/23</h2>
+                            <div class="flex text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 " fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <div class="news-date number">11-5-2022</div>
+                            </div>
+                        </div> <!-- div-content -->
+                        <div class="h-2/4 md:h-32 mt-3 flex flex-col justify-between">
+                            <p class="p-2">
+                                No tiene descripcion
+                            </p>
+                            <button class="p-2 rounded">
+                                Más informacion
+                            </button>
+                        </div>
+                    </div> <!-- div-content -->
+                </a>
+            </article>
+        </div> <!-- article -->
+        <div class="w-full ">
+            <article
+                class="card-news w-full bg-white rounded-md overflow-hidden shadow hover:shadow-md group cursor-pointer">
+                <a class="block w-full h-full p-4" href="/noticia/23" data-action="view">
+                    <div class="div-img w-full rounded-lg overflow-hidden">
+                        <!-- div-img  -->
+                        <figure class="w-full h-full transition duration-200 ease-in-out z-0">
+                            <img class="w-full h-full object-cover" src=https://info.parroquiadesanjosemaria.com/uploads/1655052521360.jpg alt="" />
+                        </figure>
+                    </div><!-- div-img -->
+                    <div class="div-content w-full pt-3 overflow-hidden z-20">
+                        <!-- div-content -->
+                        <div class="h-2/4 md:h-20 max-h-28 flex flex-col justify-between">
+                            <h2>San Josemaría Escrivá</h2>
+                            <div class="flex text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 " fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <div class="news-date number">8-5-2022</div>
+                            </div>
+                        </div> <!-- div-content -->
+                        <div class="h-2/4 md:h-32 mt-3 flex flex-col justify-between">
+                            <p class="p-2">
+                                No tiene descripcion
+                            </p>
+                            <button class="p-2 rounded">
+                                Más informacion
+                            </button>
+                        </div>
+                    </div> <!-- div-content -->
+                </a>
+            </article>
+        </div> <!-- article -->
+        <div class="w-full ">
+            <article
+                class="card-news w-full bg-white rounded-md overflow-hidden shadow hover:shadow-md group cursor-pointer">
+                <a class="block w-full h-full p-4" href="/noticia/22" data-action="view">
+                    <div class="div-img w-full rounded-lg overflow-hidden">
+                        <!-- div-img  -->
+                        <figure class="w-full h-full transition duration-200 ease-in-out z-0">
+                            <img class="w-full h-full object-cover" src=https://info.parroquiadesanjosemaria.com/uploads/1654686005154.jpg alt="" />
+                        </figure>
+                    </div><!-- div-img -->
+                    <div class="div-content w-full pt-3 overflow-hidden z-20">
+                        <!-- div-content -->
+                        <div class="h-2/4 md:h-20 max-h-28 flex flex-col justify-between">
+                            <h2>Cineforum</h2>
+                            <div class="flex text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 " fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <div class="news-date number">8-5-2022</div>
+                            </div>
+                        </div> <!-- div-content -->
+                        <div class="h-2/4 md:h-32 mt-3 flex flex-col justify-between">
+                            <p class="p-2">
+                                No tiene descripcion
+                            </p>
+                            <button class="p-2 rounded">
+                                Más informacion
+                            </button>
+                        </div>
+                    </div> <!-- div-content -->
+                </a>
+            </article>
+        </div> <!-- article -->
+
+    </div> <!-- #container-news -->
+
+</section>
+
+<!--bloques-->
+<section class="container py-5">
+    <header class="mb-4">
+        <h2 class="text-3xl mb-6">Información sobre la Parrroquia</h2>
+        <div class="line flex flex-row-reverse flex-wrap items-center justify-between mb-4">
+
+
+        </div>
+    </header>
+
+    <div id="container-blocks" class="w-full flex flex-col p-2"> </div>
+
+</section> <!-- .container bloques -->
+
+<!--TODO Pop Up H-full -->
+
+<div id="popup-full"
+    class="popup-full fixed top-0 w-full h-full bg-white transition duration-300 ease-in-out overflow-y-auto">
+    <header class="block md:flex md:flex-row w-full p-5 mt-3 md:mt-20 text-gray-700">
+        <div id="close-popup" class="flex flex-row align-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 cursor-pointer" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                    clip-rule="evenodd" />
+            </svg>
+            <p class="font-bold cursor-pointer hidden md:block">Salir</p>
+        </div>
+        <div class="mt-5 md:mt-0 w-full header-popup">
+        </div>
+    </header>
+
+    <section class="container flex flex-col md:flex-row pt-5 px-2 md:px-0">
+
+
+
+    </section>
+</div> <!-- .popup-full -->
+
+<!-- TODO Pop up Full View More News -->
+<div id="popup-view-more"
+    class="popup-full fixed top-0 w-full h-full bg-white transition duration-300 ease-in-out overflow-y-auto">
+    <header class="block md:flex md:flex-row w-full p-5 mt-3 md:mt-20 text-gray-700">
+        <div id="close-popup-more" class="flex flex-row align-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 cursor-pointer" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                    clip-rule="evenodd" />
+            </svg>
+            <p class="font-bold cursor-pointer hidden md:block">Salir</p>
+        </div>
+        <div class="mt-5 md:mt-0 w-full header-popup">
+        </div>
+    </header>
+
+    <section class="container flex flex-col md:flex-row pt-5 px-2 md:px-0">
+    </section>
+</div> <!-- .popup-full -->
+
+
+<script>
+    let newsCarrusel = `[]`
+    newsCarrusel = newsCarrusel.replaceAll('&quot;', '"')
+    newsCarrusel = JSON.parse(newsCarrusel)
+</script>
+
+
+<footer id="footer" class="relative w-full pt-9 text-white footer">
+  <div class="container flex flex-col md:flex-row">
+    <div class="footer-informacion w-full md:w-1/3 px-5">
+      <h3 class="text-center text-white uppercase mb-5 text-3xl">Sobre <span>la Parroquia</span></h3>
+      <p class="text-center">Todo el equipo parroquial os saludamos cordialmente y pedimos las oraciones y la ayuda de
+        los feligreses para
+        poder realizar generosamente nuestra actividad al servicio de todos.</p>
+    </div>
+    <div class="footer-contacto w-full md:w-1/3 px-5 mt-4 md:mt-0">
+      <h3 class="text-center text-white uppercase mb-5 text-3xl">Contactanos</h3>
+      <p><span class="">Estamos en:</span><a href="https://goo.gl/maps/tpRe4X1YvDwiJESXA" target="_blank"> Calle
+          Copenhague, 2 –
+          28922 Alcorcón (Madrid)</a></p>
+      <p><span>Correo:</span> parroquiadesanjosemaria@gmail.com</p>
+      <p><span>Tel:</span> 623 146 707</p>
+    </div>
+    <div class="menu w-full md:w-1/3 px-5 mt-4 md:mt-0">
+      <h3 class="text-center text-white uppercase mb-5 text-3xl">Redes <span>sociales</span></h3>
+      <nav class="redes-sociales flex flex-row justify-center mt-0 md:mt-10">
+        <a href="https://parroquiadesanjosemaria.com/?page_id=279" class="mr-5">
+          <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24">
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+          </svg>
+        </a> <!-- a -->
+
+        <a href="https://www.youtube.com/channel/UCYOm7tD4rQKb3jHNJGD6tJQ" class="mr-5">
+          <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24">
+            <path
+              d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+          </svg>
+        </a> <!-- a -->
+
+        <a href="https://www.instagram.com/parroquiasanjosemaria.alcorcon/" class="mr-5">
+          <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
+        </a> <!-- a -->
+
+      </nav><!-- redes-sociales -->
+    </div>
+  </div>
+  <p class="copyright text-white text-center p-2 mt-5">Todos los derechos Reservados 2021</p>
+
+  <div id="btn-login"
+    class="absolute bottom-8 md:bottom-0 flex justify-center p-2 text-gray-600 text-center cursor-pointer ">
+    <div class="flex flex-row align-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+          d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+      </svg>
+      <p class="pl-2 font-light">Login</p>
+    </div>
+  </div>
+
+</footer>
+
+</main>
+
+</div> <!-- .app -->
+
+<div id="skin" class="skin hidden fixed top-0 bottom-0 w-full h-screen transition-transform duration-500 ease-in-out">
+</div>
+
+<div class="fixed top-2 right-0 md:right-4 mx-2 md:mx-0 flex h-auto" style="z-index: 99999;">
+  <div id="container-notifications" class="m-auto"></div>
+</div>
+
+<!-- import login page -->
+<div id="skin-login"
+    class="hidden fixed top-0 bottom-0 flex justify-center items-center w-full h-screen px-5 transition-transform duration-500 z-10 ease-in-out">
+    <div class="absolute top-0 bottom-0 w-full bg-gray-600 opacity-60"></div>
+    <div class="md:max-w-xs p-5 bg-white z-10">
+        <form action="signin" method="POST" class="form-login">
+            <input type="text" name="username" class="w-full p-3 mb-2 bg-gray-200" placeholder="Nombre de usuario" />
+            <!--
+                id="a" -->
+            <input type="password" name="password" class="w-full p-3 mb-2 bg-gray-200" placeholder="Contraseña" />
+            <!--
+                id="b" -->
+            <button class="w-full p-3 text-white">login</button>
+        </form>
+    </div>
+</div>
+<!-- NOTE templates -->
+
+<!-- Template card news -->
+<template id="template-card-news">
+  <div class="w-full">
+    <article
+      class="card-news w-full bg-white rounded-lg overflow-hidden shadow-md group cursor-pointer">
+      <a class="block w-full h-full p-4" href="" data-action="view">
+        <div class="div-img w-full rounded-lg overflow-hidden">
+          <!-- div-img  -->
+          <figure class="w-full h-full transition duration-200 ease-in-out z-0">
+            <img class="w-full h-full object-cover" src="" alt="" />
+          </figure>
+        </div><!-- div-img -->
+        <div class="div-content w-full pt-3 overflow-hidden z-20">
+          <!-- div-content -->
+          <div class="h-2/4 md:h-20 max-h-28 flex flex-col justify-between">
+            <h2></h2>
+            <div class="flex text-gray-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 " fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <div class="news-date number"></div>
+            </div>
+          </div> <!-- div-content -->
+          <div class="h-2/4 md:h-32 mt-3 flex flex-col justify-between">
+            <p class="p-2">
+            </p>
+            <button class="p-2 rounded">
+              Más informacion
+            </button>
+          </div>
+        </div> <!-- div-content -->
+      </a>
+    </article>
+  </div>
+</template> <!-- #template-card-news -->
+
+<!-- Template edit news -->
+<template id="template-header-edit-news">
+  <div class="w-full flex justify-center items-center">
+    <input id="title-news"
+      class="w-full md:w-3/4 text-3xl font-bold tracking-wider border-b-2 border-gray-300 hover:border-pink-300 focus:outline-none focus:border-pink-500"
+      placeholder="Escribe el Titulo de la Noticia" />
+  </div>
+</template>
+<template id="template-edit-news">
+  <div class="w-full mb-20 md:mb-0">
+
+    <div class="flex flex-col md:flex-row">
+      <div class="img-pop w-full h-auto md:max-w-xs flex justify-center cursor-pointer">
+        <div
+          class="h-96 relative rounded-lg p-4 bg-gray-100 shadow-xl group overflow-hidden hover:shadow-md transition durattion-300 ease-in-out">
+          <div class="w-full h-full rounded-lg">
+            <figure class="w-full h-3/4 text-gray-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+              <img id="img-show-add" class="absolute top-0 left-0 w-full h-full opacity-0 object-cover" src=""
+                alt="nuevaimagen" />
+            </figure>
+            <p class="w-full h-1/4 text-center text-gray-500">Añadir imagen</p>
+            <!-- <input class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer z-10" type="file" name="myImage"
+              accept="image/png, image/gif, image/jpeg" onchange="previewImage(this)" disabled /> -->
+          </div>
+        </div> <!-- .h-96 -->
+      </div> <!-- .img-pop -->
+
+      <div class="w-full mt-5 md:pl-5 md:m-0">
+        <textarea class="w-full h-full p-3 bg-gray-100 shadow hover:shadow-md focus:outline-none" name="" id=""
+          cols="30" rows="10" placeholder="Escribe aqui la descripcion"></textarea>
+      </div>
+    </div>
+
+    <div class="w-full pt-3 flex flex-col md:flex-row justify-center md:justify-end">
+      <div class="w-full md:w-80 mb-3 md:mb-0 p-2 flex flex-row items-center">
+        <span class="w-full text-semibold text-right pr-3">Añadir al Carrusel</span>
+        <div class="w-full relative">
+          <div class="switch-btn-cover">
+            <div class="switch-btn b2">
+              <input type="checkbox" class="checkbox">
+              <div class="knobs">
+                <span>SI</span>
+              </div>
+              <div class="layer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button id="btn-add-news"
+        class="w-full md:w-auto p-3 bg-blue-500 text-white font-bold rounded hover:shadow-md hover:bg-blue-600 transition durattion-300 ease-in-out">Guardar
+        Cambios</button>
+    </div>
+
+  </div>
+
+</template> <!-- #template-card-news -->
+
+
+<!-- Template header popup news -->
+<template id="template-header-popup-news">
+  <h2 class="w-full text-3xl text-center font-bold tracking-wider"></h2>
+</template>
+<template id="template-popup-news">
+
+  <div class="img-pop w-full h-auto md:max-w-lg flex justify-center">
+    <figure class="w-full h-auto max-w-lg md:max-w-none flex md:block flex-row justify-center">
+      <img class="object-cover rounded" src="" alt="" />
+    </figure>
+  </div>
+
+  <div class="mt-5 mb-20 md:pl-5 md:m-0">
+    <p></p>
+  </div>
+
+</template> <!-- #template-popup-news -->
+<template id="template-header-view-more">
+  <div class="container flex flex-col md:flex-row justify-between items-center">
+    <h2 class="w-1/2 mb-2 md:mb-0 text-3xl text-center font-bold tracking-wider"></h2>
+    <!-- 
+    <div class="w-auto flex items-center bg-gray-200 rounded overflow-hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 pl-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      <input type="text" name="search" class="py-1 px-2 bg-gray-200 outline-none" placeholder="Buscar noticia">
+    </div>
+    -->
+  </div>
+</template>
+
+
+<!-- Template container all news popup-->
+<template id="template-popup-more-news">
+  <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-12 md:mb-0"
+    data-container-type="view-more">
+
+  </div>
+</template>
+
+<!-- Tenplate group timetables-->
+<template id="template-group-schedule">
+  <section class="w-full p-2 mb-4 md:mb-0 relative bg-white shadow-xs">
+    <div class="w-full flex justify-end">
+      <button class="remove-schedule p-1 bg-gray-400 rounded shadow">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd" />
+        </svg>
+      </button>
+    </div><!-- .absolute -->
+
+    <div class="w-full my-4 flex flex-col items-center ">
+      <input
+        class="title-schedule w-full md:w-3/4 mb-6 text-2xl md:text-xl xl:text-3xl text-center text-orange font-bold bg-transparent tracking-wider border-b-2 border-gray-300 hover:border-pink-300 focus:outline-none focus:border-pink-500"
+        type="text" placeholder="Escriba el titulo" />
+      <input
+        class="description-shcedule w-full md:w-3/4 mb-2 bg-transparent text-center text-md text-gray-600 font-sans font-semibold leading-6 border-b-2 border-gray-300 hover:border-pink-300 focus:outline-none focus:border-pink-500"
+        type="text" placeholder="Escriba descripcion / fechas" />
+    </div>
+
+    <div class="child-container-timetable flex flex-col">
+    </div> <!-- .child-container-timetable -->
+
+    <button
+      class="btn-add-timetable w-full relative flex flex-row items-center justify-center mb-4 bg-gray-400 p-2 shadow cursor-pointer hover:shadow-lg transition duration-300 group">
+      <figure class="text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          class="h-10 w-10 text-white group-hover:text-gray-200 transition duration-200" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+      </figure>
+      <p class="font-bold text-white group-hover:text-gray-200 transition duration-200">Añadir nuevo
+        horario
+      </p>
+    </button>
+
+  </section>
+</template>
+
+<!-- Template one timeTable -->
+<template id="template-timetable">
+  <div class="w-full relative flex flex-col items-center mb-4 bg-white shadow-xl p-4 cursor-default">
+    <div class="w-full mb-3">
+      <input
+        class="time-day w-full text-lg font-medium p-2 bg-gray-200 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-400 focus:text-white transition duration-300"
+        type="text" placeholder="Escriba el dia" />
+      <!-- <p class="time-day text-lg font-medium">
+        <!-- aqui va el dia -->
+      <!--</p> -->
+    </div>
+
+
+    <div class="w-full flex flex-col justify-center">
+      <div class="child-container-hour w-full flex flex-col justify-start">
+        <!-- bucle for timetable -->
+
+        <!-- fin buble for -->
+      </div>
+      <button
+        class="btn-add-new-hour w-full relative flex flex-row items-center justify-center md:justify-start mt-3 p-2 cursor-pointer hover:shadow transition duration-300 group">
+        <figure class="text-gray-500 mr-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 transition duration-200" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+          </svg>
+        </figure>
+        <p class="font-bold text-gray-500 transition duration-200">Añadir nueva
+          hora
+        </p>
+      </button>
+    </div>
+
+  </div> <!-- .w-full -->
+</template>
+
+<template id="template-one-hour">
+  <div class="w-full md:w-3/4 flex items-center p-2 hover:bg-gray-200 transition duration-300">
+    <div class="w-full flex items-center">
+      <span class="block h-2 w-2 mr-4 bg-orange rounded-full"></span>
+      <input
+        class="w-full font-medium p-1 bg-gray-200 rounded group-hover:bg-gray-300 focus:outline-none transition duration-300 number"
+        type="time" name="" id="" value="00:00"><!-- aqui va ka hora -->
+    </div>
+    <button class="flex items-center">
+      <svg xmlns=" http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 cursor-pointer" fill="none"
+        viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+      </svg>
+    </button>
+  </div>
+</template>
+
+<!-- template blokc -->
+<template id="template-block-add">
+  <div
+    class="bloque h-96 bg-white shadow-xl md:shadow-sm hover:shadow-xl cursor-pointer transition durattion-300 ease-in-out mb-4"
+    data-action="add" data-class="block">
+    <div class="w-full h-full rounded-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-gray-500" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+      </svg>
+    </div>
+  </div>
+</template>
+
+<template id="template-block">
+  <div
+    class="bloque h-auto w-full flex hover:shadow-2xl mb-4 bg-white cursor-pointer transition duration-300 easy-in-out"
+    data-action="view" data-class="block">
+    <div class="relative w-full">
+      <div class="absolute top-2 right-2 md:left-2 ">
+        <button
+          class="btn-delete-block relative h-10 w-auto md:w-10 flex flex-row-reverse md:flex-row items-center p-2 bg-red-400 hover:bg-red-300 rounded-sm shadow hover:shadow-2xl z-10 transition-all duration-300 easy-in-out overflow-hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
+          <p class="block md:absolute left-10 font-semibold overflow-hidden">Eliminar Bloque</p>
+        </button>
+      </div>
+      <figure class="bloque-img show w-full h-96 md:h-full">
+        <img class="w-full h-full object-cover" src="" alt="parroquia">
+      </figure>
+      <div class="w-full">
+        <!--  <textarea id=""
+              class="bloque-title block md:hidden absolute bottom-0 w-full h-full py-4 px-2 text-4xl font-bold uppercase text-white z-20 bg-transparent"></textarea> -->
+        <span
+          class="bloque-title block md:hidden absolute bottom-0 w-full py-4 px-2 text-4xl font-bold uppercase text-white z-20"></span>
+      </div>
+    </div>
+    <div class="w-full flex flex-col justify-start md:justify-between p-0 md:p-3">
+      <div class="w-full">
+        <textarea id=""
+          class="bloque-title block w-full py-4 px-2 my-1 text-gray-600 text-3xl font-bold uppercase resize-none border-2 border-pink-400 outline-none hover:shadow focus:border-pink-300 focus:shadow rounded transition-all duration-300 z-20"></textarea>
+        <span
+          class="bloque-title hidden md:block w-full py-4 px-2 text-gray-600 text-4xl font-bold uppercase z-20"></span>
+      </div>
+      <div class="container-options-block w-full grid grid-cols-1 md:grid-cols-3 gap-2 p-3">
+
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="template-option-block">
+  <div
+    class="bloque-option w-full flex items-center bg-gray-400 text-white font-bold m-1 p-2 hover:shadow hover:bg-gray-500 transition duration-300 cursor-pointer"
+    data-action="view" data-class="option"></div>
+</template>
+
+<template id="template-option-block-add">
+  <div
+    class="bloque-option w-full flex items-center bg-gray-200 m-1 p-2 hover:shadow hover:bg-gray-300 transition duration-300 cursor-pointer"
+    data-action="add" data-class="option">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-2 md:mr-1" viewBox="0 0 20 20"
+      fill="currentColor">
+      <path fill-rule="evenodd"
+        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+    </svg>
+    <p class="text-gray-400 font-semibold">Añadir nuevo</p>
+  </div>
+</template>
+
+<template id="template-menu-block">
+  <div class="w-full flex flex-col items-center">
+    <h2 class="w-full pb-4 px-2 text-center font-sans text-gray-600 text-4xl font-bold uppercase"></h2>
+    <ul class="menu-modal w-full font-bold text-2xl overflow-hidden shadow-lg rounded transition-all duration-300"
+      style="height: 40px;"></ul>
+  </div>
+</template>
+
+<template id="template-menu-block-option">
+  <li class="p-2.5 flex flex-row items-center cursor-pointer transition-all duration-100">
+    <div class="mr-2 relative">
+      <span class="relative hidden w-6 h-1 mb-1 rounded bg-gray-500 z-10"></span>
+      <span class="relative hidden w-6 h-1 mb-1 rounded bg-gray-500 z-10"></span>
+      <span class="relative hidden w-6 h-1 mb-0 rounded bg-gray-500 z-10"></span>
+    </div>
+    <p class="flex items-center"></p>
+  </li>
+</template>
+
+<template id="template-header-add-block">
+  <div class="w-full flex flex-col items-center">
+    <div class="w-full flex flex-col md:flex-row items-center mb-10">
+      <h2 class="w-full px-2 mb-4 md:mb-0 flex-1 text-center font-sans text-gray-600 text-4xl font-bold uppercase"></h2>
+      <button
+        class="w-full md:w-auto py-2 px-3 bg-red-400 font-bold rounded-sm shadow-sm hover:shadow hover:bg-red-500 transition duration-300">Eliminar
+        Opcion</button>
+    </div>
+    <input id="title-news"
+      class="w-full md:w-3/4 text-3xl font-bold tracking-wider border-b-2 border-gray-300 hover:border-pink-300 focus:outline-none focus:border-pink-500"
+      placeholder="Escribe el Titulo" />
+  </div>
+</template>
+
+<template id="template-editor">
+  <div class="w-full">
+    <div class="editor">
+      <div id="toolbar"></div>
+    </div>
+  </div>
+</template>
+
+<template id="template-modal-delete">
+  <div id="popup-modal" class="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50"
+    data-type="delete">
+    <div class="overflow-y-auto overflow-x-hidden justify-center items-center md:inset-0 bg-white shadow rounded-xs">
+      <div class="relative px-4 w-full max-w-md h-full md:h-auto">
+        <!-- Modal content -->
+        <div class="relative">
+          <!-- Modal header -->
+          <div class="flex justify-end p-2">
+            <button type="button"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+              data-modal-toggle="popup-modal" data-action="close">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="p-6 pt-0 text-center">
+            <svg class="mx-auto mb-4 w-14 h-14 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h3 class="mb-5 text-lg font-normal text-gray-500">¿Estas de acuedo en eliminar:
+              <span></span>?
+            </h3>
+            <button data-modal-toggle="popup-modal" type="button" data-action="delete"
+              class="px-5 py-2.5 mr-2 inline-flex items-center text-white bg-red-500 font-semibold text-sm text-center rounded-xs shadow hover:bg-red-600 transition duration-300">
+              Eliminar
+            </button>
+            <button data-modal-toggle="popup-modal" type="button" data-action="close"
+              class="text-gray-500 text-sm font-medium px-5 py-2.5 rounded-xs shadow bg-gray-100 hover:bg-gray-300 transition duration-300">No,
+              cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+
+
+<script defer type="module" src="/js/main.js"></script>
+
+
+<script defer type="module" src="/js/eventsNews.js"></script>
+<script defer type="module" src="/js/eventBlocks.js"></script>
+<script defer type="module" src="/js/calendar.js"></script>
+
+
+
+
+<script type="module">
+
+  import clsoeModalsNews from '/js/eventsNews.js'
+
+  let oldHash = ''
+  window.location.hash = '';
+
+  document.addEventListener('hashchange', hashchange, false);
+
+  window.addEventListener('popstate', (event) => {
+    if (window.location.hash === '') {
+      clsoeModalsNews.closeAllModal()
+    }
+
+    /*
+    if (typeof oldHash === 'string' && window.location.hash === '') {
+      if (oldHash === 'news')
+        clsoeModalsNews.closeNewModal()
+
+      console.log("window.history", window.history.length)
+      // window.history.go(-2);
+    } else {
+      // clsoeModalsNews.closeMoreModal()
+    }
+
+    if (oldHash === 'more' && window.location.hash !== '')
+      oldHash = [oldHash, window.location.hash]
+    else
+      oldHash = String(document.location).split('#').slice(-1)[0]
+
+    console.log("oldHash 2 " + oldHash)
+    */
+  });
+  function hashchange() {
+    var hash;
+    if (!window.location.hash)
+      return '';
+
+    hash = window.location.hash;
+    window.location.hash = hash;
+
+    // Ajuste la dirección de la barra de direcciones para poder usar los botones de avance y retroceso
+    switch (hash) {
+      case "#news":
+        window.history.pushState('news', 'asdads')
+        window.location.hash = '#' + panel;
+        oldHash = panel
+        break;
+      case "#more":
+        window.location.hash = '#' + panel;
+        oldHash = panel
+        break;
+      case "#admin":
+        break;
+      default:
+    }
+  }
+
+</script>
+<script type="text/javascript">
+  function previewImage(input) {
+
+    if (input.files && input.files[0]) {
+
+      const img = document.getElementById('img-show-add');
+
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        img.setAttribute('src', e.target.result)
+      };
+
+      reader.readAsDataURL(input.files[0]);
+      img.style.zIndex = 10
+      img.classList.remove('opacity-0')
+
+    }
+  }
+</script>
+
+</body>
+
+</html>

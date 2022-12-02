@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="build/tailwind.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <title>DattaSign</title>
+</head>
+<body>
+   <header class="header w-full flex justify-between items-center h-16 shadow fixed top-0 bg-white z-50">
+    <div class="header-container flex items-center justify-end my-0 mx-auto h-full w-full lg:pl-28 lg:pr-8">
+      <div class="logo-container flex items-center justify-start h-full">
+        <a href="index.html">
+          <img src="../images/dattasign_logo_56.png" alt="logo" class="h-8 px-5 " />
+        </a>
+      </div>
+      <div class="btn_menu 
+          sm:block sm:mr-16
+          md:block md:mr-16
+          lg:hidden xl:hidden">
+        <span onclick="toggleMenu(event)" class="material-icons cursor-pointer px-5" style="font-size: 2rem">
+          menu
+        </span>
+      </div>
+      <ul id="navBar" class="ul-container flex flex-col items-center justify-start gap-x-12 gap-y-2.5 fixed hidden bg-white h-full
+            lg:flex lg:flex-row lg:items-center lg:justify-center lg:absolute lg:top-0 lg:pb-0 lg:pt-0 lg:h-16 lg:mr-24
+            xl:flex xl:flex-row ">
+        <li id="about-link-li" class="flex items-center">
+          <a data-langkey="menu.about" href="#about" id="about-link" class="link font-bold
+            lg:py-2 lg:-mr-4 lg:text-md">Funcionalidades</a>
+        </li>
+        <li class="flex items-center">
+          <a data-langkey="menu.howItWorks" href="#benefits" id="benefits-link" 
+            class="link font-bold
+            lg:py-2 lg:-mr-4 lg:text-md">
+            Vantagens</a>
+        </li>
+        <li class="flex items-center">
+          <a data-langkey="menu.howItWorks" href="#subscriptions" id="subscriptions-link" 
+            class="link font-bold
+            lg:py-2 lg:-mr-4 lg:text-md">
+            Planos</a>
+        </li>
+        <li id="register-button" class="font-bold duration-300 w-full 
+          lg:bg-white lg:rounded-md lg:relative lg:-mr-4 hover:text-white">
+          <a href="https://web.dattasign.com.br/register" class="duration-300 lg:text-md">
+            Cadastrar</a>
+        </li>
+        <li id="btnEntrar" class="w-full font-bold duration-300
+        lg:rounded-md lg:relative">
+          <a href="https://web.dattasign.com.br" class="font-bold lg:text-white lg:text-md">
+            Entrar</a>
+        </li>
+      </ul>
+    </div>  
+  </header>
+
+  <main>
+    <section id="banner" class="banner">
+      <div class="banner-container">
+        <div class="banner-image"></div>
+        <div class="dark-gradient flex flex-col justify-center items-center">
+          <div class="banner-title-container my-12 mx-auto px-8
+            lg:px-32">
+            <h1 class="banner-title w-full text-3xl 
+              lg:text-4xl lg:w-3/4
+              xl:text-5xl xl:w-2/4"
+            >Transformação digital e praticidade na assinatura de documentos</h1>
+            <p class="banner-sub-title text-xl mt-16 w-full
+              lg:w-3/5
+              xl:text-2xl"
+            >
+              Integre com sua empresa, elimine as montanhas de papel e tenha tudo acessível a qualquer hora e em qualquer lugar!
+            </p>
+            <a href="https://web.dattasign.com.br/register" class="banner-button text-center scale-button px-12 py-4 mt-16 rounded-md w-full
+              lg:w-2/4 
+              xl:w-1/3"
+            >Experimente ou integre com sua empresa</a>
+          </div>        
+        </div>
+      </div>
+      <!-- <div class="cookie-consent-container">
+        <p class="cookie-title"></p>
+        <p class="cookie-description"></p>
+        <button class="cookie-button"></button>
+      </div> -->
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-container">      
+        <h1 class="about-title text-4xl text-back pt-20 text-center">Funcionalidades</h1>
+        <div id="about-decoration" class="decoration"></div>
+      
+        <div class="functionalities px-8 lg:px-28">
+          <div class="functionality m-0 lg:mt-4 lg:px-0">    
+            <div class="functionality-icon-texts">  
+              <div class="flex flex-row gap-4 items-center mt-16">    
+                <div class="functionality-icon">
+                  <span class="material-icons cursor-pointer px-5 text-white" style="font-size: 2.6rem">
+                    cloud_upload
+                  </span>
+                </div>
+                <h1 class="about-functionality-title text-2xl font-bold">Armazenamento e Segurança</h1>
+              </div>
+              <p class="about-functionality-text mt-4">
+                Armazenamento de dados em nuvem e compliance com a LGPD.
+              </p>
+            </div>  
+            <div id="cloud-image"></div>
+            <img id="security-image" class="about-functionality-image" src="images/documents.svg" />
+          </div>
+
+          <div class="functionality">
+            <div class="functionality-icon-texts">
+              <div class="flex flex-row gap-4 items-center mt-16">
+                <div class="functionality-icon">
+                  <span class="material-icons cursor-pointer px-5 text-white" style="font-size: 2.6rem">
+                    settings_suggest
+                  </span>
+                </div>
+                <h1 class="about-functionality-title text-2xl font-bold">Flexibilidade e Customização</h1>
+              </div>
+              <p class="about-functionality-text mt-4">
+                Permite customização dos fluxos processuais para melhor atender as especificidades dos cenários.
+              </p>
+            </div>
+            <div id="settings-image"></div>
+            <img class="about-functionality-image" src="images/custom.svg" />
+          </div>
+
+          <div class="functionality">
+            <div class="functionality-icon-texts">
+              <div class="flex flex-row gap-4 items-center mt-16">
+                <div class="functionality-icon">
+                  <span class="material-icons cursor-pointer px-5 text-white" style="font-size: 2.6rem">
+                    draw
+                  </span>
+                </div>
+                <h1 class="about-functionality-title text-2xl font-bold">Assinatura híbrida</h1>
+              </div>
+              <p class="about-functionality-text mt-4">
+                Permite mais de uma modalidade de assinatura no mesmo documento: Assinatura Digital, Aceite Digital, Certificado Digital ICP Brasil (A1 e A3) e token via e-mail.
+              </p>
+            </div>
+            <div id="sign-image"></div>
+            <img class="about-functionality-image" src="images/sign.svg" />
+          </div>
+
+          <div class="functionality">
+            <div class="functionality-icon-texts">
+              <div class="flex flex-row gap-4 items-center mt-16">
+                <div class="functionality-icon">
+                  <span class="material-icons cursor-pointer px-5 text-white" style="font-size: 2.6rem">
+                    track_changes
+                  </span>
+                </div>
+                <h1 class="about-functionality-title text-2xl font-bold">Controle dos documentos</h1>
+              </div>
+              <p class="about-functionality-text mt-4">
+                Visualize os documentos finalizados e os que necessitam de assinaturas numa interface simples e intuitiva!
+              </p>
+            </div>
+            <div  id="control-image"></div>
+            <img class="about-functionality-image" src="images/dashboard.svg" />
+          </div>
+          <div class="functionality pb-12 lg:pb-0">
+            <div class="functionality-icon-texts">
+              <div class="flex flex-row gap-4 items-center mt-16">
+                <div class="functionality-icon">
+                  <span class="material-icons cursor-pointer px-5 text-white" style="font-size: 2.6rem">
+                    manage_accounts
+                  </span>
+                </div>
+                <h1 class="about-functionality-title text-2xl font-bold">Múltiplos Centros de Custo</h1>
+              </div> 
+              <p class="about-functionality-text mt-4">
+                Permite maior praticidade e organização dos gastos de acordo com as necessidades da empresa.
+              </p>
+            </div>
+            <div id="cost-image"></div>
+            <img id="cost-center-image" class="about-functionality-image" src="images/costcenter.svg" />
+          </div> 
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits" class="benefits h-auto">
+      <h1 class="text-4xl text-back pt-20 text-center text-white">Vantagens</h1>
+      <div id="benefits-decoration" class="decoration"></div>
+      <div class="benefits-container flex flex-col justify-center items-center gap-0 h-full px-8
+        lg:gap-24">
+        <div id="benefits-inner-container" class="list-item flex flex-col items-center justify-around lg:px-32">
+          <div class="list-item py-6 h-32">
+            <h5 id="number01" class="list-item-number text-slate-500 mr-3">01.</h5>
+            <a href="#benefits">
+              <h3 class="text-2xl">Segurança</h3>
+              <p class="benefits-text mt-4 text-white text-sm opacity-60">
+                Segurança no manuseio e armazenamento dos documentos
+              </p>
+            </a>
+            <img src="images/safety.jpg" class="img-project ml-3" alt="">
+          </div>
+    
+          <div class="bb-gray"></div>
+          
+          <div class="list-item py-6 h-32">
+            <h5 class="list-item-number text-slate-500 mr-3">02.</h5>
+            <a href="#benefits">
+              <h3 class="text-2xl">Praticidade</h3>
+              <p class="benefits-text mt-4 text-white text-sm opacity-60">
+                Multiplicidade de usuários por CNPJ
+              </p>
+            </a>
+            <img src="images/practicality.jpeg" class="img-project ml-3" alt="">
+          </div>
+    
+          <div class="bb-gray"></div>
+
+          <div class="list-item py-6 h-32">
+            <h5 class="list-item-number text-slate-500 mr-3">03.</h5>
+            <a href="#benefits">
+              <h3 class="text-2xl">Comodidade</h3>
+              <p class="benefits-text mt-4 text-white text-sm opacity-60">
+                Visualize seus documentos e assinaturas em qualquer lugar
+              </p>
+            </a>
+            <img src="images/convenience.jpeg" class="img-project ml-3" alt="">
+          </div>
+    
+          <div class="bb-gray"></div>
+        </div>  
+
+        <div id="talk-team" class="w-full my-8
+          lg:mt-0 lg:mb-10">
+          <div class="talk-team-inner-div flex flex-col justify-center items-center
+            md:my-4
+            xl:flex-row xl:gap-x-12"
+          >
+            <span data-langkey="systemSecurity.contactUs.description" class="text-center text-white text-sm w-1/2
+                xl:text-left xl:w-1/5 xl:align-top">Fale com nossa equipe para mais informações
+              sobre as camadas de segurança do Dattasign
+            </span>
+            <button id="talk-team-button" type="button"              
+              class="
+                font-semibold
+                py-4
+                px-8
+                rounded-md                
+                duration-300
+                mb-3 mt-8
+                xl:my-0
+              ">
+              <a href="mailto:contato@dattasign.com.br" id="talk-team-link">Falar com a equipe</a>              
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="subscriptions" class="subscriptions h-auto
+      lg:h-screen">
+      <div class="subscription-container h-fit
+        lg:h-full">        
+        <div class="subscription-image">
+          <div class="dark-background h-full">
+            <h1 class="text-4xl text-back pt-20 text-center text-white">Planos</h1>
+            <div id="subscription-decoration" class="decoration"></div>
+            <div class="subscription-cards-container flex flex-col justify-center items-center gap-10 my-16 mx-auto
+              lg:flex-row lg:items-end lg:my-0">
+              <div class="subscription-card flex flex-col justify-between align-center w-64 duration-300">
+                <div class="subscription-card-text flex flex-col p-4 align-center justify-between bg-white w-full h-3/5 rounded-md">
+                  <div class="flex items-center justify-center gap-2">
+                    <h2 class="text-center font-bold text-xl ml-8">Básico</h2>
+                    <span class="material-icons">
+                      auto_awesome
+                    </span>
+                  </div>
+                  <div id="basic-decoration" class="subscription-card-decoration decoration"></div>
+                  <div class="flex w-full items-center justify-center mt-6 gap-4">
+                    <p class="text-center font-bold text-2xl">R$ 39</p>
+                    <span class="text-sm"> por mês</span>
+                  </div>
+                  <div class="flex flex-col justify-center items-start px-2">
+                    <div class="flex jsutify-center items-center">
+                      <span class="material-icons mr-2">
+                        check
+                      </span>
+                      <p class="subscription-card-description text-center">10 Documentos Assinados</p>
+                    </div>
+                    <div class="flex jsutify-center items-center">
+                      <span class="material-icons mr-2">
+                        check
+                      </span>
+                      <p class="subscription-card-description text-center">1 Usuário</p>
+                    </div>
+                    <div class="flex jsutify-center items-center">
+                      <span class="material-icons mr-2">
+                        check
+                      </span>
+                      <p class="subscription-card-description text-center">Signatários ilimitados</p>
+                    </div>
+                    <div class="flex jsutify-center items-center">
+                      <span class="material-icons mr-2">
+                        check
+                      </span>
+                      <p class="subscription-card-description text-center">Assinatura com Certificado Digital</p>
+                    </div>
+                  </div>                  
+                  <button id="basic-subscription-button" type="button"
+                    onclick="goToPage('https://web.dattasign.com.br/register')" 
+                    value="basic" class="                   
+                      font-semibold
+                      text-white
+                      py-4
+                      px-4
+                      rounded-md                
+                      duration-300
+                      my-2
+                      mx-auto
+                      w-32
+                      xl:my-0
+                      hover:opacity-80
+                    ">
+                    Assinar
+                  </button>
+                </div>
+              </div>
+              <div class="subscription-card flex flex-col justify-start align-center w-64 duration-300">
+                <div class="subscription-card-text flex flex-col p-4 align-center justify-between bg-white w-full h-3/5 rounded-md">
+                  <div class="flex items-center justify-center gap-2">
+                    <h2 class="text-center font-bold text-xl ml-7">Pro</h2>
+                    <span class="material-icons pro-icon">
+                      stars
+                    </span>
+                  </div>
+                  <div id="pro-decoration" class="subscription-card-decoration decoration"></div>
+                  <div class="flex w-full items-center justify-center mt-6 gap-4">
+                    <p class="text-center font-bold text-2xl">R$ 129</p>
+                    <span class="text-sm"> por mês</span>
+                  </div>
+                  <div class="flex flex-col justify-center items-start px-2">
+                    <div class="flex jsutify-center items-center">
+                      <span class="material-icons pro-icon mr-2">
+                        check
+                      </span>
+                      <p class="subscription-card-description text-center">Documentos ilimitados</p>
+                    </div>
+                    <div class="flex jsutify-center items-center">
+                      <span class="material-icons pro-icon mr-2">
+                        check
+                      </span>
+                      <p class="subscription-card-description text-center">Até 5 Usuários</p>
+                    </div>
+                    <div class="flex jsutify-center items-center">
+                      <span class="material-icons pro-icon mr-2">
+                        check
+                      </span>
+                      <p class="subscription-card-description text-center">Signatários ilimitados</p>
+                    </div>
+                    <div class="flex jsutify-center items-center">
+                      <span class="material-icons pro-icon mr-2">
+                        check
+                      </span>
+                      <p class="subscription-card-description text-center">Assinatura com Certificado Digital</p>
+                    </div>
+                  </div>
+                  <button id="pro-subscription-button" type="button"
+                    onclick="goToPage('https://web.dattasign.com.br/register')" 
+                    value="pro" class="                   
+                      font-semibold
+                      text-white
+                      py-4
+                      px-4
+                      rounded-md                
+                      duration-300
+                      my-2
+                      mx-auto
+                      w-32
+                      xl:my-0
+                      hover:opacity-80
+                    ">
+                    Assinar
+                  </button>
+                </div>
+              </div>
+              <div class="subscription-card flex flex-col justify-start align-center w-64 duration-300">
+                <div class="subscription-card-text flex flex-col p-4 align-center justify-between bg-white w-full h-3/5 rounded-md">
+                  <div class="flex items-center justify-center gap-2">
+                    <h2 class="text-center font-bold text-xl ml-8">Personalizado</h2>
+                    <span class="material-icons">
+                      auto_fix_high
+                    </span>
+                  </div>
+                  <div id="custom-decoration" class="subscription-card-decoration decoration"></div>
+                  <div class="flex w-full items-center justify-center mt-6 gap-4">
+                    <p class="text-center font-bold text-2xl">$$$</p>
+                    <span class="text-sm"> por mês</span>
+                  </div>
+                  <div class="flex justify-center items-center h-40">
+                    <span class="material-icons mr-2">
+                      how_to_reg
+                    </span>
+                    <p class="subscription-card-description text-center">Entre em contato para fazer o melhor plano para você.</p>
+                  </div>                  
+                  <button id="custom-subscription-button" type="button"
+                    onclick="goToPage('https://web.dattasign.com.br/register')" 
+                    value="custom" class="                   
+                      font-semibold
+                      text-white
+                      py-4
+                      px-4
+                      rounded-md                
+                      duration-300
+                      my-2
+                      mx-auto
+                      w-32
+                      xl:my-0
+                      hover:opacity-80
+                    ">
+                    Assinar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center h-2/5 gap-10">
+              <h2 id="try-subscription-title" class="text-left text-white font-bold text-2xl px-8">Prefere pagar conforme o uso?</h2>
+              <p class="text-center text-white text-sm font-bold h-12 max-w-2xl px-8
+                lg:max-w-none">Em vez de pagar um valor mensal recorrente, você compra créditos de documentos conforme vai usando. Entre em contato para saber mais.</p>
+              <button id="try-subscription-button" type="button"
+                onclick="goToPage('https://web.dattasign.com.br/register')" 
+                class="   
+                  scale-button                
+                  font-semibold
+                  text-white
+                  py-4
+                  px-4
+                  rounded-md                
+                  duration-300
+                  my-8
+                  mx-auto
+                  w-64
+                  lg:mb-0
+                  xl:my-0
+                ">
+                Experimentar grátis
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="      
+      w-full
+      datta-bg-black
+      flex flex-col
+      items-center
+      px-2
+      py-14
+      gap-y-4
+      md:px-8"
+    >
+      <div class="w-11/12 flex flex-col p-2 gap-y-10">
+        <div class="text-white flex items-center gap-x-4">
+          <span class="material-icons text-right" style="font-size: 1.25rem">
+            location_on
+          </span>
+
+          <span class="text-sm">João Pessoa, PB</span>
+        </div>
+
+        <div class="text-white flex items-center gap-x-4">
+          <span class="material-icons text-right" style="font-size: 1.25rem">
+            phone
+          </span>
+
+          <span class="text-sm">(83) 3225-5858</span>
+
+        </div>
+
+        <div class="text-white flex items-center gap-x-4">
+          <span class="material-icons text-right" style="font-size: 1.25rem">
+            email
+          </span>
+
+          <a href="mailto:contato@dattasign.com.br" id="send-email-link" class="text-sm">contato@dattasign.com.br</a>
+        </div>    
+
+      <div class="w-full h-px bg-white mb-2"></div>
+
+      <div class="text-white text-sm flex justify-between w-full mb-14 md:px-8">
+        <div class="flex flex-col gap-y-8
+          md:flex-row md:gap-x-6 md:gap-4">
+          <a class="pages-link" href="termos_e_condicoes.html">Termos e Condições</a>
+          <a class="pages-link" href="politica_de_privacidade.html">Política de Privacidade</a>
+        </div>
+        <span>© VSDI 2022</span>
+      </div>
+    </footer>
+  </main>
+
+   <!-- JS PARA MENU MOBILE -->
+   <script>
+    function toggleMenu(event) {
+      const buttonMenu = event.target;
+      const navBar = document.getElementById("navBar");
+      const invertIconMenu = {
+        menu: "close",
+        close: "menu",
+      };
+
+      buttonMenu.innerText = invertIconMenu[buttonMenu.innerText];
+      navBar.classList.toggle("hidden");
+    }
+
+    function goToPage(page) {
+      window.location.assign(page); 
+    }
+
+  </script>
+
+<script>
+  var purecookieTitle="Privacidade e Cookies", purecookieDesc="Utilizamos cookies em nosso site que podem armazenar seus dados pessoais para melhorar sua experiência e navegação. Ao acessar o site, você concorda com a nossa Política de Privacidade estabelecida de acordo com o Art. 5 da LGPD (Lei 13.709/2018). ", purecookieLink='<a href="https://dattasign.com.br/politica_de_privacidade.html" target="_blank"> Acesse aqui a Política de Privacidade - LGPD.</a>', purecookieButton="Aceitar";
+  function pureFadeIn(e,o){var i=document.getElementById(e);i.style.opacity=0,i.style.display=o||"block",function e(){var o=parseFloat(i.style.opacity);(o+=.02)>1||(i.style.opacity=o,requestAnimationFrame(e))}()}function pureFadeOut(e){var o=document.getElementById(e);o.style.opacity=1,function e(){(o.style.opacity-=.02)<0?o.style.display="none":requestAnimationFrame(e)}()}function setCookie(e,o,i){var t="";if(i){var n=new Date;n.setTime(n.getTime()+24*i*60*60*1e3),t="; expires="+n.toUTCString()}document.cookie=e+"="+(o||"")+t+"; path=/"}function getCookie(e){for(var o=e+"=",i=document.cookie.split(";"),t=0;t<i.length;t++){for(var n=i[t];" "==n.charAt(0);)n=n.substring(1,n.length);if(0==n.indexOf(o))return n.substring(o.length,n.length)}return null}function eraseCookie(e){document.cookie=e+"=; Max-Age=-99999999;"}function cookieConsent(){getCookie("purecookieDismiss")||(document.body.innerHTML+='<div class="cookie-consent-container" id="cookie-consent-container"><div class="cookie-title"><a>'+purecookieTitle+'</a></div><div class="cookie-description"><p>'+purecookieDesc+" "+purecookieLink+'</p></div><div class="cookie-button"><a onClick="purecookieDismiss();">'+purecookieButton+"</a></div></div>",pureFadeIn("cookie-consent-container"))}function purecookieDismiss(){setCookie("purecookieDismiss","1",7),pureFadeOut("cookie-consent-container")}window.onload=function(){cookieConsent()};</script>
+</body>
+
+</html>

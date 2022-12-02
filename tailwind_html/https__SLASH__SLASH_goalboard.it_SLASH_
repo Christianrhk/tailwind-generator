@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html class="antialiased" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,
+            minimum-scale=1, maximum-scale=5"
+    />
+
+    <meta property="og:title" content="Goal Board | powered by Beliven" />
+    <meta
+      property="og:description"
+      content="Lo strumento che unisce gamification e motivazione, per il raggiungimento degli obiettivi aziendali"
+    />
+    <meta
+      property="og:image"
+      content="https://goalboard.it/public/images/thumbnail.jpg"
+    />
+    <meta property="og:url" content="https://goalboard.it/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta property="og:site_name" content="Goal Board" />
+    <meta name="twitter:image:alt" content="Goal Board screenshot" />
+
+    <title>Goal Board | Beliven</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Maven+Pro:700|Rubik:400,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@5.4.5/css/swiper.min.css"
+    />
+
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="public/script/magnific-popup/magnific-popup.css"
+    />
+    <link rel="stylesheet" href="public/styles/general.css" />
+    <link rel="stylesheet" href="public/styles/header.css" />
+    <link rel="stylesheet" href="public/styles/home.css" />
+    <link rel="shortcut icon" href="public/images/favicon.ico" />
+
+    <script type="text/javascript">
+      var _iub = _iub || []
+      _iub.csConfiguration = {
+        lang: 'it',
+        siteId: 1524989,
+        cookiePolicyId: 17053825,
+        reloadOnConsent: true,
+        askConsentAtCookiePolicyUpdate: true,
+        consentOnContinuedBrowsing: false,
+        floatingPreferencesButtonCaptionColor: '#2a2c2e',
+        floatingPreferencesButtonColor: '#ffffff',
+        floatingPreferencesButtonDisplay: 'bottom-right',
+        floatingPreferencesButtonIcon: false,
+        floatingPreferencesButtonCaption: true,
+        invalidateConsentWithoutLog: true,
+        perPurposeConsent: true,
+        // purposes: "1,2,3,4,5",
+        localConsentDomain: 'goalboard.it',
+        callback: {
+          onPreferenceExpressedOrNotNeeded: function (preference) {
+            if (!preference) {
+              dataLayer.push({
+                event: 'iubenda_preference_not_needed'
+              })
+            } else {
+              if (preference.consent === true) {
+                dataLayer.push({
+                  event: 'iubenda_consent_given'
+                })
+              } else if (preference.consent === false) {
+                dataLayer.push({
+                  event: 'iubenda_consent_rejected'
+                })
+              } else if (preference.purposes) {
+                for (var purposeId in preference.purposes) {
+                  if (preference.purposes[purposeId]) {
+                    dataLayer.push({
+                      event: 'iubenda_consent_given_purpose_' + purposeId
+                    })
+                  }
+                }
+              }
+            }
+          }
+        },
+        banner: {
+          acceptButtonDisplay: true,
+          customizeButtonDisplay: true,
+          acceptButtonColor: '#0fbcce',
+          acceptButtonCaptionColor: '#ffffff',
+          customizeButtonColor: '#ffffff',
+          customizeButtonCaptionColor: '#2b2b2b',
+          rejectButtonDisplay: true,
+          rejectButtonColor: '#ffffff',
+          rejectButtonCaptionColor: '#2b2b2b',
+          position: 'float-bottom-right',
+          textColor: '#ffffff',
+          backgroundColor: '#2e2e2e',
+          closeButtonRejects: true,
+          explicitWithdrawal: true,
+          listPurposes: true
+        }
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="//cdn.iubenda.com/cs/iubenda_cs.js"
+      charset="UTF-8"
+      async
+    ></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NCNFM92"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      >
+      </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </head>
+
+  <body class="antialiased overflow-x-hidden text-gray-700 font-sans bg-white">
+    <!-- HEADER -->
+    <header
+      class="absolute flex sm:block top-0 left-0 w-full px-6 sm:px-12 py-6 sm:py-8 z-50"
+    >
+      <div>
+        <img
+          class="block mx-auto h-auto md:h-4"
+          src="public/images/logo/logo.svg"
+          alt=""
+        />
+        <a
+          rel="noopener"
+          href="https://beliven.com"
+          title="Beliven"
+          target="_blank"
+        >
+          <img
+            class="block mx-auto"
+            style="margin-top: 0.6rem"
+            src="public/images/logo/powered.svg"
+            alt=""
+          />
+        </a>
+      </div>
+
+      <a
+        rel="noopener"
+        target="_blank"
+        data-effect="mfp-zoom-out"
+        class="absolute mr-8 top-0 right-0 inline-block mt-4 py-2 px-8 rounded bg-white text-sm text-gray-900 text-center font-display font-bold tracking-wide"
+        href="https://app.goalboard.it/"
+        >Login</a
+      >
+    </header>
+
+    <!-- HERO -->
+    <section
+      class="page-section relative flex flex-col items-center pt-40 pb-24 xl:pt-48 overflow-hidden bg-cyan-600"
+      id="hero"
+    >
+      <img
+        class="radials absolute z-10 floating-x"
+        style="animation-delay: 2s"
+        src="public/images/cyan-radials.svg"
+        alt=""
+      />
+      <img
+        class="right-radial absolute z-10 rotate"
+        src="public/images/cyan-big-radial.svg"
+        alt=""
+      />
+      <img
+        class="bars absolute z-10 floating-y"
+        style="animation-delay: -4.2s"
+        src="public/images/cyan-bars.svg"
+        alt=""
+      />
+      <img
+        class="top-radial absolute z-10 floating-x"
+        src="public/images/cyan-top-radial.svg"
+        alt=""
+      />
+
+      <div
+        class="container relative px-6 mx-auto z-20 text-center"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
+        <h1
+          class="text-4xl md:text-5xl xl:text-6xl font-display font-bold text-white leading-tight tracking-tight"
+        >
+          Gestisci con semplicità <br class="hidden sm:inline-block" />i tuoi
+          obiettivi aziendali
+        </h1>
+        <h4 class="mt-4 text-xl xl:text-2xl text-gray-900">
+          Con la Goal Board puoi monitorare in tempo reale
+          <br class="hidden sm:inline-block" />le attività quotidiane di ogni
+          tuo collaboratore
+        </h4>
+        <a
+          class="cta anchor inline-block mt-6 py-5 px-8 rounded bg-gray-900 text-lg text-white font-display font-bold tracking-wide"
+          href="#plans"
+          >Utilizzala GRATIS</a
+        >
+      </div>
+      <img
+        class="block relative z-20 mx-auto mt-16"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="300"
+        src="public/images/hero-img.png"
+        alt=""
+      />
+    </section>
+
+    <!-- FEATURES -->
+    <section
+      class="page-section relative py-24 sm:py-40 lg:py-56 overflow-hidden bg-white"
+      id="features"
+    >
+      <div class="container relative mx-auto px-6 sm:px-10 xl:px-12 z-20">
+        <h5
+          class="mb-6 text-lg font-display font-bold text-gray-900 text-center"
+        >
+          <span class="text-cyan-600">/</span> Come funziona
+        </h5>
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-cyan-600 leading-tight tracking-tight text-center"
+        >
+          Guida le attività del team
+          <br class="hidden sm:inline-block" />con la giusta motivazione
+        </h2>
+
+        <div
+          class="goal-board-tasks flex flex-col lg:flex-row justify-between mt-32 sm:mt-56"
+        >
+          <div class="w-full lg:w-1/2 relative">
+            <img
+              class="rect-1 hidden sm:block absolute z-10"
+              data-aos="fade-down"
+              data-aos-duration="800"
+              data-aos-delay="600"
+              src="public/images/features/tasks/rect.svg"
+              alt=""
+            />
+            <img
+              class="rect-2 hidden sm:block absolute z-10"
+              data-aos="fade-down"
+              data-aos-duration="800"
+              data-aos-delay="800"
+              src="public/images/features/tasks/rect.svg"
+              alt=""
+            />
+
+            <img
+              class="asana absolute z-30"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-delay="800"
+              src="public/images/features/tasks/asana.svg"
+              alt=""
+            />
+            <img
+              class="jira absolute z-30"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="700"
+              src="public/images/features/tasks/jira.svg"
+              alt=""
+            />
+            <img
+              class="excel absolute z-30"
+              data-aos="fade-up"
+              data-aos-duration="600"
+              data-aos-delay="600"
+              src="public/images/features/tasks/excel.svg"
+              alt=""
+            />
+
+            <img
+              class="block mx-auto lg:m-0 relative z-20"
+              src="public/images/features/tasks/goal-board_task.png"
+              alt=""
+            />
+          </div>
+          <div
+            class="w-full px-0 sm:px-12 md:px-20 lg:w-1/2 pt-12 sm:pt-16 lg:pt-10 lg:pr-0 lg:pl-24 xl:pl-32"
+            data-aos="fade-left"
+            data-aos-duration="500"
+            data-aos-delay="300"
+          >
+            <h3
+              class="text-2xl sm:text-3xl font-display font-bold text-gray-900 leading-tight uppercase"
+            >
+              Obiettivi quotidiani
+            </h3>
+            <p class="mt-5 text-lg xl:text-xl text-gray-600 leading-relaxed">
+              Molto spesso si perdono di vista le priorità, con conseguente
+              disordine e ritardo nel workflow di progetto. Ecco, quindi, che
+              diventa fondamentale avere degli obiettivi quotidiani e definire i
+              goal giornalieri per ciascun collaboratore, attraverso
+              l’inserimento di <strong>specifici task</strong> su strumenti
+              quali <strong>excel</strong>, <strong>Jira</strong>,
+              <strong>Asana</strong>. Così facendo si ottiene un quadro completo
+              dello stato di avanzamento delle diverse attività: backlog,
+              progress oppure done.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="goal-board-stats flex flex-col lg:flex-row-reverse justify-between mt-32 sm:mt-64"
+        >
+          <div class="w-full lg:w-1/2 relative">
+            <img
+              class="bars hidden sm:block absolute z-10"
+              data-aos="fade-down"
+              data-aos-duration="800"
+              data-aos-delay="600"
+              src="public/images/features/stats/bars.svg"
+              alt=""
+            />
+
+            <img
+              class="radials absolute z-30"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="800"
+              src="public/images/features/stats/radials.png"
+              alt=""
+            />
+
+            <img
+              class="block mx-auto lg:m-0 relative z-20 lg:float-right"
+              src="public/images/features/stats/goal-board_stats.png"
+              alt=""
+            />
+          </div>
+          <div
+            class="w-full px-0 sm:px-12 md:px-20 lg:w-1/2 pt-12 sm:pt-16 lg:pt-10 lg:pl-0 lg:pr-24 xl:pr-32"
+            data-aos="fade-right"
+            data-aos-duration="500"
+            data-aos-delay="300"
+          >
+            <h3
+              class="text-2xl sm:text-3xl font-display font-bold text-gray-900 leading-tight uppercase"
+            >
+              Performance real&nbsp;time
+            </h3>
+            <p class="mt-5 text-lg xl:text-xl text-gray-600 leading-relaxed">
+              Potrai tracciare sia i <strong>record personali</strong> sia
+              quelli di <strong>gruppo</strong>, a livello quotidiano e
+              settimanale, ottenendo diversi vantaggi sia per il team management
+              che avrà un’evidenza costante dell’<strong
+                >andamento delle attività</strong
+              >, sia per il team operativo che riceverà una migliore
+              organizzazione del lavoro con focus più mirato agli obiettivi.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="goal-board-gamification flex flex-col lg:flex-row justify-between mt-32 sm:mt-64"
+        >
+          <div class="w-full lg:w-1/2 relative">
+            <img
+              class="stars hidden sm:block absolute z-10"
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="1200"
+              src="public/images/features/gamification/stars.svg"
+              alt=""
+            />
+
+            <img
+              class="sound absolute z-30"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="800"
+              src="public/images/features/gamification/sound.svg"
+              alt=""
+            />
+            <img
+              class="soglie absolute z-30"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="600"
+              src="public/images/features/gamification/soglie.svg"
+              alt=""
+            />
+
+            <img
+              class="block mx-auto lg:m-0 relative z-20"
+              src="public/images/features/gamification/goal-board_gamification.png"
+              alt=""
+            />
+          </div>
+          <div
+            class="w-full px-0 sm:px-12 md:px-20 lg:w-1/2 pt-12 sm:pt-16 lg:pt-10 lg:pr-0 lg:pl-24 xl:pl-32"
+            data-aos="fade-left"
+            data-aos-duration="500"
+            data-aos-delay="300"
+          >
+            <h3
+              class="text-2xl sm:text-3xl font-display font-bold text-gray-900 leading-tight uppercase"
+            >
+              Team motivato
+            </h3>
+            <p class="mt-5 text-lg xl:text-xl text-gray-600 leading-relaxed">
+              Solo un team motivato riesce a centrare l’obiettivo! La
+              <strong>gamification</strong>
+              può essere un valido supporto: la comparsa della
+              <strong>foto del collaboratore</strong> che ha chiuso un goal,
+              corredata da <strong>musica dedicata</strong>
+              incentiva la squadra e rende la cooperazione più divertente. Se al
+              raggiungimento della soglia del 90% di attività concluse si
+              aggiunge anche un
+              <strong>premio</strong>, il gioco è fatto!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLUS -->
+    <section
+      class="page-section relative py-24 sm:py-40 lg:py-56 overflow-hidden bg-cyan-600"
+      id="plus"
+    >
+      <img
+        class="radials absolute z-10 floating-x"
+        src="public/images/cyan-radials.svg"
+        alt=""
+      />
+      <img
+        class="right-radial absolute z-10 rotate"
+        src="public/images/cyan-big-radial.svg"
+        alt=""
+      />
+      <img
+        class="bars absolute z-10 floating-y"
+        src="public/images/cyan-bars.svg"
+        alt=""
+      />
+
+      <div class="container relative mx-auto px-6 sm:px-10 xl:px-12 z-20">
+        <h5
+          class="mb-6 text-lg font-display font-bold text-gray-900 text-center"
+        >
+          <span class="text-white">/</span> Vantaggi
+        </h5>
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-tight tracking-tight text-center"
+        >
+          Tante ottime ragioni
+          <br class="hidden sm:inline-block" />per usare la Goal Board
+        </h2>
+
+        <div class="flex flex-col lg:flex-row mt-20 sm:px-8 md:px-16 xl:px-24">
+          <div class="w-full lg:w-1/2 sm:px-4">
+            <div
+              class="plus-box relative px-8 md:px-10 xl:px-12 pt-8 pb-8 sm:pb-12 xl:pb-16 mb-8 bg-white rounded-lg text-center sm:text-left lg:text-center"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="300"
+            >
+              <img
+                class="h-24 md:h-auto sm:float-left lg:float-none block mx-auto"
+                src="public/images/plus/puzzle.svg"
+                alt=""
+              />
+              <h3
+                class="sm:ml-32 md:ml-40 lg:ml-0 mt-4 text-xl sm:text-2xl font-display font-bold text-gray-900 leading-tight uppercase"
+              >
+                Si adatta a te
+              </h3>
+              <p
+                class="sm:ml-32 md:ml-40 lg:ml-0 mt-4 lg:mt-6 text-base xl:text-lg text-gray-600 leading-relaxed"
+              >
+                La Goal Board non cambia le abitudini della tua azienda, ma si
+                integra facilmente per portare valore condiviso nel team
+              </p>
+            </div>
+
+            <div
+              class="plus-box to-left relative px-8 md:px-10 xl:px-12 pt-8 pb-8 sm:pb-12 xl:pb-16 mb-8 bg-white rounded-lg text-center sm:text-left lg:text-center"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="400"
+            >
+              <img
+                class="h-24 md:h-auto sm:float-left lg:float-none block mx-auto"
+                src="public/images/plus/risparmio.svg"
+                alt=""
+              />
+              <h3
+                class="sm:ml-32 md:ml-40 lg:ml-0 mt-4 text-xl sm:text-2xl font-display font-bold text-gray-900 leading-tight uppercase"
+              >
+                Abbatte i costi
+              </h3>
+              <p
+                class="sm:ml-32 md:ml-40 lg:ml-0 mt-4 lg:mt-6 text-base xl:text-lg text-gray-600 leading-relaxed"
+              >
+                La Goal Board ti mostra in tempo reale l’andamento della
+                giornata e le possibili problematiche, con un conseguente
+                risparmio di tempo e denaro
+              </p>
+            </div>
+
+            <div
+              class="plus-box relative px-8 md:px-10 xl:px-12 pt-8 pb-8 sm:pb-12 xl:pb-16 mb-8 bg-white rounded-lg text-center sm:text-left lg:text-center"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="500"
+            >
+              <img
+                class="h-24 md:h-auto sm:float-left lg:float-none block mx-auto"
+                src="public/images/plus/satisfaction.svg"
+                alt=""
+              />
+              <h3
+                class="sm:ml-32 md:ml-40 lg:ml-0 mt-4 text-xl sm:text-2xl font-display font-bold text-gray-900 leading-tight uppercase"
+              >
+                Soddisfa i tuoi clienti
+              </h3>
+              <p
+                class="sm:ml-32 md:ml-40 lg:ml-0 mt-4 lg:mt-6 text-base xl:text-lg text-gray-600 leading-relaxed"
+              >
+                Con una gestione del team e del lavoro più efficienti, la Goal
+                Board può solo migliorare la soddisfazione dei tuoi clienti
+              </p>
+            </div>
+          </div>
+          <div class="w-full lg:w-1/2 sm:px-4 lg:mt-16">
+            <div
+              class="plus-box to-right relative px-8 md:px-10 xl:px-12 pt-8 pb-8 sm:pb-12 xl:pb-16 mb-8 bg-white rounded-lg text-center sm:text-left lg:text-center"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="600"
+            >
+              <img
+                class="h-24 md:h-auto sm:float-left lg:float-none block mx-auto"
+                src="public/images/plus/optimization.svg"
+                alt=""
+              />
+              <h3
+                class="sm:ml-32 md:ml-40 lg:ml-0 mt-4 text-xl sm:text-2xl font-display font-bold text-gray-900 leading-tight uppercase"
+              >
+                Ottimizza il lavoro
+              </h3>
+              <p
+                class="sm:ml-32 md:ml-40 lg:ml-0 mt-4 lg:mt-6 text-base xl:text-lg text-gray-600 leading-relaxed"
+              >
+                La Goal Board ti permette di distribuire equamente le attività
+                tra i collaboratori, senza sovraccarichi
+              </p>
+            </div>
+
+            <div
+              class="plus-box relative px-8 md:px-10 xl:px-12 pt-8 pb-8 sm:pb-12 xl:pb-16 mb-8 bg-white rounded-lg text-center sm:text-left lg:text-center"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="700"
+            >
+              <img
+                class="h-24 md:h-auto sm:float-left lg:float-none block mx-auto"
+                src="public/images/plus/team.svg"
+                alt=""
+              />
+              <h3
+                class="sm:ml-32 md:ml-40 lg:ml-0 mt-4 text-xl sm:text-2xl font-display font-bold text-gray-900 leading-tight uppercase"
+              >
+                Unisce il team
+              </h3>
+              <p
+                class="sm:ml-32 md:ml-40 lg:ml-0 mt-4 lg:mt-6 text-base xl:text-lg text-gray-600 leading-relaxed"
+              >
+                Trattandosi di una sfida di squadra per il raggiungimento di
+                obiettivi comuni, se un collega si trova in difficoltà il team
+                può intervenire in suo aiuto
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAILY STEPS -->
+    <section
+      class="page-section relative pt-24 sm:pt-40 lg:pt-56 overflow-hidden bg-white"
+      id="steps"
+    >
+      <div class="container px-6 sm:px-0 relative mx-auto z-20">
+        <h5
+          class="mb-6 text-lg font-display font-bold text-gray-900 text-center"
+        >
+          <span class="text-cyan-600">/</span> Daily steps
+        </h5>
+        <h2
+          class="px-6 mb-10 sm:md-16 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-cyan-600 leading-tight tracking-tight text-center"
+        >
+          Sfrutta al meglio la Goal Board
+          <br class="hidden sm:inline-block" />in pochi semplici passi
+        </h2>
+        <div class="py-12 sm:py-20 rounded-lg bg-gray-100">
+          <img
+            class="hidden lg:block mx-auto"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="300"
+            src="public/images/daily-steps.png"
+            alt=""
+          />
+          <img
+            class="hidden md:block lg:hidden mx-auto"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="300"
+            src="public/images/daily-steps_768.png"
+            alt=""
+          />
+          <img
+            class="block md:hidden mx-auto"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="300"
+            src="public/images/daily-steps_mobile.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section
+      class="page-section relative pb-24 sm:pb-32 lg:pb-48 overflow-hidden bg-white"
+      id="testimonials"
+    >
+      <div class="testimonials container mx-auto relative mt-16 sm:mt-24 z-20">
+        <img
+          class="rect-left hidden md:block absolute floating-x z-10"
+          style="animation-delay: -4.2s"
+          src="public/images/features/tasks/rect.svg"
+          alt=""
+        />
+        <img
+          class="rect-right-sm hidden md:block absolute floating-x z-10"
+          style="animation-delay: -2s"
+          src="public/images/features/tasks/rect.svg"
+          alt=""
+        />
+        <img
+          class="rect-right hidden md:block absolute floating-x z-10"
+          style="animation-delay: 1.2s"
+          src="public/images/features/tasks/rect.svg"
+          alt=""
+        />
+
+        <div
+          class="swiper-container w-full px-6 sm:px-0 md:w-2/3 xl:w-1/2 h-full pb-12 relative z-30"
+        >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide p-2">
+              <div
+                class="inner relative w-full h-full rounded-lg relative flex flex-col px-8 py-6 sm:py-12 sm:px-12 lg:px-20 bg-cyan-600 text-center"
+              >
+                <div
+                  class="quote pt-12 pb-12 font-display font-bold text-xl sm:text-2xl text-white leading-tight"
+                >
+                  Una board utilissima per il management: centralizza le
+                  informazioni e tiene traccia di tutte le attività pianificate
+                </div>
+                <div class="caption">
+                  <img
+                    class="block mx-auto mb-2"
+                    src="public/images/testimonials/federica.png"
+                    alt="Federica Leoni"
+                  />
+                  <h5
+                    class="text-lg sm:text-xl font-display font-bold text-gray-900"
+                  >
+                    Federica Leoni
+                  </h5>
+                  <p class="text-gray-900 text-sm">Project Manager, Beliven</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide p-2">
+              <div
+                class="inner relative w-full h-full rounded-lg relative flex flex-col px-8 py-6 sm:py-12 sm:px-12 lg:px-20 bg-cyan-600 text-center"
+              >
+                <div
+                  class="quote pt-12 pb-12 font-display font-bold text-xl sm:text-2xl text-white leading-tight"
+                >
+                  Il vero segreto della Goal Board sta nel fatto che vittorie e
+                  sconfitte appartengono a tutta la squadra
+                </div>
+                <div class="caption">
+                  <img
+                    class="block mx-auto mb-2"
+                    src="public/images/testimonials/emanuele.png"
+                    alt="Federica Leoni"
+                  />
+                  <h5
+                    class="text-lg sm:text-xl font-display font-bold text-gray-900"
+                  >
+                    Emanuele Bertoldi
+                  </h5>
+                  <p class="text-gray-900 text-sm">CTO, Beliven</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide p-2">
+              <div
+                class="inner relative w-full h-full rounded-lg relative flex flex-col px-8 py-6 sm:py-12 sm:px-12 lg:px-20 bg-cyan-600 text-center"
+              >
+                <div
+                  class="quote pt-12 pb-12 font-display font-bold text-xl sm:text-2xl text-white leading-tight"
+                >
+                  La Goal Board permette di instaurare il rispetto reciproco tra
+                  i membri del team, e crea una sana sfida di gruppo per
+                  raggiungere gli obiettivi comuni
+                </div>
+                <div class="caption">
+                  <img
+                    class="block mx-auto mb-2"
+                    src="public/images/testimonials/virgilio.png"
+                    alt="Federica Leoni"
+                  />
+                  <h5
+                    class="text-lg sm:text-xl font-display font-bold text-gray-900"
+                  >
+                    Andrea Virgilio
+                  </h5>
+                  <p class="text-gray-900 text-sm">
+                    CEO & Chief Happiness Officer, Beliven
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide p-2">
+              <div
+                class="inner relative w-full h-full rounded-lg relative flex flex-col px-8 py-6 sm:py-12 sm:px-12 lg:px-20 bg-cyan-600 text-center"
+              >
+                <div
+                  class="quote pt-12 pb-12 font-display font-bold text-xl sm:text-2xl text-white leading-tight"
+                >
+                  Con la Goal Board viviamo la giornata lavorativa nella sua
+                  pienezza: la nostra produttività si lega a quella dell'intero
+                  team
+                </div>
+                <div class="caption">
+                  <img
+                    class="block mx-auto mb-2"
+                    src="public/images/testimonials/alessandro.png"
+                    alt="Alessandro Pascolini"
+                  />
+                  <h5
+                    class="text-lg sm:text-xl font-display font-bold text-gray-900"
+                  >
+                    Alessandro Pascolini
+                  </h5>
+                  <p class="text-gray-900 text-sm">UX Designer, Beliven</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="page-section relative pt-12 sm:pt-20 lg:pt-32 overflow-hidden bg-gray-900"
+      id="contact"
+    >
+      <img
+        class="radial absolute z-10 floating-x"
+        style="animation-delay: 2s"
+        src="public/images/black-radial.svg"
+        alt=""
+      />
+      <img
+        class="big-radial absolute z-10 floating-x"
+        src="public/images/black-big-radial.svg"
+        alt=""
+      />
+      <img
+        class="bars hidden sm:block absolute z-10 floating-y"
+        style="animation-delay: -4.2s"
+        src="public/images/black-bars.svg"
+        alt=""
+      />
+
+      <div
+        class="container relative mx-auto px-6 sm:px-10 xl:px-12 z-20 pt-12"
+        id="plans"
+      >
+        <h5 class="mb-6 text-lg font-display font-bold text-center text-white">
+          <span class="text-cyan-600">/</span> Soluzioni
+        </h5>
+        <h2
+          class="text-4xl md:text-5xl xl:text-6xl font-display font-bold text-white leading-tight tracking-tight text-center"
+        >
+          Scegli la Goal Board
+          <br class="hidden sm:inline-block" />più adatta alle tue esigenze
+        </h2>
+
+        <div class="mt-16 sm:mt-20 sm:px-8 md:px-16 xl:px-24">
+          <div
+            class="plans-box relative flex flex-col lg:flex-row"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="100"
+          >
+            <div
+              class="plan free-plan relative z-30 flex flex-col justify-start lg:justify-between items-center w-full lg:w-1/2 px-6 sm:px-12 py-10 mb-12 lg:mb-0 rounded-tr-lg rounded-br-lg rounded-tl-lg rounded-bl-lg lg:rounded-tr-none lg:rounded-br-none bg-white"
+            >
+              <div>
+                <h3
+                  class="text-3xl sm:text-4xl mb-8 font-display font-bold uppercase text-gray-900 text-center"
+                >
+                  Free
+                </h3>
+                <ul class="list-none">
+                  <li
+                    class="relative mb-4 pl-8 text-lg xl:text-xl text-gray-600"
+                  >
+                    Contenuti per la Goal Board gestiti tramite file excel
+                  </li>
+                </ul>
+              </div>
+              <a
+                data-effect="mfp-zoom-out"
+                class="cta inline-block mt-8 sm:mt-12 py-5 px-8 rounded border border-gray-900 bg-white text-lg text-gray-900 text-center font-display font-bold tracking-wide"
+                href="https://register.goalboard.it/"
+                target="_blank"
+                onclick="window.open('https://register.goalboard.it/', '_self')"
+                ”
+                >Utilizzala GRATIS</a
+              >
+            </div>
+            <div
+              class="plan premium-plan relative z-30 flex flex-col justify-start lg:justify-between items-center w-full lg:w-1/2 px-6 sm:px-12 py-10 rounded-tl-lg rounded-bl-lg rounded-tr-lg rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none bg-cyan-600"
+            >
+              <div>
+                <h3
+                  class="text-3xl sm:text-4xl mb-8 font-display font-bold uppercase text-white text-center"
+                >
+                  Premium
+                </h3>
+                <ul class="list-none">
+                  <li
+                    class="relative mb-4 pl-8 text-lg xl:text-xl text-gray-900"
+                  >
+                    Integrazione Goal Board con software come
+                    <span class="font-medium">Jira</span>,
+                    <span class="font-medium">Asana</span> e
+                    <span class="font-medium">Trello</span>
+                  </li>
+                  <li
+                    class="relative mb-4 pl-8 text-lg xl:text-xl text-gray-900"
+                  >
+                    Personalizzazione interfaccia
+                  </li>
+                  <li
+                    class="relative mb-4 pl-8 text-lg xl:text-xl text-gray-900"
+                  >
+                    Installazione Goal Board in azienda
+                  </li>
+                </ul>
+              </div>
+              <a
+                data-effect="mfp-zoom-out"
+                class="cta inline-block mt-8 sm:mt-12 py-5 px-8 rounded border border-gray-900 bg-gray-900 text-lg text-white text-center font-display font-bold tracking-wide"
+                href="#premium-plan-popup"
+                >Richiedi info</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer
+        class="relative flex flex-col items-start lg:flex-row lg:justify-center lg:items-start mt-24 sm:mt-48 mb-8 text-sm xl:text-base"
+        style="color: #7d7f80"
+      >
+        <a
+          class="mx-auto lg:absolute lg:inset-auto"
+          rel="noopener"
+          href="https://beliven.com"
+          title="Beliven"
+          target="_blank"
+        >
+          <img src="public/images/logo/beliven.svg" alt="Beliven" />
+        </a>
+
+        <p
+          class="mt-4 lg:mt-0 w-full text-center lg:text-left lg:w-auto lg:pr-16 xl:pr-24"
+        >
+          <span class="px-2">Viale del Ledra 56, Udine</span>
+          <span class="hidden sm:inline-block lg:hidden">/</span>
+          <span class="hidden sm:inline-block px-2">+39 04321 698253</span>
+          <span class="lg:hidden">/</span>
+          <span class="px-2">
+            <a
+              class=""
+              target="_blank"
+              href="mailto:marketing@beliven.com"
+              title="Link to marketing mail"
+            >
+              marketing@beliven.com
+            </a>
+          </span>
+        </p>
+        <p
+          class="mt-1 lg:mt-0 w-full text-center lg:text-left lg:w-auto lg:pl-16 xl:pl-24"
+        >
+          <span class="block mb-1 sm:mb-0 sm:inline-block px-2"
+            >© 2020 Heply Srl, IT02950460309</span
+          >
+          <span class="hidden sm:inline-block lg:hidden">/</span>
+          <span class="px-2"
+            ><a
+              class=""
+              target="_blank"
+              href="https://www.beliven.com/privacy/"
+              title=""
+              >Privacy</a
+            ></span
+          >
+          <span class="lg:hidden">/</span>
+          <span class="px-2"
+            ><a
+              class=""
+              target="_blank"
+              href="https://www.beliven.com/cookies/"
+              title=""
+              >Cookie Policy</a
+            ></span
+          >
+        </p>
+      </footer>
+    </section>
+
+    <div
+      id="free-plan-popup"
+      class="white-popup relative mx-auto py-10 px-6 sm:p-12 w-auto max-w-screen-sm bg-white mfp-with-anim mfp-hide rounded-lg"
+    >
+      <h5 class="mb-6 text-lg font-display font-bold text-center text-gray-900">
+        <span class="text-cyan-600">/</span> Piano FREE
+      </h5>
+      <h2
+        class="text-3xl md:text-4xl xl:text-5xl font-display font-bold text-gray-900 leading-tight tracking-tight text-center"
+      >
+        Utilizza gratis <br class="hidden sm:inline-block" />la tua nuova Goal
+        Board
+      </h2>
+      <p class="text-gray-600 py-8 sm:px-10 text-lg text-center tracking-wide">
+        Compila il modulo con il tuo indirizzo email, e ti forniremo i file e le
+        credenziali per iniziare ad usare subito la Goal Board
+      </p>
+
+      <form
+        id="contact-form2"
+        class="free-plan-form mx-auto mt-2 sm:px-10"
+        method="POST"
+      >
+        <div class="w-full flex flex-col items-center">
+          <div class="">
+            <input
+              required
+              class="w-full appearance-none block bg-gray-200 text-lg font-medium text-gray-900 border-none rounded py-5 sm:py-6 px-6 leading-tight focus:outline-none"
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              required
+            />
+            <div class="flex flex-row mt-4">
+              <input
+                class="input-reset checkbox appearance-none outline-none"
+                type="checkbox"
+                name="privacy"
+                required
+                data-cons-preference="privacy"
+              />
+              <label
+                class="pl-2 text-xs text-gray-600 tracking-wide"
+                for="privacy"
+                >Autorizzo il trattamento dei miei dati personali come previsto
+                dalla
+                <a
+                  class="font-medium"
+                  href="https://www.beliven.com/privacy/"
+                  target="_blank"
+                  title="Privacy Policy"
+                  >privacy policy</a
+                ></label
+              >
+            </div>
+            <div class="flex flex-row mt-4">
+              <input
+                class="input-reset checkbox appearance-none outline-none"
+                type="checkbox"
+                name="commercial"
+                data-cons-preference="commercial"
+              />
+              <label
+                class="pl-2 text-xs text-gray-600 tracking-wide"
+                for="commercial"
+                >Autorizzo la ricezione di e-mail a fini commericali come
+                previsto dalla
+                <a
+                  class="font-medium"
+                  href="https://www.beliven.com/privacy/"
+                  target="_blank"
+                  title="Privacy Policy"
+                  >privacy policy</a
+                >
+                <span class="pl-1" style="opacity: 0.5"
+                  >(facoltativo)</span
+                ></label
+              >
+            </div>
+          </div>
+          <button
+            id="btnSubmit"
+            type="submit"
+            class="cta inline-block mt-8 sm:mt-12 py-5 px-8 rounded border border-gray-900 bg-white text-lg text-gray-900 text-center font-display font-bold tracking-wide"
+          >
+            Invia richiesta
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div
+      id="premium-plan-popup"
+      class="white-popup relative mx-auto py-10 px-6 sm:p-12 w-auto max-w-screen-sm bg-cyan-600 mfp-with-anim mfp-hide rounded-lg"
+    >
+      <h5 class="mb-6 text-lg font-display font-bold text-center text-gray-900">
+        <span class="text-white">/</span> Piano PREMIUM
+      </h5>
+      <h2
+        class="text-3xl md:text-4xl xl:text-5xl font-display font-bold text-white leading-tight tracking-tight text-center"
+      >
+        Richiedi una Goal Board
+        <br class="hidden sm:inline-block" />personalizzata
+      </h2>
+      <p class="text-gray-900 py-8 sm:px-10 text-lg text-center tracking-wide">
+        Compila il modulo con il tuo indirizzo email, e ti ricontatteremo presto
+        per allestire assieme una Goal Board su misura della tua azienda
+      </p>
+
+      <form
+        id="contact-form"
+        class="premium-plan-form mx-auto mt-2 sm:px-10"
+        method="POST"
+      >
+        <div class="w-full flex flex-col items-center">
+          <div class="">
+            <input
+              required
+              class="w-full appearance-none block bg-white text-lg font-medium text-gray-900 border-none rounded py-5 sm:py-6 px-6 leading-tight focus:outline-none"
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+            <div class="flex flex-row mt-4">
+              <input
+                class="input-reset checkbox appearance-none outline-none"
+                type="checkbox"
+                name="privacy"
+                required
+                data-cons-preference="privacy"
+              />
+              <label
+                class="pl-2 text-xs text-gray-900 tracking-wide"
+                for="privacy"
+                >Autorizzo il trattamento dei miei dati personali come previsto
+                dalla
+                <a
+                  class="font-medium"
+                  href="https://www.beliven.com/privacy/"
+                  target="_blank"
+                  title="Privacy Policy"
+                  >privacy policy</a
+                ></label
+              >
+            </div>
+            <div class="flex flex-row mt-4">
+              <input
+                class="input-reset checkbox appearance-none outline-none"
+                type="checkbox"
+                name="commercial"
+                data-cons-preference="commercial"
+              />
+              <label
+                class="pl-2 text-xs text-gray-900 tracking-wide"
+                for="commercial"
+                >Autorizzo la ricezione di e-mail a fini commericali come
+                previsto dalla
+                <a
+                  class="font-medium"
+                  href="https://www.beliven.com/privacy/"
+                  target="_blank"
+                  title="Privacy Policy"
+                  >privacy policy</a
+                >
+                <span class="pl-1" style="opacity: 0.5"
+                  >(facoltativo)</span
+                ></label
+              >
+            </div>
+          </div>
+          <button
+            id="btnSubmit"
+            type="submit"
+            class="cta inline-block mt-8 sm:mt-12 py-5 px-8 rounded border border-gray-900 bg-gray-900 text-lg text-white text-center font-display font-bold tracking-wide"
+          >
+            Invia richiesta
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/swiper@5.4.5/js/swiper.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="public/script/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="public/script/particles.js"></script>
+    <script src="public/script/general.js"></script>
+    <!-- IUBENDA consent solution -->
+    <script type="text/javascript">
+      var _iub = _iub || {}
+      _iub.cons_instructions = _iub.cons_instructions || []
+      _iub.cons_instructions.push([
+        'init',
+        { api_key: '3QTfg6QHcPtpN74BSQvK32uqlEtVIZeS' }
+      ])
+    </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.iubenda.com/cons/iubenda_cons.js"
+      async
+    ></script>
+    <!-- End Iubenda -->
+    <script>
+      const serialize_form = form =>
+        Array.from(new FormData(form).entries()).reduce(
+          (m, [key, value]) =>
+            Object.assign(m, {
+              [key]: value
+            }),
+          {}
+        )
+
+      $('#contact-form').on('submit', e => {
+        e.preventDefault()
+        _iub.cons_instructions.push([
+          'submit',
+          {
+            form: {
+              selector: document.getElementById('contact-form'),
+              map: {
+                subject: {
+                  email: 'email'
+                },
+                preferences: {
+                  privacy_policy: 'privacy',
+                  commercial: 'commercial'
+                }
+              }
+            },
+            consent: {
+              legal_notices: [
+                {
+                  identifier: 'privacy_policy'
+                },
+                {
+                  identifier: 'commercial'
+                }
+              ]
+            }
+          },
+          {
+            success: function (response) {
+              let params = serialize_form(
+                document.getElementById('contact-form')
+              )
+              fetch(
+                `https://n8n.heply.run/webhook/22/webhook/goal-board?email=${params.email}&privacy=${params.privacy}&commercial=${params.commercial}&plan=PREMIUM`,
+                {
+                  mode: 'no-cors',
+                  method: 'GET',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    Accept: '*/*'
+                  }
+                }
+              )
+                .then(() => {
+                  alert('Form inviato con successo!')
+                  window.location.reload()
+                })
+                .catch(() => {
+                  alert('Errore, riprova più tardi')
+                })
+            },
+            error: function (response) {
+              console.log('error', response)
+            }
+          }
+        ])
+      })
+
+      $('#contact-form2').on('submit', e => {
+        e.preventDefault()
+        _iub.cons_instructions.push([
+          'submit',
+          {
+            form: {
+              selector: document.getElementById('contact-form2'),
+              map: {
+                subject: {
+                  email: 'email'
+                },
+                preferences: {
+                  privacy_policy: 'privacy',
+                  commercial: 'commercial'
+                }
+              }
+            },
+            consent: {
+              legal_notices: [
+                {
+                  identifier: 'privacy_policy'
+                },
+                {
+                  identifier: 'commercial'
+                }
+              ]
+            }
+          },
+          {
+            success: function (response) {
+              let params = serialize_form(
+                document.getElementById('contact-form2')
+              )
+              fetch(
+                `https://n8n.heply.run/webhook/22/webhook/goal-board?email=${params.email}&privacy=${params.privacy}&commercial=${params.commercial}&plan=FREE`,
+                {
+                  mode: 'no-cors',
+                  method: 'GET',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    Accept: '*/*'
+                  }
+                }
+              )
+                .then(() => {
+                  alert('Form inviato con successo!')
+                  window.location.reload()
+                })
+                .catch(() => {
+                  alert('Errore, riprova più tardi')
+                })
+            },
+            error: function (response) {
+              console.log('error', response)
+            }
+          }
+        ])
+      })
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-NCNFM92')
+    </script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<title>Otra — your helpful assistant for Coldricalcs</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="icon" type="image/svg+xml" href="https://assets.pi4li.com/logos/coldricalcs/logos/icon-new.svg">
+<link type="text/plain" rel="author" href="https://coldricalcs.com/humans.txt">
+</head>
+<body>
+<div class="text-center p-3 grid grid-cols-1 md:grid-cols-2 justify-center">
+<div class="flex items-center justify-center">
+<img class="pt-2" src="https://assets.pi4li.com/logos/coldricalcs/logos/otra.svg">
+</div>
+<div>
+<h1 class="font-bold text-4xl pt-2 md:pt-0 pb-2">What do you need help with?</h1>
+<div class="cursor-pointer mt-2 inline-flex rounded-md shadow transition duration-300 ease-in-out bg-blue-500 hover:bg-blue-600">
+<a onclick="signin()" class="text-white py-2 px-6">
+Signing In
+</a>
+</div>
+<div class="cursor-pointer mt-2 inline-flex rounded-md shadow transition duration-300 ease-in-out bg-blue-500 hover:bg-blue-600">
+<a onclick="notsignin()" class="text-white py-2 px-6">
+Something Else
+</a>
+</div>
+<div id="signin" class="hidden">
+<h1 class="font-bold text-4xl pt-4 pb-2">Here's how to sign in to Coldricalcs</h1>
+<div class="flex items-center justify-center pt-2">
+<iframe src="https://www.youtube-nocookie.com/embed/dc-ojeWU7Do?modestbranding=1&amp;rel=0" allowfullscreen=""></iframe>
+</div>
+<div class="text-left pt-2">
+To sign in, go to the <a href="https://coldricalcs.com" target="_blank" class="text-blue-500 no-underline hover:underline">Coldricalcs Home Page</a> and select the sign in link in the top right. This should open a window where you can enter your sign in information. This is your username and password. Note that the username and password fields are both case-sensitive (e.g. <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c489bd8aa5a9a184a7aba8a0b6ada7a5a8a7b7">[email&#160;protected]</a> is different to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="75180c1b14181035161a1911071c1614191606">[email&#160;protected]</a>)! If you need to reset your password, please contact your teacher/a member of staff at your school with access to the Coldricalcs dashboard.
+</div>
+</div>
+<div id="notsignin" class="hidden">
+<h1 class="font-bold text-4xl pt-4 pb-2">Got it! What do you need help with?</h1>
+<p><i>I'm learning more scenarios at the moment! Come back later! For now, check out our <a href="https://help.coldricalcs.com" class="text-blue-500 no-underline hover:underline">Help Centre</a> or email <a href="/cdn-cgi/l/email-protection#c3b0b6b3b3acb1b783a0acafa7b1aaa0a2afa0b0eda0acae" class="text-blue-500 no-underline hover:underline"><span class="__cf_email__" data-cfemail="3b484e4b4b54494f7b5854575f4952585a57584815585456">[email&#160;protected]</span></a>!</i></p>
+</div>
+</div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function signin(){
+            if($('#notsignin').css('display')=='block'){
+                $("#notsignin").fadeOut(400, function() {
+                    $("#signin").fadeIn();
+                })
+            }else{
+                $("#signin").fadeIn();
+            }
+        }
+        function notsignin(){
+            if($('#signin').css('display')=='block'){
+                $("#signin").fadeOut(400, function() {
+                    $("#notsignin").fadeIn();
+                });
+            }else{
+                $("#notsignin").fadeIn();
+            }
+        }
+    </script>
+<div class="flex items-center justify-center">
+<a href="https://coldricalcs.com" class="p-4"><img src="https://assets.pi4li.com/logos/coldricalcs/logos/wordmark-new.svg" style="max-height: 60px;"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/timetable_styles.css">
+  <link rel="stylesheet" href="../css/timetable_pdf_styles.css">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlaG9sem1hbiIsImEiOiJjazA1cHc0bGwyc25zM29xZGptdnJ3N2FlIn0.c6NVNxyMLyAONXtQtpUjyg';
+  </script>
+  <script src="../js/timetable-map.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Timetable generated on Fri Jul 09 2021 13:48:38 GMT-0700 (Pacific Daylight Time) using GTFS-to-HTML version 2.1.1 -->
+  <div class="timetable-page menu-type-simple">
+    <div class="container mx-4 md:mx-auto">
+      <h1 class="timetable-page-label text-2xl pt-4 flex items-center">
+        <div class="route-color-swatch-large mr-2 flex-none" style="background-color: #f49d3f; color: #000000"></div>
+        <div>Route The Dalles</div>
+      </h1>
+      <div class="timetable mb-5" id="timetable_id_23700000111" data-day-list="Sat-Sun" data-direction-name="Hood River" data-timetable-id="237|0000011|1" data-direction-id="1" data-route-id="237">
+        <h2 class="text-xl">Route The Dalles - LINK Transit Center - The Dalles to CAT Transit Center - Hood River | saturday-sunday</h2>
+        <div class="service-notes"></div>
+        <div class="map" id="map_timetable_id_23700000111"></div>
+        <script>
+          (function() {
+            const id = 'timetable_id_23700000111';
+            const geojson = {
+              "type": "FeatureCollection",
+              "features": [{
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Columbia Area Transit",
+                  "route_id": "237",
+                  "agency_id": "37",
+                  "route_long_name": "The Dalles",
+                  "route_type": 3,
+                  "route_url": "https://www.ridecatbus.org/the-dalles/",
+                  "route_color": "#f49d3f",
+                  "route_text_color": "#000000",
+                  "route_sort_order": 4,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.21769, 45.62558],
+                    [-121.21769, 45.62595],
+                    [-121.21627, 45.62595],
+                    [-121.21451, 45.62598],
+                    [-121.21455, 45.62628],
+                    [-121.21455, 45.62775],
+                    [-121.21458, 45.62813],
+                    [-121.21462, 45.62826],
+                    [-121.21487, 45.62871],
+                    [-121.2155, 45.62975],
+                    [-121.21555, 45.63],
+                    [-121.21553, 45.63007],
+                    [-121.21549, 45.63013],
+                    [-121.21542, 45.63019],
+                    [-121.21512, 45.63031],
+                    [-121.21415, 45.63049],
+                    [-121.21293, 45.63067],
+                    [-121.21265, 45.63139],
+                    [-121.21151, 45.63399],
+                    [-121.21138, 45.63441],
+                    [-121.20921, 45.6388],
+                    [-121.20894, 45.63961],
+                    [-121.20885, 45.64011],
+                    [-121.20882, 45.64052],
+                    [-121.20887, 45.64103],
+                    [-121.20913, 45.64215],
+                    [-121.21068, 45.64862],
+                    [-121.21172, 45.65261],
+                    [-121.21208, 45.65413],
+                    [-121.21236, 45.65524],
+                    [-121.21257, 45.65579],
+                    [-121.2129, 45.65634],
+                    [-121.21319, 45.65673],
+                    [-121.21376, 45.65735],
+                    [-121.21695, 45.66051],
+                    [-121.22024, 45.66372],
+                    [-121.22103, 45.66437],
+                    [-121.22184, 45.66484],
+                    [-121.22258, 45.6652],
+                    [-121.22352, 45.66551],
+                    [-121.22447, 45.66575],
+                    [-121.22781, 45.66643],
+                    [-121.23566, 45.66793],
+                    [-121.23659, 45.66808],
+                    [-121.23888, 45.66839],
+                    [-121.24046, 45.66856],
+                    [-121.24356, 45.66877],
+                    [-121.24537, 45.66883],
+                    [-121.24783, 45.66895],
+                    [-121.24887, 45.66904],
+                    [-121.24962, 45.66914],
+                    [-121.25051, 45.66932],
+                    [-121.26222, 45.67197],
+                    [-121.26416, 45.67247],
+                    [-121.26661, 45.67314],
+                    [-121.27448, 45.67517],
+                    [-121.27531, 45.67539],
+                    [-121.27611, 45.67563],
+                    [-121.2779, 45.6761],
+                    [-121.27901, 45.67635],
+                    [-121.28009, 45.67654],
+                    [-121.28055, 45.67659],
+                    [-121.28363, 45.67675],
+                    [-121.28449, 45.67681],
+                    [-121.28543, 45.67695],
+                    [-121.28607, 45.67711],
+                    [-121.2865, 45.67725],
+                    [-121.28717, 45.67753],
+                    [-121.28777, 45.67788],
+                    [-121.28828, 45.67825],
+                    [-121.28873, 45.6787],
+                    [-121.28915, 45.67923],
+                    [-121.28939, 45.67961],
+                    [-121.29049, 45.68152],
+                    [-121.29081, 45.682],
+                    [-121.29098, 45.68223],
+                    [-121.29149, 45.68279],
+                    [-121.29189, 45.68317],
+                    [-121.29216, 45.68338],
+                    [-121.29279, 45.68383],
+                    [-121.29368, 45.68435],
+                    [-121.2959, 45.68557],
+                    [-121.29719, 45.68636],
+                    [-121.29771, 45.68672],
+                    [-121.29886, 45.68758],
+                    [-121.29968, 45.68843],
+                    [-121.30252, 45.6911],
+                    [-121.30354, 45.692],
+                    [-121.3044, 45.69269],
+                    [-121.30535, 45.69329],
+                    [-121.30663, 45.69392],
+                    [-121.30759, 45.69426],
+                    [-121.30877, 45.69456],
+                    [-121.31218, 45.69519],
+                    [-121.31272, 45.69526],
+                    [-121.31328, 45.69529],
+                    [-121.31416, 45.69527],
+                    [-121.3149, 45.69521],
+                    [-121.31581, 45.69506],
+                    [-121.32408, 45.69348],
+                    [-121.32539, 45.69328],
+                    [-121.32595, 45.69323],
+                    [-121.32652, 45.6932],
+                    [-121.32732, 45.69321],
+                    [-121.328, 45.69328],
+                    [-121.32866, 45.69338],
+                    [-121.32941, 45.69355],
+                    [-121.33043, 45.69383],
+                    [-121.33341, 45.69478],
+                    [-121.33488, 45.69513],
+                    [-121.33583, 45.69527],
+                    [-121.33778, 45.69533],
+                    [-121.3446, 45.69532],
+                    [-121.34589, 45.69537],
+                    [-121.34664, 45.69544],
+                    [-121.34738, 45.69554],
+                    [-121.34836, 45.69575],
+                    [-121.34927, 45.69601],
+                    [-121.35131, 45.69652],
+                    [-121.35221, 45.69672],
+                    [-121.35264, 45.69679],
+                    [-121.35312, 45.69684],
+                    [-121.35373, 45.69687],
+                    [-121.35454, 45.69687],
+                    [-121.35508, 45.69684],
+                    [-121.35582, 45.69676],
+                    [-121.35658, 45.6966],
+                    [-121.3575, 45.69633],
+                    [-121.35859, 45.69597],
+                    [-121.35971, 45.69556],
+                    [-121.36091, 45.69516],
+                    [-121.36265, 45.69476],
+                    [-121.36367, 45.69459],
+                    [-121.36464, 45.69446],
+                    [-121.36574, 45.69439],
+                    [-121.36661, 45.69438],
+                    [-121.36728, 45.6944],
+                    [-121.36829, 45.69447],
+                    [-121.36916, 45.69456],
+                    [-121.37088, 45.69484],
+                    [-121.37285, 45.69527],
+                    [-121.37429, 45.69557],
+                    [-121.37529, 45.69572],
+                    [-121.3761, 45.6958],
+                    [-121.3773, 45.69579],
+                    [-121.37794, 45.69574],
+                    [-121.37876, 45.69564],
+                    [-121.37933, 45.6955],
+                    [-121.38053, 45.69514],
+                    [-121.38111, 45.69489],
+                    [-121.382, 45.69444],
+                    [-121.38262, 45.69404],
+                    [-121.3839, 45.69314],
+                    [-121.38997, 45.68864],
+                    [-121.39203, 45.68716],
+                    [-121.39245, 45.68691],
+                    [-121.39284, 45.68669],
+                    [-121.39353, 45.68638],
+                    [-121.39427, 45.68612],
+                    [-121.39525, 45.68587],
+                    [-121.39584, 45.68578],
+                    [-121.39624, 45.68573],
+                    [-121.39693, 45.68569],
+                    [-121.39769, 45.6857],
+                    [-121.39863, 45.68577],
+                    [-121.39974, 45.68594],
+                    [-121.41044, 45.68769],
+                    [-121.41114, 45.68778],
+                    [-121.41186, 45.68781],
+                    [-121.41255, 45.68775],
+                    [-121.41327, 45.68765],
+                    [-121.41397, 45.68753],
+                    [-121.41883, 45.68654],
+                    [-121.42044, 45.68631],
+                    [-121.42187, 45.6863],
+                    [-121.42325, 45.6864],
+                    [-121.42396, 45.68649],
+                    [-121.42536, 45.68673],
+                    [-121.43419, 45.6884],
+                    [-121.43491, 45.68856],
+                    [-121.43565, 45.68876],
+                    [-121.43636, 45.68903],
+                    [-121.43701, 45.68931],
+                    [-121.43762, 45.68966],
+                    [-121.43821, 45.69003],
+                    [-121.4409, 45.69195],
+                    [-121.44148, 45.69235],
+                    [-121.44262, 45.69308],
+                    [-121.44557, 45.69486],
+                    [-121.44618, 45.69519],
+                    [-121.44686, 45.69547],
+                    [-121.44759, 45.69568],
+                    [-121.44805, 45.69578],
+                    [-121.44857, 45.69586],
+                    [-121.44906, 45.6959],
+                    [-121.45455, 45.69605],
+                    [-121.45687, 45.69613],
+                    [-121.45768, 45.6962],
+                    [-121.45846, 45.6963],
+                    [-121.45916, 45.69644],
+                    [-121.4599, 45.69664],
+                    [-121.46058, 45.69687],
+                    [-121.46246, 45.69761],
+                    [-121.46336, 45.69792],
+                    [-121.46695, 45.6989],
+                    [-121.46765, 45.6991],
+                    [-121.4684, 45.69934],
+                    [-121.46969, 45.69982],
+                    [-121.47109, 45.70041],
+                    [-121.47523, 45.70241],
+                    [-121.48458, 45.70689],
+                    [-121.48527, 45.70718],
+                    [-121.48665, 45.70771],
+                    [-121.4901, 45.70897],
+                    [-121.49152, 45.70943],
+                    [-121.493, 45.70981],
+                    [-121.4944, 45.71011],
+                    [-121.49502, 45.71021],
+                    [-121.49603, 45.71036],
+                    [-121.49781, 45.71054],
+                    [-121.4999, 45.7106],
+                    [-121.50061, 45.71061],
+                    [-121.50193, 45.71058],
+                    [-121.50458, 45.71047],
+                    [-121.50695, 45.7104],
+                    [-121.50793, 45.71039],
+                    [-121.50837, 45.71041],
+                    [-121.50957, 45.71056],
+                    [-121.50993, 45.71064],
+                    [-121.51036, 45.71076],
+                    [-121.51084, 45.71095],
+                    [-121.51122, 45.71118],
+                    [-121.51173, 45.71153],
+                    [-121.51189, 45.71159],
+                    [-121.51202, 45.71161],
+                    [-121.51227, 45.71162],
+                    [-121.51227, 45.7117],
+                    [-121.51233, 45.71203],
+                    [-121.51241, 45.71215],
+                    [-121.51271, 45.71239],
+                    [-121.51298, 45.71254],
+                    [-121.51282, 45.71268],
+                    [-121.5127, 45.71274],
+                    [-121.51253, 45.71278],
+                    [-121.51171, 45.71277],
+                    [-121.51171, 45.71239],
+                    [-121.5115, 45.71239],
+                    [-121.5115, 45.71277],
+                    [-121.51171, 45.71277]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Columbia Area Transit",
+                  "route_id": "237",
+                  "agency_id": "37",
+                  "route_long_name": "The Dalles",
+                  "route_type": 3,
+                  "route_url": "https://www.ridecatbus.org/the-dalles/",
+                  "route_color": "#f49d3f",
+                  "route_text_color": "#000000",
+                  "route_sort_order": 4,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.51227, 45.71162],
+                    [-121.51229, 45.70957],
+                    [-121.51446, 45.70959],
+                    [-121.51639, 45.70959],
+                    [-121.51733, 45.70956],
+                    [-121.51733, 45.71046],
+                    [-121.51736, 45.71058],
+                    [-121.51746, 45.71066],
+                    [-121.51753, 45.7107],
+                    [-121.51762, 45.71073],
+                    [-121.51922, 45.71111],
+                    [-121.52084, 45.71144],
+                    [-121.52118, 45.7115],
+                    [-121.52156, 45.71154],
+                    [-121.52218, 45.71155],
+                    [-121.5246, 45.71147],
+                    [-121.52979, 45.71148],
+                    [-121.53108, 45.71147],
+                    [-121.53129, 45.71145],
+                    [-121.53176, 45.71137],
+                    [-121.53317, 45.71107],
+                    [-121.53356, 45.71102],
+                    [-121.53389, 45.71101],
+                    [-121.53513, 45.71101],
+                    [-121.53513, 45.71132],
+                    [-121.53522, 45.71154]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2430903",
+                  "stop_name": "LINK Transit Center - The Dalles",
+                  "zone_id": "73",
+                  "stop_url": "http://catransit.org/service-routes/",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "14113",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Blue)",
+                    "route_type": 3,
+                    "route_url": "https://www.mcedd.org/the-dalles-deviated-fixed-route/",
+                    "route_color": "#0948fe",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 8,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "16787",
+                    "agency_id": "1491",
+                    "route_long_name": "The Dalles Deviated Fixed (Red)",
+                    "route_type": 3,
+                    "route_url": "https://www.mcedd.org/the-dalles-deviated-fixed-route/",
+                    "route_color": "#ff0000",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 9,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "237",
+                    "agency_id": "37",
+                    "route_long_name": "The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/the-dalles/",
+                    "route_color": "#f49d3f",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 4,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "3643",
+                    "agency_id": "37",
+                    "route_long_name": "Columbia Gorge Express",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/columbia-gorge-express/",
+                    "route_color": "#14aaed",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "The LINK"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.21793, 45.62558]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2455471",
+                  "stop_name": "Port Transfer (Sinclair Gas)",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "11132",
+                    "agency_id": "37",
+                    "route_long_name": "Pink Trolley",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/pink-trolley/",
+                    "route_color": "#ed5887",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 3,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "237",
+                    "agency_id": "37",
+                    "route_long_name": "The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/the-dalles/",
+                    "route_color": "#f49d3f",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 4,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "The LINK"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.5118, 45.71245]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "9469",
+                  "stop_name": "CAT Transit Center - Hood River",
+                  "zone_id": "1469",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "11129",
+                    "agency_id": "37",
+                    "route_long_name": "Hood River",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/hood-river/",
+                    "route_color": "#cc3530",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 1,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "12170",
+                    "agency_id": "37",
+                    "route_long_name": "Cascade Locks",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/cascade-locks/",
+                    "route_color": "#9e84bc",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 6,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "237",
+                    "agency_id": "37",
+                    "route_long_name": "The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/the-dalles/",
+                    "route_color": "#f49d3f",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 4,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "3643",
+                    "agency_id": "37",
+                    "route_long_name": "Columbia Gorge Express",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/columbia-gorge-express/",
+                    "route_color": "#14aaed",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "9768",
+                    "agency_id": "37",
+                    "route_long_name": "Upper Valley",
+                    "route_type": 3,
+                    "route_url": "https://www.ridecatbus.org/upper-valley/",
+                    "route_color": "#52c1d5",
+                    "route_text_color": "#ffffff",
+                    "route_sort_order": 2,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "The LINK"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.53528, 45.71153]
+                }
+              }]
+            };
+            createMap(id, geojson);
+          })();
+        </script>
+        <div class="table-container">
+          <table summary="This table shows schedules for a selection of key stops on the route for Route The Dalles - LINK Transit Center - The Dalles to CAT Transit Center - Hood River Sat-Sun. Stops and their schedule times are listed in the columns." data-orientation="vertical">
+            <caption class="sr-only">Route The Dalles - LINK Transit Center - The Dalles to CAT Transit Center - Hood River | Sat-Sun</caption>
+            <colgroup>
+              <col class="stop-0" id="stop_id_2430903" data-stop-id="2430903">
+              <col class="stop-1" id="stop_id_2455471" data-stop-id="2455471">
+              <col class="stop-2" id="stop_id_9469" data-stop-id="9469">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="stop-header" scope="col" width="33.33%">
+                  <div class="stop-name">LINK Transit Center - The Dalles</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="33.33%">
+                  <div class="stop-name">Port Transfer (Sinclair Gas)</div>
+                  <div class="stop-code"></div>
+                </th>
+                <th class="stop-header" scope="col" width="33.33%">
+                  <div class="stop-name">CAT Transit Center - Hood River</div>
+                  <div class="stop-code"></div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="trip-row" id="trip_id_t_1372530_b_26562_tn_0">
+                <td class="stop-time am"><span class="stop-time-text">10:05am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:25am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:30am</span></td>
+              </tr>
+              <tr class="trip-row" id="trip_id_t_1372531_b_26562_tn_0">
+                <td class="stop-time pm"><span class="stop-time-text">12:40pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:05pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:10pm</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div class="excluded-dates">Service not provided on: Independence Day, Christmas Day, New Year's Day</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

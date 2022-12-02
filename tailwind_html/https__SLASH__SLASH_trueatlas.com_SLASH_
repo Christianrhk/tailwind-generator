@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title id='theTitle'>True Atlas</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="/static/assets/css/jquery.floatingscroll.css" rel="stylesheet" type="text/css">
+<link href="/static/assets/css/tailwind.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+<link href="/static/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+<link href="/static/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="/static/assets/css/core.css" rel="stylesheet" type="text/css">
+<link href="/static/assets/css/components.css" rel="stylesheet" type="text/css">
+<link href="/static/assets/css/colors.css" rel="stylesheet" type="text/css">
+<link href="/static/assets/css/extras/animate.min.css" rel="stylesheet" type="text/css">
+<style src="webpack://src/--/vur-multiselect/dist/vue-multiselect/dist/vue-multiselect.min.css"></style>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<script type="text/javascript" src="/static/assets/js/plugins/loaders/pace.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/core/libraries/jquery.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/core/libraries/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/plugins/loaders/blockui.min.js"></script>
+
+
+<script type="text/javascript" src="/static/assets/js/plugins/visualization/d3/d3.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+<script type="text/javascript" src="/static/assets/js/plugins/forms/styling/switchery.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/plugins/forms/styling/uniform.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+<script type="text/javascript" src="/static/assets/js/plugins/ui/moment/moment.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/plugins/pickers/daterangepicker.js"></script>
+<script type="text/javascript" src="/static/assets/js/pages/animations_css3.js"></script>
+<script src="/static/assets/signalR/signalr.js"></script>
+<link rel="stylesheet" href="node_modules/scheduler/scheduler.default.css">
+
+<script type="text/javascript" src="https://apis.google.com/js/api:client.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="/static/assets/js/plugins/tables/footable/footable.min.js"></script>
+<script src="https://cdn.lr-ingest.io/LogRocket.min.js" crossorigin="anonymous"></script>
+<script>window.LogRocket && window.LogRocket.init('lomwes/trueatlas');</script>
+<script type="text/javascript" src="/static/assets/js/pages/table_responsive.js"></script>
+<link href="/static/css/LandPoint.css" rel="stylesheet" />
+
+<link href="/static/css/ResponsiveTables.css" rel="stylesheet" type="text/css">
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<style>
+        .g-signin-button {
+            /* This is where you control how the button looks. Be creative! */
+            display: inline-block;
+            padding: 8px 8px;
+            border-radius: 3px;
+            background-color: #03a9f4;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .g-signin-button:hover {
+            /* This is where you control how the button looks. Be creative! */
+            display: inline-block;
+            padding: 8px 8px;
+            border-radius: 3px;
+            background-color: #0389c5;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .dropDownClearance {
+            height: 78px;
+        }
+        
+        .loginbody {
+            background: url('static/assets/images/backgrounds/Erik-Almas-Land-Surveyors22.jpg') no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        
+        main {
+            width: 100vw;
+            height: 100vh;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+        
+        .dank-ass-loader {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+        
+        .dank-ass-loader .row {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        
+        .arrow {
+            width: 0;
+            height: 0;
+            margin: 0 -10.5px;
+            border-left: 21px solid transparent;
+            border-right: 21px solid transparent;
+            border-bottom: 37.8px solid #ffffff;
+            -webkit-animation: blink 1s infinite;
+            animation: blink 1s infinite;
+            -webkit-filter: drop-shadow(0 0 31.5px #315d8f);
+            filter: drop-shadow(0 0 31.5px #315d8f);
+        }
+        
+        .arrow.down {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+        
+        .arrow.outer-1 {
+            -webkit-animation-delay: -0.0555555556s;
+            animation-delay: -0.0555555556s;
+        }
+        
+        .arrow.outer-2 {
+            -webkit-animation-delay: -0.1111111111s;
+            animation-delay: -0.1111111111s;
+        }
+        
+        .arrow.outer-3 {
+            -webkit-animation-delay: -0.1666666667s;
+            animation-delay: -0.1666666667s;
+        }
+        
+        .arrow.outer-4 {
+            -webkit-animation-delay: -0.2222222222s;
+            animation-delay: -0.2222222222s;
+        }
+        
+        .arrow.outer-5 {
+            -webkit-animation-delay: -0.2777777778s;
+            animation-delay: -0.2777777778s;
+        }
+        
+        .arrow.outer-6 {
+            -webkit-animation-delay: -0.3333333333s;
+            animation-delay: -0.3333333333s;
+        }
+        
+        .arrow.outer-7 {
+            -webkit-animation-delay: -0.3888888889s;
+            animation-delay: -0.3888888889s;
+        }
+        
+        .arrow.outer-8 {
+            -webkit-animation-delay: -0.4444444444s;
+            animation-delay: -0.4444444444s;
+        }
+        
+        .arrow.outer-9 {
+            -webkit-animation-delay: -0.5s;
+            animation-delay: -0.5s;
+        }
+        
+        .arrow.outer-10 {
+            -webkit-animation-delay: -0.5555555556s;
+            animation-delay: -0.5555555556s;
+        }
+        
+        .arrow.outer-11 {
+            -webkit-animation-delay: -0.6111111111s;
+            animation-delay: -0.6111111111s;
+        }
+        
+        .arrow.outer-12 {
+            -webkit-animation-delay: -0.6666666667s;
+            animation-delay: -0.6666666667s;
+        }
+        
+        .arrow.outer-13 {
+            -webkit-animation-delay: -0.7222222222s;
+            animation-delay: -0.7222222222s;
+        }
+        
+        .arrow.outer-14 {
+            -webkit-animation-delay: -0.7777777778s;
+            animation-delay: -0.7777777778s;
+        }
+        
+        .arrow.outer-15 {
+            -webkit-animation-delay: -0.8333333333s;
+            animation-delay: -0.8333333333s;
+        }
+        
+        .arrow.outer-16 {
+            -webkit-animation-delay: -0.8888888889s;
+            animation-delay: -0.8888888889s;
+        }
+        
+        .arrow.outer-17 {
+            -webkit-animation-delay: -0.9444444444s;
+            animation-delay: -0.9444444444s;
+        }
+        
+        .arrow.outer-18 {
+            -webkit-animation-delay: -1s;
+            animation-delay: -1s;
+        }
+        
+        .arrow.inner-1 {
+            -webkit-animation-delay: -0.1666666667s;
+            animation-delay: -0.1666666667s;
+        }
+        
+        .arrow.inner-2 {
+            -webkit-animation-delay: -0.3333333333s;
+            animation-delay: -0.3333333333s;
+        }
+        
+        .arrow.inner-3 {
+            -webkit-animation-delay: -0.5s;
+            animation-delay: -0.5s;
+        }
+        
+        .arrow.inner-4 {
+            -webkit-animation-delay: -0.6666666667s;
+            animation-delay: -0.6666666667s;
+        }
+        
+        .arrow.inner-5 {
+            -webkit-animation-delay: -0.8333333333s;
+            animation-delay: -0.8333333333s;
+        }
+        
+        .arrow.inner-6 {
+            -webkit-animation-delay: -1s;
+            animation-delay: -1s;
+        }
+        
+        @-webkit-keyframes blink {
+            0% {
+                opacity: 0.1;
+            }
+            30% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.1;
+            }
+        }
+        
+        @keyframes blink {
+            0% {
+                opacity: 0.1;
+            }
+            30% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.1;
+            }
+        }
+    </style>
+
+
+<script src='https://cdn.polyfill.io/v2/polyfill.min.js'></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111671186-1"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-111671186-1');
+
+        $(document).ready(function($) {
+            var alterClass = function() {
+                var ww = document.body.clientWidth;
+                if (ww < 1350) {
+                    $('body').addClass('sidebar-detached-hidden');
+                } else if (ww >= 1351) {
+                    $('body').removeClass('sidebar-detached-hidden');
+                };
+            };
+            $(window).resize(function() {
+
+                alterClass();
+
+            });
+
+            //Fire it when the page first loads:
+            alterClass();
+
+        });
+
+        $(document).ready(function($) {
+            var alterClass2 = function() {
+                var ww = document.body.clientWidth;
+                if (ww < 1000) {
+                    $('body').addClass('sidebar-xs');
+                } else if (ww >= 1000) {
+                    $('body').removeClass('sidebar-xs');
+                };
+            };
+            $(window).resize(function() {
+
+                alterClass2();
+
+            });
+
+            //Fire it when the page first loads:
+            alterClass2();
+
+        });
+    </script>
+</head>
+<body id="ta-body" class="has-detached-left pace-done" style="background-image:url('/static/assets/images/backgrounds/Erik-Almas-Land-Surveyors22.jpg'); background-repeat: no-repeat; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+
+<div id="app">
+<main>
+<div class="dank-ass-loader">
+<div class="row">
+<div class="arrow up outer outer-18"></div>
+<div class="arrow down outer outer-17"></div>
+<div class="arrow up outer outer-16"></div>
+<div class="arrow down outer outer-15"></div>
+<div class="arrow up outer outer-14"></div>
+</div>
+<div class="row">
+<div class="arrow up outer outer-1"></div>
+<div class="arrow down outer outer-2"></div>
+<div class="arrow up inner inner-6"></div>
+<div class="arrow down inner inner-5"></div>
+<div class="arrow up inner inner-4"></div>
+<div class="arrow down outer outer-13"></div>
+<div class="arrow up outer outer-12"></div>
+</div>
+<div class="row">
+<div class="arrow down outer outer-3"></div>
+<div class="arrow up outer outer-4"></div>
+<div class="arrow down inner inner-1"></div>
+<div class="arrow up inner inner-2"></div>
+<div class="arrow down inner inner-3"></div>
+<div class="arrow up outer outer-11"></div>
+<div class="arrow down outer outer-10"></div>
+</div>
+<div class="row">
+<div class="arrow down outer outer-5"></div>
+<div class="arrow up outer outer-6"></div>
+<div class="arrow down outer outer-7"></div>
+<div class="arrow up outer outer-8"></div>
+<div class="arrow down outer outer-9"></div>
+</div> <br><br>
+<p style="font-size:18px; color:#f5f5f5; font-weight:bold;">Loading TrueAtlas...</p>
+</div>
+</main>
+</div>
+
+<script src="/dist/build.js?ver=5de45e09b4e065cbe8c5"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"7373936cec9559ec","token":"c7269d7f872c4c6f9d97a41c0c6928c4","version":"2022.6.0","si":100}' crossorigin="anonymous"></script>
+</body>
+<script>	
+    setInterval(function(){	
+        if ($('.content') && $('.content').offset()){	
+        var availableHeight1 = $(window).height() - $('.content').offset().top - 110;	
+        $('.kanban').attr('style', 'min-height:' + availableHeight1 + 'px');  	
+        }	
+     }, 100); 	
+    	
+</script>
+
+</html>

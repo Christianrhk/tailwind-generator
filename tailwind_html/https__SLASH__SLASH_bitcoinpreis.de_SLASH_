@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>(22.727 &euro;) Live Bitcoin Kurs in Euro – Bitcoin Preis</title>
+  <script>
+    var docTitle = "({{rate}}) Live Bitcoin Kurs in {{name}} – Bitcoin Preis"
+  </script>
+  <meta name="description" content="Der Bitcoin Preis in Euro und USD. Aktueller BTC/EUR Kurs mit Preis Chart von heute" />
+
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<link href="/assets/global.css?=v1" rel="stylesheet">
+<link href='/assets/favicon.png' rel='icon' type='images/png'>
+<script>
+    var GLOBALS = {
+        quote: "EUR",
+        rates: {
+            'EUR': 22727.39884181,
+            'USD': 23140.73205172,
+            'GBP': 19162.27,
+            'CHF': 22192.27,
+        },
+        rapidBaseurl: "https://rest.rapid.live",
+        rapidToken: null,
+        siteUrl: "https://bitcoinpreis.de/",
+        sessid: null,
+        eventSource: {},
+    }
+</script>
+
+</head>
+
+<body class="leading-normal tracking-normal text-gray-600 gradient">
+  <div id="app-wrapper" class="flex flex-col min-h-screen">
+  <!--Nav-->
+<nav id="header" class="fixed w-full z-30 top-0 text-white">
+	<div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+		<div class="nav-title pl-3 flex items-center">
+			<a class="toggleColour text-gray-900 no-underline hover:no-underline font-bold text-xl lg:text-2xl" href="../">
+				Bitcoin Preis
+			</a>
+		</div>
+		<div class="block lg:hidden pr-4">
+			<button id="nav-toggle" class="flex items-center p-1 text-gray-400 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+				<svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<title>Men&uuml;</title>
+					<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+				</svg>
+			</button>
+		</div>
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 bg-white lg:bg-transparent text-gray-500 font-semibold p-4 pt-2 lg:p-0 z-20 text-sm hidden" id="nav-content">
+			<ul class="list-reset lg:flex justify-end flex-1 items-center">
+				<li class="md:mr-2">
+					<a class="inline-block no-underline py-2 md:py-1 md:px-2" href="../rechner/">Bitcoin Rechner</a>
+				</li>
+				<li class="md:mr-2">
+					<a class="inline-block no-underline py-2 md:py-1 md:px-2" href="../chart/">Bitcoin Chart</a>
+				</li>
+				<li class="w-1/2 md:w-auto flex items-center md:border md:rounded-md md:border-gray-300">
+					<a class="inline-block no-underline py-2 pr-4 md:px-3 tracking-wide" href="#" :class="{ 'text-gray-400': quote == 'USD'}" v-on:click="setQuote('EUR', $event)">EUR</a>
+					<div class="w-7 h-4 flex items-center bg-gray-300 rounded-full p-1 duration-300 ease-in-out" :class="{ 'bg-green-400': quote == 'USD'}" v-on:click="toggleQuote">
+						<div class="bg-white w-3 h-3 rounded-full shadow-md transform duration-300 ease-in-out" :class="{ 'translate-x-2': quote == 'USD'}"></div>
+					</div>
+					<a class="inline-block no-underline py-2 px-3 tracking-wide" href="#" :class="{ 'text-gray-400': quote == 'EUR'}" v-on:click="setQuote('USD', $event)">USD</a>
+				</li>
+				<li class="flex items-center">
+					<span class="flex  pr-2 py-2 md:hidden">Twitter</span>
+					<a class="inline-block no-underline pb-1 md:px-4" href="https://twitter.com/bitcoinpreis" target="_blank">
+						<svg style="color:#6b7280;" class="h-4 w-4 relative inline-flex align-baseline inset-y-1" xmlns="http://www.w3.org/2000/svg" fill="#6b7280" viewBox="0 0 24 24" stroke="currentColor">
+							<path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+						</svg>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+</nav><!--/Nav-->
+    <main class="flex-grow">
+<!--Hero-->
+<div class="pt-16 md:pt-24">
+  <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+    <!--Left Col-->
+    <div class="flex flex-col w-full md:w-2/5 justify-center text-center md:text-left">
+      <p class="my-2 text-4xl md:text-5xl font-bold leading-tight text-gray-900" v-cloak>
+        {{ _ui_formatCurrency(asset.rate) }}
+      </p>
+      <h1 class="leading-normal text-sm md:text-2xl text-gray-400" v-cloak>
+        Aktueller Bitcoin Kurs in {{assetName()}}
+      </h1>
+    </div><!--/Left Col-->
+    <!--Right Col-->
+    <div class="w-full md:w-3/5 pb-1">
+    </div><!--/Right Col-->
+  </div><!--/Container-->
+</div><!--/Hero-->
+
+<section class="py-2">
+  <div class="container px-3 mx-auto mt-3 md:mt-7 mb-7 md:mb-9 md:pb-10 flex flex-wrap flex-col md:flex-row">
+    <!--Left Col-->
+    <div class="chart-wrapper flex flex-col w-full md:w-7/12 pt-4 pb-1 justify-center items-start bg-white rounded-lg">
+      <div class="asset-charts w-full h-full text-gray-400">
+
+        <div class="chart-app">
+          <div class="chart-nav-wrapper">
+            <ul class="chart-nav list-reset flex justify-center md:justify-end items-center mb-4 md:mb-2 text-xs">
+              <li v-if="priceChartLoading || !priceChartInited" class="animate-pulse mr-3">
+                loading chart...
+              </li>
+              <li class="cursor-pointer bg-gray-100 rounded-lg py-1 px-2 mr-2" v-on:click="changeChartType('1DAY', $event)" v-bind:class="{ 'font-bold': isActiveDuration('1DAY') }">
+                <span title="1 day chart"></span>24 H
+              </li>
+              <li class="cursor-pointer bg-gray-100 rounded-lg py-1 px-2 mr-2 tracking-tighter" v-on:click="changeChartType('7DAY', $event)" v-bind:class="{ 'font-bold': isActiveDuration('7DAY') }">
+                <span title="7 days chart"></span>1 W
+              </li>
+              <li class="cursor-pointer bg-gray-100 rounded-lg py-1 px-2 mr-2 tracking-tighter" v-on:click="changeChartType('1MTH', $event)" v-bind:class="{ 'font-bold': isActiveDuration('1MTH') }">
+                <span title="1 month chart"></span>1 M
+              </li>
+              <li class="cursor-pointer bg-gray-100 rounded-lg py-1 px-2 mr-2 tracking-tighter" v-on:click="changeChartType('3MTH', $event)" v-bind:class="{ 'font-bold': isActiveDuration('3MTH') }">
+                <span title="3 months chart"></span>3 M
+              </li>
+              <li class="cursor-pointer bg-gray-100 rounded-lg py-1 px-2 mr-2 tracking-tighter" v-on:click="changeChartType('1YRS', $event)" v-bind:class="{ 'font-bold': isActiveDuration('1YRS') }">
+                <span title="1 year chart"></span>1 J
+              </li>
+              <li class="cursor-pointer bg-gray-100 rounded-lg py-1 px-2 mr-2 md:mr-6 uppercase" v-on:click="changeChartType('ALL', $event)" v-bind:class="{ 'font-bold': isActiveDuration('ALL') }">
+                <span title="all time chart"></span>Alle
+              </li>
+            </ul><!-- .chart-nav -->
+          </div><!-- .chart-nav-wrapper -->
+
+          <div class="graph-wrapper pr-4 md:pr-2">
+            <price-chart class="price-chart-wrapper h-80 md:h-96" ref="priceChart" v-if="priceChartInited" v-bind:chart-data="priceChartData" v-bind:options="priceChartOptions">
+            </price-chart>
+          </div>
+
+        </div><!-- .chart-app -->
+      </div><!-- .asset-charts -->
+    </div><!--/Left Col chart-wrapper-->
+
+    <!--Right Col-->
+    <div class="w-full md:w-5/12 pt-12 md:pt-0 md:pl-16 text-center md:text-left">
+      <h2 class="text-sm mb-4 font-bold">Bitcoin Preis heute</h2>
+      <p class="leading-normal pb-6 md:pb-8 md:pr-8 text-sm text-gray-600" v-cloak>
+        Der aktuelle Kurs (BTC/{{quote}}) liegt bei {{_ui_formatCurrency(asset.rate, 2)}}.
+        <span v-if="asset.change24 >= 0">
+          In den letzten 24 Stunden ist der Bitcoin-Kurs um <span class="text-green-500">+{{asset.change24}}%</span> gestiegen.
+        </span>
+        <span v-else>
+          In den letzten 24 Stunden ist der Bitcoin-Kurs um <span class="text-red-500">-{{Math.abs(asset.change24)}}%</span> gefallen.
+        </span>
+      </p>
+      <div class="mb-5">
+        <div class="mb-2 text-gray-400 items-center">
+          Hoch <span class="border rounded border-gray-200 text-xs font-normal px-1 py-1 ml-1">24-Stunden</span>
+        </div>
+        <div class="text-gray-800 font-bold" v-cloak>
+          {{ _ui_formatCurrency(asset.priceHigh)}}
+        </div>
+      </div>
+      <hr class="border-t-1 border-gray-200 mb-5" />
+      <div class="mb-5">
+        <div class="mb-2 text-gray-400 items-center">
+          Tief <span class="border rounded border-gray-200 text-xs font-normal px-1 py-1 ml-1">24-Stunden</span>
+        </div>
+        <div class="text-gray-800 font-bold" v-cloak>
+          {{ _ui_formatCurrency(asset.priceLow)}}
+        </div>
+      </div>
+      <hr class="border-t-1 border-gray-200 mb-5" />
+      <div class="mb-5">
+        <div class="mb-2 text-gray-400 items-center">
+          Volumen <span class="border rounded border-gray-200 text-xs font-normal px-1 py-1 ml-1">24-Stunden</span>
+        </div>
+        <div class="text-gray-800 font-bold" v-cloak>
+          {{ _ui_formatCurrency(asset.volume, 0)}}
+        </div>
+      </div>
+      <hr class="border-t-1 border-gray-200 mb-5" />
+      <div class="mb-5">
+        <div class="mb-1 text-gray-400">
+          Marktkapitalisierung
+        </div>
+        <div class="text-gray-800 font-bold" v-cloak>
+          {{ _ui_formatCurrency(asset.marketCap, 0)}}
+        </div>
+      </div>
+
+      
+    </div><!--/Right Col-->
+  </div><!--/Container-->
+</section>
+
+<section class="pb-20 text-white" style="background: #00126c;">
+  <div class="container mx-auto flex flex-wrap px-2 text-center ">
+
+    <h2 class="w-full mt-16 mb-12 text-xl font-bold leading-tight text-center">
+      Bitcoin Allzeithoch und Rekorde
+    </h2>
+
+    <div class="w-full md:flex-1 py-2 px-4 md:px-8" v-if="extrema.highAll" v-cloak>
+      <p class="text-4xl font-bold mb-4">
+        {{_ui_formatCurrency(extrema.highAll.rate, 0)}}
+      </p>
+      <h3 class="text-l uppercase tracking-wide leading-none mb-8">
+        Allzeithoch Bitcoin
+      </h3>
+      <p class="text-sm mb-8">
+        Am {{_ui_moment(extrema.highAll.date)}} erreichte der Bitcoin einen Höchstpreis von {{_ui_formatCurrency(extrema.highAll.rate)}}
+      </p>
+    </div>
+    <div class="w-full md:flex-1 py-2 px-4 md:px-8" v-if="extrema.high1m" v-cloak>
+      <p class="text-4xl font-bold mb-4">
+        {{_ui_formatCurrency(extrema.high1m.rate, 0)}}
+      </p>
+      <h3 class="text-l uppercase tracking-wide leading-none mb-8">
+        Höchster Preis (1 Monat)
+      </h3>
+      <p class="text-sm mb-8">
+        Der Bitcoin erreichte in den letzten 30 Tagen einen Preis von {{_ui_formatCurrency(extrema.high1m.rate)}}
+      </p>
+    </div>
+    <div class="w-full md:flex-1 py-2 px-4 md:px-8" v-if="extrema.highAll" v-cloak>
+      <p class="text-4xl font-bold mb-4">
+        {{_ui_formatCurrency(extrema.low1y.rate, 0)}}
+      </p>
+      <h3 class="text-l uppercase tracking-wide leading-none mb-8">
+        Niedrigster Preis (1 Jahr)
+      </h3>
+      <p class="text-sm mb-8">
+        Der niedrigste Preis des Bitcoin in den letzten 365 Tagen lag bei {{_ui_formatCurrency(extrema.low1y.rate)}}
+      </p>
+    </div>
+
+  </div><!--/Container-->
+</section>
+
+<section class="bg-white pb-20">
+
+  <div class="container mx-auto flex flex-wrap px-2 text-center ">
+
+    <h2 class="w-full mt-20 mb-8 text-xl font-bold leading-tight text-center text-gray-800">
+      Wechselkurs in USD, GBP und CHF
+    </h2>
+
+    <div class="w-full md:flex-1 m-2 md:mx-8 px-4 py-10 bg-gray-100 rounded-lg">
+      <p class="text-2xl pb-2 font-bold text-gray-800" v-cloak>
+        {{_ui_formatNumber(rates.USD, 2)}} USD
+      </p>
+      <p class="text-sm text-gray-400 uppercase tracking-wide leading-none">
+        1 Bitcoin in US-Dollar
+      </p>
+    </div>
+    <div class="w-full md:flex-1 m-2 md:mx-8 px-4 py-10 bg-gray-100 rounded-lg">
+      <p class="text-2xl pb-2 font-bold text-gray-800" v-cloak>
+        {{_ui_formatNumber(rates.GBP, 2)}} GBP
+      </p>
+      <p class="text-sm text-gray-400 uppercase tracking-wide leading-none">
+        1 Bitcoin in Britische Pfund
+      </p>
+    </div>
+    <div class="w-full md:flex-1 m-2 md:mx-8 px-4 py-10 bg-gray-100 rounded-lg">
+      <p class="text-2xl pb-2 font-bold text-gray-800" v-cloak>
+        {{_ui_formatNumber(rates.CHF, 2)}} CHF
+      </p>
+      <p class="text-sm text-gray-400 uppercase tracking-wide leading-none">
+        1 Bitcoin in Schweizer Franken
+      </p>
+    </div>
+
+    <h2 class="w-full mt-20 mb-8 text-xl font-bold leading-tight text-center text-gray-800">
+      Bitcoin Kursentwicklung
+    </h2>
+
+    <div class="w-full md:flex-1 m-2 md:mx-4" v-if="asset.change24" v-cloak>
+      <p class="text-4xl font-bold text-gray-300 mb-4" v-bind:class="{ 'text-green-400': asset.change24 >= 0 }">
+        {{asset.change24}}%
+      </p>
+      <h3 class="text-l text-gray-400 uppercase tracking-wide leading-none mb-8">
+        24 Stunden
+      </h3>
+      <p v-if="asset.change24 >= 0" class="text-sm text-gray-600 mb-8">
+        Der Bitcoin-Kurs ist in den letzten 24 Stunden um {{asset.change24}}% gestiegen. Ein Bitcoin ist im Wert um {{_ui_formatCurrency(asset.rate-asset.priceOpen24, 0)}} gewachsen.
+      </p>
+      <p v-else class="text-sm text-gray-600 mb-8">
+        Der Bitcoin-Kurs ist in den letzten 24 Stunden um {{Math.abs(asset.change24)}}% gefallen. Ein Bitcoin hat um {{_ui_formatCurrency(Math.abs(asset.priceOpen24-asset.rate), 0)}} an Wert verloren.
+      </p>
+    </div>
+    <div class="w-full md:flex-1 m-2 md:mx-4" v-if="changeHistory._7d" v-cloak>
+      <p class="text-4xl font-bold text-gray-300 mb-4" v-bind:class="{ 'text-green-400': changeHistory._7d.change >= 0 }">
+        {{changeHistory._7d.change}}%
+      </p>
+      <h3 class="text-l text-gray-400 uppercase tracking-wide leading-none mb-8">
+        1 Woche
+      </h3>
+      <p v-if="changeHistory._7d.change >= 0" class="text-sm text-gray-600 mb-8">
+        In den letzten 7 Tagen ist der Kurs um {{changeHistory._7d.change}}% angestiegen. Ein Bitcoin ist heute um {{_ui_formatCurrency(asset.rate-changeHistory._7d.rate, 0)}} wertvoller.
+      </p>
+      <p v-else class="text-sm text-gray-600 mb-8">
+        In den letzten 7 Tagen ist der Kurs um {{Math.abs(changeHistory._7d.change)}}% gefallen. Ein Bitcoin ist heute {{_ui_formatCurrency(Math.abs(changeHistory._7d.rate-asset.rate, 0))}} weniger wert.
+      </p>
+    </div>
+    <div class="w-full md:flex-1 m-2 md:mx-4" v-if="changeHistory._1m" v-cloak>
+      <p class="text-4xl font-bold text-gray-300 mb-4" v-bind:class="{ 'text-green-400': changeHistory._1m.change >= 0 }">
+        {{changeHistory._1m.change}}%
+      </p>
+      <h3 class="text-l text-gray-400 uppercase tracking-wide leading-none mb-8">
+        1 Monat
+      </h3>
+      <p v-if="changeHistory._1m.change >= 0" class="text-sm text-gray-600 mb-8">
+        Mit einem Kursanstieg von {{changeHistory._1m.change}}% ist der Bitcoin-Preis in den letzten 30 Tagen um {{_ui_formatCurrency(asset.rate-changeHistory._1m.rate, 0)}} gestiegen.
+      </p>
+      <p v-else class="text-sm text-gray-600 mb-8">
+        Mit einem Kursabfall von {{Math.abs(changeHistory._1m.change)}}% ist der Bitcoin-Preis in den letzten 30 Tagen {{_ui_formatCurrency(Math.abs(changeHistory._1m.rate-asset.rate), 0)}} geringer geworden.
+      </p>
+    </div>
+    <div class="w-full md:flex-1 m-2 md:mx-4" v-if="changeHistory._1y" v-cloak>
+      <p class="text-4xl font-bold text-gray-300 mb-4" v-bind:class="{ 'text-green-400': changeHistory._1y.change >= 0 }">
+        {{changeHistory._1y.change}}%
+      </p>
+      <h3 class="text-l text-gray-400 uppercase tracking-wide leading-none mb-8">
+        1 Jahr
+      </h3>
+      <p v-if="changeHistory._1y.change >= 0" class="text-sm text-gray-600 mb-8">
+        Mit einer Performance von {{changeHistory._1y.change}}% hat der Bitcoin-Preis in den letzten 365 Tagen um {{_ui_formatCurrency(asset.rate-changeHistory._1y.rate, 0)}} zugelegt.
+      </p>
+      <p v-else class="text-sm text-gray-600 mb-8">
+        Mit einer Performance von {{Math.abs(changeHistory._1y.change)}}% ist der Bitcoin-Preis in den letzten 365 Tagen um {{_ui_formatCurrency(Math.abs(changeHistory._1y.rate-asset.rate), 0)}} gesunken.
+      </p>
+    </div>
+
+    
+  </div><!--/Container-->
+</section>
+
+
+</main>
+
+<footer class="bg-white">
+  <div class="container mx-auto px-8 pt-10 pb-8">
+    <div class="w-full flex flex-col md:flex-row">
+      <div class="w-full md:w-3/12 mb-6 text-center md:text-left">
+        <a class="toggleColour text-gray-900 no-underline hover:no-underline font-bold text-l lg:text-xl" style="font-family:'Montserrat', sans-serif" href="#">
+          Bitcoin Preis
+        </a>
+        <p class="text-xs text-gray-500 pt-2">© 2021 bitcoinpreis.de</p>
+      </div>
+      <div class="w-full md:w-2/12">
+        <ul class="list-reset mb-6 text-center md:text-left text-sm">
+          <li class="inline-block mr-2 md:block md:mr-0">
+            <p class="text-gray-800 md:text-base">Info</p>
+          </li>
+          <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+            <a href="#" class="no-underline text-gray-500 hover:text-gray-900">Über uns</a>
+          </li>
+          <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+            <a href="#" class="no-underline text-gray-500 hover:text-gray-900">Kontakt</a>
+          </li>
+        </ul>
+      </div>
+      <div class="w-full md:w-5/12">
+        <ul class="list-reset mb-6 text-center md:text-left text-sm">
+          <li class="inline-block mr-2 md:block md:mr-0">
+            <p class="text-gray-800 md:text-base">Bitcoin Echtzeit-Kurs</p>
+          </li>
+          <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+            <p class="text-s text-gray-500">
+              Der Bitcoin-Kurs wird automatisch alle 15 Sekunden auf dieser Seite aktualisiert. Die Wechselkurse von Bitcoin werden in Euro (EUR), US-Dollar (USD) und Schweizer Franken (CHF) dargestellt.
+            </p>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+</div><!-- end app-wrapper -->
+
+<div class="global-alert" v-if="showGlobalAlert" v-cloak>
+  <div v-for="(message, index) in messages">
+    <div v-bind:class="message.type + ' message'">
+      {{message.text}}
+      <a href="#" class="close" v-on:click="removeMessage(index, $event)">&times;</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script src="https://unpkg.com/vue-chartjs@3.5.1/dist/vue-chartjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14 "></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/assets/script.js"></script>
+
+<script>
+(function(i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r;
+  i[r] = i[r] || function() {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date();
+  a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0];
+  a.async = 1;
+  a.src = g;
+  m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-36286465-24', 'auto');
+ga('send', 'pageview');
+</script>
+<script type="text/javascript">
+window.addEventListener("load", function(event) {
+  initFrontpage();
+});
+</script>
+
+</body>
+</html>

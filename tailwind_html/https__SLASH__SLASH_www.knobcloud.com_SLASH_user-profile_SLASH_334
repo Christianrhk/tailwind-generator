@@ -1,0 +1,1666 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>KnobCloud</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/main.min.css?ver=1004">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/select2.min.css" />
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/all.min.css" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" /> -->
+    <link  rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"></link>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.knobcloud.com/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.knobcloud.com/img/favicon-32x32.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0c476e">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed" media="all">
+    <link rel="stylesheet" type="text/css" href="https://www.knobcloud.com/vendor/cookie-consent/css/cookie-consent.css">
+
+    <meta name="apple-mobile-web-app-title" content="KnobCloud">
+    <meta name="application-name" content="KnobCloud">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:title" content="KnobCloud" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="" />
+    <meta property="og:description" content="The first dedicated marketplace for audio production software licenses." />
+    <meta property="og:url" content="http://knobcloud.com" />
+    <meta property="og:image" content="http://knobcloud.com/img/knobcloud-logo_1200x630.png" />
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="KnobCloud Logo" />
+    <meta name="description" content="KnobCloud">
+</head>
+    <script type="text/javascript" src="https://www.knobcloud.com/js/app.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/select2.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/js.cookie.min.js"></script>
+<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/developer-database.js?v=1"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://www.knobcloud.com/sw.js"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
+</head>
+<body class="flex flex-col h-screen justify-between" style=" height: 100%;">
+<header>
+        <nav class="mainmenu navbar navbar-light navbar-expand-md navigation-clean-button">
+    <div class="menu-full container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="/img/knobcloud-logo.svg" alt="KnobCloud logo" height="32" width="185">
+        </a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navCollapse">
+            <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="menu-nav collapse navbar-collapse mt-2 md:text-center lg:text-auto" id="navCollapse">
+            <ul class="nav navbar-nav mr-auto md:space-x-4 lg:space-x-0 md:justify-center  lg:justify-auto">
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/developer">Developer</a>
+                </li>
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/sell-license">Sell your License</a>
+                </li>
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/transfers">Messages
+                                            </a>
+                </li>
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/information">Information</a>
+                </li>
+                <li class="dropdown nav-item">
+                    <div class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">My Account</div>
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item " role="presentation"
+                           href="/my-items">My Items</a>
+                        <a class="dropdown-item " role="presentation"
+                           href="/my-account">Account Settings</a>
+                    </div>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                                    <!-- <div class="d-none d-sm-inline">
+                        <a class="btn btn-outline-primary btn-sm action-button" role="button" href="/login"><i
+                                class="fas fa-sign-in-alt"></i> Login with PayPal</a>
+                    </div> -->
+                        <div class="d-none d-sm-inline">
+                      <span class="mr-4"><a class="nav-textlink" href="https://www.knobcloud.com/register">Register</a></span>
+                        <a class="btn btn-outline-primary btn-sm action-button" role="button"
+                           href="https://www.knobcloud.com/login"><i class="fad fa-sign-in-alt"></i> Sign In</a>
+                    </div>
+                                </span>
+        </div>
+    </div>
+</nav>
+    <div id="searchBar" class="bg-dark-blue">
+    <div class="container max-w-6xl mx-auto md:px-5">
+        <div class="row pt-3 pb-3">
+            <div class="col">
+                <form>
+                    <div class="input-group">
+                        <input class="form-control input-search" type="search"
+                               placeholder="Search for developers or titles" id="inputSearch" name="search_key"
+                                 >
+                        <input type="hidden" name="view" value="">
+                        <a href="/" class="d-none d-sm-block" aria-label="ClearButton" id="btnClear">
+                            <i class="fad fa-times-circle rounded-full" id="deleteButton"></i>
+                        </a>
+                        <div class="input-group-append">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-primary" id="buttonSearch" type="submit">
+                                    <i class="fad fa-search"></i> <span>Search</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('form').each(function () {
+            $(this).find('input').keypress(function (e) {
+                // Enter pressed?
+                if (e.which == 10 || e.which == 13) {
+                    this.form.submit();
+                }
+            });
+
+            $(this).find('input[type=submit]').hide();
+        });
+    });
+</script>
+</header>
+<div class="lg:mx-3 my-3 mb-auto">
+    <main role="main" class="flex-shrink-0 max-w-6xl mx-auto">
+            <div class="container shadow-sm p-4 mt-4 bg-light-blue">
+        <i class="fas fa-star d-none"></i>
+        <i class="far fa-star d-none"></i>
+        <i class="fas fa-star-half-alt d-none"></i>
+        <div class="row">
+            <div class="col-md-4 text-center py-3">
+                <p>
+                                            <i class="fas fa-user fa-8x"></i>
+                                    </p>
+                <h3 class="mt-1 h3">jwhunter</h3>
+                <p> United Kingdom of Great Britain &amp; Northern Ireland</p>
+                                <p class="mt-1"><strong>Member since:</strong> 17 Jun 2020</p>
+                                <p><strong>Items sold</strong>: 61 </p>
+                <div class="flex justify-center">
+                    <strong class="mr-1">Rating:</strong>
+                    <div class="placeholder relative left-0" style="color: #0c476e;">
+                        <div class="flex items-center">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="small ml-1">(92)</span>
+                        </div>
+                        <div class="overlay absolute left-0 top-0.5 flex items-center" style="color: #0c476e">
+                                                                                                                            <i class="fas fa-star"></i>
+                                                                                                                                                                <i class="fas fa-star"></i>
+                                                                                                                                                                <i class="fas fa-star"></i>
+                                                                                                                                                                <i class="fas fa-star"></i>
+                                                                                                                                                                <i class="fas fa-star"></i>
+                                                                                                                    </div>
+                    </div>
+                </div>
+                </p>
+            </div>
+
+            <div class="col">
+                <div class="mb-4">
+                    <h1 class="h1">jwhunter</h1>
+                </div>
+                <div id="feedback">
+                    <h3 class="mt-4 mb-2 h3">User Feedback</h3>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-4 active" id="sellerTab" data-toggle="tab" href="#sellerFeedback"
+                               role="tab" aria-controls="sellerFeedback" aria-selected="true">As Seller</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-4" id="buyerTab" data-toggle="tab" href="#buyerFeedback"
+                               role="tab" aria-controls="buyerFeedback" aria-selected="false">As Buyer</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content bg-white" id="feedBackContent">
+                        <div class="tab-pane fade p-4 active show" id="sellerFeedback" role="tabpanel"
+                             aria-labelledby="sellerTab">
+                                                                                                <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Extremely quick and committed seller, helped me speed up the transfer when Sonnox and iLok were too slow all the way until completion.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Sonnox - Oxford Inflator </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/10303">
+                                                DoresPoog</a>
+                                                                                        <cite title="Source Title">published on: Fri, 5 Aug 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the seller didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Driver </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4308">
+                                                p4thie</a>
+                                                                                        <cite title="Source Title">published on: Fri, 5 Aug 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Very patient and pleasant to deal with. Excellent communication. Trusted seller.  Thanks so much!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Spitfire Audio - Account Takeover </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/10576">
+                                                ggoldd</a>
+                                                                                        <cite title="Source Title">published on: Tue, 26 Jul 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Perfect transaction. Communicative on what was happening with my plugin as the developer changed it to my account. Highly recommended!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> boz digital labs - Mongoose 2 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/7065">
+                                                joshyears</a>
+                                                                                        <cite title="Source Title">published on: Tue, 19 Jul 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">thank you for the fast transfer!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Softube - Modular </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4234">
+                                                musican73</a>
+                                                                                        <cite title="Source Title">published on: Mon, 18 Jul 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Quick and responsive!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Izotope - Insight 2 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/6423">
+                                                f4_fumo</a>
+                                                                                        <cite title="Source Title">published on: Wed, 13 Jul 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Super fast and good service !</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> u-he - Hive 2 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/7197">
+                                                behrang2124</a>
+                                                                                        <cite title="Source Title">published on: Fri, 8 Jul 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Super quick and communicative.  Great seller!!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Rounds </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/10200">
+                                                c0nsilience</a>
+                                                                                        <cite title="Source Title">published on: Wed, 8 Jun 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Quick and smooth transfer, thank you!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Cableguys - ShaperBox 2 &amp; HalfTime </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2253">
+                                                marekjedlinski</a>
+                                                                                        <cite title="Source Title">published on: Mon, 23 May 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Super fast and responsive! Recommended seller! :)</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Ableton - Ableton Live 11 Suite </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2758">
+                                                xxchopsueyxx</a>
+                                                                                        <cite title="Source Title">published on: Fri, 20 May 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Great and fast transfer.. thanks Jamie!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Softube - Drawmer S73 Intelligent Master Processor </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/6311">
+                                                RobertSlump</a>
+                                                                                        <cite title="Source Title">published on: Thu, 24 Mar 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">great seller, everything worked out fine!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> AAS Applied Acoustics Systems - Objeq Delay </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/6972">
+                                                Eggi</a>
+                                                                                        <cite title="Source Title">published on: Sun, 20 Mar 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Quick and effortless process, highly recommend this seller!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Vintage Compressors </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/6626">
+                                                polymode</a>
+                                                                                        <cite title="Source Title">published on: Fri, 18 Mar 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Quick Transfer and good communication!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Softube - Harmonics Analog Saturation Processor </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/6028">
+                                                nikoavgerinos</a>
+                                                                                        <cite title="Source Title">published on: Mon, 14 Mar 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Fast and easy</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Softube - Tape </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/6536">
+                                                Datura</a>
+                                                                                        <cite title="Source Title">published on: Mon, 14 Mar 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Quick and easy transaction</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Electric Sunburst Deluxe </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/6695">
+                                                od375</a>
+                                                                                        <cite title="Source Title">published on: Thu, 24 Feb 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Thanks!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - FM8 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4352">
+                                                pasi_k</a>
+                                                                                        <cite title="Source Title">published on: Wed, 12 Jan 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Great seller, recommended !</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> AAS Applied Acoustics Systems - Sound Pack Bundle </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/1096">
+                                                Stony</a>
+                                                                                        <cite title="Source Title">published on: Tue, 11 Jan 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Totally smooth transaction, thank you.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Softube - Parallels </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/304">
+                                                Sw1nyLvg5</a>
+                                                                                        <cite title="Source Title">published on: Thu, 23 Dec 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Thank you!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Eventide - Quadravox </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4480">
+                                                andrewsper</a>
+                                                                                        <cite title="Source Title">published on: Sun, 21 Nov 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Awesome</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Skanner XT </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/5680">
+                                                Soundpig</a>
+                                                                                        <cite title="Source Title">published on: Tue, 16 Nov 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Speedy and clean... thanks!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Mod Pack Upgrade </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4643">
+                                                Niko33</a>
+                                                                                        <cite title="Source Title">published on: Wed, 20 Oct 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Great seller, very kind, friendly and reliable. License transfer went really fast. Thank you very much.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Pulsar Audio - Pulsar Smasher </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2987">
+                                                Kostja</a>
+                                                                                        <cite title="Source Title">published on: Mon, 11 Oct 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">perfect!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> u-he - Hive </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/1015">
+                                                Jemba</a>
+                                                                                        <cite title="Source Title">published on: Thu, 7 Oct 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">perfect!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> u-he - Zebra2 + Transmission Soundset </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/1015">
+                                                Jemba</a>
+                                                                                        <cite title="Source Title">published on: Thu, 7 Oct 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Cool seller!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Kilohearts - Distortion Snapin </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/1450">
+                                                kaya</a>
+                                                                                        <cite title="Source Title">published on: Sun, 3 Oct 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">All went well. :-) </span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Melted Vibes </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/245">
+                                                Elrobin</a>
+                                                                                        <cite title="Source Title">published on: Sun, 3 Oct 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Very and fast good transaction </span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Strummed Acoustic </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/1445">
+                                                Bris</a>
+                                                                                        <cite title="Source Title">published on: Thu, 30 Sep 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Fast transaction. Nice deal. Thanks.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Softube - Tape </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/5222">
+                                                AudioFeel</a>
+                                                                                        <cite title="Source Title">published on: Wed, 29 Sep 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Another brilliant seller</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Electric Sunburst Deluxe Upgrade </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/3212">
+                                                djscotte</a>
+                                                                                        <cite title="Source Title">published on: Tue, 28 Sep 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">everything was fine. thanks!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Lo-Fi Glow </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/5071">
+                                                Emil</a>
+                                                                                        <cite title="Source Title">published on: Mon, 13 Sep 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Smooth!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Abbey Road Modern Drummer </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4507">
+                                                orotauro</a>
+                                                                                        <cite title="Source Title">published on: Mon, 6 Sep 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Perfect transaction - and this was my first purchase on knobcloud and I found Jamie most helpful and patient - much thanks for that.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Evolve Mutations 2 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2447">
+                                                Mahn</a>
+                                                                                        <cite title="Source Title">published on: Wed, 1 Sep 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Fast reply and gave three preset banks!!
+Thank you!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> u-he - ACE </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/344">
+                                                Gerry</a>
+                                                                                        <cite title="Source Title">published on: Mon, 23 Aug 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the seller didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Polyplex </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2944">
+                                                fsavar</a>
+                                                                                        <cite title="Source Title">published on: Sun, 15 Aug 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Thanks for the swift reply. Razor has been transferred to my account.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Razor </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2915">
+                                                PluginGuy</a>
+                                                                                        <cite title="Source Title">published on: Wed, 11 Aug 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Prompt, helpfully informative and courteous service</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Scarbee MM-Bass </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4732">
+                                                liperli</a>
+                                                                                        <cite title="Source Title">published on: Tue, 10 Aug 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the seller didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Driver </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/81">
+                                                monophonK</a>
+                                                                                        <cite title="Source Title">published on: Fri, 30 Jul 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the seller didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Soul Session </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4480">
+                                                andrewsper</a>
+                                                                                        <cite title="Source Title">published on: Thu, 22 Jul 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">No issues with the transaction.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Valhalla - Valhalla Room Reverb </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4132">
+                                                Fama</a>
+                                                                                        <cite title="Source Title">published on: Fri, 2 Jul 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Quick and easy transaction.  Highly recommended.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Session Guitarist - Electric Sunburst </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/1944">
+                                                Limeopolis</a>
+                                                                                        <cite title="Source Title">published on: Sat, 19 Jun 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Fast and smooth!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Session Strings 2 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/344">
+                                                Gerry</a>
+                                                                                        <cite title="Source Title">published on: Sat, 12 Jun 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">A perfect transaction</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - The Grandeur </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4118">
+                                                Hendo</a>
+                                                                                        <cite title="Source Title">published on: Thu, 10 Jun 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Good</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Session Horns </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/3640">
+                                                AAGY</a>
+                                                                                        <cite title="Source Title">published on: Sat, 15 May 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Good communication, smooth transaction, nice deal. Recommended seller!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Crush Pack </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2557">
+                                                Lotuz2019</a>
+                                                                                        <cite title="Source Title">published on: Sat, 1 May 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Smooth deal, thanks!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Scarbee Jay-Bass </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/3378">
+                                                danradclyffe</a>
+                                                                                        <cite title="Source Title">published on: Wed, 28 Apr 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">He delivered the license in minutes after me buying it. 100% recommend!!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - FM8 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2435">
+                                                Knobuser</a>
+                                                                                        <cite title="Source Title">published on: Tue, 27 Apr 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Great!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> UVI - Orchestral Suite </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/1823">
+                                                MrTone</a>
+                                                                                        <cite title="Source Title">published on: Fri, 26 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Lightning fast transaction. Great seller! I would deal again with Jamie anytime! </span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> u-he - Hive 2 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2552">
+                                                TransistorTheorem</a>
+                                                                                        <cite title="Source Title">published on: Tue, 2 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Smooth transaction. Very good communication</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Softube - Spring Reverb </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2448">
+                                                Hugojl</a>
+                                                                                        <cite title="Source Title">published on: Tue, 2 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Great Seller! Super Fast License Transfer. Definitely can recommend it. </span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> u-he - Diva </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/1417">
+                                                Lemon</a>
+                                                                                        <cite title="Source Title">published on: Tue, 2 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the seller didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Soul Sessions </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2257">
+                                                Harald1603</a>
+                                                                                        <cite title="Source Title">published on: Sat, 20 Feb 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the seller didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Session Strings 2 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/928">
+                                                garugc</a>
+                                                                                        <cite title="Source Title">published on: Wed, 20 Jan 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Great seller</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - TRK 01 Play </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/122">
+                                                Sjoerd</a>
+                                                                                        <cite title="Source Title">published on: Sun, 17 Jan 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Superfast transaction, thank you! :)</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Valhalla - Valhalla Room </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2028">
+                                                W_V</a>
+                                                                                        <cite title="Source Title">published on: Tue, 12 Jan 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">All good, very fast</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Phasis </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/1534">
+                                                Milisonics</a>
+                                                                                        <cite title="Source Title">published on: Fri, 8 Jan 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                                    </div>
+                        <div class="tab-pane fade p-4" id="buyerFeedback" role="tabpanel" aria-labelledby="buyerTab">
+                                                                                                <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Quick payment, thanks again!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Expansion - Transistor Punch </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/6787">
+                                                zugly</a>
+                                                                                        <cite title="Source Title">published on: Tue, 21 Jun 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Perfect!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Expansion - Carribean Current </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/6787">
+                                                zugly</a>
+                                                                                        <cite title="Source Title">published on: Fri, 17 Jun 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> PreSonus
+                                                - Studio One 5 Artist v5.5.2 </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/3374">
+                                                Compressor</a>
+                                                                                        <cite title="Source Title">published on: Fri, 20 May 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Prompt payment, smooth transaction. I recommend jwhunter as a great buyer. Thank you. :)</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Expansion - RHYTHM SOURCE </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/1488">
+                                                LoveEnigma</a>
+                                                                                        <cite title="Source Title">published on: Thu, 7 Apr 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Vintage Compressors </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/4026">
+                                                inalbilsel</a>
+                                                                                        <cite title="Source Title">published on: Thu, 13 Jan 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Session Guitarist - Electric Sunburst Deluxe </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/1944">
+                                                Limeopolis</a>
+                                                                                        <cite title="Source Title">published on: Sat, 18 Dec 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Perfect, quick, clear, a coyple of minutes to make the transiction. Very recommended buyer.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Guitar Strummed Acoustic 2 </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/4926">
+                                                Patan69</a>
+                                                                                        <cite title="Source Title">published on: Wed, 15 Dec 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Quick and clear, excellent buyer, highly recommended.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Heavyocity Evolve Mutations Bundle </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/4926">
+                                                Patan69</a>
+                                                                                        <cite title="Source Title">published on: Wed, 15 Dec 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Softube
+                                                - Tape </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/789">
+                                                Cabin303</a>
+                                                                                        <cite title="Source Title">published on: Wed, 17 Nov 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Great buyer, definitely recommended! </span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Razor </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/2758">
+                                                xxchopsueyxx</a>
+                                                                                        <cite title="Source Title">published on: Thu, 23 Sep 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Instant payment, nice person. Highly recommended.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> 
+                                                - AAS Soundbank Bundle </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/103">
+                                                ralfrobert</a>
+                                                                                        <cite title="Source Title">published on: Sat, 4 Sep 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Valhalla
+                                                - Room </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/4302">
+                                                jeremyyong</a>
+                                                                                        <cite title="Source Title">published on: Wed, 30 Jun 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - FM8 </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/3664">
+                                                Micha</a>
+                                                                                        <cite title="Source Title">published on: Tue, 1 Jun 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Rise &amp; Hit </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/3317">
+                                                carlfinlow</a>
+                                                                                        <cite title="Source Title">published on: Thu, 27 May 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Abbey Road 80s Drummer </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/3664">
+                                                Micha</a>
+                                                                                        <cite title="Source Title">published on: Wed, 26 May 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Scarbee MM-Bass </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/3664">
+                                                Micha</a>
+                                                                                        <cite title="Source Title">published on: Sun, 23 May 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Abbey Road Modern Drummer </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/3664">
+                                                Micha</a>
+                                                                                        <cite title="Source Title">published on: Sun, 23 May 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> u-he
+                                                - zebra 2 </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/1891">
+                                                AAnggo</a>
+                                                                                        <cite title="Source Title">published on: Mon, 19 Apr 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Polyplex </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/2860">
+                                                cyberpractice</a>
+                                                                                        <cite title="Source Title">published on: Sat, 3 Apr 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Lo-Fi Glow </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/2860">
+                                                cyberpractice</a>
+                                                                                        <cite title="Source Title">published on: Sat, 3 Apr 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Evolve Mutations 2 </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/2860">
+                                                cyberpractice</a>
+                                                                                        <cite title="Source Title">published on: Tue, 30 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Soul Session </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/2860">
+                                                cyberpractice</a>
+                                                                                        <cite title="Source Title">published on: Tue, 30 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Softube
+                                                - Spring Reverb </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/2805">
+                                                Iriginator</a>
+                                                                                        <cite title="Source Title">published on: Tue, 23 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Great!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Softube
+                                                - Transient Shaper </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/2587">
+                                                Faland</a>
+                                                                                        <cite title="Source Title">published on: Mon, 22 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">perfectly smooth</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Softube
+                                                - Harmonics Analog Saturation Processor </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/2587">
+                                                Faland</a>
+                                                                                        <cite title="Source Title">published on: Thu, 18 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Electric Sunburst </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/2860">
+                                                cyberpractice</a>
+                                                                                        <cite title="Source Title">published on: Sat, 13 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">All good. </span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Reaktor Spark R2 </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/2263">
+                                                razornaut</a>
+                                                                                        <cite title="Source Title">published on: Fri, 12 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Skanner XT </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/1782">
+                                                withbearmusic</a>
+                                                                                        <cite title="Source Title">published on: Mon, 22 Feb 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Rounds </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/1033">
+                                                andre9701</a>
+                                                                                        <cite title="Source Title">published on: Tue, 15 Dec 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Amazing Buyer. Swift payment. Easy to deal with.</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Crush Pack </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/1587">
+                                                Taphoric</a>
+                                                                                        <cite title="Source Title">published on: Wed, 18 Nov 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - SCARBEE JAY-BASS </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/1347">
+                                                VST-ED</a>
+                                                                                        <cite title="Source Title">published on: Wed, 21 Oct 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Fast and everything ok, thanks for purchasing!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Waves
+                                                - Sibilance </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/431">
+                                                NicolasGomez_S</a>
+                                                                                        <cite title="Source Title">published on: Mon, 19 Oct 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Accusonus
+                                                - ERA 4 De-Esser Plug-in </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/228">
+                                                AlanValdez</a>
+                                                                                        <cite title="Source Title">published on: Wed, 19 Aug 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> 
+                                                - Native Instruments Phasis + TRK-01 Play </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/955">
+                                                0degree</a>
+                                                                                        <cite title="Source Title">published on: Sat, 18 Jul 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments
+                                                - Session Horns </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/612">
+                                                Kirillkedzz</a>
+                                                                                        <cite title="Source Title">published on: Tue, 30 Jun 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the buyer didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> UVI
+                                                - Concert Grand Piano - Model D </strong>
+                                            - seller <a class="text-blue-500" href="/user-profile/127">
+                                                leo007</a>
+                                                                                        <cite title="Source Title">published on: Thu, 18 Jun 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                                    </div>
+                    </div>
+                </div>
+                <h3 class="mt-4 mb-2 h3">Items for Sale</h3>
+                                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/44977>
+                                    Air Music Tech - 10 Synths, FX Collection Plus, Vocalizer Pro - 80 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46318>
+                                    Ujam - Phat 2 - 25 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46376>
+                                    Izotope - Synth &amp; FX Bundle 12 VSTs - 75 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46377>
+                                    Izotope - Elements Suite - 25 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46407>
+                                    Native Instruments - Reaktor Spark R2 - 20 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46408>
+                                    Native Instruments - Massive - 25 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46419>
+                                    Softube - Dirty Tape - 35 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46420>
+                                    Softube - Spring Reverb - 35 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46421>
+                                    Softube - Tape Echoes - 40 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46422>
+                                    Softube - Transient Shaper - 35 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46423>
+                                    Softube - TSAR-1R Reverb - 35 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46424>
+                                    Softube - Tube Delay - 35 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46431>
+                                    Plugin Alliance - Ampeg SVT-VR Classic - 10 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46434>
+                                    boz digital labs - The Hoser - 40 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46451>
+                                    boz digital labs - Little Clipper - 25 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46452>
+                                    boz digital labs - T-Bone 2 - 25 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                            <div class="card mt-1">
+                            <div class="card-body p-2">
+                                <h4 class="mb-0">
+                                    <a href=https://www.knobcloud.com/item/46473>
+                                    Antares - DUO &amp; 2 Months Auto-Tune Unlimited - 30 €
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                                                </div>
+        </div>
+    </div>
+    </main>
+</div>
+
+<footer class="bg-dark-blue py-3">
+    <div class="container mx-auto">
+    <div class="w-full">
+        <div class="row justify-content-center">
+            <div class="col-md-3 offset-md-1 item">
+                <h3 class="h3 mb-2">Legal</h3>
+                <ul>
+                    <li><a href="https://www.knobcloud.com/terms-of-use">Terms of Use</a></li>
+                    <li><a href="https://www.knobcloud.com/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="https://www.knobcloud.com/imprint">Imprint</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 item mt-3 mt-md-0">
+                <h3 class="h3 mb-2">Help</h3>
+                <ul>
+                    <li><a href="https://www.knobcloud.com/faq">FAQ</a></li>
+                    <li><a href="/developer">Developer Database</a></li>
+                    <li><a href="https://www.knobcloud.com/contact">Contact</a></li>
+                </ul>
+            </div>
+        <div class="col-md-4 d-xl-flex justify-content-xl-end align-items-xl-end item social">
+            <ul class="md:text-right">
+                <li class="align-text-bottom">Knobcloud © 2020</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+</footer>
+
+<div class="lcc-backdrop js-lcc-backdrop" style="display: none;"></div>
+<div role="dialog" aria-labelledby="lcc-modal-alert-label" aria-describedby="lcc-modal-alert-desc" aria-modal="true" class="lcc-modal lcc-modal--alert js-lcc-modal js-lcc-modal-alert" style="display: none;"
+     data-cookie-key="__cookie_consent"
+     data-cookie-value-analytics="2"
+     data-cookie-value-marketing="3"
+     data-cookie-value-both="true"
+     data-cookie-value-none="false"
+     data-cookie-expiration-days="365"
+     data-gtm-event="cookie_refresh"
+     data-ignored-paths=""
+>
+    <div class="p-4 pb-5 container-fluid bg-blue collapse show js-cookie-consent cookie-consent" style="border-top: 1.5em solid #fff">
+        <div class="d-flex flex-column flex-md-row align-items-md-end">
+            <div class="mr-md-5 ml-md-5">
+                <i class="fad fa-cookie-bite fa-5x"></i>
+            </div>
+            <div class="mr-md-5 mt-1">
+                <h3 class="h3 mt-2">We use cookies only for functional purposes!</h3>
+
+                <p class="text-sm p-1">You accept the <a href="/privacy-policy" target="_blank"><u>use of cookies</u></a> or other identifiers by closing or dismissing this notice, by clicking a link or button or by continuing to browse otherwise.</p>
+            </div>
+            <div class="mr-md-5 mt-4 d-flex flex-row">
+                <div class="lcc-modal__actions">
+                    <button type="button" class="js-lcc-accept btn btn-outline-light btn-sm js-cookie-consent-agree cookie-consent__agree"
+                            data-toggle="collapse" data-target="#cookieConsent">
+                        Reject
+                    </button>
+                    <button type="button" class="js-lcc-accept btn btn-secondary btn-sm js-cookie-consent-agree cookie-consent__agree"
+                            data-toggle="collapse" data-target="#cookieConsent">
+                        Accept
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div role="dialog" aria-labelledby="lcc-modal-settings-label" aria-describedby="lcc-modal-settings-desc" aria-modal="true" class="lcc-modal lcc-modal--settings js-lcc-modal js-lcc-modal-settings" style="display: none;">
+    <button class="lcc-modal__close js-lcc-settings-toggle" type="button">
+        <span class="lcc-u-sr-only">
+            Close        </span>
+        &times;
+    </button>
+    <div class="lcc-modal__content">
+        <div class="lcc-modal__content">
+            <h2 id="lcc-modal-settings-label" class="lcc-modal__title">
+                Cookie settings            </h2>
+            <p id="lcc-modal-settings-desc" class="lcc-text">
+                Our website keeps three levels of cookies. You can adjust your preferences at any time. If you want more information about what cookies are and which cookies we collect, please read our <a href="">cookie policy</a>.            </p>
+            <div class="lcc-modal__section lcc-u-text-center">
+                <button type="button" class="lcc-button js-lcc-accept">
+                    Accept all cookies                </button>
+            </div>
+            <div class="lcc-modal__section">
+                <label for="lcc-checkbox-essential" class="lcc-label">
+                    <input type="checkbox" id="lcc-checkbox-essential" disabled="disabled" checked="checked">
+                    <span>Functional cookies</span>
+                </label>
+                <p class="lcc-text">
+                    are essential cookies that ensure that the website functions properly and that your preferences (e.g. language, region) are saved.                </p>
+            </div>
+            <div class="lcc-modal__section">
+                <label for="lcc-checkbox-analytics" class="lcc-label">
+                    <input type="checkbox" id="lcc-checkbox-analytics">
+                    <span>Analytical cookies</span>
+                </label>
+                <p class="lcc-text">
+                    allow us to analyse website use and to improve the visitor's experience.                </p>
+            </div>
+            <div class="lcc-modal__section">
+                <label for="lcc-checkbox-marketing" class="lcc-label">
+                    <input type="checkbox" id="lcc-checkbox-marketing">
+                    <span>Marketing cookies</span>
+                </label>
+                <p class="lcc-text">
+                    allow us to personalise your experience and to send you relevant content and offers, on this website and other websites.                </p>
+            </div>
+        </div>
+    </div>
+    <div class="lcc-modal__actions">
+        <button type="button" class="lcc-button lcc-button--link js-lcc-settings-toggle">
+            Cancel        </button>
+        <button type="button" class="lcc-button js-lcc-settings-save">
+            Save        </button>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://www.knobcloud.com/vendor/cookie-consent/js/cookie-consent.js"></script>
+</body>
+</html>

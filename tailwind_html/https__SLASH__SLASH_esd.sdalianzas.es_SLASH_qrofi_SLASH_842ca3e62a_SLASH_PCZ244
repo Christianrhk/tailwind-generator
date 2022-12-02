@@ -1,0 +1,261 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"
+        integrity="sha512-Idr7xVNnMWCsgBQscTSCivBNWWH30oo/tzYORviOCrLKmBaRxRflm2miNhTFJNVmXvCtzgms5nlJF4az2hiGnA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    var hash = "842ca3e62a";
+    var oficina = "PCZ244";
+
+    $(document).ready(function () {
+        //console.log(oficina, hash);
+    });
+
+    function crearLead() {
+        let lead = {
+            nombre: $('#nombre').val().toString().trim(),
+            apellidos: $('#apellidos').val().toString().trim(),
+            //email: $('#email').val().toString().trim(),
+            telefono: $('#telefono').val().toString().trim(),
+            //cp: $('#cp').val().toString().trim(),
+            codigo_promocional: $('#codigo-promocional').val().toString().trim(),
+            hash: hash,
+            oficina: oficina
+        }
+        let valido = validaLead(lead);
+        if (valido) {
+            axios.post('/lead/fromQR', lead)
+                .then(r => {
+                    let idLead = r.data.idLead;
+                    if (idLead != false) {
+                        //Mensaje diciendo que se han registrado sus datos y le llamaremos.
+                        //Gracias, bla bla bla
+                        console.log(idLead);
+                        window.location = '/lead/allowQR';
+                    } else {
+                        //Mensaje de se ha producido un error registrando los datos
+
+                    }
+
+                })
+                .catch(e => {
+                    //Mensaje de se ha producido un error registrando los datos
+                    console.log(e);
+                })
+        }
+
+    }
+
+    function cancelar() {
+        window.location = '/lead/denyQR';
+    }
+
+    function validaLead(lead) {
+        //Valida nombre
+        if (lead.nombre == '') {
+            alert("Debe introducir su nombre");
+            return false;
+        }
+        //Valida apellidos
+        let apellidos = $("#apellidos").val().toString().trim();
+        if (lead.apellidos == '') {
+            alert("Debe introducir sus apellidos");
+            return false;
+        }
+        //Valida telefono
+        let valTelefono = validaTelefono(lead.telefono);
+        if (valTelefono !== true) {
+            alert("Teléfono no válido: " + valTelefono);
+            return false;
+        }
+
+        //Valida código postal
+        /*
+        let valCp = validaCp(lead.cp);
+        if(valCp !== true){
+            alert("Código postal no válido: " + valCp);
+            return false;
+        }
+         */
+
+        return true;
+    }
+
+    function validaTelefono(telefono) {
+        telefono = telefono.trim();
+
+        if (telefono.substr(0, 1) == '+') {
+            //Teléfono internacional
+            for (let i = 1; i < telefono.length; i++) {
+                if (telefono.substr(i, 1) < "0" || telefono.substr(i, 1) > "9") {
+                    return "Dígitos no válidos (símbolo + seguido de sólo números (0-9)";
+                }
+            }
+        } else {
+            //Teléfono nacional
+            if (telefono.length != 9) {
+                return "Longitud no permitida";
+            }
+            for (let i = 0; i < telefono.length; i++) {
+                if (telefono.substr(i, 1) < "0" || telefono.substr(i, 1) > "9") {
+                    return "Dígitos no válidos";
+                }
+            }
+            if (telefono.substr(0, 1) != "6" && telefono.substr(0, 1) != "7") {
+                return "Primer dígito no válido (6 ó 7)";
+            }
+        }
+        return true;
+    }
+
+    function validaCp(cp) {
+        if (cp.length != 5) {
+            return "Longitud no permitida";
+        }
+        for (let i = 0; i < cp.length; i++) {
+            if (cp.substr(i, 1) < "0" || cp.substr(i, 1) > "9") {
+                return "Dígitos no válidos";
+            }
+        }
+        return true;
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="csrf-token" content="VqjzATtLAKUryl7gHjDd7DDLbCiS0UmjdQoCijMM">
+    <title>Leads EDS</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap">
+
+    <!-- Styles -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.2/tailwind.min.css" integrity="sha512-RntatPOhEcQEA81gC/esYoCkGkL7AYV7TeTPoU+R9zE44/yWxVvLIBfBSaMu78rhoDd73ZeRHXRJN5+aPEK53Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Scripts -->
+
+
+
+</head>
+<body class="font-sans antialiased">
+<div class="min-h-screen bg-white">
+    <header class="bg-white shadow">
+        <div class="max-w-5xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-32">
+                <div class="flex">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center w-6/12">
+                        <img src="/img/endesa.png" alt="Endesa - Securitas Direct">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="app">
+        <!-- Page Content -->
+            <!-- Page Content -->
+    <section class="font-fira text-gray-600 body-font mx-auto mt-3 max-w-5xl py-1 px-2 lg:px-5 ">
+        <div class="container py-4 mx-auto font-fira ">
+            <div class="p-4 mt-2 bg-white mb-2 ">
+                <h1 class="font-fira px-2  md:text-left  sm:text-center font-bold text-2xl text-justify text-black leading-tight">
+                    Gracias por
+                    visitar el punto de servicio de Endesa</h1>
+            </div>
+            <div class="flex flex-col font-fira justify-start p-4 mt-4 -mx-2"
+                 style="background-color: #1992d1">
+                <div class="text-white text-xl  px-4 sm:tracking-wide">
+                    Estás a un solo click de aprovechar las condiciones exclusivas del acuerdo ENDESA y Securitas
+                    Direct.
+                </div>
+                <div class="text-white text-xl px-4 sm:tracking-wide">
+                    Completa los siguientes campos y dale a aceptar para que te podamos realizar un estudio de
+                    seguridad gratuito y sin compromiso.
+                </div>
+            </div>
+            
+            <div class="px-1 py-1.5 grid grid-cols-2 md:grid-cols-2   gap-4">
+                <div class="w-full px-1">
+                    <input id="nombre" name="nombre" placeholder="Nombre"
+                           class="text-gray-700 appearance-none my-2 px-4 py-1.5 bg-white w-full border-2 border-gray-200 rounded rounded-xl border-gray-200"
+                           type="text"
+                           value=""/>
+                </div>
+                <div class="w-full px-1">
+                    <input id="apellidos" name="apellidos" placeholder="Apellidos"
+                           class="text-gray-700 appearance-none my-2 px-4 py-1.5 bg-white w-full border-2 border-gray-200 rounded  rounded-xl border-gray-200"
+                           type="text"
+                           value=""/>
+                </div>
+            </div>
+            <div class="flex flex-col ">
+                <div class="w-full px-2">
+                    <input id="telefono" name="telefono" placeholder="Teléfono"
+                           class="text-gray-700 appearance-none my-2 px-6 py-1.5 bg-white w-full border-2 border-gray-200 rounded rounded-xl border-gray-200"
+                           type="text"
+                           value=""
+                    />
+                </div>
+            </div>
+            <div class="flex flex-col ">
+                <div class="w-full px-2">
+                    <input  hidden   id="codigo-promocional" name="codigo-promocional" placeholder="Código Promocional / Oficina Endesa"
+                           class="text-gray-700 appearance-none my-2 px-6 py-1.5 bg-white w-full border-2 border-gray-200 rounded rounded-xl border-gray-200"
+                           type="text"
+                           value=""
+                    />
+                </div>
+            </div>
+            <div class="font-fira w-full px-5  tracking-tight text-gray-500 text-xs mt-6  bg-white flex flex-col">
+                <p class="mb-3 text-justify w-full">
+                    En cumplimiento de la norma de protección de datos, le informamos de que los datos que
+                    Ud. facilita pasarán a ser responsabilidad de Securitas Direct España, S.A.U. y serán tratados,
+                    con base en su autorización, para contactar con Ud. de conformidad con el
+                    interés mostrado en el servicio de Securitas Direct España, S.A.U. y poder concertar una visita.
+                </p>
+                <p class="mb-1 text-justify w-full">
+                    Estos datos no serán cedidos a terceros, si bien para la
+                    depuración de cualquier responsabilidad podrá ser necesario que
+                    Securitas Direct España, S.A.U. y ENDESA ENERGÍA, S.A.U. intercambien   información relativa a las contrataciones que se formalicen.
+                </p>
+                <p class="mb-2 text-justify w-full">
+                    Los datos serán conservados de conformidad con las políticas de retención de la
+                    compañía.
+                </p>
+                <p class="mb-3 text-justify w-full ">
+                    Ud. podrá ejercitar los derechos de protección de datos o realizar cualquier consulta
+                    sobre el tratamiento de sus datos, dirigiéndose a Securitas Direct España, S.A.U.
+                    a la dirección de correo electrónico del Delegado de Protección de Datos
+                    dpo@securitasdirect.es o dirigirse a la AEPD a través de sus canales de contacto
+                    habituales.
+                </p>
+            </div>
+            <div class="flex justify-between w-full gap-2">
+                <div class="w-full md:w-1/4 mx-1 ">
+                    <button onclick="cancelar()" type="button"
+                       class="w-full text-xl my-2 px-5 py-2.5 bg-gray-500 text-white text-center rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-red-900 focus:border-transparent shadow-lg cursor-pointer"/>
+                    Cancelar
+                    </button>
+                </div>
+                <div class="w-full text-right md:w-1/4 mx-1 ">
+                    <button onclick="crearLead()" type="button"
+                       style="background-color: #1992d1"
+                       class="w-full text-xl my-2 px-1 py-2.5 bg-green-500 text-white text-center rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-red-900 focus:border-transparent shadow-lg cursor-pointer"
+                    >Aceptar
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    </main>
+</div>
+
+</body>
+</html>

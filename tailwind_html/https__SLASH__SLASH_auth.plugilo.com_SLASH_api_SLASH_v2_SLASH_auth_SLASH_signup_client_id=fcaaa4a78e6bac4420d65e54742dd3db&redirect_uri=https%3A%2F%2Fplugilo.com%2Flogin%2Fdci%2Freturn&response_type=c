@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- views/partials/head.ejs -->
+
+<meta charset="utf-8">
+<meta name="author" content="Plugilo">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plugilo Login</title>
+
+<link rel="apple-touch-icon" href="/icon.png" />
+<link
+  rel="icon"
+  href="/icon.png"
+  type="image/png"
+  sizes="16x16 32x32"
+/>
+<link rel="stylesheet" type="text/css" href="/vendor/tailwind/tailwind.css">
+<!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+
+<!-- CSS Custom -->
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+
+  <style>
+  .btn-close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+
+  .modal-body .modal-content {
+    margin: 20px auto 5px;
+  }
+</style>
+
+</head>
+
+<body class="text-gray-800">
+  <div id="loading" class="loading hidden"></div>
+
+  <!-- views/partials/header.ejs -->
+
+<div style="
+text-align: right;
+position: absolute;
+top: 0px;
+right: 2px;
+z-index: 1000;
+">
+<select id="language">
+  <option value="en-US">English</option>
+  <option value="de-DE">German</option>
+</select>
+</div>
+<!-- views/partials/main-script.ejs -->
+
+<script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="/vendor/bootstrap/js/popper.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/vendor/jquery-validate/jquery.validate.min.js"></script>
+
+<!-- Include all common custom javascript -->
+
+<script type="text/javascript">
+  $(function() {
+    $('#language').val('' || 'en-US');
+    $('#language').on('change',function() {
+      var url ='/api/v2/user/change-lang/'+ this.value;
+      $.get( url, function( data ) {
+        location.reload();
+      });
+
+    });
+  });
+
+</script>
+
+  <div class="lg:flex lg:h-full">
+    <section class="relative bg-blue-100 hidden lg:block" style="min-width: 480px;">
+  <div class="lg:flex-col justify-between lg:h-full">
+    <img src="/images/corner-01.png" />
+    <header class="px-20">
+      <h1 class="text-4xl font-bold leading-tight mb-4">Explore new Galaxies!</h1>
+      <h4>
+        The Search Engine for Tips &amp; Highlights from Commerce and Industry
+      </h4>
+    </header>
+
+    <div class="flex-col justify-end flex-grow">
+      <div class="flex-grow">
+        <img class="absolute vert-move" style="
+        width: 40rem;
+        max-width: 40vw;
+        bottom: 3rem;
+        max-height: 40vh;" src="/images/illustration-01.svg" />
+      </div>
+      <p></p>
+    </div>
+  </div>
+</section>
+
+
+    <section class="relative w-full lg:flex lg:flex-grow lg:items-center lg:justify-center">
+      <main class="my-0 mx-auto px-6 pt-12 pb-12 lg:pt-0 lg:pb-0 lg:flex lg:items-center lg:justify-center lg:flex-grow m-0 p-0">
+        <div class="w-full m-auto lg:pb-0 lg:m-0" style="max-width: 400px;">
+          <div class="mb-10">
+            <img class="logo-plugilo h-8" alt="Plugilo" src="/images/logo_plugilo_black.svg" />
+          </div>
+
+          <div id="form-section">
+            <div class="mb-4 font-semibold text-2xl leading-8">Sign up</div>
+            <div id="alert-error" class="mb-4 bg-red-100 text-red-700 px-4 py-3 rounded relative alert alert-dismissible hidden">
+              <a href="#" class="close absolute top-0 right-0 px-2" data-dismiss="alert" aria-label="close">&times;</a>
+            </div>
+
+            <form id="signupForm" class="form-signin" method="post" autocomplete="off">
+              <div class="mb-4 relative
+">
+                <span class="absolute top-2 left-4 text-gray-600
+"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M313.6 288c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4zM416 464c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 56.5 0 102.4 45.9 102.4 102.4V464zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"/></svg>
+</span>
+                <input id="firstName" name="firstName" class="bg-white appearance-none border border-gray-200 rounded-full w-full leading-10 h-10 pl-10 pr-4 text-gray-700 transition duration-200
+focus:outline-none focus:bg-white focus:border-primary
+hover:bg-white hover:border-primary
+" placeholder="First name" required autofocus  maxlength="255"/>
+              </div>
+
+              <div class="mb-4">
+                <input id="lastName" name="lastName" class="bg-white appearance-none border border-gray-200 rounded-full w-full leading-10 h-10 pl-10 pr-4 text-gray-700 transition duration-200
+focus:outline-none focus:bg-white focus:border-primary
+hover:bg-white hover:border-primary
+" placeholder="Last name" required autofocus maxlength="255" />
+              </div>
+
+              <div class="mb-4  relative
+">
+                <span class="absolute top-2 left-4 text-gray-600
+"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path  fill="currentColor" d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z"/></svg>
+</span>
+                <input type="email" id="email" name="email" class="bg-white appearance-none border border-gray-200 rounded-full w-full leading-10 h-10 pl-10 pr-4 text-gray-700 transition duration-200
+focus:outline-none focus:bg-white focus:border-primary
+hover:bg-white hover:border-primary
+" placeholder="Email address" required maxlength="255" />
+              </div>
+
+              <div class="mb-4 bg-blue-100 border border-blue-200 border-solid rounded-lg pl-10 p-2 flex relative">
+                <span class="absolute left-4 text-primary text-base"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path  fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></svg>
+</span>
+                <span class="text-xs">
+                  Use your company Email e.g. &#34;xxx@domain.xxx&#34; if you want to organize content for &#34;domain.xxx&#34;
+                </span>
+              </div>
+
+              <div class="mb-4 relative
+">
+                <span class="absolute top-2 left-4 text-gray-600
+"><svg class="svg-inline--fa"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path  fill="currentColor" d="M400 224h-16v-62.5C384 73.1 312.9.3 224.5 0 136-.3 64 71.6 64 160v64H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zM96 160c0-70.6 57.4-128 128-128s128 57.4 128 128v64H96v-64zm304 320H48c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h352c8.8 0 16 7.2 16 16v192c0 8.8-7.2 16-16 16z"/></svg>
+</span>
+                <input type="password" id="password" name="password" class="bg-white appearance-none border border-gray-200 rounded-full w-full leading-10 h-10 pl-10 pr-4 text-gray-700 transition duration-200
+focus:outline-none focus:bg-white focus:border-primary
+hover:bg-white hover:border-primary
+" placeholder="Password" required maxlength="255" />
+              </div>
+
+              <div class="mb-4">
+                <input type="password" id="confirmPassword" name="confirmPassword" class="bg-white appearance-none border border-gray-200 rounded-full w-full leading-10 h-10 pl-10 pr-4 text-gray-700 transition duration-200
+focus:outline-none focus:bg-white focus:border-primary
+hover:bg-white hover:border-primary
+" placeholder="Confirm password" required maxlength="255" />
+              </div>
+
+              <div class="mb-4">
+                <button class="bg-primary hover:bg-primary text-white py-2 px-4 rounded-full transition duration-200
+ w-full" type="submit">Sign up</button>
+              </div>
+
+
+              <div class="relative my-4 flex items-center justify-center">
+                <div class="flex items-center justify-center leading-5">
+                  <a class="text-primary" href="/api/v2/auth/login?client_id=fcaaa4a78e6bac4420d65e54742dd3db&amp;redirect_uri=https%3A%2F%2Fplugilo.com%2Flogin%2Fdci%2Freturn&amp;response_type=code">Have an account?</a>
+                  <span class="w-8 inline-block"></span>
+                  <a class="text-primary" href="/api/v2/auth/forgot-password?client_id=fcaaa4a78e6bac4420d65e54742dd3db&amp;redirect_uri=https%3A%2F%2Fplugilo.com%2Flogin%2Fdci%2Freturn&amp;response_type=code">Forgot password</a>
+                </div>
+              </div>
+
+              <p class="text-center text-xs text-gray-600">
+                  By Sign up, you agree to our Terms of Use and to receive Plugilo emails & updates and acknowledge that you read your <a class="text-primary" href="https://plugilo.com/policy" target="_blank">Privacy Policy.</a>
+              </p>
+            </form>
+          </div>
+          <div id="signup-success-section" class="text-center hidden" >
+            <div class="alert alert-success px-4 py-3 bg-green-100 text-green-700 mb-4" role="alert">
+              <strong class="alert-heading">Registration success!</strong>
+              <p>Please check your email inbox and confirm your address. If you can&#39;t find the email, check your spam folder.</p>
+            </div>
+            <div>
+              <a href="/api/v2/auth/login?client_id=fcaaa4a78e6bac4420d65e54742dd3db&amp;redirect_uri=https%3A%2F%2Fplugilo.com%2Flogin%2Fdci%2Freturn&amp;response_type=code" class="bg-primary hover:bg-primary text-white py-2 px-4 rounded-full transition duration-200
+">Go to Login</a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <img class="absolute bottom-0 right-0 hidden lg:inline" src="/images/corner-02.png" />
+    </section>
+  </div>
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="myModal" aria-hidden="true">
+    <div class="relative max-w-md mx-auto mt-16 transition duration-200" role="document" style="top: 15%;">
+      <div class="relative flex-col w-full bg-white rounded">
+        <div class="relative p-4 text-center">
+          <div class="mb-8">Your account has been successfully created</div>
+          <div>
+            <a href="/api/v2/auth/login?client_id=fcaaa4a78e6bac4420d65e54742dd3db&amp;redirect_uri=https%3A%2F%2Fplugilo.com%2Flogin%2Fdci%2Freturn&amp;response_type=code" class="bg-primary hover:bg-primary text-white py-2 px-4 rounded-full transition duration-200
+">Go to Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- <!-- views/partials/main-script.ejs -->
+
+<script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="/vendor/bootstrap/js/popper.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/vendor/jquery-validate/jquery.validate.min.js"></script>
+
+<!-- Include all common custom javascript -->
+ -->
+  <!-- Include JS of page -->
+  <script type="text/javascript">
+  $(function() {
+    $.validator.setDefaults({
+      submitHandler: function () {
+        // show spinner
+        $('#loading').removeClass('hidden').addClass('block');
+        $.ajax({
+          method: "POST",
+          url: "/api/v2/user/signup?client_id=fcaaa4a78e6bac4420d65e54742dd3db&redirect_uri=https%3A%2F%2Fplugilo.com%2Flogin%2Fdci%2Freturn&response_type=code",
+          data: {
+            email: $('#email').val(),
+            firstName: $('#firstName').val(),
+            lastName: $('#lastName').val(),
+            password: $('#password').val(),
+          }
+        }).done(function(response) {
+          if (response.status === 'ok') {
+            $('#signup-success-section').removeClass('hidden').addClass('block');
+            $('#form-section').removeClass('block').addClass('hidden');
+            $('#alert-error').removeClass('block').addClass('hidden')
+          } else {
+            // show error
+            $('#alert-error')
+              .removeClass('hidden').addClass('block')
+              .html(`<div>${response.message}</div>`);
+          }
+          // hide spinner
+          $('#loading').removeClass('block').addClass('hidden');
+        }).fail(function(response) {
+          // show error
+          var responseJSON = response.responseJSON || {};
+          var message = "<div>Something went wrong</div>";
+          if(responseJSON.error === 'EMAIL_ALREADY_EXISTS') {
+            var username = $('#email').val();
+            var mailTo = `<a class="leading-5 text-primary" href="mailto:${username}">${username}</a>`
+            var link = '<a class="leading-5 text-primary" href="/api/v2/auth/forgot-password?client_id=fcaaa4a78e6bac4420d65e54742dd3db&amp;redirect_uri=https%3A%2F%2Fplugilo.com%2Flogin%2Fdci%2Freturn&amp;response_type=code">reset the password</a>';
+            message = `<div>An account with email address ${mailTo} already exists, Please login using this email address or ${link}</div>`;
+          }
+
+
+          $('#alert-error')
+            .removeClass('hidden').addClass('block')
+            .html(message);
+          // hide spinner
+          $('#loading').removeClass('block').addClass('hidden');
+        });
+      }
+    });
+
+    $('#signupForm').validate({
+      rules: {
+        firstName: {
+          required: true,
+        },
+        lastName: {
+          required: true,
+        },
+        email: {
+          required: true,
+          email: true,
+        },
+        password: {
+          required: true,
+          minlength: 5,
+        },
+        confirmPassword: {
+          required: true,
+          minlength: 5,
+          equalTo: '#password'
+        }
+      },
+      messages: {
+        firstName: {
+          required: 'Please enter first name',
+        },
+        lastName: {
+          required: 'Please enter last name',
+        },
+        email: 'Please enter a valid email address',
+        password: {
+          required: 'Please enter a password',
+          minlength: 'Your password must be at least 5 characters long'
+        },
+        confirmPassword: {
+          required: 'Please enter a password',
+          minlength: 'Your password must be at least 5 characters long',
+          equalTo: 'Please enter the same password as above'
+        }
+      },
+      errorElement: 'em',
+        errorPlacement: function (error, element) {
+          // Add the `invalid-feedback` class to the error element
+          error.addClass('text-red-700 text-sm').insertAfter(element);
+        },
+        highlight: function (element, errorClass, validClass) {
+          $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+    });
+  });
+</script>
+
+</body>
+
+</html>

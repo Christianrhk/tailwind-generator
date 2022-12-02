@@ -1,0 +1,8987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Automated Daily Shipping Position">
+<meta name="author" content="Nigerian Ports Authority">
+
+<meta name="csrf-token" content="wiFyxtxp9PwMnt6AWEfELvRzj8PulpxYAlyho61T">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+<title>Daily Shipping Position</title>
+
+<link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/plugins/datatables/media/css/dataTables.bootstrap4.css" rel="stylesheet">
+
+<link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+
+<link href="css/style.css" rel="stylesheet">
+
+<link href="css/colors/blue.css" id="theme" rel="stylesheet">
+<link rel="stylesheet" href="css/jquery-ui.css">
+<link rel="stylesheet" href="css/material datetimepicker.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+
+
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<style>
+        
+        /*Overrides for Tailwind CSS */
+        
+        /*Form fields*/
+        .dataTables_wrapper select,
+        .dataTables_wrapper .dataTables_filter input {
+            color: #4a5568;             /*text-gray-700*/
+            padding-left: 1rem;         /*pl-4*/
+            padding-right: 1rem;        /*pl-4*/
+            padding-top: .5rem;         /*pl-2*/
+            padding-bottom: .5rem;      /*pl-2*/
+            line-height: 1.25;          /*leading-tight*/
+            border-width: 2px;          /*border-2*/
+            border-radius: .25rem;      
+            border-color: #edf2f7;      /*border-gray-200*/
+            background-color: #edf2f7;  /*bg-gray-200*/
+        }
+
+        /*Row Hover*/
+        table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
+            background-color: #ebf4ff;  /*bg-indigo-100*/
+        }
+        
+        /*Pagination Buttons*/
+        .dataTables_wrapper .dataTables_paginate .paginate_button       {
+            font-weight: 700;               /*font-bold*/
+            border-radius: .25rem;          /*rounded*/
+            border: 1px solid transparent;  /*border border-transparent*/
+        }
+        
+        /*Pagination Buttons - Current selected */
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current   {
+            color: #fff !important;             /*text-white*/
+            box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);    /*shadow*/
+            font-weight: 700;                   /*font-bold*/
+            border-radius: .25rem;              /*rounded*/
+            background: #667eea !important;     /*bg-indigo-500*/
+            border: 1px solid transparent;      /*border border-transparent*/
+        }
+
+        /*Pagination Buttons - Hover */
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover     {
+            color: #fff !important;             /*text-white*/
+            box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);     /*shadow*/
+            font-weight: 700;                   /*font-bold*/
+            border-radius: .25rem;              /*rounded*/
+            background: #667eea !important;     /*bg-indigo-500*/
+            border: 1px solid transparent;      /*border border-transparent*/
+        }
+        
+        /*Add padding to bottom border */
+        table.dataTable.no-footer {
+            border-bottom: 1px solid #e2e8f0;   /*border-b-1 border-gray-300*/
+            margin-top: 0.75em;
+            margin-bottom: 0.75em;
+        }
+        
+        /*Change colour of responsive icon*/
+        table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+            background-color: #667eea !important; /*bg-indigo-500*/
+        }
+        
+      </style>
+</head>
+<body class="fixed-sn mdb-skin-custom">
+
+
+
+<div class="preloader">
+<svg class="circular" viewBox="25 25 50 50">
+<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+</div>
+
+
+
+<div id="main-wrapper">
+
+
+
+<header class="topbar">
+<div class="container">
+
+
+<nav class="navbar navbar-expand-md navbar-dark double-nav scrolling-navbar">
+
+<a class="navbar-brand" href="/"><img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" /></a>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="nav-menu">
+
+<ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown"><a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="whoweare" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Who We Are</a>
+<div class="dropdown-menu dropdown-menu-right scale-up" aria-labelledby="whoweare">
+<a class="dropdown-item" href="http://nigerianports.gov.ng/history/"><span>History</span></a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/history/vision-and-mission/"><span>Vision and Mission</span></a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/history/our-mandate/"><span>Our Mandate</span></a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/history/executive-management-team/"><span>Executive Management</span></a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/history/board/"><span>Board Members</span></a>
+</div>
+</li>
+<li class="nav-item dropdown"><a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="services" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Services</a>
+<div class="dropdown-menu dropdown-menu-right scale-up" aria-labelledby="services">
+ <a class="dropdown-item" href="http://nigerianports.gov.ng/harbour-services/">Harbour Services</a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/cargo-handling/">Cargo Handling</a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/marine-services/">Marine Services</a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/health-safety-and-environment-services/">Health, Safety And Environment Services</a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/security-services/">Security Services</a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/commercial-services/">Commercial Services</a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/engineering-technical-services/">Engineering &amp; Technical Services</a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/lands-estates-services/">Lands &amp; Estates Services</a>
+</div>
+</li>
+<li class="nav-item dropdown"><a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="business" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Business</a>
+<div class="dropdown-menu dropdown-menu-right scale-up" aria-labelledby="business">
+<a class="dropdown-item" href="http://nigerianports.gov.ng/ports/">Ports</a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/joint-venture-2/">Joint Venture</a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/terminals/">Terminals</a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/green-field-projects/">Green Field Projects</a>
+<a class="dropdown-item" href="http://nigerianports.gov.ng/pilotage-2/">Pilotage</a>
+</div>
+</li>
+<li class="nav-item"><a class="nav-link" href="http://nigerianports.gov.ng/contact-us/">Contact Us</a></li>
+<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+</ul>
+</div>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+
+
+
+
+<div class="page-wrapper">
+
+
+
+<div class="container-fluid">
+<div class="row page-titles">
+<div class="col-md-5 col-8 align-self-center">
+<h3 class="text-themecolor m-b-0 m-t-0">Vessel Schedule</h3>
+<ol class="breadcrumb">
+<li class="breadcrumb-item">
+<a href="">Home</a>
+</li>
+<li class="breadcrumb-item active">Vessel Schedule</li>
+</ol>
+</div>
+<div class="col-md-7 col-4 align-self-center">
+<div class="d-flex m-t-10 justify-content-end">
+<strong>Shipping schedule across all ports of the Nigerian Ports Authority</strong>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="card">
+<ul class="nav nav-tabs profile-tab" role="tablist">
+<li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#berthed" role="tab">Vessels At Berth</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#expected" role="tab">Vessels Expected</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#awaiting" role="tab">Vessels Awaiting Berth</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#departed" role="tab">Vessels Departed</a> </li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane" id="expected" role="tabpanel">
+<div class="card-body">
+<h4 class="card-title">Daily Shipping Schedule - Vessels Expected</h4>
+<ul class="nav nav-tabs profile-tab" role="tablist">
+<li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#Lagos1" role="tab">Lagos - Apapa</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#Lagos2" role="tab">Lagos - Tincan</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#CalabarPort" role="tab">Calabar Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#WarriPort" role="tab">Warri Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#OnnePort" role="tab">Onne Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#RiversPort" role="tab">Rivers Ports</a> </li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="Lagos1" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Apapa" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">Terminal</th>
+<th data-priority="3">Expected Time (ETA)</th>
+<th data-priority="4">Length(M)</th>
+<th data-priority="5">Agent</th>
+<th data-priority="6">Cargo</th>
+<th data-priority="7">Tonnage <br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALFRED TEMILE</td>
+
+<td>Lister Oil Jetty</td>
+<td>Mon, August 08, 2022 13:39 PM</td>
+<td>160.00</td>
+<td>TIGER</td>
+<td>B/GAS</td>
+<td>4000MT</td>
+</tr>
+<tr>
+<td>MAERSK ANTWERP</td>
+
+<td>APM Terminal Ltd</td>
+<td>Wed, August 10, 2022 10:18 AM</td>
+<td>155.00</td>
+<td>MAERSK NIGERIA LTD</td>
+<td>CONTAINER</td>
+<td>328FCL</td>
+</tr>
+<tr>
+<td>DESERT DIGNITY</td>
+
+<td>Apapa Bulk Terminals Ltd</td>
+<td>Wed, August 10, 2022 11:21 AM</td>
+<td>199.98</td>
+<td>GOLDEN SHIPPING CO. NIG LTD</td>
+<td>B/WHEAT</td>
+<td>52021MT</td>
+</tr>
+<tr>
+<td>NORDIC INCHEON</td>
+
+<td>ENL Consortium</td>
+<td>Sun, August 14, 2022 12:12 PM</td>
+<td>179.99</td>
+<td>SAMCHAM HOLDINGS LTD.</td>
+<td>PET COKE</td>
+<td>33943.54MT</td>
+</tr>
+<tr>
+<td>OSLO EAGLE</td>
+
+<td>Greenview Dev. Nig. Ltd</td>
+<td>Tue, August 16, 2022 13:30 PM</td>
+<td>199.90</td>
+<td>BLUESTAR SHIPPING</td>
+<td>B/GYPSUM</td>
+<td>52000MT</td>
+</tr>
+<tr>
+<td>GRACE C</td>
+
+<td>DANGOTE QUAYS</td>
+<td>Tue, August 16, 2022 13:31 PM</td>
+<td>186.40</td>
+<td>BLUESTAR SHIPPING</td>
+<td>B/UREA</td>
+<td>30000MT</td>
+</tr>
+<tr>
+<td>PACIFIC VENTURE</td>
+
+<td>ENL Consortium</td>
+<td>Wed, August 17, 2022 12:14 PM</td>
+<td>122.20</td>
+<td>APS</td>
+<td>CONT</td>
+<td>30FCL</td>
+</tr>
+<tr>
+<td>AQUARIUS HONOR</td>
+
+<td>Greenview Dev. Nig. Ltd</td>
+<td>Sat, August 20, 2022 15:31 PM</td>
+<td>190.00</td>
+<td>BLUESTAR SHIPPING</td>
+<td>B/SUGAR</td>
+<td>45850MT</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="Lagos2" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Tincan" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+ <th data-priority="2">Terminal</th>
+<th data-priority="3">Expected Time (ETA)</th>
+<th data-priority="4">Length(M)</th>
+<th data-priority="5">Agent</th>
+<th data-priority="6">Cargo</th>
+<th data-priority="7">Tonnage <br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ENL SUPERIOR</td>
+<td>KLT Phase 2</td>
+<td>Sat, August 06, 2022 00:00 AM</td>
+<td>36.00</td>
+<td>CLARION SHIPPING WEST AFRICA LIMITED</td>
+<td>INBALLAST</td>
+<td>INBALLAST</td>
+</tr>
+<tr>
+<td>ST AMRAH</td>
+<td>KLT Phase 2</td>
+<td>Sat, August 06, 2022 00:00 AM</td>
+<td>183.00</td>
+<td>PEAK SHIPPING AGENT</td>
+<td>PMS</td>
+<td>20,000 MTS</td>
+</tr>
+<tr>
+<td>EMANTHA</td>
+<td>KLT PHASE 3A</td>
+<td>Mon, August 08, 2022 00:00 AM</td>
+<td>144.71</td>
+<td>PEAK SHIPPING AGENT</td>
+<td>PMS</td>
+<td>5,000 MTS</td>
+</tr>
+<tr>
+<td>GRANDE TEMA</td>
+<td>Ports &amp; Terminal Multiservices Ltd</td>
+<td>Mon, August 08, 2022 00:00 AM</td>
+<td>236.30</td>
+<td>GRIMALDI AG. NIG.</td>
+<td>USED VEHS</td>
+<td>400 UNITS</td>
+</tr>
+<tr>
+<td>UNISTAR</td>
+<td>Josepdam Port Service Ltd</td>
+<td>Mon, August 08, 2022 00:00 AM</td>
+<td>132.20</td>
+<td>OCEAN GLORY</td>
+<td>INBALLAST</td>
+<td>TO LOAD 5000 MTS OF WHEAT BRAN</td>
+</tr>
+<tr>
+<td>ROSE MARY</td>
+<td>KLT Phase 3a</td>
+<td>Mon, August 08, 2022 00:00 AM</td>
+<td>120.55</td>
+<td>DEAL MARINE SERVICES</td>
+<td>JET 1A</td>
+<td>5,000 MTS</td>
+</tr>
+<tr>
+<td>MT COMARCO PEMBA</td>
+<td>KLT PHASE 2</td>
+<td>Wed, August 10, 2022 00:00 AM</td>
+<td>80.00</td>
+ <td>ALPHOKING</td>
+<td>INBALLAST</td>
+<td>INBALLAST</td>
+</tr>
+<tr>
+<td>GRANDE LUANDA</td>
+<td>Ports &amp; Terminal Multiservices Ltd</td>
+<td>Wed, August 10, 2022 00:00 AM</td>
+<td>236.30</td>
+<td>GRIMALDI AG. NIG.</td>
+<td>USED VEHS</td>
+<td>400 UNITS</td>
+</tr>
+<tr>
+<td>CLOVER</td>
+<td>KLT Phase 2</td>
+<td>Wed, August 10, 2022 00:00 AM</td>
+<td>183.05</td>
+<td>REHDORS LOGISTICS SOLUTIONS</td>
+<td>PMS</td>
+<td>20,000 MTS</td>
+</tr>
+<tr>
+<td>SL AREMU</td>
+<td>KLT Phase 2</td>
+<td>Wed, August 10, 2022 00:00 AM</td>
+<td>176.00</td>
+<td>GOBEL MARINE</td>
+<td>PMS</td>
+<td>20,000 MTS</td>
+</tr>
+<tr>
+<td>LAUSU</td>
+<td>KLT Phase 2</td>
+<td>Wed, August 10, 2022 00:00 AM</td>
+<td>176.00</td>
+<td>REHDOR LOGISTICS SOLUTION</td>
+<td>PMS</td>
+<td>20,000 MTS</td>
+</tr>
+<tr>
+<td>DIDDI</td>
+<td>KLT PHASE 2</td>
+<td>Thu, August 11, 2022 00:00 AM</td>
+<td>182.94</td>
+<td>BIGOSZ LOGISTICS</td>
+<td>PMS</td>
+<td>20,000 MTS</td>
+</tr>
+<tr>
+<td>ARSOS M</td>
+<td>KLT Phase 3a</td>
+<td>Fri, August 12, 2022 00:00 AM</td>
+<td>180.00</td>
+<td>FOUNTAIN SHIPPING</td>
+<td>PMS</td>
+<td>15,000 MTS</td>
+</tr>
+<tr>
+<td>MSC MILA 3</td>
+<td>Fivestars Logistics</td>
+<td>Fri, August 12, 2022 00:00 AM</td>
+<td>187.16</td>
+<td>MEDITERRANEAN SHIPPING</td>
+<td>CONTAINERS</td>
+<td>450 FCL</td>
+</tr>
+<tr>
+<td>GRANDE CONGO</td>
+<td>Ports &amp; Terminal Multiservices Ltd</td>
+ <td>Sat, August 13, 2022 00:00 AM</td>
+<td>211.00</td>
+<td>GRIMALDI AG. NIG.</td>
+<td>USED VEHS</td>
+<td>400 UNITS</td>
+</tr>
+<tr>
+<td>GRANDE BENIN</td>
+<td>Ports &amp; Terminal Multiservices Ltd</td>
+<td>Sat, August 13, 2022 00:00 AM</td>
+<td>210.92</td>
+<td>GRIMALDI AG. NIG.</td>
+<td>USED VEHS</td>
+<td>350 UNITS</td>
+</tr>
+<tr>
+<td>ALICE THERESA</td>
+<td>Josepdam Port Service Ltd</td>
+<td>Sun, August 14, 2022 00:00 AM</td>
+<td>101.39</td>
+<td>SUPERMARTIME NIG LTD</td>
+<td>LINEAR AKYL BENZENE</td>
+<td>3,797 MTS</td>
+</tr>
+<tr>
+<td>COE LAURA</td>
+<td>Josepdam Port Service Ltd</td>
+<td>Tue, August 16, 2022 00:00 AM</td>
+<td>115.00</td>
+<td>AFRICA PORT SERVICES</td>
+<td>BULK MALT</td>
+<td>4,000 MTS</td>
+</tr>
+<tr>
+<td>REPUBBLICA ARGENTINA</td>
+<td>Ports &amp; Terminal Multiservices Ltd</td>
+<td>Tue, August 16, 2022 00:00 AM</td>
+<td>208.61</td>
+<td>GRIMALDI AG. NIG.</td>
+<td>USED VEHS</td>
+<td>350 UNITS</td>
+</tr>
+<tr>
+<td>GRANDE COTONOU</td>
+<td>Ports &amp; Terminal Multiservices Ltd</td>
+<td>Tue, August 16, 2022 00:00 AM</td>
+<td>236.32</td>
+<td>GRIMALDI AG. NIG.</td>
+<td>CONTS/VEHS</td>
+<td>400 UNITS</td>
+</tr>
+<tr>
+<td>MSC IMMACOLATA</td>
+<td>Ports &amp; Terminal Multiservices Ltd</td>
+<td>Fri, August 19, 2022 00:00 AM</td>
+<td>199.07</td>
+<td>GRIMALDI AG. NIG.</td>
+<td>CONTS/VEHS</td>
+<td>400 UNITS</td>
+</tr>
+<tr>
+<td>GRANDE TOGO</td>
+<td>Ports &amp; Terminal Multiservices Ltd</td>
+<td>Tue, August 23, 2022 00:00 AM</td>
+<td>210.92</td>
+<td>GRIMALDI AG. NIG.</td>
+<td>USED VEHS</td>
+<td>350 UNITS</td>
+</tr>
+<tr>
+<td>GRANDE ABIDJAN</td>
+<td>Ports &amp; Terminal Multiservices Ltd</td>
+<td>Wed, August 24, 2022 00:00 AM</td>
+<td>236.32</td>
+<td>GRIMALDI AG. NIG.</td>
+<td>USED VEHS</td>
+<td>350 UNITS</td>
+</tr>
+<tr>
+<td>GRANDE COSTA D&#039;AVORIO</td>
+<td>Ports &amp; Terminal Multiservices Ltd</td>
+<td>Wed, August 31, 2022 00:00 AM</td>
+<td>210.92</td>
+<td>GRIMALDI AG. NIG.</td>
+<td>USED VEHS</td>
+<td>350 UNITS</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="CalabarPort" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Calabar" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">Terminal</th>
+<th data-priority="3">Expected Time (ETA)</th>
+<th data-priority="4">Length(M)</th>
+<th data-priority="5">Agent</th>
+<th data-priority="6">Cargo</th>
+<th data-priority="7">Tonnage <br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AFRICAN MARVEL</td>
+<td>ECOMARINE NIGERIA LTD</td>
+<td>Sat, August 06, 2022 12:55 PM</td>
+<td>155.00</td>
+<td>FOUNTAIN SHIPPING</td>
+<td>PMS</td>
+<td>20,000MT</td>
+</tr>
+<tr>
+<td>RISING SUN</td>
+<td>DOZZY OIL AND GAS SERVICES</td>
+<td>Sat, August 06, 2022 22:34 PM</td>
+<td>170.00</td>
+<td>KACH MARITIME</td>
+<td>PMS</td>
+<td>15,000 MTS</td>
+</tr>
+<tr>
+<td>ZONDA</td>
+<td>Dozzy Oil and Gas Services</td>
+<td>Wed, August 10, 2022 16:10 PM</td>
+<td>183.20</td>
+<td>PEAK SHIPPING</td>
+<td>PMS</td>
+<td>15,000 MTS</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="WarriPort" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Warri" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">Terminal</th>
+<th data-priority="3">Expected Time (ETA)</th>
+<th data-priority="4">Length(M)</th>
+<th data-priority="5">Agent</th>
+<th data-priority="6">Cargo</th>
+<th data-priority="7">Tonnage <br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WESTMORE</td>
+<td>NOT AVAILABLE</td>
+<td>Sat, August 06, 2022 00:00 AM</td>
+<td>183.00</td>
+<td>PEEJAY SHIPPING</td>
+<td>PMS</td>
+<td>15000MTS</td>
+</tr>
+<tr>
+<td>IGBINOSA</td>
+<td>Jones Creek</td>
+<td>Sat, August 06, 2022 00:00 AM</td>
+<td>182.94</td>
+<td>ADMIRAL MARINE SHIPPING NIGERIA LIMITED</td>
+<td>CRUDE OIL</td>
+<td>12000MTS</td>
+</tr>
+<tr>
+<td>LEVANTO</td>
+<td>Koko Port</td>
+<td>Mon, August 08, 2022 00:00 AM</td>
+<td>140.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>GAS OIL</td>
+<td>5000MTS</td>
+</tr>
+<tr>
+<td>MATRIX PRIDE</td>
+<td>MATRIX ENERGY LIMITED</td>
+<td>Mon, August 08, 2022 00:00 AM</td>
+<td>176.00</td>
+<td>TERA SHIPPING LIMITED</td>
+<td>PMS</td>
+<td>15000MTS</td>
+</tr>
+<tr>
+<td>ABIOLA</td>
+<td>Jones Creek</td>
+<td>Tue, August 09, 2022 00:00 AM</td>
+<td>182.94</td>
+<td>OCEAN AND PORT MARINE LOGISTICS LIMITED</td>
+<td>CRUDE OIL</td>
+<td>12000MTS</td>
+</tr>
+<tr>
+<td>ST WALGA</td>
+<td>AYM SHAFA</td>
+<td>Tue, August 09, 2022 00:00 AM</td>
+<td>175.00</td>
+<td>INTEGRATED SHIPPING SERVICES</td>
+<td>PMS</td>
+<td>15000MTS</td>
+</tr>
+<tr>
+<td>MV BULK FREEDOM</td>
+<td>Associated Marine Services</td>
+<td>Wed, August 10, 2022 00:00 AM</td>
+<td>189.99</td>
+<td>ALLISON SHIPPING AGENCY LTD.</td>
+<td>WHEAT</td>
+<td>16000MTS</td>
+</tr>
+<tr>
+<td>ST ILHAAM</td>
+<td>RAINOIL</td>
+<td>Wed, August 10, 2022 00:00 AM</td>
+<td>180.00</td>
+<td>AIS</td>
+<td>PMS</td>
+<td>15000MTS</td>
+</tr>
+<tr>
+<td>BORA</td>
+<td>Fradro International Limited Jetty</td>
+<td>Wed, August 10, 2022 00:00 AM</td>
+<td>183.21</td>
+<td>WHITE WATERS</td>
+<td>PMS</td>
+<td>15000MTS</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="OnnePort" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Onne" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">Terminal</th>
+<th data-priority="3">Expected Time (ETA)</th>
+<th data-priority="4">Length(M)</th>
+<th data-priority="5">Agent</th>
+<th data-priority="6">Cargo</th>
+<th data-priority="7">Tonnage <br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KOTA SEGAR</td>
+<td>ICTSNL</td>
+<td>Tue, August 09, 2022 05:11 AM</td>
+<td>228.00</td>
+<td>PIL NIG LTD</td>
+<td>CONTAINERS</td>
+ <td>212X20 &amp; 321X40</td>
+</tr>
+<tr>
+<td>LNG ABALAMABIE</td>
+<td>LNG JETTY</td>
+<td>Tue, August 09, 2022 06:41 AM</td>
+<td>292.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>LNG</td>
+<td>77000MTS</td>
+</tr>
+<tr>
+<td>ASL SHANGHAI</td>
+<td>ICTSNL</td>
+<td>Tue, August 09, 2022 10:11 AM</td>
+<td>169.81</td>
+<td>SAIMA</td>
+<td>GENERAL CARGO</td>
+<td>5796MTS</td>
+</tr>
+<tr>
+<td>LAPEROUSE</td>
+<td>BRT</td>
+<td>Tue, August 09, 2022 15:57 PM</td>
+<td>154.17</td>
+<td>DALIMFIZ MARITIME</td>
+<td>BUTANE</td>
+<td>7000MTS</td>
+</tr>
+<tr>
+<td>MONSOON</td>
+<td>LNG Jetty</td>
+<td>Tue, August 09, 2022 16:40 PM</td>
+<td>226.00</td>
+<td>INTEGRATED SHIPPING</td>
+<td>CONDY</td>
+<td>46200MTS</td>
+</tr>
+<tr>
+<td>MSC AUGUSTA</td>
+<td>ICTSNL</td>
+<td>Tue, August 09, 2022 16:45 PM</td>
+<td>187.38</td>
+<td>MEDITERRANEAN SHIPPING</td>
+<td>CONTAINERS</td>
+<td>275X20&#039; &amp; 153 X40&#039;</td>
+</tr>
+<tr>
+<td>DAISY OCEAN</td>
+<td>Brawal Oil Services Ltd</td>
+<td>Wed, August 10, 2022 05:10 AM</td>
+<td>190.00</td>
+<td>GMT</td>
+<td>GENERAL CARGO</td>
+<td>5150MTS</td>
+</tr>
+<tr>
+<td>LNG RIVERS</td>
+<td>LNG JETTY</td>
+<td>Wed, August 10, 2022 10:23 AM</td>
+<td>288.73</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>LNG</td>
+<td>63000MTS</td>
+</tr>
+<tr>
+<td>ESEN</td>
+<td>INTELS NIG LTD</td>
+<td>Wed, August 10, 2022 15:45 PM</td>
+<td>129.00</td>
+ <td>INTERSERVE NIG LIMITED</td>
+<td>GENERAL CARGO</td>
+<td>231MTS</td>
+</tr>
+<tr>
+<td>UAL COLOGNE</td>
+<td>BRAWAL OIL SERVICES LTD</td>
+<td>Wed, August 10, 2022 22:34 PM</td>
+<td>127.03</td>
+<td>INTERSERVE NIG LIMITED</td>
+<td>OILWELL/CONTAINERS</td>
+<td>1500MTS</td>
+</tr>
+<tr>
+<td>ASHABI</td>
+<td>Intels Nig Ltd</td>
+<td>Fri, August 12, 2022 16:36 PM</td>
+<td>164.50</td>
+<td>TIGER SHIPPING</td>
+<td>AGO</td>
+<td>13000MTS</td>
+</tr>
+<tr>
+<td>DESERT GLORY</td>
+<td>Intels Nig Ltd</td>
+<td>Sat, August 13, 2022 16:38 PM</td>
+<td>193.07</td>
+<td>SAMCHAM</td>
+<td>BULK FERTILIZER</td>
+<td>21000MTS</td>
+</tr>
+<tr>
+<td>SIDDHI</td>
+<td>INTELS NIG LTD</td>
+<td>Sat, August 20, 2022 09:31 AM</td>
+<td>115.00</td>
+<td>BMS</td>
+<td>AGO</td>
+<td>2500MTS</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="RiversPort" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Rivers" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">Terminal</th>
+<th data-priority="3">Expected Time (ETA)</th>
+<th data-priority="4">Length(M)</th>
+<th data-priority="5">Agent</th>
+<th data-priority="6">Cargo</th>
+<th data-priority="7">Tonnage <br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ST NENNE</td>
+<td>BITUMEN JETTY</td>
+<td>Sat, August 06, 2022 14:45 PM</td>
+<td>183.00</td>
+<td>FOUNTAIN SHIPPING</td>
+<td>PMS</td>
+ <td>20,000MT</td>
+</tr>
+<tr>
+<td>FRIO IONIAN</td>
+<td>Port &amp; Terminal Operators Ltd</td>
+<td>Sun, August 07, 2022 14:05 PM</td>
+<td>126.00</td>
+<td>AFRICAN ATLANTIC INTERNATIONAL</td>
+<td>FROZEN FISH</td>
+<td>6,513.00MT</td>
+</tr>
+<tr>
+<td>SOCHIMA</td>
+<td>SHORELINK</td>
+<td>Mon, August 08, 2022 12:46 PM</td>
+<td>103.00</td>
+<td>REHDORS LOGISTICS</td>
+<td>JET A1</td>
+<td>5,000MT</td>
+</tr>
+<tr>
+<td>COROMEL</td>
+<td>Liquid Bulk Jetty</td>
+<td>Mon, August 08, 2022 16:46 PM</td>
+<td>140.95</td>
+<td>BLUESEAS</td>
+<td>PMS</td>
+<td>9,258.619MT</td>
+</tr>
+<tr>
+<td>AMAR GLYFADA</td>
+<td>Port &amp; Terminal Operators Ltd</td>
+<td>Tue, August 09, 2022 12:05 PM</td>
+<td>176.82</td>
+<td>OCEAN GLORY</td>
+<td>GYPSUM IN BAGS</td>
+<td>28,000MT</td>
+</tr>
+<tr>
+<td>SYDNEY EAGLE</td>
+<td>Port &amp; Terminal Operators Ltd</td>
+<td>Thu, August 11, 2022 10:05 AM</td>
+<td>199.87</td>
+<td>BLUECHE SHIPPING</td>
+<td>BULK SALT</td>
+<td>17,850MT</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="tab-pane" id="awaiting" role="tabpanel">
+<div class="card-body">
+<h4 class="card-title">Daily Shipping Schedule - Vessels Awaiting Berth</h4>
+<ul class="nav nav-tabs profile-tab" role="tablist">
+<li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#Lagos1A" role="tab">Lagos - Apapa</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#Lagos2A" role="tab">Lagos - Tincan</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#CalabarPortA" role="tab">Calabar Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#WarriPortA" role="tab">Warri Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#OnnePortA" role="tab">Onne Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#RiversPortA" role="tab">Rivers Ports</a> </li>
+</ul>
+ <div class="tab-content">
+<div class="tab-pane active" id="Lagos1A" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="ApapaA" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">Location</th>
+<th data-priority="3">Expected Time (ETA)</th>
+<th data-priority="4">Date of Arrival</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo</th>
+<th data-priority="8">Tonnage<br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IASONAS</td>
+<td>Road</td>
+<td>Sat, April 16, 2022 15:50 PM</td>
+<td>Sat, April 16, 2022 12:53 PM</td>
+<td>250.00</td>
+<td>REHDORS</td>
+<td>PMS</td>
+<td>90000MT</td>
+</tr>
+<tr>
+<td>GOLDEN STAR</td>
+<td>Road</td>
+<td>Thu, June 23, 2022 12:58 PM</td>
+<td>Sat, June 25, 2022 12:00 PM</td>
+<td>28.00</td>
+<td>GILPEL</td>
+<td>INBALLAST</td>
+<td>INBALLAST</td>
+</tr>
+<tr>
+<td>PRINCESS ERIN</td>
+<td>Road</td>
+<td>Mon, June 27, 2022 12:54 PM</td>
+<td>Tue, July 26, 2022 21:20 PM</td>
+<td>190.00</td>
+<td>ALRAINE SHIPPING COY</td>
+<td>G/CARGO</td>
+<td>37500MT</td>
+</tr>
+<tr>
+<td>MAERSK RUBICON</td>
+<td>Road</td>
+<td>Thu, June 30, 2022 12:26 PM</td>
+<td>Fri, July 01, 2022 04:50 AM</td>
+<td>250.00</td>
+<td>MAERSK NIGERIA LTD</td>
+<td>CONTAINER</td>
+<td>530FCL</td>
+</tr>
+<tr>
+<td>CMA CGM CHIWAN</td>
+<td>Road</td>
+<td>Mon, July 18, 2022 11:59 AM</td>
+<td>Mon, July 18, 2022 09:05 AM</td>
+<td>260.00</td>
+<td>CMA CGM</td>
+<td>CONTAINER</td>
+<td>500FCL</td>
+</tr>
+<tr>
+<td>IRENES RAINBOW</td>
+<td>Road</td>
+<td>Thu, July 21, 2022 14:04 PM</td>
+<td>Mon, July 25, 2022 14:40 PM</td>
+<td>222.20</td>
+<td>HAPAG LLOYD NIGERIA SHIPPING LIMITED</td>
+<td>CONTAINER</td>
+<td>950FCL</td>
+</tr>
+<tr>
+<td>DENSA LION</td>
+<td>Road</td>
+<td>Mon, July 25, 2022 11:57 AM</td>
+<td>Sat, July 30, 2022 10:45 AM</td>
+<td>189.90</td>
+<td>BLUESTAR SHIPPING</td>
+<td>B/GYPSUM</td>
+<td>33500MT</td>
+</tr>
+<tr>
+<td>CHEM LYRA</td>
+<td>Road</td>
+<td>Fri, July 29, 2022 13:22 PM</td>
+<td>Sat, July 30, 2022 01:00 AM</td>
+<td>144.22</td>
+<td>ALLRAY MARITIME</td>
+<td>BASE OIL</td>
+<td>5000MT</td>
+</tr>
+<tr>
+<td>OSTRIA</td>
+<td>Road</td>
+<td>Tue, August 02, 2022 09:15 AM</td>
+<td>Sat, August 06, 2022 20:25 PM</td>
+<td>176.00</td>
+<td>BLUESEAS</td>
+<td>PMS</td>
+<td>30000MT</td>
+</tr>
+<tr>
+<td>EASTERLY AS OLIVIA</td>
+<td>Road</td>
+<td>Tue, August 02, 2022 11:17 AM</td>
+<td>Thu, August 04, 2022 12:15 PM</td>
+<td>145.50</td>
+<td>BIGOZ LOGISTICS NIG LTD</td>
+<td>BASE OIL</td>
+<td>4000MT</td>
+</tr>
+<tr>
+<td>TAMARACK</td>
+<td>Road</td>
+<td>Fri, August 05, 2022 12:20 PM</td>
+<td>Sun, August 07, 2022 04:25 AM</td>
+<td>189.80</td>
+<td>BLUESTAR SHIPPING</td>
+<td>B/UREA</td>
+<td>30000MT</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="Lagos2A" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="TincanA" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">Location</th>
+<th data-priority="3">Expected Time (ETA)</th>
+<th data-priority="4">Date of Arrival</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo</th>
+<th data-priority="8">Tonnage<br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BISKRA</td>
+<td>Road</td>
+<td>Fri, July 29, 2022 00:00 AM</td>
+<td>Thu, July 28, 2022 10:20 AM</td>
+<td>135.00</td>
+<td>SUPERMARTIME NIG LTD</td>
+<td>INBALLAST</td>
+<td>COMING FOR REPAIRS</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="CalabarPortA" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="CalabarA" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">Location</th>
+<th data-priority="3">Expected Time (ETA)</th>
+<th data-priority="4">Date of Arrival</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo</th>
+<th data-priority="8">Tonnage<br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNGIESHI</td>
+<td>Pool Anchorage</td>
+<td>Thu, February 27, 2020 11:53 AM</td>
+<td>Tue, January 15, 2019 11:55 AM</td>
+<td>118.37</td>
+<td>UNION ADMIRALITY</td>
+<td>PMS</td>
+<td>15,000 MTS</td>
+</tr>
+<tr>
+<td>OCEAN LADY TIANA</td>
+<td>Beecroft Crossing</td>
+<td>Wed, June 29, 2022 23:21 PM</td>
+<td>Sat, July 09, 2022 17:16 PM</td>
+<td>37.00</td>
+<td>NA-MARINE LOGISTICS</td>
+<td>GENERAL CARGOES</td>
+<td>649.800 MTS</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="WarriPortA" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="WarriA" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">Location</th>
+ <th data-priority="3">Expected Time (ETA)</th>
+<th data-priority="4">Date of Arrival</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo</th>
+<th data-priority="8">Tonnage<br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ROYAL TREASURE</td>
+<td>Escravos anchorage</td>
+<td>Mon, December 13, 2021 00:00 AM</td>
+<td>Thu, May 26, 2022 00:00 AM</td>
+<td>97.80</td>
+<td>O.P.M.L</td>
+<td>DECANTED WATER</td>
+<td>2100MTS</td>
+</tr>
+<tr>
+<td>RS PIONEER</td>
+<td>Koko anchorage</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>Sun, July 31, 2022 00:00 AM</td>
+<td>101.00</td>
+<td>RONGSHENG GLASS NIGERIA LIMITED</td>
+<td>EMPTY CONTAINERS</td>
+<td>127X20</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="OnnePortA" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="OnneA" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">Location</th>
+<th data-priority="3">Expected Time (ETA)</th>
+<th data-priority="4">Date of Arrival</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo</th>
+<th data-priority="8">Tonnage<br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="RiversPortA" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="RiversA" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">Location</th>
+<th data-priority="3">Expected Time (ETA)</th>
+ <th data-priority="4">Date of Arrival</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo</th>
+<th data-priority="8">Tonnage<br><sub class="alert-info">(Import)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ESL EUROPA</td>
+<td>Bonny</td>
+<td>Sun, July 31, 2022 16:46 PM</td>
+<td>Mon, August 01, 2022 14:15 PM</td>
+<td>143.00</td>
+<td>COMET SHIPPING AGENCIES</td>
+<td>BULK WHEAT</td>
+<td>4,500MT</td>
+</tr>
+<tr>
+<td>BEAUMONT</td>
+<td>Bonny</td>
+<td>Sat, August 06, 2022 13:01 PM</td>
+<td>Wed, August 03, 2022 11:30 AM</td>
+<td>140.95</td>
+<td>REHDORS LOGISTICS</td>
+<td>AGO</td>
+<td>18,000MT</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="tab-pane active" id="berthed" role="tabpanel">
+<div class="card-body">
+<h4 class="card-title">Daily Shipping Schedule - Vessels at Berth</h4>
+<ul class="nav nav-tabs profile-tab" role="tablist">
+<li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#Lagos12" role="tab">Lagos - Apapa</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#Lagos22" role="tab">Lagos - Tincan</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#CalabarPort2" role="tab">Calabar Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#WarriPort2" role="tab">Warri Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#OnnePort2" role="tab">Onne Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#RiversPort2" role="tab">Rivers Ports</a> </li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="Lagos12" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Apapa2" class="display table table-hover table-bordered table-condensed portLocation" cellspacing="1" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Berth</th>
+<th data-priority="2">Vessel Name</th>
+<th data-priority="3">Length(M)</th>
+<th data-priority="4">Berth Date</th>
+<th data-priority="5">ETD</th>
+<th data-priority="6">Rotation</th>
+<th data-priority="7">Agent</th>
+<th data-priority="8">Comm</th>
+ <th data-priority="9">Ship to Follow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+
+<td>
+ABTL-Berth 1 </td>
+<td>
+NIKITIS </td>
+<td>190</td>
+<td>04/08/22 14:49 PM</td>
+<td>
+12/08/22 11:58 AM </td>
+<td>NIL</td>
+<td>GOLDEN SHIPPING CO. NIG LTD</td>
+<td>B/WHEAT</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ENL-Berth 10 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ENL-Berth 10A </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ENL-Berth 11 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ENL-Berth 12 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ENL-Berth 13 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ENL-Berth 14 </td>
+<td>
+MBEYA </td>
+<td>160</td>
+<td>04/08/22 16:48 PM</td>
+<td>
+17/08/22 13:25 PM </td>
+<td>NIL</td>
+<td>JFDOR</td>
+<td>B/GYPSUM</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+APMT-Berth 15 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+APMT-Berth 16 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+ </tr>
+<tr>
+
+<td>
+APMT-Berth 16A </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+APMT-Berth 17 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+APMT-Berth 18 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+APMT-Berth 18A </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+GDNL-Berth 19 </td>
+<td>
+SYDNEY EAGLE </td>
+<td>199.87</td>
+<td>06/08/22 10:16 AM</td>
+<td>
+ 14/08/22 13:26 PM </td>
+<td>NIL</td>
+<td>BLUECHE</td>
+<td>B/SALT</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+GDNL-Berth 19A </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ABTL-Berth 2 </td>
+<td>
+DESERT UNITY </td>
+<td>189.99</td>
+<td>19/07/22 14:12 PM</td>
+<td>
+25/07/22 12:35 PM </td>
+<td>NIL</td>
+<td>GOLDEN SHIPPING CO. NIG LTD</td>
+<td>B/WHEAT</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+GDNL-Berth 20 </td>
+<td>
+HINOKI </td>
+<td>190</td>
+<td>01/08/22 23:09 PM</td>
+<td>
+13/08/22 13:27 PM </td>
+<td>NIL</td>
+<td>ALLISON SHIPPING AGENCY LTD.</td>
+<td>B/WHEAT</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+GDNL-Berth 21 </td>
+<td>
+SILVER BREEZE </td>
+<td>98</td>
+<td>03/08/22 20:24 PM</td>
+<td>
+08/08/22 09:58 AM </td>
+<td>NIL</td>
+<td>DE-E ROCK MARITIME RESOURCES</td>
+<td>F/FISH</td>
+<td> </td>
+ </tr>
+<tr>
+
+<td>
+ABTL-Berth 3 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ABTL-Berth 4 </td>
+<td>
+UNISUN </td>
+<td>132</td>
+<td>04/08/22 21:56 PM</td>
+<td>
+10/08/22 13:22 PM </td>
+<td>NIL</td>
+<td>APS</td>
+<td>SOYA BEANS</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ABTL-Berth 5 </td>
+<td>
+BDP SPIRIT </td>
+<td>139.95</td>
+<td>08/08/22 08:04 AM</td>
+<td>
+08/08/22 13:36 PM </td>
+<td>NIL</td>
+<td>BIGOZ LOGISTICS NIG LTD</td>
+<td>B/OIL</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ENL-Berth 6 </td>
+<td>
+AURIGA </td>
+<td>109</td>
+<td>03/08/22 14:47 PM</td>
+<td>
+09/08/22 11:54 AM </td>
+<td>NIL</td>
+<td>AFRICAN ATLANTIC</td>
+<td>F/FISH</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ENL-Berth 7 </td>
+<td>
+SILVER BERGEN  </td>
+<td>97.6</td>
+<td>31/07/22 16:17 PM</td>
+<td>
+04/08/22 09:05 AM </td>
+<td>NIL</td>
+<td>SUPERMARITIME</td>
+<td>F/FISH</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ENL-Berth 7A </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ENL-Berth 8 </td>
+<td>
+JIA HE </td>
+<td>75.54</td>
+<td>31/07/22 07:10 AM</td>
+<td>
+27/08/22 08:48 AM </td>
+<td>NIL</td>
+<td>HULL BLYTH</td>
+<td>G/CARGO</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ENL-Berth 9 </td>
+<td>
+MULTAN </td>
+<td>189.8</td>
+<td>28/07/22 18:57 PM</td>
+<td>
+18/08/22 13:03 PM </td>
+<td>NIL</td>
+<td>APS</td>
+<td>G/CARGO</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+E/SUP-Bullnose 1 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>  </td>
+</tr>
+<tr>
+
+<td>
+E/SUP-Bullnose 2 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+E/SUP-Bullnose 3 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+IJORA-Lilypond Ijora </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Adsejere Jetty </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Apapa Boat Club </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+ASPM Jetty </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Atlas Cove Jetty (ACJ) </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Bulk Oil Plant (BOP) </td>
+<td>
+MAESTRO </td>
+<td>149.3</td>
+<td>08/08/22 05:10 AM</td>
+<td>
+11/08/22 13:17 PM </td>
+<td>NIL</td>
+<td>PEAK SHIPPING</td>
+<td>PMS</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+C/SHIPYARD </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+ 
+<td>
+Chevron Nig. Plc. </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Commodore Pool </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Delmar Jetty </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Fishery Wharf(WAZIRI JETTY) </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Genesis World Wide </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+ <td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Ibru Jetty </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Ijora Coal Wharf Jetty </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Ijora Jetty </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Julius Berger </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Ladol </td>
+<td>
+ VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+LEKKI 1 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+LEKKI 2 </td>
+<td>
+CURIA </td>
+<td>189.99</td>
+<td>03/08/22 08:00 AM</td>
+<td>
+05/08/22 12:13 PM </td>
+<td>NIL</td>
+<td>BLUESTAR SHIPPING</td>
+<td>B/UREA</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+LEKKI D/SEA </td>
+<td>
+ZHEN HUA 35 </td>
+<td>244</td>
+<td>05/08/22 12:07 PM</td>
+<td>
+13/08/22 13:29 PM </td>
+<td>NIL</td>
+<td>ALRAINE SHIPPING COY</td>
+<td>G/CARGO</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Lister Oil Jetty </td>
+<td>
+NAVIGATOR MAGELLAN </td>
+<td>159</td>
+<td>05/08/22 11:37 AM</td>
+<td>
+08/08/22 12:52 PM </td>
+<td>NIL</td>
+<td>TIGER SHIPPING COMPANY</td>
+<td>B/GAS</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+M/BUOY </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Marina Jetty </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+New Atlascove Jetty </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+New Oil Jetty (NOJ) </td>
+<td>
+MT CRAMER </td>
+<td>140</td>
+<td>06/08/22 18:01 PM</td>
+<td>
+09/08/22 12:15 PM </td>
+<td>NIL</td>
+<td>REHDORS</td>
+<td>JETA1</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Nispan Jetty (Folawiyo Energy) </td>
+ <td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+NPA/NNPC (Active) </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Osajere Fishing Co. Ltd. </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Petroleum Wharf Apapa (PWA) </td>
+<td>
+VERRAZANE </td>
+<td>173.7</td>
+<td>05/08/22 18:51 PM</td>
+<td>
+08/08/22 12:57 PM </td>
+<td>NIL</td>
+<td>DALIMFIZ SHIPPING LIMITED</td>
+<td>BUTANE GAS</td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Pinnacle Jetty </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+SAMSUNG </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+SFM 1 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+SFM 2 </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+Single Bouy Mooring (SBM) </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+
+<td>
+WABECO </td>
+<td>
+VACANT </td>
+ <td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="Lagos22" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Tincan2" class="display table table-hover table-bordered portLocation" cellspacing="1" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Berth</th>
+<th data-priority="2">Vessel Name</th>
+<th data-priority="3">Length(M)</th>
+<th data-priority="4">Berth Date</th>
+<th data-priority="5">ETD</th>
+<th data-priority="6">Rotation</th>
+<th data-priority="7">Agent</th>
+<th data-priority="8">Comm</th>
+<th data-priority="9">Ship to Follow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Terminal A-Berth 1</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal D-Berth 10</td>
+<td>
+SILVER GLORY </td>
+<td>184.1</td>
+<td>07/08/22 17:50 PM</td>
+<td>
+08/08/22 12:00 PM </td>
+<td>TC22/678</td>
+<td>COMET</td>
+<td>USED VEHS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>New RoRo (BOT)-Berth 11</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>New RoRo (BOT)-Berth 12</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal A-Berth 1A</td>
+<td>
+MV BULK FREEDOM </td>
+<td>189.99</td>
+<td>07/08/22 04:10 AM</td>
+<td>
+08/08/22 12:00 PM </td>
+<td>TC22/531</td>
+<td>ALLISON SHIPPING AGENCY LTD.</td>
+<td>BULK WHEAT</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal A-Berth 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal B-Berth 3</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal B-Berth 4</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+ <td>
+</td>
+</tr>
+<tr>
+<td>Terminal B-Berth 5</td>
+<td>
+MSC CAROLINA </td>
+<td>274.67</td>
+<td>07/08/22 07:35 AM</td>
+<td>
+09/08/22 00:00 AM </td>
+<td>TC22/683</td>
+<td>MEDITERRANEAN SHIPPING</td>
+<td>CONTAINERS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal C-Berth 6</td>
+<td>
+MSC ROSARIA </td>
+<td>274.97</td>
+<td>05/08/22 08:55 AM</td>
+<td>
+07/08/22 00:00 AM </td>
+<td>TC22/664</td>
+<td>MEDITERRANEAN SHIPPING COMPANY LIMITED</td>
+<td>CONTAINERS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal C-Berth 7</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal C-Berth 8</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal C-Berth 8 EXT.</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal D-Berth 9</td>
+<td>
+BALTIC PURPLE </td>
+<td>154</td>
+<td>07/08/22 16:30 PM</td>
+<td>
+09/08/22 00:00 AM </td>
+<td>TC22/666</td>
+<td>COMET SHIPPING COMPANY</td>
+<td>G/CARGO</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>1st Deep Water</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>A A Rano</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Bond Global</td>
+<td>
+LESTE </td>
+<td>183</td>
+<td>08/08/22 09:30 AM</td>
+<td>
+10/08/22 00:00 AM </td>
+<td>K22/749</td>
+<td>PEAK SHIPPING AGENT</td>
+<td>PMS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Bovas</td>
+<td>
+STELLAR </td>
+<td>175.93</td>
+<td>07/08/22 11:31 AM</td>
+<td>
+10/08/22 12:00 PM </td>
+<td>K22/752</td>
+<td>PEAK SHIPPING</td>
+<td>PMS</td>
+<td>
+ </td>
+</tr>
+<tr>
+<td>Brawal Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Capital 1</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Capital 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Chipet</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Chisco</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Dantata 1</td>
+<td>
+ STENA IMPERATOR </td>
+<td>183.16</td>
+<td>07/08/22 11:25 AM</td>
+<td>
+08/08/22 12:00 PM </td>
+<td>K22/677</td>
+<td>BLUESEAS MARITIME</td>
+<td>PMS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Dantata 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Dee Jones</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Emadeb</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Fatgbems</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Ibafon 1</td>
+<td>
+ALEXANDER J </td>
+<td>149.3</td>
+<td>06/08/22 11:15 AM</td>
+ <td>
+10/08/22 12:00 PM </td>
+<td>K22/735</td>
+<td>PEAK SHIPPING AGENT</td>
+<td>PMS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Ibafon 2</td>
+<td>
+MORTIMER </td>
+<td>135</td>
+<td>06/08/22 11:22 AM</td>
+<td>
+09/08/22 00:00 AM </td>
+<td>K22/756</td>
+<td>AMCO LOGISTICS SERVICES</td>
+<td>AGO</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Index</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Integrated</td>
+<td>
+TORNADO </td>
+<td>176</td>
+<td>07/08/22 11:24 AM</td>
+<td>
+08/08/22 12:00 PM </td>
+<td>K22/742</td>
+<td>PEAK SHIPPING AGENT</td>
+<td>PMS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>JBJ</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>KLT I</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+ </td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>KLT II</td>
+<td>
+AFRICAN PRINCESS 4 </td>
+<td>33</td>
+<td>28/07/22 12:26 PM</td>
+<td>
+31/07/22 12:00 PM </td>
+<td>K22/710</td>
+<td>STENOG</td>
+<td>INBALLAST</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>KLT III</td>
+<td>
+KING DAVID </td>
+<td>60.3</td>
+<td>02/08/22 08:50 AM</td>
+<td>
+04/08/22 12:00 PM </td>
+<td>K22/732</td>
+<td>STENOG SHIPPING</td>
+<td>INBALLAST</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>KLT Phase 1</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Kris Oil</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Menj Oil</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Nakem</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>OBAT</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Rain Oil</td>
+<td>
+LAPEROUSE </td>
+<td>154.17</td>
+<td>07/08/22 11:34 AM</td>
+<td>
+08/08/22 12:00 PM </td>
+<td>K22/755</td>
+<td>TIGER SHIPPING LIMITED</td>
+<td>BUTANE GAS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>RAJ</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Rhemsy Plus</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+ </tr>
+<tr>
+<td>Satomen</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>SB Bakare</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Snake Island</td>
+<td>
+SANTA MONICA </td>
+<td>112.1</td>
+<td>28/07/22 12:23 PM</td>
+<td>
+04/08/22 12:00 PM </td>
+<td>K22/641</td>
+<td>DEAL MARINE SERVICES</td>
+<td>INBALLAST</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Snake Island 2</td>
+<td>
+JOY EXPRESS </td>
+<td>116</td>
+<td>23/07/22 11:25 AM</td>
+<td>
+29/07/22 12:00 PM </td>
+<td>K22/</td>
+<td>SUPERMARTIME NIG LTD</td>
+<td>SODA ASH IN BAGS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Snake Island 3</td>
+<td>
+GO REGULUS </td>
+<td>67.4</td>
+<td>12/07/22 13:06 PM</td>
+<td>
+18/07/22 13:06 PM </td>
+<td>TC22/</td>
+<td>GAC SHIPPING</td>
+<td>INBALLAST</td>
+<td>
+</td>
+</tr>
+ <tr>
+<td>Snake Island 4</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Techno</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Wosbab</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="CalabarPort2" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Calabar2" class="display table table-hover table-bordered portLocation" cellspacing="1" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Berth</th>
+<th data-priority="2">Vessel Name</th>
+<th data-priority="3">Length(M)</th>
+<th data-priority="4">Berth Date</th>
+ <th data-priority="5">ETD</th>
+<th data-priority="6">Rotation</th>
+<th data-priority="7">Agent</th>
+<th data-priority="8">Comm</th>
+<th data-priority="9">Ship to Follow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New Terminal A-Berth 1</td>
+<td>
+GOLDEN EAGLE </td>
+<td>189.96</td>
+<td>02/08/21 22:42 PM</td>
+<td>
+08/08/22 22:42 PM </td>
+<td>000</td>
+<td>ALLISON SHIPPING</td>
+<td>BULK WHEAT</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>New Terminal A-Berth 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>New Terminal B-Berth 3</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>New Terminal B-Berth 4</td>
+<td>
+CURIA </td>
+<td>189.99</td>
+<td>21/07/22 12:12 PM</td>
+<td>
+31/07/22 13:00 PM </td>
+<td>CA-22/082</td>
+<td>MAYLON PORTS.</td>
+<td>BULK WHEAT</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>New Terminal B-Berth 5</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>New Terminal B-Berth 6</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Old Terminal-Jackson Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Old Terminal-Milero Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>TURNING BASIN-TURNING BASIN</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Addax Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+ <td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Akpo Oil Field (Onshore/Offshore)</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>AKWOT</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>AKWOT II</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Alscon Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Antan Terminal</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+ <tr>
+<td>BASOL WORLD WIDE</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>BOP Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Calcemco Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Dozzy Oil and Gas Services</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+, VARDAR </td>
+</tr>
+<tr>
+<td>DRY DOCK</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Ebol Oil Field (Onshore/Offshore)</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>EBUGHU Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Forrestal Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Fresh Synergy Nig. Ltd</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Honeywell (Bulk Oil Product)</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>ITA JETTY ANITA BEACH</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+ </td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>ldu Assang</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>LE MERIDIAN</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Maciver Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>MARINA RESORT</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Melvern Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+ </td>
+</tr>
+<tr>
+<td>MOBIL JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NNPC Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>North West Petroleum & Gas Co Ltd</td>
+<td>
+AYODEJI </td>
+<td>175.97</td>
+<td>02/08/21 22:43 PM</td>
+<td>
+06/07/23 22:44 PM </td>
+<td>000</td>
+<td>PEEJAY SHIPPING &amp; LOGISTICS CO. LTD</td>
+<td>PMS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Odudu Terminal</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Okipo Nigerian Ltd (NNMC)</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+ <tr>
+<td>PUBLIC FLOATING JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Qua Iboe</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Russal Allumunium (Alscon)</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>SCOA Wharf Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Shoreline Logistics</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>UNICEM JETTY</td>
+<td>
+VACANT  </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Usan Oil Field (Onshore/Offshore)</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>YOHO Terminal</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="WarriPort2" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Warri2" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Berth</th>
+<th data-priority="2">Vessel Name</th>
+<th data-priority="3">Length(M)</th>
+<th data-priority="4">Berth Date</th>
+<th data-priority="5">ETD</th>
+<th data-priority="6">Rotation</th>
+<th data-priority="7">Agent</th>
+<th data-priority="8">Comm</th>
+<th data-priority="9">Ship to Follow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OLD PORT-Berth 1</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+ <td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEW PORT-Berth 1A</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEW PORT-Berth 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>OLD PORT-Berth 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEW PORT-Berth 2A</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEW PORT-Berth 3</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+ </td>
+</tr>
+<tr>
+<td>OLD PORT-Berth 3</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEW PORT-Berth 3A</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEW PORT-Berth 4</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>OLD PORT-Berth 4</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEW PORT-Berth 4A</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>OLD PORT-CANAL BERTH 1</td>
+ <td>
+HG SINGAPORE </td>
+<td>190</td>
+<td>04/08/22 00:00 AM</td>
+<td>
+10/08/22 00:00 AM </td>
+<td>22/583</td>
+<td>ALRAINE</td>
+<td>GENERAL CARGO</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>OLD PORT-CANAL BERTH 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>OLD PORT-CANAL BERTH 3</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEW PORT-RORO 1</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEW PORT-RORO 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>A&E</td>
+<td>
+VACANT </td>
+<td></td>
+ <td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>ALADJA JETTY 1</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>ALADJA JETTY 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Awaritse</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>AYM SHAFA</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Bendel Feeds</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Benin River</td>
+<td>
+ELIZABETH G SPIRIT </td>
+<td>88</td>
+<td>08/05/22 00:00 AM</td>
+<td>
+20/08/22 00:00 AM </td>
+<td>22/342</td>
+<td>AMCO</td>
+<td>INBALLAST</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Black Light</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>BOB & CIL JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>C/JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Chevron Tank Farm</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+ </tr>
+<tr>
+<td>Cybernectics Ocean Terminal</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>DBN</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Delta Steel</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+ <td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Dutchess</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Escravos Tank Farm</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>FENOG</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Fradro</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>HERCULES</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+ <td>
+</td>
+</tr>
+<tr>
+<td>Inland Waterways</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Jones Creek</td>
+<td>
+KINGIS </td>
+<td>183.97</td>
+<td>07/08/22 00:00 AM</td>
+<td>
+09/08/22 00:00 AM </td>
+<td>22/591</td>
+<td>OCEAN AND PORT MARINE LOGISTICS LIMITED</td>
+<td>CRUDE OIL</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Koko Port</td>
+<td>
+RISER ANNE </td>
+<td>81</td>
+<td>30/07/22 00:00 AM</td>
+<td>
+09/08/22 00:00 AM </td>
+<td>22/572</td>
+<td>AKATHON</td>
+<td>FLOAT GLASS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>L/JETTY 1</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>L/JETTY 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+ </tr>
+<tr>
+<td>Life Flour</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>MATRIX Jetty</td>
+<td>
+MATRIX ASA </td>
+<td>183.24</td>
+<td>07/08/22 00:00 AM</td>
+<td>
+09/08/22 00:00 AM </td>
+<td>22/541</td>
+<td>TERA SHIPPING LIMITED</td>
+<td>PMS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>McDermott</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NBTC</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEPA Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Nepal</td>
+ <td>
+ST ZEEZEE </td>
+<td>175.95</td>
+<td>06/08/22 00:00 AM</td>
+<td>
+08/08/22 00:00 AM </td>
+<td>22/595</td>
+<td>QUEST SHIPPING</td>
+<td>PMS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Niger Cat Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Nigerian Westminister Dredging Marine </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NNPC/WRPC</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Othniel Brook</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>PARKER JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+ <td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Pinnacle</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Prudent</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Rainoil</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Ringardas 1</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Ringardas 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+ <td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Sapele Flour Mill</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Taurus Jetty</td>
+<td>
+ST AMRAH </td>
+<td>183</td>
+<td>07/08/22 00:00 AM</td>
+<td>
+09/08/22 00:00 AM </td>
+<td>22584</td>
+<td>PEAK SHIPPING</td>
+<td>PMS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Total (Nig.) Ltd Koko Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Westminister</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="OnnePort2" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Onne2" class="display table table-hover table-bordered portLocation" cellspacing="1" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Berth</th>
+<th data-priority="2">Vessel Name</th>
+<th data-priority="3">Length(M)</th>
+<th data-priority="4">Berth Date</th>
+<th data-priority="5">ETD</th>
+<th data-priority="6">Rotation</th>
+<th data-priority="7">Agent</th>
+<th data-priority="8">Comm</th>
+<th data-priority="9">Ship to Follow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intels FOT-Berth 1</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>ICTSNL FOT-Berth 10</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>ICTSNL FOT-Berth 11</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>FOT-Berth 12</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Brawal FLT-Berth 1A</td>
+ <td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Brawal FLT-Berth 1B</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Intels FLT-Berth 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Intels FOT-Berth 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Intels FLT-Berth 3</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Intels FOT-Berth 3</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+ <td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Intels FLT-Berth 4</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Intels FOT-Berth 4</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Intels FOT-Berth 5</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Intels FOT-Berth 6</td>
+<td>
+FOUR NABUCCO </td>
+<td>180</td>
+<td>23/07/22 14:02 PM</td>
+<td>
+31/07/22 11:02 AM </td>
+<td>2022/143</td>
+<td>SAMCHAM</td>
+<td>BULK FERTILIZER</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>WACT FOT-Berth 7</td>
+<td>
+EXPRESS BLACK SEA </td>
+<td>223</td>
+<td>08/08/22 14:50 PM</td>
+<td>
+11/08/22 09:13 AM </td>
+ <td>TBS</td>
+<td>COMET SHIPPING SERVICES</td>
+<td>CONTAINERS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>WACT FOT-Berth 8</td>
+<td>
+MAERSK CADIZ </td>
+<td>249.12</td>
+<td>06/08/22 13:01 PM</td>
+<td>
+09/08/22 09:40 AM </td>
+<td>2022/174</td>
+<td>MAERSK NIGERIA LTD</td>
+<td>CONTAINERS</td>
+<td>
+MATRIX ASA </td>
+</tr>
+<tr>
+<td>ICTSNL FOT-Berth 9</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Adamac Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Atlas Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Bonny Anchorage Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+ <td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>BRT JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Buoy 53</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Dangote Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>LNG JETTY 1</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>LNG JETTY 2</td>
+<td>
+LNG BENUE </td>
+<td>285.48</td>
+<td>08/08/22 06:33 AM</td>
+<td>
+09/08/22 06:33 AM </td>
+<td>TBS</td>
+<td>COMET</td>
+<td>LNG</td>
+<td>
+</td>
+</tr>
+ <tr>
+<td>MOFJetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Notore</td>
+<td>
+JADE I </td>
+<td>160</td>
+<td>01/08/22 09:07 AM</td>
+<td>
+07/08/22 16:08 PM </td>
+<td>TBS</td>
+<td>MARINE &amp; MERCANTILE</td>
+<td>BULK UREA</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>OIS/INDORAMA</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Startz Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>WAS Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="RiversPort2" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Rivers2" class="display table table-hover table-bordered portLocation" cellspacing="1" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Berth</th>
+<th data-priority="2">Vessel Name</th>
+<th data-priority="3">Length(M)</th>
+<th data-priority="4">Berth Date</th>
+<th data-priority="5">ETD</th>
+<th data-priority="6">Rotation</th>
+<th data-priority="7">Agent</th>
+<th data-priority="8">Comm</th>
+<th data-priority="9">Ship to Follow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Terminal A-Berth 1</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal A-Berth 2</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal A-Berth 3</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal A-Berth 3A</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+ </td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal A-Berth 4</td>
+<td>
+AMILYN </td>
+<td>179.96</td>
+<td>02/08/22 13:03 PM</td>
+<td>
+08/08/22 16:03 PM </td>
+<td>PH22/211</td>
+<td>JFDOR</td>
+<td>BULK WHEAT</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal B-Berth 5</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal B-Berth 6</td>
+<td>
+GLOBAL HARMONY </td>
+<td>180</td>
+<td>02/07/22 16:06 PM</td>
+<td>
+12/07/22 09:06 AM </td>
+<td>PH22/175</td>
+<td>JFDOR</td>
+<td>GYPSUM IN BULK</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal B-Berth 7</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Terminal B-Berth 8</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+ <td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>ADAMAC JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Agip (BRASS JETTY)</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>AVEON Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>AVIDOR JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>BITUMEN JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+ </td>
+</tr>
+<tr>
+<td>DAWES ISLAND</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>DELMAR JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Delta Marine</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Dredging International Services</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Eagle Bulk Cement Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>HAASTRUP JETTY</td>
+ <td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>IBETO JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>K/ISLAND</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Liquid Bulk Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>MAGCOBAR</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Master Energy Oil & Gas Ltd</td>
+<td>
+KOWIE </td>
+<td>144</td>
+<td>05/08/22 09:30 AM</td>
+ <td>
+11/08/22 14:00 PM </td>
+<td>PH22/216</td>
+<td>PEAK SHIPPING</td>
+<td>PMS</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEMBE OFFSHORE</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NEPAL JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Neptune Marine Jetty </td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Nestoil Limited</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NLNG I</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+ <td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NLNG II</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>NORTHERN END JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Okrika A IN</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Okrika A OUT</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Okrika B IN</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+ <tr>
+<td>Okrika B OUT</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>PETROSTAR JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Saipem Contracting Nigeria Ltd</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>SHORELINK JETTY</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+CAPTAIN ADAM </td>
+</tr>
+<tr>
+<td>STOCKGAP A</td>
+<td>
+ALFRED TEMILE </td>
+<td>160</td>
+<td>01/08/22 09:53 AM</td>
+<td>
+06/08/22 10:54 AM </td>
+<td>PH22/210</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>BUTANE</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>STOCKGAP B</td>
+<td>
+ VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>STOCKGAP C</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>STOCKGAP D</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Sudeletra Jetty</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>TARABA</td>
+<td>
+VACANT </td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="tab-pane" id="departed" role="tabpanel">
+<div class="card-body">
+ <h4 class="card-title">Daily Shipping Schedule - Departed Vessels</h4>
+<ul class="nav nav-tabs profile-tab" role="tablist">
+<li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#Lagos13" role="tab">Lagos - Apapa</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#Lagos23" role="tab">Lagos - Tincan</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#CalabarPort3" role="tab">Calabar Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#WarriPort3" role="tab">Warri Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#OnnePort3" role="tab">Onne Ports</a> </li>
+<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#RiversPort3" role="tab">Rivers Ports</a> </li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="Lagos13" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Apapa3" class="display table table-hover table-bordered portLocation" cellspacing="1" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">ETD</th>
+<th data-priority="3">Departure Date</th>
+<th data-priority="4">Berth</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo<br><sub class="alert-danger">(Export)</sub></th>
+<th data-priority="8">Tonnage<br><sub class="alert-danger">(Export)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KOTA SEGAR</td>
+<td>Mon, August 08, 2022 06:08 AM</td>
+<td>Mon, August 08, 2022 06:16 AM</td>
+<td>Berth 15</td>
+<td>228.00</td>
+<td>PIL NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TAURUS</td>
+<td>Fri, August 05, 2022 08:56 AM</td>
+<td>Sun, August 07, 2022 14:55 PM</td>
+<td>ASPM Jetty</td>
+<td>129.05</td>
+<td>WAPS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SCARABE</td>
+<td>Sat, July 30, 2022 12:12 PM</td>
+<td>Sun, August 07, 2022 14:35 PM</td>
+<td>Berth 19</td>
+<td>199.90</td>
+<td>BLUESTAR SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TORNADO</td>
+<td>Thu, August 04, 2022 14:23 PM</td>
+<td>Sat, August 06, 2022 15:40 PM</td>
+<td>New Oil Jetty (NOJ)</td>
+<td>176.00</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MV ALLAS</td>
+<td>Sat, July 30, 2022 12:27 PM</td>
+<td>Sat, August 06, 2022 13:32 PM</td>
+<td>Berth 13</td>
+<td>76.68</td>
+<td>VEWAT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ANTIBES EXPRESS</td>
+<td>Sat, August 06, 2022 12:35 PM</td>
+<td>Sat, August 06, 2022 12:45 PM</td>
+<td>Berth 15</td>
+<td>243.40</td>
+<td>HAPAG LLOYD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KEDROS</td>
+<td>Sun, August 07, 2022 11:42 AM</td>
+<td>Sat, August 06, 2022 10:20 AM</td>
+<td>Bullnose 1</td>
+<td>199.99</td>
+<td>ALRAINE SHIPPING COY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VIRONO PRIDE</td>
+<td>Thu, August 04, 2022 13:01 PM</td>
+<td>Sat, August 06, 2022 06:50 AM</td>
+<td>Berth 19A</td>
+<td>189.99</td>
+<td>MINL</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ZONDA</td>
+<td>Thu, August 04, 2022 12:35 PM</td>
+<td>Fri, August 05, 2022 17:35 PM</td>
+<td>Petroleum Wharf Apapa (PWA)</td>
+<td>183.20</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+ <tr>
+<td>MSC WAVE F</td>
+<td>Tue, August 09, 2022 12:13 PM</td>
+<td>Fri, August 05, 2022 17:35 PM</td>
+<td>LEKKI 1</td>
+<td>142.85</td>
+<td>MSC INTERNATIONAL</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FRIO IONIAN</td>
+<td>Sun, July 31, 2022 12:57 PM</td>
+<td>Fri, August 05, 2022 02:55 AM</td>
+<td>Berth 10A</td>
+<td>126.00</td>
+<td>DE-E ROCK MARITIME RESOURCES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>XIN WU XIANG HAI</td>
+<td>Fri, July 15, 2022 11:49 AM</td>
+<td>Fri, August 05, 2022 00:15 AM</td>
+<td>Berth 12</td>
+<td>190.00</td>
+<td>APS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAERSK ANTWERP</td>
+<td>Thu, August 04, 2022 14:21 PM</td>
+<td>Thu, August 04, 2022 05:45 AM</td>
+<td>Berth 17</td>
+<td>155.00</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CL FUZHOU HE</td>
+<td>Mon, July 25, 2022 12:34 PM</td>
+<td>Wed, August 03, 2022 22:50 PM</td>
+<td>Berth 1</td>
+<td>200.00</td>
+<td>GOLDEN SHIPPING CO. NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GISELE A</td>
+<td>Tue, August 02, 2022 11:34 AM</td>
+<td>Wed, August 03, 2022 17:40 PM</td>
+<td>Berth 15</td>
+<td>207.87</td>
+<td>HULL BLYTH</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAERSK CAMEROUN</td>
+<td>Tue, August 02, 2022 08:37 AM</td>
+<td>Wed, August 03, 2022 06:19 AM</td>
+<td>Berth 17</td>
+<td>249.12</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GREEN CHILE</td>
+<td>Sat, July 30, 2022 10:53 AM</td>
+<td>Tue, August 02, 2022 22:34 PM</td>
+<td>Berth 6</td>
+<td>131.25</td>
+<td>APS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ST NENNE</td>
+<td>Sat, July 30, 2022 13:05 PM</td>
+<td>Tue, August 02, 2022 18:10 PM</td>
+<td>New Oil Jetty (NOJ)</td>
+<td>183.00</td>
+<td>WAPS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LESTE</td>
+<td>Sun, July 31, 2022 13:06 PM</td>
+<td>Tue, August 02, 2022 17:05 PM</td>
+<td>Bulk Oil Plant (BOP)</td>
+<td>183.00</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KRITI RUBY</td>
+<td>Sun, July 31, 2022 13:09 PM</td>
+<td>Tue, August 02, 2022 14:40 PM</td>
+<td>ASPM Jetty</td>
+<td>183.00</td>
+<td>WAPS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MT CRAMER</td>
+<td>Mon, August 01, 2022 09:07 AM</td>
+<td>Mon, August 01, 2022 19:30 PM</td>
+<td>Petroleum Wharf Apapa (PWA)</td>
+<td>140.00</td>
+<td>HTL LOGISTICS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KOTA SEMPENA</td>
+<td>Sun, July 31, 2022 08:43 AM</td>
+<td>Mon, August 01, 2022 06:55 AM</td>
+<td>Berth 15</td>
+<td>228.00</td>
+<td>PIL NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ALDA</td>
+<td>Tue, July 26, 2022 12:24 PM</td>
+<td>Mon, August 01, 2022 04:37 AM</td>
+<td>LEKKI 2</td>
+<td>179.99</td>
+<td>BLUESTAR SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AMILYN</td>
+<td>Sat, July 30, 2022 11:21 AM</td>
+<td>Sun, July 31, 2022 19:50 PM</td>
+<td>SFM 1</td>
+<td>179.96</td>
+<td>COASTAL SERVICES LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TORM MARINA</td>
+<td>Wed, July 27, 2022 12:25 PM</td>
+<td>Sun, July 31, 2022 14:24 PM</td>
+<td>Pinnacle Jetty</td>
+<td>245.00</td>
+<td>WHITE WATERS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CMA CGM JAMAICA</td>
+<td>Fri, July 29, 2022 13:14 PM</td>
+<td>Sat, July 30, 2022 18:05 PM</td>
+<td>Berth 15</td>
+<td>264.01</td>
+<td>CMA CGM</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NEW LEGEND PEARL</td>
+<td>Sat, July 30, 2022 10:03 AM</td>
+<td>Sat, July 30, 2022 14:37 PM</td>
+<td>Berth 14</td>
+<td>179.90</td>
+<td>GMT SHIPPING SERV</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HG MELBOURNE</td>
+<td>Wed, July 27, 2022 11:53 AM</td>
+<td>Sat, July 30, 2022 12:10 PM</td>
+<td>Berth 8</td>
+<td>190.00</td>
+<td>GMTS</td>
+<td></td>
+<td></td>
+</tr>
+ <tr>
+<td>SEASPAN KYOTO</td>
+<td>Thu, July 28, 2022 11:36 AM</td>
+<td>Fri, July 29, 2022 05:05 AM</td>
+<td>Berth 17</td>
+<td>269.80</td>
+<td>OCEAN NETWORK EXPRESS (NIGERIA) LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAERSK ANTWERP</td>
+<td>Thu, July 28, 2022 14:05 PM</td>
+<td>Thu, July 28, 2022 23:00 PM</td>
+<td>Berth 15</td>
+<td>155.00</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>XIN HAI TONG 16</td>
+<td>Mon, July 25, 2022 12:44 PM</td>
+<td>Thu, July 28, 2022 22:30 PM</td>
+<td>Berth 7</td>
+<td>190.00</td>
+<td>GMTS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FAIRPARTNER</td>
+<td>Sun, July 24, 2022 11:59 AM</td>
+<td>Thu, July 28, 2022 17:55 PM</td>
+<td>Berth 10</td>
+<td>143.00</td>
+<td>RED TRANSPORT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ALGECIRAS EXPRESS</td>
+<td>Wed, July 27, 2022 11:19 AM</td>
+<td>Thu, July 28, 2022 05:00 AM</td>
+<td>Berth 15</td>
+<td>259.80</td>
+<td>HAPAG LLOYD NIGERIA SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OSTRIA</td>
+<td>Wed, July 27, 2022 12:18 PM</td>
+<td>Wed, July 27, 2022 19:10 PM</td>
+<td>Bulk Oil Plant (BOP)</td>
+<td>176.00</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WINTER</td>
+<td>Mon, July 25, 2022 12:14 PM</td>
+ <td>Wed, July 27, 2022 18:35 PM</td>
+<td>Petroleum Wharf Apapa (PWA)</td>
+<td>128.60</td>
+<td>DALIMFIZ SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAERSK GANGES</td>
+<td>Wed, July 27, 2022 09:47 AM</td>
+<td>Wed, July 27, 2022 17:05 PM</td>
+<td>Berth 17</td>
+<td>255.00</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NAVE LUMINOSITY</td>
+<td>Sun, July 24, 2022 13:12 PM</td>
+<td>Tue, July 26, 2022 15:10 PM</td>
+<td>ASPM Jetty</td>
+<td>183.08</td>
+<td>WAPS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HIGH SD YIHE</td>
+<td>Sun, July 24, 2022 09:56 AM</td>
+<td>Mon, July 25, 2022 20:40 PM</td>
+<td>New Oil Jetty (NOJ)</td>
+<td>180.00</td>
+<td>BLUESEAS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ARDMORE</td>
+<td>Mon, July 25, 2022 13:06 PM</td>
+<td>Mon, July 25, 2022 13:05 PM</td>
+<td>Berth 5</td>
+<td>154.00</td>
+<td>TRANS ATLANTIC</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BAHAMAS</td>
+<td>Mon, July 25, 2022 09:27 AM</td>
+<td>Mon, July 25, 2022 08:30 AM</td>
+<td>Berth 15</td>
+<td>258.89</td>
+<td>COSCO SHIPPING LINES (NIGERIA) LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BULK BAHAMAS</td>
+<td>Fri, July 22, 2022 13:25 PM</td>
+<td>Sun, July 24, 2022 17:10 PM</td>
+<td>Berth 19A</td>
+<td>189.99</td>
+<td>BLUESTAR SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HONG KONG SPIRIT</td>
+<td>Wed, July 20, 2022 12:11 PM</td>
+<td>Sun, July 24, 2022 10:00 AM</td>
+<td>Berth 11</td>
+<td>180.00</td>
+<td>SUPERMARITIME</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>COMMON VENTURE</td>
+<td>Sun, July 24, 2022 13:03 PM</td>
+<td>Sun, July 24, 2022 06:15 AM</td>
+<td>Berth 20</td>
+<td>189.99</td>
+<td>ALLISON SHIPPING AGENCY LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KOTA SEJATI</td>
+<td>Fri, July 22, 2022 12:33 PM</td>
+<td>Sat, July 23, 2022 20:40 PM</td>
+<td>Berth 17</td>
+<td>228.00</td>
+<td>PIL NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GREEN AUSTEVOLL</td>
+<td>Fri, July 22, 2022 13:29 PM</td>
+<td>Sat, July 23, 2022 18:45 PM</td>
+<td>Berth 13</td>
+<td>107.50</td>
+<td>SAMCHAM HOLDINGS LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAERSK ANTWERP</td>
+<td>Thu, July 21, 2022 12:41 PM</td>
+<td>Sat, July 23, 2022 13:10 PM</td>
+<td>Berth 15</td>
+<td>155.00</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ALFRED TEMILE</td>
+<td>Fri, July 22, 2022 11:20 AM</td>
+<td>Sat, July 23, 2022 12:55 PM</td>
+<td>Petroleum Wharf Apapa (PWA)</td>
+<td>160.00</td>
+<td>CAVERTON</td>
+<td></td>
+<td></td>
+ </tr>
+<tr>
+<td>HALIMA</td>
+<td>Thu, July 21, 2022 12:18 PM</td>
+<td>Fri, July 22, 2022 01:03 AM</td>
+<td>New Oil Jetty (NOJ)</td>
+<td>176.00</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DON REEFER</td>
+<td>Fri, July 15, 2022 13:12 PM</td>
+<td>Thu, July 21, 2022 23:55 PM</td>
+<td>Berth 14</td>
+<td>126.00</td>
+<td>SUPERMARITIME</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CLOVER</td>
+<td>Mon, July 18, 2022 13:27 PM</td>
+<td>Thu, July 21, 2022 19:40 PM</td>
+<td>ASPM Jetty</td>
+<td>183.05</td>
+<td>WAPS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PORT OSAKA</td>
+<td>Wed, July 20, 2022 13:46 PM</td>
+<td>Thu, July 21, 2022 15:40 PM</td>
+<td>Berth 4</td>
+<td>200.00</td>
+<td>GOLDEN SHIPPING CO. NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>YANGTZE BRIGHTNESS</td>
+<td>Fri, July 15, 2022 12:22 PM</td>
+<td>Thu, July 21, 2022 14:40 PM</td>
+<td>Berth 8</td>
+<td>190.00</td>
+<td>GMTS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ZHEN HUA 28</td>
+<td>Wed, July 20, 2022 12:23 PM</td>
+<td>Thu, July 21, 2022 10:55 AM</td>
+<td>LEKKI D/SEA</td>
+<td>232.04</td>
+<td>ALRAINE SHIPPING COY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PEGASUS</td>
+<td>Sat, July 09, 2022 12:57 PM</td>
+<td>Thu, July 21, 2022 09:14 AM</td>
+<td>LEKKI 1</td>
+<td>274.00</td>
+<td>BLUESTAR SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DISCOVERY</td>
+<td>Wed, July 20, 2022 13:38 PM</td>
+<td>Thu, July 21, 2022 06:38 AM</td>
+<td>Berth 21</td>
+<td>190.00</td>
+<td>BLUESTAR SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KMARIN AZUR</td>
+<td>Tue, July 19, 2022 13:32 PM</td>
+<td>Wed, July 20, 2022 02:55 AM</td>
+<td>Berth 17</td>
+<td>250.00</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CURIA</td>
+<td>Mon, July 18, 2022 13:48 PM</td>
+<td>Tue, July 19, 2022 03:35 AM</td>
+<td>Berth 1</td>
+<td>189.99</td>
+<td>GOLDEN SHIPPING CO. NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PARO</td>
+<td>Sat, July 09, 2022 12:38 PM</td>
+<td>Mon, July 18, 2022 23:30 PM</td>
+<td>SFM 1</td>
+<td>190.00</td>
+<td>COASTAL SERVICES LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ZONDA</td>
+<td>Thu, July 14, 2022 14:05 PM</td>
+<td>Mon, July 18, 2022 21:30 PM</td>
+<td>Bulk Oil Plant (BOP)</td>
+<td>183.20</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAESTRO</td>
+<td>Fri, July 15, 2022 11:45 AM</td>
+<td>Sun, July 17, 2022 17:00 PM</td>
+<td>Petroleum Wharf Apapa (PWA)</td>
+<td>149.30</td>
+<td>ULOB OIL</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DESERT VICTORY</td>
+<td>Sat, July 16, 2022 13:01 PM</td>
+<td>Sun, July 17, 2022 16:10 PM</td>
+<td>Berth 19</td>
+<td>193.07</td>
+<td>BLUESTAR SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KOTA SALAM</td>
+<td>Sun, July 17, 2022 13:19 PM</td>
+<td>Sun, July 17, 2022 14:50 PM</td>
+<td>Berth 15</td>
+<td>228.00</td>
+<td>PIL NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PING AN SONG</td>
+<td>Sun, July 17, 2022 13:06 PM</td>
+<td>Sun, July 17, 2022 10:50 AM</td>
+<td>Bullnose 2</td>
+<td>179.50</td>
+<td>COSCO SHIPPING LINES (NIGERIA) LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SAHARA GAS</td>
+<td>Sat, July 16, 2022 13:13 PM</td>
+<td>Sun, July 17, 2022 07:10 AM</td>
+<td>Lister Oil Jetty</td>
+<td>179.87</td>
+<td>WHITE WATERS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BDP SPIRIT</td>
+<td>Sat, July 16, 2022 10:08 AM</td>
+<td>Sat, July 16, 2022 18:00 PM</td>
+<td>Berth 6</td>
+<td>139.95</td>
+<td>BIGOZ LOGISTICS NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ALS FLORA</td>
+<td>Sat, July 16, 2022 13:00 PM</td>
+<td>Sat, July 16, 2022 17:00 PM</td>
+<td>Berth 17</td>
+<td>261.37</td>
+<td>CMA CGM</td>
+<td></td>
+<td></td>
+</tr>
+ <tr>
+<td>HC OPAL</td>
+<td>Wed, July 06, 2022 11:23 AM</td>
+<td>Sat, July 16, 2022 16:00 PM</td>
+<td>Berth 13</td>
+<td>129.50</td>
+<td>WOLID</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BOYANG CAPELLA</td>
+<td>Thu, July 14, 2022 13:19 PM</td>
+<td>Fri, July 15, 2022 19:00 PM</td>
+<td>Berth 21</td>
+<td>134.34</td>
+<td>APS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CMA CGM HOMERE</td>
+<td>Fri, July 15, 2022 11:50 AM</td>
+<td>Fri, July 15, 2022 18:40 PM</td>
+<td>Berth 15</td>
+<td>170.00</td>
+<td>CMA CGM</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DELOS DAWN</td>
+<td>Wed, July 13, 2022 11:11 AM</td>
+<td>Fri, July 15, 2022 11:30 AM</td>
+<td>Berth 19A</td>
+<td>189.00</td>
+<td>BLUESTAR SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NAVIOS MAGNOLIA</td>
+<td>Thu, July 14, 2022 11:48 AM</td>
+<td>Fri, July 15, 2022 07:50 AM</td>
+<td>Berth 17</td>
+<td>27.17</td>
+<td>COSCO</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LACTA</td>
+<td>Thu, June 30, 2022 12:10 PM</td>
+<td>Thu, July 14, 2022 22:24 PM</td>
+<td>Berth 2</td>
+<td>197.00</td>
+<td>GOLDEN SHIPPING CO. NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ECO EVOLUZIONE</td>
+<td>Thu, July 14, 2022 13:49 PM</td>
+<td>Thu, July 14, 2022 14:30 PM</td>
+<td>New Oil Jetty (NOJ)</td>
+<td>173.70</td>
+<td>DALIMFIZ SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AESOP</td>
+<td>Wed, July 13, 2022 14:27 PM</td>
+<td>Thu, July 14, 2022 06:54 AM</td>
+<td>Pinnacle Jetty</td>
+<td>229.00</td>
+<td>WAPS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAERSK ANTWERP</td>
+<td>Wed, July 13, 2022 13:34 PM</td>
+<td>Wed, July 13, 2022 15:30 PM</td>
+<td>Berth 15</td>
+<td>155.00</td>
+<td>MAERSK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAERSK ZAMBEZI</td>
+<td>Wed, July 13, 2022 12:48 PM</td>
+<td>Wed, July 13, 2022 13:35 PM</td>
+<td>Berth 17</td>
+<td>238.00</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TINA THERESA</td>
+<td>Wed, July 13, 2022 13:07 PM</td>
+<td>Wed, July 13, 2022 12:35 PM</td>
+<td>Berth 6</td>
+<td>101.39</td>
+<td>TRANS ATLANTIC</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OSTRIA</td>
+<td>Sat, July 09, 2022 11:54 AM</td>
+<td>Tue, July 12, 2022 22:35 PM</td>
+<td>Bulk Oil Plant (BOP)</td>
+<td>176.00</td>
+<td>WAPS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GREEN BODO</td>
+<td>Sun, July 10, 2022 12:42 PM</td>
+<td>Tue, July 12, 2022 20:40 PM</td>
+<td>Berth 10A</td>
+<td>109.00</td>
+<td>APS</td>
+ <td></td>
+<td></td>
+</tr>
+<tr>
+<td>ETE N</td>
+<td>Mon, July 11, 2022 13:21 PM</td>
+<td>Mon, July 11, 2022 22:35 PM</td>
+<td>Berth 15</td>
+<td>212.47</td>
+<td>HAPAG LLOYD NIGERIA SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CLOVER</td>
+<td>Sun, July 10, 2022 11:14 AM</td>
+<td>Mon, July 11, 2022 21:35 PM</td>
+<td>ASPM Jetty</td>
+<td>183.05</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAERSK CHENNAI</td>
+<td>Mon, July 11, 2022 12:36 PM</td>
+<td>Mon, July 11, 2022 19:35 PM</td>
+<td>Berth 15</td>
+<td>249.12</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MT CRAMER</td>
+<td>Mon, July 11, 2022 12:40 PM</td>
+<td>Mon, July 11, 2022 15:10 PM</td>
+<td>Petroleum Wharf Apapa (PWA)</td>
+<td>140.00</td>
+<td>REHDORS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GIALOVA</td>
+<td>Thu, July 07, 2022 12:40 PM</td>
+<td>Mon, July 11, 2022 02:25 AM</td>
+<td>Berth 17</td>
+<td>260.00</td>
+<td>LANSAL</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="Lagos23" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Tincan3" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+ <tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">ETD</th>
+<th data-priority="3">Departure Date</th>
+<th data-priority="4">Berth</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo<br><sub class="alert-danger">(Export)</sub></th>
+<th data-priority="8">Tonnage<br><sub class="alert-danger">(Export)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LAUSU</td>
+<td>Mon, August 08, 2022 12:00 PM</td>
+<td>Mon, August 08, 2022 10:14 AM</td>
+<td>A A Rano</td>
+<td>176.00</td>
+<td>WHITE WATERS MARITIME SERVICES LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DESERT SYMPHONY</td>
+<td>Mon, August 01, 2022 12:00 PM</td>
+<td>Sun, August 07, 2022 17:10 PM</td>
+<td>Berth 2</td>
+<td>189.99</td>
+<td>EAGLE FLOUR MILL SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HEROIC ACE</td>
+<td>Sun, August 07, 2022 12:00 PM</td>
+<td>Sun, August 07, 2022 13:00 PM</td>
+<td>Berth 9</td>
+<td>200.00</td>
+<td>CROSS MARINE SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ASSOS</td>
+<td>Sun, August 07, 2022 12:00 PM</td>
+<td>Sun, August 07, 2022 11:10 AM</td>
+<td>Swift</td>
+<td>333.00</td>
+<td>REHDOR LOGISTICS SOLUTION</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GRANDE SIERRA LEONE</td>
+<td>Sun, August 07, 2022 00:00 AM</td>
+<td>Sun, August 07, 2022 07:25 AM</td>
+<td>Berth 11</td>
+<td>211.00</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GISELE A</td>
+<td>Sat, August 06, 2022 00:00 AM</td>
+<td>Sun, August 07, 2022 07:20 AM</td>
+<td>Berth 7</td>
+<td>207.87</td>
+<td>HULL BLYTH NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ESL AMERICA</td>
+<td>Sat, August 06, 2022 12:00 PM</td>
+<td>Sun, August 07, 2022 07:10 AM</td>
+<td>Berth 10</td>
+<td>143.14</td>
+<td>COMET SHIPPING AGENCIES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MV UNIVERSE</td>
+<td>Sat, August 06, 2022 12:00 PM</td>
+<td>Sun, August 07, 2022 02:31 AM</td>
+<td>Berth 1A</td>
+<td>173.01</td>
+<td>AFRICA PORT SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LEVANTO</td>
+<td>Sat, August 06, 2022 00:00 AM</td>
+<td>Sat, August 06, 2022 11:13 AM</td>
+<td>Ibafon 1</td>
+<td>140.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ASHABI</td>
+<td>Sat, August 06, 2022 00:00 AM</td>
+<td>Sat, August 06, 2022 11:13 AM</td>
+<td>Menj Oil</td>
+<td>164.50</td>
+<td>INTERSHIP</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SL AREMU</td>
+<td>Fri, August 05, 2022 00:00 AM</td>
+<td>Sat, August 06, 2022 11:05 AM</td>
+<td>Fatgbems</td>
+<td>176.00</td>
+<td>INTERSHIP</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC ERMINA</td>
+<td>Sun, August 07, 2022 00:00 AM</td>
+<td>Fri, August 05, 2022 17:00 PM</td>
+<td>Berth 5</td>
+<td>276.00</td>
+<td>MEDITERRANEAN SHIPPING COMPANY LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ST ILHAAM</td>
+<td>Fri, August 05, 2022 12:00 PM</td>
+<td>Fri, August 05, 2022 11:12 AM</td>
+<td>Wosbab</td>
+<td>180.00</td>
+<td>REHDOR LOGISTICS SOLUTION</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SAPET GAS</td>
+<td>Fri, August 05, 2022 12:00 PM</td>
+<td>Fri, August 05, 2022 08:46 AM</td>
+<td>A A Rano</td>
+<td>120.00</td>
+<td>WHITE WATERS AGENCY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ANTIBES EXPRESS</td>
+<td>Fri, August 05, 2022 00:00 AM</td>
+<td>Thu, August 04, 2022 20:35 PM</td>
+<td>Berth 6</td>
+<td>243.40</td>
+<td>HAPAG LLOYD NIGERIA SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LAPEROUSE</td>
+<td>Wed, August 03, 2022 12:00 PM</td>
+<td>Thu, August 04, 2022 12:45 PM</td>
+<td>Techno</td>
+<td>154.17</td>
+<td>DALIMFIZ MARITIME</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WESTMORE</td>
+<td>Thu, August 04, 2022 00:00 AM</td>
+<td>Thu, August 04, 2022 12:45 PM</td>
+<td>Emadeb</td>
+<td>183.00</td>
+<td>REHDOR LOGISTICS SOLUTION</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CARLOTA BOLTEN</td>
+<td>Thu, August 04, 2022 12:00 PM</td>
+<td>Wed, August 03, 2022 15:40 PM</td>
+ <td>Berth 1A</td>
+<td>180.00</td>
+<td>ALLISON SHIPPING AGENCY LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GRANDE DAKAR</td>
+<td>Wed, August 03, 2022 00:00 AM</td>
+<td>Wed, August 03, 2022 14:40 PM</td>
+<td>Berth 12</td>
+<td>236.32</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+
+<td>CMA CGM ROSSINI</td>
+<td>Wed, August 03, 2022 00:00 AM</td>
+<td>Wed, August 03, 2022 12:55 PM</td>
+<td>Berth 3</td>
+<td>277.00</td>
+<td>CMA CGM DELMAS NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>STELLAR</td>
+<td>Wed, August 03, 2022 12:00 PM</td>
+<td>Wed, August 03, 2022 12:34 PM</td>
+<td>Ibafon 2</td>
+<td>175.93</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WESTMORE</td>
+<td>Tue, August 02, 2022 12:55 PM</td>
+<td>Tue, August 02, 2022 15:55 PM</td>
+<td>Chisco</td>
+<td>183.00</td>
+<td>REHDOR LOGISTICS SOLUTION</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TARRANT</td>
+<td>Tue, August 02, 2022 12:00 PM</td>
+<td>Tue, August 02, 2022 15:52 PM</td>
+<td>Emadeb</td>
+<td>128.00</td>
+<td>GOBEL MARINE</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC ORIANE</td>
+<td>Tue, August 02, 2022 12:00 PM</td>
+<td>Tue, August 02, 2022 12:10 PM</td>
+<td>Berth 5</td>
+<td>277.30</td>
+<td>MEDITERRANEAN SHIPPING COMPANY LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ALGECIRAS EXPRESS</td>
+<td>Tue, August 02, 2022 00:00 AM</td>
+<td>Tue, August 02, 2022 02:50 AM</td>
+<td>Berth 7</td>
+<td>259.80</td>
+<td>HAPAG LLOYD NIGERIA SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LAUSU</td>
+<td>Mon, August 01, 2022 00:00 AM</td>
+<td>Mon, August 01, 2022 16:51 PM</td>
+<td>A A Rano</td>
+<td>176.00</td>
+<td>WHITE WATERS MARITIME SERVICES LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MORTIMER</td>
+<td>Mon, August 01, 2022 12:00 PM</td>
+<td>Mon, August 01, 2022 16:50 PM</td>
+<td>Ibafon 1</td>
+<td>135.00</td>
+<td>AMCO LOGISTICS SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RCC AMSTERDAM</td>
+<td>Fri, July 29, 2022 12:00 PM</td>
+<td>Mon, August 01, 2022 08:30 AM</td>
+<td>Berth 10</td>
+<td>200.00</td>
+<td>COMET SHIPPING AGENCIES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UNISUN</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>Mon, August 01, 2022 07:05 AM</td>
+<td>Berth 6</td>
+<td>132.00</td>
+<td>ALRAINE SHIPPING COY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SEASPAN KYOTO</td>
+<td>Sun, July 31, 2022 12:00 PM</td>
+<td>Sun, July 31, 2022 13:45 PM</td>
+<td>Berth 5</td>
+<td>269.80</td>
+<td>OCEAN NETWORK EXPRESS (NIGERIA) LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GRANDE LAGOS</td>
+<td>Sun, July 31, 2022 00:00 AM</td>
+<td>Sun, July 31, 2022 08:30 AM</td>
+<td>Berth 11</td>
+<td>236.32</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HB GOLDEN EAGLE</td>
+<td>Thu, July 28, 2022 12:00 PM</td>
+<td>Sat, July 30, 2022 22:30 PM</td>
+<td>Berth 1</td>
+<td>180.00</td>
+<td>ALLISON SHIPPING AGENCY LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NAGOYA TOWER</td>
+<td>Sun, July 31, 2022 12:00 PM</td>
+<td>Sat, July 30, 2022 22:00 PM</td>
+<td>Berth 3</td>
+<td>260.05</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ICE RIVER</td>
+<td>Fri, July 29, 2022 12:00 PM</td>
+<td>Sat, July 30, 2022 17:30 PM</td>
+<td>Berth 2</td>
+<td>144.00</td>
+<td>COMET SHIPPING AGENCIES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ESL EUROPA</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>Sat, July 30, 2022 15:15 PM</td>
+<td>Berth 1A</td>
+<td>143.00</td>
+<td>AFRICA PORT SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MATRIX ASA</td>
+<td>Fri, July 29, 2022 00:00 AM</td>
+<td>Sat, July 30, 2022 12:33 PM</td>
+<td>Ibafon 1</td>
+<td>183.24</td>
+<td>PEAK SHIPPING AGENT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>STELLA THERESA</td>
+<td>Sat, July 30, 2022 12:00 PM</td>
+<td>Sat, July 30, 2022 12:30 PM</td>
+<td>Ibafon 2</td>
+<td>126.00</td>
+<td>SUPERMARTIME NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC CAPRI</td>
+<td>Fri, July 29, 2022 00:00 AM</td>
+<td>Sat, July 30, 2022 06:35 AM</td>
+<td>Berth 9</td>
+<td>208.00</td>
+<td>MEDITERRANEAN SHIPPING COMPANY LIMITED</td>
+<td></td>
+<td></td>
+ </tr>
+<tr>
+<td>IRENES RAINBOW</td>
+<td>Fri, July 29, 2022 00:00 AM</td>
+<td>Fri, July 29, 2022 20:20 PM</td>
+<td>Berth 7</td>
+<td>222.20</td>
+<td>HAPAG LLOYD NIGERIA SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LETO</td>
+<td>Sat, July 30, 2022 12:00 PM</td>
+<td>Fri, July 29, 2022 17:40 PM</td>
+<td>Berth 3</td>
+<td>225.00</td>
+<td>CMA CGM DELMAS NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SL AREMU</td>
+<td>Wed, July 27, 2022 12:00 PM</td>
+<td>Thu, July 28, 2022 12:28 PM</td>
+<td>Rain Oil</td>
+<td>176.00</td>
+<td>GOBEL MARINE</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC MARTA</td>
+<td>Tue, July 26, 2022 12:00 PM</td>
+<td>Thu, July 28, 2022 08:30 AM</td>
+<td>Berth 6</td>
+<td>274.67</td>
+<td>MEDITERRANEAN SHIPPING COMPANY LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC DONATA</td>
+<td>Thu, July 28, 2022 12:00 PM</td>
+<td>Thu, July 28, 2022 07:35 AM</td>
+<td>Berth 5</td>
+<td>257.87</td>
+<td>MEDITERRANEAN SHIPPING COMPANY LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WIELAND</td>
+<td>Wed, July 27, 2022 00:00 AM</td>
+<td>Thu, July 28, 2022 07:00 AM</td>
+<td>Berth 3</td>
+<td>255.36</td>
+<td>CMA CGM DELMAS NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GRANDE SENEGAL</td>
+<td>Thu, July 28, 2022 00:00 AM</td>
+<td>Wed, July 27, 2022 13:15 PM</td>
+<td>Berth 11</td>
+<td>210.92</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AYODEJI</td>
+<td>Wed, July 27, 2022 12:00 PM</td>
+<td>Wed, July 27, 2022 09:30 AM</td>
+<td>Ibafon 2</td>
+<td>175.97</td>
+<td>PEAK SHIPPING AGENT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MV BANDURA</td>
+<td>Tue, July 26, 2022 12:00 PM</td>
+<td>Wed, July 27, 2022 07:15 AM</td>
+<td>Berth 2</td>
+<td>118.00</td>
+<td>SUPERMARTIME NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>STELLA THERESA</td>
+<td>Tue, July 26, 2022 12:00 PM</td>
+<td>Tue, July 26, 2022 22:25 PM</td>
+<td>Berth 1</td>
+<td>126.00</td>
+<td>SUPERMARTIME NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC ROWAN</td>
+<td>Wed, July 27, 2022 00:00 AM</td>
+<td>Tue, July 26, 2022 18:30 PM</td>
+<td>Berth 5</td>
+<td>261.00</td>
+<td>MEDITERRANEAN SHIPPING COMPANY LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ST AMRAH</td>
+<td>Wed, July 27, 2022 00:00 AM</td>
+<td>Tue, July 26, 2022 11:33 AM</td>
+<td>Wosbab</td>
+<td>183.00</td>
+<td>PEAK SHIPPING AGENT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KING DAVID</td>
+<td>Wed, July 13, 2022 12:00 PM</td>
+<td>Tue, July 26, 2022 11:33 AM</td>
+<td>KLT II</td> 
+<td>60.30</td>
+<td>STENOG</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WESTMORE</td>
+<td>Tue, July 26, 2022 12:00 PM</td>
+<td>Tue, July 26, 2022 11:30 AM</td>
+<td>Ibafon 1</td>
+<td>183.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CMA CGM CHIWAN</td>
+<td>Sun, July 24, 2022 00:00 AM</td>
+<td>Tue, July 26, 2022 09:00 AM</td>
+<td>Berth 7</td>
+<td>260.00</td>
+<td>CMA CGM DELMAS NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GRANDE CAMEROON</td>
+<td>Mon, July 25, 2022 12:00 PM</td>
+<td>Mon, July 25, 2022 17:20 PM</td>
+<td>Berth 11</td>
+<td>210.92</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAERSK CAIRO</td>
+<td>Mon, July 25, 2022 00:00 AM</td>
+<td>Mon, July 25, 2022 12:40 PM</td>
+<td>Berth 3</td>
+<td>249.12</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ASHABI</td>
+<td>Mon, July 25, 2022 12:00 PM</td>
+<td>Mon, July 25, 2022 10:47 AM</td>
+<td>Menj Oil</td>
+<td>164.50</td>
+<td>INTERSHIP</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>YANGTZE JEWEL</td>
+<td>Thu, July 21, 2022 12:00 PM</td>
+<td>Sun, July 24, 2022 11:36 AM</td>
+<td>Berth 2</td>
+<td>200.00</td>
+<td>ALRAINE SHIPPING COY</td>
+<td></td>
+ <td></td>
+</tr>
+<tr>
+<td>ST WALGA</td>
+<td>Sun, July 24, 2022 12:00 PM</td>
+<td>Sun, July 24, 2022 11:31 AM</td>
+<td>Kris Oil</td>
+<td>175.00</td>
+<td>INTERSHIP</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CHARLOTTE THERESA</td>
+<td>Sun, July 24, 2022 00:00 AM</td>
+<td>Sun, July 24, 2022 11:29 AM</td>
+<td>Ibafon 1</td>
+<td>129.50</td>
+<td>SUPERMARTIME NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GRANDE TEMA</td>
+<td>Sun, July 24, 2022 00:00 AM</td>
+<td>Sun, July 24, 2022 11:05 AM</td>
+<td>Berth 11</td>
+<td>236.30</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GRANDE COSTA D&#039;&#039;AVORIO</td>
+<td>Sun, July 24, 2022 00:00 AM</td>
+<td>Sun, July 24, 2022 08:30 AM</td>
+<td>Berth 12</td>
+<td>210.92</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SU</td>
+<td>Sat, July 23, 2022 00:00 AM</td>
+<td>Sun, July 24, 2022 07:05 AM</td>
+<td>Berth 1</td>
+<td>116.00</td>
+<td>OCEAN GLORY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BAHAMAS</td>
+<td>Fri, July 22, 2022 12:00 PM</td>
+<td>Sat, July 23, 2022 13:50 PM</td>
+<td>Berth 5</td>
+<td>258.89</td>
+<td>COSCO SHIPPING LINES (NIGERIA) LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WESTMORE</td>
+<td>Wed, July 20, 2022 12:00 PM</td>
+<td>Sat, July 23, 2022 11:33 AM</td>
+<td>Chipet</td>
+<td>183.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MORTIMER</td>
+<td>Sat, July 23, 2022 12:00 PM</td>
+<td>Sat, July 23, 2022 11:32 AM</td>
+<td>Emadeb</td>
+<td>135.00</td>
+<td>REHDOR LOGISTICS SOLUTION</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ELIANA</td>
+<td>Sat, July 23, 2022 12:00 PM</td>
+<td>Sat, July 23, 2022 11:29 AM</td>
+<td>Ibafon 2</td>
+<td>155.90</td>
+<td>GOBEL MARINE</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LESTE</td>
+<td>Sun, July 10, 2022 12:00 PM</td>
+<td>Sat, July 23, 2022 11:22 AM</td>
+<td>Snake Island 2</td>
+<td>183.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC ANNAMARIA</td>
+<td>Sat, July 23, 2022 00:00 AM</td>
+<td>Sat, July 23, 2022 09:40 AM</td>
+<td>Berth 9</td>
+<td>187.78</td>
+<td>MEDITERRANEAN SHIPPING COMPANY LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>REPUBBLICA DEL BRASILE</td>
+<td>Sat, July 23, 2022 12:00 PM</td>
+<td>Sat, July 23, 2022 09:05 AM</td>
+<td>Berth 12</td>
+<td>208.61</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NORDIC STAVANGER</td>
+<td>Fri, July 22, 2022 12:00 PM</td>
+<td>Fri, July 22, 2022 09:10 AM</td>
+ <td>Berth 1A</td>
+<td>190.00</td>
+<td>ALLISON SHIPPING AGENCY LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TORNADO</td>
+<td>Sat, July 16, 2022 12:00 PM</td>
+<td>Thu, July 21, 2022 13:12 PM</td>
+<td>Menj Oil</td>
+<td>176.00</td>
+<td>PEAK SHIPPING AGENT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AS CYPRIA</td>
+<td>Thu, July 21, 2022 12:00 PM</td>
+<td>Thu, July 21, 2022 12:05 PM</td>
+<td>Berth 7</td>
+<td>222.16</td>
+<td>ONE</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>STELLAR</td>
+<td>Thu, July 21, 2022 00:00 AM</td>
+<td>Thu, July 21, 2022 11:10 AM</td>
+<td>Ibafon 1</td>
+<td>175.93</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CELSIA</td>
+<td>Wed, July 20, 2022 12:00 PM</td>
+<td>Wed, July 20, 2022 13:09 PM</td>
+<td>Ibafon 2</td>
+<td>160.00</td>
+<td>REHDORS LOGISTICS SOLUTIONS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC MADRID</td>
+<td>Wed, July 20, 2022 12:00 PM</td>
+<td>Wed, July 20, 2022 06:20 AM</td>
+<td>Berth 5</td>
+<td>270.40</td>
+<td>MEDITERRANEAN SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BW SEINE</td>
+<td>Sat, July 16, 2022 00:00 AM</td>
+<td>Tue, July 19, 2022 10:01 AM</td>
+<td>Dantata 1</td>
+<td>228.60</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+ <td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC NURIA</td>
+<td>Sun, July 17, 2022 14:26 PM</td>
+<td>Mon, July 18, 2022 18:40 PM</td>
+<td>Berth 8</td>
+<td>274.95</td>
+<td>MEDITERRANEAN SHIPPING COMPANY LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SILVER RAY</td>
+<td>Mon, July 18, 2022 12:00 PM</td>
+<td>Mon, July 18, 2022 16:55 PM</td>
+<td>Berth 10</td>
+<td>199.95</td>
+<td>COMET SHIPPING AGENCIES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AYODEJI</td>
+<td>Wed, July 13, 2022 12:00 PM</td>
+<td>Mon, July 18, 2022 09:57 AM</td>
+<td>Techno</td>
+<td>175.97</td>
+<td>KACH MARITIME</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BORA</td>
+<td>Mon, July 18, 2022 12:00 PM</td>
+<td>Mon, July 18, 2022 09:53 AM</td>
+<td>1st Deep Water</td>
+<td>183.21</td>
+<td>REHDOR LOGISTICS SOLUTION</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ASHABI</td>
+<td>Sun, July 17, 2022 12:00 PM</td>
+<td>Mon, July 18, 2022 09:43 AM</td>
+<td>Ibafon 2</td>
+<td>164.50</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC CRISTIANA</td>
+<td>Sun, July 17, 2022 12:00 PM</td>
+<td>Mon, July 18, 2022 08:22 AM</td>
+<td>Berth 12</td>
+<td>199.00</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+
+<td>CMA CGM MOZART</td>
+<td>Sat, July 16, 2022 12:00 PM</td>
+<td>Sun, July 17, 2022 12:35 PM</td>
+<td>Berth 5</td>
+<td>277.00</td>
+<td>CMA CGM DELMAS .NIG</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MV NAUTICAL MADISON</td>
+<td>Sun, July 17, 2022 00:00 AM</td>
+<td>Sun, July 17, 2022 08:50 AM</td>
+<td>Berth 1A</td>
+<td>200.00</td>
+<td>JFDOR INTERNATIONAL</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GRANDE ABIDJAN</td>
+<td>Sun, July 17, 2022 00:00 AM</td>
+<td>Sun, July 17, 2022 07:35 AM</td>
+<td>Berth 11</td>
+<td>236.32</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ELEGANT ACE</td>
+<td>Sun, July 17, 2022 12:00 PM</td>
+<td>Sun, July 17, 2022 06:30 AM</td>
+<td>Berth 9</td>
+<td>199.95</td>
+<td>CROSS MARINE SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NAVIOS MAGNOLIA</td>
+<td>Sun, July 17, 2022 00:00 AM</td>
+<td>Sat, July 16, 2022 20:35 PM</td>
+<td>Berth 3</td>
+<td>27.17</td>
+<td>COSCO SHIPPING LINES (NIGERIA) LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CHARLOTTE THERESA</td>
+<td>Fri, July 15, 2022 12:00 PM</td>
+<td>Fri, July 15, 2022 23:55 PM</td>
+<td>Berth 1</td>
+<td>129.50</td>
+<td>SUPERMARTIME NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BOLD MARINER</td>
+<td>Fri, July 08, 2022 12:00 PM</td>
+ <td>Thu, July 14, 2022 20:20 PM</td>
+<td>Berth 1</td>
+<td>185.74</td>
+<td>ROSEMARY INDUSTRIES LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC KRYSTAL</td>
+<td>Wed, July 13, 2022 14:08 PM</td>
+<td>Thu, July 14, 2022 14:15 PM</td>
+<td>Berth 5</td>
+<td>277.30</td>
+<td>MEDITERRANEAN SHIPPING COMPANY LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ETE N</td>
+<td>Thu, July 14, 2022 14:12 PM</td>
+<td>Thu, July 14, 2022 14:14 PM</td>
+<td>Berth 8</td>
+<td>212.47</td>
+<td>HAPAG LLOYD NIGERIA SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GLOVIS CONDOR</td>
+<td>Tue, July 12, 2022 00:00 AM</td>
+<td>Tue, July 12, 2022 17:05 PM</td>
+<td>Berth 10</td>
+<td>199.10</td>
+<td>COMET SHIPPING AGENCIES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KEONAMEX VICTORY</td>
+<td>Thu, July 07, 2022 12:00 PM</td>
+<td>Mon, July 11, 2022 13:04 PM</td>
+<td>Ibafon 2</td>
+<td>186.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LAPEROUSE</td>
+<td>Thu, July 07, 2022 12:00 PM</td>
+<td>Mon, July 11, 2022 13:03 PM</td>
+<td>A A Rano</td>
+<td>154.17</td>
+<td>WHITE WATERS MARITIME SERVICES LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GMTS TRACKER 01 (TUG)</td>
+<td>Fri, July 01, 2022 12:00 PM</td>
+<td>Mon, July 11, 2022 12:53 PM</td>
+<td>Snake Island</td> 
+<td>73.60</td>
+<td>DEAL MARINE SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GRANDE TOGO</td>
+<td>Sun, July 10, 2022 00:00 AM</td>
+<td>Sun, July 10, 2022 08:50 AM</td>
+<td>Berth 12</td>
+<td>210.92</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>APL HOLLAND</td>
+<td>Sun, July 10, 2022 00:00 AM</td>
+<td>Sun, July 10, 2022 08:20 AM</td>
+<td>Berth 5</td>
+<td>277.26</td>
+<td>CMA CGM DELMAS NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSC POSITANO</td>
+<td>Thu, July 07, 2022 12:00 PM</td>
+<td>Sun, July 10, 2022 07:50 AM</td>
+<td>Berth 9</td>
+<td>208.00</td>
+<td>MEDITERRANEAN SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>REPUBBLICA ARGENTINA</td>
+<td>Sun, July 10, 2022 00:00 AM</td>
+<td>Sun, July 10, 2022 07:45 AM</td>
+<td>Berth 11</td>
+<td>208.61</td>
+<td>GRIMALDI AG. NIG.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FIAMMETTA</td>
+<td>Fri, July 08, 2022 00:00 AM</td>
+<td>Sun, July 10, 2022 06:40 AM</td>
+<td>Berth 6</td>
+<td>277.30</td>
+<td>MEDITERRANEAN SHIPPING COMPANY LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KMARIN MELBOURNE</td>
+<td>Wed, July 06, 2022 12:00 PM</td>
+<td>Sun, July 10, 2022 01:00 AM</td>
+<td>Berth 1A</td>
+<td>199.90</td>
+<td>ALLISON SHIPPING AGENCY LTD.</td>
+ <td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="CalabarPort3" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Calabar3" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">ETD</th>
+<th data-priority="3">Departure Date</th>
+<th data-priority="4">Berth</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo<br><sub class="alert-danger">(Export)</sub></th>
+<th data-priority="8">Tonnage<br><sub class="alert-danger">(Export)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AFRICAN MARVEL</td>
+<td>Thu, July 28, 2022 10:24 AM</td>
+<td>Thu, July 28, 2022 14:30 PM</td>
+<td>Berth 5</td>
+<td>155.00</td>
+<td>ALLRAY MARITIME SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ARSOS M</td>
+<td>Thu, July 28, 2022 17:25 PM</td>
+<td>Thu, July 28, 2022 13:36 PM</td>
+<td>Dozzy Oil and Gas Services</td>
+<td>180.00</td>
+<td>PEEJAY SHIPPING &amp; LOGISTICS CO. LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KMARIN MELBOURNE</td>
+<td>Thu, July 28, 2022 15:46 PM</td>
+<td>Mon, July 25, 2022 13:00 PM</td>
+<td>Berth 3</td>
+<td>199.90</td>
+<td>ALLISON SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RISING SUN</td>
+<td>Fri, July 22, 2022 23:07 PM</td>
+<td>Fri, July 22, 2022 10:49 AM</td>
+<td>North West Petroleum &amp; Gas Co Ltd</td>
+<td>170.00</td>
+<td>KATRINA SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MT PICTON</td>
+<td>Thu, July 21, 2022 23:09 PM</td>
+<td>Thu, July 21, 2022 14:06 PM</td>
+<td>Dozzy Oil and Gas Services</td>
+<td>183.00</td>
+<td>TIGER SHIPPING COMPANY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CAPT GREGORY</td>
+<td>Wed, July 20, 2022 15:18 PM</td>
+<td>Mon, July 18, 2022 07:40 AM</td>
+<td>EBUGHU Jetty</td>
+<td>179.82</td>
+<td>EGERTON RESOURCES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SANTA MONICA</td>
+<td>Sun, July 17, 2022 12:15 PM</td>
+<td>Sun, July 17, 2022 12:15 PM</td>
+<td>North West Petroleum &amp; Gas Co Ltd</td>
+<td>112.10</td>
+<td>WEST ATLANTIC PORTS SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ERRINA</td>
+<td>Sun, July 17, 2022 11:30 AM</td>
+<td>Sun, July 17, 2022 11:30 AM</td>
+<td>Dozzy Oil and Gas Services</td>
+<td>160.00</td>
+<td>WEST ATLANTIC PORTS SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VALUE TYLER</td>
+<td>Fri, July 15, 2022 20:17 PM</td>
+<td>Sat, July 16, 2022 10:12 AM</td>
+<td>Berth 3</td>
+<td>190.00</td>
+<td>HULL BLYTH</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AFRICAN MARVEL</td>
+<td>Fri, July 15, 2022 13:11 PM</td>
+<td>Fri, July 15, 2022 13:36 PM</td>
+<td>Berth 5</td>
+<td>155.00</td>
+<td>KACH MARITIME</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KOWIE</td>
+<td>Sun, July 10, 2022 11:02 AM</td>
+<td>Tue, July 12, 2022 11:12 AM</td>
+<td>NNPC Jetty</td>
+<td>144.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BEKE ELAND</td>
+<td>Tue, July 12, 2022 08:37 AM</td>
+<td>Tue, July 12, 2022 08:36 AM</td>
+<td>Berth 1</td>
+<td>89.00</td>
+<td>P&#039;S MARITIME</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="WarriPort3" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Warri3" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">ETD</th>
+<th data-priority="3">Departure Date</th>
+<th data-priority="4">Berth</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo<br><sub class="alert-danger">(Export)</sub></th>
+<th data-priority="8">Tonnage<br><sub class="alert-danger">(Export)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MATRIX S. ILU</td>
+<td>Sun, August 07, 2022 00:00 AM</td>
+<td>Sun, August 07, 2022 00:00 AM</td>
+<td>AYM SHAFA</td>
+<td>176.00</td>
+<td>BLUESEAS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MOSUNMOLA</td>
+<td>Sat, August 06, 2022 00:00 AM</td>
+<td>Sat, August 06, 2022 00:00 AM</td>
+<td>Prudent</td>
+<td>144.05</td>
+<td>INTEGRATED SHIPPING SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ABIOLA</td>
+<td>Sat, August 06, 2022 00:00 AM</td>
+<td>Sat, August 06, 2022 00:00 AM</td>
+<td>Jones Creek</td>
+<td>182.94</td>
+<td>OCEAN AND PORT MARINE LOGISTICS LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WINDRAY REEFER</td>
+<td>Fri, August 05, 2022 00:00 AM</td>
+<td>Fri, August 05, 2022 00:00 AM</td>
+<td>CANAL BERTH 2</td>
+<td>135.00</td>
+<td>SAMCHAM</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CAPT GREGORY</td>
+<td>Fri, August 05, 2022 00:00 AM</td>
+<td>Fri, August 05, 2022 00:00 AM</td>
+<td>Rainoil</td>
+<td>179.82</td>
+<td>AIS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MT PICTON</td>
+<td>Fri, August 05, 2022 00:00 AM</td>
+<td>Fri, August 05, 2022 00:00 AM</td>
+<td>Awaritse</td>
+<td>183.00</td>
+<td>REHDOR LOGISTICS SOLUTION</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MILAN</td>
+<td>Thu, August 04, 2022 00:00 AM</td>
+<td>Thu, August 04, 2022 00:00 AM</td>
+<td>Koko Port</td>
+<td>81.30</td>
+<td>AWESOME</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IGBINOSA</td>
+<td>Wed, August 03, 2022 00:00 AM</td>
+<td>Wed, August 03, 2022 00:00 AM</td>
+<td>Jones Creek</td>
+<td>182.94</td>
+<td>ADMIRAL MARINE SHIPPING NIGERIA LIMITED</td>
+ <td></td>
+<td></td>
+</tr>
+<tr>
+<td>BORA</td>
+<td>Wed, August 03, 2022 00:00 AM</td>
+<td>Wed, August 03, 2022 00:00 AM</td>
+<td>PARKER JETTY</td>
+<td>183.21</td>
+<td>WHITE WATERS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KEONAMEX VICTORY</td>
+<td>Wed, August 03, 2022 00:00 AM</td>
+<td>Wed, August 03, 2022 00:00 AM</td>
+<td>Pinnacle</td>
+<td>186.00</td>
+<td>VUCO</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>COMMON VENTURE</td>
+<td>Tue, August 02, 2022 00:00 AM</td>
+<td>Tue, August 02, 2022 00:00 AM</td>
+<td>Berth 1A</td>
+<td>189.99</td>
+<td>ALLISON SHIPPING AGENCY LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ABIOLA</td>
+<td>Tue, August 02, 2022 00:00 AM</td>
+<td>Tue, August 02, 2022 00:00 AM</td>
+<td>Jones Creek</td>
+<td>182.94</td>
+<td>OCEAN AND PORT MARINE LOGISTICS LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ST WALGA</td>
+<td>Sun, July 31, 2022 00:00 AM</td>
+<td>Sun, July 31, 2022 00:00 AM</td>
+<td>AYM SHAFA</td>
+<td>175.00</td>
+<td>AIS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VARDAR</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>Pinnacle</td>
+<td>176.00</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+
+<td>ST ZEEZEE</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>Taurus Jetty</td>
+<td>175.95</td>
+<td>KACH</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAESTRO</td>
+<td>Fri, July 29, 2022 00:00 AM</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>Nepal</td>
+<td>149.30</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KINGIS</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>Jones Creek</td>
+<td>183.97</td>
+<td>OCEAN AND PORT MARINE LOGISTICS LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MATRIX S. ILU</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>Sat, July 30, 2022 00:00 AM</td>
+<td>MATRIX Jetty</td>
+<td>176.00</td>
+<td>TERA SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CAPT GREGORY</td>
+<td>Fri, July 29, 2022 00:00 AM</td>
+<td>Fri, July 29, 2022 00:00 AM</td>
+<td>Koko Port</td>
+<td>179.82</td>
+<td>EGERTON RESOURCES LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IGBINOSA</td>
+<td>Thu, July 28, 2022 00:00 AM</td>
+<td>Thu, July 28, 2022 00:00 AM</td>
+<td>Jones Creek</td>
+<td>182.94</td>
+<td>ADMIRAL MARINE SHIPPING NIGERIA LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>JANE ASPHALT</td>
+<td>Thu, July 28, 2022 00:00 AM</td>
+<td>Thu, July 28, 2022 00:00 AM</td>
+<td>Berth 4A</td>
+<td>101.00</td>
+<td>MARVELLOUS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>COROMEL</td>
+<td>Thu, July 28, 2022 00:00 AM</td>
+<td>Thu, July 28, 2022 00:00 AM</td>
+<td>Taurus Jetty</td>
+<td>140.95</td>
+<td>OCEAN AND PORT MARINE LOGISTICS LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LAPEROUSE</td>
+<td>Wed, July 27, 2022 00:00 AM</td>
+<td>Wed, July 27, 2022 00:00 AM</td>
+<td>Prudent</td>
+<td>154.17</td>
+<td>INTEGRATED SHIPPING SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>JETTE THERESA</td>
+<td>Wed, July 27, 2022 00:00 AM</td>
+<td>Wed, July 27, 2022 00:00 AM</td>
+<td>Total (Nig.) Ltd Koko Jetty</td>
+<td>129.60</td>
+<td>SUPERMARTIME NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BISKRA</td>
+<td>Wed, July 27, 2022 00:00 AM</td>
+<td>Wed, July 27, 2022 00:00 AM</td>
+<td>Ringardas 1</td>
+<td>135.00</td>
+<td>SUPERMARTIME NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ABIOLA</td>
+<td>Tue, July 26, 2022 00:00 AM</td>
+<td>Tue, July 26, 2022 00:00 AM</td>
+<td>Jones Creek</td>
+<td>182.94</td>
+<td>OCEAN AND PORT MARINE LOGISTICS LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VECTIS CASTLE</td>
+<td>Tue, July 26, 2022 00:00 AM</td>
+<td>Tue, July 26, 2022 00:00 AM</td>
+<td>CANAL BERTH 1</td>
+<td>123.95</td>
+<td>INTERSERVE NIG LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LEVANTO</td>
+<td>Mon, July 25, 2022 00:00 AM</td>
+<td>Mon, July 25, 2022 00:00 AM</td>
+<td>Rainoil</td>
+<td>140.00</td>
+<td>THE HAVILAH</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BEAUMONT</td>
+<td>Fri, July 22, 2022 00:00 AM</td>
+<td>Sun, July 24, 2022 00:00 AM</td>
+<td>Taurus Jetty</td>
+<td>140.95</td>
+<td>KACH</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MOSUNMOLA</td>
+<td>Sun, July 24, 2022 00:00 AM</td>
+<td>Sun, July 24, 2022 00:00 AM</td>
+<td>Prudent</td>
+<td>144.05</td>
+<td>INTEGRATED SHIPPING SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KOWIE</td>
+<td>Sat, July 23, 2022 00:00 AM</td>
+<td>Sat, July 23, 2022 00:00 AM</td>
+<td>Koko Port</td>
+<td>144.00</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IGBINOSA</td>
+<td>Sat, July 23, 2022 00:00 AM</td>
+<td>Sat, July 23, 2022 00:00 AM</td>
+<td>Jones Creek</td>
+<td>182.94</td>
+<td>ADMIRAL MARINE SHIPPING NIGERIA LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MT CRAMER</td>
+<td>Fri, July 22, 2022 00:00 AM</td>
+<td>Fri, July 22, 2022 00:00 AM</td>
+<td>Fradro</td>
+<td>140.00</td>
+<td>AMCO</td>
+<td></td>
+<td></td>
+</tr>
+ <tr>
+<td>GRAND DIONYSUS</td>
+<td>Fri, July 22, 2022 00:00 AM</td>
+<td>Fri, July 22, 2022 00:00 AM</td>
+<td>CANAL BERTH 1</td>
+<td>189.95</td>
+<td>ALRAINE</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KEONAMEX VICTORY</td>
+<td>Fri, July 22, 2022 00:00 AM</td>
+<td>Fri, July 22, 2022 00:00 AM</td>
+<td>Pinnacle</td>
+<td>186.00</td>
+<td>VUCO</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ABIOLA</td>
+<td>Fri, July 22, 2022 00:00 AM</td>
+<td>Fri, July 22, 2022 00:00 AM</td>
+<td>Jones Creek</td>
+<td>182.94</td>
+<td>OPML</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MATRIX S. ILU</td>
+<td>Thu, July 21, 2022 00:00 AM</td>
+<td>Thu, July 21, 2022 00:00 AM</td>
+<td>MATRIX Jetty</td>
+<td>176.00</td>
+<td>TERA SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KINGIS</td>
+<td>Thu, July 21, 2022 00:00 AM</td>
+<td>Thu, July 21, 2022 00:00 AM</td>
+<td>Jones Creek</td>
+<td>183.97</td>
+<td>OCEAN AND PORT MARINE LOGISTICS LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VARDAR</td>
+<td>Wed, July 20, 2022 00:00 AM</td>
+<td>Wed, July 20, 2022 00:00 AM</td>
+<td>AYM SHAFA</td>
+<td>176.00</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ST ZEEZEE</td>
+<td>Wed, July 20, 2022 00:00 AM</td>
+ <td>Wed, July 20, 2022 00:00 AM</td>
+<td>Taurus Jetty</td>
+<td>175.95</td>
+<td>INTEGRATED SHIPPING SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TATIANA ESTELLA</td>
+<td>Wed, July 20, 2022 00:00 AM</td>
+<td>Wed, July 20, 2022 00:00 AM</td>
+<td>Koko Port</td>
+<td>58.70</td>
+<td>PINAPAT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MATRIX PRIDE</td>
+<td>Tue, July 19, 2022 00:00 AM</td>
+<td>Tue, July 19, 2022 00:00 AM</td>
+<td>MATRIX Jetty</td>
+<td>176.00</td>
+<td>TERA SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RISER ANNE</td>
+<td>Tue, July 19, 2022 00:00 AM</td>
+<td>Tue, July 19, 2022 00:00 AM</td>
+<td>Koko Port</td>
+<td>81.00</td>
+<td>AKATHON</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SL AREMU</td>
+<td>Mon, July 18, 2022 00:00 AM</td>
+<td>Mon, July 18, 2022 00:00 AM</td>
+<td>Cybernectics Ocean Terminal</td>
+<td>176.00</td>
+<td>INTEGRATED SHIPPING SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DIDDI</td>
+<td>Sun, July 17, 2022 00:00 AM</td>
+<td>Sun, July 17, 2022 00:00 AM</td>
+<td>Fradro</td>
+<td>182.94</td>
+<td>WHITE WATERS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ST AMRAH</td>
+<td>Sat, July 16, 2022 00:00 AM</td>
+<td>Sat, July 16, 2022 00:00 AM</td>
+<td>MATRIX Jetty</td>
+<td>183.00</td>
+ <td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ST WALGA</td>
+<td>Sat, July 16, 2022 00:00 AM</td>
+<td>Sat, July 16, 2022 00:00 AM</td>
+<td>Pinnacle</td>
+<td>175.00</td>
+<td>AMCO</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ST ILHAAM</td>
+<td>Sat, July 16, 2022 00:00 AM</td>
+<td>Sat, July 16, 2022 00:00 AM</td>
+<td>Rainoil</td>
+<td>180.00</td>
+<td>FOUNTAIN</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IGBINOSA</td>
+<td>Fri, July 15, 2022 00:00 AM</td>
+<td>Fri, July 15, 2022 00:00 AM</td>
+<td>Jones Creek</td>
+<td>182.94</td>
+<td>ADMIRAL MARINE SHIPPING NIGERIA LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MATRIX ASA</td>
+<td>Thu, July 14, 2022 00:00 AM</td>
+<td>Thu, July 14, 2022 00:00 AM</td>
+<td>MATRIX Jetty</td>
+<td>183.24</td>
+<td>TERA SHIPPING LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OZICHUKWU</td>
+<td>Thu, July 14, 2022 00:00 AM</td>
+<td>Thu, July 14, 2022 00:00 AM</td>
+<td>Jones Creek</td>
+<td>182.85</td>
+<td>ADMIRAL</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SEA HERO</td>
+<td>Sun, July 10, 2022 00:00 AM</td>
+<td>Wed, July 13, 2022 00:00 AM</td>
+<td>CANAL BERTH 1</td>
+<td>169.03</td>
+<td>HULL BLYTH</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+
+<td>MT THOR</td>
+<td>Wed, July 13, 2022 00:00 AM</td>
+<td>Wed, July 13, 2022 00:00 AM</td>
+<td>BOB &amp; CIL JETTY</td>
+<td>96.20</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="OnnePort3" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Onne3" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">ETD</th>
+<th data-priority="3">Departure Date</th>
+<th data-priority="4">Berth</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo<br><sub class="alert-danger">(Export)</sub></th>
+<th data-priority="8">Tonnage<br><sub class="alert-danger">(Export)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LNG RIVER ORASHI</td>
+<td>Sun, August 07, 2022 18:09 PM</td>
+<td>Sun, August 07, 2022 18:30 PM</td>
+<td>LNG JETTY 1</td>
+<td>285.48</td>
+<td>COMET SHIPPING SERVICES</td>
+<td>LNG</td>
+<td>63327MTS</td>
+</tr>
+<tr>
+<td>COMMON VENTURE</td>
+<td>Sun, August 07, 2022 14:27 PM</td>
+<td>Sun, August 07, 2022 14:28 PM</td>
+<td>OIS/INDORAMA</td>
+<td>189.99</td>
+<td>VICVEN</td>
+<td>BULK UREA</td>
+<td>42109MTS</td>
+</tr>
+<tr>
+<td>ALFRED TEMILE</td>
+<td>Sun, August 07, 2022 06:05 AM</td>
+<td>Sun, August 07, 2022 07:07 AM</td>
+<td>LNG JETTY 2</td>
+<td>160.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+ <td>BUTANE</td>
+<td>12976MTS</td>
+</tr>
+<tr>
+<td>AS SELINA</td>
+<td>Sat, August 06, 2022 10:24 AM</td>
+<td>Sat, August 06, 2022 09:55 AM</td>
+<td>Berth 7</td>
+<td>175.00</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAERSK VALPARAISO</td>
+<td>Fri, July 29, 2022 09:20 AM</td>
+<td>Sat, August 06, 2022 09:30 AM</td>
+<td>Berth 8</td>
+<td>176.00</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FLEX RAINBOW</td>
+<td>Sat, August 06, 2022 23:50 PM</td>
+<td>Sat, August 06, 2022 05:25 AM</td>
+<td>LNG JETTY 2</td>
+<td>293.00</td>
+<td>GAC SHIPPING NIG. LTD</td>
+<td>LNG</td>
+<td>63262MTS</td>
+</tr>
+<tr>
+<td>LNG ENUGU</td>
+<td>Thu, August 04, 2022 19:45 PM</td>
+<td>Thu, August 04, 2022 22:46 PM</td>
+<td>LNG JETTY 2</td>
+<td>285.48</td>
+<td>COMET</td>
+<td>LNG</td>
+<td>66000MTS</td>
+</tr>
+<tr>
+<td>LNG RIVER NIGER</td>
+<td>Wed, August 03, 2022 20:14 PM</td>
+<td>Wed, August 03, 2022 23:20 PM</td>
+<td>LNG JETTY 2</td>
+<td>288.74</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>LNG</td>
+<td>66000MTS</td>
+</tr>
+<tr>
+<td>MSC AUGUSTA</td>
+<td>Tue, August 02, 2022 16:28 PM</td>
+<td>Wed, August 03, 2022 15:10 PM</td>
+<td>Berth 9</td>
+<td>187.38</td>
+<td>MEDITERRANEAN SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+ <tr>
+<td>KOTA SEMPENA</td>
+<td>Thu, August 04, 2022 09:41 AM</td>
+<td>Wed, August 03, 2022 13:50 PM</td>
+<td>Berth 10</td>
+<td>228.00</td>
+<td>PIL NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HALIMA</td>
+<td>Fri, July 29, 2022 08:43 AM</td>
+<td>Tue, August 02, 2022 15:11 PM</td>
+<td>Berth 4</td>
+<td>176.00</td>
+<td>PEAK SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAERSK CAPE TOWN</td>
+<td>Sun, July 31, 2022 15:01 PM</td>
+<td>Tue, August 02, 2022 14:32 PM</td>
+<td>Berth 7</td>
+<td>249.12</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LNG LOKOJA</td>
+<td>Tue, August 02, 2022 09:30 AM</td>
+<td>Mon, August 01, 2022 22:08 PM</td>
+<td>LNG JETTY 2</td>
+<td>288.20</td>
+<td>COMET SHIPPING SERVICES</td>
+<td>LNG</td>
+<td>63000MTS</td>
+</tr>
+<tr>
+<td>GH PARKS</td>
+<td>Sun, July 31, 2022 22:21 PM</td>
+<td>Sun, July 31, 2022 23:35 PM</td>
+<td>LNG JETTY 1</td>
+<td>183.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>CONDY</td>
+<td>29004MTS</td>
+</tr>
+<tr>
+<td>VECTIS CASTLE</td>
+<td>Sun, July 31, 2022 15:58 PM</td>
+<td>Sun, July 31, 2022 10:36 AM</td>
+<td>Berth 1A</td>
+<td>123.95</td>
+<td>INTERSERVE NIG LIMITED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MYRINA</td>
+ <td>Sat, July 30, 2022 20:50 PM</td>
+<td>Sun, July 31, 2022 07:06 AM</td>
+<td>LNG JETTY 2</td>
+<td>295.00</td>
+<td>GAC SHIPPING NIG. LTD</td>
+<td>LNG</td>
+<td>63141MTS</td>
+</tr>
+<tr>
+<td>ROSE MARY</td>
+<td>Fri, July 29, 2022 08:28 AM</td>
+<td>Sat, July 30, 2022 12:20 PM</td>
+<td>Berth 1</td>
+<td>120.55</td>
+<td>BMS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LNG CROSS RIVER</td>
+<td>Sat, July 30, 2022 22:46 PM</td>
+<td>Sat, July 30, 2022 12:02 PM</td>
+<td>LNG JETTY 1</td>
+<td>288.74</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>LNG</td>
+<td>63845MTS</td>
+</tr>
+<tr>
+<td>COSCO FUZHOU</td>
+<td>Sat, July 30, 2022 15:25 PM</td>
+<td>Fri, July 29, 2022 15:50 PM</td>
+<td>Berth 7</td>
+<td>230.90</td>
+<td>COMET SHIPPING SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SEA HONOR</td>
+<td>Mon, July 18, 2022 09:03 AM</td>
+<td>Fri, July 29, 2022 09:50 AM</td>
+<td>Berth 10</td>
+<td>177.00</td>
+<td>ALRAINE</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GASLOG GIBRALTAR</td>
+<td>Fri, July 29, 2022 02:15 AM</td>
+<td>Fri, July 29, 2022 02:16 AM</td>
+<td>LNG JETTY 1</td>
+<td>291.08</td>
+<td>GAC SHIPPING NIG. LTD</td>
+<td>LNG</td>
+<td>63265MTS</td>
+</tr>
+<tr>
+<td>ALFRED TEMILE</td>
+<td>Thu, July 28, 2022 17:24 PM</td>
+<td>Thu, July 28, 2022 17:26 PM</td>
+<td>LNG JETTY 2</td>
+<td>160.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>BUTANE</td>
+<td>13000MTS</td>
+</tr>
+<tr>
+<td>MV GREAT VENTURE</td>
+<td>Wed, July 27, 2022 09:17 AM</td>
+<td>Thu, July 28, 2022 08:40 AM</td>
+<td>OIS/INDORAMA</td>
+<td>200.00</td>
+<td>VICVEN</td>
+<td>BULK UREA</td>
+<td>42431MTS</td>
+</tr>
+<tr>
+<td>LNG LAGOS</td>
+<td>Wed, July 27, 2022 20:18 PM</td>
+<td>Wed, July 27, 2022 23:27 PM</td>
+<td>LNG JETTY 1</td>
+<td>275.01</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>LNG</td>
+<td>77000MTS</td>
+</tr>
+<tr>
+<td>KOTA SEJATI</td>
+<td>Wed, July 27, 2022 09:38 AM</td>
+<td>Wed, July 27, 2022 14:30 PM</td>
+<td>Berth 9</td>
+<td>228.00</td>
+<td>PIL NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GASLOG SALEM</td>
+<td>Mon, July 25, 2022 14:15 PM</td>
+<td>Mon, July 25, 2022 22:20 PM</td>
+<td>LNG JETTY 2</td>
+<td>285.12</td>
+<td>GAC SHIPPING NIG. LTD</td>
+<td>LNG</td>
+<td>75000MTS</td>
+</tr>
+<tr>
+<td>MSC AUGUSTA</td>
+<td>Mon, July 25, 2022 10:55 AM</td>
+<td>Mon, July 25, 2022 12:30 PM</td>
+<td>Berth 9</td>
+<td>187.38</td>
+<td>MEDITERRANEAN SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LIBERTY ISLAND</td>
+<td>Sun, July 24, 2022 17:59 PM</td>
+<td>Mon, July 25, 2022 11:30 AM</td>
+<td>OIS/INDORAMA</td>
+<td>190.00</td>
+ <td>VICVEN</td>
+<td>BULK UREA</td>
+<td>40912MTS</td>
+</tr>
+<tr>
+<td>KMARIN ATLANTICA</td>
+<td>Mon, July 25, 2022 09:14 AM</td>
+<td>Sun, July 24, 2022 13:45 PM</td>
+<td>Berth 8</td>
+<td>249.97</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LNG BORNO</td>
+<td>Sat, July 23, 2022 22:45 PM</td>
+<td>Sat, July 23, 2022 19:05 PM</td>
+<td>LNG JETTY 1</td>
+<td>285.10</td>
+<td>COMET SHIPPING SERVICES</td>
+<td>LNG</td>
+<td>60989MTS</td>
+</tr>
+<tr>
+<td>JETTE THERESA</td>
+<td>Sat, July 23, 2022 10:15 AM</td>
+<td>Sat, July 23, 2022 10:15 AM</td>
+<td>Berth 1</td>
+<td>129.60</td>
+<td>SUPERMARTIME NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BSL ELSA</td>
+<td>Sat, July 23, 2022 22:41 PM</td>
+<td>Sat, July 23, 2022 06:20 AM</td>
+<td>LNG JETTY 2</td>
+<td>183.31</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>CONDY</td>
+<td>29076MTS</td>
+</tr>
+<tr>
+<td>LNG IMO</td>
+<td>Fri, July 22, 2022 17:35 PM</td>
+<td>Sat, July 23, 2022 02:36 AM</td>
+<td>LNG JETTY 2</td>
+<td>288.20</td>
+<td>COMET SHIPPING SERVICES</td>
+<td>LNG</td>
+<td>66000MTS</td>
+</tr>
+<tr>
+<td>MAERSK CAIRO</td>
+<td>Sat, July 23, 2022 10:49 AM</td>
+<td>Fri, July 22, 2022 13:05 PM</td>
+<td>Berth 8</td>
+<td>249.12</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+ </tr>
+<tr>
+<td>MV GREAT VENTURE</td>
+<td>Wed, July 20, 2022 09:00 AM</td>
+<td>Fri, July 22, 2022 08:21 AM</td>
+<td>Berth 6</td>
+<td>200.00</td>
+<td>SAMCHAM HOLDINGS LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LNG SOKOTO</td>
+<td>Thu, July 21, 2022 21:27 PM</td>
+<td>Thu, July 21, 2022 11:29 AM</td>
+<td>LNG JETTY 1</td>
+<td>288.73</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>LNG</td>
+<td>63000MTS</td>
+</tr>
+<tr>
+<td>LNG PORT HARCOURT</td>
+<td>Tue, July 19, 2022 16:45 PM</td>
+<td>Wed, July 20, 2022 16:19 PM</td>
+<td>LNG JETTY 1</td>
+<td>275.01</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>LNG</td>
+<td>66000MTS</td>
+</tr>
+<tr>
+<td>LNG OYO</td>
+<td>Sun, July 17, 2022 23:17 PM</td>
+<td>Mon, July 18, 2022 01:40 AM</td>
+<td>LNG JETTY 1</td>
+<td>285.48</td>
+<td>COMET SHIPPING SERVICES</td>
+<td>LNG</td>
+<td>64643MTS</td>
+</tr>
+<tr>
+<td>ALFRED TEMILE</td>
+<td>Sun, July 17, 2022 17:07 PM</td>
+<td>Sun, July 17, 2022 14:41 PM</td>
+<td>LNG JETTY 2</td>
+<td>160.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>BUTANE</td>
+<td>12519MTS</td>
+</tr>
+<tr>
+<td>MARAN GAS ALEXANDRIA</td>
+<td>Sat, July 16, 2022 20:07 PM</td>
+<td>Sat, July 16, 2022 18:09 PM</td>
+<td>LNG JETTY 2</td>
+<td>289.00</td>
+<td>GAC SHIPPING NIG. LTD</td>
+<td>LNG</td>
+<td>63183MTS</td>
+</tr>
+ <tr>
+<td>MAERSK CABINDA</td>
+<td>Fri, July 15, 2022 09:00 AM</td>
+<td>Sat, July 16, 2022 14:15 PM</td>
+<td>Berth 8</td>
+<td>249.12</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ECO FROST</td>
+<td>Sat, July 16, 2022 09:30 AM</td>
+<td>Sat, July 16, 2022 11:04 AM</td>
+<td>LNG JETTY 2</td>
+<td>160.00</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>PROPANE</td>
+<td>12400MTS</td>
+</tr>
+<tr>
+<td>FAIRPARTNER</td>
+<td>Sun, July 17, 2022 09:58 AM</td>
+<td>Sat, July 16, 2022 10:00 AM</td>
+<td>Berth 1A</td>
+<td>143.00</td>
+<td>RED TRANSPORT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>QOGIR</td>
+<td>Fri, July 15, 2022 10:18 AM</td>
+<td>Fri, July 15, 2022 10:25 AM</td>
+<td>LNG JETTY 1</td>
+<td>293.00</td>
+<td>GAC SHIPPING NIG. LTD</td>
+<td>LNG</td>
+<td>80000MTS</td>
+</tr>
+<tr>
+<td>TRINITY ARROW</td>
+<td>Thu, July 14, 2022 21:08 PM</td>
+<td>Wed, July 13, 2022 06:42 AM</td>
+<td>LNG JETTY 1</td>
+<td>289.93</td>
+<td>FOUNTAIN SHIPPING</td>
+<td>LNG</td>
+<td>63000MTS</td>
+</tr>
+<tr>
+<td>MV WL TOTMA</td>
+<td>Thu, June 23, 2022 10:54 AM</td>
+<td>Tue, July 12, 2022 11:40 AM</td>
+<td>Berth 6</td>
+<td>180.00</td>
+<td>SAMCHAM HOLDINGS LTD.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AS SELINA</td>
+ <td>Tue, July 12, 2022 08:10 AM</td>
+<td>Mon, July 11, 2022 10:10 AM</td>
+<td>Berth 7</td>
+<td>175.00</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KOTA SAHABAT</td>
+<td>Mon, July 11, 2022 09:50 AM</td>
+<td>Mon, July 11, 2022 09:00 AM</td>
+<td>Berth 10</td>
+<td>228.00</td>
+<td>PIL NIG LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HORIZON THETIS</td>
+<td>Mon, July 11, 2022 01:30 AM</td>
+<td>Sun, July 10, 2022 23:50 PM</td>
+<td>LNG JETTY 1</td>
+<td>183.09</td>
+<td>WEST ATLANTIC PORT SERVICES NIG. LTD.</td>
+<td>CONDY</td>
+<td>63179MTS</td>
+</tr>
+<tr>
+<td>MAERSK CHILKA</td>
+<td>Sat, July 09, 2022 23:47 PM</td>
+<td>Sun, July 10, 2022 09:57 AM</td>
+<td>Berth 8</td>
+<td>249.12</td>
+<td>MAERSK NIGERIA LTD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MARAN GAS LETO</td>
+<td>Sat, July 09, 2022 20:37 PM</td>
+<td>Sat, July 09, 2022 20:39 PM</td>
+<td>LNG JETTY 1</td>
+<td>290.00</td>
+<td>GAC SHIPPING NIG. LTD</td>
+<td>LNG</td>
+<td>67936MTS</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="RiversPort3" role="tabpanel">
+<div class="table-responsive m-t-20">
+<div class="card-body">
+<h6 class="card-subtitle">Export data using the buttons below.</h6>
+<table id="Rivers3" class="display table table-hover table-bordered portLocation" cellspacing="0" width="100%">
+<thead style="font-size: 1em; color: white; font-weight: bold; background-color: #26bd4f; ">
+<tr>
+<th data-priority="1">Ship</th>
+<th data-priority="2">ETD</th>
+<th data-priority="3">Departure Date</th>
+ <th data-priority="4">Berth</th>
+<th data-priority="5">Length(M)</th>
+<th data-priority="6">Agent</th>
+<th data-priority="7">Cargo<br><sub class="alert-danger">(Export)</sub></th>
+<th data-priority="8">Tonnage<br><sub class="alert-danger">(Export)</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAPTAIN ADAM</td>
+<td>Mon, August 08, 2022 13:15 PM</td>
+<td>Thu, August 04, 2022 15:29 PM</td>
+<td>Berth 3</td>
+<td>154.00</td>
+<td>OCEAN GLORY</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CLOVER</td>
+<td>Sun, August 07, 2022 12:56 PM</td>
+<td>Wed, August 03, 2022 08:00 AM</td>
+<td>SHORELINK JETTY</td>
+<td>183.05</td>
+<td>FOUNTAIN SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ECO FROST</td>
+<td>Thu, July 14, 2022 12:15 PM</td>
+<td>Fri, July 29, 2022 10:47 AM</td>
+<td>Okrika B OUT</td>
+<td>160.00</td>
+<td>WEST AFRICAN PORTS SERVICES</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ELIANA</td>
+<td>Thu, July 07, 2022 17:11 PM</td>
+<td>Tue, July 26, 2022 10:46 AM</td>
+<td>STOCKGAP A</td>
+<td>155.90</td>
+<td>WAPS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BINNUR C</td>
+<td>Wed, July 06, 2022 12:39 PM</td>
+<td>Wed, July 20, 2022 17:15 PM</td>
+<td>Berth 4</td>
+<td>177.00</td>
+<td>JFDOR</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OWL</td>
+<td>Thu, July 14, 2022 09:21 AM</td>
+<td>Tue, July 19, 2022 10:32 AM</td>
+<td>Berth 2</td>
+<td>189.99</td>
+<td>BLUESTAR</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AYODEJI</td>
+<td>Fri, July 08, 2022 15:19 PM</td>
+<td>Mon, July 18, 2022 10:45 AM</td>
+<td>Master Energy Oil &amp; Gas Ltd</td>
+<td>175.97</td>
+<td>FOUNTAIN SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MV TATIANA P</td>
+<td>Thu, July 07, 2022 09:50 AM</td>
+<td>Fri, July 15, 2022 14:30 PM</td>
+<td>Berth 3</td>
+<td>187.00</td>
+<td>ALLISON SHIPPING</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<footer class="footer text-center">
+&copy; 2022 Nigerian Ports Authority | All Rights Reserved
+</footer>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+
+
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="js/jquery.slimscroll.js"></script>
+
+<script src="js/moment.min.js"></script>
+<script src="js/bootstrap-datetimepicker.js"></script>
+
+
+
+<script src="js/custom.min.js"></script>
+<script src="js/main.js"></script>
+<script src="assets/plugins/datatables/datatables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+
+<script src="js/utils-datatables/dataTables.buttons.min.js"></script>
+<script src="js/utils-datatables/buttons.flash.min.js"></script>
+<script src="js/utils-datatables/jszip.min.js"></script>
+<script src="js/utils-datatables/pdfmake.min.js"></script>
+<script src="js/utils-datatables/vfs_fonts.js"></script>
+<script src="js/utils-datatables/buttons.html5.min.js"></script>
+<script src="js/utils-datatables/buttons.print.min.js"></script>
+
+<script type="text/javascript">
+      function expVessel(){
+
+         event.preventDefault();
+
+         $('#exp').toggle();
+         $('#dpt').hide();
+         $('#bth').hide();
+         $('#awt').hide();
+     }
+   </script>
+<script type="text/javascript">
+     function awtBerth(){
+
+         event.preventDefault();
+
+         $('#awt').toggle();
+         $('#exp').hide();
+         $('#dpt').hide();
+         $('#bth').hide();
+     }
+   </script>
+<script type="text/javascript">
+     function bthVessel(){
+
+         event.preventDefault();
+
+         $('#bth').toggle();
+         $('#exp').hide();
+         $('#dpt').hide();
+         $('#awt').hide();
+     }
+   </script>
+<script type="text/javascript">
+     function dptVessel(){
+
+         event.preventDefault();
+
+         $('#dpt').toggle();
+         $('#exp').hide();
+         $('#bth').hide();
+         $('#awt').hide();
+     }
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"737a64835d9a9c3c","token":"fb485443ade9476a86f48602caf091e2","version":"2022.6.0","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

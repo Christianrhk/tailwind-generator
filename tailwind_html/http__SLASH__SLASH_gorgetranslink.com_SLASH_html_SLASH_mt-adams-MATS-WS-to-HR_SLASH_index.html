@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/timetable_styles.css">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lodash@4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlaG9sem1hbiIsImEiOiJjazA1cHc0bGwyc25zM29xZGptdnJ3N2FlIn0.c6NVNxyMLyAONXtQtpUjyg';
+  </script>
+  <script src="js/system-map.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mx-4 h-screen items-stretch md:mx-auto md:flex">
+    <div class="overview-list flex-none md:overflow-y-scroll">
+      <h1 class="text-2xl pt-4 pb-2">REPLACEME Routes</h1><a class="overview-menu-item mb-3" href="20210628-20210728/240bfb7811111000_mats_0_mon-fri.html" data-route-ids="240bfb78">
+        <div class="text-lg text-gray-800 leading-none">Route MATS</div>
+        <div class="flex my-1">
+          <div class="route-color-swatch flex-none mr-2" style="background-color: #005BAA; color: #ffffff;">MATS</div>
+          <div class="mt-1 text-gray-600 leading-none">White Salmon to Hood River, 7.1.21</div>
+        </div>
+        <div class="text-gray-600">Mon-Fri</div>
+      </a>
+    </div>
+    <div class="map ml-4 h-full w-full" id="system_map"></div>
+    <script>
+      (function() {
+        var geojson = {
+          "type": "FeatureCollection",
+          "features": [{
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.4807, 45.72907],
+                [-121.48098, 45.72907],
+                [-121.48098, 45.72894],
+                [-121.48045, 45.72894],
+                [-121.48046, 45.72918],
+                [-121.48044, 45.72924],
+                [-121.48014, 45.72967],
+                [-121.48013, 45.72975],
+                [-121.48663, 45.72975],
+                [-121.48665, 45.7283],
+                [-121.48667, 45.72797],
+                [-121.48672, 45.72777],
+                [-121.48648, 45.72773],
+                [-121.48505, 45.72737],
+                [-121.48409, 45.72715],
+                [-121.4829, 45.72692],
+                [-121.48201, 45.72673],
+                [-121.48184, 45.72668],
+                [-121.48143, 45.72651],
+                [-121.47602, 45.72395],
+                [-121.47572, 45.72378],
+                [-121.47389, 45.72261],
+                [-121.47263, 45.72165],
+                [-121.47177, 45.72111],
+                [-121.47142, 45.72097],
+                [-121.471, 45.72083],
+                [-121.47042, 45.72067],
+                [-121.46932, 45.72033],
+                [-121.46886, 45.72015],
+                [-121.46832, 45.71992],
+                [-121.46759, 45.71957],
+                [-121.46718, 45.71934],
+                [-121.46697, 45.71919],
+                [-121.46676, 45.719],
+                [-121.46661, 45.71884],
+                [-121.46577, 45.7176],
+                [-121.46522, 45.7169],
+                [-121.46514, 45.71666],
+                [-121.46517, 45.71649],
+                [-121.46646, 45.7148],
+                [-121.46532, 45.71437],
+                [-121.46627, 45.71315],
+                [-121.46636, 45.71295],
+                [-121.46641, 45.71248],
+                [-121.46172, 45.71174],
+                [-121.46077, 45.71156],
+                [-121.46039, 45.71146],
+                [-121.46, 45.71132],
+                [-121.45915, 45.71099],
+                [-121.45857, 45.71073],
+                [-121.45869, 45.71055],
+                [-121.45878, 45.71038],
+                [-121.45966, 45.70729],
+                [-121.45888, 45.70712],
+                [-121.45935, 45.70606],
+                [-121.45935, 45.70601],
+                [-121.45929, 45.70595]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.45911, 45.70922],
+                [-121.45896, 45.70972]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.46627, 45.71315],
+                [-121.46619, 45.71325]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.46549, 45.71443],
+                [-121.46634, 45.71475]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.46646, 45.7148],
+                [-121.46969, 45.716],
+                [-121.47031, 45.71631],
+                [-121.47101, 45.71672],
+                [-121.47461, 45.71909],
+                [-121.47533, 45.71953],
+                [-121.47605, 45.71987],
+                [-121.47701, 45.72023],
+                [-121.47803, 45.72059],
+                [-121.47874, 45.72087],
+                [-121.48054, 45.72173],
+                [-121.48272, 45.72249],
+                [-121.48394, 45.72283],
+                [-121.48999, 45.724],
+                [-121.49161, 45.72428],
+                [-121.49171, 45.72406],
+                [-121.49195, 45.7241]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.48999, 45.724],
+                [-121.49015, 45.72341],
+                [-121.49021, 45.72289],
+                [-121.49024, 45.72276],
+                [-121.49032, 45.72259],
+                [-121.49047, 45.72239],
+                [-121.49991, 45.71354],
+                [-121.50089, 45.71264],
+                [-121.50113, 45.71239],
+                [-121.50134, 45.71211],
+                [-121.50152, 45.7118],
+                [-121.50167, 45.71136],
+                [-121.50194, 45.71116],
+                [-121.50285, 45.71079],
+                [-121.5032, 45.7107],
+                [-121.50351, 45.71065],
+                [-121.50391, 45.71061],
+                [-121.50587, 45.71044],
+                [-121.50695, 45.7104],
+                [-121.50793, 45.71039],
+                [-121.50837, 45.71041],
+                [-121.50957, 45.71056],
+                [-121.50993, 45.71064],
+                [-121.51036, 45.71076],
+                [-121.51084, 45.71095],
+                [-121.51122, 45.71118],
+                [-121.51173, 45.71153],
+                [-121.51189, 45.71159],
+                [-121.51211, 45.71162],
+                [-121.51227, 45.71162],
+                [-121.51227, 45.7117],
+                [-121.51233, 45.71203],
+                [-121.51241, 45.71215],
+                [-121.51271, 45.71239],
+                [-121.51298, 45.71254],
+                [-121.51282, 45.71268],
+                [-121.5127, 45.71274],
+                [-121.51253, 45.71278],
+                [-121.51171, 45.71277],
+                [-121.51171, 45.71239],
+                [-121.51156, 45.71239],
+                [-121.51154, 45.71277],
+                [-121.51171, 45.71277]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.51227, 45.71162],
+                [-121.51229, 45.70957],
+                [-121.51395, 45.70959],
+                [-121.51639, 45.70959],
+                [-121.51733, 45.70956],
+                [-121.51734, 45.71052],
+                [-121.51736, 45.71058],
+                [-121.51753, 45.7107],
+                [-121.5184, 45.71092],
+                [-121.51984, 45.71124],
+                [-121.52118, 45.7115],
+                [-121.52156, 45.71154],
+                [-121.52218, 45.71155],
+                [-121.5224, 45.71153],
+                [-121.5246, 45.71147],
+                [-121.53084, 45.71148],
+                [-121.53129, 45.71145],
+                [-121.53176, 45.71137],
+                [-121.53317, 45.71107],
+                [-121.53356, 45.71102],
+                [-121.53513, 45.71101],
+                [-121.53513, 45.71132],
+                [-121.53526, 45.71166],
+                [-121.53534, 45.71168],
+                [-121.5364, 45.71169],
+                [-121.5365, 45.71168],
+                [-121.53655, 45.71162],
+                [-121.53653, 45.71101],
+                [-121.537, 45.711],
+                [-121.53766, 45.71103],
+                [-121.53791, 45.71109],
+                [-121.53809, 45.71111],
+                [-121.53833, 45.7111],
+                [-121.53854, 45.71107],
+                [-121.53907, 45.71097],
+                [-121.53906, 45.7106],
+                [-121.54037, 45.71082],
+                [-121.54063, 45.71085],
+                [-121.5413, 45.71088],
+                [-121.54395, 45.71079],
+                [-121.5464, 45.7105],
+                [-121.5469, 45.71046],
+                [-121.54744, 45.71047],
+                [-121.54785, 45.71052],
+                [-121.54943, 45.71085],
+                [-121.54949, 45.71097],
+                [-121.54948, 45.71105],
+                [-121.54943, 45.71115],
+                [-121.5486, 45.7114],
+                [-121.54692, 45.7118],
+                [-121.54493, 45.71219],
+                [-121.54296, 45.7124],
+                [-121.54123, 45.71248],
+                [-121.53399, 45.71262],
+                [-121.53273, 45.71266],
+                [-121.53017, 45.71269],
+                [-121.52331, 45.71285],
+                [-121.52183, 45.71285],
+                [-121.5207, 45.7128],
+                [-121.51953, 45.71268],
+                [-121.51795, 45.71236],
+                [-121.51378, 45.71128],
+                [-121.51287, 45.71103],
+                [-121.51193, 45.7108],
+                [-121.51028, 45.71048],
+                [-121.50979, 45.71041],
+                [-121.50888, 45.71032],
+                [-121.50837, 45.7103],
+                [-121.50695, 45.71029],
+                [-121.5057, 45.71034],
+                [-121.50436, 45.71031],
+                [-121.50173, 45.71022],
+                [-121.50171, 45.71111],
+                [-121.50167, 45.71136]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.49395, 45.71913],
+                [-121.49047, 45.72239]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.4704, 45.71636],
+                [-121.46979, 45.71605]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.46969, 45.716],
+                [-121.46997, 45.71565],
+                [-121.46782, 45.71485],
+                [-121.46755, 45.7152]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.46539, 45.71429],
+                [-121.46561, 45.71399]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.46579, 45.71378],
+                [-121.46619, 45.71325]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.46638, 45.71281],
+                [-121.46641, 45.71248]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.46483, 45.71223],
+                [-121.46172, 45.71174]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.45915, 45.71099],
+                [-121.45866, 45.71077]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.45914, 45.7091],
+                [-121.45966, 45.70729]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.45893, 45.707],
+                [-121.45901, 45.70682]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.45888, 45.70712],
+                [-121.45966, 45.70729],
+                [-121.45914, 45.7091]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.45869, 45.71055],
+                [-121.45865, 45.71061]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.46125, 45.71166],
+                [-121.46172, 45.71174]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.46532, 45.71437],
+                [-121.46103, 45.71277],
+                [-121.45995, 45.71236],
+                [-121.45883, 45.71191],
+                [-121.45816, 45.71157],
+                [-121.45706, 45.71095]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.46103, 45.71277],
+                [-121.46052, 45.71341],
+                [-121.46597, 45.71545],
+                [-121.46548, 45.71608]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.47226, 45.72141],
+                [-121.47237, 45.72148]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.47874, 45.72524],
+                [-121.47914, 45.72543]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.48409, 45.72715],
+                [-121.48405, 45.72934],
+                [-121.48402, 45.72976]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.48394, 45.72976],
+                [-121.48343, 45.72976]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.48073, 45.72975],
+                [-121.48013, 45.72975]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.48014, 45.72967],
+                [-121.48044, 45.72924]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "240bfb78",
+              "agency_id": "1",
+              "route_short_name": "MATS",
+              "route_long_name": "White Salmon to Hood River, 7.1.21",
+              "route_type": 3,
+              "route_color": "#005BAA",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.48045, 45.72907],
+                [-121.48068, 45.72907]
+              ]
+            }
+          }]
+        };
+        createSystemMap('system_map', geojson);
+      })();
+    </script>
+  </div>
+</body>
+
+</html>

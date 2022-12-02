@@ -1,0 +1,759 @@
+<style>@media (max-width:1024px){ .explanation{display: none;}}
+		.quick-finds a,.quick-finds select,.quick-finds option {background: #174C95;border: 2px outset #2462B6;border-radius: 10px;color: white;cursor: pointer;font: bold 13px Tahoma;margin: 0 10px;padding: 5px 10px;text-decoration: none;width: 80%;}</style><!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<style>
+		/* Preloader - Using inline css instead of importing GIF file */
+
+		#preloader {
+			position:fixed;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			padding-top: 45vh;
+			background-color: #fff; /* change if the mask should have another color then white */
+			z-index:999; /* makes sure it stays on top */
+		}
+
+		#status {
+			width:200px;
+			height:200px;
+			position:absolute;
+			left:50%; /* centers the loading animation horizontally one the screen */
+			top:50%; /* centers the loading animation vertically one the screen */
+		}
+
+		.loader {
+			width: 8px;
+			height: 40px;
+			border-radius: 4px;
+			display: block;
+			margin: 20px auto;
+			position: relative;
+			background: currentColor;
+			color: #CD5C5C;
+			box-sizing: border-box;
+			animation: animloader 0.3s 0.3s linear infinite alternate;
+		}
+
+		.loader::after, .loader::before {
+			content: '';
+			width: 8px;
+			height: 40px;
+			border-radius: 4px;
+			background: currentColor;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 20px;
+			box-sizing: border-box;
+			animation: animloader 0.3s  0.45s  linear infinite alternate;
+		}
+
+		.loader::before {
+			left: -20px;
+			animation-delay: 0s;
+		}
+
+		@keyframes animloader {
+			0%   { height: 48px}
+			100% { height: 4px}
+		}
+	</style>
+
+	<script>
+		localStorage.setItem("checkDetailes","CE You LLC<br>\r\n3202 Bonnie Road<br>\r\nBaltimore, MD 21208");
+		localStorage.setItem("paypalDetailes","For other methods of payment, please contact support@ceyouplus.org.");
+	</script>
+
+	<script  type="text/javascript">
+		var $_ = (css, arr = false, parent = document) => css.nodeType ? css
+			: (arr ? [...$_(parent).querySelectorAll(css)] : $_(parent).querySelector(css));
+	</script>
+		<meta property='og:title' content='CeYou! Plus!'>
+	<meta property='og:type' content='website'>
+	<meta property='og:url' content='https://ceyouplus.org/webinar_mhc'>
+	<meta property='og:site_name' content='ceyouplus.org'>
+	<meta property='og:image' content='https://ceyouplus.org/assets/img/icons/ce_you.jpg'>
+	<meta property='og:description' content=''>
+	
+
+	<div id="preloader">
+		<span class="loader status"></span>
+	</div>
+
+<!-- <!DOCTYPE html> -->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <!-- <head> -->
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Description" content="" />
+	<base href="https://ceyouplus.org/">
+	<link rel="shortcut icon" href="/img/favicon-ce.ico" type="image/vnd.microsoft.icon" />
+	<title>CEYou</title>
+
+	<!-- Open Graph Properties -->
+	<meta property='og:title' content='CeYou! Plus!'>
+	<meta property='og:type' content='website'>
+	<meta property='og:url' content='https://ceyouplus.org/webinar_mhc'>
+	<meta property='og:site_name' content='ceyouplus.org'>
+	<meta property='og:image' content='https://ceyouplus.org/assets/img/icons/ce_you.jpg'>
+	<meta property='og:description' content=''>
+	    <meta property="fb:app_id" content="1640808992795734">
+        <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
+        <meta http-equiv='cache-control' content='no-cache'>
+        <meta http-equiv='expires' content='0'>
+        <meta http-equiv='pragma' content='no-cache'>
+        <script type="text/javascript">var $j = jQuery.noConflict();</script>
+
+        	<link type="text/css" rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" media="print" onload="this.media='all'"/>
+			<link rel="stylesheet" type="text/css" href="/client-resources/clients/ceyouplus.org/assets/style.css?v=46161" media="print" onload="this.media='all'"/>
+		
+	<script type="text/javascript" src="/assets/jstimezonedetect/jstz.1.0.4.min.js"></script>
+	<script type="text/javascript" src="bower_components/mootools-core/dist/mootools-core.min.js"></script>
+	<script src="assets/js/script.js?v=4616"></script>
+		<script type="text/javascript" src="/assets/lightface/LightFace.min.js"></script>
+
+	<style>
+.helpnowLnk {
+    text-decoration: underline;
+}
+.mouseOver:hover{
+	font-weight: 400 !important;
+	color: #2462B6 !important;
+}
+.mouseOver{
+	font-family: inherit;
+	font-weight: 200;
+	line-height: 1.1;
+	color: #174C95;
+	font-size: 18.5px;
+}
+.arrow{
+	height: 5px;
+	width: 10px;
+	margin: 10px;
+}
+</style>	<link rel="stylesheet" href="/assets/lightface/LightFace.css" media="print" onload="this.media='all'"/>
+
+	<script type="text/javascript">
+		window.addEvent('domready',function(){
+			var timezone = Cookie.read("jstz_timezone");
+			if (!timezone && window.jstz) {
+				timezone = jstz.determine();
+				timezone = timezone.name();
+				if (timezone == "Asia/Beirut") timezone = "Asia/Jerusalem";
+				Cookie.write("jstz_timezone", timezone, {duration:7});
+			}
+			document.body.addClass(Browser.name+" v"+Browser.version+" "+Browser.platform);
+
+			var tosPopup;
+			if (window.LightFace && true) {
+			    tosPopup = new LightFace.IFrame({
+                    //constrain:true,
+                    width: Math.min.attempt(Object.values(window.getSize()).map(function(n){ return n*.95;})),
+                    height: 600,
+                    url: '/assets/tos/ce.html',
+                    buttons: [
+                        {
+                            title: 'Print',
+                            event: function () {
+                                var tos = $$('.lightface iframe')[0].contentWindow;
+                                tos.focus();
+                                tos.print();
+                            }
+                        },
+                        {
+                            title: 'Close',
+                            event: function () {
+                                this.close();
+                            }
+                        }
+                    ]
+                });
+            }
+			$$('a[href="terms/"]').addEvent('click', function(e){
+				e.stop();
+				var size = window.getSize();
+				tosPopup.options.height = size.y *.9;
+				tosPopup ? tosPopup.open() : window.open('/assets/tos/ce.html',"popup","height=600,width=800,status=1");
+			});
+		});
+	</script>
+
+	
+	<script>window.fb_app_id = '1640808992795734';</script><script>
+	function open_closeDisclosures(e){
+		$$(".opened").removeClass("opened");
+		$(e.target).addClass('opened');
+	}
+
+	var googleAd = ''
+	  , extraTasks = function(){}
+	  , useOMS = false	  , mapInit
+	  , req;
+	function arm(){
+		var loadToId = "filtersContainer";
+		if (!req)
+			req = new Request.HTML(
+				{ link:	"cancel",
+                  update: loadToId,
+                  evalScripts: false,
+                  url:" webinars?ajax=1",
+                  onRequest: function(){
+                    $('directory').tween('opacity',0.5);
+                    openPopup();
+                    var adEl = $('googleAd');
+                    if (adEl) googleAd = adEl.innerHTML || '';
+				}, onSuccess: function(){ arm(); if (useOMS) runOMS(); }
+			});
+
+		$$('#filterContainer a').addEvent('click',function(e){
+			var val = decodeURIComponent(this.get('href')).split('?')[1].split('=');
+			var obj = {};
+			obj[val[0].trim()] = (this.get('text') == 'Reset' ? '' : val[1].trim());
+			req.get(obj);
+			e.stop();
+			});
+		$$('.pgsMenu a').addEvent('click',function(e){
+			var href = decodeURIComponent(this.get('href'));
+			if (!href) return;
+			var arr = href.split('?')[1].split('&');
+			var obj = {};
+			arr.forEach(val=>{
+				var val=val.split('=');
+				obj[val[0].trim()] = val[1].trim();
+			})
+
+			req.get(obj);
+			e.stop();
+			// window.location.href = "directory.php#topMenu";
+			});
+		$$('#filterContainer select').addEvent('change',function(e){
+			var val = this.value
+			  , obj = {};
+			obj[this.name.trim()] = val.trim();
+			req.get(obj);
+			e.stop();
+		});
+		$$('#filterBox input').addEvent('keydown',function(e){
+			if (e.key != "enter") return;
+			var val = [this.get('name'),this.get('value')];
+			var obj = {};
+			obj[val[0].trim()] = val[1].trim();
+			req.get(obj);
+			e.stop();
+			});
+
+		// Search functions
+		$$('#listingSearchVal').addEvent('keydown',function(e){
+			if (e.key != "enter") return;
+			$('listingSearchGo').fireEvent('click');
+		});
+		$$('#listingSearchGo').addEvent('click',function(){
+			var val = $('listingSearchVal').value
+			  , obj = {};
+			const urlParams = new URLSearchParams(window.location.search);
+			const string = urlParams.get('string');
+			const category = urlParams.get('category');
+			obj['string'] = string;
+			obj['category'] = category;
+			obj['search'] = val.trim().replace('(','\\(').replace(')','\\)');
+			obj['searchParam'] = ($$('input[name=listingSearchParam]:checked').map(function(e) { return e.value; }))[0];
+			req.get(obj);
+		});
+		$$('#listingSearchReset').addEvent('click',function(){
+			var obj = {};
+			obj['search'] = '';
+			obj['reset'] = 1;
+			req.get(obj);
+		});
+		// window.history.pushState('', '', '/directory.php');
+		if (googleAd != '') $('googleAd').innerHTML = googleAd;
+
+		var filterBox = $('filterBox');
+		if (filterBox) filterBox.addEvent('click:relay(.expand-button)', function(event, el){
+            el=$(el);
+            var contentDiv = el.getParent().getNext().getFirst();
+            var toggled = el.get('html') != '+';
+            if (toggled == false){
+                el.set('html','-');
+                contentDiv.setStyle('max-height', '110px');
+            }
+            else {
+                el.set('html', '+');
+                contentDiv.setStyle('max-height', '0');
+            }
+
+        });
+
+		Function.attempt(extraTasks);
+		if (useOMS) {
+			var mapContainer = new Element('div#mapContainer.loading',{html:"Click the map to search in that area:"})
+				.adopt(new Element('div#map'));
+						$('filterContainer').adopt(mapContainer);
+
+            if ($('OMSloader')) {
+                $('map').empty();
+                mapContainer.removeClass('loading');
+            }
+            else window.addEvent('load',function(){
+				document.head.adopt(new Element('script[src="assets/js/OpenLayers.js"]',{async:false})
+					.addEvent('load',function(){
+						document.head.adopt(new Element('script[src="assets/js/OMSloader.js"]#OMSloader',{async:false})
+							.addEvent('load',function(){ mapInit = initOMS(); runOMS(); mapContainer.removeClass('loading'); }));
+					}));
+			});
+		}
+
+		var mainSection = $('mainSection');
+		if (!mainSection) mainSection = $('center');
+		if(window.scrollY > mainSection.offsetTop) mainSection.scrollIntoView();
+	}
+	function runOMS() {
+		if (!$('map')) {
+			$('filterContainer').adopt(new Element('div#mapContainer.loading',{html:"Click the map to search in that area:"})
+				.adopt(new Element('div#map')));
+		}
+		$('directory').grab(new Element('input#coord',{type:"hidden",value:""}),"after");
+		if (typeOf(mapInit) == "function") mapInit('map',$('coord').value,12);
+	}
+	window.addEvent('domready',arm);
+
+	// Set function to run on map click
+	function onMapClick(longitude, lattitude) {
+		var obj = {'map': longitude+','+lattitude};
+		req.get(obj);
+	}
+
+	function openPopup() {
+		$('loadingBox').adopt(new Element('div',{
+			'id':"loadingPopup"
+		   ,'style':"border-radius:5px; box-sizing:content-box; position:absolute; padding:5px; height:30px; width:30px; "+
+				"top:130px; left:34%; box-shadow:0 0 6px #333; font-style:italic; z-index:10;"
+		   ,'html':"<img src='assets/img/loading.gif'>"}));
+	}
+
+	// All webinars - Reset search bar.
+    function allWebinars(){
+		var obj = {};
+		obj['search'] = ' ';
+		obj['reset'] = 1;
+		req.get(obj);
+		setTimeout(function(){
+			window.location = 'webinars';
+		},800);
+
+	}
+
+	window.onload = () => {
+		let categoriesBoxes = document.querySelectorAll(".box-1");
+		Array.from(categoriesBoxes).forEach(e => {
+			e.addEventListener('click', (event) => {
+				let a = event.target.querySelector("a");
+				window.location = a.href;
+			});
+		})
+	}
+	function filterbyStateprofession(r) {
+		if($_('.stateFilter').selectedIndex==0 || $_('.professionFilter').selectedIndex==0)return;
+		r.preventDefault()
+		location.href=location.fullpath+'?state='+($_('.stateFilter').value)+'&profession='+($_('.professionFilter').value);
+	}
+	function resetFilters(r) {
+		r.preventDefault()
+		location.href='/webinars/';}
+</script>
+			  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cuprum:400,400italic,700italic,700&#038;subset=latin,latin-ext,cyrillic' type='text/css' media="print" onload="this.media='all'" />
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link media="print" onload="this.media='all'" href='//fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+
+        <link media="print" onload="this.media='all'" rel="stylesheet" href="/template/job-board/css/normalize.css">
+        <link media="print" onload="this.media='all'" rel="stylesheet" href="/template/job-board/css/font-awesome.min.css">
+        <link media="print" onload="this.media='all'" rel="stylesheet" href="/template/job-board/css/fontello.css">
+        <link media="print" onload="this.media='all'" rel="stylesheet" href="/template/job-board/css/animate.css">
+        <link media="print" onload="this.media='all'" rel="stylesheet" href="/template/job-board/css/bootstrap.min.css">
+        <link media="print" onload="this.media='all'" rel="stylesheet" href="/template/job-board/css/owl.carousel.css">
+        <link media="print" onload="this.media='all'" rel="stylesheet" href="/template/job-board/css/owl.theme.css">
+        <link media="print" onload="this.media='all'" rel="stylesheet" href="/template/job-board/css/owl.transitions.css">
+        <link media="print" onload="this.media='all'" rel="stylesheet" href="/template/job-board/main.css?v=4616">
+        <link media="print" onload="this.media='all'" rel="stylesheet" href="/template/job-board/style.css">
+        <link media="print" onload="this.media='all'" rel="stylesheet" href="/template/job-board/responsive.css">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"  >
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+        <script src="/template/job-board/js/wow.js"></script>
+        <script src="/template/job-board/js/owl.carousel.min.js"></script>
+        <script src="/template/job-board/js/plugins.js"></script>
+        <script src="/template/job-board/js/bootstrap.js"></script>
+        <script src="/template/job-board/js/main.js"></script>
+        <style>
+
+        hr{
+            margin: 15px !important;
+        }
+        input, textarea{
+            border: 1px solid lightgray;
+            border-radius: 5px;
+        }
+		.loggedAs {
+			background-color: rgba(0,0,0,1);
+			color: white;
+			width: 100%;
+			padding: 10px 30px;
+			text-align: center;
+			font-size: 20px;
+			font-weight: bold;
+            z-index: 1;
+			display: flex;
+            margin: 4px 0px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+		}
+
+		.loggedAs > a {
+			margin: auto;
+            margin-right: 2px;
+            font-size: 15px;
+            color: #00AEEF !important;
+		}
+
+        .loggedAs > span {
+            font-weight: 300;
+            margin-right: 10px;
+        }
+	</style>
+        <script defer data-domain="ceyouplus.org" src="https://iyar.therapyexpress.com/js/plausible.js" was_src="https://plausible.io/js/plausible.js"></script>
+    </head>
+    <body class="pg_webinar_mhc">
+
+        <!-- Body content -->
+                <div class="header-connect">
+            <div class="container">
+                <div class="row grid grid-cols-5">
+                    <div class="col-md-5 col-sm-8 col-xs-8 col-span-4">
+                        <div class="header-half header-call">
+                            <p>
+                                <span><i class="icon-cloud"></i>631-202-1010</span>
+                                <span><i class="icon-mail"></i><a href="/cdn-cgi/l/email-protection#8ffcfaffffe0fdfbcfeceaf6e0faffe3fafca1e0fde8">Email</a></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="header-half header-social">
+                            <ul class="list-inline grid grid-cols-10">
+                                <li><a href='https://www.facebook.com/CE-You-175741255771257' class='fa fa-facebook'></a></li><li><a href='shopping/cart/' class='fa fa-shopping-cart'></a></li>                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <nav class="navbar navbar-default">
+            <div class="container md:flex max-w-full">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <!-- <button type="button" class="navbar-toggle collapsed relative float-right p-4 mt-4 mr-10 mb-4 bg-gray-200 border-2" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> -->
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    <!-- </button> -->
+                    <a class="navbar-brand" href="#"><img class='pl-32 max-w-lg' src='assets/img/icons/ce_you.jpg' alt='CEYou' /></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse md:flex ml-auto" id="bs-example-navbar-collapse-1">
+                    <ul class="main-nav nav navbar-nav navbar-right md:flex">
+                                                <li class="wow fadeInDown" data-wow-delay="0s"><a class="" href="/">Webinars</a></li>
+                                                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="?accepts=true">Who Accepts our Credits?</a></li>
+                                                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="shopping/cart/">Cart</a></li>
+                                                        <li class="wow fadeInDown" data-wow-delay="0.3s"><a class="" href="feedback.php">Contact</a></li>
+                                                </ul>
+                    <div class="navbar-right md:ml-32 md:-mr-32 ml-0 w-full md:w-auto">
+                                            <a href="/account/?redirect=/webinar_mhc?pg=0&dir=webinar_mhc&dir=webinar_mhc">
+                            <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.8s">Login
+                            </button>
+                        </a>
+                        <a href="/account/?redirect=/webinar_mhc?pg=0&dir=webinar_mhc&dir=webinar_mhc#new_account">
+                            <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.6s">Sign up</button>
+                        </a>
+                                        </div>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+                            <style>
+                    @keyframes down{
+                        0% { margin-top:0px;}
+                        100% { margin-top:20px;}
+                    }
+                    .img-height{
+                        height:260px;
+                        padding:30px;
+                        font-size:40px;
+                    }
+                    .text{
+                        background: rgb(0, 0, 0);
+                        background: rgba(0, 0, 0, 0.2);
+                        animation-name:down;
+                        animation-duration:1s;
+                        animation-delay:2s;
+                        animation-direction: alternate;
+                        animation-iteration-count: 2;
+                    }
+                    .font-wide{
+                        font-size:20px;
+                        padding:50px;
+                    }
+                    @media only screen and (max-width: 600px) {
+                        .img-height {
+                            height: 50px;
+                            font-size:10px;
+                            padding: 4px;
+                        }
+                        .text{
+                            animation: none !important;
+                        }
+                        .font-wide{
+                            font-size:15px;
+                            padding:20px;
+                        }
+                    }
+                </style>
+                <!-- <div style="background-image:url('/assets/img/cyberceyou.png'); background-size: cover; text-align:center; padding:40px;" class="img-height">
+                    <p style="font-weight:bold; width:75%; margin-left:12.5%; color: #f1f1f1;" class="text">
+                        <span class="opacity:1;">Cyber Week! Take 10% off all classes.<br> Your coupon code: thanks </span>
+                    </p>
+                    <a href="#directory"><span style="text-decoration:underline; margin-top:5px; z-index:9999; border-radius:8px; padding:6px; border:none; color: #2975b7;"> Click here to see webinars </span></a>
+                </div> -->
+                <!-- <div style="text-align:center;" class="font-wide">
+                    The Best Deal on CE Credits is now! This week only, 10% off every training! (offer ends December 6, at 11:59 pm)
+                    At checkout use coupon code: thanks and receive 10% off each class and watch your savings add up!
+                    Best of all, we have some great classes coming up!
+                    Happy Holidays and Happy Savings! Scroll Down to Begin!
+                </div> -->
+                    <div class="header-banner bg-purple-700 text-blue-100 font-sans p-5 text-justify">
+                    <div>
+            <h2 >Welcome to CE You! Plus!</h2>
+            <span>
+                <!-- CE You! now brings you additional trainings from around the country to help you get all the CEUs you
+                need, when you need them. You can access live webinars as they are happening and pre-recorded trainings
+                that can be accessed any time of the day or night! -->
+				Access live webinars as they happen and pre-recorded workshops at any time of the day or night!
+			</span>
+            <span>
+                <b>Please note:</b>
+				<!-- CE You! Plus! will require you (and prompt you) to create a new account the first time you sign
+                up for a CE You! Plus! training.
+				For any additional concerns or special accommodations, please email us at support@ceyouplus.org or call (631) 202-1010. -->
+				CE You! Plus! will require & prompt you to create an account the first time you sign up for a CEYou! Plus! training.
+				For any additional concerns or special accommodations, please email us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70030500001f0204301315091f05001c05035e1f0217">[email&#160;protected]</a> or call (631) 202-1010.
+			</span>
+			<span style="margin: 5px auto;">Enjoy!</span><br>
+			<a href="/feedback.php">
+				<button class="navbar-btn nav-button bg-gray-500 px-3 text-white font-bold border-2 border-gray-600 border-double py-1 m-1"  data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: bounceInRight; float: right;"> We are here to help: <span class="__cf_email__" data-cfemail="26555356564954526645435f4953564a535508495441">[email&#160;protected]</span></button>
+			</a>
+        </div>
+                </div>
+
+                <form id="mailingListForm" action="client/maillist_subscribe.php" class="mc-back mc-border ">
+	        <span class="closeForm">X</span>
+	        Enter your email address:
+	        <input type="email" title="Email" name="email" style="width: 100%;" required />
+	        <input type="submit" value="Join the Mailing List" style="width: 100%;" />
+	        <input name="other_field" id="molasses" placeholder="Fill this in if you are not human" />
+	        <div class="loading"><img src="assets/img/loading.gif" alt="Loading"></div>
+	        <div class="success"><i class="fa fa-check"></i></div>
+        </form>
+		<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+            var mailingListForm = $('mailingListForm');
+
+            var hideMailingList = Cookie.read("hideMailingList");
+            if (!hideMailingList){
+                var showMailingListForm = function() {
+                    if (window.scrollY > 0) mailingListForm.addClass("slideUp");
+                    else mailingListForm.removeClass("slideUp");
+                };
+                window.addEvent('scroll',showMailingListForm);
+
+                mailingListForm.addEvent('click:relay(.closeForm)',function(){
+                    this.getParent().setStyle('display',"none");
+                    window.removeEvent('scroll',showMailingListForm);
+                    Cookie.write("hideMailingList",true);
+                });
+            }
+
+            mailingListForm.addEvent('submit',function(e){
+                e.stop();
+
+                this.addClass('loading').send();
+            }).set('send',{url:mailingListForm.action,onSuccess:function(response){
+                mailingListForm.removeClass('loading');
+                switch (response) {
+	                case "failed":
+	                    return resultBoxPopup.create({content: "An unknown error has occurred. Please try again later", type:"error"});
+	                case "invalid":
+	                    return resultBoxPopup.create({content: "Please enter a valid email address", type:"error"});
+	                case "duplicate":
+	                    return resultBoxPopup.create({content: "Looks like you're already on the mailing list", type:"error"});
+                }
+
+                mailingListForm.addClass('success');
+                (function(){
+                    mailingListForm.removeClass('success').setStyle('display',"none").reset();
+                }).delay(1500);
+            }});
+		</script>
+		<span id="center">
+	<div class="supported-browsers" style="color: red !important; text-align: center; border:1px red solid">
+		The browser you're using is not supported. Please try again using a supported browser such as
+		<a href="https://www.mozilla.org/en-US/firefox/new/" style="font-size:23px">Firefox</a> or
+		<a href="www.google.com/intl/en/chrome/browser">Chrome!</a>
+	</div>
+	<div id='filtersContainer' class='mt-8'><div id='loadingBox' style='position:relative;'></div><div class='filtersHeader'><div class='inline-block italic' style='width: 100%; margin-left: 70px; min-width: 250px; margin-bottom: 10px;'>Showing Results <span id='resultsmsg'>1 - 40 (178 total)</span></div><div id='listingSearchBox' class='inline-block text-right w-full'>Search: <input id='listingSearchVal' style='border: 1px solid gray;border-radius: 5px;' value=''> <input type='button' id='listingSearchGo' class='codrop-btn btn-2h' value='Search' /> <input type='button' id='listingSearchReset' class='codrop-btn btn-2h' value='Reset' /><br /><label><input type='radio' name='listingSearchParam' value='partial' checked />    Search partial words     </label><label><input type='radio' name='listingSearchParam' value='whole' />  Search whole words</label></div><hr></div> <div id='topMenu' class=' pgsMenu clear-both mb-1.5 text-center text-3xl text-gray-600 box-border '><div class='numberNav'><a class='pgarrow nonav'>&lt;</a><a href='webinars?pg=0&dir=webinar_mhc&dir=webinar_mhc&dir=webinar_mhc' class='curpg'>1</a><a href='webinars?pg=1&dir=webinar_mhc&dir=webinar_mhc&dir=webinar_mhc'>2</a><a href='webinars?pg=2&dir=webinar_mhc&dir=webinar_mhc&dir=webinar_mhc'>3</a><span>...</span><a href='webinars?pg=4&dir=webinar_mhc&dir=webinar_mhc&dir=webinar_mhc'>5</a><a class='pgarrow' href='webinars?pg=1'>&gt;</a></div></div><div><div><h3 style='font:bold 25px Tahoma; margin-left:20%; color:#686868;'></h3></div><br><div style='font-size: 12px; margin-left: 7%; width: 86%; text-align: justify;'></div><div id='tabHolder' class='items-center flex gap-0.5 flex-wrap text-center justify-center p-4 w-4/5'><a class='selected' href='webinars?live=live'>Upcoming Webinars</a><a  href='webinars?live=vod'>Recorded Webinars</a><a href='webinar_bundles'>Webinar Packages</a><a href='../calendar.php' style='box-shadow: 0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.09)';> Visit our webinars calendar!</a></div></div> <div class='quick-finds'> <div class='categories-list'><button onClick='resetFilters(event)' class='float-right codrop-btn btn-2h' style='width:80px'>Reset</button><br>
+		<h4 >Quick Finds:</h4><span class='explanation'style='font-size:12px'>Click on the webinar category to see webinars of that Type</span><ul style='z-index:9999;'><a  href='webinars/?category=6&string=ETHICS'>Ethics</a><a  href='webinars/?category=37&string=TRAUMA'>Trauma</a><a  href='webinars/?category=22&string=SUPERVISION'>Supervision</a><a  href='webinars/?category=4&string=DC Public Health Priorities'>DC Public Health Priorities</a><a  href='webinars/?category=2&string=LGBTQ – Cultural Competence'>LGBTQ – Cultural Competence</a><a  href='webinars/?category=39&string=Cultural Competence'>Cultural Competence</a><a  href='webinars/?category=38&string=pain'>Pain Management</a><a  href='webinars/?category=1&string=Suicide Prevention'>Suicide Prevention</a><a  href='webinars/?category=42&string=Test Prep'>Test Prep Courses</a><a href='/webinar_cep'>CEs for Psychologists</a><a href='/webinar_nyp'>CEs for New York Psychologists</a><a href='/webinar_mhc'>CEs for NY MHCs and NY MFTs</a></ul> </div></div><div id='directory' style='min-height:525px'>		<style>
+			.webinars-col {
+				width: 73.33333333%;
+			}
+
+			.dir {
+				margin-left: 100px;
+			}
+
+			.border-weight{
+				border: 10px solid #CD5C5C;
+			}
+
+			@media screen and (min-width:1300px){
+				.webinars-col {
+					width: 80.33333333%;
+				}
+			}
+
+			@media screen and (max-width:1300px){
+				.webinars-col {
+					width: 73.33333333%;
+				}
+
+				.dir {
+					margin-left: 1rem;
+				}
+
+				.quick-finds > div > h4 {
+					text-align: center;
+				}
+			}
+
+			@media screen and (max-width: 1430px) {
+				.dir {
+					margin-left: 1rem;
+				}
+
+				#tabHolder, .pgsMenu {
+					width: 100%;
+				}
+			}
+			@media (max-width:1024px){
+				.border-weight{
+					border: 1px solid #CD5C5C;
+				}
+			}
+		</style>
+		<div class="container dir">
+			<div class="row jobs" style="margin-top:0px;">
+				<div class="webinars-col">
+					<div class="job-posts table-responsive border-weight w-11/12" style=" margin-top: 10px;">
+						<table class="table" style="border-collapse: separate; margin-bottom: 0;">
+							<tbody><tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/ReimaginingMandated/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e1a.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Reimagining Mandated Reporting</h4><div>Presenter: Katie Olson, J.D and Miriam Itzkowitz, MSW, LISW</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Tuesday, August 09, 2022 9:30 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/WhatCommunication/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/dz8.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>What Communication Language Do You Speak? A Blueprint for Conscious Communication in a Virtual World for Mental Health Professionals</h4><div>Presenter: Veronica Powell, PhD, LPC</div></div><div class='tbl-info md:col-span-3'><span>Cost: $74.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Tuesday, August 09, 2022 1:10 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 4</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/Cannabisand/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/dz9.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Cannabis and Mental Health</h4><div>Presenter: Amar Ghelani MSW RSW PhD Candidate</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Tuesday, August 09, 2022 6:30 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/OpioidAddiAug11/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/drj.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Opioid Addiction: What, Why, and What Now?</h4><div>Presenter: Shimmy Feintuch, LCSW CASAC-G</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, August 11, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/TreatingAug11/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/dri.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Treating Chronic Pain with the Science of Mindfulness</h4><div>Presenter: Shimmy Feintuch, LCSW CASAC-G</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, August 11, 2022 1:45 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/UnderPressAug/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e3i.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Under Pressure: Crisis Management (Suicide Prevention)</h4><div>Presenter: Elan Javanfard, MA, LMFT</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Monday, August 15, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/IntroductionAug/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e3f.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Mindfulness: Not a Dirty Word</h4><div>Presenter: Elan Javanfard, MA, LMFT</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Monday, August 15, 2022 1:45 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/HelpingclientsAugust/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e7w.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Positive Therapeutic Approaches: Helping Clients Fulfill their Dreams!</h4><div>Presenter: Sherrie L. Ludwick, LCPC, NCC</div></div><div class='tbl-info md:col-span-3'><span>Cost: $99.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Wednesday, August 17, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 6</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/TheCommon/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/dk8.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>The Common Factor: Importance of Therapeutic Alliance in Eating Disorder Treatment</h4><div>Presenter: Melissa Orshan Spann, PhD, LMHC</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, August 18, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/CulturalAugust18/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/drk.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Cultural Competence: LGBTQ and Conflicting Religious Values</h4><div>Presenter: Shimmy Feintuch, LCSW CASAC-G </div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, August 18, 2022 1:45 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div> <div class='tags'><span class='bold'>Tags:</span> <span>Cultural Competence,LGBTQ – Cultural Competence</span></div> </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/EthicalAug/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e95.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Telehealth: Ethical Implications for Sustaining and Thriving in Virtual Clinical Practice (3 CE Credits - Ethics)</h4><div>Presenter: Kim Cook, LCSW</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Tuesday, August 23, 2022 1:45 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div> <div class='tags'><span class='bold'>Tags:</span> <span>Ethics</span></div> </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/ImplicitBias/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/dtw.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Implicit Bias: Clinical and Ethical Considerations</h4><div>Presenter: Shane King</div></div><div class='tbl-info md:col-span-3'><span>Cost: $39.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, August 25, 2022 2:00 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 2</div> <div class='tags'><span class='bold'>Tags:</span> <span>Ethics</span></div> </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/SexualViolAugust31/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e7v.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Sexual Violence: Addressing it with an Anti-Racism Lens (3 CE Credits - Cultural Competence)</h4><div>Presenter: Chandra Dawson, LISW, LCSW</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Wednesday, August 31, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/MindfulSept/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e3x.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Mindful Writing: Spelling Out Transformation and Wholeness</h4><div>Presenter: Dr. Marianela Medrano, PhD</div></div><div class='tbl-info md:col-span-3'><span>Cost: $99.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Tuesday, September 06, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 6</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/RITTMReconnect/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e9w.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>RITTM (Reconnect Integrative Trauma Treatment Model)</h4><div>Presenter: Karol Darsa, Psy.D</div></div><div class='tbl-info md:col-span-3'><span>Cost: $99.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Wednesday, September 07, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 6</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/TreatingSevere/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e9v.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Treating Severe Trauma with Dissociative Identity Disorder</h4><div>Presenter: Karol Darsa, Psy.D</div></div><div class='tbl-info md:col-span-3'><span>Cost: $99.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, September 08, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 6</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/SelfDisclosurein/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/eh3.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Self-Disclosure in Practice and Ethics...What Can Go Right?</h4><div>Presenter: Moshe Norman, LCSW SIFI</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Tuesday, September 13, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/ListeningSept/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e0z.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Listening When You&#039;d Rather Not: Bridging Divides</h4><div>Presenter: Cheryl Dolinger Brown, LCSW</div></div><div class='tbl-info md:col-span-3'><span>Cost: $99.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, September 15, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 6</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/CounselingSept/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e2i.png' alt=''></div><div class='tbl-title md:col-span-3'><h4>Counseling Parents to Raise Responsible, Resilient Children</h4><div>Presenter: Larry F. Waldman, PhD, ABPP</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Friday, September 16, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/BigPictureSept19/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/eae.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>The Big Picture: Guiding Clients through Grief and Loss</h4><div>Presenter: Sherrie L. Ludwick, LCPC, NCC, SEP</div></div><div class='tbl-info md:col-span-3'><span>Cost: $99.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Monday, September 19, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 6</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/ReligionSept22/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/etz.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Believe it or Not!: Ethical Issues in Regard to Religion and Spirituality in Mental Health Treatment (Ethics)</h4><div>Presenter: Erik Hadden, MA, LCPC</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Wednesday, September 21, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div> <div class='tags'><span class='bold'>Tags:</span> <span>Ethics</span></div> </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/RelationSept8/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e9y.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Imago Relationship Therapy: Becoming Competent in couple&#039;s work</h4><div>Presenter: Rabbi Shlomo Slatkin MS, LCPC</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, September 29, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/CouplesSept29/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e9z.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Ethical Practice for Couples Therapy!</h4><div>Presenter: Rabbi Shlomo Slatkin MS, LCPC</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, September 29, 2022 1:45 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div> <div class='tags'><span class='bold'>Tags:</span> <span>Ethics</span></div> </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/DotheRightOct2/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/erw.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Do the right Thing! An Ethics Training - (3 CE Credits - Ethics)</h4><div>Presenter: Alesha Perkins, LCSW</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Sunday, October 02, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/BestTraumaOct3/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/ead.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Best Approaches in Trauma Treatment!</h4><div>Presenter: Sherrie L. Ludwick, LCPC, NCC, SEP</div></div><div class='tbl-info md:col-span-3'><span>Cost: $99.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Monday, October 03, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 6</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/PsychodramaInterventionsoct6/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/eyx.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Psychodrama Interventions with Adults, Couples, and Children: The Basics</h4><div>Presenter: Bruchy Moskovics, LCSW</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, October 06, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/SavvyOct22/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/eu5.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Savvy Supervision! Basic Administrative Supervision</h4><div>Presenter: Rebecca Ashery PhD, LCSW-C, Leader-Manager Coach</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, October 20, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/growingOct22/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/eu4.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Basic Supervision - Tools for Supervisory Effectiveness</h4><div>Presenter: Rebecca Ashery PhD, LCSW-C, Leader-Manager Coach</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, October 20, 2022 1:45 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/DigitalEthOct24/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/eaf.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Digital Ethics: Technology in the workplace - 3 CE Credits</h4><div>Presenter: Sherrie L. Ludwick, LCPC, NCC, SEP</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Monday, October 24, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/telehealthOct22/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/eaj.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Telehealth Ethics for Today and For the Future: Creating an A+ Online Practice! 3 CE Credits</h4><div>Presenter: Sherrie L. Ludwick, LCPC, NCC, SEP</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Monday, October 24, 2022 1:45 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/Assessingand/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/nefesh.org/users/_site_/thumb/e6c.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Assessing and Treating Sexual Dysfunction: A Systemic Approach</h4><div>Presenter: Samuel Shy Krug,  Ph.D., CST</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Thursday, October 27, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div> <div class='tags'><span class='bold'>Tags:</span> <span>marital,sexual</span></div> </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/ExploringOct30/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/dsf.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Exploring Ethical Obligations: Boundaries, Confidentiality and Mandated Reporting</h4><div>Presenter: Kathryn Krase</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Sunday, October 30, 2022 1:00 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div> <div class='tags'><span class='bold'>Tags:</span> <span>Ethics</span></div> </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/TeachingThe/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/dtp.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Teaching The Brain To Heal - Understanding Autonomic Nervous System and its Therapeutic Application</h4><div>Presenter: Rozi P. Wax, LMFT, LMHC</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Monday, October 31, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/UnderPressOct/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e2h.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Under Pressure: Crisis Management (Suicide Prevention)</h4><div>Presenter: Elan Javanfard, MA, LMFT</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Monday, October 31, 2022 1:45 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/TheBasics/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/eh9.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Treating Differences in Sexual Desire in Couples Therapy</h4><div>Presenter: Rivka Sidorsky, LCSW, AASECT</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Tuesday, November 08, 2022 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/TreatingDifferencesNov8/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/eh8.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>The Basics of Sex Therapy for the Non-Sex Therapist: Helping clients with their sexual issues in individual and couples therapy</h4><div>Presenter: Rivka Sidorsky, LCSW, AASECT</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Tuesday, November 08, 2022 1:45 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/TheEthicalNov/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/dhr.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>The Ethical and Clinical Implication of Race and Police Interaction - A Cultural Competence Workshop</h4><div>Presenter: Shane King, LCSW</div></div><div class='tbl-info md:col-span-3'><span>Cost: $74.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Wednesday, November 30, 2022 1:00 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 4</div> <div class='tags'><span class='bold'>Tags:</span> <span>DC Public Health Priorities,Ethics</span></div> </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/FromReactivity/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/eb9.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>From Reactivity to Empowerment in Couple Therapy: A Relational-Neurobioligical Approach</h4><div>Presenter: Mona D. Fishbane, Ph.D.</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Wednesday, January 11, 2023 10:00 AM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/Psychodram2/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/et6.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Psychodrama Interventions with Adults, Couples, and Children: The Basics</h4><div>Presenter: Bruchy Moskovics, LCSW</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Wednesday, January 11, 2023 1:45 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr>
+<tr class='wow fadeInUp animated matches public webinarItem' data-wow-delay='1s' style='visibility: visible; animation-delay: 1s; animation-name: fadeInUp;'><td style='border-bottom: 1px solid lightgray;'><a class='grid md:grid-cols-12' href='workshops/IntroductionFeb/view'><div class='tbl-logo col-span-2'><img class='m-8' src='/client-resources/clients/therapistexpress.com/users/_site_/thumb/e3g.jpg' alt=''></div><div class='tbl-title md:col-span-3'><h4>Mindfulness: Not a Dirty Word</h4><div>Presenter: Elan Javanfard, MA, LMFT</div></div><div class='tbl-info md:col-span-3'><span>Cost: $59.99</span><br /><div class='times'><i class='bold'>Event Date: </i>Wednesday, February 01, 2023 1:45 PM EST</div></div><div class='tbl-more'><div><span class='bold'>CEs available:</span> 3</div>  </div></a></td></tr></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id='googleAd'><script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script><ins class='adsbygoogle' style='display:block' data-ad-client='ca-pub-5507415576409136' data-ad-slot='3860479938' data-ad-format='auto'></ins><script> (adsbygoogle = window.adsbygoogle || []).push({}); </script></div> <div id='topMenu' class='pgsMenu '><div class='numberNav'><a class='pgarrow nonav'>&lt;</a><a href='webinars?pg=0&dir=webinar_mhc&dir=webinar_mhc&dir=webinar_mhc' class='curpg'>1</a><a href='webinars?pg=1&dir=webinar_mhc&dir=webinar_mhc&dir=webinar_mhc'>2</a><a href='webinars?pg=2&dir=webinar_mhc&dir=webinar_mhc&dir=webinar_mhc'>3</a><span>...</span><a href='webinars?pg=4&dir=webinar_mhc&dir=webinar_mhc&dir=webinar_mhc'>5</a><a class='pgarrow' href='webinars?pg=1'>&gt;</a></div></div></div></div></span>
+
+<div class="footer-area">
+    <div class="container">
+        <div class="row footer grid grid-cols-4">
+            <div class="col-span-2 mt-12">
+                <div class="single-footer">
+                    <div id="downbox">
+                                            </div>
+                </div>
+				<div class="row footer-copy">
+					<p>
+						<span>Ceyouplus.org v4.6.16</span>
+						<span style="display: block;">This is a Therapist Express powered site.</span>
+					</p>
+				</div>
+            </div>
+            <div class="">
+                <div class="single-footer">
+                    <h4>Useful Links</h4>
+                    <div class="footer-links">
+                        <ul class="list-double-column-grid">
+                                                            <li><a href='account/'>Log In</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <script src="/template/job-board/js/bootstrap.min.js"></script> -->
+<script src="/template/job-board/js/owl.carousel.min.js"></script>
+<script src="/template/job-board/js/wow.js"></script>
+<script src="/template/job-board/js/main.js"></script>
+</body>
+</html>
+
+<script>
+	function forPsychologists(text) {
+		alert(text);
+	}
+</script>

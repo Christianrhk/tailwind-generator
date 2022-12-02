@@ -1,0 +1,628 @@
+
+<!DOCTYPE HTML>
+<html lang="en-US" class="h-full">
+<head><script src="/cdn-cgi/apps/head/mnQsgHv48VjQWe17CwZIqF_Nvhs.js"></script><script type="text/javascript">(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"8ed22bfd0a",applicationID:"1468759286"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n,r){return function(){return s.recordSupportability("API/"+e+"/called"),o(t+e,[u.now()].concat(c(arguments)),n?null:this,r),n?void 0:this}}var o=t("handle"),a=t(9),c=t(10),f=t("ee").get("tracer"),u=t("loader"),s=t(4),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",v=l+"ixn-";a(p,function(t,e){d[e]=i(l,e,!0,"api")}),d.addPageAction=i(l,"addPageAction",!0),d.setCurrentRouteName=i(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(v+"tracer",[u.now(),t,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw f.emit("fn-err",[arguments,this,t],n),t}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(v,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),s.recordSupportability("API/noticeError/called"),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){var r=!1;try{var i=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,i),window.removeEventListener("testPassive",null,i)}catch(o){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],4:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return o("storeMetric",n,null,"api"),n}function i(t,e){var n=[c,t,{name:t},e];return o("storeEventMetrics",n,null,"api"),n}var o=t("handle"),a="sm",c="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:c},recordSupportability:r,recordCustom:i}},{}],5:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(11);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],6:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(u&&u<r.startTime)return;var i=[r],o=a({});o&&i.push(o),l("lcp",i)}}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function c(t){if(t instanceof y&&!w){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=v.now()?n.fid=v.now()-e:e>v.offset&&e<=Date.now()?(e-=v.offset,n.fid=v.now()-e):e=v.now(),w=!0,l("timing",["fi",e,n])}}function f(t){"hidden"===t&&(u=v.now(),l("pageHide",[u]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var u,s,d,p,l=t("handle"),v=t("loader"),m=t(8),g=t(3),y=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(h){}d=new PerformanceObserver(i);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(h){}p=new PerformanceObserver(o);try{p.observe({type:"layout-shift",buffered:!0})}catch(h){}}if("addEventListener"in document){var w=!1,b=["click","keydown","mousedown","pointerdown","touchstart"];b.forEach(function(t){document.addEventListener(t,c,g(!1))})}m(f)}},{}],7:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}e.exports={agent:i,version:o,match:r}},{}],8:[function(t,e,n){function r(t){function e(){t(c&&document[c]?document[c]:document[o]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,i(!1))}var i=t(3);e.exports=r;var o,a,c;"undefined"!=typeof document.hidden?(o="hidden",a="visibilitychange",c="visibilityState"):"undefined"!=typeof document.msHidden?(o="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(o="webkitHidden",a="webkitvisibilitychange",c="webkitVisibilityState")},{}],9:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],10:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],11:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),f=m(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[w[n]];return p&&p.push([b,n,r,c]),c}}function o(t,e){h[t]=m(t).concat(e)}function v(t,e){var n=h[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return h[t]||[]}function g(t){return p[t]=p[t]||i(n)}function y(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var h={},w={},b={on:o,addEventListener:o,removeEventListener:v,emit:n,get:g,listeners:m,context:e,buffer:y,abort:c,aborted:!1};return b}function o(t){return u(t,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=t("gos"),s=t(9),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!M++){var t=T.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(x,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+T.offset],null,"api"),c("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===m.readyState&&o()}function o(){c("mark",["domContent",a()+T.offset],null,"api")}var a=t(5),c=t("handle"),f=t(9),u=t("ee"),s=t(7),d=t(2),p=t(3),l=d.getConfiguration("ssl")===!1?"http":"https",v=window,m=v.document,g="addEventListener",y="attachEvent",h=v.XMLHttpRequest,w=h&&h.prototype,b=!1;NREUM.o={ST:setTimeout,SI:v.setImmediate,CT:clearTimeout,XHR:h,REQ:v.Request,EV:v.Event,PR:v.Promise,MO:v.MutationObserver};var E=""+location,x={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1216.min.js"},O=h&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),T=e.exports={offset:a.getLastTimestamp(),now:a,origin:E,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(6),m[g]?(m[g]("DOMContentLoaded",o,p(!1)),v[g]("load",r,p(!1))):(m[y]("onreadystatechange",i),v[y]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var M=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],t)}c(n+"start",[o,a,f],s,u);try{return p=e.apply(a,o)}catch(v){throw c(n+"err",[o,a,v],s,u),v}finally{c(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)f=e[u],c=t[f],a(c)||(t[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!v||e){var c=v;v=!0;try{t.emit(n,r,o,e,a)}catch(f){i([f,n,r,o],t)}v=c}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function c(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function f(t,e,n){var r=t[e];t[e]=c(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(10),p="nr@original",l=Object.prototype.hasOwnProperty,v=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=f,e.exports.argsToArray=u},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"8ed22bfd0a","applicationID":"1468759286","transactionName":"b1VXNkdUW0NTWhVZXlYfcxdbVkFZXVdOQ1lXQBsUXFBCQxxVCENFAkZcB0JqRUVQVQhTblRZRhY=","queueTime":0,"applicationTime":92,"agent":""}</script>
+<title>
+      
+          Giftster | wish list registry
+      
+    </title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"></meta>
+<meta name="google-site-verification" content="5UmpDsJ5Q4Gz4bJHXT3hWgQ-nhnDq088cMeMqcb-2V8" />
+<meta name="keywords" content="Testimonial, review, customer rating, best gift registry, universal gift registry, wish list" />
+<meta name="description" content="Money is tight – make your gifts right.  This free online service ensures every dollar is spent on gifts really needed  or wanted.  Not a shopping site, but a private wish list sharing service for your entire family or friends  network." />
+<meta name="y_key" content="25e50fb79ba42d8a" />
+<meta name="verify-v1" content="bXTraC8rIzLA8KQIaNmaT4cfj6jhnOxJPtiY0boRqUE=" />
+<meta name="msvalidate.01" content="72C91A83B438E7B69903288C68489887" />
+<meta name="alexaVerifyID" content="KCw3C22TRGCitR70uIFB33ptUSs" />
+<link rel="stylesheet" href="/public/build/css/tailwind.min.css?t=1634705555" media="all" type="text/css" />
+<link rel="icon" href="https://www.giftster.com/wp-content/uploads/cropped-512-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.giftster.com/wp-content/uploads/cropped-512-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.giftster.com/wp-content/uploads/cropped-512-180x180.png" /> <link rel="shortcut icon" href="/public/assets/img/favicons/favicon.ico" />
+<meta property="og:image" content="https://www.giftster.com/wp-content/uploads/giftster-share.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-34279059-1', 'auto', {'allowLinker': true});
+        ga('require', 'linker');
+        ga('linker:autoLink', ['m.giftster.com']);
+        ga('send', 'pageview');
+    </script>
+<link rel="preload" href="/public/build/css/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+</head>
+<body id="" class="bg-tan-200 h-full bg-white md:bg-tan-200">
+<div class="fixed z-30 w-full">
+<header id="header" class="fixed z-30 flex justify-center w-full h-12 px-2 bg-gray-20 lg:h-24 shadow-medium">
+<div class="flex justify-between w-screen-xl ">
+<div class="flex items-center justify-center xl:w-96 ">
+<a class="w-24 ml-2 lg:flex-shrink-0 lg:ml-7 md:w-32 lg:w-auto" href="/">
+<img class="lg:h-14" src="/public/assets/img/brand/horizontal_logo.svg" width="178" height="56" alt="Giftster Logo" />
+</a>
+</div>
+<div class="flex items-center justify-end w-full md:mr-2">
+<div v-cloak :class="mobileSearchBarOpen ? 'fixed inset-x-0 inset-y-0 z-10 min-w-0 bg-black opacity-50' : 'hidden'" @click="mobileSearchBarOpen = false">
+</div>
+<div v-cloak :class="mobileSearchBarOpen ? 'translate-y-0 ease-in delay-75': '-translate-y-full ease-out'" class="fixed top-0 left-0 z-40 w-full px-3 pt-5 pb-2 duration-300 transform bg-white md:hidden">
+<button @click="mobileSearchBarOpen = false" class="absolute top-0 right-0 mt-4 mr-4 text-gray-900 focus:outline-none focus:text-red-800" type="button">
+<svg alt="Close X" class="w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<path class="a" d="M38.48,32.54a.74.74,0,0,1-.25-.59.68.68,0,0,1,.25-.5L62.73,7.2A4.25,4.25,0,0,0,64,4.14a4,4,0,0,0-1.24-2.8,4.27,4.27,0,0,0-5.94-.08L32.54,25.51a.77.77,0,0,1-.6.26.7.7,0,0,1-.5-.26L7.19,1.26A4.35,4.35,0,0,0,4.14,0,3.93,3.93,0,0,0,1.33,1.26,4.18,4.18,0,0,0,.1,4.31a3.88,3.88,0,0,0,1.23,2.8L25.59,31.37a.83.83,0,0,1,.25.59.65.65,0,0,1-.25.5L1.25,56.8A4.23,4.23,0,0,0,0,59.85a3.93,3.93,0,0,0,1.24,2.81A4.09,4.09,0,0,0,4.3,63.89a3.92,3.92,0,0,0,2.81-1.23L31.36,38.4a.71.71,0,0,1,.6-.25.68.68,0,0,1,.5.25L56.79,62.74a4.2,4.2,0,0,0,3,1.23h.09a3.92,3.92,0,0,0,2.81-1.23,4.18,4.18,0,0,0,1.23-3.05,3.88,3.88,0,0,0-1.23-2.8Z" />
+</svg>
+</button>
+<form class="relative mt-8" action="/search/" method="get" accept-charset="utf-8">
+<input class="w-full text-gray-900 form-input" name="q" value="" placeholder="find a member by name or email" />
+<button class="absolute top-0 right-0 w-6 h-6 mt-4 mr-3" type="submit" name="search-button" value="Search">
+<img width="24" height="24" class="w-6 h-6" src="/public/assets/img/icons/lens.svg" alt="Magnifying Glass/Search Button" />
+</button>
+</form>
+</div>
+<div class="mr-5">
+<form class="relative hidden md:block md:w-76" action="/search/" method="get" accept-charset="utf-8">
+<input class="w-full text-gray-900 form-input" name="q" value="" placeholder="find a member by name" />
+<button class="absolute top-0 right-0 w-6 h-6 mt-2 mr-3" type="submit" name="search-button" value="Search">
+<img width="24" height="24" class="w-6 h-6" src="/public/assets/img/icons/lens.svg" alt="Magnifying Glass/Search Button" />
+</button>
+</form>
+</div>
+<button :class="mobileSearchBarOpen ? 'hidden' : 'block'" @click="mobileSearchBarOpen = true" class="flex-shrink-0 w-6 mt-1 mr-4 md:hidden focus:outline-none">
+<img width="24" height="24" src="/public/assets/img/icons/lens.svg" alt="Open Search Bar" />
+</button>
+<a href="
+            
+                /account/register/qZL2P/?next=/gift/public/qZL2P/
+            
+            
+            " class="h-8 px-3 ml-3 text-red-600 md:ml-7 btn-sm md:h-auto md:w-24 btn btn-white">
+<span>sign up</span>
+</a>
+<a class="h-8 px-3 ml-1 text-red-600 no-underline btn-sm md:h-auto md:w-24 btn btn-clear" href="/account/login/">
+log in
+</a>
+</div>
+</div>
+</header>
+<script type="text/javascript" src="/public/build/vue/js/header.600a4175.js"></script>
+</div>
+<div class="flex justify-center
+        md:py-6 
+        md:bg-tan-200 
+        lg:px-8 
+      ">
+<main class="
+          flex flex-col flex-grow w-full md:min-h-full lg:px-0 lg:w-90 bg-transparent order-2 min-h-screen
+
+          
+            mt-12 md:px-4 lg:mt-24 
+
+            
+              mt-12 lg:mt-24               
+            
+
+            
+              max-w-screen-xl-sidebar 
+            
+          
+          
+
+          " id="main">
+<input type="hidden" name="csrfmiddlewaretoken" value="mr2g1nyeH8vZAv9q9rL43Z322shNAEFhOOBM1ubi5ZSnf6mkArxnOg3OY54q5TOW">
+<div class="flex flex-col items-center justify-center w-full px-10 py-5 bg-teal-200 rounded-md md:mb-5 md:flex-row shadow-medium">
+<h3 class="flex items-center flex-shrink-0 text-lg font-bold md:mr-16">
+<svg class="w-5 text-teal-700 md:w-7" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 92 82"> <g fill="none" fill-rule="evenodd"> <g transform="translate(0 .54)"> <path fill="currentColor" d="M75.18 44.352a12.474 12.474 0 01-5.5 5 12.298 12.298 0 01-3.61 1c-.663.084-1.33.125-2 .12h-2.5l-9.84.16-17.44.19-11.17-27.3-1.5-3.57c.11 0 .2.06.31.07h.3c20.333.793 40.653 1.323 60.96 1.59l-4.89 14.19c-1.1 2.97-2.05 6.66-3.16 8.55h.04zm8.55-1.56l1.5-4.68 6-18.77v-.09a3.21 3.21 0 00.23-1.04 3.398 3.398 0 00-3.429-3.371H88c-22 .3-44.019.86-66.059 1.68a2.087 2.087 0 00-1.47.69l-3.54-8.45a14.06 14.06 0 00-6.31-6.72A13.964 13.964 0 006.24.612a21.683 21.683 0 00-4.3-.08A1.861 1.861 0 000 2.212a1.862 1.862 0 001.94 1.76h.3a11.24 11.24 0 016.6 1.68 9.998 9.998 0 013.95 5l5.25 14.94 10.78 29.88a3.31 3.31 0 003.07 2.18H32l19.73.23h12.33c.975.013 1.951-.04 2.92-.16a19.618 19.618 0 0014.6-9.76 26.18 26.18 0 002.15-5.17z" mask="url(#b)" /> </g> <g transform="translate(24 63.54)"> <path fill="currentColor" d="M9.73 4.028a4.015 4.015 0 00.27-1.83c0-.94-.18-1.7-.45-1.75h-.06C5.39-.112.81 3.638.78 8.528a8.995 8.995 0 002.57 6.669 9.329 9.329 0 006.69 2.8c5.12.12 9.54-4.63 9.15-9.47-.09-4.88-4.69-8.55-8.75-7.94-.26 0-.45.77-.44 1.7a3.908 3.908 0 00.24 1.74 3.73 3.73 0 012.5 4.35 2.85 2.85 0 11-5.55 0 3.69 3.69 0 012.54-4.35" mask="url(#d)" /> </g> <g transform="translate(56 63.54)"> <path fill="currentColor" d="M9.73 4.028a4.015 4.015 0 00.27-1.83c0-.94-.18-1.7-.45-1.75h-.06C5.39-.112.81 3.638.78 8.528a8.995 8.995 0 002.57 6.669 9.329 9.329 0 006.69 2.8c5.12.12 9.54-4.63 9.15-9.47-.09-4.88-4.69-8.55-8.75-7.94-.26 0-.45.77-.44 1.7a3.908 3.908 0 00.24 1.74 3.73 3.73 0 012.5 4.35 2.85 2.85 0 11-5.55 0 3.69 3.69 0 012.54-4.35" mask="url(#f)" /> </g> <path fill="currentColor" d="M37.19 21.151l-.333 33.333h5.333l-2-35zm20.333-1l-1.666 34.333h5l-.667-35.333z" /> <path fill="currentColor" d="M23.19 34.151h59l-2 4.667-56.667-1.667z" /> </g> </svg>
+<span class="ml-3">How to shop this list</span>
+</h3>
+<p class="flex flex-col mt-2 text-sm text-center md:w-3/4 lg:w-1/2 md:mt-0 md:text-left">
+<span>You must be in a group with this member, or ask Taylor Hanoch to change this list's privacy settings to <strong class="font-bold">Public.</strong></span>
+</p>
+</div>
+<section class="
+       relative z-20 flex flex-col items-center max-w-screen-xl 
+       
+        bg-image-popular-1 
+       
+       md:h-48 md:flex-row md:items-start md:rounded-t">
+<div class="md:absolute md:top-0 md:h-1 md:w-full 
+  bg-gray-50">
+<div class="
+    relative top-0 right-0 flex items-center h-8 px-2 md:mr-4 md:absolute
+    bg-gray-50">
+
+<svg style="margin-left: -11px;" class="absolute left-0 h-8 -ml-2
+    text-gray-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 30">
+<defs />
+<path fill="currentColor" fill-rule="evenodd" d="M11 0v30H9.696a6 6 0 01-5.933-5.103L0 0h11z" />
+</svg>
+
+<p class="ml-1 text-sm font-medium">Taylor Hanoch's list</p>
+
+<svg class="absolute right-0 h-8 -mr-2 transform -scale-x-100
+      text-gray-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 30">
+<defs />
+<path fill="currentColor" fill-rule="evenodd" d="M11 0v30H9.696a6 6 0 01-5.933-5.103L0 0h11z" />
+</svg>
+</div>
+</div>
+<div class="flex flex-col items-center w-full h-full pt-5 pb-8 md:pt-8 md:flex-row
+        
+          md:ml-20  md:w-3/4
+        
+      ">
+<div class="flex-shrink-0">
+<div class="relative flex-shrink-0 text-center">
+<svg class="
+      flex-shrink-0
+      w-10 md:w-22 
+      h-10 md:h-22 
+      text-teal-700
+      " viewBox="0 0 40 40" alt="User Avatar">
+<defs>
+<circle id="c" cx="20" cy="20" r="20" />
+</defs>
+<g fill-rule="evenodd">
+<use fill="currentColor" xlink:href="#c" />
+</g>
+</svg>
+<span class="
+        absolute left-0 top-0 transform translate-y-1/2 bogus
+        w-10 md:w-22 
+        text-sm md:text-3xl 
+        font-bold text-white  
+        uppercase">
+TH
+</span>
+</div>
+</div>
+<div class="text-center md:text-left md:ml-8">
+<h2 class="px-4 mt-3 text-2xl leading-tight text-white md:mt-0 md:px-0 line-clamp-2 md:text-3xl font-display md:h-auto">
+Christmas 2018
+</h2>
+</div>
+</div>
+</section>
+<section class="relative flex flex-col items-center flex-grow w-full max-w-screen-xl min-h-screen pb-10 mb-5 bg-white shadow-md rounded-b-2xl bg-paper">
+
+<gift-list :gifts-from-server="giftsFromServer" :list="{public:false, locator: 'qZL2P'}" :user="{username: '', id:  null }">
+</gift-list>
+
+<div class="
+  z-10 flex flex-col w-full px-2 pb-12 md:px-6 pt-7 
+  
+    shadow-topSeparator 
+  
+">
+<div class="flex flex-col items-center w-full md:justify-between md:flex-row">
+
+<p class="pb-4 font-medium text-gray-500 md:pb-0">Last update Dec 12, 2018</p>
+
+</div>
+
+<div v-cloak v-if="showReminderForm" class="flex justify-center mt-8">
+<div class="w-full md:w-3/4">
+<h2 class="mb-8 font-bold text-center md:text-xl md:text-left">Here’s a draft for you to edit or send as-is&hellip;</h2>
+<reminder-form url="/reminder/121773/758715/" method="get" csrf-token="mr2g1nyeH8vZAv9q9rL43Z322shNAEFhOOBM1ubi5ZSnf6mkArxnOg3OY54q5TOW" default-message="Someone thinks your Giftster lists or gift preference profile needs some fresh ideas or updates." recipient-name="Taylor Hanoch" :show-form="showReminderForm" v-on:close="showReminderForm = false">
+
+<h3 class="mb-5 font-bold font-display">
+Why not take a moment right now and&hellip;
+</h3>
+<ul class="pl-4 mb-5 text-xs list-disc font-display">
+<li class="mb-2">
+<span class="text-base">
+Update your wish list – add new ideas, remove things you already got
+</span>
+</li>
+<li>
+<span class="text-base">
+Update your gift preference profile – are sizes, color and other preferences current?
+</span>
+</li>
+</ul>
+<p class="mb-8 font-display">
+Visit giftster.com or download the free app to access your account.
+</p>
+</reminder-form>
+</div>
+</div>
+</div>
+
+<div class="absolute bottom-0 flex flex-col w-full">
+<div class="z-10 mb-2 paper-stack-bottom paper-bg">&nbsp;</div>
+</div>
+</section>
+</main>
+<div id="nav" class="
+    order-1
+     
+    
+    
+      lg:mt-24 
+     
+    ">
+<aside v-cloak :class="mobileNavOpen ? 'translate-y-0 ease-out delay-75 lg:static' : 'translate-y-full ease-in lg:static mt-40 lg:mt-0 lg:translate-y-0'" class="fixed inset-x-0 inset-y-0 z-50 flex flex-col items-center flex-shrink-0 w-screen h-full px-3 pb-40 mt-12 mb-10 mr-8 overflow-y-scroll duration-300 transform bg-tan-200 lg:z-30 pt-7 lg:mt-0 lg:pb-0 lg:px-0 lg:overflow-hidden lg:duration-0 lg:flex lg:transform-none lg:static lg:w-76 lg:pt-0" id="sidebar">
+<button class="lg:hidden" @click="toggleMobileNav">
+<svg class="absolute top-0 right-0 h-4 mt-5 mr-4 text-tan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+<defs />
+<path fill="currentColor" d="M15.571 13.56L10.017 8l5.554-5.56a1.456 1.456 0 000-2.028 1.452 1.452 0 00-2.026 0l-5.554 5.56L2.437.412a1.452 1.452 0 00-2.026 0 1.456 1.456 0 000 2.028L5.965 8 .411 13.56a1.456 1.456 0 000 2.028c.549.55 1.478.55 2.026 0l5.554-5.56 5.554 5.56c.549.55 1.478.55 2.026 0 .572-.549.572-1.456 0-2.028z" />
+</svg>
+</button>
+<div class="flex items-center justify-center mt-2 mb-5">
+<span class="p-2 mr-2 -ml-5 bg-pink-200 rounded-md">
+<svg class="h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 26">
+<g fill="none">
+<path class="text-white" fill="currentColor" d="M7.936 9.027s-3.009-1.789-3.152-1.88c-.143-.09-2.148-1.973-2.148-1.973l.048-1.193 1.624.184L8.08 6.643l1.098.595S8.031 5.128 8.031 4.94c0-.187-.427-2.197-.427-2.34A17.35 17.35 0 0 1 8.415.993l.858-.275 1.434 2.064s.428 1.745.571 2.02c.144.276.43 1.88.43 1.88l.86-1.927s1.1-1.921 1.194-2.155c.095-.234 1.29-1.56 1.624-1.607a3.09 3.09 0 0 1 1.004.094c.233.131.403.345.476.595 0 .185-.144 1.1-.144 1.1l-.19 1.654-.24.917S18.3 4.16 18.538 4.07c.238-.091 2.1-.322 2.197-.185.136.228.232.476.284.734 0 .137-.094.917-.094 1.055 0 .138-.63.879-.63.879l-4.671 2.982-9.36.549 1.672-1.056z" />
+<path class="text-white" fill="currentColor" d="M1.418 10.14l20.63-.26.381 1.651v2.111l-.373 1.15-1.624-.232v8.247s-.86 1.742-1.529 1.836c-.668.093-13.87.353-14.34.26-.472-.094-1.79-1.56-1.79-1.56l.404-8.991-1.949-.08.19-4.132z" />
+<path class="text-pink-600" fill="currentColor" d="M6.454 9.032a3.513 3.513 0 0 1-.358-.22c-1.082-.861-2.21-1.69-3.247-2.6a2.911 2.911 0 0 1-.722-1.3c-.25-.78.27-1.412 1.123-1.4.38.011.757.092 1.106.237 1.283.538 2.52 1.16 3.542 2.111.086.071.176.137.271.195-.333-.959-.685-1.88-.963-2.823a2.481 2.481 0 0 1 .27-1.974c.71-1.253 1.894-1.346 2.78-.202.814 1.084 1.209 2.324 1.433 3.624.039.27.119.533.239.78.054-.156.113-.31.16-.465a8.3 8.3 0 0 1 1.744-3.315c.417-.48.93-.874 1.508-1.16a1.448 1.448 0 0 1 1.444.05c.435.272.677.753.628 1.25-.027.712-.322 1.417-.516 2.119a2.908 2.908 0 0 0-.198.663c.127-.086.27-.161.382-.26a5.14 5.14 0 0 1 2.465-1.102c.73-.12 1.412-.026 1.872.548.445.564.477 1.335.081 1.932a6.473 6.473 0 0 1-1.428 1.628 29.48 29.48 0 0 1-2.46 1.62c-.133.085-.27.166-.541.34.376.02.576.036.776.039 1.453.029 2.906.06 4.362.078.541 0 .774.244.744.751-.078 1.394-.14 2.788-.24 4.181a.574.574 0 0 1-.195.445.625.625 0 0 1-.477.153h-1.12c0 .73-.019 1.386 0 2.041.068 1.984.179 3.965.222 5.949.038 1.76-1.082 2.829-2.906 2.831-4.384.01-8.767.01-13.15 0-1.957 0-3.058-1.081-3.001-2.974.07-2.34.189-4.664.27-6.997 0-.07 0-.143-.024-.301H1.085c-.774 0-1.082-.297-1.082-1.025v-4.36c0-.704.308-.99 1.058-.99 1.588 0 3.176.013 4.767.02h.601l.025-.117zM1.802 13.78l20.308.598c-.1-1.238-.203-2.509-.309-3.799l-19.999.266v2.935zm10.44 10.332c.162 0 .367.026.573.026 1.779.01 3.557.018 5.336.021 1.14 0 1.486-.35 1.518-1.44.06-2.054.146-4.108.23-6.165.019-.483.07-.97.114-1.534l-7.43.26-.342 8.832zm-8.82-8.606c0 1.137-.018 2.216 0 3.295.03 1.36.077 2.72.155 4.074.057.951.455 1.3 1.405 1.284l5.509-.023c.184 0 .368-.021.54-.029a.736.736 0 0 0 .063-.161c-.1-2.733-.21-5.46-.292-8.195-.014-.455-.27-.447-.59-.44-1.93.045-3.861.076-5.79.123-.363.007-.726.052-1 .072zm10.824-6.24c.164-.03.324-.073.48-.13.67-.267 1.321-.575 1.95-.923a47.567 47.567 0 0 0 3.231-2.168 2.43 2.43 0 0 0 .698-.983c.22-.502-.062-.912-.606-.816-.657.12-1.38.28-1.894.652C16.528 6.032 15.37 7.553 14.25 9.1c-.016.016 0 .06 0 .169l-.003-.003zm-1.623-.09c.14-.128.195-.157.22-.2 1.033-1.82 2.077-3.64 3.087-5.46.217-.41.367-.848.446-1.3a.955.955 0 0 0-.238-.726c-.079-.086-.48 0-.652.12a3.982 3.982 0 0 0-.912.824c-1.526 1.965-2.024 4.225-1.962 6.744l.01-.003zm-1.353-.33a3.77 3.77 0 0 0 0-.52c-.244-1.35-.384-2.728-.717-4.062a11.43 11.43 0 0 0-1.137-2.618c-.316-.577-.711-.52-1.052.065-.341.585-.27 1.172-.087 1.765.59 1.82 1.58 3.458 2.66 5.047.097.112.2.218.311.317l.022.005zM3.158 4.442c.178 1.67 4.01 4.26 6.478 4.42C7.73 6.99 5.912 5.171 3.158 4.443z" />
+</g>
+</svg>
+</span>
+<h1 class="text-xl font-bold">
+Shared List
+</h1>
+</div>
+<div class="flex flex-col w-full mb-3">
+<div class="flex flex-col w-full p-4 mt-3 mb-5 rounded-md bg-tan-300">
+<div class="flex items-center mb-2">
+<div class="flex-shrink-0 w-16">
+<div class="relative flex-shrink-0 text-center">
+<svg class="
+      flex-shrink-0
+      w-10 md:w-12 
+      h-10 md:h-12 
+      text-teal-700
+      " viewBox="0 0 40 40" alt="User Avatar">
+<defs>
+<circle id="c" cx="20" cy="20" r="20" />
+</defs>
+<g fill-rule="evenodd">
+<use fill="currentColor" xlink:href="#c" />
+</g>
+</svg>
+<span class="
+        absolute left-0 top-0 transform translate-y-1/2 bogus
+        w-10 md:w-12 
+        text-sm md:text-lg flex h-full items-center justify-center transform-none 
+        font-bold text-white  
+        uppercase">
+TH
+</span>
+</div>
+</div>
+<h2 class="flex text-base font-bold leading-5 text-left text-gray-900 line-clamp-2">
+Taylor Hanoch
+</h2>
+</div>
+<a class="item 
+      bg-pink-600 hover:bg-pink-600 selected 
+      
+    " tabindex="-1" href="/gift/qZL2P/">
+<span class="flex items-center">
+<svg class="w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs /><defs /><path d="M63.6 43.63c-.66-1.94-1.76-2.45-4.23-2l-6.93 1.43a1.74 1.74 0 01.06-.5v-.19c.08-.81.16-1.57.18-2.36l.08-2.28c.14-3.57.31-8 .38-12.33.08-5.45.17-11.63-1.46-17.56C50.74 4.58 49 1.1 43.08.28A26.6 26.6 0 0039.39 0H39c-2.44.06-4.83.2-7.26.35A78.41 78.41 0 0015.1 2.83c-6.48 1.86-10.35 4.78-11.85 9A22.2 22.2 0 002.1 17c-.46 4.7-.86 9.47-1.17 14.17S.34 40.33.1 44.89a34.42 34.42 0 001.32 12.38c.69 2.2 1.42 4.13 3.19 5.44a8.48 8.48 0 004.9 1.62h.53l4.21-.33c7.5-.55 15.26-1.13 22.79-2.29l1.34-.2A81 81 0 0047 59.87a57.33 57.33 0 009.46-3.42c5.48-2.57 8.69-8.33 7.14-12.82zM48.42 43a4.9 4.9 0 01-.1.93 6.56 6.56 0 01-1.15.27h-.24l-18.72 3.31-7.45 1.33-.56.09h-.14a12 12 0 00-1.71.33c-2.1.64-2.48 2.19-2.79 3.44a16.17 16.17 0 01-3.9 7.2 3.4 3.4 0 01-2.59 1.15h-.2a2.89 2.89 0 01-2.25-1.55c-1.39-2.3-1.7-5.17-2-7.71a70 70 0 01-.07-10.54l.08-1.88c.15-3.6.35-7.54.65-12.39q.15-2.62.33-5.25a49.06 49.06 0 011.3-8.5c.81-3.31 3.7-5.58 9.1-7.17a70.91 70.91 0 0115.71-2.4l.73-.05c1.75-.15 3.52-.23 5.27-.26H38a49.09 49.09 0 014.94.28A4.18 4.18 0 0146.57 6a20.16 20.16 0 011.77 5.65c.32 3.25.56 7 .73 11.32l.19 3.2zM17.87 60.3c.05-.13.11-.25.17-.38l.16-.34c.52-1.09 1.05-2.22 1.48-3.37a16.38 16.38 0 00.72-2.77l.17-.9c.06-.22.09-.36.66-.46l2.61-.46c8.06-1.41 16-2.81 23.83-4.24 2.52-.46 5.06-1 7-1.4l3.48-.74.37-.09a3.65 3.65 0 01.73-.13.58.58 0 01.35.1c.06 0 .23.17.25.66a7.3 7.3 0 01-.1 1.61c-.55 3-3.05 5.52-6.88 7a70 70 0 01-15.4 4 152.68 152.68 0 01-19.59 1.91z" class="a" /><path d="M12.74 15.16a1.32 1.32 0 00.48.26c2 .65 4.31.3 6.37.18q3.5-.21 7-.37c2.94-.13 5.87-.29 8.81-.47 1.48-.1 3-.22 4.43-.36 1-.1 3.91-.14 3.94-1.54s-2.47-1.52-3.36-1.61a40.06 40.06 0 00-4.9 0c-2.66 0-5.31.11-8 .3s-5.25.5-7.86.83c-1.09.14-7.74.49-7.24 2.29a1 1 0 00.33.49zM42.63 38.62a11.33 11.33 0 00-1.7-.3 29.25 29.25 0 00-6.48 0c-2.74 0-5.55.41-8.29.62s-5.38.41-8.06.65a33.19 33.19 0 00-7.37 1.06 1.37 1.37 0 00-.92.65c-.84 2 3.79 1.39 4.51 1.37 2.29-.08 4.58-.16 6.87-.26q6.87-.3 13.74-.76c1.78-.12 3.57-.24 5.35-.38a8.57 8.57 0 002.52-.35 1.19 1.19 0 00.72-1.7 1.61 1.61 0 00-.89-.6zM43.57 20.57c-2.86-1-6-.3-8.94-.1-2.55.17-5.1.35-7.64.57s-5.35.51-8 .79c-1.51.16-3 .26-4.54.49-.86.14-3.62.34-3.73 1.52a1.06 1.06 0 00.49.94c.76.5 2.26.34 3.12.32 1.18 0 2.35-.15 3.53-.22l6.32-.42c3.36-.22 6.72-.43 10.07-.66 1.7-.13 3.4-.16 5.1-.3 1.47-.13 3.34-.17 4.66-.92a1.1 1.1 0 00.58-.77.88.88 0 00-.17-.65 1.69 1.69 0 00-.85-.59zM43.14 29.85a3.75 3.75 0 00-.77-.23 19 19 0 00-4-.21c-5.46.09-11 .14-16.4.53q-3.07.22-6.14.56c-1.76.19-3.79.17-5.45.86-.63.26-1.24 1.17-.6 1.77s1.63.46 2.3.51a30.58 30.58 0 003.45-.1l6.91-.26c3.63-.15 7.34-.33 11-.49l5.63-.25 2.93-.12c.78 0 1.57 0 2-.72a1.17 1.17 0 00.14-.76 1.43 1.43 0 00-1-1.09z" class="a" /></svg>
+<h3 class="font-medium leading-5 text-gray-900">Christmas 2018</h3>
+</span>
+<svg class="hidden h-12 selected-arrow" style="background-color: #D6D4CE;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="18 107 13 44">
+<path class="text-pink-600" fill="currentColor" d="M-260.4 107H18.3c2.4 0 4.5 1.4 5.5 3.6l6.7 15.2c.7 1.5.7 3.2.1 4.7l-6.8 16.8c-.9 2.3-3.1 3.7-5.6 3.7h-278.7v-44z" />
+</svg>
+</a>
+</div>
+</div>
+<section class="w-full lg:w-76 user">
+<div class="flex flex-col m-4">
+<span class="flex items-center justify-center">
+<img width="48" height="48" class="w-12 h-12" src="/public/assets/img/brand/logo.svg" alt="Giftster Logo" />
+<h2 class="ml-2 text-lg font-bold text-gray-900">Join Giftster</h2>
+</span>
+<p class="self-center pt-2 pb-5 text-center">
+Join to gain full access to this list, mark items reserved or purchased, view item details, and see who resereved items.
+</p>
+<a href="
+        
+          /account/register/qZL2P/?next=/gift/public/qZL2P/
+        
+        " class="self-center font-medium text-red-600 underline">
+sign up free
+</a>
+<p class="w-full font-medium text-center mt-7">
+Already have an account?
+<a class="ml-1 text-red-600 underline" href="/account/login/?next=/gift/public/qZL2P/">
+Log in
+</a>
+</p>
+</div>
+</section>
+</aside>
+<div v-cloak v-show="mobileNavOpen" class="fixed top-0 left-0 z-40 w-full h-full transition duration-1000 ease-in-out transform bg-black opacity-50 lg:hidden hover:-translate-y-1 hover:scale-110">
+</div>
+<nav class="fixed bottom-0 z-50 w-full lg:-ml-4 inset-x lg:hidden shadow-topLight">
+<div class="flex h-16 bg-white justify-evenly top">
+<a @click="toggleMobileNav" class="flex flex-col items-center justify-center flex-shrink-0 px-4 text-gray-500 focus:shadow-none">
+<div class="relative w-6 h-6 mb-5 -mt-5 -ml-4">
+<svg style="margin-top: -17px; margin-left: -35px;" class="absolute" width="94" height="26" viewBox="0 0 94 26" fill="none" xmlns="http://www.w3.org/2000/svg"> <g filter="url(#filter1_d)"> <path d="M18.2272 26C-24.7728 26 32.9772 26 18.2272 26C30.2272 26 28.727 4 54.227 4C79.727 4 80.2269 26 91.2269 26H18.2272Z" fill="white" /> </g> <defs> <filter id="filter1_d" x="0" y="0" width="93.2269" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix" /> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" /> <feOffset dy="-2" /> <feGaussianBlur stdDeviation="1" /> <feColorMatrix type="matrix" values="0 0 0 0 0.2875 0 0 0 0 0.280073 0 0 0 0 0.250365 0 0 0 0.17 0" /> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" /> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" /> </filter> </defs> </svg>
+<svg class="absolute z-20 ml-4 -mt-2 text-gray-200" :class="{'transform rotate-180 text-pink-600': mobileNavOpen} " width="9" height="4" viewBox="0 0 9 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.503861 2.13176C0.0243436 2.40577 -0.142253 3.01662 0.131757 3.49614C0.405767 3.97566 1.01662 4.14225 1.49614 3.86824L0.503861 2.13176ZM4.5 1L4.99614 0.131757C4.68871 -0.043919 4.31129 -0.043919 4.00386 0.131757L4.5 1ZM7.50386 3.86824C7.98338 4.14225 8.59423 3.97566 8.86824 3.49614C9.14225 3.01662 8.97566 2.40577 8.49614 2.13176L7.50386 3.86824ZM1.49614 3.86824L4.99614 1.86824L4.00386 0.131757L0.503861 2.13176L1.49614 3.86824ZM4.00386 1.86824L7.50386 3.86824L8.49614 2.13176L4.99614 0.131757L4.00386 1.86824Z" fill="currentColor" />
+</svg>
+<svg class="absolute top-0 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 39 40"> <defs /> <g filter="url(#filter0_d)"><circle cx="19.2623" cy="19" r="19" class="text-pink-200" fill="currentColor" /></g> <defs> <filter id="filter0_d" width="38" height="40" x="0.262329" y="0" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"> <feFlood flood-opacity="0" result="BackgroundImageFix" /> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+<feOffset v-if="!mobileNavOpen" dy="2" /> <feColorMatrix type="matrix" values="0 0 0 0 0.921337 0 0 0 0 0.537757 0 0 0 0 0.58642 0 0 0 1 0" /> <feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow" /> <feBlend in="SourceGraphic" in2="effect1_dropShadow" mode="normal" result="shape" /> </filter> </defs>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 26" style="margin-left:10px;" class="absolute top-0 z-10 w-5 mt-2 text-pink-600"><g fill="none"><path fill="currentColor" d="M7.936 9.027s-3.009-1.789-3.152-1.88c-.143-.09-2.148-1.973-2.148-1.973l.048-1.193 1.624.184L8.08 6.643l1.098.595S8.031 5.128 8.031 4.94c0-.187-.427-2.197-.427-2.34A17.35 17.35 0 0 1 8.415.993l.858-.275 1.434 2.064s.428 1.745.571 2.02c.144.276.43 1.88.43 1.88l.86-1.927s1.1-1.921 1.194-2.155c.095-.234 1.29-1.56 1.624-1.607a3.09 3.09 0 0 1 1.004.094c.233.131.403.345.476.595 0 .185-.144 1.1-.144 1.1l-.19 1.654-.24.917S18.3 4.16 18.538 4.07c.238-.091 2.1-.322 2.197-.185.136.228.232.476.284.734 0 .137-.094.917-.094 1.055 0 .138-.63.879-.63.879l-4.671 2.982-9.36.549 1.672-1.056z" class="text-white"></path> <path fill="currentColor" d="M1.418 10.14l20.63-.26.381 1.651v2.111l-.373 1.15-1.624-.232v8.247s-.86 1.742-1.529 1.836c-.668.093-13.87.353-14.34.26-.472-.094-1.79-1.56-1.79-1.56l.404-8.991-1.949-.08.19-4.132z" class="text-white"></path> <path fill="currentColor" d="M6.454 9.032a3.513 3.513 0 0 1-.358-.22c-1.082-.861-2.21-1.69-3.247-2.6a2.911 2.911 0 0 1-.722-1.3c-.25-.78.27-1.412 1.123-1.4.38.011.757.092 1.106.237 1.283.538 2.52 1.16 3.542 2.111.086.071.176.137.271.195-.333-.959-.685-1.88-.963-2.823a2.481 2.481 0 0 1 .27-1.974c.71-1.253 1.894-1.346 2.78-.202.814 1.084 1.209 2.324 1.433 3.624.039.27.119.533.239.78.054-.156.113-.31.16-.465a8.3 8.3 0 0 1 1.744-3.315c.417-.48.93-.874 1.508-1.16a1.448 1.448 0 0 1 1.444.05c.435.272.677.753.628 1.25-.027.712-.322 1.417-.516 2.119a2.908 2.908 0 0 0-.198.663c.127-.086.27-.161.382-.26a5.14 5.14 0 0 1 2.465-1.102c.73-.12 1.412-.026 1.872.548.445.564.477 1.335.081 1.932a6.473 6.473 0 0 1-1.428 1.628 29.48 29.48 0 0 1-2.46 1.62c-.133.085-.27.166-.541.34.376.02.576.036.776.039 1.453.029 2.906.06 4.362.078.541 0 .774.244.744.751-.078 1.394-.14 2.788-.24 4.181a.574.574 0 0 1-.195.445.625.625 0 0 1-.477.153h-1.12c0 .73-.019 1.386 0 2.041.068 1.984.179 3.965.222 5.949.038 1.76-1.082 2.829-2.906 2.831-4.384.01-8.767.01-13.15 0-1.957 0-3.058-1.081-3.001-2.974.07-2.34.189-4.664.27-6.997 0-.07 0-.143-.024-.301H1.085c-.774 0-1.082-.297-1.082-1.025v-4.36c0-.704.308-.99 1.058-.99 1.588 0 3.176.013 4.767.02h.601l.025-.117zM1.802 13.78l20.308.598c-.1-1.238-.203-2.509-.309-3.799l-19.999.266v2.935zm10.44 10.332c.162 0 .367.026.573.026 1.779.01 3.557.018 5.336.021 1.14 0 1.486-.35 1.518-1.44.06-2.054.146-4.108.23-6.165.019-.483.07-.97.114-1.534l-7.43.26-.342 8.832zm-8.82-8.606c0 1.137-.018 2.216 0 3.295.03 1.36.077 2.72.155 4.074.057.951.455 1.3 1.405 1.284l5.509-.023c.184 0 .368-.021.54-.029a.736.736 0 0 0 .063-.161c-.1-2.733-.21-5.46-.292-8.195-.014-.455-.27-.447-.59-.44-1.93.045-3.861.076-5.79.123-.363.007-.726.052-1 .072zm10.824-6.24c.164-.03.324-.073.48-.13.67-.267 1.321-.575 1.95-.923a47.567 47.567 0 0 0 3.231-2.168 2.43 2.43 0 0 0 .698-.983c.22-.502-.062-.912-.606-.816-.657.12-1.38.28-1.894.652C16.528 6.032 15.37 7.553 14.25 9.1c-.016.016 0 .06 0 .169l-.003-.003zm-1.623-.09c.14-.128.195-.157.22-.2 1.033-1.82 2.077-3.64 3.087-5.46.217-.41.367-.848.446-1.3a.955.955 0 0 0-.238-.726c-.079-.086-.48 0-.652.12a3.982 3.982 0 0 0-.912.824c-1.526 1.965-2.024 4.225-1.962 6.744l.01-.003zm-1.353-.33a3.77 3.77 0 0 0 0-.52c-.244-1.35-.384-2.728-.717-4.062a11.43 11.43 0 0 0-1.137-2.618c-.316-.577-.711-.52-1.052.065-.341.585-.27 1.172-.087 1.765.59 1.82 1.58 3.458 2.66 5.047.097.112.2.218.311.317l.022.005zM3.158 4.442c.178 1.67 4.01 4.26 6.478 4.42C7.73 6.99 5.912 5.171 3.158 4.443z"></path></g></svg>
+</div>
+<span class="z-10 flex-shrink-0 text-xs font-medium text-pink-600">Shop For</span>
+</a>
+<div class="flex md:hidden">
+<div class="
+        min-w-0 my-3 mr-1 border-gray-200 
+        
+        "></div>
+<button id="beacon-mobile" class="flex flex-col items-center justify-center flex-shrink-0 px-4 text-gray-500 focus:shadow-none">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 20 22">
+<path class="text-gray-500" fill="currentColor" fill-rule="evenodd" d="M14.167 15.165c-.622.138-1.258.13-1.876.124-.143-.001-.286-.004-.429-.004a.544.544 0 00-.421.197c-.67.736-1.34 1.468-2.01 2.199-.55.6-1.099 1.2-1.644 1.799l-.475.51v-4.7h-.433a5.911 5.911 0 01-3.713-1.406 6.061 6.061 0 01-2.015-3.462 6.927 6.927 0 01-.11-1.321c-.025-.785.005-1.59.09-2.383a6.01 6.01 0 011.557-3.229 5.852 5.852 0 013.09-1.744c.435-.09.88-.137 1.321-.139h5.92c1.356 0 2.682.48 3.733 1.35a6.036 6.036 0 012.05 3.443c.151.76.14 1.527.131 2.27-.002.184-.004.369-.004.553A6.09 6.09 0 0117.6 13.06a5.93 5.93 0 01-3.433 2.104zm5.632-4.976c.076-.989.095-1.999.055-2.997a5.817 5.817 0 00-.533-2.325c-1.24-2.738-3.38-4.161-6.365-4.233C11.813.601 10.65.613 9.524.624L8.87.631c-.229.001-.46 0-.688-.002-.16-.002-.322-.003-.484-.003-.529 0-1.062.015-1.574.095-2.909.45-4.842 2.13-5.747 4.994-.426 1.322-.49 2.84-.197 4.637.443 2.716 2.013 4.584 4.667 5.552.295.103.602.173.926.247.156.036.314.071.472.112l.106.026.022.325c0 .335-.002.66-.003.984-.005.646-.009 1.291.003 1.939 0 .223.05.443.146.642a1.086 1.086 0 001.787.173c1.02-1.095 2.083-2.26 3.35-3.671.225-.286.586-.446.952-.416a6.778 6.778 0 004.931-1.771c1.328-1.198 2.088-2.646 2.26-4.305z" clip-rule="evenodd" />
+<path class="text-gray-500" fill="currentColor" fill-rule="evenodd" d="M9.8 10.21c.197.061.417.007.606-.148v-.001c.46-.373.925-.737 1.39-1.102l.483-.38c.726-.563 1.071-1.187 1.085-1.965l-.007-.092c-.005-.077-.01-.16-.023-.241a2.719 2.719 0 00-.806-1.481 2.982 2.982 0 00-1.984-.952c-.706-.036-1.393.213-2.143.79a.552.552 0 00-.154.742.562.562 0 00.341.29c.143.042.3.021.429-.056a4.54 4.54 0 01.391-.222l.034-.016c.06-.028.119-.06.179-.091.216-.113.44-.23.683-.256.586-.059 1.11.21 1.56.801.486.64.407 1.249-.23 1.762-.34.268-.692.527-1.045.787l-.178.132-.191.144c-.283.21-.55.41-.722.7a.517.517 0 00-.1.413v.004c.067.22.213.38.401.438zM9.02 12.768a.72.72 0 00.667.451h.001a.73.73 0 00.721-.73.73.73 0 00-.724-.736.714.714 0 00-.509.214.741.741 0 00-.156.8z" clip-rule="evenodd" />
+</svg>
+<span class="flex-shrink-0 text-xs font-medium text-gray-500">Help</span>
+</button>
+</div>
+</div>
+</nav>
+</div>
+<script type="text/javascript" src="/public/build/vue/js/nav.d1f8393a.js"></script>
+</div>
+<footer>
+<div class="flex justify-center py-6 bg-gray-800">
+<ul class="flex flex-col items-center text-center md:flex-row md:items-center md:justify-evenly">
+<li class="py-3 text-gray-400 md:py-1 md:px-3">
+<a href="https://help.giftster.com" class="">help</a>
+</li>
+<li class="py-3 text-gray-400 md:py-1 md:px-3">
+<a href="/about/" class="">about</a>
+</li>
+<li class="py-3 text-gray-400 md:py-1 md:px-3">
+<a href="https://status.giftster.com" class="">system status</a>
+</li>
+<li class="py-3 text-gray-400 md:py-1 md:px-3">
+<a href="/feedback/" class="">feedback</a>
+</li>
+<li class="py-3 text-gray-400 md:py-1 md:px-3">
+<a href="/news/" class="">blog</a>
+</li>
+<li class="py-3 text-gray-400 md:py-1 md:px-3">
+<a href="/contact/" class="">contact</a>
+</li>
+</ul>
+</div>
+<div class="flex flex-col items-center h-full pt-10 pb-20 text-center bg-gray-900">
+<div class="flex flex-col items-center justify-center">
+<p class="text-sm tracking-wide text-gray-700">EST. 2009</p>
+<img width="86" height="125" class="w-24 m-4" src="/public/assets/img/brand/gift_box_mono.svg" />
+<p class="text-sm text-gray-700">MADE IN MINNESOTA</p>
+</div>
+<p class="flex flex-col mt-4 text-sm text-gray-700 md:flex-row md:items-center md:-ml-3">
+<span>
+We keep the lights on with affiliate link fees. <br>
+As an Amazon Associate we earn from qualifying purchases. <br>
+<a class="underline" href="/free/">Learn more</a>
+</span>
+</p>
+<p class="flex flex-col mt-4 text-sm text-gray-700 md:flex-row md:items-center md:-ml-3">
+<span class="py-2 mx-4"></span>
+&copy;2009 &dash;2022
+MyGiftster Corporation
+</span>
+<span class="py-2 mx-2">
+<a class="text-sm text-gray-700 underline" href="/privacy/">Privacy Policy</a>
+<a class="ml-2 text-sm text-gray-700 underline" href="/terms/">Terms and Conditions</a
+        >
+</span>
+</p>
+</div>
+</footer>
+<link type="text/css" href="/public/build/vue/css/shop_list.7f7ca61f.css" rel="stylesheet" />
+<script type="text/javascript" src="/public/build/vue/js/shop_list.8ed9388c.js"></script>
+<script>
+        window.giftItemsJson = JSON.parse("[{\u0022id\u0022: 7646002, \u0022title\u0022: \u0022apple AirPods\u0022, \u0022description\u0022: \u0022\u0022, \u0022link\u0022: \u0022https://www.apple.com/shop/product/MMEF2AM/A/airpods?afid\u003Dp238%7CskriWC0e7\u002Ddc_mtid_1870765e38482_pcrid_286785707424_\u0026cid\u003Daos\u002Dus\u002Dkwgo\u002Dpla\u002Dbtb\u002Dairpods\u002D\u002Dslid\u002D\u002Dproduct\u002DMMEF2AM/A\u0022, \u0022price\u0022: null, \u0022quantity\u0022: 1, \u0022rank\u0022: 0, \u0022store\u0022: \u0022\u0022, \u0022image\u0022: \u0022\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D09T19:24:50\u0022, \u0022created\u0022: \u00222018\u002D12\u002D09T19:24:50\u0022, \u0022list__user__userprofile__avatar__image\u0022: null, \u0022affiliate_link\u0022: \u0022http://redirect.viglink.com?key\u003D6351c7146f7717317945840153ca4de3\u0026u\u003Dhttps%3A%2F%2Fwww.apple.com%2Fshop%2Fproduct%2FMMEF2AM%2FA%2Fairpods%3Fafid%3Dp238%257CskriWC0e7\u002Ddc_mtid_1870765e38482_pcrid_286785707424_%26cid%3Daos\u002Dus\u002Dkwgo\u002Dpla\u002Dbtb\u002Dairpods\u002D\u002Dslid\u002D\u002Dproduct\u002DMMEF2AM%2FA\u0022, \u0022isSuggestedItem\u0022: false, \u0022canEdit\u0022: false, \u0022list\u0022: {\u0022user\u0022: {\u0022first_name\u0022: \u0022Taylor\u0022, \u0022last_name\u0022: \u0022Hanoch\u0022, \u0022avatar_url_xs\u0022: \u0022\u0022}, \u0022title\u0022: \u0022Christmas 2018\u0022, \u0022url_locator\u0022: \u0022qZL2P\u0022, \u0022id\u0022: 758715}, \u0022reserves\u0022: []}, {\u0022id\u0022: 7511889, \u0022title\u0022: \u0022Black hard\u002Dside luggage with swivel wheels\u0022, \u0022description\u0022: \u002220\u005C\u0022 carry\u002Don and 28\u005C\u0022 checked size. Added link for example\u0022, \u0022link\u0022: \u0022https://tjmaxx.tjx.com/store/jump/product/handbags\u002Dluggage\u002Dtravel/Black\u002DRotolo\u002DHardside\u002DCollection/COL004848P?colorId\u003DNS1003537\u0026pos\u003D1:76\u0026N\u003D159772303+0\u0022, \u0022price\u0022: \u002249.99\u0022, \u0022quantity\u0022: 1, \u0022rank\u0022: 0, \u0022store\u0022: \u0022TJ Maxx or Amazon\u0022, \u0022image\u0022: \u0022\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D05T03:46:43\u0022, \u0022created\u0022: \u00222018\u002D12\u002D05T03:46:43\u0022, \u0022list__user__userprofile__avatar__image\u0022: null, \u0022affiliate_link\u0022: \u0022http://go.giftster.com?id\u003D45845X1168275\u0026xs\u003D1\u0026url\u003Dhttps%3A%2F%2Ftjmaxx.tjx.com%2Fstore%2Fjump%2Fproduct%2Fhandbags\u002Dluggage\u002Dtravel%2FBlack\u002DRotolo\u002DHardside\u002DCollection%2FCOL004848P%3FcolorId%3DNS1003537%26pos%3D1%3A76%26N%3D159772303%2B0\u0022, \u0022isSuggestedItem\u0022: false, \u0022canEdit\u0022: false, \u0022list\u0022: {\u0022user\u0022: {\u0022first_name\u0022: \u0022Taylor\u0022, \u0022last_name\u0022: \u0022Hanoch\u0022, \u0022avatar_url_xs\u0022: \u0022\u0022}, \u0022title\u0022: \u0022Christmas 2018\u0022, \u0022url_locator\u0022: \u0022qZL2P\u0022, \u0022id\u0022: 758715}, \u0022reserves\u0022: [{\u0022user\u0022: {\u0022id\u0022: null, \u0022name\u0022: \u0022\u0022}, \u0022status\u0022: \u0022purchased\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D09T22:53:51\u0022}]}, {\u0022id\u0022: 7112979, \u0022title\u0022: \u0022Curling iron\u0022, \u0022description\u0022: \u0022\u0022, \u0022link\u0022: \u0022https://www.jcpenney.com/p/hot\u002Dtools\u002D2\u002Dgold\u002Dcurling\u002Diron/1b999d6?pTmplType\u003Dregular\u0026country\u003DUS\u0026currency\u003DUSD\u0026selectedSKUId\u003D06574310000\u0026selectedLotId\u003D0657431\u0026fromBag\u003Dtrue\u0026quantity\u003D1\u0026utm_medium\u003Dcse\u0026utm_source\u003Dgoogle\u0026utm_campaign\u003Dcurling%20irons\u0026utm_content\u003D06574310000\u0026cid\u003Dcse%7Cgoogle%7C000%20%2d%20special%20businesses%7Ccurling%20irons_06574310000\u0026gclid\u003DCjwKCAiAiuTfBRAaEiwA4itUqJWoVCOzFOBJ1lCYEQWAZFBSfII6JJ3KCGlr1NRWuXfnFs4QGrUG_BoCp_YQAvD_BwE\u0022, \u0022price\u0022: \u0022$34\u0022, \u0022quantity\u0022: 1, \u0022rank\u0022: 0, \u0022store\u0022: \u0022\u0022, \u0022image\u0022: \u0022\u0022, \u0022modified\u0022: \u00222018\u002D11\u002D25T04:03:37\u0022, \u0022created\u0022: \u00222018\u002D11\u002D25T04:03:37\u0022, \u0022list__user__userprofile__avatar__image\u0022: null, \u0022affiliate_link\u0022: \u0022http://go.giftster.com?id\u003D45845X1168275\u0026xs\u003D1\u0026url\u003Dhttps%3A%2F%2Fwww.jcpenney.com%2Fp%2Fhot\u002Dtools\u002D2\u002Dgold\u002Dcurling\u002Diron%2F1b999d6%3FpTmplType%3Dregular%26country%3DUS%26currency%3DUSD%26selectedSKUId%3D06574310000%26selectedLotId%3D0657431%26fromBag%3Dtrue%26quantity%3D1%26utm_medium%3Dcse%26utm_source%3Dgoogle%26utm_campaign%3Dcurling%2520irons%26utm_content%3D06574310000%26cid%3Dcse%257Cgoogle%257C000%2520%252d%2520special%2520businesses%257Ccurling%2520irons_06574310000%26gclid%3DCjwKCAiAiuTfBRAaEiwA4itUqJWoVCOzFOBJ1lCYEQWAZFBSfII6JJ3KCGlr1NRWuXfnFs4QGrUG_BoCp_YQAvD_BwE\u0022, \u0022isSuggestedItem\u0022: false, \u0022canEdit\u0022: false, \u0022list\u0022: {\u0022user\u0022: {\u0022first_name\u0022: \u0022Taylor\u0022, \u0022last_name\u0022: \u0022Hanoch\u0022, \u0022avatar_url_xs\u0022: \u0022\u0022}, \u0022title\u0022: \u0022Christmas 2018\u0022, \u0022url_locator\u0022: \u0022qZL2P\u0022, \u0022id\u0022: 758715}, \u0022reserves\u0022: []}, {\u0022id\u0022: 7650288, \u0022title\u0022: \u0022Gold coin necklaces\u0022, \u0022description\u0022: \u0022\u0022, \u0022link\u0022: \u0022https://www.etsy.com/listing/600091898/coin\u002Dnecklacenecklaces\u002Dsettwo\u002Dlayer?ga_order\u003Dmost_relevant\u0026ga_search_type\u003Dall\u0026ga_view_type\u003Dgallery\u0026ga_search_query\u003Dgold+coin+necklace\u0026ref\u003Dsr_gallery\u002D1\u002D19\u0026organic_search_click\u003D1\u0026bes\u003D1\u0022, \u0022price\u0022: \u002235\u0022, \u0022quantity\u0022: 1, \u0022rank\u0022: 0, \u0022store\u0022: \u0022\u0022, \u0022image\u0022: \u0022\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D09T21:05:52\u0022, \u0022created\u0022: \u00222018\u002D12\u002D09T21:05:36\u0022, \u0022list__user__userprofile__avatar__image\u0022: null, \u0022affiliate_link\u0022: \u0022http://go.giftster.com?id\u003D45845X1168275\u0026xs\u003D1\u0026url\u003Dhttps%3A%2F%2Fwww.etsy.com%2Flisting%2F600091898%2Fcoin\u002Dnecklacenecklaces\u002Dsettwo\u002Dlayer%3Fga_order%3Dmost_relevant%26ga_search_type%3Dall%26ga_view_type%3Dgallery%26ga_search_query%3Dgold%2Bcoin%2Bnecklace%26ref%3Dsr_gallery\u002D1\u002D19%26organic_search_click%3D1%26bes%3D1\u0022, \u0022isSuggestedItem\u0022: false, \u0022canEdit\u0022: false, \u0022list\u0022: {\u0022user\u0022: {\u0022first_name\u0022: \u0022Taylor\u0022, \u0022last_name\u0022: \u0022Hanoch\u0022, \u0022avatar_url_xs\u0022: \u0022\u0022}, \u0022title\u0022: \u0022Christmas 2018\u0022, \u0022url_locator\u0022: \u0022qZL2P\u0022, \u0022id\u0022: 758715}, \u0022reserves\u0022: [{\u0022user\u0022: {\u0022id\u0022: null, \u0022name\u0022: \u0022\u0022}, \u0022status\u0022: \u0022purchased\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D11T13:51:22\u0022}]}, {\u0022id\u0022: 7656782, \u0022title\u0022: \u0022LED teeth whitening\u0022, \u0022description\u0022: \u0022\u0022, \u0022link\u0022: \u0022https://www.amazon.com/Best\u002DHome\u002DTeeth\u002DWhitening\u002DLight/dp/B07JH83Q1V/ref\u003Dsr_1_1?rps\u003D1\u0026ie\u003DUTF8\u0026qid\u003D1544400172\u0026sr\u003D8\u002D1\u0026keywords\u003Dled+teeth+whitening+light\u0026refinements\u003Dp_85%3A2470955011%2Cp_72%3A2661618011\u0022, \u0022price\u0022: \u002254\u0022, \u0022quantity\u0022: 1, \u0022rank\u0022: 0, \u0022store\u0022: \u0022\u0022, \u0022image\u0022: \u0022\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D10T00:04:17\u0022, \u0022created\u0022: \u00222018\u002D12\u002D10T00:04:17\u0022, \u0022list__user__userprofile__avatar__image\u0022: null, \u0022affiliate_link\u0022: \u0022https://www.amazon.com/Best\u002DHome\u002DTeeth\u002DWhitening\u002DLight/dp/B07JH83Q1V/ref\u003Dsr_1_1?rps\u003D1\u0026ie\u003DUTF8\u0026qid\u003D1544400172\u0026sr\u003D8\u002D1\u0026keywords\u003Dled+teeth+whitening+light\u0026refinements\u003Dp_85%3A2470955011%2Cp_72%3A2661618011\u0026tag\u003Dgiftster0f\u002D20\u0022, \u0022isSuggestedItem\u0022: false, \u0022canEdit\u0022: false, \u0022list\u0022: {\u0022user\u0022: {\u0022first_name\u0022: \u0022Taylor\u0022, \u0022last_name\u0022: \u0022Hanoch\u0022, \u0022avatar_url_xs\u0022: \u0022\u0022}, \u0022title\u0022: \u0022Christmas 2018\u0022, \u0022url_locator\u0022: \u0022qZL2P\u0022, \u0022id\u0022: 758715}, \u0022reserves\u0022: [{\u0022user\u0022: {\u0022id\u0022: null, \u0022name\u0022: \u0022\u0022}, \u0022status\u0022: \u0022purchased\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D19T19:21:11\u0022}]}, {\u0022id\u0022: 7110653, \u0022title\u0022: \u0022makeup brush\u0022, \u0022description\u0022: \u0022\u0022, \u0022link\u0022: \u0022https://www.morphebrushes.com/collections/powder/products/m571\u002Dangled\u002Dflat\u002Dbuffer\u0022, \u0022price\u0022: \u0022$10\u0022, \u0022quantity\u0022: 1, \u0022rank\u0022: 0, \u0022store\u0022: \u0022\u0022, \u0022image\u0022: \u0022\u0022, \u0022modified\u0022: \u00222018\u002D11\u002D25T03:13:21\u0022, \u0022created\u0022: \u00222018\u002D11\u002D25T03:13:21\u0022, \u0022list__user__userprofile__avatar__image\u0022: null, \u0022affiliate_link\u0022: \u0022http://go.giftster.com?id\u003D45845X1168275\u0026xs\u003D1\u0026url\u003Dhttps%3A%2F%2Fwww.morphebrushes.com%2Fcollections%2Fpowder%2Fproducts%2Fm571\u002Dangled\u002Dflat\u002Dbuffer\u0022, \u0022isSuggestedItem\u0022: false, \u0022canEdit\u0022: false, \u0022list\u0022: {\u0022user\u0022: {\u0022first_name\u0022: \u0022Taylor\u0022, \u0022last_name\u0022: \u0022Hanoch\u0022, \u0022avatar_url_xs\u0022: \u0022\u0022}, \u0022title\u0022: \u0022Christmas 2018\u0022, \u0022url_locator\u0022: \u0022qZL2P\u0022, \u0022id\u0022: 758715}, \u0022reserves\u0022: []}, {\u0022id\u0022: 7650841, \u0022title\u0022: \u0022silver earrings\u0022, \u0022description\u0022: \u0022\u0022, \u0022link\u0022: \u0022https://www.etsy.com/listing/607173414/silver\u002Dplated\u002Dbrass\u002Dhoop\u002Dearrings\u002Dbaby?ga_order\u003Dmost_relevant\u0026ga_search_type\u003Dall\u0026ga_view_type\u003Dgallery\u0026ga_search_query\u003Dchunky+hoop+earrings\u0026ref\u003Dsr_gallery\u002D1\u002D15\u0026organic_search_click\u003D1\u0022, \u0022price\u0022: \u002217\u0022, \u0022quantity\u0022: 1, \u0022rank\u0022: 0, \u0022store\u0022: \u0022\u0022, \u0022image\u0022: \u0022\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D09T21:19:44\u0022, \u0022created\u0022: \u00222018\u002D12\u002D09T21:19:44\u0022, \u0022list__user__userprofile__avatar__image\u0022: null, \u0022affiliate_link\u0022: \u0022http://go.giftster.com?id\u003D45845X1168275\u0026xs\u003D1\u0026url\u003Dhttps%3A%2F%2Fwww.etsy.com%2Flisting%2F607173414%2Fsilver\u002Dplated\u002Dbrass\u002Dhoop\u002Dearrings\u002Dbaby%3Fga_order%3Dmost_relevant%26ga_search_type%3Dall%26ga_view_type%3Dgallery%26ga_search_query%3Dchunky%2Bhoop%2Bearrings%26ref%3Dsr_gallery\u002D1\u002D15%26organic_search_click%3D1\u0022, \u0022isSuggestedItem\u0022: false, \u0022canEdit\u0022: false, \u0022list\u0022: {\u0022user\u0022: {\u0022first_name\u0022: \u0022Taylor\u0022, \u0022last_name\u0022: \u0022Hanoch\u0022, \u0022avatar_url_xs\u0022: \u0022\u0022}, \u0022title\u0022: \u0022Christmas 2018\u0022, \u0022url_locator\u0022: \u0022qZL2P\u0022, \u0022id\u0022: 758715}, \u0022reserves\u0022: []}, {\u0022id\u0022: 7650940, \u0022title\u0022: \u0022sunglasses\u0022, \u0022description\u0022: \u0022\u0022, \u0022link\u0022: \u0022https://www.etsy.com/listing/563533338/cheetah\u002Dprint\u002Dcat\u002Deye\u002Dsunglasses?ga_order\u003Dmost_relevant\u0026ga_search_type\u003Dall\u0026ga_view_type\u003Dgallery\u0026ga_search_query\u003Dcat+eye+sunglasses\u0026ref\u003Dsr_gallery\u002D1\u002D18\u0026organic_search_click\u003D1\u0022, \u0022price\u0022: \u00228\u0022, \u0022quantity\u0022: 1, \u0022rank\u0022: 0, \u0022store\u0022: \u0022\u0022, \u0022image\u0022: \u0022\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D09T21:22:53\u0022, \u0022created\u0022: \u00222018\u002D12\u002D09T21:22:53\u0022, \u0022list__user__userprofile__avatar__image\u0022: null, \u0022affiliate_link\u0022: \u0022http://go.giftster.com?id\u003D45845X1168275\u0026xs\u003D1\u0026url\u003Dhttps%3A%2F%2Fwww.etsy.com%2Flisting%2F563533338%2Fcheetah\u002Dprint\u002Dcat\u002Deye\u002Dsunglasses%3Fga_order%3Dmost_relevant%26ga_search_type%3Dall%26ga_view_type%3Dgallery%26ga_search_query%3Dcat%2Beye%2Bsunglasses%26ref%3Dsr_gallery\u002D1\u002D18%26organic_search_click%3D1\u0022, \u0022isSuggestedItem\u0022: false, \u0022canEdit\u0022: false, \u0022list\u0022: {\u0022user\u0022: {\u0022first_name\u0022: \u0022Taylor\u0022, \u0022last_name\u0022: \u0022Hanoch\u0022, \u0022avatar_url_xs\u0022: \u0022\u0022}, \u0022title\u0022: \u0022Christmas 2018\u0022, \u0022url_locator\u0022: \u0022qZL2P\u0022, \u0022id\u0022: 758715}, \u0022reserves\u0022: []}, {\u0022id\u0022: 7651275, \u0022title\u0022: \u0022t shirt small\u0022, \u0022description\u0022: \u0022\u0022, \u0022link\u0022: \u0022https://www.etsy.com/listing/640904556/waves\u002Dembroidered\u002Dt\u002Dshirt?ga_order\u003Dmost_relevant\u0026ga_search_type\u003Dall\u0026ga_view_type\u003Dgallery\u0026ga_search_query\u003Dembroidered+t+shirts\u0026ref\u003Dsr_gallery\u002D3\u002D46\u0026col\u003D1\u0022, \u0022price\u0022: \u002220\u0022, \u0022quantity\u0022: 1, \u0022rank\u0022: 0, \u0022store\u0022: \u0022\u0022, \u0022image\u0022: \u0022\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D12T00:12:03\u0022, \u0022created\u0022: \u00222018\u002D12\u002D09T21:30:47\u0022, \u0022list__user__userprofile__avatar__image\u0022: null, \u0022affiliate_link\u0022: \u0022http://go.giftster.com?id\u003D45845X1168275\u0026xs\u003D1\u0026url\u003Dhttps%3A%2F%2Fwww.etsy.com%2Flisting%2F640904556%2Fwaves\u002Dembroidered\u002Dt\u002Dshirt%3Fga_order%3Dmost_relevant%26ga_search_type%3Dall%26ga_view_type%3Dgallery%26ga_search_query%3Dembroidered%2Bt%2Bshirts%26ref%3Dsr_gallery\u002D3\u002D46%26col%3D1\u0022, \u0022isSuggestedItem\u0022: false, \u0022canEdit\u0022: false, \u0022list\u0022: {\u0022user\u0022: {\u0022first_name\u0022: \u0022Taylor\u0022, \u0022last_name\u0022: \u0022Hanoch\u0022, \u0022avatar_url_xs\u0022: \u0022\u0022}, \u0022title\u0022: \u0022Christmas 2018\u0022, \u0022url_locator\u0022: \u0022qZL2P\u0022, \u0022id\u0022: 758715}, \u0022reserves\u0022: []}, {\u0022id\u0022: 7648964, \u0022title\u0022: \u0022waterproof boots\u0022, \u0022description\u0022: \u0022\u0022, \u0022link\u0022: \u0022https://shop.nordstrom.com/s/jeffrey\u002Dcampbell\u002Dcloudy\u002Dwaterproof\u002Dchelsea\u002Drain\u002Dboot\u002Dwomen/4459923?country\u003DUS\u0026currency\u003DUSD\u0026mrkgcl\u003D760\u0026mrkgadid\u003D3313923899\u0026utm_content\u003D33067282789\u0026utm_term\u003Dpla\u002D259693821549\u0026utm_channel\u003Dshopping_ret_p\u0026sp_source\u003Dgoogle\u0026sp_campaign\u003D662927176\u0026rkg_id\u003D0\u0026adpos\u003D1o1\u0026creative\u003D145503081782\u0026device\u003Dc\u0026matchtype\u003D\u0026network\u003Dg\u0026gclid\u003DCjwKCAiAl7PgBRBWEiwAzFhmmqJuoSw9Va_iLhDikKdZ4OpYzxDzAUjmwZEGdzZGAgP9hvO8VX6QFRoC\u002DF4QAvD_BwE\u0022, \u0022price\u0022: \u002254\u0022, \u0022quantity\u0022: 1, \u0022rank\u0022: 0, \u0022store\u0022: \u0022\u0022, \u0022image\u0022: \u0022\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D09T20:32:02\u0022, \u0022created\u0022: \u00222018\u002D12\u002D09T20:32:02\u0022, \u0022list__user__userprofile__avatar__image\u0022: null, \u0022affiliate_link\u0022: \u0022http://go.giftster.com?id\u003D45845X1168275\u0026xs\u003D1\u0026url\u003Dhttps%3A%2F%2Fshop.nordstrom.com%2Fs%2Fjeffrey\u002Dcampbell\u002Dcloudy\u002Dwaterproof\u002Dchelsea\u002Drain\u002Dboot\u002Dwomen%2F4459923%3Fcountry%3DUS%26currency%3DUSD%26mrkgcl%3D760%26mrkgadid%3D3313923899%26utm_content%3D33067282789%26utm_term%3Dpla\u002D259693821549%26utm_channel%3Dshopping_ret_p%26sp_source%3Dgoogle%26sp_campaign%3D662927176%26rkg_id%3D0%26adpos%3D1o1%26creative%3D145503081782%26device%3Dc%26matchtype%3D%26network%3Dg%26gclid%3DCjwKCAiAl7PgBRBWEiwAzFhmmqJuoSw9Va_iLhDikKdZ4OpYzxDzAUjmwZEGdzZGAgP9hvO8VX6QFRoC\u002DF4QAvD_BwE\u0022, \u0022isSuggestedItem\u0022: false, \u0022canEdit\u0022: false, \u0022list\u0022: {\u0022user\u0022: {\u0022first_name\u0022: \u0022Taylor\u0022, \u0022last_name\u0022: \u0022Hanoch\u0022, \u0022avatar_url_xs\u0022: \u0022\u0022}, \u0022title\u0022: \u0022Christmas 2018\u0022, \u0022url_locator\u0022: \u0022qZL2P\u0022, \u0022id\u0022: 758715}, \u0022reserves\u0022: [{\u0022user\u0022: {\u0022id\u0022: null, \u0022name\u0022: \u0022\u0022}, \u0022status\u0022: \u0022purchased\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D18T13:49:57\u0022}]}, {\u0022id\u0022: 7648697, \u0022title\u0022: \u0022winter coat\u0022, \u0022description\u0022: \u0022\u0022, \u0022link\u0022: \u0022https://www.zaful.com/open\u002Dfront\u002Dfluffy\u002Dfaux\u002Dfur\u002Dwinter\u002Dcoat\u002Dp_614049.html?currency\u003DUSD\u0026lkid\u003D229395\u0022, \u0022price\u0022: \u002220\u0022, \u0022quantity\u0022: 1, \u0022rank\u0022: 0, \u0022store\u0022: \u0022\u0022, \u0022image\u0022: \u0022\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D09T20:25:47\u0022, \u0022created\u0022: \u00222018\u002D12\u002D09T20:25:47\u0022, \u0022list__user__userprofile__avatar__image\u0022: null, \u0022affiliate_link\u0022: \u0022http://go.giftster.com?id\u003D45845X1168275\u0026xs\u003D1\u0026url\u003Dhttps%3A%2F%2Fwww.zaful.com%2Fopen\u002Dfront\u002Dfluffy\u002Dfaux\u002Dfur\u002Dwinter\u002Dcoat\u002Dp_614049.html%3Fcurrency%3DUSD%26lkid%3D229395\u0022, \u0022isSuggestedItem\u0022: false, \u0022canEdit\u0022: false, \u0022list\u0022: {\u0022user\u0022: {\u0022first_name\u0022: \u0022Taylor\u0022, \u0022last_name\u0022: \u0022Hanoch\u0022, \u0022avatar_url_xs\u0022: \u0022\u0022}, \u0022title\u0022: \u0022Christmas 2018\u0022, \u0022url_locator\u0022: \u0022qZL2P\u0022, \u0022id\u0022: 758715}, \u0022reserves\u0022: [{\u0022user\u0022: {\u0022id\u0022: null, \u0022name\u0022: \u0022\u0022}, \u0022status\u0022: \u0022purchased\u0022, \u0022modified\u0022: \u00222018\u002D12\u002D15T17:16:09\u0022}]}]")
+        window.suggestedGiftItemsJson = JSON.parse("[]")
+    </script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+  
+  
+  const beacon = document.querySelector("#beacon");
+  const beaconMobile = document.querySelector("#beacon-mobile");
+  
+  beacon.addEventListener("touchstart", (e) => {
+    loadBeacon();
+    window.Beacon("open");
+  },{ passive: true });
+
+  beacon.addEventListener("click", (e) => {
+    loadBeacon();
+    window.Beacon("open");
+  });
+    
+  
+  if (beaconMobile) {
+    beaconMobile.addEventListener("mouseover", (e) => {
+      loadBeacon();
+    });
+
+    beaconMobile.addEventListener("touchstart", (e) => {
+      loadBeacon();
+    },{ passive: true });
+
+    beaconMobile.addEventListener("click", (e) => {
+      window.Beacon("open");
+      beacon.style.zIndex = 1000;
+    });
+  }
+  // Add event listeners to all in-line beacon help links
+  const help_links = document.querySelectorAll('.beacon-help');
+  help_links.forEach(function(link) {
+      link.addEventListener("mouseover", (e) => {
+          loadBeacon();
+      });
+
+      link.addEventListener("touchstart", (e) => {
+          loadBeacon();
+      },{ passive: true });
+
+      link.addEventListener("click", (e) => {
+          window.Beacon("open");
+          beacon.style.zIndex = 1000;
+      });
+  });    
+
+  // Actually load beacon
+  function loadBeacon() {
+    if (typeof window.Beacon == "undefined") {
+      var script = document.createElement("script");
+      script.id = "beacon";
+      script.text = `!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`;
+      document.head.appendChild(script);
+
+      Beacon('init', '80227902-9c1e-4662-a10f-d42884129d2b');
+      window.Beacon("config", {
+        enableFabAnimation: false
+      });
+    }
+  }
+});
+
+</script>
+<style type="text/css">
+    .cZTuEj {
+        -webkit-box-align: center;
+        align-items: center;
+        border-radius: 200px;
+        bottom: 0px;
+        display: block;
+        -webkit-box-pack: center;
+        justify-content: center;
+        margin: 0px;
+        outline: none;
+        padding: 0px;
+        position: relative;
+        user-select: none;
+        z-index: 999;
+        background-color: rgb(199, 65, 82);
+        border: none;
+        color: white;
+        cursor: pointer;
+        min-width: 60px;
+        transition: background-color 200ms linear 0s, transform 200ms linear 0s;
+        -webkit-tap-highlight-color: transparent;
+        height: 55px;
+        line-height: 55px;
+    }
+
+.cZTuEj:hover {
+    background-color: rgb(191, 57, 74);
+    box-shadow: rgb(0 0 0 / 6%) 0px 0px 0px 30px inset;
+}
+
+.bIvNUR {
+    -webkit-box-align: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    left: 0px;
+    pointer-events: none;
+    position: absolute;
+    text-indent: -99999px;
+    top: 0px;
+    transition: opacity 80ms linear 0s, transform 160ms linear 0s;
+    width: 60px;
+    will-change: opacity, transform;
+    opacity: 1 !important;
+    transform: rotate(
+0deg) scale(1) !important;
+}
+.hZgNWn {
+    -webkit-box-align: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    left: 0px;
+    opacity: 0;
+    transform: rotate(
+30deg) scale(0);
+    pointer-events: none;
+    position: absolute;
+    text-indent: -99999px;
+    top: 0px;
+    transition: opacity 80ms linear 0s, transform 160ms linear 0s;
+    width: 60px;
+    will-change: opacity, transform;
+}
+
+.lgnIzU {
+    color: white;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0px 20px 0px 54px;
+    white-space: nowrap;
+}
+.hgZYVr {
+    box-sizing: border-box;
+    will-change: contents;
+}
+
+.hsds-beacon {
+    bottom: 40px;
+    right: 40px;
+}
+
+@media (max-height: 740px)
+{
+  .hsds-beacon {
+      bottom: 10px;
+      right: 20px;
+  }
+}
+ 
+</style>
+
+<div class="hidden hsds-beacon lg:flex lg:fixed bottom-10 right-10" style="z-index: 999;">
+<button id="beacon" aria-label="Open Beacon popover" aria-expanded="false" aria-controls="HSBeaconContainerFrame" class="sc-Axmtr cZTuEj hover:pointer">
+<span class="sc-fzoLsD bIvNUR c-FabButton__icon--icon">
+<svg width="16" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M5.98785 17.5656L6.01976 15.4805C6.01976 14.9458 6.12612 14.5288 6.33882 14.2294C6.59407 13.652 7.03012 13.2243 7.64698 12.9463C8.2851 12.6469 9.0083 12.3154 9.81659 11.9519C10.8589 11.5669 11.6671 11.0216 12.2415 10.3159C12.8158 9.58879 13.1029 8.59437 13.1029 7.33264C13.1029 5.9212 12.635 4.81985 11.6991 4.02859C10.7631 3.21595 9.55071 2.80962 8.06175 2.80962C6.59407 2.80962 5.38164 3.10902 4.42445 3.70781C3.48854 4.3066 3.02058 5.26894 3.02058 6.59484H0.5C0.5 4.64877 1.17003 3.15179 2.51009 2.10391C3.87142 1.03464 5.7326 0.5 8.09366 0.5C9.60388 0.5 10.912 0.799396 12.0181 1.39819C13.1455 1.99698 14.0176 2.82032 14.6344 3.8682C15.2513 4.91608 15.5384 6.09228 15.4959 7.39679C15.4746 9.10763 15.0705 10.487 14.2835 11.5349C13.4964 12.5614 12.3372 13.3954 10.8057 14.037C10.1463 14.3364 9.64642 14.5716 9.30609 14.7427C8.96576 14.9138 8.73178 15.1062 8.60416 15.3201C8.47653 15.5126 8.40209 15.7799 8.38082 16.122C8.38082 16.4642 8.38082 16.9454 8.38082 17.5656H5.98785ZM7.16838 23.5C6.7217 23.5 6.32819 23.3396 5.98785 23.0188C5.66879 22.6767 5.50926 22.281 5.50926 21.8319C5.50926 21.3615 5.66879 20.9658 5.98785 20.645C6.32819 20.3243 6.7217 20.1639 7.16838 20.1639C7.61507 20.1639 7.99794 20.3243 8.317 20.645C8.63606 20.9658 8.80623 21.3615 8.8275 21.8319C8.8275 22.281 8.65734 22.6767 8.317 23.0188C7.99794 23.3396 7.61507 23.5 7.16838 23.5Z" fill="#FFF"></path></svg>
+</span>
+<span class="sc-fzoLsD hZgNWn c-FabButton__icon--close">
+<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M13.707.293a.999.999 0 0 0-1.414 0L7 5.586 1.707.293A.999.999 0 1 0 .293 1.707L5.586 7 .293 12.293a.999.999 0 1 0 1.414 1.414L7 8.414l5.293 5.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414L8.414 7l5.293-5.293a.999.999 0 0 0 0-1.414" fill="#FFF" fill-rule="evenodd"></path></svg>
+</span><span class="sc-fzozJi lgnIzU c-FabButton__text">
+<span data-cy="Truncate" class="Truncatecss__TruncateUI-oij0sx-0 hgZYVr c-Truncate is-end">
+<div class="c-EventListenerRoot"></div>
+<span class="c-Truncate__content">Ask</span>
+</span>
+</span>
+</button>
+</div>
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5488112"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><noscript><img src="//bat.bing.com/action/0?ti=5488112&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /></noscript>
+
+<script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1475464609425949');
+      fbq('track', 'PageView');
+      </script>
+<noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1475464609425949&ev=PageView&noscript=1"
+      /></noscript>
+<script type="text/javascript" src="/public/build/vue/js/chunk-vendors.93b6eb88.js"></script>
+</body>
+</html>

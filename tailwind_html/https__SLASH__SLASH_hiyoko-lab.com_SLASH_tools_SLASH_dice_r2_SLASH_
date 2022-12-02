@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-98878896-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-98878896-1');
+</script>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ダイス｜ヒヨコラボ - ひよこ実験室 -</title>
+    <meta name="description" content="hiyoko.lab_Web-Service No.3">
+    
+<link rel="shortcut icon" href="/dest/img/content/tools/dice/icon/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/dest/img/content/tools/dice/icon/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/dest/img/content/tools/dice/icon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/dest/img/content/tools/dice/icon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/dest/img/content/tools/dice/icon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/dest/img/content/tools/dice/icon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/dest/img/content/tools/dice/icon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/dest/img/content/tools/dice/icon/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/dest/img/content/tools/dice/icon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/dest/img/content/tools/dice/icon/apple-touch-icon-180x180.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/dest/css/dice.css?ver=0.9.11">
+
+    <!-- GoogleAdsense -->
+    <script data-ad-client="ca-pub-3959412635784992" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<link href="./css/tailwind.min.css" rel="stylesheet">
+<body>
+<div id="container">
+    <div class="header">
+        <p class="header__no"><a href="/">hiyoko.lab_Web-Service No.3</a></p>
+        <h1 class="header__title">ダイス</h1>
+    </div>
+
+    <div class="main">
+        <div class="main__center p-5" id="app">
+            <div class="w-full pt-5">
+                <h2 class="text-2xl md:text-5xl">
+                    選ばれたのは...<span>{{ selectMessage }}</span>
+                </h2>
+            </div>
+
+            <div class="flex flex-wrap md:block w-full">
+                <ul class="w-1/2 md:w-full mt-5" v-for="n in 6">
+                    <li class="pt-2">
+                        {{ n }}：<input class="w-5/6 border-2 border-blue-500 p-2" v-model="$data['message' + n]" placeholder="選択肢を入力してください">
+                    </li>
+            </div>
+
+            <div class="md:flex sticky top-0 pt-10">
+                <div class="w-1/3 m-auto">
+                    <button id="throw" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" v-on:click="throw_dice">サイコロをふる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pc-banner only-pc">
+        <!-- ストップウォッチ -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3959412635784992"
+             data-ad-slot="4090600979"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="sp-banner only-sp">
+        <p class="sp-banner__image">
+            <!-- ストップウォッチ_スマホ用 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:430px;height:85px"
+                 data-ad-client="ca-pub-3959412635784992"
+                 data-ad-slot="1025469845"></ins>
+        </p>
+    </div>
+</div>
+
+<div id="canvas" style="position:absolute;left:0;top:0;display:none;" class="sticky top-0"></div>
+<script src="./js/vue3.js"></script>
+<!-- script src="./js/chart.min.js" ></script -->
+<script src="./js/three.min.js"></script>
+<script src="./js/cannon.min.js"></script>
+<script src="./js/dice.js"></script>
+
+<script type="text/javascript" defer="defer">
+    var diceTable = document.getElementById('canvas');
+
+    //ダイス生成
+    var $box = new $dice.dice_box(diceTable, { w: 300, h: 300 });
+
+    var $chart = null;
+
+    const app = Vue.createApp({
+        data() {
+            return {
+                result: null,
+                selectMessage: null,
+                message1: null,
+                message2: null,
+                message3: null,
+                message4: null,
+                message5: null,
+                message6: null,
+            }
+        },
+        mounted() {
+
+        },
+        methods:{
+            throw_dice(){
+                let self = this;
+                //サイコロ を投げる
+                let resultObject = {vec:null, value:null};
+                resultObject.vec = $box.start_throw(function(vectors, notation, callback){
+                    //サイコロ を投げる寸前の処理
+                    document.getElementById('throw').disabled = true;
+                    diceTable.style.display = 'block';
+                    diceTable.style.width = window.innerWidth - 1 + 'px';
+                    diceTable.style.height = window.innerHeight - 1 + 'px';
+                    $box.reinit(diceTable, { w: 500, h: 300 });
+                    callback();
+                }, function(notation, result){
+                    //サイコロ 投げた後の処理
+                    document.getElementById('throw').disabled = false;
+                    resultObject.value = result.join(' ');
+                    self.result = resultObject.value;
+                    diceTable.style.display = 'none';
+                    self.getMessage(result[0]);
+                });
+            },
+
+            getMessage(result) {
+                switch (result) {
+                    case 1:
+                        this.selectMessage = this.message1;
+                        break;
+                    case 2:
+                        this.selectMessage = this.message2;
+                        break;
+                    case 3:
+                        this.selectMessage = this.message3;
+                        break;
+                    case 4:
+                        this.selectMessage = this.message4;
+                        break;
+                    case 5:
+                        this.selectMessage = this.message5;
+                        break;
+                    case 6:
+                        this.selectMessage = this.message6;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    })
+    const vm = app.mount('#app');
+
+</script>
+
+<!-- Google Adsense PC版 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3959412635784992"
+        crossorigin="anonymous"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!-- Google Adsense SP版 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3959412635784992"
+        crossorigin="anonymous"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</body>
+</html>

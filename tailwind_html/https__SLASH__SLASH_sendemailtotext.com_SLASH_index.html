@@ -1,0 +1,343 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <title>Send email to text</title>
+</head>
+<body>
+<header class="text-gray-600 body-font">
+<div class="flex justify-center p-4">
+      <a class="flex lg:order-none lg:w-1/5 title-font 
+    font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0" href="index.html">
+<svg width="40" height="40" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="64" cy="64" r="64" fill="#DA5140"/>
+<path d="M89.3132 94.3222V84.4192H82.0443V90.2593C82.0443 90.3392 82.0284 90.4184 81.9974 90.4923C81.9665 90.5662 81.9211 90.6334 81.8638 90.6899C81.8066 90.7465 81.7387 90.7913 81.6639 90.8219C81.5891 90.8525 81.509 90.8683 81.4281 90.8683H45.8775C45.7966 90.8683 45.7165 90.8525 45.6417 90.8219C45.5669 90.7913 45.499 90.7465 45.4417 90.6899C45.3845 90.6334 45.3391 90.5662 45.3081 90.4923C45.2772 90.4184 45.2612 90.3392 45.2612 90.2593V37.7991C45.2612 37.6376 45.3262 37.4827 45.4417 37.3685C45.5573 37.2543 45.7141 37.1901 45.8775 37.1901H81.4281C81.5915 37.1901 81.7483 37.2543 81.8638 37.3685C81.9794 37.4827 82.0443 37.6376 82.0443 37.7991V43.5891H89.3132V33.6694C89.3448 31.1444 88.3634 28.7097 86.5837 26.8977C84.8039 25.0858 82.3705 24.0439 79.8156 24H47.4731C44.9212 24.0504 42.493 25.0963 40.7184 26.9094C38.9438 28.7225 37.9669 31.1556 38.0009 33.6778V94.3222C37.9669 96.8444 38.9438 99.2775 40.7184 101.091C42.493 102.904 44.9212 103.95 47.4731 104H79.8156C82.372 103.956 84.8067 102.913 86.5867 101.099C88.3667 99.2855 89.3471 96.8487 89.3132 94.3222ZM66.3754 99.7702H60.9386C60.6271 99.7702 60.3186 99.7095 60.0308 99.5917C59.7429 99.4739 59.4814 99.3012 59.2611 99.0835C59.0408 98.8658 58.8661 98.6074 58.7469 98.3229C58.6277 98.0385 58.5663 97.7337 58.5663 97.4258C58.5663 97.1179 58.6277 96.8131 58.7469 96.5287C58.8661 96.2442 59.0408 95.9858 59.2611 95.7681C59.4814 95.5504 59.7429 95.3777 60.0308 95.2599C60.3186 95.1421 60.6271 95.0814 60.9386 95.0814H66.3754C66.687 95.0814 66.9955 95.1421 67.2833 95.2599C67.5711 95.3777 67.8326 95.5504 68.0529 95.7681C68.2732 95.9858 68.4479 96.2442 68.5671 96.5287C68.6864 96.8131 68.7477 97.1179 68.7477 97.4258C68.7477 97.7337 68.6864 98.0385 68.5671 98.3229C68.4479 98.6074 68.2732 98.8658 68.0529 99.0835C67.8326 99.3012 67.5711 99.4739 67.2833 99.5917C66.9955 99.7095 66.687 99.7702 66.3754 99.7702Z" fill="white"/>
+<rect x="70.0698" y="59.8975" width="20.6898" height="7.17949" fill="white"/>
+<path d="M62.0358 54.2181V73.7821C62.0358 75.0544 62.5472 76.2746 63.4576 77.1742C64.3679 78.0739 65.6027 78.5793 66.8901 78.5793H71.8204V84.1106C71.8212 84.3036 71.8798 84.4921 71.9889 84.6522C72.0981 84.8122 72.2527 84.9367 72.4335 85.01C72.6142 85.0832 72.8128 85.1018 73.0042 85.0635C73.1956 85.0252 73.3712 84.9317 73.5089 84.7948L79.7646 78.6127V78.571H93.1457C94.4331 78.571 95.6678 78.0656 96.5782 77.1659C97.4886 76.2663 98 75.0461 98 73.7738V54.2181C98 52.9458 97.4886 51.7256 96.5782 50.826C95.6678 49.9263 94.4331 49.4209 93.1457 49.4209H66.8817C65.5942 49.4209 64.3595 49.9263 63.4491 50.826C62.5388 51.7256 62.0273 52.9458 62.0273 54.2181H62.0358ZM86.5185 61.8852C86.9402 61.8885 87.3515 62.0151 87.7005 62.249C88.0495 62.4829 88.3206 62.8137 88.4797 63.1997C88.6388 63.5856 88.6787 64.0095 88.5944 64.4179C88.51 64.8262 88.3053 65.2007 88.0059 65.4943C87.7066 65.7878 87.326 65.9872 86.9121 66.0673C86.4982 66.1474 86.0697 66.1046 85.6804 65.9444C85.2911 65.7841 84.9585 65.5136 84.7245 65.1668C84.4905 64.8201 84.3657 64.4127 84.3657 63.9959C84.3679 63.4376 84.5939 62.9028 84.9942 62.5088C85.3946 62.1148 85.9366 61.8935 86.5016 61.8935L86.5185 61.8852ZM80.0348 61.8852C80.4565 61.8885 80.8678 62.0151 81.2168 62.249C81.5658 62.4829 81.8369 62.8137 81.996 63.1997C82.1551 63.5856 82.195 64.0095 82.1107 64.4179C82.0264 64.8262 81.8216 65.2007 81.5222 65.4943C81.2229 65.7878 80.8423 65.9872 80.4284 66.0673C80.0146 66.1474 79.586 66.1046 79.1967 65.9444C78.8074 65.7841 78.4748 65.5136 78.2408 65.1668C78.0069 64.8201 77.882 64.4127 77.882 63.9959C77.8842 63.439 78.1091 62.9055 78.5076 62.5117C78.9061 62.1179 79.4459 61.8957 80.0094 61.8935L80.0348 61.8852ZM73.5511 61.8852C73.9716 61.8934 74.3804 62.0241 74.726 62.261C75.0717 62.4979 75.3388 62.8303 75.4941 63.2167C75.6493 63.603 75.6856 64.026 75.5985 64.4327C75.5113 64.8394 75.3047 65.2115 75.0043 65.5026C74.704 65.7936 74.3234 65.9905 73.9103 66.0687C73.4972 66.1468 73.0699 66.1026 72.682 65.9417C72.2942 65.7808 71.9631 65.5103 71.7302 65.1642C71.4973 64.818 71.3731 64.4116 71.373 63.9959C71.3741 63.718 71.4307 63.4431 71.5396 63.1869C71.6485 62.9307 71.8075 62.6982 72.0075 62.5029C72.2075 62.3075 72.4446 62.1532 72.7051 62.0486C72.9657 61.944 73.2446 61.8913 73.5258 61.8935L73.5511 61.8852Z" fill="#F2BE42"/>
+</svg>
+      <span class="ml-3 text-xl">Email to Text</span>
+    </a>
+</div>
+
+</header>
+<!---->
+
+<section class="text-gray-600 body-font">
+  <div class="container mx-auto flex px-5 pt-20 pb-4 items-center justify-center flex-col">
+    <img class="object-cover object-center  rounded-lg" alt="hero" src="Settings.png" width="600">
+    <div class="text-center mb-20">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-1 py-5">Send text messages from Gmail</h1>
+      <p class="text-base leading-relaxed xl:w-3/4 lg:w-3/4 mx-auto text-gray-500s mb-3">Send texts instantly with email to text add-on. We convert your email into a text message and deliver it, with all replies then arriving as emails.</p>
+      <div class="flex justify-center">
+        <button class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg"><a href="https://workspace.google.com/marketplace/app/email_to_text_send_sms_messages_from_gma/135822310631">Install Add-on</a></button>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="text-gray-600 body-font">
+  <div class="container px-5 pt-4 pb-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-10">
+      <h2 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900 py-5">Pricing</h2>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Upon installation, we provide each user with <b>10 free SMS messages</b> to try out our service.</p>
+    </div>
+    <div class="lg:w-1/2 w-full mx-auto overflow-auto">
+      <table class="table-auto w-full text-left whitespace-no-wrap">
+        <thead>
+          <tr>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">SMS Count</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Price</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Discount</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="px-4 py-3">50 SMS</td>
+            <td class="px-4 py-3">$10</td>
+            <td class="px-4 py-3"></td>
+          </tr>
+          <tr>
+            <td class="border-t-2 border-gray-200 px-4 py-3">250 SMS</td>
+            <td class="border-t-2 border-gray-200 px-4 py-3">$25</td>
+            <td class="border-t-2 border-gray-200 px-4 py-3">Save 50%</td>
+          </tr>
+          <tr>
+            <td class="border-t-2 border-gray-200 px-4 py-3">500 SMS</td>
+            <td class="border-t-2 border-gray-200 px-4 py-3">$40</td>
+            <td class="border-t-2 border-gray-200 px-4 py-3">Save 60%</td>
+          </tr>
+          <tr>
+            <td class="border-t-2 border-gray-200 px-4 py-3">1000 SMS</td>
+            <td class="border-t-2 border-gray-200 px-4 py-3">$70</td>
+            <td class="border-t-2 border-gray-200 px-4 py-3">Save 65%</td>
+          </tr>
+          <tr>
+            <td class="border-t-2 border-gray-200 px-4 py-3">2500 SMS</td>
+            <td class="border-t-2 border-gray-200 px-4 py-3">$150</td>
+            <td class="border-t-2 border-gray-200 px-4 py-3">Save 70%</td>
+          </tr>
+          <tr>
+            <td class="border-t-2 border-gray-200 px-4 py-3">5000 SMS</td>
+            <td class="border-t-2 border-gray-200 px-4 py-3">$250</td>
+            <td class="border-t-2 border-gray-200 px-4 py-3">Save 75%</td>
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-0 mx-auto">
+    <div class="flex flex-wrap -m-4">
+
+      <div class="p-4 md:w-1/3">
+        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+          <div class="flex items-center mb-3">
+            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-red-500 text-white flex-shrink-0">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+              </svg>
+            </div>
+            <h2 class="text-gray-900 text-lg title-font font-medium">Send SMS from Gmail</h2>
+          </div>
+          <div class="flex-grow">
+            <p class="leading-relaxed text-base">Grant access to any email by adding it to the allowed email list.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 md:w-1/3">
+        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+          <div class="flex items-center mb-3">
+            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-red-500 text-white flex-shrink-0">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+            </div>
+            <h2 class="text-gray-900 text-lg title-font font-medium">Receive SMS Replies as Emails</h2>
+          </div>
+          <div class="flex-grow">
+            <p class="leading-relaxed text-base">Receive SMS Replies as Emails</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 md:w-1/3">
+        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+          <div class="flex items-center mb-3">
+            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-red-500 text-white flex-shrink-0">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h2 class="text-gray-900 text-lg title-font font-medium">Send to Multiple Recipients</h2>
+          </div>
+          <div class="flex-grow">
+            <p class="leading-relaxed text-base">Send texts to multiple recipients straight from your email account.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="text-gray-600 body-font pt-24">
+  <div class="container px-5 mx-auto">
+    <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">Improve Your Business Processes with Email to SMS
+    </h1>
+    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+      <div class="p-4 md:w-1/3 flex">
+        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-red-100 text-red-500 mb-4 flex-shrink-0">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+          </svg>
+        </div>
+        <div class="flex-grow pl-6">
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Appointment Reminders</h2>
+          <p class="leading-relaxed text-base">Send your email to SMS alerts to remind clients about appointments and reduce ‘no shows.’</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3 flex">
+        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-red-100 text-red-500 mb-4 flex-shrink-0">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+            <path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+          </svg>
+        </div>
+        <div class="flex-grow pl-6">
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Staff & Team Alerts</h2>
+          <p class="leading-relaxed text-base">Send bulk email texts whenever you need to alert or notify your team or staff.</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3 flex">
+        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-red-100 text-red-500 mb-4 flex-shrink-0">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+            <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+          </svg>
+        </div>
+        <div class="flex-grow pl-6">
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Booking Confirmations</h2>
+          <p class="leading-relaxed text-base">Confirm bookings made by customers with an automated text message.</p>
+
+        </div>
+      </div>
+    </div>
+<div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6 py-16">
+      <div class="p-4 md:w-1/3 flex">
+        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-red-100 text-red-500 mb-4 flex-shrink-0">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+          </svg>
+        </div>
+        <div class="flex-grow pl-6">
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Marketing & Promotions</h2>
+          <p class="leading-relaxed text-base">Promote your business and services by sending texts to customers.</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3 flex">
+        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-red-100 text-red-500 mb-4 flex-shrink-0">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+          </svg>
+        </div>
+        <div class="flex-grow pl-6">
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Hardware Monitoring Alerts</h2>
+          <p class="leading-relaxed text-base">Server crash at 2 a.m.? Send email to SMS text alerts to your IT team instantly.</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3 flex">
+        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-red-100 text-red-500 mb-4 flex-shrink-0">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z" />
+          </svg>
+        </div>
+        <div class="flex-grow pl-6">
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Alerts & Notifications</h2>
+          <p class="leading-relaxed text-base">Boost your business by sending SMS alerts &amp; notifications about critical updates.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="text-gray-600 body-font relative">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">To contact us please submit the form below</p>
+    </div>
+    <form id = "feedback-form" action="https://sendemailtotext.com/" old="https://formspree.io/f/xgepbykb" method="POST">
+    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+      <div class="flex flex-wrap -m-2">
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+            <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+            <input type="email" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        <div class="p-2 w-full">
+          <div class="relative">
+            <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+            <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+          </div>
+        </div>
+        <div class="p-2 w-full">
+          <button class="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg" type="submit">Submit</button>
+        </div>
+        
+      </div>
+    </div>
+    </form>
+    <div id="thank-for-feedback" class="success flex flex-col text-center w-full mb-12" style="display: none">
+      <p class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">The form was successfully submitted.</p>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please allow us 24 hours to respond to your message.</p>
+    </div>
+  </div>
+</section>
+
+
+<!---->
+<footer class="text-gray-600 body-font">
+  <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+<svg width="40" height="40" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="64" cy="64" r="64" fill="#DA5140"/>
+<path d="M89.3132 94.3222V84.4192H82.0443V90.2593C82.0443 90.3392 82.0284 90.4184 81.9974 90.4923C81.9665 90.5662 81.9211 90.6334 81.8638 90.6899C81.8066 90.7465 81.7387 90.7913 81.6639 90.8219C81.5891 90.8525 81.509 90.8683 81.4281 90.8683H45.8775C45.7966 90.8683 45.7165 90.8525 45.6417 90.8219C45.5669 90.7913 45.499 90.7465 45.4417 90.6899C45.3845 90.6334 45.3391 90.5662 45.3081 90.4923C45.2772 90.4184 45.2612 90.3392 45.2612 90.2593V37.7991C45.2612 37.6376 45.3262 37.4827 45.4417 37.3685C45.5573 37.2543 45.7141 37.1901 45.8775 37.1901H81.4281C81.5915 37.1901 81.7483 37.2543 81.8638 37.3685C81.9794 37.4827 82.0443 37.6376 82.0443 37.7991V43.5891H89.3132V33.6694C89.3448 31.1444 88.3634 28.7097 86.5837 26.8977C84.8039 25.0858 82.3705 24.0439 79.8156 24H47.4731C44.9212 24.0504 42.493 25.0963 40.7184 26.9094C38.9438 28.7225 37.9669 31.1556 38.0009 33.6778V94.3222C37.9669 96.8444 38.9438 99.2775 40.7184 101.091C42.493 102.904 44.9212 103.95 47.4731 104H79.8156C82.372 103.956 84.8067 102.913 86.5867 101.099C88.3667 99.2855 89.3471 96.8487 89.3132 94.3222ZM66.3754 99.7702H60.9386C60.6271 99.7702 60.3186 99.7095 60.0308 99.5917C59.7429 99.4739 59.4814 99.3012 59.2611 99.0835C59.0408 98.8658 58.8661 98.6074 58.7469 98.3229C58.6277 98.0385 58.5663 97.7337 58.5663 97.4258C58.5663 97.1179 58.6277 96.8131 58.7469 96.5287C58.8661 96.2442 59.0408 95.9858 59.2611 95.7681C59.4814 95.5504 59.7429 95.3777 60.0308 95.2599C60.3186 95.1421 60.6271 95.0814 60.9386 95.0814H66.3754C66.687 95.0814 66.9955 95.1421 67.2833 95.2599C67.5711 95.3777 67.8326 95.5504 68.0529 95.7681C68.2732 95.9858 68.4479 96.2442 68.5671 96.5287C68.6864 96.8131 68.7477 97.1179 68.7477 97.4258C68.7477 97.7337 68.6864 98.0385 68.5671 98.3229C68.4479 98.6074 68.2732 98.8658 68.0529 99.0835C67.8326 99.3012 67.5711 99.4739 67.2833 99.5917C66.9955 99.7095 66.687 99.7702 66.3754 99.7702Z" fill="white"/>
+<rect x="70.0698" y="59.8975" width="20.6898" height="7.17949" fill="white"/>
+<path d="M62.0358 54.2181V73.7821C62.0358 75.0544 62.5472 76.2746 63.4576 77.1742C64.3679 78.0739 65.6027 78.5793 66.8901 78.5793H71.8204V84.1106C71.8212 84.3036 71.8798 84.4921 71.9889 84.6522C72.0981 84.8122 72.2527 84.9367 72.4335 85.01C72.6142 85.0832 72.8128 85.1018 73.0042 85.0635C73.1956 85.0252 73.3712 84.9317 73.5089 84.7948L79.7646 78.6127V78.571H93.1457C94.4331 78.571 95.6678 78.0656 96.5782 77.1659C97.4886 76.2663 98 75.0461 98 73.7738V54.2181C98 52.9458 97.4886 51.7256 96.5782 50.826C95.6678 49.9263 94.4331 49.4209 93.1457 49.4209H66.8817C65.5942 49.4209 64.3595 49.9263 63.4491 50.826C62.5388 51.7256 62.0273 52.9458 62.0273 54.2181H62.0358ZM86.5185 61.8852C86.9402 61.8885 87.3515 62.0151 87.7005 62.249C88.0495 62.4829 88.3206 62.8137 88.4797 63.1997C88.6388 63.5856 88.6787 64.0095 88.5944 64.4179C88.51 64.8262 88.3053 65.2007 88.0059 65.4943C87.7066 65.7878 87.326 65.9872 86.9121 66.0673C86.4982 66.1474 86.0697 66.1046 85.6804 65.9444C85.2911 65.7841 84.9585 65.5136 84.7245 65.1668C84.4905 64.8201 84.3657 64.4127 84.3657 63.9959C84.3679 63.4376 84.5939 62.9028 84.9942 62.5088C85.3946 62.1148 85.9366 61.8935 86.5016 61.8935L86.5185 61.8852ZM80.0348 61.8852C80.4565 61.8885 80.8678 62.0151 81.2168 62.249C81.5658 62.4829 81.8369 62.8137 81.996 63.1997C82.1551 63.5856 82.195 64.0095 82.1107 64.4179C82.0264 64.8262 81.8216 65.2007 81.5222 65.4943C81.2229 65.7878 80.8423 65.9872 80.4284 66.0673C80.0146 66.1474 79.586 66.1046 79.1967 65.9444C78.8074 65.7841 78.4748 65.5136 78.2408 65.1668C78.0069 64.8201 77.882 64.4127 77.882 63.9959C77.8842 63.439 78.1091 62.9055 78.5076 62.5117C78.9061 62.1179 79.4459 61.8957 80.0094 61.8935L80.0348 61.8852ZM73.5511 61.8852C73.9716 61.8934 74.3804 62.0241 74.726 62.261C75.0717 62.4979 75.3388 62.8303 75.4941 63.2167C75.6493 63.603 75.6856 64.026 75.5985 64.4327C75.5113 64.8394 75.3047 65.2115 75.0043 65.5026C74.704 65.7936 74.3234 65.9905 73.9103 66.0687C73.4972 66.1468 73.0699 66.1026 72.682 65.9417C72.2942 65.7808 71.9631 65.5103 71.7302 65.1642C71.4973 64.818 71.3731 64.4116 71.373 63.9959C71.3741 63.718 71.4307 63.4431 71.5396 63.1869C71.6485 62.9307 71.8075 62.6982 72.0075 62.5029C72.2075 62.3075 72.4446 62.1532 72.7051 62.0486C72.9657 61.944 73.2446 61.8913 73.5258 61.8935L73.5511 61.8852Z" fill="#F2BE42"/>
+</svg>
+      <span class="ml-3 text">Email to Text</span>
+    </a>
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2022
+    </p>
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+      <a class="mr-5 hover:text-gray-900" href="privacy.html">Privacy Policy</a>
+      <a class="mr-5 hover:text-gray-900" href="terms.html">Terms</a>
+    </span>
+  </div>
+</footer>
+
+
+</body>
+
+<script>
+window.addEventListener( "load", function () {
+  function sendData() {
+    const XHR = new XMLHttpRequest();
+
+    // Bind the FormData object and the form element
+    const FD = new FormData( form );
+
+    // Define what happens on successful data submission
+    XHR.addEventListener( "load", function(event) {
+      // alert( event.target.responseText );
+      const thank = document.getElementById( "thank-for-feedback" );
+      thank.style.display = 'flex'
+      form.style.display = 'none'
+    } );
+
+    // Define what happens in case of error
+    XHR.addEventListener( "error", function( event ) {
+      alert( 'Oops! Something went wrong.' );
+    } );
+
+    // Set up our request
+    XHR.open( "POST", "https://us-west2-send-email-to-text.cloudfunctions.net/function_save_feedback_site" );
+
+    // The data sent is what the user provided in the form
+    XHR.send( FD );
+  }
+
+  // Access the form element...
+  const form = document.getElementById( "feedback-form" );
+
+  // ...and take over its submit event.
+  form.addEventListener( "submit", function ( event ) {
+    event.preventDefault();
+
+    sendData();
+  } );
+} );
+
+
+</script>
+
+</html>

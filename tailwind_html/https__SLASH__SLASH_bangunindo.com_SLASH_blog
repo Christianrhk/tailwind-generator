@@ -1,0 +1,408 @@
+   <!-- NAVBAR -->
+   <div class="flex justify-center">
+        <nav class="navs container fixed z-50 h-24 bg-transparent max-w-full" x-data="{showMenu: false}">
+            <div class="container relative flex flex-wrap items-center justify-between h-24 mx-auto max-w-7xl font-semibold border-gray-200 lg:justify-center sm:px-4 md:px-2">
+                <!-- LOGO BTJ -->
+                <a href="/" class="py-4 md:py-0">
+                    <img class="w-20 md:w-16 lg:w-20 xl:w-24" style="display: inline-block;" id="anniv-logo" src="backend_assets/img/btj-anniv.png" alt="">
+                    <img class="w-20 md:w-16 lg:w-20 xl:w-24" style="display: inline-block;" id="white-logo" src="backend_assets/img/Image-01.png" alt="">    
+                    <img class="w-24 md:w-20 lg:w-28 xl:w-32 ml-8 md:ml-8 hidden" id="color-logo" src="backend_assets/img/logo.png" alt="">    
+                </a>
+                <!-- MENUS -->
+                <div class="top-0 left-0 items-start hidden w-full h-full p-4 text-sm bg-gray-900 bg-opacity-50 md:w-5/6 md:absolute lg:text-base md:h-auto md:bg-transparent md:p-0 md:relative md:flex" :class="{'flex fixed': showMenu, 'hidden': !showMenu }">
+                    <div class="flex-col w-full h-auto overflow-hidden bg-gray-400 rounded-lg select-none md:bg-transparent md:rounded-none md:relative md:flex md:flex-row md:overflow-auto">
+                        <div class="flex flex-col items-start justify-center w-full text-center md:mt-0 md:flex-row md:items-center">
+                            <a href="/about" id="about" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">ABOUT US</a>
+                            <a href="/services" id="services" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">SERVICES</a>
+                            <a href="/works" id="works" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">WORKS</a>
+                            <a href="/contact" id="contact" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">CONTACT</a>
+                            <!-- <a href="/blog" id="blog" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">BLOG</a> -->
+                            <a href="/careers" id="blog" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">CAREERS</a>
+                            <!-- <a href="/zabbix" id="blog" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">ZABBIX</a> -->
+                        </div>
+                        <div class="flex flex-col items-start justify-end w-full pt-4 md:items-center md:w-1/6 md:mr-8 md:flex-row md:py-0">
+                            <span class="inline-flex w-full shadow-sm md:rounded-full md:w-auto">
+                                <a href="/product" id="careers" class="inline-flex items-center w-full px-6 py-3 text-sm font-semibold leading-4 btn-primary md:px-2 md:w-auto lg:px-4" style="border-radius: 9999px 0px 9999px 9999px;">SEMERU TOOLS</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- MENU/HAMBURGER ICON FOR MOBILE VIEW -->
+                <div @click="showMenu = !showMenu" class="absolute mr-8 right-0 flex flex-col items-center items-end justify-center w-10 h-10 rounded-full cursor-pointer md:hidden hover:bg-gray-100">
+                    <svg class="w-6 h-6 text-gray-800" x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" x-cloak>
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg class="w-6 h-6 text-gray-800" x-show="showMenu" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" x-cloak>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+<script>
+    $(window).on("scroll", function(){
+        if($(window).scrollTop() > 50){
+            $(".navs").addClass("active");
+            $("#color-logo").removeClass('hidden')
+            $("#white-logo").css('display', 'none')
+            $("#anniv-logo").css('display', 'none')
+        } else {
+            $(".navs").removeClass("active");
+            $("#color-logo").addClass('hidden')
+            $("#white-logo").css('display', 'inline-block')
+            $("#anniv-logo").css('display', 'inline-block')
+        }
+    });
+
+    // $(document).ready(function(){
+    //     setTimeout(function(){
+    //         $('#anniv-logo').fadeOut(500)
+    //         $('#white-logo').fadeIn(1000)
+    //     }, 2000)
+    // })
+
+    var currURL = window.location.pathname.split('/');
+
+    if(currURL[1] == "home") {
+        var home = document.getElementById("home");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "about") {
+        var home = document.getElementById("about");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "product") {
+        var home = document.getElementById("product");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "services") {
+        var home = document.getElementById("services");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "works") {
+        var home = document.getElementById("works");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "blog") {
+        var home = document.getElementById("blog");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "contact") {
+        var home = document.getElementById("contact");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "careers") {
+        var home = document.getElementById("careers");
+        // home.classList.add("active");
+    }
+
+    if(currURL[1] == "zabbix") {
+        var home = document.getElementById("zabbix");
+        // home.classList.add("active");
+    }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css">
+    <link rel="stylesheet" href="frontend_assets/css/styling.css">
+
+    <!-- FONT OPEN SANS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/1d81ccf367.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- TITLE -->
+    <div class="parallax"
+        style="background-image:url('https://images.unsplash.com/photo-1502465771179-51f3535da42c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80');">
+        <div class="flex justify-left pt-16 pb-6 md:pb-4 pl-10 md:pl-20 lg:pt-24 xl:pt-32 xl:pb-12 bg-linear-black">
+            <div class="text-white w-auto">
+                <h1
+                    class="md:text-left text-center text-2xl pt-28 leading-tight md:leading-tight md:text-4xl lg:leading-tight lg:text-4xl">
+                    Blog</h1>
+            </div>
+        </div>
+    </div>
+    <!-- HEADLINE ARTICLE -->
+    <!-- <div class="mt-36 mb-10 mx-10 md:mx-20 lg:mx-20 xl:mx-80">
+        <div class="mb-4 h-72 md:h-80 lg:h-96 md:mb-0 w-full mx-auto relative">
+            <img class="left-0 top-0 w-full h-full z-0 object-cover rounded-md" src="https://lodcreative.id/beteje/wp-content/uploads/2019/09/Data-Science-vs.-Big-Data-vs.jpg"/>
+            <div onClick="location.href='/blog-detail'" class="absolute blog-filter left-0 bottom-0 w-full h-full z-10 rounded-md"><div>
+            <div class="absolute p-4 bottom-0 left-0 z-20">
+                <p class="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white">
+                    Why the next big thing in fintech is not mobile payments
+                </p>
+                <div class="mt-2">
+                    <p class="text-sm md:text-md lg:text-lg xl:text-xl text-gray-300 ">What’s the secret to fintech’s appeal?</p>
+                    <p class="text-xs md:text-sm lg:text-md xl:text-md text-gray-300 mt-4">September 30, 2019</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+        <div class="container flex flex-wrap justify-between px-4 items-center mx-auto border-b">
+            <div class="flex md:order-2 ">
+                <div class="hidden relative mr-3 md:mr-0 md:block">
+                    <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                        <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <input type="text" id="email-adress-icon"
+                        class="block p-2 pl-10 w-full text-gray-900 rounded-full border border-gray-300 sm:text-sm bg-gray-300 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                        placeholder="Search...">
+                </div>
+                <button data-collapse-toggle="mobile-menu-3" type="button"
+                    class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="mobile-menu-3" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-3">
+                <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+                <li>
+                        <a href="#"
+                            class="block py-2 px-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">For you</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Top charts</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Kids</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Event</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Sport</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Business</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Weather</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Lifestyle</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Health</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BROWSE (ARTICLE LIST) -->
+    <div class="container container w-auto px-6 flex flex-wrap flex-col md:flex-row items-center justify-start">
+    <div class="w-full lg:w-1/2 p-3 transform duration-500 hover:scale-105 cursor-pointer">
+        <button onClick="location.href='/blog-detail'">
+            <div class="p-6 flex flex-col lg:flex-row bg-gray-200 overflow-hidden h-full md:h-56">
+                <img class="block h-auto w-full md:w-56 flex-none"
+                    src="https://lodcreative.id/beteje/wp-content/uploads/2019/09/1_B5ubFgTfIm7falDr7Ki_mw-670x506.png">
+                <div
+                    class="text-center md:text-left bg-gray-200 rounded-b lg:rounded-b-none lg:rounded-r mt-2 md:px-6 flex flex-col leading-normal">
+                    <div class="text-black mb-4 font-bold text-xl leading-tight">Why tech companies are flocking to
+                        fintech
+                    </div>
+                    <h1 class="text-gray-500 mb-4 font-light">The market and investors seem to have resoundingly
+                        approved
+                        this approach.</h1>
+                    <p class="text-gray-400 text-base">September 27, 2019</p>
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <div class="w-full lg:w-1/2 p-3 transform duration-500 hover:scale-105 cursor-pointer">
+        <button onClick="location.href='/blog-detail'">
+            <div class="p-6 flex flex-col lg:flex-row bg-gray-200 overflow-hidden h-full md:h-56">
+                <img class="block h-auto w-full md:w-56 flex-none"
+                    src="https://lodcreative.id/beteje/wp-content/uploads/2019/09/fttalent_landscape_backup-1920x1080-670x506.jpeg">
+                <div
+                    class="text-center md:text-left bg-gray-200 rounded-b lg:rounded-b-none lg:rounded-r mt-2 md:px-6 flex flex-col leading-normal">
+                    <div class="text-black mb-4 font-bold text-xl leading-tight">Challenge and opportunities</div>
+                    <h1 class="text-gray-500 mb-4 font-light">The market and investors seem to have resoundingly
+                        approved
+                        this approach.</h1>
+                    <p class="text-gray-400 text-base">September 27, 2019</p>
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <div class="w-full lg:w-1/2 p-3 transform duration-500 hover:scale-105 cursor-pointer">
+        <button onClick="location.href='/blog-detail'">
+            <div class="p-6 flex flex-col lg:flex-row bg-gray-200 overflow-hidden h-full md:h-56">
+                <img class="block h-auto w-full md:w-56 flex-none"
+                    src="https://lodcreative.id/beteje/wp-content/uploads/2019/09/fttalent_landscape_backup-1920x1080-670x506.jpeg">
+                <div
+                    class="text-center md:text-left bg-gray-200 rounded-b lg:rounded-b-none lg:rounded-r mt-2 md:px-6 flex flex-col leading-normal">
+                    <div class="text-black mb-4 font-bold text-xl leading-tight">Challenge and opportunities</div>
+                    <h1 class="text-gray-500 mb-4 font-light">The market and investors seem to have resoundingly
+                        approved
+                        this approach.</h1>
+                    <p class="text-gray-400 text-base">September 27, 2019</p>
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <div class="w-full lg:w-1/2 p-3 transform duration-500 hover:scale-105 cursor-pointer">
+        <button onClick="location.href='/blog-detail'">
+            <div class="p-6 flex flex-col lg:flex-row bg-gray-200 overflow-hidden h-full md:h-56">
+                <img class="block h-auto w-full md:w-56 flex-none"
+                    src="https://lodcreative.id/beteje/wp-content/uploads/2019/09/1_B5ubFgTfIm7falDr7Ki_mw-670x506.png">
+                <div
+                    class="text-center md:text-left bg-gray-200 rounded-b lg:rounded-b-none lg:rounded-r mt-2 md:px-6 flex flex-col leading-normal">
+                    <div class="text-black mb-4 font-bold text-xl leading-tight">Why tech companies are flocking to
+                        fintech
+                    </div>
+                    <h1 class="text-gray-500 mb-4 font-light">The market and investors seem to have resoundingly
+                        approved
+                        this approach.</h1>
+                    <p class="text-gray-400 text-base">September 27, 2019</p>
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <div class="w-full lg:w-1/2 p-3 transform duration-500 hover:scale-105 cursor-pointer">
+        <button onClick="location.href='/blog-detail'">
+            <div class="p-6 flex flex-col lg:flex-row bg-gray-200 overflow-hidden h-full md:h-56">
+                <img class="block h-auto w-full md:w-56 flex-none"
+                    src="https://lodcreative.id/beteje/wp-content/uploads/2019/09/1_B5ubFgTfIm7falDr7Ki_mw-670x506.png">
+                <div
+                    class="text-center md:text-left bg-gray-200 rounded-b lg:rounded-b-none lg:rounded-r mt-2 md:px-6 flex flex-col leading-normal">
+                    <div class="text-black mb-4 font-bold text-xl leading-tight">Why tech companies are flocking to
+                        fintech
+                    </div>
+                    <h1 class="text-gray-500 mb-4 font-light">The market and investors seem to have resoundingly
+                        approved
+                        this approach.</h1>
+                    <p class="text-gray-400 text-base">September 27, 2019</p>
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <div class="w-full lg:w-1/2 p-3 transform duration-500 hover:scale-105 cursor-pointer">
+        <button onClick="location.href='/blog-detail'">
+            <div class="p-6 flex flex-col lg:flex-row bg-gray-200 overflow-hidden h-full md:h-56">
+                <img class="block h-auto w-full md:w-56 flex-none"
+                    src="https://lodcreative.id/beteje/wp-content/uploads/2019/09/fttalent_landscape_backup-1920x1080-670x506.jpeg">
+                <div
+                    class="text-center md:text-left bg-gray-200 rounded-b lg:rounded-b-none lg:rounded-r mt-2 md:px-6 flex flex-col leading-normal">
+                    <div class="text-black mb-4 font-bold text-xl leading-tight">Challenge and opportunities</div>
+                    <h1 class="text-gray-500 mb-4 font-light">The market and investors seem to have resoundingly
+                        approved
+                        this approach.</h1>
+                    <p class="text-gray-400 text-base">September 27, 2019</p>
+                </div>
+            </div>
+        </button>
+    </div>
+</div>
+
+    <!-- ACTION -->
+    <section class="mt-24 py-8 leading-7 text-gray-900 bg-color sm:py-12 md:py-16 lg:py-24">
+        <div class="container mx-auto items-center">
+            <div class="flex flex-col px-10 items-start leading-7 text-white md:item-left items-center justify-center lg:flex-row">
+                <div class="box-border flex-1 text-center sm:text-left md:border-r-4">
+                    <h1 class="m-0 text-2xl leading-tight tracking-tight md:text-left text-center lg:text-4xl md:text-3xl capitalize">Find out how to get partnered and start create magic</h1>
+                </div>
+                <div class="bg-white md:w-1/3 w-full text-gray-400 rounded-lg md:ml-32 md:mt-2 mt-4">
+                    <div class="relative flex w-full flex-wrap items-stretch">
+                        <input type="text" placeholder="Enter your email..."
+                            class="md:py-4 py-3 pl-4 pr-20 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full pr-10" />
+                        <a onclick="location.href='#'"
+                            class="mx-2 md:my-2 my-1 rounded-full bg-color cursor-pointer z-10 h-auto font-normal  absolute text-center text-white rounded text-sm items-center justify-center w-auto right-0 px-4 py-2 font-bold">SUBMIT
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer bg-gray-700 relative pt-1">
+    <div class="container mx-auto px-6 py-4">
+        <div class="sm:flex sm:mt-8">
+            <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
+                <div class="flex flex-col mx-4 md:mr-2 md:pr-44 text-center md:text-left py-2">
+                    <span class="font-bold text-white md:text-2xl capitalize mb-2">Bangunindo Teknusa Jaya</span>
+                    <p class="my-2 text-white text-md md:mr-12">Lt. 2 Gedung Wisma Semeru Jalan Taman Kemang No. 18, Bangka Kec. Mampang Prapata, Jakarta Selatan DKI Jakarta 12730</p>
+                    <span class="py-6 inline-flex justify-center mt-4 space-x-5 sm:mt-0 sm:justify-start">
+                <a onclick="window.open('https://www.linkedin.com/company/bangunindo/')" class="text-gray-400 hover:text-gray-500">
+                    <i class="fab fa-linkedin-in fa-lg"></i>
+                </a>
+                <a onclick="window.open('https://www.instagram.com/bangunindoteknusajaya/?hl=en')" class="text-gray-400 hover:text-gray-500">
+                    <i class="fab fa-instagram fa-lg"></i>
+                </a>
+            </span>
+                </div>
+                <div class="flex flex-col mx-4 md:mr-2 md:pr-44 text-center md:text-left py-2">
+                <span class="font-bold text-white md:text-2xl capitalize mb-2">Company</span>
+                    <span class="my-1"><a href="/about" class="text-white text-md">About Us</a></span>
+                    <span class="my-1"><a href="/product" class="text-white text-md">Product</a></span>
+                    <span class="my-1"><a href="/service" class="text-white text-md">Services</a></span>
+                    <span class="my-1"><a href="/works" class="text-white text-md">Works</a></span>
+                    <span class="my-1"><a href="/contact" class="text-white text-md">Contact</a></span>
+                    <span class="my-1"><a href="/blog" class="text-white text-md">Blog</a></span>
+                </div>
+                <div class="flex flex-col mx-4 md:mr-2 md:pr-44 text-center md:text-left py-2">
+                <span class="font-bold text-white md:text-2xl capitalize mb-2">Support</span>
+                    <span class="my-2"><a href="#" class="text-white text-md">API Support</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto px-14">
+        <div class="mt-4 border-t-2 border-gray-300 flex flex-col items-center">
+            <div class="sm:w-2/3 text-center py-6">
+                <p class="text-sm text-white font-bold mb-2">
+                    &copy; Designed in 2021 - by Bangunindo Teknusa Jaya
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

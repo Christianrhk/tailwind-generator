@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Acesso à Informação</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css">
+    <link href="https://acessoinformacao.com.br/transparencia/build/css/front-combined-1a7a24366d.css" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic" rel="stylesheet" type="text/css">
+
+    <style>
+        abbr, abbr[title], abbr[data-original-title] {
+            border: 0 none;
+            border-image-width: 0;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: help;
+        }
+
+        abbr[title] i, abbr[data-original-title] i, abbr i, abbr i.fa, abbr i.glyphicon {
+            font-size: 0.8em;
+            vertical-align: super;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            min-height: calc(100vh - 220px);
+        }
+    </style>
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jq-2.2.4/dt-1.10.15/datatables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+
+        </head>
+<body>
+
+<div id="app">
+    <nav class="navbar navbar-front-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            
+            <a class="navbar-brand" href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/home">
+                Prefeitura Municipal de Miguel Calmon
+            </a>
+            
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                                    <li>
+                        <a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/licitacoes">Licitações</a>
+                    </li>
+
+                    <li>
+                        <a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/contratos">Contratos</a>
+                    </li>
+
+                    <li>
+                        <a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/documentos">Documentos</a>
+                    </li>
+
+                    <li><a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/parcerias">Parcerias <span title="Marco Regulatório das Organizações da Sociedade Civil - Lei nº 13.019/2014">MROSC</span></a></li>                   
+                    <li><a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/auxilios-esporte">Auxílios Esporte</a></li>                   
+                    <li><a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/obras">Obras</a></li>                   
+                    
+                    <li>
+                        <a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/documentos/regulamentacao-lai">Regulamentação da <abbr
+                                    title="Lei do Acesso à Informação">LAI</abbr></a>
+                    </li>
+
+                    <li>
+                        <a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/covid-19">COVID-19</a>
+                    </li>
+
+                    <li>
+                        <a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/estrutura-organizacional">Estrutura Organizacional</a>
+                    </li>
+                            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/home"><img src="https://acessoinformacao.com.br/transparencia/images/acesso-a-informacao.png" alt="Acesso à Informação" width="86"></a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+    <div class="container container-fluid main-content">
+        <div class="row">
+            <div class="col-xs-12" style="padding-left: 0; padding-right: 0;">
+                            </div>
+        </div>
+
+            <div  class="row box col-md-12">
+        <div class="box-header row">
+            <div class="title col-md-8">
+                <h1>Contratos</h1>
+            </div>
+        </div><!-- /.box-header -->
+
+        <div id="main-content" class="col-md-12">
+            <div class="row form-filters">
+    <div class="col-xs-12">
+        <form id="contratos-datatable-filters">
+            <input name="show" type="hidden" value="1">
+            
+            <fieldset style="border-bottom: 1px solid #ccc; margin-bottom: 3rem">
+                <legend>Filtros de Pesquisa</legend>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="numero" class="control-label">N&uacute;mero</label>
+
+                            <div>
+                                <input class="form-control" placeholder="N&uacute;mero do Contrato" name="numero" type="text" id="numero">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="numero_processo" class="control-label">N&ordm; Processo</label>
+
+                            <div>
+                                <input class="form-control" placeholder="N&uacute;mero do Processo Administrativo" name="numero_processo" type="text" id="numero_processo">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="licitacao_numero" class="control-label">N&ordm; Licita&ccedil;&atilde;o</label>
+
+                            <div>
+                                <input class="form-control" placeholder="N&uacute;mero da Licita&ccedil;&atilde;o" name="licitacao_numero" type="text" id="licitacao_numero">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="objeto" class="control-label">Objeto</label>
+
+                            <div>
+                                <input class="form-control" placeholder="Pesquise por uma palavra/express&atilde;o" name="objeto" type="text" id="objeto">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="vigencia" class="control-label">Vig&ecirc;ncia</label>
+
+                            <div>
+                                <input class="form-control" placeholder="Vig&ecirc;ncia do contrato" name="vigencia" type="text" id="vigencia">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="contratada" class="control-label">Contratada</label>
+
+                            <div>
+                                <input class="form-control" placeholder="Nome ou CPF/CNPJ da contratada" name="contratada" type="text" id="contratada">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="contratante" class="control-label">Contratante</label>
+
+                            <div>
+                                <input class="form-control" placeholder="Nome ou CPF/CNPJ da contratante" name="contratante" type="text" id="contratante">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <input class="btn btn-primary" type="submit" value="Pesquisar">
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+            <div class="index-table table-responsive">
+                <table  class="table table-striped table-condensed" id="contratos-datatable"><thead><tr><th >#</th><th >Nº</th><th >Nº Processo</th><th >Licitação de Origem</th><th >Objeto</th><th >Contrato Ano</th><th >Contrato Numero</th><th >Contratada</th><th >Contratada CPF / CNPJ</th><th >Contratante</th><th >Contratante CPF / CNPJ</th><th >Vigência</th><th >Valor (R$)</th><th >Arquivo</th><th >Arquivos</th><th >Arquivos</th><th >#</th><th >#</th><th ></th></tr></thead></table>
+            </div>
+        </div>
+    </div>
+            </div>
+    
+    <footer class="container container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div>
+               <img style="display: block; 
+                                margin: 2rem 0 2rem auto;
+                                width: 180px;
+               " src="https://acessoinformacao.com.br/transparencia/images/geddoem.png" alt="Logo IBDM Modernização">
+            </div>
+                    </div>
+    </div>
+</footer>
+</div>
+
+
+<script type="text/javascript" src="https://acessoinformacao.com.br/transparencia/build/js/combined-19d623cee4.js"></script>
+<script type="text/javascript" src="https://acessoinformacao.com.br/transparencia/build/js/vue-6bfb2e9c32.js"></script>
+
+<!-- Modal -->
+<div class="modal fade" id="arquivosModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Lista de Arquivos</h4>
+        </div>
+        <div class="modal-body">
+            <div class="modal-loading-arquivos">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-primary progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                        Carregando arquivos...
+                    </div>
+                </div>
+            </div>
+            <ul class="arquivos-list list-group">
+
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    jQuery(function ($) {
+        $(document).on('shown.bs.modal', '#arquivosModal', function (event) {
+            var button = $(event.relatedTarget)
+            var arquivos = button.data('arquivos')
+
+            var modal = $(this)
+
+            var listGroup = modal.find('.arquivos-list')
+
+            var callback = function (arquivo) {
+                var listItem = $('<li class="list-group-item">')
+                var link = $('<a target="_blank">')
+                
+                link.text(arquivo.filename)
+                link.prop('href', arquivo.url)
+
+                listItem.append(link)
+                listGroup.append(listItem)
+            }
+
+            arquivos.map(callback)
+
+            modal.find('.modal-loading-arquivos').addClass('hidden')
+        })
+
+        $(document).on('hidden.bs.modal', '#arquivosModal', function (event) {
+            var button = $(event.relatedTarget)
+            var modal = $(this)
+
+            var listGroup = modal.find('.arquivos-list')
+            listGroup.find('li').remove()
+
+            modal.find('.modal-loading-arquivos').removeClass('hidden')
+        })
+    })
+</script><!-- Modal -->
+<div class="modal fade" id="fotosModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Lista de Fotos</h4>
+        </div>
+        <div class="modal-body">
+            <div class="modal-loading-arquivos">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-primary progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                        Carregando fotos...
+                    </div>
+                </div>
+            </div>
+            <div class="row arquivos-list" style="display: flex; flex-wrap:wrap;">
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    jQuery(function ($) {
+        $(document).on('shown.bs.modal', '#fotosModal', function (event) {
+            var button = $(event.relatedTarget)
+            var arquivos = button.data('arquivos')
+
+            var modal = $(this)
+
+            var listGroup = modal.find('.arquivos-list')
+
+            var callback = function (arquivo) {
+                var listItem = $('<div class="col-sm-6 col-md-4">')
+                var link = $('<a target="_blank">')
+                var image = $('<img>')
+
+                image.prop('src', arquivo.url)
+                link.prop('href', arquivo.url)
+
+                link.append(image)
+                listItem.append(link)
+                listGroup.append(listItem)
+            }
+
+            arquivos.map(callback)
+
+            modal.find('.modal-loading-arquivos').addClass('hidden')
+        })
+
+        $(document).on('hidden.bs.modal', '#fotosModal', function (event) {
+            var button = $(event.relatedTarget)
+            var modal = $(this)
+
+            var listGroup = modal.find('.arquivos-list')
+            listGroup.find('div').remove()
+
+            modal.find('.modal-loading-arquivos').removeClass('hidden')
+        })
+    })
+</script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/jq-2.2.4/dt-1.10.15/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://acessoinformacao.com.br/transparencia/vendor/datatables/buttons.server-side.js?__cb=201706221530"></script>
+
+    
+
+    <script type="text/javascript">(function(window,$){window.LaravelDataTables=window.LaravelDataTables||{};window.LaravelDataTables["contratos-datatable"]=$("#contratos-datatable").DataTable({"serverSide":true,"processing":true,"ajax":{"data":function (data) {
+                    if (typeof $ === 'undefined') {
+                        return data;
+                    }
+
+                    var formFilters = $('#contratos-datatable-filters');
+
+                    data.filters = {};
+        
+                    $.each(formFilters.serializeArray(), function (i, field) {
+                        if (field && field.name) {
+                            data.filters[field.name] = field.value
+                        }
+                    });
+
+                    return data;
+                }},"columns":[{"name":"id","data":"id","title":"#","visible":false,"searchable":false,"orderable":true},{"name":"numero","data":"numero","title":"N\u00ba","orderable":true,"searchable":true},{"name":"numero_processo","data":"numero_processo","title":"N\u00ba Processo","orderable":true,"searchable":true},{"name":"licitacao_origem","data":"licitacao_origem","title":"Licita\u00e7\u00e3o de Origem","orderable":true,"searchable":true},{"name":"objeto","data":"objeto","title":"Objeto","orderable":true,"searchable":true},{"name":"contrato_ano","data":"contrato_ano","visible":false,"searchable":false,"title":"Contrato Ano","orderable":true},{"name":"contrato_numero","data":"contrato_numero","visible":false,"searchable":false,"title":"Contrato Numero","orderable":true},{"name":"contratada","data":"contratada","title":"Contratada","orderable":true,"searchable":true},{"name":"contratada_cpf_cnpj","data":"contratada_cpf_cnpj","title":"Contratada CPF \/ CNPJ","orderable":false,"visible":false,"searchable":true},{"name":"contratante","data":"contratante","title":"Contratante","orderable":true,"searchable":true},{"name":"contratante_cpf_cnpj","data":"contratante_cpf_cnpj","title":"Contratante CPF \/ CNPJ","orderable":false,"visible":false,"searchable":true},{"name":"vigencia","data":"vigencia","title":"Vig\u00eancia","orderable":true,"searchable":true},{"name":"valor","data":"valor","title":"Valor (R$)","orderable":true,"searchable":true},{"name":"arquivo_url","data":"arquivo_url","title":"Arquivo","visible":false,"orderable":false,"searchable":false,"defaultContent":""},{"name":"arquivos_button","data":"arquivos_button","title":"Arquivos","visible":false,"orderable":false,"searchable":false,"defaultContent":""},{"name":"arquivos","data":"arquivos","title":"Arquivos","visible":false,"orderable":false,"searchable":false,"defaultContent":""},{"name":"created_at","data":"created_at","title":"#","visible":false,"searchable":false,"orderable":true},{"name":"updated_at","data":"updated_at","title":"#","visible":false,"searchable":false,"orderable":true},{"defaultContent":"","data":"action","name":"action","title":"","render":null,"orderable":false,"searchable":false}],"dom":"lBfrtip","buttons":["excel","ods","csv","pdf","json"],"searching":true,"searchDelay":500,"order":[[5,"desc"],[6,"desc"],[17,"desc"],[0,"desc"]],"language":{"url":"\/\/cdn.datatables.net\/plug-ins\/1.10.15\/i18n\/Portuguese-Brasil.json"},"paging":true,"pageLength":25,"lengthMenu":[25,100,250,500]});})(window,jQuery);
+</script>
+
+
+    <script>
+    var contratosDatatable = LaravelDataTables["contratos-datatable"]
+
+    jQuery(function ($) {
+        $('#contratos-datatable-filters').submit(function (event) {
+            event.preventDefault();
+
+            var button = $(this).find('input[type=submit],button[type=submit]')
+
+            button.addClass('disabled').prop('disabled', true)
+
+            setTimeout(function() {
+                button.removeClass('disabled').prop('disabled', false)
+            }, 1000)
+
+            contratosDatatable.ajax.reload()
+        })
+    })
+</script>
+
+<style>
+#policyAndTerms {
+    display: none; 
+    color: whitesmoke; 
+    flex: 1; 
+    flex-direction: row; 
+    position: fixed; 
+    bottom: 0; 
+    padding: 2rem 4rem 3rem 4rem; 
+    background-color: rgba(0,0,0, 0.9);
+    font-size: 2rem;
+}
+
+#policyAndTermsMessageContainer {
+    margin-right: 2rem;
+    text-align: justify;
+}
+
+#policyAndTermsButtonContainer{
+    width: 15rem;
+}
+
+@media (max-width: 640px) {
+    #policyAndTerms {
+        flex-direction: column;
+        bottom: 0;
+        padding: 1.25rem 1.25rem;
+    }
+
+    #policyAndTermsButtonContainer {
+        width: 100%;
+        margin-top: 1.25rem;
+    }
+}
+</style>
+<div id="policyAndTerms">
+    <div id="policyAndTermsMessageContainer">
+        <p style="margin: 0; padding: 0">
+            Este website utiliza cookies próprios e de terceiros a fim de personalizar o conteúdo, 
+            melhorar a experiência do usuário, fornecer funções de mídias sociais e 
+            analisar o tráfego. Para continuar navegando você deve concordar com nossa
+            <a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/politicas-e-termos/cookies" target="_blank">Política de Cookies</a> e  
+            <a href="https://acessoinformacao.com.br/transparencia/entidades/ba/miguelcalmon/politicas-e-termos/privacidade" target="_blank">Política de Privacidade e Proteção de Dados</a>.
+        </p>
+    </div>
+    <div id="policyAndTermsButtonContainer">
+        <button class="btn btn-primary btn-lg btn-accept-all-privacy-and-terms">
+            Estou ciente
+        </button>
+    </div>
+</div>
+
+<script>
+    jQuery(function ($) {
+        var versions = {"cookies":{"title":"Pol\u00edtica de Cookies","version":"1","date":"20210723"},"privacidade":{"title":"Pol\u00edtica de Privacidade de Dados","version":"1","date":"20210723"}}
+        var storageKey = "policy_and_terms_painel_lai"
+        var policyAndTermsNotification = $("#policyAndTerms");
+        var policyAndTerms = JSON.parse(localStorage.getItem(storageKey) || "{}");
+        
+        if (!policyAndTerms.acceptedAt || JSON.stringify(policyAndTerms.versions) != JSON.stringify(versions)) {
+            policyAndTermsNotification.css({display: "flex"});
+
+            policyAndTermsNotification.find('.btn-accept-all-privacy-and-terms').on('click', function () {
+                policyAndTermsNotification.css({display: "none"});
+
+                policyAndTerms.acceptedAt = (new Date).toISOString();
+                policyAndTerms.versions = versions;
+
+                localStorage.setItem(storageKey, JSON.stringify(policyAndTerms));
+
+                jQuery('#policyAndTerms').trigger('policy-and-terms-accepted', policyAndTerms)
+            })
+
+            return;
+        }
+
+        jQuery('#policyAndTerms').trigger('policy-and-terms-already-accepted', policyAndTerms)
+    })
+</script>
+</body>
+</html>

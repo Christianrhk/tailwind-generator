@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/timetable_styles.css">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlaG9sem1hbiIsImEiOiJjazA1cHc0bGwyc25zM29xZGptdnJ3N2FlIn0.c6NVNxyMLyAONXtQtpUjyg';
+  </script>
+  <script src="../js/timetable-map.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Timetable generated on Tue Jun 21 2022 10:24:12 GMT-0700 (Pacific Daylight Time) using GTFS-to-HTML version 2.0.3 -->
+  <div class="timetable-page menu-type-simple">
+    <div class="container mx-4 md:mx-auto">
+      <h1 class="timetable-page-label text-2xl pt-4 flex items-center">
+        <div class="route-color-swatch-large mr-2 flex-none" style="background-color: #d38f2b; color: #000000"></div>
+        <div>Route Goldendale to The Dalles</div>
+      </h1>
+      <div class="effective-date text-gray-600 mb-2">Effective May 26, 2022</div>
+      <div class="timetable mb-5" id="timetable_id_1974811111000" data-day-list="Mon-Fri" data-direction-name="LINK Transit Center" data-timetable-id="19748|1111100|0" data-direction-id="0" data-route-id="19748">
+        <h2 class="text-xl">Route Goldendale to The Dalles - County Building 115 W Court to LINK Transit Center - The Dalles | monday-friday</h2>
+        <div class="service-notes"></div>
+        <div class="map" id="map_timetable_id_1974811111000"></div>
+        <script>
+          (function() {
+            const id = 'timetable_id_1974811111000';
+            const geojson = {
+              "type": "FeatureCollection",
+              "features": [{
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Mount Adams Transportation Service",
+                  "route_id": "19748",
+                  "agency_id": "1815",
+                  "route_long_name": "Goldendale to The Dalles",
+                  "route_type": 3,
+                  "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                  "route_color": "#d38f2b",
+                  "route_text_color": "#000000",
+                  "route_sort_order": 0,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-120.82358, 45.82143],
+                    [-120.82265, 45.82141],
+                    [-120.82264, 45.82298],
+                    [-120.81899, 45.82299],
+                    [-120.81572, 45.82302],
+                    [-120.81224, 45.82297],
+                    [-120.81224, 45.82276],
+                    [-120.81237, 45.82276]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Mount Adams Transportation Service",
+                  "route_id": "19748",
+                  "agency_id": "1815",
+                  "route_long_name": "Goldendale to The Dalles",
+                  "route_type": 3,
+                  "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                  "route_color": "#d38f2b",
+                  "route_text_color": "#000000",
+                  "route_sort_order": 0,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-120.81224, 45.82276],
+                    [-120.8123, 45.8207],
+                    [-120.80969, 45.82069],
+                    [-120.80973, 45.82001],
+                    [-120.81007, 45.81965],
+                    [-120.81014, 45.81947],
+                    [-120.81015, 45.81924],
+                    [-120.82266, 45.81924],
+                    [-120.82265, 45.8185],
+                    [-120.82268, 45.81781],
+                    [-120.8227, 45.81626],
+                    [-120.8227, 45.81456],
+                    [-120.82272, 45.81355],
+                    [-120.81758, 45.81355],
+                    [-120.81239, 45.81358],
+                    [-120.81091, 45.81364],
+                    [-120.81027, 45.81357],
+                    [-120.80976, 45.81344],
+                    [-120.8095, 45.81334],
+                    [-120.80959, 45.81317],
+                    [-120.80949, 45.813],
+                    [-120.80895, 45.81278],
+                    [-120.80883, 45.8128],
+                    [-120.80865, 45.81294],
+                    [-120.80769, 45.81251],
+                    [-120.80726, 45.81241],
+                    [-120.80783, 45.81008],
+                    [-120.80812, 45.80875],
+                    [-120.80865, 45.80665],
+                    [-120.80905, 45.80578],
+                    [-120.80942, 45.80523],
+                    [-120.81108, 45.80303],
+                    [-120.81414, 45.79918],
+                    [-120.8173, 45.79507],
+                    [-120.81916, 45.79269],
+                    [-120.8211, 45.79015],
+                    [-120.82192, 45.78901],
+                    [-120.82217, 45.78853],
+                    [-120.82247, 45.78787],
+                    [-120.82265, 45.78733],
+                    [-120.82276, 45.78694],
+                    [-120.82284, 45.78658],
+                    [-120.82293, 45.78563],
+                    [-120.82295, 45.78466],
+                    [-120.82296, 45.78093],
+                    [-120.82291, 45.77718],
+                    [-120.82299, 45.77259],
+                    [-120.82325, 45.76901],
+                    [-120.82328, 45.7682],
+                    [-120.82329, 45.76726],
+                    [-120.82323, 45.76451],
+                    [-120.82317, 45.76295],
+                    [-120.8231, 45.75889],
+                    [-120.82305, 45.74986],
+                    [-120.8231, 45.748],
+                    [-120.82308, 45.74613],
+                    [-120.82305, 45.74574],
+                    [-120.82298, 45.74522],
+                    [-120.82279, 45.74435],
+                    [-120.8225, 45.74341],
+                    [-120.82183, 45.74169],
+                    [-120.82099, 45.7402],
+                    [-120.81883, 45.73706],
+                    [-120.81664, 45.73393],
+                    [-120.81619, 45.73316],
+                    [-120.816, 45.73232],
+                    [-120.81606, 45.73138],
+                    [-120.81648, 45.72996],
+                    [-120.81639, 45.72927],
+                    [-120.8162, 45.72875],
+                    [-120.81584, 45.72827],
+                    [-120.81447, 45.72702],
+                    [-120.81401, 45.72648],
+                    [-120.81375, 45.72569],
+                    [-120.81392, 45.72466],
+                    [-120.81471, 45.72199],
+                    [-120.81444, 45.72131],
+                    [-120.81396, 45.72084],
+                    [-120.81334, 45.72057],
+                    [-120.81251, 45.72044],
+                    [-120.81097, 45.72065],
+                    [-120.81063, 45.72068],
+                    [-120.81031, 45.72068],
+                    [-120.80996, 45.72065],
+                    [-120.80964, 45.72061],
+                    [-120.80932, 45.72054],
+                    [-120.80894, 45.72043],
+                    [-120.80858, 45.72028],
+                    [-120.80825, 45.72011],
+                    [-120.80798, 45.71991],
+                    [-120.80768, 45.71966],
+                    [-120.8073, 45.71926],
+                    [-120.80591, 45.71774],
+                    [-120.80499, 45.71679],
+                    [-120.80393, 45.71579],
+                    [-120.80187, 45.71394],
+                    [-120.80149, 45.71356],
+                    [-120.80128, 45.71332],
+                    [-120.80109, 45.71304],
+                    [-120.80093, 45.71271],
+                    [-120.80084, 45.71245],
+                    [-120.80079, 45.7122],
+                    [-120.80077, 45.71196],
+                    [-120.80078, 45.71167],
+                    [-120.80084, 45.71133],
+                    [-120.80094, 45.71103],
+                    [-120.80106, 45.71079],
+                    [-120.80125, 45.7105],
+                    [-120.80153, 45.71018],
+                    [-120.80182, 45.70992],
+                    [-120.80209, 45.70971],
+                    [-120.80239, 45.70953],
+                    [-120.80278, 45.70934],
+                    [-120.80313, 45.7092],
+                    [-120.80355, 45.70907],
+                    [-120.80409, 45.70894],
+                    [-120.80587, 45.70858],
+                    [-120.8067, 45.70838],
+                    [-120.80702, 45.70826],
+                    [-120.80779, 45.70793],
+                    [-120.80997, 45.70673],
+                    [-120.81045, 45.70651],
+                    [-120.81083, 45.70636],
+                    [-120.81126, 45.70623],
+                    [-120.81321, 45.7057],
+                    [-120.81939, 45.70406],
+                    [-120.81982, 45.7039],
+                    [-120.82047, 45.70359],
+                    [-120.82088, 45.70334],
+                    [-120.82123, 45.70309],
+                    [-120.82148, 45.70287],
+                    [-120.82172, 45.70263],
+                    [-120.822, 45.70229],
+                    [-120.82365, 45.69997],
+                    [-120.82402, 45.69948],
+                    [-120.82456, 45.69862],
+                    [-120.8255, 45.69722],
+                    [-120.82576, 45.69686],
+                    [-120.82631, 45.69621],
+                    [-120.82705, 45.69552],
+                    [-120.82771, 45.695],
+                    [-120.82871, 45.69437],
+                    [-120.82941, 45.69401],
+                    [-120.82991, 45.69378],
+                    [-120.83158, 45.69312],
+                    [-120.83237, 45.69277],
+                    [-120.83463, 45.69183],
+                    [-120.83787, 45.69055],
+                    [-120.83963, 45.68981],
+                    [-120.85577, 45.68315],
+                    [-120.86332, 45.68009],
+                    [-120.86588, 45.67913],
+                    [-120.87046, 45.67747],
+                    [-120.87271, 45.67675],
+                    [-120.87642, 45.6757],
+                    [-120.87764, 45.67525],
+                    [-120.8799, 45.6741],
+                    [-120.88389, 45.67202],
+                    [-120.88566, 45.67103],
+                    [-120.88653, 45.67057],
+                    [-120.89193, 45.66779],
+                    [-120.89494, 45.66631],
+                    [-120.89569, 45.66606],
+                    [-120.89659, 45.66587],
+                    [-120.92458, 45.66061],
+                    [-120.92536, 45.66048],
+                    [-120.92608, 45.66051],
+                    [-120.92653, 45.66063],
+                    [-120.92701, 45.66082],
+                    [-120.92744, 45.66107],
+                    [-120.92779, 45.66153],
+                    [-120.9279, 45.66194],
+                    [-120.92786, 45.66244],
+                    [-120.92766, 45.6632],
+                    [-120.92765, 45.66371],
+                    [-120.92779, 45.664],
+                    [-120.92812, 45.66436],
+                    [-120.92929, 45.66515],
+                    [-120.9298, 45.66543],
+                    [-120.93026, 45.6656],
+                    [-120.93077, 45.66566],
+                    [-120.93155, 45.66566],
+                    [-120.93247, 45.66559],
+                    [-120.93304, 45.66546],
+                    [-120.93471, 45.66494],
+                    [-120.93535, 45.66485],
+                    [-120.93585, 45.66487],
+                    [-120.93646, 45.66501],
+                    [-120.93703, 45.66524],
+                    [-120.93864, 45.66601],
+                    [-120.93929, 45.66621],
+                    [-120.94083, 45.66652],
+                    [-120.94104, 45.6663],
+                    [-120.94131, 45.66618],
+                    [-120.9417, 45.66616],
+                    [-120.94276, 45.66622],
+                    [-120.94331, 45.66612],
+                    [-120.9439, 45.66571],
+                    [-120.9449, 45.66489],
+                    [-120.94538, 45.66466],
+                    [-120.94617, 45.6644],
+                    [-120.9478, 45.66372],
+                    [-120.94832, 45.66353],
+                    [-120.9486, 45.66338],
+                    [-120.94912, 45.66305],
+                    [-120.95026, 45.66254],
+                    [-120.95147, 45.66215],
+                    [-120.95384, 45.66159],
+                    [-120.95614, 45.66125],
+                    [-120.95641, 45.66124],
+                    [-120.95722, 45.66129],
+                    [-120.95753, 45.66129],
+                    [-120.95769, 45.66126],
+                    [-120.95875, 45.66098],
+                    [-120.95964, 45.66067],
+                    [-120.95999, 45.6612],
+                    [-120.95927, 45.66146],
+                    [-120.95802, 45.66174],
+                    [-120.9603, 45.66202],
+                    [-120.96133, 45.66206],
+                    [-120.96253, 45.66201],
+                    [-120.96573, 45.66167],
+                    [-120.9676, 45.66157],
+                    [-120.96865, 45.66153],
+                    [-120.96941, 45.66162],
+                    [-120.97007, 45.66183],
+                    [-120.97064, 45.6621],
+                    [-120.97118, 45.66221],
+                    [-120.97184, 45.66223],
+                    [-120.97265, 45.66247],
+                    [-120.97326, 45.66251],
+                    [-120.97367, 45.66249],
+                    [-120.97394, 45.66256],
+                    [-120.97404, 45.66276],
+                    [-120.97405, 45.66299],
+                    [-120.97401, 45.66356],
+                    [-120.98278, 45.66391],
+                    [-120.99184, 45.66429],
+                    [-120.99251, 45.66423],
+                    [-120.99315, 45.6641],
+                    [-120.9939, 45.6638],
+                    [-120.99487, 45.66334],
+                    [-120.99582, 45.66304],
+                    [-120.99674, 45.6629],
+                    [-120.99741, 45.66287],
+                    [-120.99975, 45.66296],
+                    [-121.00069, 45.66308],
+                    [-121.00241, 45.66346],
+                    [-121.00411, 45.66365],
+                    [-121.00502, 45.66384],
+                    [-121.0071, 45.66449],
+                    [-121.00762, 45.66458],
+                    [-121.00824, 45.66465],
+                    [-121.01342, 45.66465],
+                    [-121.01463, 45.66475],
+                    [-121.02203, 45.66561],
+                    [-121.02326, 45.66569],
+                    [-121.02708, 45.66573],
+                    [-121.02802, 45.66569],
+                    [-121.02916, 45.66554],
+                    [-121.03716, 45.66421],
+                    [-121.0378, 45.66411],
+                    [-121.03869, 45.66403],
+                    [-121.04103, 45.66405],
+                    [-121.0418, 45.66398],
+                    [-121.04257, 45.66377],
+                    [-121.04468, 45.66304],
+                    [-121.04553, 45.66286],
+                    [-121.07055, 45.65838],
+                    [-121.07427, 45.6577],
+                    [-121.07546, 45.65756],
+                    [-121.07635, 45.6576],
+                    [-121.07738, 45.65781],
+                    [-121.07909, 45.65835],
+                    [-121.07983, 45.65852],
+                    [-121.08056, 45.65859],
+                    [-121.08141, 45.65854],
+                    [-121.08214, 45.65839],
+                    [-121.08286, 45.65815],
+                    [-121.08608, 45.65698],
+                    [-121.09036, 45.65538],
+                    [-121.09147, 45.65488],
+                    [-121.09288, 45.65418],
+                    [-121.09474, 45.65317],
+                    [-121.09786, 45.65154],
+                    [-121.09929, 45.65076],
+                    [-121.10185, 45.64946],
+                    [-121.1032, 45.6489],
+                    [-121.1036, 45.64875],
+                    [-121.10411, 45.64863],
+                    [-121.10458, 45.64855],
+                    [-121.10519, 45.64851],
+                    [-121.10589, 45.6485],
+                    [-121.11073, 45.6488],
+                    [-121.11167, 45.64893],
+                    [-121.11267, 45.64909],
+                    [-121.11352, 45.64921],
+                    [-121.114, 45.64924],
+                    [-121.1145, 45.64922],
+                    [-121.11504, 45.64916],
+                    [-121.11718, 45.64861],
+                    [-121.11804, 45.64847],
+                    [-121.11914, 45.64843],
+                    [-121.12024, 45.64851],
+                    [-121.12385, 45.64901],
+                    [-121.12758, 45.64956],
+                    [-121.12957, 45.64983],
+                    [-121.13143, 45.65005],
+                    [-121.13236, 45.6501],
+                    [-121.1373, 45.65017],
+                    [-121.14326, 45.65018],
+                    [-121.1462, 45.65021],
+                    [-121.14727, 45.65019],
+                    [-121.14824, 45.6501],
+                    [-121.1555, 45.6491],
+                    [-121.15613, 45.64904],
+                    [-121.15583, 45.64765],
+                    [-121.15429, 45.64014],
+                    [-121.15329, 45.63535],
+                    [-121.1531, 45.63462],
+                    [-121.15286, 45.63399],
+                    [-121.14531, 45.61971],
+                    [-121.14516, 45.61928],
+                    [-121.14506, 45.61884],
+                    [-121.14508, 45.61799],
+                    [-121.14533, 45.61621],
+                    [-121.14533, 45.61554],
+                    [-121.14529, 45.6153],
+                    [-121.1452, 45.61501],
+                    [-121.14497, 45.61459],
+                    [-121.14481, 45.61439],
+                    [-121.14462, 45.61418],
+                    [-121.14432, 45.61393],
+                    [-121.14382, 45.61353],
+                    [-121.13874, 45.60978],
+                    [-121.13846, 45.60956],
+                    [-121.13821, 45.60933],
+                    [-121.13796, 45.60905],
+                    [-121.13781, 45.60886],
+                    [-121.13765, 45.60859],
+                    [-121.13753, 45.60832],
+                    [-121.13744, 45.60807],
+                    [-121.13738, 45.60783],
+                    [-121.13736, 45.60751],
+                    [-121.13738, 45.60719],
+                    [-121.13748, 45.60666],
+                    [-121.13798, 45.60474],
+                    [-121.13901, 45.60486],
+                    [-121.13926, 45.60487],
+                    [-121.13929, 45.60514],
+                    [-121.13929, 45.60528],
+                    [-121.13867, 45.6052],
+                    [-121.13853, 45.60576],
+                    [-121.13861, 45.60576],
+                    [-121.13866, 45.60579],
+                    [-121.13876, 45.60579],
+                    [-121.13892, 45.60574],
+                    [-121.13907, 45.60576],
+                    [-121.13907, 45.60583],
+                    [-121.13914, 45.60588],
+                    [-121.13924, 45.60589],
+                    [-121.1393, 45.60587],
+                    [-121.13933, 45.60584],
+                    [-121.13934, 45.60579],
+                    [-121.13933, 45.60575],
+                    [-121.13928, 45.60572],
+                    [-121.13923, 45.6057],
+                    [-121.13927, 45.60565],
+                    [-121.1393, 45.60554],
+                    [-121.13931, 45.60534],
+                    [-121.13929, 45.60528]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "Mount Adams Transportation Service",
+                  "route_id": "19748",
+                  "agency_id": "1815",
+                  "route_long_name": "Goldendale to The Dalles",
+                  "route_type": 3,
+                  "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                  "route_color": "#d38f2b",
+                  "route_text_color": "#000000",
+                  "route_sort_order": 0,
+                  "continuous_pickup": 1,
+                  "continuous_drop_off": 1
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-121.13798, 45.60474],
+                    [-121.13824, 45.60375],
+                    [-121.13834, 45.60333],
+                    [-121.14036, 45.60267],
+                    [-121.14123, 45.60247],
+                    [-121.1446, 45.60188],
+                    [-121.15011, 45.60113],
+                    [-121.15875, 45.59994],
+                    [-121.16033, 45.59974],
+                    [-121.16213, 45.59956],
+                    [-121.16324, 45.5995],
+                    [-121.16545, 45.59947],
+                    [-121.16676, 45.59953],
+                    [-121.16874, 45.59967],
+                    [-121.16981, 45.5998],
+                    [-121.17179, 45.60011],
+                    [-121.17395, 45.60054],
+                    [-121.17529, 45.60089],
+                    [-121.176, 45.6011],
+                    [-121.1776, 45.60164],
+                    [-121.17842, 45.60195],
+                    [-121.17958, 45.60245],
+                    [-121.18075, 45.60298],
+                    [-121.18305, 45.60406],
+                    [-121.18496, 45.60497],
+                    [-121.18688, 45.60581],
+                    [-121.18775, 45.6061],
+                    [-121.18846, 45.60624],
+                    [-121.18933, 45.60638],
+                    [-121.19042, 45.60651],
+                    [-121.19257, 45.60677],
+                    [-121.19438, 45.60712],
+                    [-121.19522, 45.60739],
+                    [-121.19732, 45.60818],
+                    [-121.19743, 45.60817],
+                    [-121.19792, 45.60836],
+                    [-121.20046, 45.60941],
+                    [-121.20242, 45.6104],
+                    [-121.20276, 45.61005],
+                    [-121.20363, 45.60888],
+                    [-121.20527, 45.60771],
+                    [-121.20356, 45.60647],
+                    [-121.20125, 45.60503],
+                    [-121.20121, 45.60506],
+                    [-121.20125, 45.60503],
+                    [-121.20087, 45.60479],
+                    [-121.19961, 45.60574],
+                    [-121.20078, 45.60655],
+                    [-121.2014, 45.60694],
+                    [-121.20167, 45.60714],
+                    [-121.20193, 45.60734],
+                    [-121.20363, 45.60888],
+                    [-121.20436, 45.6094],
+                    [-121.20572, 45.61008],
+                    [-121.20591, 45.61021],
+                    [-121.20608, 45.61038],
+                    [-121.20762, 45.61218],
+                    [-121.20881, 45.61366],
+                    [-121.20903, 45.61401],
+                    [-121.21095, 45.61803],
+                    [-121.21234, 45.62074],
+                    [-121.21361, 45.62335],
+                    [-121.21415, 45.62458],
+                    [-121.21437, 45.62534],
+                    [-121.21451, 45.62598],
+                    [-121.21627, 45.62595],
+                    [-121.21769, 45.62595],
+                    [-121.21769, 45.62571]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753632",
+                  "stop_name": "IGA Roosevelt and Broadway",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.81237, 45.82282]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753633",
+                  "stop_name": "Goodwill, 8th & Cherry Heights",
+                  "tts_stop_name": "Goodwill, 8th and Cherry Heights",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.20113, 45.60479]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753636",
+                  "stop_name": "Water's Edge, Lone Pine Blvd",
+                  "tts_stop_name": "Water's Edge, Lone Pine Boulevard ",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.13871, 45.60576]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753640",
+                  "stop_name": "LINK Transit Center - The Dalles",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.21781, 45.62571]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753645",
+                  "stop_name": "Wishram Heights",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.97423, 45.6634]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753646",
+                  "stop_name": "Bible Baptist Church, S. Columbus & Nesbitt",
+                  "tts_stop_name": "Bible Baptist Church, South Columbus and Nesbitt",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.82287, 45.81467]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753647",
+                  "stop_name": "McDonalds, E. Simcoe & Hwy 97",
+                  "tts_stop_name": "McDonalds, East Simcoe and Highway 97",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.80906, 45.8128]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753648",
+                  "stop_name": "WW II Park, Wilbur & Collins",
+                  "tts_stop_name": "World War Two Park at Wilbur and Collins",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "19749",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale City",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-city-route-monday-friday/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.81909, 45.81929]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "2753650",
+                  "stop_name": "Johnston & Main, Wishram",
+                  "tts_stop_name": "Johnston and Main, Wishram",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.95959, 45.66074]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "3878367",
+                  "stop_name": "County Building 115 W Court",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }, {
+                    "route_id": "19749",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale City",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-city-route-monday-friday/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.82357, 45.82153]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "3878369",
+                  "stop_name": "Log Cabin/RV Park HWY 197 (SB)",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-121.14942, 45.62718]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "3878370",
+                  "stop_name": "KVH E Collins Dr & Allyn St",
+                  "location_type": 0,
+                  "stop_timezone": "America/Los_Angeles",
+                  "wheelchair_boarding": 0,
+                  "routes": [{
+                    "route_id": "19748",
+                    "agency_id": "1815",
+                    "route_long_name": "Goldendale to The Dalles",
+                    "route_type": 3,
+                    "route_url": "https://gorgetranslink.com/routes/goldendale-routes/",
+                    "route_color": "#d38f2b",
+                    "route_text_color": "#000000",
+                    "route_sort_order": 0,
+                    "continuous_pickup": 1,
+                    "continuous_drop_off": 1
+                  }],
+                  "agency_name": "Mount Adams Transportation Service"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.81097, 45.81931]
+                }
+              }]
+            };
+            createMap(id, geojson);
+          })();
+        </script>
+        <div class="table-container">
+          <table class="table-horizontal" summary="This table shows schedules for a selection of key stops on the route for Route Goldendale to The Dalles - County Building 115 W Court to LINK Transit Center - The Dalles Mon-Fri. Stops and their schedule times are listed in the columns." data-orientation="horizontal">
+            <caption class="sr-only">Route Goldendale to The Dalles - County Building 115 W Court to LINK Transit Center - The Dalles | Mon-Fri</caption>
+            <colgroup>
+              <col>
+              <col class="run_0 " id="trip_id_t_1552886_b_31077_tn_0">
+              <col class="run_1 " id="trip_id_t_1552887_b_31077_tn_0">
+              <col class="run_2 " id="trip_id_t_3632622_b_31077_tn_0">
+              <col class="run_3 " id="trip_id_t_1552888_b_31077_tn_0">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="stop-header" scope="col">Stop</th>
+                <th class="run-header" scope="col">Run #1</th>
+                <th class="run-header" scope="col">Run #2</th>
+                <th class="run-header" scope="col">Run #3</th>
+                <th class="run-header" scope="col">Run #4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="city-row">
+                <th scope="row" colspan="5">Goldendale</th>
+              </tr>
+              <tr class="stop-row" id="stop_id_3878367" data-stop-id="3878367">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">County Building 115 W Court</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:00am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:00am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:00pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:45pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753632" data-stop-id="2753632">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">IGA Roosevelt and Broadway</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:03am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:03am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:48pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_3878370" data-stop-id="3878370">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">KVH E Collins Dr &amp; Allyn St</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:04am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:04am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:04pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:49pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753648" data-stop-id="2753648">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">WW II Park, Wilbur &amp; Collins</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:06am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:06am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:06pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:51pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753646" data-stop-id="2753646">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Bible Baptist Church, S. Columbus &amp; Nesbitt</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:09am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:09am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:09pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:54pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753647" data-stop-id="2753647">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">McDonalds, E. Simcoe &amp; Hwy 97</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:11am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:11am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:11pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">4:56pm</span></td>
+              </tr>
+              <tr class="city-row">
+                <th scope="row" colspan="5">Wishram</th>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753650" data-stop-id="2753650">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Johnston &amp; Main, Wishram</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:31am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:31am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:31pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:16pm</span></td>
+              </tr>
+              <tr class="city-row">
+                <th scope="row" colspan="5">Wishram Heights</th>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753645" data-stop-id="2753645">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Wishram Heights</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:36am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:36am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:36pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:21pm</span></td>
+              </tr>
+              <tr class="city-row">
+                <th scope="row" colspan="5">Dallesport</th>
+              </tr>
+              <tr class="stop-row" id="stop_id_3878369" data-stop-id="3878369">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Log Cabin/RV Park HWY 197 (SB)</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:48am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:48am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:33pm</span></td>
+              </tr>
+              <tr class="city-row">
+                <th scope="row" colspan="5">The Dalles</th>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753636" data-stop-id="2753636">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Water's Edge, Lone Pine Blvd</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">7:53am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">10:53am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:53pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:38pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753633" data-stop-id="2753633">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Goodwill, 8th &amp; Cherry Heights</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">8:03am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:03am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:44pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_2753640" data-stop-id="2753640">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">LINK Transit Center - The Dalles</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">8:08am</span></td>
+                <td class="stop-time am"><span class="stop-time-text">11:08am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:08pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">5:49pm</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div class="excluded-dates">Service not provided on: Independence Day, Labor Day</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

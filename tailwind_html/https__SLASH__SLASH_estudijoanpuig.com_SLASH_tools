@@ -1,0 +1,1543 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" type="image/png" href="https://estudijoanpuig.com/logo.png">
+<title>estudijoanpuig - Gal.leria de tools</title>
+
+<!-- Tailwind CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css">
+<link rel='stylesheet' href='https://unpkg.com/@tailwindcss/ui@0.3.0/dist/tailwind-ui.min.css'>
+
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.1/dist/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.1/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.1/dist/js/uikit-icons.min.js"></script>
+
+<!-- cards kickoff -->
+		
+		<link rel="stylesheet" type="text/css" href="https://estudijoanpuig.com/kickoff/css/cards.css">
+
+<!-- FANCYBOX 4 CSS AL HEAD -->
+<link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>
+
+<!-- copy CSS AL HEAD -->
+	<link rel="stylesheet" href="https://estudijoanpuig.com/style.css">
+	
+<style type="text/css">
+.uk-card-default {
+    background-color: #161e2e;
+    color: #c5dee1;
+    box-shadow: 0 5px 15pxrgba(0,0,0,.08);
+}
+</style>	
+	
+
+</head>
+<body data-uk-filter="target: .js-filter; animation: fade" >
+  <!-- Section 1 -->
+<header x-data="{ mobileMenuOpen: false }" class="relative z-30 bg-white">
+    <div class="px-8 mx-auto xl:px-5 max-w-7xl">
+        <div class="flex items-center justify-between h-24 border-b-2 border-gray-100 md:justify-start md:space-x-6">
+            <div class="inline-flex">
+            <!-- data-replace='{ "translate-y-12": "translate-y-0", "scale-110": "scale-100", "opacity-0": "opacity-100" }' -->
+                <a href="/" class="flex items-center justify-center space-x-3 transition-all duration-1000 ease-out transform text-wave-500">
+                                            <img src="https://estudijoanpuig.com/logo.png"  width="60" height="60" />
+                                    </a>
+            </div>
+            <div class="flex justify-end flex-grow -my-2 -mr-2 md:hidden">
+                <button @click="mobileMenuOpen = true" type="button" class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
+                    <svg class="w-6 h-6" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
+                </button>
+            </div>
+
+            <!-- This is the homepage nav when a user is not logged in -->
+                            <nav class="flex items-center justify-end flex-1 hidden w-full h-full space-x-10 md:flex">
+    <div @mouseenter="dropdown = true" @mouseleave="dropdown=false" @click.away="dropdown=false" x-data="{ dropdown: false }" class="relative h-full select-none">
+        <div :class="{ 'text-wave-600': dropdown, 'text-gray-500': !dropdown }" class="inline-flex items-center h-full space-x-2 text-base font-medium leading-6 transition duration-150 ease-in-out cursor-pointer select-none group hover:text-wave-600 focus:outline-none focus:text-wave-600 text-gray-500">
+            <span>Product</span>
+            <svg class="w-5 h-5 transition duration-150 ease-in-out group-hover:text-wave-600 group-focus:text-wave-600 text-gray-400" x-bind:class="{ 'text-wave-600': dropdown, 'text-gray-400': !dropdown }" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </div>
+
+        <div x-show="dropdown" x-transition:enter="duration-200 ease-out scale-95" x-transition:enter-start="opacity-50 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition duration-100 ease-in scale-100" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="fixed w-full transform -translate-x-1/2 xl:w-screen xl:max-w-6xl xl:px-2 xl:absolute sm:px-0 lg:ml-0 left-1/2" style="display: none;">
+
+            <div class="overflow-hidden shadow-lg xl:rounded-xl">
+                <div class="flex items-stretch justify-center overflow-hidden bg-white shadow-xs xl:rounded-xl">
+
+                    <div class="flex flex-col">
+                        <div class="flex h-full">
+                            <div class="relative flex flex-col items-start justify-start hidden w-full h-full max-w-xs bg-center bg-cover lg:block" style="background-image:url('https://estudijoanpuig.com/1c.jpg')">
+                                <div class="relative flex flex-col items-start justify-center w-full h-full px-16 py-8">
+
+                                    <img src="https://estudijoanpuig.com/timo.png" class="z-40 w-auto h-40">
+                                    <h3 class="z-30 mt-1 mt-3 text-lg font-thin text-black-900">Aqui hi vaig estar un temps</h3>
+
+                                    <span class="relative z-20 inline-flex mt-5 rounded-md shadow-sm">
+                                        <a href="/wordpress" class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border border-transparent rounded-md text-wave-500 hover:bg-gray-100 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-100">
+                                           Cap al wordpress
+                                            <span class="absolute top-0 right-0 px-3 py-1 -mt-4 -mr-8 text-xs text-white rounded-full bg-wave-400"></span>
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="absolute inset-0 w-full h-full opacity-75 bg-wave-600"></div>
+                                <div class="absolute inset-0 w-full h-full opacity-75 bg-gradient-to-br from-wave-600 to-indigo-600"></div>
+                            </div>
+							<!--PRODUCT COLUMNA ESQUERRA  -->
+                            <div class="relative z-20 grid gap-6 px-5 pt-6 pb-8 bg-white border-t border-b border-transparent xl:border-gray-200 sm:gap-8 sm:p-8">
+							   
+							    <a href="https://estudijoanpuig.com/public/wordpress/?post_type=product" class="flex items-start inline-block p-3 -m-3 space-x-4 transition duration-150 ease-in-out rounded-lg group">
+                                    <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 mt-1 mr-3 transition duration-300 ease-in-out transform scale-100 bg-indigo-100 rounded-full text-wave-600 group-hover:text-white group-hover:bg-wave-600 group-hover:scale-110 group-hover:rotate-3 -rotate-3">
+                                       <img src="https://img.icons8.com/dusk/30/000000/shopping.png"/>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-base font-medium leading-6 text-gray-900">
+                                            botiga d'aquarel.les
+                                        </p>
+                                        <p class="text-sm leading-5 text-gray-500">
+                                            Venda d'aquarel.les enviament gratuit
+                                        </p>
+                                    </div>
+                                </a>
+							   
+							   
+							   
+                                <a href="/people" class="flex items-start inline-block p-3 -m-3 space-x-4 transition duration-150 ease-in-out rounded-lg group">
+                                    <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 mt-1 mr-3 transition duration-300 ease-in-out transform scale-100 bg-indigo-100 rounded-full text-wave-600 group-hover:text-white group-hover:bg-wave-600 group-hover:scale-110 group-hover:rotate-3 -rotate-3">
+                                        <img src="https://img.icons8.com/dusk/30/000000/beautician.png"/>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-base font-medium leading-6 text-gray-900">
+                                            People
+                                        </p>
+                                        <p class="text-sm leading-5 text-gray-500">
+                                            Gal.leria amb filtres de photographers, influencers, models, painters...
+                                        </p>
+                                    </div>
+                                </a>
+								
+                                <a href="#" class="flex items-start inline-block p-3 -m-3 space-x-4 transition duration-150 ease-in-out rounded-lg group">
+                                    <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 mt-1 mr-3 transition duration-300 ease-in-out transform scale-100 bg-indigo-100 rounded-full text-wave-600 group-hover:text-white group-hover:bg-wave-600 group-hover:scale-110 group-hover:rotate-3 -rotate-3">
+                                        <svg class="relative flex-shrink-0 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-base font-medium leading-6 text-gray-900">
+                                            Billing
+                                        </p>
+                                        <p class="text-sm leading-5 text-gray-500">
+                                            Subscription billing built on top of Paddle
+                                        </p>
+                                    </div>
+                                </a>
+                                
+
+
+
+                            </div>
+<!-- PRODUCT COLUMNA DRETA -->
+                            <div class="relative z-20 grid gap-6 px-5 pt-6 pb-8 bg-white border-t border-b border-r border-transparent rounded-r-xl xl:border-gray-200 sm:gap-8 sm:p-8">
+							
+							<a href="/laravel" class="flex items-start inline-block p-3 -m-3 space-x-4 transition duration-150 ease-in-out rounded-lg group">
+                                <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 mt-1 mr-3 transition duration-300 ease-in-out transform scale-100 bg-indigo-100 rounded-full text-wave-600 group-hover:text-white group-hover:bg-wave-600 group-hover:scale-110 group-hover:rotate-3 -rotate-3">
+                                    <img src="laravelcontrast.png" width="30" height="30"/>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-base font-medium leading-6 text-gray-900">
+                                       Codis Laravel
+                                    </p>
+                                    <p class="text-sm leading-5 text-gray-500">
+                                        Gal.leria  codis d'aquest framewwork.
+                                    </p>
+                                </div>
+                            </a>
+							
+                            <a href="/tools" class="flex items-start inline-block p-3 -m-3 space-x-4 transition duration-150 ease-in-out rounded-lg group">
+                                    <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 mt-1 mr-3 transition duration-300 ease-in-out transform scale-100 bg-indigo-100 rounded-full text-wave-600 group-hover:text-white group-hover:bg-wave-600 group-hover:scale-110 group-hover:rotate-3 -rotate-3">
+                                        <img src="https://img.icons8.com/dusk/30/000000/code-file--v2.png"/>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-base font-medium leading-6 text-gray-900">
+                                           tots els codis
+                                        </p>
+                                        <p class="text-sm leading-5 text-gray-500">
+                                            Començant per uns requisits essencials i una mirada a frameworks, css, themes, llibreries, icons.
+                                        </p>
+                                    </div>
+                            </a>	
+							
+                            <a href="/tools" class="flex items-start inline-block p-3 -m-3 space-x-4 transition duration-150 ease-in-out rounded-lg group">
+                                    <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 mt-1 mr-3 transition duration-300 ease-in-out transform scale-100 bg-indigo-100 rounded-full text-wave-600 group-hover:text-white group-hover:bg-wave-600 group-hover:scale-110 group-hover:rotate-3 -rotate-3">
+                                        <img src="https://img.icons8.com/dusk/30/000000/maintenance.png"/>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-base font-medium leading-6 text-gray-900">
+                                           Tools eines
+                                        </p>
+                                        <p class="text-sm leading-5 text-gray-500">
+                                            Començant per uns requisits essencials i una mirada a frameworks, css, themes, llibreries, icons.
+                                        </p>
+                                    </div>
+                            </a>
+
+                            <a href="/webs" class="flex items-start inline-block p-3 -m-3 space-x-4 transition duration-150 ease-in-out rounded-lg group">
+                                <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 mt-1 mr-3 transition duration-300 ease-in-out transform scale-100 bg-indigo-100 rounded-full text-wave-600 group-hover:text-white group-hover:bg-wave-600 group-hover:scale-110 group-hover:rotate-3 -rotate-3">
+                                    <img src="https://img.icons8.com/dusk/30/000000/change-theme.png"/>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-base font-medium leading-6 text-gray-900">
+                                       Projectes web
+                                    </p>
+                                    <p class="text-sm leading-5 text-gray-500">
+                                        Gal.leria projectes web.
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="/laravel" class="text-base font-medium leading-6 text-gray-500 transition duration-150 ease-in-out hover:text-wave-600 focus:outline-none focus:text-wave-600">
+        laravel
+    </a>
+    
+
+   
+
+    <div class="w-1 h-5 mx-10 border-r border-gray-300"></div>
+    <a href="/admin" class="text-base font-medium leading-6 text-gray-500 whitespace-no-wrap hover:text-wave-600 focus:outline-none focus:text-gray-900">
+         login
+    </a>
+	<a href="/register" class="text-base font-medium leading-6 text-gray-500 whitespace-no-wrap hover:text-wave-600 focus:outline-none focus:text-gray-900">
+         register
+    </a>
+    
+</nav>
+            
+        </div>
+    </div>
+<!-- mobil -->
+            <div x-show="mobileMenuOpen" x-transition:enter="duration-300 ease-out scale-100" x-transition:enter-start="opacity-50 scale-110" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition duration-75 ease-in scale-100" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-100" class="absolute inset-x-0 top-0 transition origin-top transform md:hidden" style="display: none;">
+    <div class="shadow-lg">
+        <div class="bg-white divide-y-2 shadow-xs divide-gray-50">
+            <div class="pt-6 pb-6 space-y-6">
+                <div class="flex items-center justify-between px-8 mt-1">
+                    <div>
+                        <a href="/"><img src="https://estudijoanpuig.com/logo.png"  width="60" height="60" /></a>
+                    </div>
+                    <div class="-mr-2">
+                        <button @click="mobileMenuOpen = false" type="button" class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <nav class="grid row-gap-8">
+                        <a href="/codis" class="flex items-center px-8 py-1 space-x-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-50">
+                            <div class="text-base font-medium leading-6 text-gray-900">
+                                <span class="uk-margin-small-right" uk-icon="code"></span>codis
+                            </div>
+                        </a>
+                        <a href="/laravel" class="flex items-center px-8 py-1 space-x-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-50">
+                            <div class="text-base font-medium leading-6 text-gray-900">
+                                <img src="https://estudijoanpuig.com/laravelcontrast.png"  align="left" width="25" height="25" />laravel
+                            </div>
+                        </a>
+                        <a href="/people" class="flex items-center px-8 py-1 space-x-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-50">
+                            <div class="text-base font-medium leading-6 text-gray-900">
+                                <span class="uk-margin-small-right" uk-icon="users"></span>people
+                            </div>
+                        </a>
+						<a href="/tools" class="flex items-center px-8 py-1 space-x-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-50">
+                            <div class="text-base font-medium leading-6 text-gray-900">
+                                <span class="uk-margin-small-right" uk-icon="settings"></span>tools
+                            </div>
+                        </a>
+                        <a href="/webs" class="flex items-center px-8 py-1 space-x-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-50">
+                            <div class="text-base font-medium leading-6 text-gray-900">
+                                <span class="uk-margin-small-right" uk-icon="world"></span>webs
+                            </div>
+                        </a>
+                        
+                    </nav>
+                </div>
+            </div>
+            <div class="px-8 py-6 space-y-6">
+                <div class="grid grid-cols-2 row-gap-4 col-gap-8 px-1 pb-4">
+                    <a href="/laravel" class="text-base font-medium leading-6 text-gray-900 transition duration-150 ease-in-out hover:text-gray-700">
+                        laravel
+                    </a>
+                    <a href="/codis" class="text-base font-medium leading-6 text-gray-900 transition duration-150 ease-in-out hover:text-gray-700">
+                        codis
+                    </a>
+                    <a href="/tools" class="text-base font-medium leading-6 text-gray-900 transition duration-150 ease-in-out hover:text-gray-700">
+                        tools
+                    </a>
+                    <a href="/webs" class="text-base font-medium leading-6 text-gray-900 transition duration-150 ease-in-out hover:text-gray-700">
+                        webs
+                    </a>
+                </div>
+                <div class="space-y-6">
+                    
+                    <p class="text-base font-medium leading-6 text-center text-gray-500">
+                        estas registrat?:
+                        <a href="/admin" class="transition duration-150 ease-in-out text-wave-600 hover:text-wave-500"> login</a>
+						 | si no ports fer-ho: 
+                        <a href="/register" class="transition duration-150 ease-in-out text-wave-600 hover:text-wave-500">
+                            register
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+ 
+
+
+
+<section class="text-gray-400 bg-gray-900" style="background-image: url('liniestools.png');background-repeat: no-repeat;" >
+     <div class="uk-grid uk-flex-center uk-padding-medium">
+    <h1 class="uk-text-center uk-text-middle text-5xl uk-text-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-6">Gal.leria de tools</h1>
+</div>
+	
+		<div class="uk-grid uk-flex-center ">
+		
+						<form id="search-form" action="">
+							<div class="uk-inline uk-width-1-1">
+								<span class="uk-form-icon uk-form-icon-flip uk-icon" data-uk-icon="icon: search"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="search"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg></span>
+								<input class="uk-input uk-width-1-1 search-fld" type="text" placeholder="Type your search" autofocus="">
+								<a hidden="" href="#" class="search-filter" data-uk-filter-control="[data-tags*='']">Search</a>
+								<a hidden="" href="#" class="search-filter-all uk-active" data-uk-filter-control="">Search all</a>
+								<a hidden="" href="#" class="search-filter-none" data-uk-filter-control="[data-empty='']">Filter none</a>
+							</div>
+						</form>
+		</div>
+		
+		<!--CARDS WRAPPER-->
+		
+			<div class="uk-container uk-container-expand uk-margin-large-bottom uk-padding-large">
+		
+				<ul class="uk-subnav uk-subnav-pill">
+					<li class="uk-active" data-uk-filter-control=""><a href="#">Show All</a></li>
+					<li data-uk-filter-control=".requisits"><a href="#">requisits</a></li>
+					<li data-uk-filter-control=".framework"><a href="#">framework</a></li>
+					<li data-uk-filter-control=".css"><a href="#">css</a></li>
+					<li data-uk-filter-control=".themes"><a href="#">themes</a></li>
+					<li data-uk-filter-control=".llibreries"><a href="#">llibreries</a></li>
+					<li data-uk-filter-control=".icons"><a href="#">icons</a></li>
+					
+				</ul>
+				<div class="uk-grid uk-grid-medium uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l  uk-child-width-1-5@xl uk-grid-match js-filter" data-uk-grid="masonry: true" data-uk-sortable="handle: .drag-icon">
+					
+										
+					<!-- card -->
+					<div class="icons" data-tags=" boxicons Simple Open Source icons carefully crafted for designers &amp;amp; developers ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">icons-</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/April2022/zoNlA4syO2obDEMtkJ7Z.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-05-21 13:45:01 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">boxicons</h2>
+								<p>Simple Open Source icons carefully crafted for designers &amp;amp; developers</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/2" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://boxicons.com/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=FarzTsnwxdg"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/c" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="icons" data-tags=" fontawesome Font Awesome és la biblioteca d&#039;icones i el conjunt d&#039;eines d&#039;Internet, utilitzat per milions de dissenyadors, desenvolupadors i creadors de contingut. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">icons-</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools\May2022\Ryic0LTXuOJ996CXOtsS.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-05-22 20:22:55 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">fontawesome</h2>
+								<p>Font Awesome és la biblioteca d&#039;icones i el conjunt d&#039;eines d&#039;Internet, utilitzat per milions de dissenyadors, desenvolupadors i creadors de contingut.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/3" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://fontawesome.com/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=Pml-LrFXKTA"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/codi" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="icons" data-tags=" icons uikit Place scalable vector icons anywhere in your content. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">icons-</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/February2022/kdu7HQsMOKXmMEKe0HVQ.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-02-05 11:25:33 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">icons uikit</h2>
+								<p>Place scalable vector icons anywhere in your content.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/4" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://getuikit.com/docs/icon" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=G9ehpxLEjKU"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="llibreries" data-tags=" fancybox Fancybox us estalvia temps i ajuda a crear fàcilment finestres superposades modernes i boniques que contenen imatges, iframes, vídeos o qualsevol tipus de contingut HTML. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">llibreries-</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/February2022/IOwBmrKGbpJprs0fXYSx.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-05-21 17:03:42 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">fancybox</h2>
+								<p>Fancybox us estalvia temps i ajuda a crear fàcilment finestres superposades modernes i boniques que contenen imatges, iframes, vídeos o qualsevol tipus de contingut HTML.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/5" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://fancyapps.com/docs/ui/fancybox/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=CtgJgqeNHcY"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/codi" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="css" data-tags=" bootstrap 5 el marc més popular del món per crear llocs responsius per a mòbils, amb jsDelivr i una pàgina d&#039;inici de plantilla. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">css-</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/February2022/QixRRePwvyBslZYvH2ye.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-02-05 11:28:19 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">bootstrap 5</h2>
+								<p>el marc més popular del món per crear llocs responsius per a mòbils, amb jsDelivr i una pàgina d&#039;inici de plantilla.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/6" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=1kNwZbRiVcQ"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="llibreries javascript" data-tags=" datatables tailwind DataTables és un connector per a la biblioteca jQuery Javascript. És una eina altament flexible, basada en els fonaments de la millora progressiva, que afegeix totes aquestes funcions avançades a qualsevol taula HTML. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">llibreries javascript-</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/February2022/k9iP0xrCmj7kYBz6Ps9R.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-02-05 12:23:03 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">datatables tailwind</h2>
+								<p>DataTables és un connector per a la biblioteca jQuery Javascript. És una eina altament flexible, basada en els fonaments de la millora progressiva, que afegeix totes aquestes funcions avançades a qualsevol taula HTML.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/7" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://www.tailwindtoolbox.com/components/responsive-table" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=QSoubKcjqo8&amp;t=28s"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="css" data-tags=" uikit3 Un marc frontal lleuger i modular per desenvolupar interfícies web ràpides i potents. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">css-</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/February2022/zlpeiJieomrzXPKV3PIr.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-02-05 11:26:10 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">uikit3</h2>
+								<p>Un marc frontal lleuger i modular per desenvolupar interfícies web ràpides i potents.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/8" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://getuikit.com/docs/introduction" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=shFCueCxoqM"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="requisits" data-tags=" Notepad++ editor de codi ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">requisits-2022-02-04 20:55:00</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/February2022/bqBWAhL4A7DLg0CyISnE.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-04-16 12:16:33 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">Notepad++</h2>
+								<p>editor de codi</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/notepad" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://notepad-plus-plus.org/downloads/v8.2.1/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=ugDenmsha84"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/notepad++.txt" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="css" data-tags=" TailwindCss2 Tailwind CSS funciona escanejant tots els vostres fitxers HTML, components JavaScript i qualsevol altra plantilla per trobar noms de classe, ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">css-2022-02-05 12:38:43</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/February2022/QPDXQeMcbHRwSSg7WhKy.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-02-05 12:38:43 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">TailwindCss2</h2>
+								<p>Tailwind CSS funciona escanejant tots els vostres fitxers HTML, components JavaScript i qualsevol altra plantilla per trobar noms de classe,</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/10" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://tailwindcss.com/docs/installation" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=3xlUAMXui2c"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="themes" data-tags=" bootstrapmade Creem plantilles i temes gratuïts de llocs web nets, elegants i bonics mitjançant Bootstrap, el marc HTML, CSS i JavaScript més popular. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">themes-2022-02-08 15:08:53</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/February2022/FeF3IaW90yuPLBofBKNn.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-02-08 15:08:53 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">bootstrapmade</h2>
+								<p>Creem plantilles i temes gratuïts de llocs web nets, elegants i bonics mitjançant Bootstrap, el marc HTML, CSS i JavaScript més popular.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/11" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://bootstrapmade.com/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="y"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="guithub" data-tags=" Laravel8_roles_permisos_crud Laravel 8 Roles + Permisos + CRUD + UI Stisla ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">guithub-2022-02-20 00:40:30</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/February2022/NhxcpIHpJPkTGV3R5uCh.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-02-20 00:40:30 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">Laravel8_roles_permisos_crud</h2>
+								<p>Laravel 8 Roles + Permisos + CRUD + UI Stisla</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/12" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://github.com/infodp/Laravel8_roles_permisos_crud" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=I4vgw0dcKwo&amp;list=PLrAw40DbN0l0cOs7BOjdWj5ajrFyeElFR"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="icons" data-tags=" icons8 Icons, illustrations, photos, music, and design tools ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">icons-</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/February2022/UhMybjOCvvzuPN3TwSJ9.jpg" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-02-04 21:05:11 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">icons8</h2>
+								<p>Icons, illustrations, photos, music, and design tools</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/1" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://icons8.com/icon/set/accountin/dusk" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=C4TcBmdaa-Q"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="requisits" data-tags=" xampp XAMPP és una distribució d&#039;Apache completament gratuïta i fàcil d&#039;instal·lar i utilitzar que conté MariaDB, PHP i Perl. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">requisits-2022-04-16 11:29:00</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/April2022/d8hsPTp3YpR4fvEfruhM.jpg" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-04-16 11:45:52 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">xampp</h2>
+								<p>XAMPP és una distribució d&#039;Apache completament gratuïta i fàcil d&#039;instal·lar i utilitzar que conté MariaDB, PHP i Perl.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/xampp" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://www.apachefriends.org/es/index.html" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=NRPAur8m7M0"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/xampp_servidor_virtual.txt" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="requisits" data-tags=" composer Composer és una eina per a la gestió de dependències en PHP. Us permet declarar les biblioteques de les quals depèn el vostre projecte i les gestionarà (instal·larà/actualitzarà). ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">requisits-2022-05-21 15:43:27</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools\May2022\5Kmzj6jsbWiQjivw3m2o.jpg" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-05-21 15:43:27 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">composer</h2>
+								<p>Composer és una eina per a la gestió de dependències en PHP. Us permet declarar les biblioteques de les quals depèn el vostre projecte i les gestionarà (instal·larà/actualitzarà).</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/composer" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://getcomposer.org/download/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=37Pkq4Uq0Dg&amp;ab_channel=Andr%C3%A9sCruz"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/composer.txt" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="requisits" data-tags=" node Node.js® és un temps d&#039;execució de JavaScript basat en el motor JavaScript V8 de Chrome . ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">requisits-2022-05-21 16:18:00</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools\May2022\dHPNJ9EvlnpVmgWkW2gZ.jpeg" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-05-23 07:48:20 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">node</h2>
+								<p>Node.js® és un temps d&#039;execució de JavaScript basat en el motor JavaScript V8 de Chrome .</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/node" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://nodejs.org/en/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=e8n_9N-ZyFE&amp;ab_channel=Desarrollo%C3%9Atil"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/node.txt" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="requisits" data-tags=" git Git és un sistema de control de versions distribuït gratuït i de codi obert dissenyat per gestionar tot, des de projectes petits fins a molt grans amb rapidesa i eficiència. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">requisits-2022-05-21 17:00:00</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools\May2022\TNEL41KMUwiJdeGfaIRI.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-05-21 17:07:53 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">git</h2>
+								<p>Git és un sistema de control de versions distribuït gratuït i de codi obert dissenyat per gestionar tot, des de projectes petits fins a molt grans amb rapidesa i eficiència.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/git" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://git-scm.com/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=jGehuhFhtnE&amp;ab_channel=EDteam"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/codi" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="framework" data-tags=" laravel Laravel és un marc d&#039;aplicacions web amb una sintaxi expressiva i elegant. Ja hem posat les bases: alliberar-vos per crear sense suar les petites coses. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">framework-2022-05-22 06:06:00</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools\May2022\cSkF0aYmAuOZLmqHPv0K.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-05-22 08:05:35 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">laravel</h2>
+								<p>Laravel és un marc d&#039;aplicacions web amb una sintaxi expressiva i elegant. Ja hem posat les bases: alliberar-vos per crear sense suar les petites coses.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/laravel" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://laravel.com/docs/9.x#installation-via-composer" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=JRUOeMkwkIo&amp;ab_channel=CodersFree"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/codi" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="framework" data-tags=" codeigniter 4 CodeIgniter és un marc de desenvolupament d&#039;aplicacions (un conjunt d&#039;eines) per a persones que creen llocs web amb PHP. El seu objectiu és permetre&#039;t desenvolupar projectes molt més ràpid del que podríeu si escriviu codi des de zero ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">framework-2022-05-22 08:20:00</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/August2022/BlneD4jqmXYE31HnbOVb.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-08-08 12:07:21 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">codeigniter 4</h2>
+								<p>CodeIgniter és un marc de desenvolupament d&#039;aplicacions (un conjunt d&#039;eines) per a persones que creen llocs web amb PHP. El seu objectiu és permetre&#039;t desenvolupar projectes molt més ràpid del que podríeu si escriviu codi des de zero</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/codeigniter" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://codeigniter.com/download" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=AHNzdnK_nJE&amp;list=PLoRfWwOOv4jzEzYj_ZczhY_cSKqA60Lf8&amp;ab_channel=FacultadAutodidacta"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/codeigniter_4.txt" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="requisits" data-tags=" cmd indicador d&#039;ordres símbol del sistema o CMD . No és una altra cosa que una línia d&#039;ordres des de la qual podem fer moltes de les coses que podem fer des de la pròpia interfície gràfica del sistema i fins i tot d&#039;altres que no tenim a l&#039;abast d&#039;aquesta manera. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">requisits-2022-05-22 08:53:44</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools\May2022\eMjf540bjochRC63HW16.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-05-22 08:53:44 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">cmd indicador d&#039;ordres</h2>
+								<p>símbol del sistema o CMD . No és una altra cosa que una línia d&#039;ordres des de la qual podem fer moltes de les coses que podem fer des de la pròpia interfície gràfica del sistema i fins i tot d&#039;altres que no tenim a l&#039;abast d&#039;aquesta manera.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/cmd" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://www.adslzone.net/esenciales/windows/guia-comandos-cmd-windows/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=gqo1TPqZRH4&amp;ab_channel=YoneyGallardo"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/cmd.txt" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="framework" data-tags=" wordpress El WordPress és programari de codi obert que podeu usar per crear un lloc web maco, un bloc o una aplicació. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">framework-2022-05-22 14:32:00</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools\May2022\lhjZb3LuwDYixbJ1nLiB.jpg" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-05-29 09:09:07 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">wordpress</h2>
+								<p>El WordPress és programari de codi obert que podeu usar per crear un lloc web maco, un bloc o una aplicació.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/cmswp.txt" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://ca.wordpress.org/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=VN4EitfYf0o&amp;ab_channel=MatiasPorta"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/codi" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="llibreries" data-tags=" voyager Voyager és un paquet d&#039;administració de Laravel que inclou operacions BREAD (CRUD), un gestor de mitjans, un creador de menús i molt més. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">llibreries-2022-07-17 10:23:27</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/July2022/PYFl9atkE4GHWLtEiCS0.png" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-07-17 10:23:27 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">voyager</h2>
+								<p>Voyager és un paquet d&#039;administració de Laravel que inclou operacions BREAD (CRUD), un gestor de mitjans, un creador de menús i molt més.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/voyager" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://voyager.devdojo.com/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=M5gjHW1BLjA&amp;ab_channel=Boodee%27sVlog"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/laravel_artisan.txt" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+					<!-- card -->
+					<div class="llibreries" data-tags=" Filament Filament és una col·lecció d&#039;eines per crear ràpidament belles aplicacions TALL stack, dissenyades per a humans. ">
+						<div class="uk-card uk-card-small uk-card-default">
+							<div class="uk-card-header">
+								<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+									<div class="uk-width-expand">
+										<span class="cat-txt">llibreries-2022-07-19 09:50:44</span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="uk-card-media">
+								<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+									<img data-fancybox="gallery" src="storage/tools/July2022/bx8fDWTYoGJjBLBvC7kX.jpg" >
+									<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                                       <p><span>2022-07-19 09:50:44 </span></p>
+									</div>
+								</div>
+								
+							</div>
+							<div class="uk-card-body">
+								<h2 class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 title-font mb-2">Filament</h2>
+								<p>Filament és una col·lecció d&#039;eines per crear ràpidament belles aplicacions TALL stack, dissenyades per a humans.</p>
+							
+							</div>
+							<div class="uk-card-footer">
+								<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+									
+									<div class="uk-width-auto uk-text-right">
+										<div class="uk-inline ">
+				
+					<a href="/detall_tool/filament" target="_blank"><span uk-icon="search" class="uk-icon"></span></a>
+					
+					<a href="https://filamentphp.com/" target="_blank"><span uk-icon="download" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" href="https://www.youtube.com/watch?v=yQFA-0RbjO0&amp;t=409s&amp;ab_channel=Laraveller"><span uk-icon="youtube" class="uk-icon"></span></a>
+					
+					<a data-fancybox="" data-type="iframe" data-src="https://estudijoanpuig.com/embed/filament.txt" href="javascript:;"><span uk-icon="code" class="uk-icon"></span></a>
+				
+				
+              </div>
+									</div>
+									<div class="uk-width-auto uk-text-right">
+										<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /card -->
+										
+				</div>
+			</div>
+		</section>
+
+
+
+<!-- Section 3 -->
+<section class="text-gray-700 bg-white body-font"style="background-image: url('linies.png'); background-repeat: no-repeat;">
+    <div class="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
+        <a href="#_" class="text-xl font-black leading-none text-gray-900 select-none logo">estudijoanpuig - Gal.leria de tools<span class="text-indigo-600">.</span></a>
+        <p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">© 2021 estudijoanpuig
+        </p>
+        <span class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
+            <a href="#" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Facebook</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+
+            <a href="#" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Instagram</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+
+            <a href="#" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Twitter</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                </svg>
+            </a>
+
+            <a href="#" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">GitHub</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+
+            <a href="#" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Dribbble</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+        </span>
+    </div>
+</section>
+<!-- FANCYBOX 4 JS AL FINAL BODY -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<!-- alpine js -->
+<script src='https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js'></script>
+
+<!-- copy al final body-->
+<script src='https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst'></script>
+	<script  src="https://estudijoanpuig.com/script.js"></script>
+	
+<!-- js kickoff -->
+		
+		<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+		<script src="https://estudijoanpuig.com/kickoff/js/cards.js"></script>				
+	
+	
+
+</body>
+</html>
+
+
+

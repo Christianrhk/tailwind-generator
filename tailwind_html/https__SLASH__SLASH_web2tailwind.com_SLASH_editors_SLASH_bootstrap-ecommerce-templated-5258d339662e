@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/assets/img/icon.png" type="image/png">
+    <title>Bootstrap eCommerce templated | Try tailwind Component Online.
+</title>
+    <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+    <script src="/assets/js/alpine.min.js" defer></script>
+    <script src="/assets/lib/codemirror-5.53.2/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="/assets/lib/codemirror-5.53.2/lib/codemirror.css">
+    <script src="/assets/lib/codemirror-5.53.2/mode/javascript/javascript.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Source+Code+Pro|Roboto&display=swap"
+        rel="stylesheet">
+    <meta name="keywords" content="">
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://web2tailwind.com/editors/bootstrap-ecommerce-templated-5258d339662e" />
+<meta property="og:title" content="" />
+<meta property="og:image" content="https://web2tailwind.com/assets/docs/master/image-01.jpg" />
+<meta property="og:site_name" content="Tailwind Component" />
+<meta property="og:description" content="" />
+<meta property="og:updated_time" content="2020-05-10T05:23:33+05:00">
+<meta property="article:author" content="@tailwindcomponent">
+
+<meta name="twitter:site" content="@tailwindcomponent">
+<meta name="twitter:creator" content="@tailwindcomponent">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:domain" content="https://web2tailwind.com" />
+<meta name="twitter:title" property="og:title" itemprop="title" content="" />
+<meta name="twitter:image" property="og:image" content="https://web2tailwind.com/assets/docs/master/image-01.jpg" />
+<meta name="twitter:description" property="og:description" itemprop="description"
+    content="" />
+</head>
+
+<body class="lg:overflow-hidden" style="font-family:Roboto;">
+    <div class="bg-white block lg:hidden overflow-y-auto">
+    <div class="bg-white border-b-2 border-red-500 sticky shadow-lg md:shadow-none top-0 z-10">
+    <div
+    style="background: #c21500;background: -webkit-linear-gradient(to right, #c21500, #ffc500); background: linear-gradient(to right, #c21500, #ffc500);">
+    <div class="container mx-auto md:px-20 text-center px-6 py-2 ">
+        <a href="https://web2tailwind.com/laratail/introduction" class="text-gray-100 text-lg hover:text-gray-200">
+            Laratail is Out !!! Laravel and Tailwind css based free admin panel starter kit.
+        </a>
+    </div>
+</div>
+    <nav x-data="{show:false}"
+        class="container mx-auto px-6 2xl:px-0 flex items-center justify-between flex-wrap bg-white py-2">
+        <a href="https://web2tailwind.com" class="flex items-center">
+            <img src="/assets/img/logo.png" alt="web2tailwind.com logo" class="h-8 md:h-10 mr-12 md:mr-0">
+        </a>
+        <div class="flex items-center md:hidden">
+            <div class="px-3 py-4 lg:py-3">
+                <a target="_blank" href="/tailwind/try"
+                    class="flex items-center bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-4 md:px-8 rounded-full font-hairline">
+                    <span class="hidden md:inline">Try  Online</span>
+                    <span class="material-icons inline md:hidden">moving</span>
+                </a>
+            </div>
+            <div>
+                <button @click="show=!show"
+                    class="flex items-center px-3 py-2 border rounded text-gray-700 border-gray-200">
+                    <svg class="fill-current h-4 w-4 font-bold" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div @click.away="show = false" :class="{ 'block': show, 'hidden': !show }"
+            class="border-t md:border-t-0 w-full flex-grow md:flex items-center md:justify-end md:w-auto">
+            <div>
+                <a href="https://web2tailwind.com"
+                class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Components</a>
+                <a href="https://web2tailwind.com/blogs"
+                    class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Blogs</a>
+                <a href="https://web2tailwind.com/design"
+                    class="block md:inline-block font-bold text-base px-2 md:px-3 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Design</a>
+            </div>
+            <div class="hidden md:block pl-3 py-6 md:py-3 ">
+                <a target="_blank" href="/tailwind/try"
+                    class="bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-8 rounded-full font-hairline">Try
+                    Online
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+    <div class="px-8 mt-4 mb-20">
+        <div class="mb-12 h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <div class="rounded-t-lg w-full h-40"
+                style="background: url(https://web2tailwind.com/assets/docs/master/image-01.jpg); background-size:cover !important; background-position:center !important">
+            </div>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2 font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                    Bootstrap eCommerce templated
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-10">
+            <h2 class="font-bold text-2xl text-gray-700 mb-2">Output</h2>
+            <iframe id="iframe" class="w-full" style="min-height: 14rem;" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;E-commerce&lt;/title&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;
+        integrity=&quot;sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://use.fontawesome.com/releases/v5.8.1/css/all.css&quot;
+        integrity=&quot;sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;style&gt;
+ .top-header {
+    background-color: #353a40;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-group .search {
+    border: #97989b 2px solid;
+    border-top: #97989b 1px solid;
+    font-family: sans-serif;
+}
+
+.input-group-text {
+    border-bottom: #97989b 2px solid;
+    border-right: #97989b 2px solid;
+    border-top: #97989b 1px solid;
+    padding: 4px;
+    border-top-left-radius: 2px;
+    background-color: #ffffff;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: &#039;monospace&#039;;
+    background-color: #ffffff;
+}
+
+.nav-top {
+    font-family: fantasy;
+    font-size: 20px;
+    margin-left: 2px;
+    margin-top: 5px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.nav-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links&gt;a {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+    color: black;
+}
+
+.media {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.products {
+    font-family: monospace;
+    background: #eaeaea;
+}
+
+.card-box {
+    width: 302px;
+    margin: 10px;
+}
+
+.card-img-top {
+    height: 200px;
+}
+
+.product-name {
+    text-align: center;
+    color: #353a40;
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+.product-price {
+    text-align: center;
+    color: #353a40;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.add-to-cart {
+    width: 150px;
+    font-family: sans-serif;
+    border: #e3e3e3 2px solid;
+    border-bottom: #e3e3e3 3px solid;
+}
+
+.footer-top {
+    margin-bottom: 25px;
+}
+
+.footer-top&gt;h2 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.footer-top&gt;h1 {
+    margin: 0 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* footer */
+
+footer {
+    background: #353a40;
+    color: white;
+}
+
+.social {
+    font-size: 15px;
+    margin-right: 10px;
+}
+&lt;/style&gt;
+&lt;body&gt;
+
+
+    &lt;header&gt;
+        &lt;div class=&quot;top-header row-full&quot;&gt;
+            &lt;div class=&quot;ml-2 col-6&quot;&gt;
+                &lt;a style=&quot;border-right: #e3e3e3 1px solid;&quot;&gt;&lt;i class=&quot;fas fa-phone-square mr-2&quot;&gt;&lt;/i&gt;+123456789&amp;nbsp;
+                    &lt;a&gt;
+                        &lt;i class=&quot;fas fa-envelope ml-2&quot;&gt;&lt;/i&gt; mail@gmail.com&lt;/a&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;ml-2&quot;&gt;
+                &lt;a style=&quot;border-right: #e3e3e3 1px solid;&quot;&gt;&lt;i class=&quot;fas fa-user-edit mr-2&quot;&gt;&lt;/i&gt;Register&amp;nbsp;
+                    &lt;a class=&quot;mr-2&quot;&gt;
+                        &lt;i class=&quot;fas fa-sign-in-alt ml-2&quot;&gt;&lt;/i&gt; Login&lt;/a&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;nav-top row&quot;&gt;
+            &lt;div class=&quot;col-12 col-sm-4&quot;&gt;
+
+                &lt;a class=&quot;ml-2 &quot;&gt;E-Commerce&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-12 col-sm-4&quot;&gt;
+                &lt;a&gt;
+                    &lt;div class=&quot;input-group h-25 w-100&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-group form-control md-form m-0 p-0 search&quot; aria-label=&quot;search&quot;
+                            name=&quot;search&quot; placeholder=&quot;Search...&quot; size=&quot;60%&quot;&gt;
+                        &lt;div class=&quot;input-group-append&quot;&gt;
+                            &lt;span class=&quot;input-group-text&quot; id=&quot;basic-text1&quot;&gt; &lt;i class=&quot;fas fa-search&quot;
+                                    aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-12 col-sm-4 text-right&quot;&gt;
+                &lt;a class=&quot;mr-2&quot;&gt; &lt;span&gt;&lt;i class=&quot;fas fa-heart&quot;&gt;&lt;/i&gt;&amp;nbsp; 0&amp;nbsp;&amp;nbsp;&lt;i
+                            class=&quot;fas fa-shopping-bag&quot;&gt;&lt;/i&gt;
+                        &amp;nbsp;2&lt;/span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;i class=&quot;fas fa-money-bill-wave&quot;&gt;
+                        &lt;/i&gt; &amp;nbsp; $4,000&lt;/span&gt;&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;nav class=&quot;nav-links dropdown&quot;&gt;
+            &lt;a class=&quot;btn btn-none font-weight-bold&quot;&gt;Home&lt;/a&gt;
+
+            &lt;a class=&quot;btn dropdown-toggle&quot; role=&quot;button&quot; href=&quot;#&quot; id=&quot;electronics&quot; data-toggle=&quot;dropdown&quot;
+                aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Electronics&lt;/a&gt;
+            &lt;a class=&quot;btn dropdown-toggle&quot; role=&quot;button&quot; href=&quot;#&quot; id=&quot;fashion&quot; data-toggle=&quot;dropdown&quot;
+                aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Fashion&lt;/a&gt;
+            &lt;a class=&quot;btn dropdown-toggle&quot; role=&quot;button&quot; href=&quot;#&quot; id=&quot;books&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot;
+                aria-expanded=&quot;false&quot;&gt;Books&lt;/a&gt;
+            &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;electronics&quot;&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action1&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;fashion&quot;&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action1&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;books&quot;&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action1&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;div class=&quot;row d-sm-block-center text-center&quot;&gt;
+            &lt;div class=&quot;col-sm-12 col-md-4 text-left&quot;&gt;
+                &lt;img class=&quot; bg-white ml-4&quot; src=&quot;https://gm1.ggpht.com/-YdNSDU9ZDYMj6O-vA-KSBmUJnAwxxWz36gDrIOPxRhllKr_nxChZYLH9u16jMZoZXTI9xxFDGs419G3p5DJldIjsDIsH-3faZAObLl8PHEyqpT9zq2Au6Oi9MaAHnN1k7E3KV868PLrldD6jLmwt59QoU6f_p9EmkpzPnrj-9GoPS8Np-ugahpe5dixqnmj9-aIv8ZjeozSZt_NSduBWZB_RnO8VKELQ8xmCJIhjqHFbTNQqpu--1nLa5gJOvS01joKXW92ZbdbCsBgUjmJ8IgtO9IM3IQy4bDQ56PNOr4YJp0IgAyTLEf0cVjnNhzGld7cVmVJg_U4UzOtcyGKA5DI21jEip2Sl0BUNM7004WeJefcse3xvHCXJEwmsNjw9U8TX4Jys3_o1bf7ok2AlTiNePA4fcN7g1a9TXiEpBosK9fCSbpBPYxm2itS-9J6KRzzr_DpqHp9b6IoZxuK0_awpwrVeOIijWt2dyG3ao4M9J8bxTbTphv3cUgona5KknmUf6TFM3mC9qvliQox3Gn3cI4W_MBf-UFnJmf23Eb8VdndxUXvVvcHI7VWiw1U2HV9u8MumyO45H5I1qgYeE1jLGUHNn4H2lyNe85A9bAdzrkHQQVgzKO0WJD003bWm0EFedokKQOFL6PAmLaxCh3Uo46mq_w0JQ92bXWJLsWiAyWPhU2Lf-yESl1Ti980cZNHzBU5uy1_36ZzRvTPz_IKE9FTs1P-LShF4rRPsLWwGdV64YQ-_txzkVQbg8vuF2qd=s0-l75-ft-l75-ft&quot; alt=&quot;&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-sm-12 col-md-4 text-left pl-0 mr-10px&quot;&gt;
+                &lt;img class=&quot; bg-white&quot; src=&quot;https://gm1.ggpht.com/SWD53T_3cWqZBJ0KrdugLxz0XhWQxScF7HMxpi4Hd8fFolivcFwhFs6Gj9Ro_P5Xh16WqNkfLk_fYJ1_WgGJjKXbr-HOVkXYUhI1aIbbsEYWaBKpt1UP9TL-c6lbrsOhFbBMMeZL67QmVx2Jof6zMLV-Bd9YgJo9aRENHRfqYeusiqVammOjy0b2_IUBzK_LOiWjgG6xNpfXLwR4EZTiykSwQCsYrLozAA8ByearLUc6mk2B-yqxiCyQYxWIn9XT-sZYKuGkBwkLDUFtVQlWRvheZ0gMTLDC_hyD1rR6ManrSHtpI4-LSzj4n2a8z21fRY2HEgoSdEQfy2jRjBuEtfiny7pZKFhyw88FXBFxpDFJnA7bi07vODJpJu93DjTbCnh6fiXC7XJZ8PRw5NVy-c468U4CbOzmIRL9PEkeWYLnf4mX_NXRl-U7-fNKzh9u5rp8eXgV5EtCzkR4EWy_DPdhzz4vLa_QzwA4SKFMZ6GHK8diOf7AcsPc3AKxJOb80J8NZ7EKHBGk9TPo-ojM385IVE4rUPL7CxeCdHc1vewAh0I9UxDlJNFphN9hfHr5G6A6bfQ8dKYJrDanO59grbEteFaDS-hf9kqeGRkqZfrmz1dyKQg7eCJKHKNqE5Jq-mwIUY-55hw07olgQGBtbwubpXLJCrV-XLwIITPZ2seYdrH7Se4FdT4OYffR4T5xUi0RYbGqe3U_Z9dI4r9aLccq6iAWGjJb-Xdc3sL7jdZXOe3iMPavj-1biYK4JwLEgHbLEA=s0-l75-ft-l75-ft&quot; alt=&quot;&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-sm-12 col-md-4&quot;&gt;
+                &lt;img class=&quot;bg-white&quot; src=&quot;https://gm1.ggpht.com/gOtm2MwuftblrBIkwmmYJwxDcx0TESefQgKj5jlq197XBY91uHEXoEWr3Fbwt62KC6d-p9PC1Lg4a5uG0FcG_ucTuGC_in9vg8w9_ges1D5bUobLoRBMDImTAJv6FbsTGW_BCzebFJnJE4UApJQ_nWmzyukiElPOz7_AVGoHA-RldarSZJa8l80wZmsAjLCjZD8ktfFnlDOrkzwhfzRj6h1DzJ58ml2pRz_jZP8SE3sOeGD7PqUfvJecIv_JHapekKJaJReLbh6dorzIewh9zoSMt-4TqDkc7ASO4ZnwVnh-S20u1-knDa8eR7s8xeKnP2fQ909wgPkKeyh6SW3WS4NzpNrQZ5PrZlVnleT8EeK8CrclVgGJHnzEoPMTlk32VOnOydjUIZMrlvlkbzgwTPjR7sw5Ppcg3Lw39LOnf83l-U3r-UQIncXinFgIJCmNOvvPo8migHYjGVrttECZ5Z_uZR4EHCj8Jo8Ex764J5UOM23lJUxMhZytJNh5bsdao4_BFb9G5s-62S1VDguXHd7WQwW1IAK_5kfu2TeuuPHUhR_kUV2K26iv7HMAg21n_m5ODt3hvVoew-_jCxDkDTyoQNEXhETeFt7MstUi8X2Y7pWq4IH3tpY61rl1LKw7qrjXilmGbKmS8ZoCSD-tRsi6k9gCAzYcFy3oUhA0PRvAM4OVPD-4HY5E4u2I38Ktm5pMMXjFkenwDKlkW1eUOM_K0mnfoVeVBWw-o6pgLG_gdE9SNGvTrXw7CpGr0a6AeaTnBFQ=s0-l75-ft-l75-ft&quot; alt=&quot;&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;products&quot;&gt;
+            &lt;div class=&quot;featured&quot;&gt;
+                &lt;p class=&quot;d-flex justify-content-center&quot; style=&quot; padding-top:15px;font-size:25px&quot;&gt; FEATURED PRODUCTS&lt;/p&gt;
+                &lt;div class=&quot;row&quot; style=&quot;padding-bottom: 10px;&quot;&gt;
+                    &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                        &lt;div class=&quot;card card-box &quot; style=&quot;width:18rem&quot;&gt;
+                            &lt;img class=&quot;card-img-top&quot; src=&quot;images/camera.png&quot; alt=&quot;&quot;&gt;
+                            &lt;p class=&quot;product-name card-title text-center&quot;&gt;Sony Alpha DLSR camera&lt;/p&gt;
+                            &lt;p class=&quot;product-price&quot; style=&quot;color:#e3e3e3&quot;&gt; $500&lt;/p&gt;
+                            &lt;p class=&quot;product-price&quot;&gt;$500&lt;/p&gt;
+                            &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                    cart&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                        &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                            &lt;img class=&quot;card-img-top&quot; src=&quot;images/projector.png&quot; alt=&quot;&quot;&gt;
+                            &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                            &lt;div class=&quot;card-body p-1&quot;&gt;
+                                &lt;p class=&quot;product-name&quot;&gt;Optoma 4K HDR Projector&lt;/p&gt;
+                                &lt;div style=&quot;height:90px &quot;&gt;
+                                    &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                        $1,500&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                        cart&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                        &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                            &lt;img class=&quot;card-img-top&quot; src=&quot;images/hp-laptop.png&quot; alt=&quot;&quot;&gt;
+                            &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                            &lt;div class=&quot;card-body p-1&quot;&gt;
+                                &lt;p class=&quot;product-name&quot;&gt;HP Envy Specter 360&lt;/p&gt;
+                                &lt;p class=&quot;product-price text-center&quot;&gt;
+                                    &lt;strike style=&quot;color:#e3e3e3&quot;&gt;
+                                        $2,800&lt;/strike&gt;
+                                &lt;/p&gt;
+                                &lt;p class=&quot;product-price&quot;&gt;
+                                    $2,500&lt;/p&gt;
+                                &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                        cart&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot; d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                        &lt;div class=&quot;card&quot; style=&quot;width: 18rem;&quot;&gt;
+                            &lt;img class=&quot;card-img-top&quot; src=&quot;images/dell-laptop.png&quot; alt=&quot;&quot;&gt;
+                            &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                            &lt;div class=&quot;card-body p-1&quot;&gt;
+                                &lt;p class=&quot;product-name&quot;&gt;Dell Alienware Area 51&lt;/p&gt;
+                                &lt;div style=&quot;height:90px &quot;&gt;
+                                    &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                        $4,500&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                        cart&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;hr&gt;
+                &lt;div class=&quot;latest&quot;&gt;
+                    &lt;p class=&quot;d-flex justify-content-center &quot; style=&quot;font-size:25px&quot;&gt; LATEST PRODUCTS&lt;/p&gt;
+                    &lt;div class=&quot;row&quot; style=&quot;padding-bottom: 10px;&quot;&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box &quot; style=&quot;width:18rem&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/camera.png&quot; alt=&quot;&quot;&gt;
+                                &lt;p class=&quot;product-name card-title text-center&quot;&gt;Sony Alpha DLSR camera&lt;/p&gt;
+                                &lt;p class=&quot;product-price&quot; style=&quot;color:#e3e3e3&quot;&gt; $500&lt;/p&gt;
+                                &lt;p class=&quot;product-price&quot;&gt;$500&lt;/p&gt;
+                                &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                        cart&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/projector.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;Optoma 4K HDR Projector&lt;/p&gt;
+                                    &lt;div style=&quot;height:90px &quot;&gt;
+                                        &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                            $1,500&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/hp-laptop.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;HP Envy Specter 360&lt;/p&gt;
+                                    &lt;p class=&quot;product-price text-center&quot;&gt;
+                                        &lt;strike style=&quot;color:#e3e3e3&quot;&gt;
+                                            $2,800&lt;/strike&gt;
+                                    &lt;/p&gt;
+                                    &lt;p class=&quot;product-price&quot;&gt;
+                                        $2,500&lt;/p&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot; d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/dell-laptop.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;Dell Alienware Area 51&lt;/p&gt;
+                                    &lt;div style=&quot;height:90px &quot;&gt;
+                                        &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                            $4,500&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;hr&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;top-selling&quot;&gt;
+                    &lt;p class=&quot;d-flex justify-content-center&quot; style=&quot;font-size:25px&quot;&gt; TOP SELLING PRODUCTS
+                    &lt;/p&gt;
+                    &lt;div class=&quot;row&quot; style=&quot;padding-bottom: 10px;&quot;&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/camera.png&quot; alt=&quot;&quot;&gt;
+                                &lt;p class=&quot;product-name card-title text-center&quot;&gt;Sony Alpha DLSR camera&lt;/p&gt;
+                                &lt;p class=&quot;product-price&quot; style=&quot;color:#e3e3e3&quot;&gt; $500&lt;/p&gt;
+                                &lt;p class=&quot;product-price&quot;&gt;$500&lt;/p&gt;
+                                &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                        cart&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/projector.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;Optoma 4K HDR Projector&lt;/p&gt;
+                                    &lt;div style=&quot;height:90px &quot;&gt;
+                                        &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                            $1,500&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/hp-laptop.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;HP Envy Specter 360&lt;/p&gt;
+                                    &lt;p class=&quot;product-price text-center&quot;&gt;
+                                        &lt;strike style=&quot;color:#e3e3e3&quot;&gt;
+                                            $2,800&lt;/strike&gt;
+                                    &lt;/p&gt;
+                                    &lt;p class=&quot;product-price&quot;&gt;
+                                        $2,500&lt;/p&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot; d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/dell-laptop.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;Dell Alienware Area 51&lt;/p&gt;
+                                    &lt;div style=&quot;height:90px &quot;&gt;
+                                        &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                            $4,500&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;hr&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;div class=&quot;footer-top bg-white&quot; style=&quot;font-family:sans-serif&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-4 col-sm-4 col-md-4 col-lg-4 text-center&quot;&gt;
+                &lt;h2 style=&quot;margin-right:50&quot;&gt; &lt;i class=&quot;fas fa-money-bill&quot; style=&quot;margin-right:20px&quot;&gt;&lt;/i&gt;Best Price
+                &lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-4 col-sm-4 col-md-4 col-lg-4 text-center&quot;&gt;
+                &lt;h2 style=&quot; border-left: #e3e3e3 2px solid; margin-right:50px;&quot;&gt;&lt;i class=&quot;fas fa-truck-moving&quot;
+                        style=&quot;margin-left:50px; margin-right:20px;&quot;&gt;&lt;/i&gt; Fast Delivery&lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-4 col-sm-4 col-md-4 col-lg-4 text-center&quot;&gt;
+                &lt;h2 style=&quot; border-left: #e3e3e3 2px solid;&quot;&gt; &lt;i class=&quot;fas fa-check&quot;
+                        style=&quot;margin-left:50px;margin-right:20px&quot;&gt;&lt;/i&gt;Genuine Product&lt;/h2&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;footer class=&quot;page-footer font-small blue pt-4&quot;&gt;
+
+        &lt;div class=&quot;container-fluid text-center text-md-left&quot;&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+
+                &lt;div class=&quot;col-md-2 mt-md-0 mt-2&quot;&gt;
+
+                    &lt;p style=&quot;font-family: fantasy; font-size: 20px; margin: 0 0;&quot;&gt;E-Commerce&lt;/p&gt;
+                    &lt;p style=&quot;margin: 0 0; font-family:sans-serif&quot;&gt;221B Baker Street&lt;/p&gt;
+                    &lt;p style=&quot;font-family:sans-serif&quot;&gt;London, England&lt;/p&gt;
+                    &lt;div&gt;
+                        &lt;i class=&quot; social fab fa-facebook-f &quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;social fab fa-twitter&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;social fab fa-pinterest-p&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;social fab fa-instagram&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot; social fab fa-youtube&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;col-md-3&quot; style=&quot;font-family:sans-serif&quot;&gt;
+                    &lt;h3&gt;WHO ARE WE?&lt;/h3&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sequi voluptatem quibusdam
+                        harum explicabo aperiam impedit, provident non ipsum maxime possimus iste iure odio ad! Omnis,
+                        optio ex? Saepe, consequatur.&lt;/p&gt;
+
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-2 mb-md-0 mb-3&quot; style=&quot;font-family:sans-serif&quot;&gt;
+
+                    &lt;h5 class=&quot;text-uppercase&quot;&gt;QUICK LINKS&lt;/h5&gt;
+
+                    &lt;ul class=&quot;list-unstyled&quot;&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Home&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Contact Us&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;About Us&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Privacy Policy&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Terms &amp; Conditions&lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+
+                &lt;/div&gt;
+
+                &lt;div class=&quot;col-md-2 mb-md-0 mb-3&quot; style=&quot;font-family:sans-serif&quot;&gt;
+
+                    &lt;h5 class=&quot;text-uppercase&quot;&gt;HELP&lt;/h5&gt;
+
+                    &lt;ul class=&quot;list-unstyled&quot;&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;FAQs&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Shipping&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Returns&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Track Orders&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Report Fraud&lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-12 col-sm-6 col-md-3 mb-md-0 mb-3 text-left&quot; style=&quot;font-family:sans-serif&quot;&gt;
+                    &lt;h3&gt;NEWSLETTER&lt;/h3&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; style=&quot;width: 95%;&quot; placeholder=&quot;Enter your email...&quot;&gt;
+                    &lt;a class=&quot;btn&quot; style=&quot;border: #e3e3e3 2px solid; margin-top: 15px;&quot;&gt;SUBSCRIBE&lt;/a&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+        &lt;!-- Footer Links --&gt;
+
+        &lt;!-- Copyright --&gt;
+    &lt;/footer&gt;
+    &lt;!-- Footer --&gt;
+
+
+
+
+
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.3.1.slim.min.js&quot;
+        integrity=&quot;sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js&quot;
+        integrity=&quot;sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;/script&gt;
+    &lt;script src=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js&quot;
+        integrity=&quot;sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;"></iframe>
+        </div>
+        <div class="mb-10">
+            <h2 class="font-bold text-2xl text-gray-700 mb-2">Code</h2>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;E-commerce&lt;/title&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;
+        integrity=&quot;sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://use.fontawesome.com/releases/v5.8.1/css/all.css&quot;
+        integrity=&quot;sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;style&gt;
+ .top-header {
+    background-color: #353a40;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-group .search {
+    border: #97989b 2px solid;
+    border-top: #97989b 1px solid;
+    font-family: sans-serif;
+}
+
+.input-group-text {
+    border-bottom: #97989b 2px solid;
+    border-right: #97989b 2px solid;
+    border-top: #97989b 1px solid;
+    padding: 4px;
+    border-top-left-radius: 2px;
+    background-color: #ffffff;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: &#039;monospace&#039;;
+    background-color: #ffffff;
+}
+
+.nav-top {
+    font-family: fantasy;
+    font-size: 20px;
+    margin-left: 2px;
+    margin-top: 5px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.nav-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links&gt;a {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+    color: black;
+}
+
+.media {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.products {
+    font-family: monospace;
+    background: #eaeaea;
+}
+
+.card-box {
+    width: 302px;
+    margin: 10px;
+}
+
+.card-img-top {
+    height: 200px;
+}
+
+.product-name {
+    text-align: center;
+    color: #353a40;
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+.product-price {
+    text-align: center;
+    color: #353a40;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.add-to-cart {
+    width: 150px;
+    font-family: sans-serif;
+    border: #e3e3e3 2px solid;
+    border-bottom: #e3e3e3 3px solid;
+}
+
+.footer-top {
+    margin-bottom: 25px;
+}
+
+.footer-top&gt;h2 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.footer-top&gt;h1 {
+    margin: 0 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* footer */
+
+footer {
+    background: #353a40;
+    color: white;
+}
+
+.social {
+    font-size: 15px;
+    margin-right: 10px;
+}
+&lt;/style&gt;
+&lt;body&gt;
+
+
+    &lt;header&gt;
+        &lt;div class=&quot;top-header row-full&quot;&gt;
+            &lt;div class=&quot;ml-2 col-6&quot;&gt;
+                &lt;a style=&quot;border-right: #e3e3e3 1px solid;&quot;&gt;&lt;i class=&quot;fas fa-phone-square mr-2&quot;&gt;&lt;/i&gt;+123456789&amp;nbsp;
+                    &lt;a&gt;
+                        &lt;i class=&quot;fas fa-envelope ml-2&quot;&gt;&lt;/i&gt; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b1dcd0d8ddf1d6dcd0d8dd9fd2dedc">[email&#160;protected]</a>&lt;/a&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;ml-2&quot;&gt;
+                &lt;a style=&quot;border-right: #e3e3e3 1px solid;&quot;&gt;&lt;i class=&quot;fas fa-user-edit mr-2&quot;&gt;&lt;/i&gt;Register&amp;nbsp;
+                    &lt;a class=&quot;mr-2&quot;&gt;
+                        &lt;i class=&quot;fas fa-sign-in-alt ml-2&quot;&gt;&lt;/i&gt; Login&lt;/a&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;nav-top row&quot;&gt;
+            &lt;div class=&quot;col-12 col-sm-4&quot;&gt;
+
+                &lt;a class=&quot;ml-2 &quot;&gt;E-Commerce&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-12 col-sm-4&quot;&gt;
+                &lt;a&gt;
+                    &lt;div class=&quot;input-group h-25 w-100&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-group form-control md-form m-0 p-0 search&quot; aria-label=&quot;search&quot;
+                            name=&quot;search&quot; placeholder=&quot;Search...&quot; size=&quot;60%&quot;&gt;
+                        &lt;div class=&quot;input-group-append&quot;&gt;
+                            &lt;span class=&quot;input-group-text&quot; id=&quot;basic-text1&quot;&gt; &lt;i class=&quot;fas fa-search&quot;
+                                    aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-12 col-sm-4 text-right&quot;&gt;
+                &lt;a class=&quot;mr-2&quot;&gt; &lt;span&gt;&lt;i class=&quot;fas fa-heart&quot;&gt;&lt;/i&gt;&amp;nbsp; 0&amp;nbsp;&amp;nbsp;&lt;i
+                            class=&quot;fas fa-shopping-bag&quot;&gt;&lt;/i&gt;
+                        &amp;nbsp;2&lt;/span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;i class=&quot;fas fa-money-bill-wave&quot;&gt;
+                        &lt;/i&gt; &amp;nbsp; $4,000&lt;/span&gt;&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;nav class=&quot;nav-links dropdown&quot;&gt;
+            &lt;a class=&quot;btn btn-none font-weight-bold&quot;&gt;Home&lt;/a&gt;
+
+            &lt;a class=&quot;btn dropdown-toggle&quot; role=&quot;button&quot; href=&quot;#&quot; id=&quot;electronics&quot; data-toggle=&quot;dropdown&quot;
+                aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Electronics&lt;/a&gt;
+            &lt;a class=&quot;btn dropdown-toggle&quot; role=&quot;button&quot; href=&quot;#&quot; id=&quot;fashion&quot; data-toggle=&quot;dropdown&quot;
+                aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Fashion&lt;/a&gt;
+            &lt;a class=&quot;btn dropdown-toggle&quot; role=&quot;button&quot; href=&quot;#&quot; id=&quot;books&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot;
+                aria-expanded=&quot;false&quot;&gt;Books&lt;/a&gt;
+            &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;electronics&quot;&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action1&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;fashion&quot;&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action1&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;books&quot;&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action1&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot;&gt; action2&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;div class=&quot;row d-sm-block-center text-center&quot;&gt;
+            &lt;div class=&quot;col-sm-12 col-md-4 text-left&quot;&gt;
+                &lt;img class=&quot; bg-white ml-4&quot; src=&quot;https://gm1.ggpht.com/-YdNSDU9ZDYMj6O-vA-KSBmUJnAwxxWz36gDrIOPxRhllKr_nxChZYLH9u16jMZoZXTI9xxFDGs419G3p5DJldIjsDIsH-3faZAObLl8PHEyqpT9zq2Au6Oi9MaAHnN1k7E3KV868PLrldD6jLmwt59QoU6f_p9EmkpzPnrj-9GoPS8Np-ugahpe5dixqnmj9-aIv8ZjeozSZt_NSduBWZB_RnO8VKELQ8xmCJIhjqHFbTNQqpu--1nLa5gJOvS01joKXW92ZbdbCsBgUjmJ8IgtO9IM3IQy4bDQ56PNOr4YJp0IgAyTLEf0cVjnNhzGld7cVmVJg_U4UzOtcyGKA5DI21jEip2Sl0BUNM7004WeJefcse3xvHCXJEwmsNjw9U8TX4Jys3_o1bf7ok2AlTiNePA4fcN7g1a9TXiEpBosK9fCSbpBPYxm2itS-9J6KRzzr_DpqHp9b6IoZxuK0_awpwrVeOIijWt2dyG3ao4M9J8bxTbTphv3cUgona5KknmUf6TFM3mC9qvliQox3Gn3cI4W_MBf-UFnJmf23Eb8VdndxUXvVvcHI7VWiw1U2HV9u8MumyO45H5I1qgYeE1jLGUHNn4H2lyNe85A9bAdzrkHQQVgzKO0WJD003bWm0EFedokKQOFL6PAmLaxCh3Uo46mq_w0JQ92bXWJLsWiAyWPhU2Lf-yESl1Ti980cZNHzBU5uy1_36ZzRvTPz_IKE9FTs1P-LShF4rRPsLWwGdV64YQ-_txzkVQbg8vuF2qd=s0-l75-ft-l75-ft&quot; alt=&quot;&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-sm-12 col-md-4 text-left pl-0 mr-10px&quot;&gt;
+                &lt;img class=&quot; bg-white&quot; src=&quot;https://gm1.ggpht.com/SWD53T_3cWqZBJ0KrdugLxz0XhWQxScF7HMxpi4Hd8fFolivcFwhFs6Gj9Ro_P5Xh16WqNkfLk_fYJ1_WgGJjKXbr-HOVkXYUhI1aIbbsEYWaBKpt1UP9TL-c6lbrsOhFbBMMeZL67QmVx2Jof6zMLV-Bd9YgJo9aRENHRfqYeusiqVammOjy0b2_IUBzK_LOiWjgG6xNpfXLwR4EZTiykSwQCsYrLozAA8ByearLUc6mk2B-yqxiCyQYxWIn9XT-sZYKuGkBwkLDUFtVQlWRvheZ0gMTLDC_hyD1rR6ManrSHtpI4-LSzj4n2a8z21fRY2HEgoSdEQfy2jRjBuEtfiny7pZKFhyw88FXBFxpDFJnA7bi07vODJpJu93DjTbCnh6fiXC7XJZ8PRw5NVy-c468U4CbOzmIRL9PEkeWYLnf4mX_NXRl-U7-fNKzh9u5rp8eXgV5EtCzkR4EWy_DPdhzz4vLa_QzwA4SKFMZ6GHK8diOf7AcsPc3AKxJOb80J8NZ7EKHBGk9TPo-ojM385IVE4rUPL7CxeCdHc1vewAh0I9UxDlJNFphN9hfHr5G6A6bfQ8dKYJrDanO59grbEteFaDS-hf9kqeGRkqZfrmz1dyKQg7eCJKHKNqE5Jq-mwIUY-55hw07olgQGBtbwubpXLJCrV-XLwIITPZ2seYdrH7Se4FdT4OYffR4T5xUi0RYbGqe3U_Z9dI4r9aLccq6iAWGjJb-Xdc3sL7jdZXOe3iMPavj-1biYK4JwLEgHbLEA=s0-l75-ft-l75-ft&quot; alt=&quot;&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-sm-12 col-md-4&quot;&gt;
+                &lt;img class=&quot;bg-white&quot; src=&quot;https://gm1.ggpht.com/gOtm2MwuftblrBIkwmmYJwxDcx0TESefQgKj5jlq197XBY91uHEXoEWr3Fbwt62KC6d-p9PC1Lg4a5uG0FcG_ucTuGC_in9vg8w9_ges1D5bUobLoRBMDImTAJv6FbsTGW_BCzebFJnJE4UApJQ_nWmzyukiElPOz7_AVGoHA-RldarSZJa8l80wZmsAjLCjZD8ktfFnlDOrkzwhfzRj6h1DzJ58ml2pRz_jZP8SE3sOeGD7PqUfvJecIv_JHapekKJaJReLbh6dorzIewh9zoSMt-4TqDkc7ASO4ZnwVnh-S20u1-knDa8eR7s8xeKnP2fQ909wgPkKeyh6SW3WS4NzpNrQZ5PrZlVnleT8EeK8CrclVgGJHnzEoPMTlk32VOnOydjUIZMrlvlkbzgwTPjR7sw5Ppcg3Lw39LOnf83l-U3r-UQIncXinFgIJCmNOvvPo8migHYjGVrttECZ5Z_uZR4EHCj8Jo8Ex764J5UOM23lJUxMhZytJNh5bsdao4_BFb9G5s-62S1VDguXHd7WQwW1IAK_5kfu2TeuuPHUhR_kUV2K26iv7HMAg21n_m5ODt3hvVoew-_jCxDkDTyoQNEXhETeFt7MstUi8X2Y7pWq4IH3tpY61rl1LKw7qrjXilmGbKmS8ZoCSD-tRsi6k9gCAzYcFy3oUhA0PRvAM4OVPD-4HY5E4u2I38Ktm5pMMXjFkenwDKlkW1eUOM_K0mnfoVeVBWw-o6pgLG_gdE9SNGvTrXw7CpGr0a6AeaTnBFQ=s0-l75-ft-l75-ft&quot; alt=&quot;&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;products&quot;&gt;
+            &lt;div class=&quot;featured&quot;&gt;
+                &lt;p class=&quot;d-flex justify-content-center&quot; style=&quot; padding-top:15px;font-size:25px&quot;&gt; FEATURED PRODUCTS&lt;/p&gt;
+                &lt;div class=&quot;row&quot; style=&quot;padding-bottom: 10px;&quot;&gt;
+                    &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                        &lt;div class=&quot;card card-box &quot; style=&quot;width:18rem&quot;&gt;
+                            &lt;img class=&quot;card-img-top&quot; src=&quot;images/camera.png&quot; alt=&quot;&quot;&gt;
+                            &lt;p class=&quot;product-name card-title text-center&quot;&gt;Sony Alpha DLSR camera&lt;/p&gt;
+                            &lt;p class=&quot;product-price&quot; style=&quot;color:#e3e3e3&quot;&gt; $500&lt;/p&gt;
+                            &lt;p class=&quot;product-price&quot;&gt;$500&lt;/p&gt;
+                            &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                    cart&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                        &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                            &lt;img class=&quot;card-img-top&quot; src=&quot;images/projector.png&quot; alt=&quot;&quot;&gt;
+                            &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                            &lt;div class=&quot;card-body p-1&quot;&gt;
+                                &lt;p class=&quot;product-name&quot;&gt;Optoma 4K HDR Projector&lt;/p&gt;
+                                &lt;div style=&quot;height:90px &quot;&gt;
+                                    &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                        $1,500&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                        cart&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                        &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                            &lt;img class=&quot;card-img-top&quot; src=&quot;images/hp-laptop.png&quot; alt=&quot;&quot;&gt;
+                            &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                            &lt;div class=&quot;card-body p-1&quot;&gt;
+                                &lt;p class=&quot;product-name&quot;&gt;HP Envy Specter 360&lt;/p&gt;
+                                &lt;p class=&quot;product-price text-center&quot;&gt;
+                                    &lt;strike style=&quot;color:#e3e3e3&quot;&gt;
+                                        $2,800&lt;/strike&gt;
+                                &lt;/p&gt;
+                                &lt;p class=&quot;product-price&quot;&gt;
+                                    $2,500&lt;/p&gt;
+                                &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                        cart&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot; d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                        &lt;div class=&quot;card&quot; style=&quot;width: 18rem;&quot;&gt;
+                            &lt;img class=&quot;card-img-top&quot; src=&quot;images/dell-laptop.png&quot; alt=&quot;&quot;&gt;
+                            &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                            &lt;div class=&quot;card-body p-1&quot;&gt;
+                                &lt;p class=&quot;product-name&quot;&gt;Dell Alienware Area 51&lt;/p&gt;
+                                &lt;div style=&quot;height:90px &quot;&gt;
+                                    &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                        $4,500&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                        cart&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;hr&gt;
+                &lt;div class=&quot;latest&quot;&gt;
+                    &lt;p class=&quot;d-flex justify-content-center &quot; style=&quot;font-size:25px&quot;&gt; LATEST PRODUCTS&lt;/p&gt;
+                    &lt;div class=&quot;row&quot; style=&quot;padding-bottom: 10px;&quot;&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box &quot; style=&quot;width:18rem&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/camera.png&quot; alt=&quot;&quot;&gt;
+                                &lt;p class=&quot;product-name card-title text-center&quot;&gt;Sony Alpha DLSR camera&lt;/p&gt;
+                                &lt;p class=&quot;product-price&quot; style=&quot;color:#e3e3e3&quot;&gt; $500&lt;/p&gt;
+                                &lt;p class=&quot;product-price&quot;&gt;$500&lt;/p&gt;
+                                &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                        cart&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/projector.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;Optoma 4K HDR Projector&lt;/p&gt;
+                                    &lt;div style=&quot;height:90px &quot;&gt;
+                                        &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                            $1,500&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/hp-laptop.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;HP Envy Specter 360&lt;/p&gt;
+                                    &lt;p class=&quot;product-price text-center&quot;&gt;
+                                        &lt;strike style=&quot;color:#e3e3e3&quot;&gt;
+                                            $2,800&lt;/strike&gt;
+                                    &lt;/p&gt;
+                                    &lt;p class=&quot;product-price&quot;&gt;
+                                        $2,500&lt;/p&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot; d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/dell-laptop.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;Dell Alienware Area 51&lt;/p&gt;
+                                    &lt;div style=&quot;height:90px &quot;&gt;
+                                        &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                            $4,500&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;hr&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;top-selling&quot;&gt;
+                    &lt;p class=&quot;d-flex justify-content-center&quot; style=&quot;font-size:25px&quot;&gt; TOP SELLING PRODUCTS
+                    &lt;/p&gt;
+                    &lt;div class=&quot;row&quot; style=&quot;padding-bottom: 10px;&quot;&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/camera.png&quot; alt=&quot;&quot;&gt;
+                                &lt;p class=&quot;product-name card-title text-center&quot;&gt;Sony Alpha DLSR camera&lt;/p&gt;
+                                &lt;p class=&quot;product-price&quot; style=&quot;color:#e3e3e3&quot;&gt; $500&lt;/p&gt;
+                                &lt;p class=&quot;product-price&quot;&gt;$500&lt;/p&gt;
+                                &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                    &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                        cart&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/projector.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;Optoma 4K HDR Projector&lt;/p&gt;
+                                    &lt;div style=&quot;height:90px &quot;&gt;
+                                        &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                            $1,500&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card card-box&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/hp-laptop.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;HP Envy Specter 360&lt;/p&gt;
+                                    &lt;p class=&quot;product-price text-center&quot;&gt;
+                                        &lt;strike style=&quot;color:#e3e3e3&quot;&gt;
+                                            $2,800&lt;/strike&gt;
+                                    &lt;/p&gt;
+                                    &lt;p class=&quot;product-price&quot;&gt;
+                                        $2,500&lt;/p&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot; d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 &quot;&gt;
+                            &lt;div class=&quot;card&quot; style=&quot;width: 18rem;&quot;&gt;
+                                &lt;img class=&quot;card-img-top&quot; src=&quot;images/dell-laptop.png&quot; alt=&quot;&quot;&gt;
+                                &lt;span class=&quot;float-center text&quot;&gt;&lt;/span&gt;
+                                &lt;div class=&quot;card-body p-1&quot;&gt;
+                                    &lt;p class=&quot;product-name&quot;&gt;Dell Alienware Area 51&lt;/p&gt;
+                                    &lt;div style=&quot;height:90px &quot;&gt;
+                                        &lt;p class=&quot;product-price&quot; style=&quot;padding-top:20px&quot;&gt;
+                                            $4,500&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;text-center mb-3&quot;&gt;
+                                        &lt;a href=&quot;#&quot; class=&quot;btn add-to-cart&quot;&gt; &lt;i class=&quot;fas fa-cart-plus&quot;&gt;&lt;/i&gt; Add to
+                                            cart&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;hr&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;div class=&quot;footer-top bg-white&quot; style=&quot;font-family:sans-serif&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-4 col-sm-4 col-md-4 col-lg-4 text-center&quot;&gt;
+                &lt;h2 style=&quot;margin-right:50&quot;&gt; &lt;i class=&quot;fas fa-money-bill&quot; style=&quot;margin-right:20px&quot;&gt;&lt;/i&gt;Best Price
+                &lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-4 col-sm-4 col-md-4 col-lg-4 text-center&quot;&gt;
+                &lt;h2 style=&quot; border-left: #e3e3e3 2px solid; margin-right:50px;&quot;&gt;&lt;i class=&quot;fas fa-truck-moving&quot;
+                        style=&quot;margin-left:50px; margin-right:20px;&quot;&gt;&lt;/i&gt; Fast Delivery&lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-4 col-sm-4 col-md-4 col-lg-4 text-center&quot;&gt;
+                &lt;h2 style=&quot; border-left: #e3e3e3 2px solid;&quot;&gt; &lt;i class=&quot;fas fa-check&quot;
+                        style=&quot;margin-left:50px;margin-right:20px&quot;&gt;&lt;/i&gt;Genuine Product&lt;/h2&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;footer class=&quot;page-footer font-small blue pt-4&quot;&gt;
+
+        &lt;div class=&quot;container-fluid text-center text-md-left&quot;&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+
+                &lt;div class=&quot;col-md-2 mt-md-0 mt-2&quot;&gt;
+
+                    &lt;p style=&quot;font-family: fantasy; font-size: 20px; margin: 0 0;&quot;&gt;E-Commerce&lt;/p&gt;
+                    &lt;p style=&quot;margin: 0 0; font-family:sans-serif&quot;&gt;221B Baker Street&lt;/p&gt;
+                    &lt;p style=&quot;font-family:sans-serif&quot;&gt;London, England&lt;/p&gt;
+                    &lt;div&gt;
+                        &lt;i class=&quot; social fab fa-facebook-f &quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;social fab fa-twitter&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;social fab fa-pinterest-p&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;social fab fa-instagram&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot; social fab fa-youtube&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;col-md-3&quot; style=&quot;font-family:sans-serif&quot;&gt;
+                    &lt;h3&gt;WHO ARE WE?&lt;/h3&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sequi voluptatem quibusdam
+                        harum explicabo aperiam impedit, provident non ipsum maxime possimus iste iure odio ad! Omnis,
+                        optio ex? Saepe, consequatur.&lt;/p&gt;
+
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-2 mb-md-0 mb-3&quot; style=&quot;font-family:sans-serif&quot;&gt;
+
+                    &lt;h5 class=&quot;text-uppercase&quot;&gt;QUICK LINKS&lt;/h5&gt;
+
+                    &lt;ul class=&quot;list-unstyled&quot;&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Home&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Contact Us&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;About Us&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Privacy Policy&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Terms &amp; Conditions&lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+
+                &lt;/div&gt;
+
+                &lt;div class=&quot;col-md-2 mb-md-0 mb-3&quot; style=&quot;font-family:sans-serif&quot;&gt;
+
+                    &lt;h5 class=&quot;text-uppercase&quot;&gt;HELP&lt;/h5&gt;
+
+                    &lt;ul class=&quot;list-unstyled&quot;&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;FAQs&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Shipping&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Returns&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Track Orders&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a&gt;Report Fraud&lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-12 col-sm-6 col-md-3 mb-md-0 mb-3 text-left&quot; style=&quot;font-family:sans-serif&quot;&gt;
+                    &lt;h3&gt;NEWSLETTER&lt;/h3&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; style=&quot;width: 95%;&quot; placeholder=&quot;Enter your email...&quot;&gt;
+                    &lt;a class=&quot;btn&quot; style=&quot;border: #e3e3e3 2px solid; margin-top: 15px;&quot;&gt;SUBSCRIBE&lt;/a&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+        &lt;!-- Footer Links --&gt;
+
+        &lt;!-- Copyright --&gt;
+    &lt;/footer&gt;
+    &lt;!-- Footer --&gt;
+
+
+
+
+
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.3.1.slim.min.js&quot;
+        integrity=&quot;sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js&quot;
+        integrity=&quot;sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;/script&gt;
+    &lt;script src=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js&quot;
+        integrity=&quot;sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </div>
+    </div>
+    <div class="px-8 py-20" style="font-family: Mulish">
+    <div class="flex justify-center mb-2">
+        <div class="font-light text-sm text-gray-600">
+            &copy; 2019 - 2022
+            <a href="https://web2tailwind.com"
+                class="text-base text-gray-600 hover:text-gray-600" style="font-family: 'Source Code Pro';">Web2tailwind.com</a>
+        </div>
+    </div>
+    <div class="flex flex-wrap justify-center text-blue-400">
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/about-us"> About Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/contact-us">Contact Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/copyright">Copyright</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/code-of-conduct">Code of Conduct</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/privacy-and-policy">Privacy & Policy</a>
+    </div>
+</div>
+</div>
+<div class="hidden lg:block bg-gray-100 md:p-0">
+    <div id="app" data-page="{&quot;component&quot;:&quot;Editor\/Index&quot;,&quot;props&quot;:{&quot;auth&quot;:{&quot;user&quot;:null},&quot;errors&quot;:{},&quot;initcode&quot;:&quot;&lt;!DOCTYPE html&gt;\n&lt;html lang=\&quot;en\&quot;&gt;\n\n&lt;head&gt;\n    &lt;meta charset=\&quot;UTF-8\&quot;&gt;\n    &lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1.0\&quot;&gt;\n    &lt;meta http-equiv=\&quot;X-UA-Compatible\&quot; content=\&quot;ie=edge\&quot;&gt;\n    &lt;title&gt;E-commerce&lt;\/title&gt;\n\n    &lt;link rel=\&quot;stylesheet\&quot; href=\&quot;https:\/\/stackpath.bootstrapcdn.com\/bootstrap\/4.3.1\/css\/bootstrap.min.css\&quot;\n        integrity=\&quot;sha384-ggOyR0iXCbMQv3Xipma34MD+dH\/1fQ784\/j6cY\/iJTQUOhcWr7x9JvoRxT2MZw1T\&quot; crossorigin=\&quot;anonymous\&quot;&gt;\n    &lt;link rel=\&quot;stylesheet\&quot; href=\&quot;https:\/\/use.fontawesome.com\/releases\/v5.8.1\/css\/all.css\&quot;\n        integrity=\&quot;sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf\&quot; crossorigin=\&quot;anonymous\&quot;&gt;\n    &lt;link rel=\&quot;stylesheet\&quot; href=\&quot;style.css\&quot;&gt;\n&lt;\/head&gt;\n&lt;style&gt;\n .top-header {\n    background-color: #353a40;\n    color: #ffffff;\n    display: flex;\n    justify-content: space-between;\n}\n\n.input-group .search {\n    border: #97989b 2px solid;\n    border-top: #97989b 1px solid;\n    font-family: sans-serif;\n}\n\n.input-group-text {\n    border-bottom: #97989b 2px solid;\n    border-right: #97989b 2px solid;\n    border-top: #97989b 1px solid;\n    padding: 4px;\n    border-top-left-radius: 2px;\n    background-color: #ffffff;\n}\n\nbody {\n    padding: 0;\n    margin: 0;\n    font-family: &#039;monospace&#039;;\n    background-color: #ffffff;\n}\n\n.nav-top {\n    font-family: fantasy;\n    font-size: 20px;\n    margin-left: 2px;\n    margin-top: 5px;\n    justify-content: space-between;\n    display: flex;\n}\n\n.nav-links {\n    margin-top: 10px;\n    display: flex;\n    justify-content: center;\n}\n\n.nav-links&gt;a {\n    padding-left: 10px;\n    padding-right: 10px;\n    font-size: 18px;\n    color: black;\n}\n\n.media {\n    margin-top: 50px;\n    margin-bottom: 50px;\n}\n\n.products {\n    font-family: monospace;\n    background: #eaeaea;\n}\n\n.card-box {\n    width: 302px;\n    margin: 10px;\n}\n\n.card-img-top {\n    height: 200px;\n}\n\n.product-name {\n    text-align: center;\n    color: #353a40;\n    font-family: fantasy;\n    font-size: 18px;\n}\n\n.product-price {\n    text-align: center;\n    color: #353a40;\n    font-family: sans-serif;\n    font-size: 20px;\n}\n\n.add-to-cart {\n    width: 150px;\n    font-family: sans-serif;\n    border: #e3e3e3 2px solid;\n    border-bottom: #e3e3e3 3px solid;\n}\n\n.footer-top {\n    margin-bottom: 25px;\n}\n\n.footer-top&gt;h2 {\n    padding-left: 20px;\n    padding-right: 20px;\n}\n\n.footer-top&gt;h1 {\n    margin: 0 0;\n    padding-left: 20px;\n    padding-right: 20px;\n}\n\n\/* footer *\/\n\nfooter {\n    background: #353a40;\n    color: white;\n}\n\n.social {\n    font-size: 15px;\n    margin-right: 10px;\n}\n&lt;\/style&gt;\n&lt;body&gt;\n\n\n    &lt;header&gt;\n        &lt;div class=\&quot;top-header row-full\&quot;&gt;\n            &lt;div class=\&quot;ml-2 col-6\&quot;&gt;\n                &lt;a style=\&quot;border-right: #e3e3e3 1px solid;\&quot;&gt;&lt;i class=\&quot;fas fa-phone-square mr-2\&quot;&gt;&lt;\/i&gt;+123456789&amp;nbsp;\n                    &lt;a&gt;\n                        &lt;i class=\&quot;fas fa-envelope ml-2\&quot;&gt;&lt;\/i&gt; mail@gmail.com&lt;\/a&gt;\n                &lt;\/a&gt;\n            &lt;\/div&gt;\n            &lt;div class=\&quot;ml-2\&quot;&gt;\n                &lt;a style=\&quot;border-right: #e3e3e3 1px solid;\&quot;&gt;&lt;i class=\&quot;fas fa-user-edit mr-2\&quot;&gt;&lt;\/i&gt;Register&amp;nbsp;\n                    &lt;a class=\&quot;mr-2\&quot;&gt;\n                        &lt;i class=\&quot;fas fa-sign-in-alt ml-2\&quot;&gt;&lt;\/i&gt; Login&lt;\/a&gt;\n                &lt;\/a&gt;\n            &lt;\/div&gt;\n        &lt;\/div&gt;\n\n        &lt;div class=\&quot;nav-top row\&quot;&gt;\n            &lt;div class=\&quot;col-12 col-sm-4\&quot;&gt;\n\n                &lt;a class=\&quot;ml-2 \&quot;&gt;E-Commerce&lt;\/a&gt;\n            &lt;\/div&gt;\n            &lt;div class=\&quot;col-12 col-sm-4\&quot;&gt;\n                &lt;a&gt;\n                    &lt;div class=\&quot;input-group h-25 w-100\&quot;&gt;\n                        &lt;input type=\&quot;text\&quot; class=\&quot;form-group form-control md-form m-0 p-0 search\&quot; aria-label=\&quot;search\&quot;\n                            name=\&quot;search\&quot; placeholder=\&quot;Search...\&quot; size=\&quot;60%\&quot;&gt;\n                        &lt;div class=\&quot;input-group-append\&quot;&gt;\n                            &lt;span class=\&quot;input-group-text\&quot; id=\&quot;basic-text1\&quot;&gt; &lt;i class=\&quot;fas fa-search\&quot;\n                                    aria-hidden=\&quot;true\&quot;&gt;&lt;\/i&gt;&lt;\/span&gt;\n                        &lt;\/div&gt;\n                    &lt;\/div&gt;\n                &lt;\/a&gt;\n            &lt;\/div&gt;\n            &lt;div class=\&quot;col-12 col-sm-4 text-right\&quot;&gt;\n                &lt;a class=\&quot;mr-2\&quot;&gt; &lt;span&gt;&lt;i class=\&quot;fas fa-heart\&quot;&gt;&lt;\/i&gt;&amp;nbsp; 0&amp;nbsp;&amp;nbsp;&lt;i\n                            class=\&quot;fas fa-shopping-bag\&quot;&gt;&lt;\/i&gt;\n                        &amp;nbsp;2&lt;\/span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;i class=\&quot;fas fa-money-bill-wave\&quot;&gt;\n                        &lt;\/i&gt; &amp;nbsp; $4,000&lt;\/span&gt;&lt;\/a&gt;\n            &lt;\/div&gt;\n        &lt;\/div&gt;\n        &lt;nav class=\&quot;nav-links dropdown\&quot;&gt;\n            &lt;a class=\&quot;btn btn-none font-weight-bold\&quot;&gt;Home&lt;\/a&gt;\n\n            &lt;a class=\&quot;btn dropdown-toggle\&quot; role=\&quot;button\&quot; href=\&quot;#\&quot; id=\&quot;electronics\&quot; data-toggle=\&quot;dropdown\&quot;\n                aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;Electronics&lt;\/a&gt;\n            &lt;a class=\&quot;btn dropdown-toggle\&quot; role=\&quot;button\&quot; href=\&quot;#\&quot; id=\&quot;fashion\&quot; data-toggle=\&quot;dropdown\&quot;\n                aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;Fashion&lt;\/a&gt;\n            &lt;a class=\&quot;btn dropdown-toggle\&quot; role=\&quot;button\&quot; href=\&quot;#\&quot; id=\&quot;books\&quot; data-toggle=\&quot;dropdown\&quot; aria-haspopup=\&quot;true\&quot;\n                aria-expanded=\&quot;false\&quot;&gt;Books&lt;\/a&gt;\n            &lt;div class=\&quot;dropdown-menu\&quot; aria-labelledby=\&quot;electronics\&quot;&gt;\n                &lt;a class=\&quot;dropdown-item\&quot;&gt; action1&lt;\/a&gt;\n                &lt;a class=\&quot;dropdown-item\&quot;&gt; action2&lt;\/a&gt;\n                &lt;a class=\&quot;dropdown-item\&quot;&gt; action2&lt;\/a&gt;\n            &lt;\/div&gt;\n            &lt;div class=\&quot;dropdown-menu\&quot; aria-labelledby=\&quot;fashion\&quot;&gt;\n                &lt;a class=\&quot;dropdown-item\&quot;&gt; action1&lt;\/a&gt;\n                &lt;a class=\&quot;dropdown-item\&quot;&gt; action2&lt;\/a&gt;\n                &lt;a class=\&quot;dropdown-item\&quot;&gt; action2&lt;\/a&gt;\n            &lt;\/div&gt;\n            &lt;div class=\&quot;dropdown-menu\&quot; aria-labelledby=\&quot;books\&quot;&gt;\n                &lt;a class=\&quot;dropdown-item\&quot;&gt; action1&lt;\/a&gt;\n                &lt;a class=\&quot;dropdown-item\&quot;&gt; action2&lt;\/a&gt;\n                &lt;a class=\&quot;dropdown-item\&quot;&gt; action2&lt;\/a&gt;\n            &lt;\/div&gt;\n        &lt;\/nav&gt;\n    &lt;\/header&gt;\n    &lt;main&gt;\n        &lt;div class=\&quot;row d-sm-block-center text-center\&quot;&gt;\n            &lt;div class=\&quot;col-sm-12 col-md-4 text-left\&quot;&gt;\n                &lt;img class=\&quot; bg-white ml-4\&quot; src=\&quot;https:\/\/gm1.ggpht.com\/-YdNSDU9ZDYMj6O-vA-KSBmUJnAwxxWz36gDrIOPxRhllKr_nxChZYLH9u16jMZoZXTI9xxFDGs419G3p5DJldIjsDIsH-3faZAObLl8PHEyqpT9zq2Au6Oi9MaAHnN1k7E3KV868PLrldD6jLmwt59QoU6f_p9EmkpzPnrj-9GoPS8Np-ugahpe5dixqnmj9-aIv8ZjeozSZt_NSduBWZB_RnO8VKELQ8xmCJIhjqHFbTNQqpu--1nLa5gJOvS01joKXW92ZbdbCsBgUjmJ8IgtO9IM3IQy4bDQ56PNOr4YJp0IgAyTLEf0cVjnNhzGld7cVmVJg_U4UzOtcyGKA5DI21jEip2Sl0BUNM7004WeJefcse3xvHCXJEwmsNjw9U8TX4Jys3_o1bf7ok2AlTiNePA4fcN7g1a9TXiEpBosK9fCSbpBPYxm2itS-9J6KRzzr_DpqHp9b6IoZxuK0_awpwrVeOIijWt2dyG3ao4M9J8bxTbTphv3cUgona5KknmUf6TFM3mC9qvliQox3Gn3cI4W_MBf-UFnJmf23Eb8VdndxUXvVvcHI7VWiw1U2HV9u8MumyO45H5I1qgYeE1jLGUHNn4H2lyNe85A9bAdzrkHQQVgzKO0WJD003bWm0EFedokKQOFL6PAmLaxCh3Uo46mq_w0JQ92bXWJLsWiAyWPhU2Lf-yESl1Ti980cZNHzBU5uy1_36ZzRvTPz_IKE9FTs1P-LShF4rRPsLWwGdV64YQ-_txzkVQbg8vuF2qd=s0-l75-ft-l75-ft\&quot; alt=\&quot;\&quot;&gt;\n            &lt;\/div&gt;\n            &lt;div class=\&quot;col-sm-12 col-md-4 text-left pl-0 mr-10px\&quot;&gt;\n                &lt;img class=\&quot; bg-white\&quot; src=\&quot;https:\/\/gm1.ggpht.com\/SWD53T_3cWqZBJ0KrdugLxz0XhWQxScF7HMxpi4Hd8fFolivcFwhFs6Gj9Ro_P5Xh16WqNkfLk_fYJ1_WgGJjKXbr-HOVkXYUhI1aIbbsEYWaBKpt1UP9TL-c6lbrsOhFbBMMeZL67QmVx2Jof6zMLV-Bd9YgJo9aRENHRfqYeusiqVammOjy0b2_IUBzK_LOiWjgG6xNpfXLwR4EZTiykSwQCsYrLozAA8ByearLUc6mk2B-yqxiCyQYxWIn9XT-sZYKuGkBwkLDUFtVQlWRvheZ0gMTLDC_hyD1rR6ManrSHtpI4-LSzj4n2a8z21fRY2HEgoSdEQfy2jRjBuEtfiny7pZKFhyw88FXBFxpDFJnA7bi07vODJpJu93DjTbCnh6fiXC7XJZ8PRw5NVy-c468U4CbOzmIRL9PEkeWYLnf4mX_NXRl-U7-fNKzh9u5rp8eXgV5EtCzkR4EWy_DPdhzz4vLa_QzwA4SKFMZ6GHK8diOf7AcsPc3AKxJOb80J8NZ7EKHBGk9TPo-ojM385IVE4rUPL7CxeCdHc1vewAh0I9UxDlJNFphN9hfHr5G6A6bfQ8dKYJrDanO59grbEteFaDS-hf9kqeGRkqZfrmz1dyKQg7eCJKHKNqE5Jq-mwIUY-55hw07olgQGBtbwubpXLJCrV-XLwIITPZ2seYdrH7Se4FdT4OYffR4T5xUi0RYbGqe3U_Z9dI4r9aLccq6iAWGjJb-Xdc3sL7jdZXOe3iMPavj-1biYK4JwLEgHbLEA=s0-l75-ft-l75-ft\&quot; alt=\&quot;\&quot;&gt;\n            &lt;\/div&gt;\n            &lt;div class=\&quot;col-sm-12 col-md-4\&quot;&gt;\n                &lt;img class=\&quot;bg-white\&quot; src=\&quot;https:\/\/gm1.ggpht.com\/gOtm2MwuftblrBIkwmmYJwxDcx0TESefQgKj5jlq197XBY91uHEXoEWr3Fbwt62KC6d-p9PC1Lg4a5uG0FcG_ucTuGC_in9vg8w9_ges1D5bUobLoRBMDImTAJv6FbsTGW_BCzebFJnJE4UApJQ_nWmzyukiElPOz7_AVGoHA-RldarSZJa8l80wZmsAjLCjZD8ktfFnlDOrkzwhfzRj6h1DzJ58ml2pRz_jZP8SE3sOeGD7PqUfvJecIv_JHapekKJaJReLbh6dorzIewh9zoSMt-4TqDkc7ASO4ZnwVnh-S20u1-knDa8eR7s8xeKnP2fQ909wgPkKeyh6SW3WS4NzpNrQZ5PrZlVnleT8EeK8CrclVgGJHnzEoPMTlk32VOnOydjUIZMrlvlkbzgwTPjR7sw5Ppcg3Lw39LOnf83l-U3r-UQIncXinFgIJCmNOvvPo8migHYjGVrttECZ5Z_uZR4EHCj8Jo8Ex764J5UOM23lJUxMhZytJNh5bsdao4_BFb9G5s-62S1VDguXHd7WQwW1IAK_5kfu2TeuuPHUhR_kUV2K26iv7HMAg21n_m5ODt3hvVoew-_jCxDkDTyoQNEXhETeFt7MstUi8X2Y7pWq4IH3tpY61rl1LKw7qrjXilmGbKmS8ZoCSD-tRsi6k9gCAzYcFy3oUhA0PRvAM4OVPD-4HY5E4u2I38Ktm5pMMXjFkenwDKlkW1eUOM_K0mnfoVeVBWw-o6pgLG_gdE9SNGvTrXw7CpGr0a6AeaTnBFQ=s0-l75-ft-l75-ft\&quot; alt=\&quot;\&quot;&gt;\n            &lt;\/div&gt;\n        &lt;\/div&gt;\n        &lt;div class=\&quot;products\&quot;&gt;\n            &lt;div class=\&quot;featured\&quot;&gt;\n                &lt;p class=\&quot;d-flex justify-content-center\&quot; style=\&quot; padding-top:15px;font-size:25px\&quot;&gt; FEATURED PRODUCTS&lt;\/p&gt;\n                &lt;div class=\&quot;row\&quot; style=\&quot;padding-bottom: 10px;\&quot;&gt;\n                    &lt;div class=\&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                        &lt;div class=\&quot;card card-box \&quot; style=\&quot;width:18rem\&quot;&gt;\n                            &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/camera.png\&quot; alt=\&quot;\&quot;&gt;\n                            &lt;p class=\&quot;product-name card-title text-center\&quot;&gt;Sony Alpha DLSR camera&lt;\/p&gt;\n                            &lt;p class=\&quot;product-price\&quot; style=\&quot;color:#e3e3e3\&quot;&gt; $500&lt;\/p&gt;\n                            &lt;p class=\&quot;product-price\&quot;&gt;$500&lt;\/p&gt;\n                            &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                    cart&lt;\/a&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                    &lt;\/div&gt;\n                    &lt;div class=\&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                        &lt;div class=\&quot;card card-box\&quot; style=\&quot;width: 18rem;\&quot;&gt;\n                            &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/projector.png\&quot; alt=\&quot;\&quot;&gt;\n                            &lt;span class=\&quot;float-center text\&quot;&gt;&lt;\/span&gt;\n                            &lt;div class=\&quot;card-body p-1\&quot;&gt;\n                                &lt;p class=\&quot;product-name\&quot;&gt;Optoma 4K HDR Projector&lt;\/p&gt;\n                                &lt;div style=\&quot;height:90px \&quot;&gt;\n                                    &lt;p class=\&quot;product-price\&quot; style=\&quot;padding-top:20px\&quot;&gt;\n                                        $1,500&lt;\/p&gt;\n                                &lt;\/div&gt;\n                                &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                    &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                        cart&lt;\/a&gt;\n                                &lt;\/div&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                    &lt;\/div&gt;\n                    &lt;div class=\&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                        &lt;div class=\&quot;card card-box\&quot; style=\&quot;width: 18rem;\&quot;&gt;\n                            &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/hp-laptop.png\&quot; alt=\&quot;\&quot;&gt;\n                            &lt;span class=\&quot;float-center text\&quot;&gt;&lt;\/span&gt;\n                            &lt;div class=\&quot;card-body p-1\&quot;&gt;\n                                &lt;p class=\&quot;product-name\&quot;&gt;HP Envy Specter 360&lt;\/p&gt;\n                                &lt;p class=\&quot;product-price text-center\&quot;&gt;\n                                    &lt;strike style=\&quot;color:#e3e3e3\&quot;&gt;\n                                        $2,800&lt;\/strike&gt;\n                                &lt;\/p&gt;\n                                &lt;p class=\&quot;product-price\&quot;&gt;\n                                    $2,500&lt;\/p&gt;\n                                &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                    &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                        cart&lt;\/a&gt;\n                                &lt;\/div&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                    &lt;\/div&gt;\n                    &lt;div class=\&quot; d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                        &lt;div class=\&quot;card\&quot; style=\&quot;width: 18rem;\&quot;&gt;\n                            &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/dell-laptop.png\&quot; alt=\&quot;\&quot;&gt;\n                            &lt;span class=\&quot;float-center text\&quot;&gt;&lt;\/span&gt;\n                            &lt;div class=\&quot;card-body p-1\&quot;&gt;\n                                &lt;p class=\&quot;product-name\&quot;&gt;Dell Alienware Area 51&lt;\/p&gt;\n                                &lt;div style=\&quot;height:90px \&quot;&gt;\n                                    &lt;p class=\&quot;product-price\&quot; style=\&quot;padding-top:20px\&quot;&gt;\n                                        $4,500&lt;\/p&gt;\n                                &lt;\/div&gt;\n                                &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                    &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                        cart&lt;\/a&gt;\n                                &lt;\/div&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                    &lt;\/div&gt;\n                &lt;\/div&gt;\n                &lt;hr&gt;\n                &lt;div class=\&quot;latest\&quot;&gt;\n                    &lt;p class=\&quot;d-flex justify-content-center \&quot; style=\&quot;font-size:25px\&quot;&gt; LATEST PRODUCTS&lt;\/p&gt;\n                    &lt;div class=\&quot;row\&quot; style=\&quot;padding-bottom: 10px;\&quot;&gt;\n                        &lt;div class=\&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                            &lt;div class=\&quot;card card-box \&quot; style=\&quot;width:18rem\&quot;&gt;\n                                &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/camera.png\&quot; alt=\&quot;\&quot;&gt;\n                                &lt;p class=\&quot;product-name card-title text-center\&quot;&gt;Sony Alpha DLSR camera&lt;\/p&gt;\n                                &lt;p class=\&quot;product-price\&quot; style=\&quot;color:#e3e3e3\&quot;&gt; $500&lt;\/p&gt;\n                                &lt;p class=\&quot;product-price\&quot;&gt;$500&lt;\/p&gt;\n                                &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                    &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                        cart&lt;\/a&gt;\n                                &lt;\/div&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                        &lt;div class=\&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                            &lt;div class=\&quot;card card-box\&quot; style=\&quot;width: 18rem;\&quot;&gt;\n                                &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/projector.png\&quot; alt=\&quot;\&quot;&gt;\n                                &lt;span class=\&quot;float-center text\&quot;&gt;&lt;\/span&gt;\n                                &lt;div class=\&quot;card-body p-1\&quot;&gt;\n                                    &lt;p class=\&quot;product-name\&quot;&gt;Optoma 4K HDR Projector&lt;\/p&gt;\n                                    &lt;div style=\&quot;height:90px \&quot;&gt;\n                                        &lt;p class=\&quot;product-price\&quot; style=\&quot;padding-top:20px\&quot;&gt;\n                                            $1,500&lt;\/p&gt;\n                                    &lt;\/div&gt;\n                                    &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                        &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                            cart&lt;\/a&gt;\n                                    &lt;\/div&gt;\n                                &lt;\/div&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                        &lt;div class=\&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                            &lt;div class=\&quot;card card-box\&quot; style=\&quot;width: 18rem;\&quot;&gt;\n                                &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/hp-laptop.png\&quot; alt=\&quot;\&quot;&gt;\n                                &lt;span class=\&quot;float-center text\&quot;&gt;&lt;\/span&gt;\n                                &lt;div class=\&quot;card-body p-1\&quot;&gt;\n                                    &lt;p class=\&quot;product-name\&quot;&gt;HP Envy Specter 360&lt;\/p&gt;\n                                    &lt;p class=\&quot;product-price text-center\&quot;&gt;\n                                        &lt;strike style=\&quot;color:#e3e3e3\&quot;&gt;\n                                            $2,800&lt;\/strike&gt;\n                                    &lt;\/p&gt;\n                                    &lt;p class=\&quot;product-price\&quot;&gt;\n                                        $2,500&lt;\/p&gt;\n                                    &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                        &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                            cart&lt;\/a&gt;\n                                    &lt;\/div&gt;\n                                &lt;\/div&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                        &lt;div class=\&quot; d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                            &lt;div class=\&quot;card\&quot; style=\&quot;width: 18rem;\&quot;&gt;\n                                &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/dell-laptop.png\&quot; alt=\&quot;\&quot;&gt;\n                                &lt;span class=\&quot;float-center text\&quot;&gt;&lt;\/span&gt;\n                                &lt;div class=\&quot;card-body p-1\&quot;&gt;\n                                    &lt;p class=\&quot;product-name\&quot;&gt;Dell Alienware Area 51&lt;\/p&gt;\n                                    &lt;div style=\&quot;height:90px \&quot;&gt;\n                                        &lt;p class=\&quot;product-price\&quot; style=\&quot;padding-top:20px\&quot;&gt;\n                                            $4,500&lt;\/p&gt;\n                                    &lt;\/div&gt;\n                                    &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                        &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                            cart&lt;\/a&gt;\n                                    &lt;\/div&gt;\n                                &lt;\/div&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                    &lt;\/div&gt;\n                    &lt;hr&gt;\n                &lt;\/div&gt;\n                &lt;div class=\&quot;top-selling\&quot;&gt;\n                    &lt;p class=\&quot;d-flex justify-content-center\&quot; style=\&quot;font-size:25px\&quot;&gt; TOP SELLING PRODUCTS\n                    &lt;\/p&gt;\n                    &lt;div class=\&quot;row\&quot; style=\&quot;padding-bottom: 10px;\&quot;&gt;\n                        &lt;div class=\&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                            &lt;div class=\&quot;card card-box\&quot; style=\&quot;width: 18rem;\&quot;&gt;\n                                &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/camera.png\&quot; alt=\&quot;\&quot;&gt;\n                                &lt;p class=\&quot;product-name card-title text-center\&quot;&gt;Sony Alpha DLSR camera&lt;\/p&gt;\n                                &lt;p class=\&quot;product-price\&quot; style=\&quot;color:#e3e3e3\&quot;&gt; $500&lt;\/p&gt;\n                                &lt;p class=\&quot;product-price\&quot;&gt;$500&lt;\/p&gt;\n                                &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                    &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                        cart&lt;\/a&gt;\n                                &lt;\/div&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                        &lt;div class=\&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                            &lt;div class=\&quot;card card-box\&quot; style=\&quot;width: 18rem;\&quot;&gt;\n                                &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/projector.png\&quot; alt=\&quot;\&quot;&gt;\n                                &lt;span class=\&quot;float-center text\&quot;&gt;&lt;\/span&gt;\n                                &lt;div class=\&quot;card-body p-1\&quot;&gt;\n                                    &lt;p class=\&quot;product-name\&quot;&gt;Optoma 4K HDR Projector&lt;\/p&gt;\n                                    &lt;div style=\&quot;height:90px \&quot;&gt;\n                                        &lt;p class=\&quot;product-price\&quot; style=\&quot;padding-top:20px\&quot;&gt;\n                                            $1,500&lt;\/p&gt;\n                                    &lt;\/div&gt;\n                                    &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                        &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                            cart&lt;\/a&gt;\n                                    &lt;\/div&gt;\n                                &lt;\/div&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                        &lt;div class=\&quot;d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                            &lt;div class=\&quot;card card-box\&quot; style=\&quot;width: 18rem;\&quot;&gt;\n                                &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/hp-laptop.png\&quot; alt=\&quot;\&quot;&gt;\n                                &lt;span class=\&quot;float-center text\&quot;&gt;&lt;\/span&gt;\n                                &lt;div class=\&quot;card-body p-1\&quot;&gt;\n                                    &lt;p class=\&quot;product-name\&quot;&gt;HP Envy Specter 360&lt;\/p&gt;\n                                    &lt;p class=\&quot;product-price text-center\&quot;&gt;\n                                        &lt;strike style=\&quot;color:#e3e3e3\&quot;&gt;\n                                            $2,800&lt;\/strike&gt;\n                                    &lt;\/p&gt;\n                                    &lt;p class=\&quot;product-price\&quot;&gt;\n                                        $2,500&lt;\/p&gt;\n                                    &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                        &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                            cart&lt;\/a&gt;\n                                    &lt;\/div&gt;\n                                &lt;\/div&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                        &lt;div class=\&quot; d-flex justify-content-center col-12 col-sm-6 col-md-4 col-lg-3 \&quot;&gt;\n                            &lt;div class=\&quot;card\&quot; style=\&quot;width: 18rem;\&quot;&gt;\n                                &lt;img class=\&quot;card-img-top\&quot; src=\&quot;images\/dell-laptop.png\&quot; alt=\&quot;\&quot;&gt;\n                                &lt;span class=\&quot;float-center text\&quot;&gt;&lt;\/span&gt;\n                                &lt;div class=\&quot;card-body p-1\&quot;&gt;\n                                    &lt;p class=\&quot;product-name\&quot;&gt;Dell Alienware Area 51&lt;\/p&gt;\n                                    &lt;div style=\&quot;height:90px \&quot;&gt;\n                                        &lt;p class=\&quot;product-price\&quot; style=\&quot;padding-top:20px\&quot;&gt;\n                                            $4,500&lt;\/p&gt;\n                                    &lt;\/div&gt;\n                                    &lt;div class=\&quot;text-center mb-3\&quot;&gt;\n                                        &lt;a href=\&quot;#\&quot; class=\&quot;btn add-to-cart\&quot;&gt; &lt;i class=\&quot;fas fa-cart-plus\&quot;&gt;&lt;\/i&gt; Add to\n                                            cart&lt;\/a&gt;\n                                    &lt;\/div&gt;\n                                &lt;\/div&gt;\n                            &lt;\/div&gt;\n                        &lt;\/div&gt;\n                    &lt;\/div&gt;\n                    &lt;hr&gt;\n                &lt;\/div&gt;\n            &lt;\/div&gt;\n    &lt;\/main&gt;\n\n    &lt;div class=\&quot;footer-top bg-white\&quot; style=\&quot;font-family:sans-serif\&quot;&gt;\n        &lt;div class=\&quot;row\&quot;&gt;\n            &lt;div class=\&quot;col-4 col-sm-4 col-md-4 col-lg-4 text-center\&quot;&gt;\n                &lt;h2 style=\&quot;margin-right:50\&quot;&gt; &lt;i class=\&quot;fas fa-money-bill\&quot; style=\&quot;margin-right:20px\&quot;&gt;&lt;\/i&gt;Best Price\n                &lt;\/h2&gt;\n            &lt;\/div&gt;\n            &lt;div class=\&quot;col-4 col-sm-4 col-md-4 col-lg-4 text-center\&quot;&gt;\n                &lt;h2 style=\&quot; border-left: #e3e3e3 2px solid; margin-right:50px;\&quot;&gt;&lt;i class=\&quot;fas fa-truck-moving\&quot;\n                        style=\&quot;margin-left:50px; margin-right:20px;\&quot;&gt;&lt;\/i&gt; Fast Delivery&lt;\/h2&gt;\n            &lt;\/div&gt;\n            &lt;div class=\&quot;col-4 col-sm-4 col-md-4 col-lg-4 text-center\&quot;&gt;\n                &lt;h2 style=\&quot; border-left: #e3e3e3 2px solid;\&quot;&gt; &lt;i class=\&quot;fas fa-check\&quot;\n                        style=\&quot;margin-left:50px;margin-right:20px\&quot;&gt;&lt;\/i&gt;Genuine Product&lt;\/h2&gt;\n            &lt;\/div&gt;\n        &lt;\/div&gt;\n    &lt;\/div&gt;\n    &lt;footer class=\&quot;page-footer font-small blue pt-4\&quot;&gt;\n\n        &lt;div class=\&quot;container-fluid text-center text-md-left\&quot;&gt;\n\n            &lt;div class=\&quot;row\&quot;&gt;\n\n                &lt;div class=\&quot;col-md-2 mt-md-0 mt-2\&quot;&gt;\n\n                    &lt;p style=\&quot;font-family: fantasy; font-size: 20px; margin: 0 0;\&quot;&gt;E-Commerce&lt;\/p&gt;\n                    &lt;p style=\&quot;margin: 0 0; font-family:sans-serif\&quot;&gt;221B Baker Street&lt;\/p&gt;\n                    &lt;p style=\&quot;font-family:sans-serif\&quot;&gt;London, England&lt;\/p&gt;\n                    &lt;div&gt;\n                        &lt;i class=\&quot; social fab fa-facebook-f \&quot;&gt;&lt;\/i&gt;\n                        &lt;i class=\&quot;social fab fa-twitter\&quot;&gt;&lt;\/i&gt;\n                        &lt;i class=\&quot;social fab fa-pinterest-p\&quot;&gt;&lt;\/i&gt;\n                        &lt;i class=\&quot;social fab fa-instagram\&quot;&gt;&lt;\/i&gt;\n                        &lt;i class=\&quot; social fab fa-youtube\&quot;&gt;&lt;\/i&gt;\n                    &lt;\/div&gt;\n                &lt;\/div&gt;\n\n                &lt;div class=\&quot;col-md-3\&quot; style=\&quot;font-family:sans-serif\&quot;&gt;\n                    &lt;h3&gt;WHO ARE WE?&lt;\/h3&gt;\n                    &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sequi voluptatem quibusdam\n                        harum explicabo aperiam impedit, provident non ipsum maxime possimus iste iure odio ad! Omnis,\n                        optio ex? Saepe, consequatur.&lt;\/p&gt;\n\n                &lt;\/div&gt;\n                &lt;div class=\&quot;col-md-2 mb-md-0 mb-3\&quot; style=\&quot;font-family:sans-serif\&quot;&gt;\n\n                    &lt;h5 class=\&quot;text-uppercase\&quot;&gt;QUICK LINKS&lt;\/h5&gt;\n\n                    &lt;ul class=\&quot;list-unstyled\&quot;&gt;\n                        &lt;li&gt;\n                            &lt;a&gt;Home&lt;\/a&gt;\n                        &lt;\/li&gt;\n                        &lt;li&gt;\n                            &lt;a&gt;Contact Us&lt;\/a&gt;\n                        &lt;\/li&gt;\n                        &lt;li&gt;\n                            &lt;a&gt;About Us&lt;\/a&gt;\n                        &lt;\/li&gt;\n                        &lt;li&gt;\n                            &lt;a&gt;Privacy Policy&lt;\/a&gt;\n                        &lt;\/li&gt;\n                        &lt;li&gt;\n                            &lt;a&gt;Terms &amp; Conditions&lt;\/a&gt;\n                        &lt;\/li&gt;\n                    &lt;\/ul&gt;\n\n                &lt;\/div&gt;\n\n                &lt;div class=\&quot;col-md-2 mb-md-0 mb-3\&quot; style=\&quot;font-family:sans-serif\&quot;&gt;\n\n                    &lt;h5 class=\&quot;text-uppercase\&quot;&gt;HELP&lt;\/h5&gt;\n\n                    &lt;ul class=\&quot;list-unstyled\&quot;&gt;\n                        &lt;li&gt;\n                            &lt;a&gt;FAQs&lt;\/a&gt;\n                        &lt;\/li&gt;\n                        &lt;li&gt;\n                            &lt;a&gt;Shipping&lt;\/a&gt;\n                        &lt;\/li&gt;\n                        &lt;li&gt;\n                            &lt;a&gt;Returns&lt;\/a&gt;\n                        &lt;\/li&gt;\n                        &lt;li&gt;\n                            &lt;a&gt;Track Orders&lt;\/a&gt;\n                        &lt;\/li&gt;\n                        &lt;li&gt;\n                            &lt;a&gt;Report Fraud&lt;\/a&gt;\n                        &lt;\/li&gt;\n                    &lt;\/ul&gt;\n                &lt;\/div&gt;\n                &lt;div class=\&quot;col-12 col-sm-6 col-md-3 mb-md-0 mb-3 text-left\&quot; style=\&quot;font-family:sans-serif\&quot;&gt;\n                    &lt;h3&gt;NEWSLETTER&lt;\/h3&gt;\n                    &lt;input type=\&quot;text\&quot; class=\&quot;form-control\&quot; style=\&quot;width: 95%;\&quot; placeholder=\&quot;Enter your email...\&quot;&gt;\n                    &lt;a class=\&quot;btn\&quot; style=\&quot;border: #e3e3e3 2px solid; margin-top: 15px;\&quot;&gt;SUBSCRIBE&lt;\/a&gt;\n                &lt;\/div&gt;\n\n            &lt;\/div&gt;\n\n        &lt;\/div&gt;\n        &lt;!-- Footer Links --&gt;\n\n        &lt;!-- Copyright --&gt;\n    &lt;\/footer&gt;\n    &lt;!-- Footer --&gt;\n\n\n\n\n\n    &lt;script src=\&quot;https:\/\/code.jquery.com\/jquery-3.3.1.slim.min.js\&quot;\n        integrity=\&quot;sha384-q8i\/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\&quot; crossorigin=\&quot;anonymous\&quot;&gt;\n    &lt;\/script&gt;\n    &lt;script src=\&quot;https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/popper.js\/1.14.7\/umd\/popper.min.js\&quot;\n        integrity=\&quot;sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\&quot; crossorigin=\&quot;anonymous\&quot;&gt;\n    &lt;\/script&gt;\n    &lt;script src=\&quot;https:\/\/stackpath.bootstrapcdn.com\/bootstrap\/4.3.1\/js\/bootstrap.min.js\&quot;\n        integrity=\&quot;sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf\/nJGzIxFDsf4x0xIM+B07jRM\&quot; crossorigin=\&quot;anonymous\&quot;&gt;\n    &lt;\/script&gt;\n\n&lt;\/body&gt;\n\n&lt;\/html&gt;&quot;,&quot;url&quot;:&quot;editors\/bootstrap-ecommerce-templated-5258d339662e&quot;},&quot;url&quot;:&quot;\/editors\/bootstrap-ecommerce-templated-5258d339662e&quot;,&quot;version&quot;:&quot;8ec6269f20620bb6e06e22235b45ad0f&quot;}"></div>
+</div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://web2tailwind.com/dist/js/intertia.js?id=8da57b8417a8db5ac577"></script>
+    <script>
+    // Selecting the iframe element
+    var iframe = document.getElementById("iframe");
+
+    // Adjusting the iframe height onload event
+    iframe.onload = function(){
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
+</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106586554-6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-106586554-6');
+    </script>
+    <script src="/assets/js/highlight.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/dracula.min.css">
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+
+</html>

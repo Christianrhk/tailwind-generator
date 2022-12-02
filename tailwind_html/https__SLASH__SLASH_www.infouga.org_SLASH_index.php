@@ -1,0 +1,304 @@
+<!--SELECT * FROM ev_eventResource 
+								LEFT JOIN ev_eventCategory ON erEventCategoryID = eventCategoryID 
+								LEFT JOIN ev_setup ON ecNavMenuID = sNavMenuID 
+								LEFT JOIN sys_navMenu ON sNavMenuID = navMenuID 
+								WHERE erStartDate >= DATE_FORMAT(CONVERT_TZ(NOW(),'UTC','America/Denver'),'%Y-%m-%d') 
+								OR erEndDate >= DATE_FORMAT(CONVERT_TZ(NOW(),'UTC','America/Denver'),'%Y-%m-%d') 
+								ORDER BY erStartDate, erStartTime ASC LIMIT 5-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="index, follow" />
+	<meta name="description" lang="en" content="The Utah Genealogical Association provides genealogical information, sources and education through personal instruction and published media on state, national and international family history topics," />
+	<meta name="keywords" lang="en" content="Utah,Genealogy Research,Genealogical Education,Crossroads Journal,UGA Virtual Chapter,Training,Family History,DNA Special Interest Group,South Davis Fair,Virtual Practicum" />
+	<title>Welcome to the Utah Genealogical Association website!</title>
+	<link rel="stylesheet" type="text/css" href="css/appCustom.css" />
+	<script type="text/javascript" language="JavaScript" src="js/jquery-1.11.3.min.js"></script>
+<script>!function (f, b, e, v, n, t, s){ if (f.fbq) retu; n=f.fbq=function (){ n.callMethod ? n.callMethod.apply(n, arguments) :n.queue.push(arguments)}; if (!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[]; t=b.createElement(e); t.async=!0; t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)}(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '1295560377123953'); // Insert your pixel ID here. fbq('track', 'PageView'); </script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1295560377123953&ev=PageView&noscript=1" /></noscript><script>(function (i, s, o, g, r, a, m){ i['GoogleAnalyticsObject']=r; i[r]=i[r] || function (){ (i[r].q=i[r].q || []).push(arguments)}, i[r].l=1 * new Date(); a=s.createElement(o), m=s.getElementsByTagName(o)[0]; a.async=1; a.src=g; m.parentNode.insertBefore(a, m)})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); ga('create', 'UA-77611652-1', 'auto'); ga('send', 'pageview'); </script><meta name="p:domain_verify" content="f3c31a35ffac49dc94e4ae24a1da36e9"><link rel="stylesheet" href="https://use.fontawesome.com/b528182a5d.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous"><link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"><style>h1, h2, h3, h4{ font-family:Georgia, serif !important; color:maroon !important; font-weight:bold !important; margin-bottom:0 !important; float:none;} h1{ font-size:1.5rem !important; margin-top:0;} h2{ font-size:1.25rem !important; margin-top:2rem;} h3{ font-size:1.125rem !important; clear:both; margin-top:1.5rem;} h4{ font-size:1rem !important;} body, table{ font-family:Georgia, serif; font-size:16px; line-height:1.5;} p{ margin-top:1rem; margin-bottom:1rem;} .inactiveHdr a, .linkMsgHeader{ color:maroon !important;} .bio{ font-style:italic;} img.profilePhoto, .bio img{ width:100px !important; height:auto !important; border-radius:5px; float:left; margin-right:16px; margin-bottom:8px;} a{ color:maroon; font-weight:bold; text-decoration:underline;} .table{ border:0; border-collapse:collapse; width:100%;} .table td, .table th{ padding:2px 6px; margin:0; vertical-align:top;} .table tr th{ background-color:rgba(128, 0, 0, .5); color:white;} .table tr:nth-child(odd) td{ background-color:rgba(0, 0, 0, .1);} .table td[valign=bottom]{ width:100% !important;} h1+h2{ margin-top:0;} table#header{ display:none;} td#colLeft{ background-image:url(https://ugagenealogy.org/upload/images/site-assets/uga_logo-thumbnail.png); background-position:top 10px center; background-repeat:no-repeat; padding-top:150px; background-color:#0d1c30;} td#colRight:before{ content:"Utah Genealogical Association"; font-size:46px; font-weight:bold; color:#600b00; line-height:150px;} td#colRight{ text-align:center; vertical-align:top;} td#colRight>*{ text-align:initial;} td#colRight>table{ border-top:5px solid #600b00;} table#footer{ background-image:none;} table .datetime{ white-space:nowrap;} .clear{ float:none; clear:both;}</style></head>
+<body>
+<div align="center">
+<div id="container">
+
+<table id="header" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#74411a">
+<tr>
+    <td style="width:229px; background-color:#0d1c30;" rowspan="2"><img src="../images/navlogo.jpg" alt="Utah Genealogical Association" width="229" height="204" style="display:block;" title="Utah Genealogical Association" /></td>
+    <td style="width:771px; height:190px;"><img src="../images/topbanner.jpg" width="771" height="190" border="0" align="right" style="display:block;" /></td>
+</tr><tr>
+    <td style="width:771px; height:14px;"><img src="../images/burgundystripe.jpg" style="display:block;" width="771" height="14" border="0" align="right" /></td>
+</tr>
+</table> <table id="layoutTable" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td id="colLeft">
+<div id="navColumn">
+
+			   
+				<div class="navParentH1" onClick="location.href='https://www.infouga.org';" style="cursor:pointer;">
+										<a href="index.php" class="navLinkH">Home</a>
+								</div>
+					   
+				<div class="navChild1" onClick="location.href='cpage.php?pt=585';" style="cursor:pointer;">
+										<a href="cpage.php?pt=585" class="navSubLink">USCIS Statement</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='about.php';" style="cursor:pointer;">
+										<a href="about.php" class="navLink">About Us</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='cpage.php?pt=12';" style="cursor:pointer;">
+										<a href="cpage.php?pt=12" class="navLink">Awards</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='fileDownload.php?sid=2';" style="cursor:pointer;">
+										<a href="fileDownload.php?sid=2" class="navLink">Publications</a>
+								</div>
+					   
+				<div class="navParent" onClick="viewWin=window.open('https://ugagenealogy.blogspot.com','viewWin','width=1280,height=694,top=24,left=24,resizable=1,scrollbars=1'); viewWin.focus(); return false;" style="cursor:pointer;">
+										<a href="https://ugagenealogy.blogspot.com" target="_blank" onclick="viewWin=window.open('https://ugagenealogy.blogspot.com','viewWin','width=1280,height=694,top=24,left=24,resizable=1,scrollbars=1'); viewWin.focus(); return false;" class="navLink">Blog</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='https://slig.ugagenealogy.org/index.php';" style="cursor:pointer;">
+										<a href="https://slig.ugagenealogy.org/index.php" class="navLink">SLIG</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='cpage.php?pt=586';" style="cursor:pointer;">
+										<a href="cpage.php?pt=586" class="navLink">Summit of Excellence</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='cpage.php?pt=378';" style="cursor:pointer;">
+										<a href="cpage.php?pt=378" class="navLink">UGA DNA</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='cpage.php?pt=568';" style="cursor:pointer;">
+										<a href="cpage.php?pt=568" class="navLink">Genealogy Pro Talk</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='cpage.php?pt=11';" style="cursor:pointer;">
+										<a href="cpage.php?pt=11" class="navLink">Virtual Chapter</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='eventListings.php?nm=633';" style="cursor:pointer;">
+										<a href="eventListings.php?nm=633" class="navLink">Local Chapters</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='cpage.php?pt=32';" style="cursor:pointer;">
+										<a href="cpage.php?pt=32" class="navLink">First Families of Utah</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='onlineJoin.php';" style="cursor:pointer;">
+										<a href="onlineJoin.php" class="navLink">Join Online</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='members.php';" style="cursor:pointer;">
+										<a href="members.php" class="navLink">Members</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='cpage.php?pt=206';" style="cursor:pointer;">
+										<a href="cpage.php?pt=206" class="navLink">Resources</a>
+								</div>
+					   
+				<div class="navParent" onClick="location.href='cpage.php?pt=599';" style="cursor:pointer;">
+										<a href="cpage.php?pt=599" class="navLink">Technology SIG</a>
+								</div>
+		
+	<p>&nbsp;</p>
+	
+    
+
+</div>
+
+</td>
+	<td id="colRight" valign="top">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tr>
+					<td id="contentHeader" colspan="2">    <div align="right" style="padding-right:15px;padding-top:4px;">
+            <a href="members.php" target="_self">Login</a>
+        </div>
+</td>
+		</tr><tr>
+					<td id="contentAreaIndex"><div id="contentAreaIndex">            <h1 class="sectionTitle">Welcome to UGA!</h1>
+         
+            <div><style type="text/css">.feature {
+  text-align: center;
+  width: 50%;
+  float: left;
+  margin-top: 2rem;
+}
+  .feature h2 {
+    margin: 0;
+  }
+  .feature ul {
+    text-align: left;
+  }
+  .feature .fas {
+    color: #0b0c47;
+  }
+</style>
+<p>The Utah Genealogical Association (UGA) provides genealogical education and information for researchers at all levels, supporting members from across the nation.</p>
+
+<div class="feature"><span class="fas fa-3x fa-book">&nbsp;</span>
+
+<h2>Publications</h2>
+
+<ul>
+	<li><a href="/cpage.php?pt=19">Crossroads Journal</a></li>
+	<li>Crossroads for Kids</li>
+	<li><a href="http://ugagenealogy.us1.list-manage1.com/subscribe?u=36d2cc4a583e69f24afacf672&amp;id=5834189a73">UGA Newsletter</a></li>
+</ul>
+</div>
+
+<div class="feature"><span class="fas fa-3x fa-graduation-cap">&nbsp;</span>
+
+<h2>Conferences and Institutes</h2>
+
+<ul>
+	<li><a href="https://slig.ugagenealogy.org">Salt Lake Institute of Genealogy</a></li>
+</ul>
+</div>
+
+<div class="feature"><span class="fas fa-3x fa-info-circle">&nbsp;</span>
+
+<h2>Programs</h2>
+
+<ul>
+	<li><a href="/cpage.php?pt=378">UGA DNA</a></li>
+	<li><a href="/cpage.php?pt=11">Virtual Chapter</a></li>
+	<li><a href="/cpage.php?pt=568">Genealogy Pro Talk</a></li>
+	<li><a href="/cpage.php?pt=32">First Families of Utah</a></li>
+</ul>
+</div>
+
+<div class="feature"><span class="fas fa-3x fa-comments">&nbsp;</span>
+
+<h2>Social Media</h2>
+
+<ul>
+	<li><a href="https://www.facebook.com/ugagenealogy">Facebook</a></li>
+	<li><a href="https://twitter.com/ugagenealogy">Twitter</a></li>
+	<li><a href="/blog.php?sid=2">UGA Blog</a></li>
+</ul>
+</div>
+
+<p>&nbsp;</p>
+
+<div>
+<div style="page-break-after: always"><span style="display: none;">&nbsp;</span></div>
+
+<p>The Utah Genealogical Association is not to be confused with the Genealogical Society of Utah, who microfilmed records and gathered them at the Family History Library in Salt Lake City. For those wishing to see what records they have, please visit <a href="https://familysearch.org/search/catalog">FamilySearch.org</a>.</p>
+</div></div>
+			<br class="clearfloat" />
+		        
+            <h1 class="sectionTitle">Summit of Excellence 2022</h1>
+         
+            <div><h2>&quot;Climbing to new heights&quot;</h2>
+
+<h3>September 14-17, 2022</h3>
+
+<p>Join us for a four-day multi-track conference featuring dynamic speakers, in-depth topics, and quality education. Registration opens May 7th, 2022 at registration.ugagenealogy.org.</p>
+
+<p><img alt="" src="/upload/images/summit-of-excellence/SOE_2022_ad.png" style="width: 100%;" /></p></div>
+			<br class="clearfloat" />
+		        
+            <h1 class="sectionTitle">Invitation to Join</h1>
+         
+            <div><div style="text-align: justify;"><a href="/onlineJoin.php"><img alt="" src="/upload/images/join.png" style="width: 100px; height: 50px; border-width: 0px; border-style: solid; margin-right: 10px; float: left;" /></a>If you are not yet a member of UGA, we invite you to <a href="onlineJoin.php" target="_self">join.</a> There is considerable value associated with membership, which is offered at a reasonable annual rate with discounts given for multiple-year renewals. Life memberships are also available, as are membership gifts for friends and family.&nbsp;<span style="border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; text-indent: 20px; width: auto; padding: 0px 4px 0px 0px; text-align: center; font-style: normal; font-variant-caps: normal; font-weight: bold; font-stretch: normal; font-size: 11px; line-height: 20px; font-family: &quot;Helvetica Neue&quot;, Helvetica, sans-serif; color: rgb(255, 255, 255); background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==); background-size: 14px 14px; background-color: rgb(189, 8, 28); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; -webkit-font-smoothing: antialiased; background-position: 3px 50%; background-repeat: no-repeat no-repeat;">Save</span><span style="border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; text-indent: 20px; width: auto; padding: 0px 4px 0px 0px; text-align: center; font-style: normal; font-variant-caps: normal; font-weight: bold; font-stretch: normal; font-size: 11px; line-height: 20px; font-family: &quot;Helvetica Neue&quot;, Helvetica, sans-serif; color: rgb(255, 255, 255); background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==); background-size: 14px 14px; background-color: rgb(189, 8, 28); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; -webkit-font-smoothing: antialiased; background-position: 3px 50%; background-repeat: no-repeat no-repeat;">Save</span></div></div>
+			<br class="clearfloat" />
+		        
+            <h1 class="sectionTitle">Trouble Logging In?</h1>
+         
+            <div><div>
+<p style="text-align: justify;">If you are a UGA member and are having trouble logging in to our <a href="http://www.ugagenealogy.org/mo_splash.php" target="_self">Members Area</a>, please visit our <a href="http://www.ugagenealogy.org/cpage.php?pt=143" target="_blank">FAQs</a> page and scroll to the bottom for login instructions. If you still have trouble, contact our&nbsp;<a href="mailto:webmaster@ugagenealogy.org?subject=UGA%20Login%20Problem" target="_blank">A</a><a href="mailto:info@ugagenealogy.org?subject=UGA%20Login%20Issue">dminstrative Assistant</a>. Be sure to provide your name, phone number, and login information (if you have it).</p>
+</div>
+</div>
+			<br class="clearfloat" />
+		        
+ </div></td>
+					<td id="contentAreaIndexCol2">
+                <div id="contentAreaIndexCol2">
+				    	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	    	<tr>
+        	<td class="insetEventHeader">Upcoming Events</td>
+    	</tr>
+            <tr>	
+        	<td align="center">
+		                <div class="insetEventDate">
+				August 18, 2022				</div>
+		<div class="insetEventTime">7:00 pm</div>		            	<div class="insetEventTitle">PERSI 2.0: The New PERSI for Everyone</div>
+        		            <div class="insetEventText">
+                        Presented by Sunny Morton on 18 Aug 2022 at 7:00pm MT. You may be missing out on 30% of genealogy discoveries if you&rsquo;re not digging  ...            </div>
+		            <div class="insetEventLinkDiv"><a href="eventListings.php?nm=565#er223" class="insetEventLink">View Full Listing</a></div>
+                    <hr class="insetEventDividerLine" />
+                    </td>
+        </tr>
+            <tr>	
+        	<td align="center">
+		                <div class="insetEventDate">
+				September 6, 2022				</div>
+		<div class="insetEventTime">6:00 pm to 7:30 pm</div>		            	<div class="insetEventTitle">Planning for Professional Success</div>
+        		            <div class="insetEventText">
+                        Presented by Lauri Jean Swett on 6 September 2022. Register Now If we fail to plan, we plan to fail. We want our genealogy business  ...            </div>
+		            <div class="insetEventLinkDiv"><a href="eventListings.php?nm=626#er220" class="insetEventLink">View Full Listing</a></div>
+                    <hr class="insetEventDividerLine" />
+                    </td>
+        </tr>
+            <tr>	
+        	<td align="center">
+		                <div class="insetEventDate">
+				November 1, 2022				</div>
+		<div class="insetEventTime">6:00 pm to 7:30 pm</div>		            	<div class="insetEventTitle">How To Build An Email List For Your Genealogy Business (& Why You Should!)</div>
+        		            <div class="insetEventText">
+                        Presented by Lisa Lisson on 1 Nov 2022. Register Now Without an email list for their business, genealogy professionals are missing out on communicating and  ...            </div>
+		            <div class="insetEventLinkDiv"><a href="eventListings.php?nm=626#er215" class="insetEventLink">View Full Listing</a></div>
+                    <hr class="insetEventDividerLine" />
+                    </td>
+        </tr>
+            <tr>	
+        	<td align="center">
+		                <div class="insetEventDate">
+				November 19, 2022				</div>
+				            	<div class="insetEventTitle">Multi-Chapter Event</div>
+        		            <div class="insetEventText">
+                        Save the Date! Saturday, 19 November 2022 will be our annual Multi-chapter Event! More details TBA soon!                     </div>
+		            <div class="insetEventLinkDiv"><a href="eventListings.php?nm=633#er222" class="insetEventLink">View Full Listing</a></div>
+                    <hr class="insetEventDividerLine" />
+                    </td>
+        </tr>
+            <tr>	
+        	<td align="center">
+		                <div class="insetEventDate">
+				December 6, 2022				</div>
+		<div class="insetEventTime">6:00 pm to 7:30 pm</div>		            	<div class="insetEventTitle">10 Steps for Organizing for the Busy Genealogist</div>
+        		            <div class="insetEventText">
+                        Presented by Cynthia Patton on 6 Dec 2022. Register Now As a genealogist who hasn&#39;t felt overwhelmed with volumes of paper, a steady flood of  ...            </div>
+		            <div class="insetEventLinkDiv"><a href="eventListings.php?nm=626#er216" class="insetEventLink">View Full Listing</a></div>
+                    </td>
+        </tr>
+    		</table>
+						<hr class="rtSectionDividerLine" />
+				<div class="insetRotatorHeader">Featured News</div>        <div style="text-align:center">
+                <div class="insetRotatorTitle">FGS Member</div>
+        				<div class="insetRotatorImageDiv">
+        					<img border="0" src="upload/rotator/In_The_News/fgsmemberlogo.jpg" style="max-width:160px;" /><br />
+							</div>
+		    
+        </div>
+                </div>
+            </td>
+				</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<table id="footer" align="center" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td id="navFooter" valign="middle">&nbsp;</td>
+	<td><div style="padding-left:30px;">Copyright &copy; 2022 Utah Genealogical Association</div></td>
+	<td align="right"><div style="padding-right:30px;">* Powered by <a class="footerLink" href="http://www.easynetsites.com" target="_blank">EasyNetSites.com</a> Webware *</div></td>
+</tr>
+</table>
+</div>
+</div>
+
+</body>
+</html>

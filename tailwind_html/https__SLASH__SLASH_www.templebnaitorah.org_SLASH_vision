@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    
+        <!-- Enables datadog RUM in asynchronous mode -->
+        <script>
+            (function(h,o,u,n,d) {
+                h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+                d=o.createElement(u);d.async=1;d.src=n
+                n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+            })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum.js','DD_RUM')
+            DD_RUM.onReady(function() {
+                DD_RUM.init({
+                    applicationId: '1f3c3fcb-ecf8-4088-a48f-2ac01e0d12bf',
+                    clientToken: 'pub00c6989ab57f647b69eeb78420f45dea',
+                    site: 'datadoghq.com',
+                    service: 'Shulcloud',
+                    env: 'production',
+                    version: 'Hotfix-2021.07.28',
+                    sampleRate: 10,
+                    trackInteractions: true
+                })
+            });
+        </script>
+
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Our vision at Temple B'nai Torah: To be an inclusive, welcoming, sacred Jewish home that cultivates enduring relationships and promotes varied pathways to grow through Reform Jewish values and practices." />
+    <meta name="keywords" content="Temple B'nai Torah, vision, jewish" />
+    <link rel="manifest" href="/dashboard/manifest.json">
+
+        <title>Our Vision - Temple B'nai Torah</title>
+
+    <!-- StyleSheets -->
+            <link id="id_main_css"
+                  href="/css/global.css?date=1659713420"
+                  rel="stylesheet"
+                  type="text/css"
+                  media="screen"/>
+                            <link id="id_template_css"
+                      href="/templates/42/css/main.css?date=1659713424"
+                      rel="stylesheet"
+                      type="text/css"
+                      media="screen"/>
+               
+                <link href="/admin/css/jquery.ui.button.css" rel="stylesheet" type="text/css" media="screen"/>
+
+                                    <link rel="stylesheet"
+                          href="/css/print.css?date=1659713420"
+                          type="text/css"
+                          media="print"/>
+                                                    <link rel="apple-touch-icon"
+                  href="https://images.shulcloud.com/14479/apple_touch/1622033727.png"/>
+                                <link rel="shortcut icon"
+                  href="https://images.shulcloud.com/14479/favicon/1622033725.ico"/>
+                    <link href="/css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css" media="screen"/>
+            <link href="/admin/css/jquery.multiselect.css" rel="stylesheet" type="text/css" media="screen"/>
+            <link href="/admin/css/jquery.datetimepicker.css" rel="stylesheet" type="text/css" media="screen"/>
+            <link rel="stylesheet" href="/admin/dropzone/dropzone.css">
+
+                            <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+                <script type="text/javascript" src="/js/jquery-migrate-3.3.0.min.js"></script>
+                <script type="text/javascript" src="/js/jquery-migrate-patch-1.12.4.js"></script>
+            
+
+                        <script type='text/javascript' src='/js/jquery-ui-1.10.4.custom.min.js'></script>
+            <script type="text/javascript" src="/js/ckeditor-4.14.1/ckeditor.js?ver=1" charset="utf-8"></script>
+            <script type='text/javascript' src='/js/ckeditor-4.14.1/adapters/jquery.js'></script>
+            <script type='text/javascript' src="/admin/dropzone/dropzone.js"></script>
+            <script type='text/javascript' src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+            <script src="https://js.stripe.com/v3/"></script>
+            <script type='text/javascript'
+                    src='/admin/js/jquery.multiselect.min.js?date=1659713419'></script>
+            <script type='text/javascript'
+                    src='/admin/js/jquery.datetimepicker.js?1659713419'></script>
+
+                        <script>
+                var $j = jQuery.noConflict();
+                var in_testing = false;
+                var site_id = 14479;
+                var site = 'www.templebnaitorah.org';
+                var popup_cal_display_format = "M/d/yyyy";
+                var jquery_popup_date_format = "m/d/yy";
+                var datepicker_date_format = "m/d/yy";
+                var datetimepicker_date_format = "m/d/Y";
+                var datetimepicker_format = "m/d/Y h:i A";
+                var datepicker_doubledigit_format = "mm/dd/yy";
+                var jqueryui_date_display = 'mm/dd/yy';
+                var jqueryui_datetime_display = 'mm/dd/yy hh:MM TT';
+                var jqueryui_date_format = 'mm/dd/yy';
+                var js_date_format = 'mm/dd/yyyy';
+                var mailgun_public_api_key = 'pubkey-e53953a6919219e8f2da911f54fdca20';
+                var fb_app_id = "";
+                var sc_support_num = "516-400-0150";
+                var locale = 'en-us';
+
+                var dtp_time = 'g:i A';
+                var dtp_time_moment = 'hh:mm A';
+                var dtp_date = 'm/d/Y';
+                var dtp_date_moment = 'MM/DD/YYYY';
+                var dtp_date_time = 'm/d/Y g:i A';
+                var dtp_date_time_moment = 'MM/DD/YYYY hh:mm A';
+
+                //color util
+                                var overrides_in_action = 0;
+                /* console.log(overrides_in_action); */
+                var hue_override = false;
+                var base_color_override =false;
+                var light_shift_override =false;
+                var saturation_override =false;
+
+                                var google_login_url = 'https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=565565407753-8pclk3n5geruhb3ihb30bdr6qj8rj130.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.shulcloud.com%2Flogin.php%3Faction%3Dgoogle_login&openid.realm=https%3A%2F%2Fwww.shulcloud.com%2F&scope=openid+email&state=72ca1a3f42dc7f2389c05ee233c340aab6eee057e5f0d904a367b7d26f0761d84297b4e02f52cf252bd22b4fd9a1f1fbbeb3f88d3405e27ce2ff8eb0ce17020c%7Chttps%3A%2F%2Fwww.templebnaitorah.org%2Flogin.php%3Faction%3Dlogin%26login_mode%3Dgoogle%26url%3Dhttps%3A%2F%2Fwww.templebnaitorah.org%2Fvision';
+                                                //call before ckeditor is included
+                if (typeof CKEDITOR !== 'undefined') {
+                    CKEDITOR.disableAutoInline = true;
+                    CKEDITOR.timestamp = 'ABCD';
+                }
+                var https_inside_subdomain = "";
+            </script>
+                        
+
+            <script type="text/javascript"
+                    src="/js/main.js?date=1659713420"></script>
+
+
+                            <script type="text/javascript" src="/shared_js/CalendarPopupCombined.js"></script>
+                            
+    <script>
+            </script>
+            <script type="text/javascript" src="/js/content.js?date=1659713420"></script>
+
+    
+        <link href='https://images.shulcloud.com/14479/css_override/1642009132.css' rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script type="text/javascript" src="/templates/42/js/responsive-nav.js?date=1659713424""></script>
+	
+  <!--[if lte IE 6]>
+    <style type="text/css" media="all">@import "css/main.ie.css";</style>
+    <script type="text/javascript" src="/js/ie6.js"></script>
+    <![endif]-->
+ 
+    
+        
+    </head>
+
+
+<body class="
+                 lang        "
+         >
+
+<div id="fb-root"></div>
+<div id="header_login_menu" class="header_menu">
+    <form class="head_signin" name="loginFrmHead" method="POST" action="https://www.templebnaitorah.org/login.php">
+        <input type="hidden" name="sccsrf" value="eb7aa65beb45f37dbb08648cae7ff1b4"/>
+        <input type="hidden" name="redirect" value="https://www.templebnaitorah.org/vision" />
+        <input type="hidden" name="action" value="login" />
+
+        <input type="text" name="email" class="input_area login_form_email"  placeholder="Email Address"/>
+        <input type="password" name="password" class="input_area" placeholder="Password"/>
+
+        <a href='#' class="header_button"  onclick="document.loginFrmHead.submit();return false;"
+           style="margin:0; margin-bottom:9px;">
+            Sign In</a>
+        <input type="submit" style="display:none"/>
+
+        <a style="display: inline-block; margin-top: -6px; margin-bottom: 5px; padding-left: 10px;
+           color: black; font-size: 10px;" href="/login.php?action=forgot">Forgot Password</a>
+
+        
+            <hr class="login_dropdown_line"/>
+            <span class="extra_login_text">or Sign In With</span>
+                                    <img src='/pics/google-icon.png' class="google_login">
+            
+            </form>
+</div>
+
+<div id="container">
+    <div id="header">
+        <a id="mobile_nav_dropdown" href="#" class="visible-xs" style="display:none">&nbsp;</a>
+        <div id="header_inner">
+            <span class="hosted_by_text">
+                Powered By <a href="https://www.shulcloud.com/">ShulCloud</a>            </span>
+
+            <div id="header_buttons" class="clearfix">
+                                                                                        <div id="header_login_button" class="header_button">Login                                <img src="/pics/dropdown-triangle.png"/>
+                            </div>
+                                                                                        </div>
+        </div>
+            </div>
+    
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"  rel="stylesheet">    <div id="content" class="" >
+        <div id="topnav">
+                </div>
+		        <div id="quick_links_search_wrapper">
+            <div id="quick_links_search">
+                                    <div class="top_links_wrapper">
+                        <ul class="top_links_2">
+                                                            <li><a href="https://www.templebnaitorah.org/facebook-page.html">Facebook Page</a></li>
+                                                            <li><a href="https://www.templebnaitorah.org/youtube-channel.html">Youtube Channel</a></li>
+                                                    </ul>
+                    </div>
+                                    <div class="search_area_wrapper">
+                        <div class="search_area_2">
+                            <form method="get" action="https://www.google.com/search">
+                                <input type="text"   name="q"
+                                 maxlength="255" value="" />
+                                <input type="submit" value="Go" />
+                                <input type="hidden"  name="sitesearch"
+                                 value="https://www.templebnaitorah.org/" />
+                            </form>
+                        </div>
+                    </div>
+                                </div>
+        </div>
+        <div id="sidebar_left">
+	    	<div id="img_div">
+	    		                    <a href="https://www.templebnaitorah.org/"><img src="https://images.shulcloud.com/14479/logo/1642533996.img"
+                       alt="Logo for Temple B'nai Torah" /></a>
+            		    		            </div>
+            <div class="bt"></div>
+
+            <div id="mainnav"
+                            >
+                <ul id="nav_section">
+                                        <li class=" no_subcontent">
+                            <a href="https://www.templebnaitorah.org/"></a>
+                                                </li>
+                                        <li class=" no_subcontent">
+                            <a href="https://www.templebnaitorah.org/about-us">Ask</a>
+                                                </li>
+                                        <li class=" no_subcontent">
+                            <a href="https://www.templebnaitorah.org/worship">Pray</a>
+                                                </li>
+                                        <li class=" no_subcontent">
+                            <a href="https://www.templebnaitorah.org/live">Play</a>
+                                                </li>
+                                        <li class=" no_subcontent">
+                            <a href="https://www.templebnaitorah.org/tikun-olam">Act</a>
+                                                </li>
+                                        <li class=" no_subcontent">
+                            <a href="https://www.templebnaitorah.org/learn">Learn</a>
+                                                </li>
+                                        <li class=" no_subcontent">
+                            <a href="https://www.templebnaitorah.org/membership-form">Join</a>
+                                                </li>
+                                        <li class=" no_subcontent">
+                            <a href="https://www.templebnaitorah.org/contribute">Donate</a>
+                                                </li>
+                                    </ul>
+
+			</div>
+                            <ul class="top_links">
+                                            <li><a href="https://www.templebnaitorah.org/facebook-page.html">Facebook Page</a></li>
+                                            <li><a href="https://www.templebnaitorah.org/youtube-channel.html">Youtube Channel</a></li>
+                                    </ul>
+                        <div class="bb"></div>
+        </div>
+                <div id="maincontent" class="default full_width">
+
+			<div class="pad-helper">
+            <div class="addthis_toolbox addthis_default_style ">
+        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+        <a class="addthis_counter addthis_pill_style"></a>
+    </div>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52af72435d0d948c"></script>
+    <div class="breadcrumbpaginationh1section">
+    <div class="breadcrumbsection">
+        <div class="breadcrumb_inner_wrapper">
+                <a href="https://www.templebnaitorah.org/">Home</a>
+                </div>
+    </div>
+        <h1 style="display: none">Our Vision</h1>
+      
+</div>
+
+  
+
+<div class="content_container normal" id="div_order">
+    
+            <div class="movable_area featured_article odd  " content_id="1151527" content_display="normal" 
+
+                >
+                <div>
+                <h2 class="content_title" data-is-sticky="0"  >Our Vision</h2>                    <div class="content_body">
+                                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" rel="stylesheet">
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet"><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://images.shulcloud.com/14479/uploads/tbt-icon.png" rel="icon">
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&amp;family=Kanit&amp;family=Paytone+One&amp;family=Righteous&amp;family=Sansita+Swashed&amp;display=swap" rel="stylesheet">
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&amp;display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div class="container-fluid">
+<div class="row">
+<div class="col-12 col-lg-4 order-1 order-lg-1">
+<div id="link-wrapper" style="margin-right: 20px;"><a href="/about-us">About</a><br>
+<a class="indent active-side-link" href="/vision">Our Vision</a><br>
+<a class="indent" href="/our-people">Our People</a><br>
+<a class="double-indent" href="/board">Board of Directors</a><br>
+<a class="double-indent" href="/clergy">Clergy</a><br>
+<a class="double-indent" href="/staff">Staff</a><br>
+<a class="indent" href="/our-location">Our Location</a><br>
+<!--<a class="double-indent" href="/kashrut-policy">Kashrut Policy</a><br />--> <!--<a class="double-indent" href="/rosen-ritt-library">Rosen-Ritt Library</a><br />--> <a class="double-indent" href="/directions">Directions</a><br>
+<a class="indent" href="/our-history">Our History</a><br>
+<!--<a class="double-indent" href="/wall-of-connections">Wall of Connections Art Gallery</a><br />--> <a class="indent" href="/membership-form">Join Our Community</a><br>
+<a class="indent" href="/contact-us">Contact Us</a></div>
+</div>
+
+<div class="col-12 col-lg-8 order-2 order-lg-2">
+<div class="et_pb_blurb_content " style="background: radial-gradient(#3CBBAF, #2D8ED3); padding: 40px; border-radius: 10px;">
+<div class="et_pb_blurb_container text-white">
+<div class="et_pb_blurb_description text-white">
+<p class="text-white"><em><strong>To be an inclusive, welcoming, sacred Jewish home that cultivates enduring relationships and promotes varied pathways to grow through Reform Jewish values and practices.</strong></em></p>
+
+<p class="text-white">Together we will enrich our sacred Jewish home through:</p>
+
+<ul class="text-white">
+	<li class="text-white">Inspiring Torah-centric study and community worship</li>
+	<li class="text-white">Engaging religious education</li>
+	<li class="text-white">Dynamic programs and community celebrations</li>
+	<li class="text-white">Impactful social action</li>
+</ul>
+
+<p class="text-white">While ensuring:</p>
+
+<ul class="text-white">
+	<li class="text-white">Shared responsible financial and organizational stewardship.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- .et_pb_blurb_content --><!-- .et_pb_blurb --></div>
+</div>
+</div>
+<style type="text/css">#nav_section>.no_subcontent:nth-child(2)>a  {
+            color: var(--link-color) !important;
+        }
+        @media only screen and (max-width: 1000px) {
+            #link-wrapper, .et_pb_blurb_content {
+                width: 100%;
+            }
+            .et_pb_blurb_content {
+                margin-bottom: 5vh;
+            }
+        }
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics --><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JFJ8FST2PX"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JFJ8FST2PX');
+</script>                    </div>
+
+                </div>
+            </div>
+            <div class="clear"></div>
+            
+    
+            <div class="movable_area featured_article even  " content_id="1136352" content_display="normal" 
+
+                >
+                <div>
+                <h2 class="content_title" data-is-sticky="0" style="display:none;" ></h2>                    <div class="content_body">
+                                                <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"><script src="https://code.jquery.com/jquery-3.5.1.min.js"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<h3 style="color: var(--text-blue);">TBT's&nbsp;Mission, Objectives and Goals</h3>
+
+<p><em><strong>To be an inclusive, welcoming, sacred Jewish home that cultivates enduring relationships and promotes varied pathways to grow through Reform Jewish values and practices.</strong></em></p>
+<!--ACCORDIONS-->
+
+<div id="accordion">
+<div class="card">
+<div class="card-header" id="headingOne">
+<h5 class="mb-0"><button aria-controls="collapseOne" aria-expanded="true" class="accordion-button btn btn-link text-white" data-target="#collapseOne" data-toggle="collapse">Inclusive &amp; Welcoming Community</button></h5>
+</div>
+
+<div aria-labelledby="headingOne" class="collapse show" data-parent="#accordion" id="collapseOne" style="">
+<div class="card-body">We strive to be the friendliest synagogue in the Greater Seattle area. We&nbsp;draw members from all over the Puget Sound region who feel at home with our community. As a growing and vibrant temple, we come from many different backgrounds: interfaith, LGBTQ+, people of color, young families, empty nesters, active teens and seniors, Jews by Choice, and Jews from a variety of different backgrounds, from Sephardic to Ashkenazic, Orthodox to Humanistic and everything in between. We believe that our diversity is our strength and new friends are always welcome.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" id="headingTwo">
+<h5 class="mb-0"><button aria-controls="collapseTwo" aria-expanded="false" class="accordion-button btn btn-link text-white collapsed" data-target="#collapseTwo" data-toggle="collapse">Inspiring Torah Centric Study &amp; Community Worship</button></h5>
+</div>
+
+<div aria-labelledby="headingTwo" class="collapse" data-parent="#accordion" id="collapseTwo" style="">
+<div class="card-body">
+<p>The Torah is our ultimate guidebook to better living. &nbsp;We know that its ancient wisdom still has much to teach us and our modern society. By plumbing the depths of our sacred texts, we infuse profound meaning into our everyday lives. At TBT, we strive to place the values found in&nbsp;our Torah at the center of everything we do.&nbsp;</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" id="headingThree">
+<h5 class="mb-0"><button aria-controls="collapseThree" aria-expanded="false" class="accordion-button btn btn-link text-white collapsed" data-target="#collapseThree" data-toggle="collapse">Engaging Lifelong Religious Education</button></h5>
+</div>
+
+<div aria-labelledby="headingThree" class="collapse" data-parent="#accordion" id="collapseThree" style="">
+<div class="card-body">We believe that Jewish learning is a journey, not a destination.&nbsp;From the very young to the very old, we are all&nbsp;students in a living classroom of spiritual and moral development.&nbsp;Asking difficult questions and sitting together, shoulder-to-shoulder,&nbsp;as we seek the answers is one of the greatest joys of Judaism. We know that study can be both enriching and enjoyable, meaningful while also&nbsp;fun.&nbsp;&nbsp;</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" id="headingFour">
+<h5 class="mb-0"><button aria-controls="collapseFour" aria-expanded="false" class="accordion-button btn btn-link text-white collapsed" data-target="#collapseFour" data-toggle="collapse">Dynamic Programs &amp; Community Celebrations</button></h5>
+</div>
+
+<div aria-labelledby="headingFour" class="collapse" data-parent="#accordion" id="collapseFour" style="">
+<div class="card-body">We pride ourselves on our willingness to try new things, experiment and innovate. As Jewish life&nbsp;continues to evolve, our TBT family is constantly thinking of new ways to engage our members, educate our children, pray as a community and socialize as a diverse group of people with a variety of interests. We are always open to new ideas and are not afraid of failure; failure helps us&nbsp;to grow and evolve. We believe that truly engaging and compelling Jewish programs can have wide appeal to all members of our congregation, regardless of their background or&nbsp;life stage.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" id="headingFive">
+<h5 class="mb-0"><button aria-controls="collapseFive" aria-expanded="false" class="accordion-button btn btn-link text-white collapsed" data-target="#collapseFive" data-toggle="collapse">Impactful Social Action</button></h5>
+</div>
+
+<div aria-labelledby="headingFive" class="collapse" data-parent="#accordion" id="collapseFive" style="">
+<div class="card-body">Judaism is a religion of action, not simply&nbsp;faith. &nbsp;We believe that we are obligated to be God's partner in creation by doing acts of tikkun olam, or repairing the world. Our mission is to serve the vulernable, the disenfranchised and&nbsp;the marginalized. &nbsp;As Jews, we feel a sacred call from both our tradition and our history to help those in need. &nbsp;We believe that one of the main purposes of religion&nbsp;in our modern era is to make the world more loving, just and&nbsp;equitable and that is our <em>kavana</em>, our guiding intention, with everything that we do.&nbsp;</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" id="headingSix">
+<h5 class="mb-0"><button aria-controls="collapseSix" aria-expanded="false" class="accordion-button btn btn-link text-white collapsed" data-target="#collapseSix" data-toggle="collapse">Shared, Responsible Organization Stewardship</button></h5>
+</div>
+
+<div aria-labelledby="headingSix" class="collapse" data-parent="#accordion" id="collapseSix" style="">
+<div class="card-body">TBT&nbsp;has a unique hybrid model that empowers its community members to have meaningful leadership opportunities while also employing a small but talented professional staff to help steward volunteers. We rely on our members' willingness&nbsp;to give of their time, talent and treasure in order to grow and sustain our community while also keeping it fresh and vibrant with new ideas and new energy. &nbsp;We believe in a culture of invitation and will regularly ask members of our community to teach a program, run a service, mentor one another, and volunteer behind the scenes in the governance or administration of our temple. We believe that each member "owns" a little piece of our temple&nbsp;and, as co-owners, we all have a responsibility to make&nbsp;sure that our community not only survives, but thrives.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" id="headingSeven">
+<h5 class="mb-0"><button aria-controls="collapseSeven" aria-expanded="false" class="accordion-button btn btn-link text-white collapsed" data-target="#collapseSeven" data-toggle="collapse">Shared, Responsible Financial Stewardship</button></h5>
+</div>
+
+<div aria-labelledby="headingSeven" class="collapse" data-parent="#accordion" id="collapseSeven" style="">
+<div class="card-body">In our Torah, we learn that every Israelite was called on by God to make financial contributions in support of the larger community. &nbsp;Today, that translates into dues and donations to our Temple. In order to provide our TBT family with a spiritual home, we must maintain a physical home--our beautiful synagogue in East Bellevue. &nbsp;Your financial contributions&nbsp;pay our wonderful staff, provide meaningful programs, and keep the lights on and our doors open.&nbsp;We&nbsp;also believe in fiscal responsibility and thoughtful oversight. Each dollar we receive is seen as a kind of holy offering and, as part of our values-based budgeting, we strive to ensure that we not only spend that&nbsp;money responsibly, but also in service to our prophetic calling.</div>
+</div>
+</div>
+</div>
+<style type="text/css">.card{
+margin: 10px 0;}
+</style>                    </div>
+
+                </div>
+            </div>
+            <div class="clear"></div>
+            
+    </div>
+
+	</div><!-- end pad helper -->
+    <div class="clearfix"></div>
+</div><!-- End Main Content -->
+
+    <div class="search_area">
+        <form method="get" action="https://www.google.com/search">
+            <input type="text"   name="q"
+             maxlength="255" value="" />
+            <input type="submit" value="Go" />
+            <input type="hidden"  name="sitesearch"
+             value="https://www.templebnaitorah.org/" />
+        </form>
+    </div>
+    <div class="right_box2">
+    Mon, August  8 2022&nbsp;11 Av 5782</div>
+
+
+<div style="clear:both"></div>
+
+ 
+
+	</div><!-- end #content -->
+	<div id="footer">
+		<div class="footer_inner">
+
+            
+                <div class="content_body">
+            <style type="text/css">#footer{
+        /*background-color: #B2B2B2; */
+        background-color: #7f7f7f;
+        background-image: linear-gradient(#a8a8a8, #232323);
+        /*<div class="col-sm-offset-2 col-12 col-md-2 order-2 order-md-1"><img class="candle-gif img-fluid mx-auto stagger-animate" loop="infinite"  data-cke-saved-src="https://images.shulcloud.com/14479/uploads/candle.gif" src="https://images.shulcloud.com/14479/uploads/candle.gif" /></div>*/
+        /*background-image: url('https://images.shulcloud.com/14479/uploads/Background-Bokeh-Skinny.mp4');*/
+        
+        color: white;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        max-width: 1500px !important;
+        margin: 0 auto 4vh auto !important;
+     /*overflow: hidden;*/
+     z-index: 0 !important;
+     width: 90vw !important;
+      /*-webkit-box-shadow:  0px 0px 20px rgba(0,0,0,0.5);*/
+      /*               box-shadow: 0px 0px 20px rgba(0,0,0,0.5);*/
+      box-shadow: 0px 8px 20px 0px rgba(0,0,0,0.5); 
+      /*box-shadow: 0px 20px 20px rgba(0,0,0,0.5), */
+      /*  20px 20px20px gray, 20px 20px 20px rgba(0,0,0,0.5);*/
+      border-top: 7px solid #01bfb9;
+    }
+    
+    .edit-buttons-overlay, .content_button, .edit_content {
+    z-index: 1000 !important;
+}
+    
+    #videoDiv {
+        /*background-image: url('https://images.shulcloud.com/14479/uploads/Background-Bokeh-Skinny.mp4');*/
+        /*background-position: cover;*/
+    }
+    .blue-video-footer {
+        /*position: absolute;*/
+        /*width: 100%;*/
+        /*width: auto;*/
+        /*height: 100% !important;*/
+        /*top: 0;*/
+        /*left: 0;*/
+        /*z-index: 0;*/
+        position: absolute;
+                top: 0;
+                width: 100%;
+                padding: 0;
+                min-height: 200px;
+                height: 100%;
+                z-index: -1 !important;
+                -o-object-fit: fill;
+                   object-fit: fill;
+                border-bottom: 2px solid #3A3A3A;
+    }
+    .global_terms_links, .copyright, .footer_inner>.global_terms_links>a, .footer_inner>.copyright>a  {
+        z-index: 1000 !important;
+    }
+    .copyright {
+        color: #fff !important;
+    }
+    .footer-ul>li{
+        display: inline-block;
+    }
+    .footer_inner{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    .footer-link-div>a, .footer_inner>.global_terms_links>a, .footer_inner>.copyright>a{
+        -webkit-filter: invert(0.1);
+                filter: invert(0.1);
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        color: var(--lightest-grey) !important;
+        /*font-weight: 400;*/
+        text-decoration: none;
+        margin: 0 10px;
+        /*font-size: 1rem;*/
+        display: inline-block;
+        margin: 10px 10px;
+    }
+    .footer-link-div>a:hover, .footer_inner>.global_terms_links>a:hover, .footer_inner>.copyright>a:hover{
+        color: white !important;
+        -webkit-filter:  invert(0);
+                filter:  invert(0);
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+    .social-icons{
+        width: 40px;
+        height: 40px;
+        border-radius: 5%;
+        -webkit-filter: invert(0.95);
+                filter: invert(0.95);
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+    .social-icons:hover{
+        -webkit-filter: invert(1);
+                filter: invert(1);
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+    .urj-img{
+        display: inline-block;
+    }
+    .list-group-item{
+        border: 0px solid rgba(0,0,0,0);
+    }
+    .footer-link-div{
+        text-align: center;
+        margin: 0 3vw;
+        z-index: 1;
+        /*margin-top: -20px;*/
+    }
+    .global_terms_links{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+    }
+    .row{
+        margin: 0 !important;
+    }
+    .footer-anchor{
+        /*color: #464D52 !important;*/
+        margin: 1.5vh 5vw !important;
+        font-size: 1.1rem;
+    }
+    .footer_inner>.global_terms_links>a, .copyrite {
+        font-size: 1.1rem;
+    }
+    .footer-link-div>.footer-anchor, .footer_inner>.global_terms_links>a, .footer_inner>.copyright>a {
+        text-decoration: underline !important;
+        /*-webkit-transition: all 0.3s;-o-transition: all 0.3s;transition: all 0.3s;*/
+    }
+    .footer-link-div>.footer-anchor:hover, .footer_inner>.global_terms_links>a:hover, .footer_inner>.copyright>a:hover {
+        text-decoration: none !important;
+        /*-webkit-transition: all 0.3s;-o-transition: all 0.3s;transition: all 0.3s;*/
+    }
+    @media only screen and (max-width: 992px){
+        .footer-link-div{
+               margin: 5px 0;
+           }
+    }
+       @media only screen and (max-width: 767px){
+           .footer-link-div{
+               /*margin: 0;*/
+           }
+           .copyright{
+               padding-bottom: 30px;
+           }
+       }
+</style>
+<div class="footer-links-div container-fluid">&nbsp;
+<div class="row d-flex justify-content-center align-items-center text-center mx-auto">
+<div class="footer-link-div  "><a class="footer-anchor" href="https://www.urj.org" target="_blank"><img class="img-fluid mx-auto" src="https://images.shulcloud.com/14479/uploads/urj-new-logo.png"> </a></div>
+
+<div class="footer-link-div text-center"><a class="footer-anchor" href="https://www.facebook.com/templebnaitorah" target="_blank"><img class="img-fluid  mx-auto facebook-img social-icons " src="https://images.shulcloud.com/14479/uploads/facebook-icon.svg"> </a></div>
+
+<div class="footer-link-div text-center"><a class="footer-anchor" href="https://www.youtube.com/channel/UCAI8ituiK8qcOwQIdV7wVdw" target="_blank"><img class="img-fluid  mx-auto youtube-img social-icons " src="https://images.shulcloud.com/14479/uploads/youtube-icon.svg"> </a></div>
+
+<div class="footer-link-div text-center"><a class="footer-anchor" href="/contribute" target="_blank">Make a Donation</a></div>
+
+<div class="footer-link-div text-center"><a class="footer-anchor" href="/calendar">Calendar</a></div>
+
+<div class="footer-link-div text-center"><a class="footer-anchor" href="/livestream">Livestream </a></div>
+
+<div class="footer-link-div text-center"><a class="footer-anchor" href="/directions">Directions </a></div>
+
+<div class="footer-link-div text-center"><a class="footer-anchor" href="/member/subscriptions">Subscribe to Newsletter</a></div>
+
+<div class="footer-link-div text-center"><a class="footer-anchor" href="/contact-us">Contact </a></div>
+</div>
+</div>
+<script>
+var videoDiv = document.createElement('span'),
+    footer = document.getElementById('footer');
+    videoDiv.setAttribute('id', 'videoDiv');
+    videoDiv.innerHTML = "<video autobuffer='' autoplay='true' class='blue-video-footer' loop='' muted='' playsinline=''><source src='https://images.shulcloud.com/14479/uploads/Background-Bokeh-Skinny.mp4' type='video/mp4' /> <source src='https://images.shulcloud.com/14479/uploads/Background_Bokeh_01Videvo_1.webm' type='video/webm' /></video>";
+    
+    
+    // PAGE SPECIFIC:
+    var current = window.location.pathname;
+// homepage
+    if (current !== '/') {
+         footer.appendChild(videoDiv);
+    }
+    
+    
+</script>            </div>
+
+            
+            <p class="global_terms_links">
+                <a href="https://www.templebnaitorah.org/privacy">Privacy Policy</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="https://www.templebnaitorah.org/member-terms">Member Terms</a>
+                            </p>
+			<p class="copyright">&copy;2022 All rights reserved. Find out more about <a href="http://www.shulcloud.com/">ShulCloud</a></p>
+            		</div>
+    </div>
+    <!-- End #footer -->
+</div>
+<!-- end #container -->
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+
+                _gaq.push(
+                    ['_setAccount', 'UA-3218888-14'],
+                    //['_setDomainName', 'shulcloud.com'],
+                    ['_setAllowLinker', true],
+                    ['_trackPageview']
+                                    );
+
+
+                (function () {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+                })();
+            </script>
+            <script type="text/javascript" src="https://images.shulcloud.com/14479/js_override/1659474314.js"></script><script type="text/javascript" src="/js/jquery.reject.min.js"></script>
+<link href="/css/jquery.reject.css" rel="stylesheet" type="text/css" media="screen" />
+
+        </body>
+</html>

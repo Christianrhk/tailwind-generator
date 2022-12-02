@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Using Repository pattern to migrate Rails app from MongoDB to PostgreSQL | AmberBit Sp. z o. o.</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+<meta content="Using Repository pattern to migrate Rails app from MongoDB to PostgreSQL" property="og:title"><meta content="https://www.amberbit.com/blog/2015/11/30/using-repository-pattern-to-migrate-rails-app-from-mongodb-to-postgresql/" property="og:url"><meta content="…because you will need to make that migration." property="og:description"><meta content="https://www.amberbit.com/blog/2015/11/30/using-repository-pattern-to-migrate-rails-app-from-mongodb-to-postgresql/preview.png" property="og:image">
+<meta content="Using Repository pattern to migrate Rails app from MongoDB to PostgreSQL" property="twitter:title"><meta content="…because you will need to make that migration." property="twitter:description"><meta content="https://www.amberbit.com/blog/2015/11/30/using-repository-pattern-to-migrate-rails-app-from-mongodb-to-postgresql/preview.png" property="twitter:image">    <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Font Awesome if you need it
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  -->
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@1.9.4/dist/tailwind.min.css">
+  <link rel="stylesheet" href="/css/app-d5a3965e0a2ef38fcb6df94b37f3c996.css?vsn=d"/>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+
+  <!--Replace with your tailwind.css once created-->
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+
+  <link rel="profile" href="http://microformats.org/profile/hcard">
+
+	<!-- Define your gradient here - use online tools to find a gradient matching your branding-->
+	<style>
+		.gradient {
+			background: linear-gradient(90deg, #4b2669ff 0%, #a486bcff 100%);
+		}
+	</style>
+
+<meta charset="UTF-8" content="GBENRTIvcRotSUFAGEUiAB1GCi9HLwR6QUW-zG3pz-pyS-WtokofrhNJ" csrf-param="_csrf_token" method-param="_method" name="csrf-token"></head>
+
+<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+
+<!--Nav-->
+<nav id="header" class="fixed w-full z-30 top-0 text-white">
+
+	<div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+		<div class="pl-4 flex items-center">
+			<a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="/"> 
+        <svg  class="h-10 fill-current inline" version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0.5px" y="0.5px"
+           viewBox="0 0 359.9 84.2" style="enable-background:new 0 0 359.9 84.2;" xml:space="preserve">
+        <style type="text/css">
+          .st0{fill:#A486BC;}
+          .st1{fill:#4B2669;}
+          .st2{fill:#713E90;}
+          .text-white .st3{fill:#FFFFFF;}
+          .text-gray-800 .st3{fill: #000000;}
+        </style>
+        <g>
+          <polygon class="st0" points="72.9,63.2 72.9,21.1 36.5,0 0,21.1 0,63.2 36.5,84.2 	"/>
+        </g>
+        <g>
+          <polygon class="st1" points="36.5,0 0,42.1 56.6,27.5 	"/>
+        </g>
+        <g>
+          <polygon class="st2" points="0,42.1 36.5,84.2 46.9,55 	"/>
+        </g>
+        <g>
+          <polygon class="st2" points="72.9,21.1 56.6,27.5 72.9,63.2 	"/>
+        </g>
+        <g>
+          <polygon class="st1" points="56.6,27.5 36.5,84.2 72.9,63.2 	"/>
+        </g>
+        <g>
+          <path class="st3" d="M118.2,25.2h7.6L141.9,63h-8.6l-3.4-8.4H114l-3.4,8.4h-8.4L118.2,25.2z M126.9,47.3l-5-12.2l-5,12.2H126.9z"/>
+          <path class="st3" d="M147.3,34.3h8.1v4.1c0.5-0.6,1-1.2,1.5-1.8c0.6-0.6,1.2-1.1,1.8-1.5c0.7-0.4,1.4-0.8,2.3-1
+            c0.8-0.3,1.8-0.4,2.8-0.4c1.9,0,3.5,0.4,4.9,1.2c1.4,0.8,2.4,1.9,3.2,3.4c1.3-1.5,2.6-2.7,4.2-3.4c1.5-0.8,3.3-1.2,5.2-1.2
+            c3,0,5.4,0.9,7.1,2.7c1.7,1.8,2.6,4.4,2.6,7.9V63H183V47c0-1.9-0.4-3.4-1.2-4.4s-2-1.5-3.5-1.5s-2.7,0.5-3.6,1.5s-1.3,2.4-1.3,4.4
+            v16h-8.1V47c0-1.9-0.4-3.4-1.2-4.4c-0.8-1-2-1.5-3.5-1.5c-1.5,0-2.7,0.5-3.6,1.5c-0.9,1-1.3,2.4-1.3,4.4v16h-8.1V34.3z"/>
+          <path class="st3" d="M215.9,63.5c-2.2,0-4-0.4-5.4-1.3c-1.4-0.9-2.6-1.9-3.6-3V63h-8.1V23.9h8.1v14.5c1-1.4,2.2-2.5,3.6-3.3
+            c1.4-0.9,3.2-1.3,5.3-1.3c1.7,0,3.3,0.3,4.9,1c1.6,0.6,3,1.6,4.2,2.9c1.2,1.3,2.2,2.8,2.9,4.7c0.7,1.8,1.1,4,1.1,6.3v0.1
+            c0,2.4-0.4,4.5-1.1,6.4c-0.7,1.8-1.7,3.4-2.9,4.7c-1.2,1.3-2.6,2.2-4.2,2.9C219.2,63.2,217.6,63.5,215.9,63.5z M213.8,56.6
+            c1,0,1.9-0.2,2.7-0.6c0.8-0.4,1.6-0.9,2.2-1.6c0.6-0.7,1.2-1.5,1.5-2.5c0.4-1,0.6-2.1,0.6-3.3v-0.1c0-1.2-0.2-2.3-0.6-3.2
+            s-0.9-1.8-1.5-2.5c-0.6-0.7-1.4-1.2-2.2-1.6c-0.8-0.4-1.7-0.6-2.7-0.6c-1,0-1.9,0.2-2.7,0.6c-0.8,0.4-1.6,0.9-2.2,1.6
+            c-0.6,0.7-1.1,1.5-1.5,2.5s-0.6,2.1-0.6,3.2v0.1c0,1.2,0.2,2.3,0.6,3.2s0.9,1.8,1.5,2.5c0.6,0.7,1.4,1.2,2.2,1.6
+            C211.9,56.4,212.8,56.6,213.8,56.6z"/>
+          <path class="st3" d="M249.1,63.6c-2.1,0-4.1-0.4-6-1.1s-3.4-1.7-4.8-3.1c-1.3-1.3-2.4-2.9-3.1-4.7c-0.8-1.8-1.1-3.8-1.1-6v-0.1
+            c0-2,0.3-4,1-5.8c0.7-1.8,1.7-3.4,2.9-4.8c1.3-1.4,2.7-2.4,4.5-3.2s3.7-1.2,5.8-1.2c2.4,0,4.5,0.4,6.2,1.3c1.7,0.9,3.2,2,4.4,3.5
+            c1.2,1.4,2,3.1,2.6,5c0.6,1.9,0.8,3.8,0.8,5.9c0,0.3,0,0.7,0,1c0,0.4,0,0.7-0.1,1.1h-20c0.4,1.9,1.2,3.3,2.4,4.2
+            c1.2,0.9,2.8,1.4,4.6,1.4c1.4,0,2.6-0.2,3.6-0.7c1.1-0.5,2.2-1.2,3.3-2.2l4.7,4.1c-1.4,1.7-3,3-4.9,3.9
+            C254,63.2,251.7,63.6,249.1,63.6z M254.3,46.4c-0.3-1.8-0.9-3.3-1.9-4.4c-1-1.1-2.4-1.7-4.1-1.7c-1.7,0-3.1,0.6-4.2,1.7
+            c-1.1,1.1-1.7,2.6-2.1,4.4H254.3z"/>
+          <path class="st3" d="M268.9,34.3h8.1v5.8c0.8-2,1.9-3.5,3.4-4.7c1.4-1.2,3.4-1.7,5.8-1.6v8.5h-0.4c-2.7,0-4.8,0.8-6.4,2.5
+            c-1.6,1.6-2.3,4.2-2.3,7.7V63h-8.1V34.3z"/>
+          <path class="st3" d="M293.7,25.5h15.5c4.2,0,7.7,1.2,9.8,3.3c1.6,1.6,2.4,3.5,2.4,5.9v0.1c0,5.1-3.3,7.7-6.4,8.9
+            c4.5,1.2,8.5,3.7,8.5,8.9v0.1c0,6.3-5.4,10.2-13.4,10.2h-16.3V25.5z M308.9,42.8c5.6,0,9.6-2.7,9.6-7.7V35c0-4.1-3.4-6.9-9.4-6.9
+            h-12.6v14.7H308.9z M310.1,60.4c6.4,0,10.5-2.9,10.5-7.7v-0.1c0-4.6-4-7.3-11.4-7.3h-12.7v15.1H310.1z"/>
+          <path class="st3" d="M332.4,24.9h3.3v3.6h-3.3V24.9z M332.7,35.7h2.6V63h-2.6V35.7z"/>
+          <path class="st3" d="M347.7,56V38.1h-4v-2.4h4v-8.7h2.6v8.7h9.6v2.4h-9.6v17.6c0,3.9,2.3,5.3,5.5,5.3c1.3,0,2.5-0.3,4-1v2.5
+            c-1.4,0.6-2.7,1-4.4,1C351.1,63.5,347.7,61.2,347.7,56z"/>
+        </g>
+        </svg>
+			</a>
+		</div>
+
+		<div class="block lg:hidden pr-4">
+			<button id="nav-toggle" class="flex items-center p-1 text-white-800">
+				<svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+			</button>
+		</div>
+
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
+			<ul class="list-reset lg:flex justify-end flex-1 items-center my-4">
+				<li class="mr-3">
+					<a class="inline-block py-2 px-4 text-black no-underline" href="/">Home</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block py-2 px-4 text-black no-underline" href="/#about">About</a>
+				</li>
+				<li class="mr-3">
+					<a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/blog">Blog</a>
+				</li>
+			</ul>
+
+      <a href="#contact" id="navAction" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">Contact</a>
+		</div>
+	</div>
+	<hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+</nav>
+
+<div class="w-full">
+  <!--Hero-->
+  <div class="pt-24 main-page-hero">
+    <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+      <!--Left Col-->
+      <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+        <img src="/images/blog-hero-2.svg" style="width: 100%" />
+      </div>
+      <!--Right Col-->
+      <div class="w-full md:w-3/5 py-6 text-center">
+        <p class="uppercase tracking-loose w-full">Posted on 2015-11-30</p>
+        <h1 class="my-4 text-5xl font-bold leading-tight">Using Repository pattern to migrate Rails app from MongoDB to PostgreSQL</h1>
+        <p class="leading-normal text-2xl mb-8">
+…because you will need to make that migration.        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative -mt-12 lg:-mt-24">
+    <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" >
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
+    <path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.100000001"></path>
+    <path d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z" opacity="0.100000001"></path>
+    <path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" id="Path-4" opacity="0.200000003"></path>
+    </g>
+    <g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
+    <path d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z"></path>
+    </g>
+    </g>
+    </svg>
+  </div>
+
+  <section class="bg-white border-b py-8">
+    <div class="container mx-auto m-8">
+      <div class="w-full mb-4">
+        <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+      </div>
+      <div class="w-full">
+        <div class="p-6 w-full text-gray-800 post-content">
+<p>At Amberbit, we have a legacy project which uses MongoDB. We’ve been working on it for few years now. Through this time it obviously grow and changed a lot and at some point we started focusing more on it’s performance. The biggest issue we had was that we were using <a href="https://github.com/mongodb/mongoid">mongoid</a> and <a href="https://github.com/mongoid/moped">mongoid/moped</a>, which not only caused memory leaks (<a href="http://www.nateberkopec.com/2015/08/05/rack-mini-profiler-the-secret-weapon.html?utm_source=amberbit_blog&amp;utm_medium=web">rack mini profiler</a>) but also had an impact on performance as we needed to run really complicated queries that non-relational database couldn’t handle well. That’s why we agreed on switching to PostgreSQL.</p><p>Step by step, I want to show you how to migrate from MongoDB to PostgreSQL. You don’t need to use all of my solutions, but I promise they’ll save your time and make your code cleaner.</p><h2>Repositories</h2><p>The key is to make sure that you won’t lose any query, which could break some of your functionalities. First step is based on the recipe proposed by Andrzej Krzywda in <a href="http://rails-refactoring.com/">Fearless Refactoring</a>. He recommends creating repositories for each model you are using or at least for the biggest and most complicated ones. By moving all your queries there, you can easily modify them later and change their syntax in the Active Record way. Same strategy apply to your tests.</p><pre><code>class UsersRepository
+  def find(id, attributes: nil)
+    users.only(attributes).where(id: id).first
+  end
+
+  def find_by_email(email, attributes: nil)
+    users.only(attributes).where(email: email)
+  end
+
+  def all(attributes: nil)
+    users.only(attributes).all
+  end
+
+  def all_by_name(name, attributes: nil)
+    users.only(attributes).where(name: name)
+  end
+
+  private
+
+  def users
+    @users ||= User
+  end
+end</code></pre><p>To speed up moving queries to the repository don’t forget to grep some commonly occurring patterns:</p><pre><code>$ git grep ‘ User\.’
+$ git grep ‘ user\.’
+$ git grep ‘\.users</code></pre><p>Remember to find places where model is called by associated model if it’s connected by <code class="inline">has_many</code>, <code class="inline">has_one</code> or <code class="inline">belongs_to</code>.</p><pre><code>UserCommunity.find(id).users </code></pre><p>change it to</p><pre><code>def all_by_user_community(id, attributes: nil)
+  users.only(attributes).where(user_community_id: id)
+end</code></pre><p>You should also move all <code class="inline">create</code>, <code class="inline">update</code>, <code class="inline">delete</code> and even <code class="inline">save</code> calls to the Repository. It will help you later on, while working on callbacks. It will be much cleaner to place it there instead of using <code class="inline">before_save</code> actions inside the model.</p><pre><code>def update(user, attrs={}l)
+  user.update(attrs)
+end
+
+def save(user)
+  user.save
+end</code></pre><h3>attributes</h3><p>As you might see, I’m passing an optional parameter <code class="inline">attributes</code>. It allows you to pass array of the names of fields you want to receive, which will speed up your query execution in situations when you don’t really need all fields of your model. </p><h3>size, length, count</h3><p>It would be also a good practise to move all <code class="inline">.count</code> calls to the repository you are creating. When using mongodb, there is no difference when using <code class="inline">count</code>, <code class="inline">length</code> or <code class="inline">size</code>. In postgres, there is a huge performance difference between them. Using <code class="inline">length</code>, will load the data each time and then execute the query. When you use <code class="inline">count</code>, it won’t load all data but just execute count query. Performance-wise is best to use <code class="inline">size</code>. It will load data only when they’re not already loaded otherwise it will just count them.</p><h2>Setup Postgres</h2><p>When you’re done with the first step, you can go ahead and start setting up postgres for your project. This is the simplest part. You need to add <code class="inline">pg</code> and <code class="inline">active_record</code> gems to your Gemfile, run <code class="inline">bundle exec install</code> and prepare your <code class="inline">database.yml</code> file to keep your db connection configuration. I was afraid I’ll have some problems with working on two different databases in one project, but it turns out that it’s much easier than I expected. As I said, it’s the easiest part :)</p><h2>Generate postgres migration</h2><p>Once you have your project set up with the proper gems and your model repositories are all prepared, you should tell your new database about those new models you are going to add. Creating migrations is really easy as you can use <code class="inline">rails generate ...</code><a href="http://edgeguides.rubyonrails.org/active_record_migrations.html">command</a>. Although, you need to remember to define the type of a migration, as we have configured two different databases. The solution you need to apply is:</p><pre><code>$ rails generate active_record:migration MigrationName</code></pre><p>When you generate your migration file, I recommend using your mongoid Model file and copying all of the mongoid <code class="inline">field</code> to generated migration. Of course you’ll need to modify them to fit the proper Active Record migration syntax. You can also use Find/Replace tool (vim: <code class="inline">:%s/pattern/patter/g</code>).</p><pre><code>field :name, String</code></pre><p>will be</p><pre><code>t.string :name</code></pre><p>From my experience, you should also add <code class="inline">mongo_id</code> string field to each model, which may help you later with your existing data migration. Don’t forget about your model relations and to deal with all of the mongoid <code class="inline">embedded documents</code> by creating additional tables or moving some fields directly to the parent model. If necessary, create some indirect tables. After you finish, remember to <code class="inline">run rake db:migrate</code>. If something goes wrong, you can always do <code class="inline">rake db:rollback</code> to undo your last migration. I think, you know the drill :)</p><h2>Prepare your ActiveRecord models</h2><p>I believe that the best practice to create new models and a task for populating data from MongoDB to PostgreSQL, would be by creating additional directory like <code class="inline">/models/mongodb</code>. Next, copy there models you are going to migrate and modify them by adding namespace and name of the collection, which your model should be pointing at:</p><pre><code>class Mongodb::User
+  field :name
+  field :email
+
+  store_in collection: ‘users’  #remember to pluralize the name of your model
+end</code></pre><p>When you’re done with that, get back to your primary model file and modify it in the ActiveRecord way: </p><ul><li>Remove all <code class="inline">include Mongoid::...</code>  and <code class="inline">field :name</code> lines. 
+</li><li>Add <code class="inline">&lt; ActiveRecord::Base</code> after <code class="inline">class Name</code> line
+</li><li>Modify your repositories to use Active Record syntaxes (change all <code class="inline">nin</code>, <code class="inline">in</code>, <code class="inline">eq</code>, use joins, etc.)
+</li><li><p>If your file is referencing to some other models that you are not going to migrate now, you need to consider adding some custom methods that will make a proper connection and return the data from referenced objects. From my experience, it’s best not to split the migrations. It’s much easier to keep track of all model associations, and later to create script for populating data, when you already have all the referenced models created.</p><p>  def find(id, attributes: ‘*‘)</p><pre><code>users.select(attributes).where(id: id).first</code></pre><p>  end</p></li></ul><h2>Creating a task for data migration</h2><p>The last step of the migration is to move all the data you have in your MongoDB to your new Postgres database. To do that I used few components:</p><ul><li><a href="https://github.com/mongoid/moped">Mongoid/Moped</a> driver to get data directly from database in hash format. 
+</li><li>Postgres <a href="http://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html">transaction</a> to be sure that the whole model migration will pass without any problems. Any brake or error during migration would trigger rollback, so we won’t need to check which records has already been created when trying to run it one more time after applying fixes.
+</li><li><p>Plain SQL to insert. It is much faster and cleaner way than using ActiveRecord. Also, if you already properly created all the records, you don’t need to validate them or run callbacks.
+You can use <a href="https://github.com/jamis/bulk_insert">Bulk Insert</a> gem that will help you generate all of the inserts in just one execution(it will speed it up by a lot).</p><p>  ActiveRecord::Base.transaction do</p><pre><code>attributes = User.attribute_names
+User.bulk_insert do |pg_model|
+  Mongodb::User.collection.find().to_a.each do |user|
+    attrs = user.slice(*attributes).merge(mongo_id: user[&apos;_id&apos;].to_s)
+    pg_model.add(attrs)
+  end
+end</code></pre><p>  end</p></li></ul><p>If you are going to create some references, you should implement proper migration in the same transaction. It only depends, if the associated model, has been already created or not. </p><p>So, if you need to join user to the group, you’ll need to migrate the group first, and then, in user migration block, merge additional attributes with the id of the group in postgres database. Use <code class="inline">mongo_id</code> field to find the proper one:</p><pre><code>attrs.merge(store_group_id: UserGroup.where(mongo_id: user[‘store_group_id’].to_s)
+                                     .first.try(:id))</code></pre><p>This is also the reason why I recommended creating additional <code class="inline">mongo_id</code> field in each model.</p><p>Also, remember about properly migrating many to many relations, which were arrays in mongo database, but now they need additional indirect table. After migrating both of the models(User and Tag), get one of them and create additional loop:</p><pre><code>UserTag.bulk_insert do |postgres|
+  Mongodb::Tag.collection.find().each do |tag|
+    tag_id = Tag.where(mongo_id: record[&apos;_id&apos;].to_s).first.try(:id)
+    tag[&apos;user_ids&apos;].each do |uid|
+      postgres.add(user_id: User.where(mongo_id: sid.to_s).first.try(:id), tag_id: tag_id)
+    end
+  end
+end</code></pre><p>This is another situation where you definitely need your old mongo id value. This kind of migration will be probably the longest one. For me, running it on ~20k records takes around 3 min.</p><h2>Conclusion</h2><p>This transition was a time consuming process but we don’t regret it. It not only made our service faster but it also helped us to clear our code and make some good changes.</p><p>I bet there are more people who already had to deal with this problem so let me know about your experience and the solutions you worked out :)</p><p><div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center"><div class="flex flex-col w-full md:w-1/5 justify-center md:items-start items-center text-center md:text-left"><img src="/images/people/rmaksymczuk.jpg" class="rounded-full max-w-full"/></div><div class="flex flex-col w-full md:w-4/5 justify-center md:items-start items-center text-center md:text-left"><h3 class="ml-5">Post by Rafał Maksymczuk</h3><p class="ml-5">Rafał enjoys a range of technologies (Ruby, JavaScript), and has been working with us since 2013.</p></div></div></p>        </div>
+<div data-phx-session="SFMyNTY.g3QAAAACZAAEZGF0YWgCYQR0AAAAB2QAAmlkbQAAABRwaHgtRndsWFBxeXJFMFoyVG0wQmQACnBhcmVudF9waWRkAANuaWxkAAhyb290X3BpZGQAA25pbGQACXJvb3Rfdmlld2QAH0VsaXhpci5BbWJlcmJpdFdlYi5Db21tbWVudExpdmVkAAZyb3V0ZXJkAANuaWxkAAdzZXNzaW9udAAAAAJtAAAABHBhdGhtAAAAWi9ibG9nLzIwMTUvMTEvMzAvdXNpbmctcmVwb3NpdG9yeS1wYXR0ZXJuLXRvLW1pZ3JhdGUtcmFpbHMtYXBwLWZyb20tbW9uZ29kYi10by1wb3N0Z3Jlc3FsL20AAAAFdG9rZW5kAANuaWxkAAR2aWV3ZAAfRWxpeGlyLkFtYmVyYml0V2ViLkNvbW1tZW50TGl2ZWQABnNpZ25lZG4GAKje9XyCAQ.5fjdkVSzWVt0j2C6wdQpzVMx_PTwwipkD8xRFRbseH8" data-phx-static="SFMyNTY.g3QAAAACZAAEZGF0YWgCYQR0AAAAA2QADGFzc2lnbmVkX25ld2pkAAVmbGFzaHQAAAAAZAACaWRtAAAAFHBoeC1Gd2xYUHF5ckUwWjJUbTBCZAAGc2lnbmVkbgYAqN71fIIB.70NDi1OYpTVNZk1meol_QsItwSBCwE42HB_G_zKdi10" data-phx-view="CommmentLive" id="phx-FwlXPqyrE0Z2Tm0B"><div class="px-4">
+  <div class="my-6 text-gray-800 post-comments">
+  </div>
+</div>
+<div class="text-gray-800 post-comment-input px-4">
+  <h4 class="my-2 text-gray-800 text-2xl">Leave a comment...</h4>
+<form action="#" method="post" phx-submit="add"><input name="_csrf_token" type="hidden" value="GBENRTIvcRotSUFAGEUiAB1GCi9HLwR6QUW-zG3pz-pyS-WtokofrhNJ"><input id="comment_path" name="comment[path]" type="hidden" value="/blog/2015/11/30/using-repository-pattern-to-migrate-rails-app-from-mongodb-to-postgresql/">        <div class="md:flex md:items-center mt-2 mb-0">
+<input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 false" id="comment_nickname" name="comment[nickname]" placeholder="Your name…*" type="text">        </div>
+
+        <div class="md:flex md:items-center mt-2 mb-0">
+<input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 false" id="comment_email_address" name="comment[email_address]" placeholder="Your e-mail address (will not be published)…" type="text">        </div>
+
+        <div class="md:flex md:items-center mt-2 mb-0 ">
+<textarea class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 h-56 false" id="comment_comment" name="comment[comment]" placeholder="Your comment…*">
+</textarea>        </div>
+
+        <div class="md:flex md:items-center mt-2">
+<button class="mx-auto lg:mx-0 hover:underline bg-gray-600 text-gray-800 font-bold rounded-full my-2 py-4 px-8 shadow-lg" phx-disabled-with="Adding…" type="submit">Add comment</button>        </div>
+        <div class="md:flex md-items-left mb-2">
+            <p>
+                When submitting the form, you are sending your personal information (including your name and e-mail as
+                entered above) to contact@amberbit.com. AmberBit Sp. z o. o. is the receiving party, and a data
+                controller, and will use the information you provided for the purpose of notifying you about replies to or
+                report issues with your comment. We will not subscribe you to marketing lists, newsletters etc. You can
+                read more about it in our <a class="underline" href="/privacy-policy" target="_blank">Privacy Policy</a>.
+            </p>
+        </div>
+    </form>
+</div>
+</div>      </div>
+    </div>
+  </section>
+
+  <!-- Change the colour #f8fafc to match the previous section colour -->
+  <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
+        <g class="wave" fill="#f8fafc">
+          <path d="M1440,84 C1383.555,64.3 1342.555,51.3 1317,45 C1259.5,30.824 1206.707,25.526 1169,22 C1129.711,18.326 1044.426,18.475 980,22 C954.25,23.409 922.25,26.742 884,32 C845.122,37.787 818.455,42.121 804,45 C776.833,50.41 728.136,61.77 713,65 C660.023,76.309 621.544,87.729 584,94 C517.525,105.104 484.525,106.438 429,108 C379.49,106.484 342.823,104.484 319,102 C278.571,97.783 231.737,88.736 205,84 C154.629,75.076 86.296,57.743 0,32 L0,0 L1440,0 L1440,84 Z"></path>
+        </g>
+        <g transform="translate(1.000000, 15.000000)" fill="#FFFFFF">
+          <g transform="translate(719.500000, 68.500000) rotate(-180.000000) translate(-719.500000, -68.500000) ">
+            <path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.100000001"></path>
+            <path d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z" opacity="0.100000001"></path>
+            <path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" opacity="0.200000003"></path>
+          </g>
+        </g>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<section id="contact" class="container mx-auto text-center pt-6 mb-12">
+	<h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">Contact us</h1>
+	<div class="w-full mb-4">
+		<div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+	</div>
+
+	<h3 class="m-4 text-3xl leading-tight">
+    Want to get in touch about a project or say 'Hello'? Drop us a line!
+  </h3>
+</section>
+<section class="container mx-auto text-left mb-12">
+  <div class="flex flex-wrap flex-col-reverse sm:flex-row">
+    <div class="w-full sm:w-2/3 md:px-8 flex-shrink flex-grow flex-col p-4">
+<div data-phx-session="SFMyNTY.g3QAAAACZAAEZGF0YWgCYQR0AAAAB2QAAmlkbQAAABRwaHgtRndsWFBxekdkTzEyVG0waGQACnBhcmVudF9waWRkAANuaWxkAAhyb290X3BpZGQAA25pbGQACXJvb3Rfdmlld2QAHkVsaXhpci5BbWJlcmJpdFdlYi5Db250YWN0TGl2ZWQABnJvdXRlcmQAA25pbGQAB3Nlc3Npb250AAAAAGQABHZpZXdkAB5FbGl4aXIuQW1iZXJiaXRXZWIuQ29udGFjdExpdmVkAAZzaWduZWRuBgCp3vV8ggE.C5QDM90LijpEChYHiz8JsmDLu1TzYqYhqHJ7g3Tu52E" data-phx-static="SFMyNTY.g3QAAAACZAAEZGF0YWgCYQR0AAAAA2QADGFzc2lnbmVkX25ld2pkAAVmbGFzaHQAAAAAZAACaWRtAAAAFHBoeC1Gd2xYUHF6R2RPMTJUbTBoZAAGc2lnbmVkbgYAqd71fIIB.ozR-HRAOON0gbw66yS1Lq80vkrUXlVG6iVx_quEkBRo" data-phx-view="ContactLive" id="phx-FwlXPqzGdO12Tm0h">  
+
+  <form action="#" method="post" phx-submit="save"><input name="_csrf_token" type="hidden" value="GBENRTIvcRotSUFAGEUiAB1GCi9HLwR6QUW-zG3pz-pyS-WtokofrhNJ">
+    <div class="md:flex md:items-center mb-2">
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="contact_form_name" name="contact_form[name]" placeholder="Your name..." type="text">
+    </div>
+    
+
+    <div class="md:flex md:items-center mb-2">
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="contact_form_email" name="contact_form[email]" placeholder="Your e-mail address..." type="text">
+    </div>
+    
+
+    <div class="md:flex md:items-center mb-2">
+      <textarea class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="contact_form_message" name="contact_form[message]" placeholder="Your message...">
+</textarea>
+    </div>
+    
+
+    <div class="md:flex md-items-left mb-2">
+      <p>
+        When submitting the form, you are sending your personal information (including your name and e-mail as entered above) to contact@amberbit.com. AmberBit Sp. z o. o. is the receiving party, and a data controller, and will use the information you provided for the purpose of establishing relationship leading to possibly signing a services contract, and fulfillment of such contract only. We will not subscribe you to marketing lists, newsletters etc. You can read more about it in our
+        <a class="underline" href="/privacy-policy" target="_blank">Privacy Policy</a>.
+      </p>
+    </div>
+
+    <div class="md:flex md:items-center mb-2">
+      <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-2 py-4 px-8 shadow-lg">Send your message</button>
+    </div>
+  </form>
+</div>    </div>
+
+    <div class="w-full sm:w-1/3 md:items-left flex-shrink flex-grow flex-col p-4">
+      <ul class="vcard">
+        <li class="fn">Hubert Łepicki</li>
+        <li><a class="email underline" href="mailto:hubert.lepicki@amberbit.com">hubert.lepicki@amberbit.com</a></li>
+        <li><a class="tel underline" href="tel:+48694161264">+48 694 161 264</a></li>
+      </ul>
+
+      <ul class="vcard mt-6">
+        <li class="fn">Wojciech Piekutowski</li>
+        <li><a class="email underline" href="mailto:wojciech.piekutowski@amberbit.com">wojciech.piekutowski@amberbit.com</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!--Footer-->
+<footer class="bg-white">
+	<div class="container mx-auto">
+    <div class="w-full flex flex-col md:flex-row p-4 py-6 text-gray-500">
+      <p>
+      AmberBit Sp. z o. o., EU VAT: PL5423228204, NIP: 5423228204, KRS: 0000439100, REGON: 200741641
+      <br/>
+
+      We do not use tracking cookies or track you otherwise on this web site. For more info check out our <a href="/privacy-policy" class="hover:underline">privacy policy</a>.
+
+      <br/>
+      © 2012 AmberBit Sp. z o. o.
+
+	    <a href="https://www.freepik.com/free-photos-vectors/background" class="text-gray-500">Background vector created by freepik - www.freepik.com</a>
+      </p>
+    </div>
+</footer>
+
+<script type="text/javascript" src="/js/app-b3d7ba7cece749ce85fcb2ee85cb8f0f.js?vsn=d"></script>
+</body>
+
+</html>

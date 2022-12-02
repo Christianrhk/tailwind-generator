@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="google-site-verification" content="g7HiCSbrtyAOep07fTxqL7DJl-U5i80d8F1ax-k2KNo">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Upgrade your career and find the best developer jobs in Wales.">
+    <meta name="keywords" content="">
+    <title>Jobs - Dev Wales</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:700|Open+Sans|Open+Sans:700|Open+Sans:600" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <script>
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+      analytics.load("hyKlUloBTlBCrIOn8LeYaIxIbk3mKyMh");
+      analytics.page();
+      }}();
+    </script>
+  </head>
+  <body>
+    <header class="bg-red-700 py-3">
+      <div class="container px-4 mx-auto flex items-center justify-between flex-wrap">
+        <div class="flex-no-shrink mr-10">
+          <a href="/">
+            <img src="/static/logo-alt.png" width="124" height="56" alt="website logo" />
+          </a>
+        </div>
+        <div class="block md:hidden">
+          <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-red-100 border-red-200 hover:text-white hover:border-white">
+            <p class="mr-3">Menu</p>
+            <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              </svg>
+            </button>
+          </div>
+          <nav id="nav-items" class="w-full flex-grow hidden md:block md:flex md:items-center md:w-auto">
+            <div class="text-sm md:flex-grow">
+              <a href="/groups" class="flex md:inline-flex items-center mt-4 no-underline md:mt-0 hover:text-white mr-6 text-red-200">
+                <span class="text-lg mr-2">🍺</span> Groups
+              </a>
+              <a href="/companies" class="flex md:inline-flex items-center mt-4 no-underline md:mt-0 hover:text-white mr-6 text-red-200">
+                <span class="text-lg mr-2">📖</span> Companies
+              </a>
+              <a href="/jobs" class="flex md:inline-flex items-center mt-4 no-underline md:mt-0 hover:text-white mr-6 text-white">
+                <span class="text-lg mr-2">👩‍💻</span> Jobs
+              </a>
+              <a href="/about" class="flex md:inline-flex items-center mt-4 no-underline md:mt-0 hover:text-white text-red-200">
+                <span class="text-lg mr-2">🚀</span> About
+              </a>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <main class="bg-gray-100 relative">
+        <header class="bg-red-700 pt-6 md:pt-12 pb-10 md:pb-16">
+  <div class="container mx-auto px-4">
+    <div class="w-full md:w-3/4 lg:w-1/2">
+      <h1 class="text-white text-4xl">Take control of your career 💪</h1>
+      <p class="mt-4 text-lg text-red-200 leading-normal">
+        No recruiters, no nonsense - just awesome jobs for developers.
+      </p>
+      <p class="mt-4 text-lg text-red-200 leading-normal">
+        We'll get out of the way so that you can take control of your job hunt and apply directly to your favourite companies.
+      </p>
+      <a href="/jobs/add" class="inline-flex items-center mt-6 py-4 px-6 md:p-6 bg-yellow-400 hover:bg-yellow-500 text-black font-bold md:leading-none underline-none rounded">
+        <img src="/static/icons/plus.svg" class="mr-4 h-6" width="24" height="24" />
+        Add a job
+      </a>
+    </div>
+  </div>
+</header>
+<div class="py-8">
+  <div class="container mx-auto px-4 flex flex-col lg:flex-row">
+    <div class="w-full lg:w-1/4 mr-6">
+      <label class="block tracking-wide text-gray-700 text-sm font-bold mb-2" for="search-input">
+        Search
+      </label>
+      <input id="search-input" type="text" name="search" placeholder="Search job titles..." onkeyup="updateJobs()" autocomplete="off" class="mb-6 appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-red-600" />
+    </div>
+    <div class="w-full lg:w-1/2">
+      <div class="block tracking-wide text-grey-darker text-sm font-bold mb-2">Showing <span id="result-count">111</span> jobs</div>
+      <ul id="job-list">
+        <li>
+          <a href="https://bipsync.com/careers/devops-engineer-cardiff/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">DevOps Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Bipsync, Cardiff/Hybrid</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 2 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://bipsync.com/careers/lead-software-engineer-hybrid-remote-cardiff-uk/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Lead Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Bipsync, Cardiff (Hybrid or Remote)</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 4 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://bipsync.com/careers/senior-software-engineer-hybrid-remote-cardiff-uk/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Bipsync, Cardiff (Hybrid or Remote)</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 4 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://bipsync.com/careers/software-engineer-hybrid-remote-cardiff-uk/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Bipsync, Cardiff (hybrid or remote)</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 4 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://bipsync.com/careers/corporate-it-manager-cardiff/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Corporate IT Manager</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Bipsync, Cardiff/Remote UK</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 4 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://bipsync.com/careers/senior-qa-engineer-cardiff/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior QA Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Bipsync, Cardiff/Remote UK</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 4 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://bipsync.com/careers/product-designer-cardiff/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Product Designer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Bipsync, Cardiff/Remote UK</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 4 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.s4c.cymru/en/jobs/post/49983/aws-dev-ops-engineer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Peiriannydd DevOps AWS / AWS Dev Ops Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at S4C, Carmarthen, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 5 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.s4c.cymru/en/jobs/post/49983/aws-dev-ops-engineer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">AWS Dev Ops Engineer | Peiriannydd DevOps AWS</h2>
+                <p class="text-gray-700 text-sm leading-normal">at S4C , Cardiff/Carmarthen</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 5 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.s4c.cymru/en/jobs/post/49965/ux-junior-designer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Junior UX Designer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at S4C, Carmarthen, Wales</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 5 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.s4c.cymru/en/jobs/post/49955/web-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Web Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at S4C, Carmarthen, Wales</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 5 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://veeqo-ltd.breezy.hr/p/92f614c55cab01-senior-devops-engineer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior DevOps Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Veeqo, Swansea</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 6 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://veeqo-ltd.breezy.hr/p/f84f76c7ce9901-software-development-manager" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Development Manager</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Veeqo, Swansea</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 6 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://veeqo-ltd.breezy.hr/p/f2d0d6d8d36c01-software-development-engineer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Development Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Veeqo, Swansea</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 6 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://veeqo-ltd.breezy.hr/p/e59ba080dbe701-senior-software-development-engineer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Software Development Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Veeqo, Swansea</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 6 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://veeqo-ltd.breezy.hr/p/82c951339c4301-senior-frontend-engineer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Frontend Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Veeqo, Swansea</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 6 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://veeqo-ltd.breezy.hr/p/15342c50b97201-second-line-support-engineer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Second Line Support Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Veeqo, Swansea</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 6 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://veeqo-ltd.breezy.hr/p/0e81aea5015901-frontend-engineer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Frontend Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Veeqo, Swansea</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 6 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://veeqo-ltd.breezy.hr/p/8707c2ec19e901-data-engineer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Data Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Veeqo, Swansea</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 6 months ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://caredirect.tech/jobs/jobs-mobile-app-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Mobile Application Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Care Direct Technology, Remote with the odd day in Newport or Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added a year ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://uk.indeed.com/job/devops-engineer-fdb7996980c58e69" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">DevOps Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at CDSM Interactive Solutions Ltd, Swansea</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added a year ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.limegreentangerine.co.uk/careers/experienced-frontend-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Frontend Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Limegreentangerine, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added a year ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.civilservicejobs.service.gov.uk/csr/jobs.cgi?jcode&#x3D;1677207" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Software Developers</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Companies House, Cardiff or Remote</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 2 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://caredirect.tech" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Full Stack Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Care Direct Technology, Central Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 2 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://bluestag.co.uk/career/web-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Web Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Blue Stag, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 2 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/jobs/cap/view/1755398983/?pathWildcard&#x3D;1755398983&amp;trk&#x3D;job_capjs" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior PHP Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Escentual, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 2 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://hire.withgoogle.com/public/jobs/currencycloudcom/view/P_AAAAABkAAB1DZMe5KjqtLO" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">DevOps Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Currencycloud, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 2 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://prodigigroup.recruitee.com/o/midlevel-python-developer-cardiff-3550k" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Mid-Level Python Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Prodigi, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://prodigigroup.recruitee.com/o/technical-product-owner-4050k" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Technical Product Owner</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Prodigi, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://grnh.se/8493616e2" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Java Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Oodle Finance, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://grnh.se/a37a62682" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Front End Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Oodle Finance, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.indeed.co.uk/viewjob?t&#x3D;full+stack+software+developer&amp;jk&#x3D;10219f60e250cd47&amp;_ga&#x3D;2.157898553.249749545.1577978026-1779258408.1571130933" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Full Stack Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at 21:32, Newport</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://employers.indeed.com/j#jobs/view?id&#x3D;ad45ff88d6ce" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Web Applications Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at 21:32, Newport</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://hire.withgoogle.com/public/jobs/currencycloudcom/view/P_AAAAABkAAB1BKStWMEs0TG" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">QA Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Currencycloud, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://hire.withgoogle.com/public/jobs/currencycloudcom/view/P_AAAAABkAAB1LYj_f8GbNH5" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Currencycloud, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://hire.withgoogle.com/public/jobs/currencycloudcom/view/P_AAAAABkAAB1KdLL-yuE9nc" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Currencycloud, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://hire.withgoogle.com/public/jobs/currencycloudcom/view/P_AAAAABkAAB1OhvETYMzOS1" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Tech Lead</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Currencycloud, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.indeedjobs.com/2132/jobs/49e78d62882438899230" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Full Stack Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at 21:32, Newport</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.indeedjobs.com/2132/jobs/1bac2a7362ffaa119e6f" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Web Applications Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at 21:32, Newport</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.cwjobs.co.uk/job/data-analyst/virtual-mga-uk-ltd-job88063331" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Data Analyst</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Virtual MGA, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://jobs.smartrecruiters.com/InstantECare/743999693716815-senior-php-developer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior PHP Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at InstanteCare, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.indeed.co.uk/viewjob?t&#x3D;senior+frontend+developer&amp;jk&#x3D;a02038119d7bd289" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Frontend Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Logically Secure, Tramshed Tech, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://nightingalehq.ai/careers/summer-placement-software-engineering-intern-2019/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Engineering Summer Intern</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Nightingale HQ, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://nightingalehq.ai/careers/data-science-apprentice-2019/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Data Science Apprentice</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Nightingale HQ, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://wearecore.co.uk/blog/hiring-web-developer.html" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Web Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Core Internet Solutions, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.jobs.nhs.uk/xi/vacancy/?vac_ref&#x3D;915616642" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Lead Software Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at NHS Wales Informatics Service, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.bipsync.com/devops-engineer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">DevOps Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Bipsync, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://concentric.health/careers.html#job1" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Front-end developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Concentric, TramshedTech, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.indeedjobs.com/2132/jobs/a59060728d834c61985c" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Developer (React/JS)</h2>
+                <p class="text-gray-700 text-sm leading-normal">at 21:32, Newport</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.indeedjobs.com/2132/jobs/aeed358ab402f959e576" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Backend Software Engineer (Typescript/JS)</h2>
+                <p class="text-gray-700 text-sm leading-normal">at 21:32, Newport</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://angel.co/tendertec/jobs/521991-firmware-embedded-engineer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Firmware/Embedded Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Tendertec, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://angel.co/tendertec/jobs/521980-senior-software-engineer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Tendertec, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://angel.co/tendertec/jobs/521970-deep-learning-lead" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Deep Learning Lead</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Tendertec, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://angel.co/tendertec/jobs/521963-computer-vision-lead" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Computer Vision Lead</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Tendertec, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.indeed.co.uk/job/php-web-developer-symfony-experience-desirable-4d30415bc07995f4?_ga&#x3D;2.81261911.1112356822.1552508097-1448324503.1539975851" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">PHP Web Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at WebBox, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.wealthify.com/careers/software-engineers-multiple-roles" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Wealthify, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://prodigigroup.recruitee.com/o/senior-c-net-developer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior C# .NET Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Prodigi, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://prodigigroup.recruitee.com/o/reactjs-frontend-developer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">ReactJS Frontend Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Prodigi, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://prodigigroup.recruitee.com/o/junior-c-developer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Junior C# Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Prodigi, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://mypinpad.com/careers/#services-developers" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Services Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at MyPinPad, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://mypinpad.com/careers/#senior-devops-engineer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior DevOps Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at MyPinPad, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://mypinpad.com/careers/#ios-developers" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">iOS Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at MyPinPad, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://mypinpad.com/careers/#android-developers" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Android Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at MyPinPad, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.motokiki.com/jobs" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Junior Web Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Motokiki, Port Talbot</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.motokiki.com/jobs" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Web Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Motokiki, Port Talbot</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://kinderly.co.uk/full-stack-app-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Full Stack App Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Kinderly, Newport</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://kinderly.co.uk/junior-web-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Junior Web Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Kinderly, Newport</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.gocomparecareers.com/current-roles/188" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Group Leader (Senior Software Engineer)</h2>
+                <p class="text-gray-700 text-sm leading-normal">at GoCompare, Newport</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.gocomparecareers.com/current-roles/187" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at GoCompare, Newport</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.gocomparecareers.com/current-roles/190" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Test Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at GoCompare, Newport</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://dezrezserviceslimited.peoplehr.net/Pages/JobBoard/Opening.aspx?v&#x3D;91a8dc31-2595-4db9-aaf1-86f9e6dcf39e" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Web Designer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Dezrez, Swansea</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.devopsgroup.com/careers/cloud-engineer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Cloud Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at DevOpsGroup, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.devopsgroup.com/careers/devops-engineer-cardiff/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">DevOps Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at DevOpsGroup, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.devopsgroup.com/careers/cloud-operations-engineer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Cloud Operations Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at DevOpsGroup, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1haYQCDsgvNCEZL9s1fNxzodT8bOd4E4Z/view?usp&#x3D;sharing" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Delio, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://careers.creditsafe.com/gb/software-engineer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Creditsafe, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://careers.creditsafe.com/gb/python-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Python Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Creditsafe, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://admiraljobs.co.uk/vacancies/3292/CFSD/software_developer_confusedcom/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Confused.com, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://admiraljobs.co.uk/vacancies/3320/CFSD/senior_software_developer_confusedcom/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Confused.com, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://admiraljobs.co.uk/vacancies/3242/CFSD/data_platform_automation_engineer_confusedcom/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Data Platform Automation Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Confused.com, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://admiraljobs.co.uk/vacancies/2980/CFSD/senior_database_developer_confusedcom/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Database Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Confused.com, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://admiraljobs.co.uk/vacancies/3313/CFSD/software_enterprise_architect_confusedcom/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Enterprise Architect</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Confused.com, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://concentric.health/careers.html" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Full-stack Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Concentric, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://clinithink.com/systems-software-engineer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Systems Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Clinithink, Bridgend</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://celfcreative.com/careers" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">PHP Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Celf Creative, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://celfcreative.com/careers" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Full Stack Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Celf Creative, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.cafex.com/en/company/careers/software-eng/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at CafeX Communications, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.boxuk.com/about-us/careers/php-software-engineer" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">PHP Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at BoxUK, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://workatbackbase.com/job/frontend-web-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Frontend Web Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Backbase, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://workatbackbase.com/job/senior-application-security-engineer-frontend-2/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Application Security Engineer (Frontend)</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Backbase, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://workatbackbase.com/job/senior-application-security-engineer-back-end/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Application Security Engineer (Backend)</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Backbase, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://workatbackbase.com/job/software-architect/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Architect</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Backbase, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://workatbackbase.com/job/senior-java-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Java Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Backbase, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://workatbackbase.com/job/senior-web-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Web Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Backbase, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://workatbackbase.com/job/java-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Java Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Backbase, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://workatbackbase.com/job/lead-qa-engineer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Lead QA Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Backbase, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://workatbackbase.com/job/senior-system-engineer-devops-2/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior System Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Backbase, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://workatbackbase.com/job/full-stack-developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Full Stack Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Backbase, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://amplyfigroup.com/img/job-specs/Junior-Software-Developer.pdf" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Junior Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Amplyfi, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://amplyfigroup.com/img/job-specs/Senior-Full-Stack-Software-Engineer.pdf" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Full Stack Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Amplyfi, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://cho.tbe.taleo.net/cho02/ats/careers/v2/viewRequisition?org&#x3D;ALERTLOGIC&amp;cws&#x3D;37&amp;rid&#x3D;2833" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">UI Engineer - Javascript</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Alert Logic, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://cho.tbe.taleo.net/cho02/ats/careers/v2/viewRequisition?org&#x3D;ALERTLOGIC&amp;cws&#x3D;37&amp;rid&#x3D;2739" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Associate Software Engineer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Alert Logic, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://admiraljobs.co.uk/vacancies/2278/test_automation_lead/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Test Automation Lead</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Admiral, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://admiraljobs.co.uk/vacancies/2980/database_developers_confusedcom/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Database Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Confused.com, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://admiraljobs.co.uk/vacancies/3192/software_developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Admiral, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://admiraljobs.co.uk/vacancies/3196/data_scientist/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Data Scientist</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Admiral, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://admiraljobs.co.uk/vacancies/3320/senior_software_developer_confusedcom/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Senior Software Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Confused.com, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://admiraljobs.co.uk/vacancies/3321/software_developer_confusedcom/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Confused.com, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://admiraljobs.co.uk/vacancies/3314/software_engineer_mid_senior_principal/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Software Engineer (Mid / Senior / Principal)</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Admiral, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://admiraljobs.co.uk/vacancies/3300/sql_server_dba/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">SQL Server DBA</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Admiral, Cardiff</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://admiraljobs.co.uk/vacancies/3339/data_warehouse_developer/" class="no-underline" target="_blank">
+            <div class="flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow hover:border">
+              <div class="flex-1 flex flex-col">
+                <h2 class="font-bold mb-1">Data Warehouse Developer</h2>
+                <p class="text-gray-700 text-sm leading-normal">at Admiral, Swansea</p>
+              </div>
+              <p class="text-gray-700 text-sm leading-normal">Added 3 years ago</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  const jobs = [{"type":"link","title":"DevOps Engineer","link":"https://bipsync.com/careers/devops-engineer-cardiff/","companyName":"Bipsync","location":"Cardiff/Hybrid","createdDate":"Wednesday, May 25th 2022, 9:16:51 am","timeSince":"2 months ago"},{"type":"link","title":"Lead Software Engineer","link":"https://bipsync.com/careers/lead-software-engineer-hybrid-remote-cardiff-uk/","companyName":"Bipsync","location":"Cardiff (Hybrid or Remote)","createdDate":"Thursday, April 21st 2022, 8:05:30 am","timeSince":"4 months ago"},{"type":"link","title":"Senior Software Engineer","link":"https://bipsync.com/careers/senior-software-engineer-hybrid-remote-cardiff-uk/","companyName":"Bipsync","location":"Cardiff (Hybrid or Remote)","createdDate":"Thursday, April 21st 2022, 8:04:54 am","timeSince":"4 months ago"},{"type":"link","title":"Software Engineer","link":"https://bipsync.com/careers/software-engineer-hybrid-remote-cardiff-uk/","companyName":"Bipsync","location":"Cardiff (hybrid or remote)","createdDate":"Thursday, April 21st 2022, 8:04:21 am","timeSince":"4 months ago"},{"type":"link","title":"Corporate IT Manager","link":"https://bipsync.com/careers/corporate-it-manager-cardiff/","companyName":"Bipsync","location":"Cardiff/Remote UK","createdDate":"Tuesday, March 29th 2022, 8:01:20 am","timeSince":"4 months ago"},{"type":"link","title":"Senior QA Engineer","link":"https://bipsync.com/careers/senior-qa-engineer-cardiff/","companyName":"Bipsync","location":"Cardiff/Remote UK","createdDate":"Tuesday, March 29th 2022, 8:00:51 am","timeSince":"4 months ago"},{"type":"link","title":"Product Designer","link":"https://bipsync.com/careers/product-designer-cardiff/","companyName":"Bipsync","location":"Cardiff/Remote UK","createdDate":"Tuesday, March 29th 2022, 8:00:06 am","timeSince":"4 months ago"},{"type":"link","title":"Peiriannydd DevOps AWS / AWS Dev Ops Engineer","link":"https://www.s4c.cymru/en/jobs/post/49983/aws-dev-ops-engineer/","companyName":"S4C","location":"Carmarthen, Cardiff","createdDate":"Friday, March 18th 2022, 2:27:49 pm","timeSince":"5 months ago"},{"type":"link","title":"AWS Dev Ops Engineer | Peiriannydd DevOps AWS","link":"https://www.s4c.cymru/en/jobs/post/49983/aws-dev-ops-engineer/","companyName":"S4C ","location":"Cardiff/Carmarthen","createdDate":"Thursday, March 17th 2022, 2:13:10 pm","timeSince":"5 months ago"},{"type":"link","title":"Junior UX Designer","link":"https://www.s4c.cymru/en/jobs/post/49965/ux-junior-designer/","companyName":"S4C","location":"Carmarthen, Wales","createdDate":"Tuesday, March 15th 2022, 7:01:28 pm","timeSince":"5 months ago"},{"type":"link","title":"Web Developer","link":"https://www.s4c.cymru/en/jobs/post/49955/web-developer/","companyName":"S4C","location":"Carmarthen, Wales","createdDate":"Tuesday, March 15th 2022, 7:00:41 pm","timeSince":"5 months ago"},{"type":"link","title":"Senior DevOps Engineer","link":"https://veeqo-ltd.breezy.hr/p/92f614c55cab01-senior-devops-engineer","companyName":"Veeqo","location":"Swansea","createdDate":"Thursday, February 10th 2022, 11:59:29 am","timeSince":"6 months ago"},{"type":"link","title":"Software Development Manager","link":"https://veeqo-ltd.breezy.hr/p/f84f76c7ce9901-software-development-manager","companyName":"Veeqo","location":"Swansea","createdDate":"Thursday, February 10th 2022, 11:59:15 am","timeSince":"6 months ago"},{"type":"link","title":"Software Development Engineer","link":"https://veeqo-ltd.breezy.hr/p/f2d0d6d8d36c01-software-development-engineer","companyName":"Veeqo","location":"Swansea","createdDate":"Thursday, February 10th 2022, 11:58:59 am","timeSince":"6 months ago"},{"type":"link","title":"Senior Software Development Engineer","link":"https://veeqo-ltd.breezy.hr/p/e59ba080dbe701-senior-software-development-engineer","companyName":"Veeqo","location":"Swansea","createdDate":"Thursday, February 10th 2022, 11:58:47 am","timeSince":"6 months ago"},{"type":"link","title":"Senior Frontend Engineer","link":"https://veeqo-ltd.breezy.hr/p/82c951339c4301-senior-frontend-engineer","companyName":"Veeqo","location":"Swansea","createdDate":"Thursday, February 10th 2022, 11:58:32 am","timeSince":"6 months ago"},{"type":"link","title":"Second Line Support Engineer","link":"https://veeqo-ltd.breezy.hr/p/15342c50b97201-second-line-support-engineer","companyName":"Veeqo","location":"Swansea","createdDate":"Thursday, February 10th 2022, 11:58:12 am","timeSince":"6 months ago"},{"type":"link","title":"Frontend Engineer","link":"https://veeqo-ltd.breezy.hr/p/0e81aea5015901-frontend-engineer","companyName":"Veeqo","location":"Swansea","createdDate":"Thursday, February 10th 2022, 11:57:57 am","timeSince":"6 months ago"},{"type":"link","title":"Data Engineer","link":"https://veeqo-ltd.breezy.hr/p/8707c2ec19e901-data-engineer","companyName":"Veeqo","location":"Swansea","createdDate":"Thursday, February 10th 2022, 11:57:46 am","timeSince":"6 months ago"},{"type":"link","title":"Mobile Application Developer","link":"https://caredirect.tech/jobs/jobs-mobile-app-developer/","companyName":"Care Direct Technology","location":"Remote with the odd day in Newport or Cardiff","createdDate":"Tuesday, July 6th 2021, 9:29:54 am","timeSince":"a year ago"},{"type":"link","title":"DevOps Engineer","link":"https://uk.indeed.com/job/devops-engineer-fdb7996980c58e69","companyName":"CDSM Interactive Solutions Ltd","location":"Swansea","createdDate":"Monday, March 15th 2021, 4:20:57 pm","timeSince":"a year ago"},{"type":"link","title":"Frontend Developer","link":"https://www.limegreentangerine.co.uk/careers/experienced-frontend-developer/","companyName":"Limegreentangerine","location":"Cardiff","createdDate":"Sunday, March 14th 2021, 8:20:39 pm","timeSince":"a year ago"},{"type":"link","title":"Senior Software Developers","link":"https://www.civilservicejobs.service.gov.uk/csr/jobs.cgi?jcode=1677207","companyName":"Companies House","location":"Cardiff or Remote","createdDate":"Wednesday, June 24th 2020, 12:18:58 am","timeSince":"2 years ago"},{"type":"link","title":"Full Stack Developer","link":"https://caredirect.tech","companyName":"Care Direct Technology","location":"Central Cardiff","createdDate":"Tuesday, June 2nd 2020, 3:33:04 pm","timeSince":"2 years ago"},{"type":"link","title":"Web Developer","link":"https://bluestag.co.uk/career/web-developer/","companyName":"Blue Stag","location":"Cardiff","createdDate":"Thursday, March 5th 2020, 2:54:07 pm","timeSince":"2 years ago"},{"type":"link","title":"Senior PHP Developer","link":"https://www.linkedin.com/jobs/cap/view/1755398983/?pathWildcard=1755398983&trk=job_capjs","companyName":"Escentual","location":"Cardiff","createdDate":"Thursday, February 27th 2020, 3:30:51 pm","timeSince":"2 years ago"},{"type":"link","title":"DevOps Engineer","link":"https://hire.withgoogle.com/public/jobs/currencycloudcom/view/P_AAAAABkAAB1DZMe5KjqtLO","companyName":"Currencycloud","location":"Cardiff","createdDate":"Wednesday, February 12th 2020, 2:30:13 pm","timeSince":"2 years ago"},{"type":"link","title":"Mid-Level Python Developer","link":"https://prodigigroup.recruitee.com/o/midlevel-python-developer-cardiff-3550k","companyName":"Prodigi","location":"Cardiff","createdDate":"Thursday, January 30th 2020, 10:16:40 pm","timeSince":"3 years ago"},{"type":"link","title":"Technical Product Owner","link":"https://prodigigroup.recruitee.com/o/technical-product-owner-4050k","companyName":"Prodigi","location":"Cardiff","createdDate":"Wednesday, January 15th 2020, 7:26:02 am","timeSince":"3 years ago"},{"type":"link","title":"Senior Java Developer","link":"https://grnh.se/8493616e2","companyName":"Oodle Finance","location":"Cardiff","createdDate":"Monday, January 13th 2020, 8:39:53 am","timeSince":"3 years ago"},{"type":"link","title":"Front End Developer","link":"https://grnh.se/a37a62682","companyName":"Oodle Finance","location":"Cardiff","createdDate":"Monday, January 13th 2020, 8:39:20 am","timeSince":"3 years ago"},{"type":"link","title":"Full Stack Developer","link":"https://www.indeed.co.uk/viewjob?t=full+stack+software+developer&jk=10219f60e250cd47&_ga=2.157898553.249749545.1577978026-1779258408.1571130933","companyName":"21:32","location":"Newport","createdDate":"Friday, January 3rd 2020, 8:58:57 am","timeSince":"3 years ago"},{"type":"link","title":"Web Applications Developer","link":"https://employers.indeed.com/j#jobs/view?id=ad45ff88d6ce","companyName":"21:32","location":"Newport","createdDate":"Friday, January 3rd 2020, 8:58:20 am","timeSince":"3 years ago"},{"type":"link","title":"QA Engineer","link":"https://hire.withgoogle.com/public/jobs/currencycloudcom/view/P_AAAAABkAAB1BKStWMEs0TG","companyName":"Currencycloud","location":"Cardiff","createdDate":"Monday, December 2nd 2019, 11:51:03 am","timeSince":"3 years ago"},{"type":"link","title":"Software Engineer","link":"https://hire.withgoogle.com/public/jobs/currencycloudcom/view/P_AAAAABkAAB1LYj_f8GbNH5","companyName":"Currencycloud","location":"Cardiff","createdDate":"Monday, December 2nd 2019, 11:50:41 am","timeSince":"3 years ago"},{"type":"link","title":"Senior Software Engineer","link":"https://hire.withgoogle.com/public/jobs/currencycloudcom/view/P_AAAAABkAAB1KdLL-yuE9nc","companyName":"Currencycloud","location":"Cardiff","createdDate":"Monday, December 2nd 2019, 11:50:17 am","timeSince":"3 years ago"},{"type":"link","title":"Tech Lead","link":"https://hire.withgoogle.com/public/jobs/currencycloudcom/view/P_AAAAABkAAB1OhvETYMzOS1","companyName":"Currencycloud","location":"Cardiff","createdDate":"Monday, December 2nd 2019, 11:49:41 am","timeSince":"3 years ago"},{"type":"link","title":"Full Stack Developer","link":"https://www.indeedjobs.com/2132/jobs/49e78d62882438899230","companyName":"21:32","location":"Newport","createdDate":"Tuesday, October 15th 2019, 2:30:12 pm","timeSince":"3 years ago"},{"type":"link","title":"Web Applications Developer","link":"https://www.indeedjobs.com/2132/jobs/1bac2a7362ffaa119e6f","companyName":"21:32","location":"Newport","createdDate":"Tuesday, October 15th 2019, 2:29:46 pm","timeSince":"3 years ago"},{"type":"link","title":"Data Analyst","link":"https://www.cwjobs.co.uk/job/data-analyst/virtual-mga-uk-ltd-job88063331","companyName":"Virtual MGA","location":"Cardiff","createdDate":"Tuesday, October 1st 2019, 8:57:35 am","timeSince":"3 years ago"},{"type":"link","title":"Senior PHP Developer","link":"https://jobs.smartrecruiters.com/InstantECare/743999693716815-senior-php-developer","companyName":"InstanteCare","location":"Cardiff","createdDate":"Thursday, September 26th 2019, 8:10:00 am","timeSince":"3 years ago"},{"type":"link","title":"Senior Frontend Developer","link":"https://www.indeed.co.uk/viewjob?t=senior+frontend+developer&jk=a02038119d7bd289","companyName":"Logically Secure","location":"Tramshed Tech, Cardiff","createdDate":"Sunday, August 18th 2019, 9:35:41 pm","timeSince":"3 years ago"},{"type":"link","title":"Software Engineering Summer Intern","link":"https://nightingalehq.ai/careers/summer-placement-software-engineering-intern-2019/","companyName":"Nightingale HQ","location":"Cardiff","createdDate":"Tuesday, July 2nd 2019, 12:53:51 pm","timeSince":"3 years ago"},{"type":"link","title":"Data Science Apprentice","link":"https://nightingalehq.ai/careers/data-science-apprentice-2019/","companyName":"Nightingale HQ","location":"Cardiff","createdDate":"Tuesday, July 2nd 2019, 12:53:03 pm","timeSince":"3 years ago"},{"type":"link","title":"Web Developer","link":"https://wearecore.co.uk/blog/hiring-web-developer.html","companyName":"Core Internet Solutions","location":"Cardiff","createdDate":"Wednesday, June 19th 2019, 4:45:31 pm","timeSince":"3 years ago"},{"type":"link","title":"Lead Software Developer","link":"https://www.jobs.nhs.uk/xi/vacancy/?vac_ref=915616642","companyName":"NHS Wales Informatics Service","location":"Cardiff","createdDate":"Sunday, June 16th 2019, 5:06:41 pm","timeSince":"3 years ago"},{"type":"link","title":"DevOps Engineer","link":"https://www.bipsync.com/devops-engineer/","companyName":"Bipsync","location":"Cardiff","createdDate":"Monday, May 20th 2019, 4:28:15 pm","timeSince":"3 years ago"},{"type":"link","title":"Front-end developer","link":"https://concentric.health/careers.html#job1","companyName":"Concentric","location":"TramshedTech, Cardiff","createdDate":"Monday, April 29th 2019, 8:53:21 am","timeSince":"3 years ago"},{"type":"link","title":"Software Developer (React/JS)","link":"https://www.indeedjobs.com/2132/jobs/a59060728d834c61985c","companyName":"21:32","location":"Newport","createdDate":"Tuesday, April 9th 2019, 3:25:42 pm","timeSince":"3 years ago"},{"type":"link","title":"Backend Software Engineer (Typescript/JS)","link":"https://www.indeedjobs.com/2132/jobs/aeed358ab402f959e576","companyName":"21:32","location":"Newport","createdDate":"Tuesday, April 9th 2019, 3:25:01 pm","timeSince":"3 years ago"},{"type":"link","title":"Firmware/Embedded Engineer","link":"https://angel.co/tendertec/jobs/521991-firmware-embedded-engineer","companyName":"Tendertec","location":"Cardiff","createdDate":"Monday, April 8th 2019, 6:48:25 am","timeSince":"3 years ago"},{"type":"link","title":"Senior Software Engineer","link":"https://angel.co/tendertec/jobs/521980-senior-software-engineer","companyName":"Tendertec","location":"Cardiff","createdDate":"Monday, April 8th 2019, 6:47:56 am","timeSince":"3 years ago"},{"type":"link","title":"Deep Learning Lead","link":"https://angel.co/tendertec/jobs/521970-deep-learning-lead","companyName":"Tendertec","location":"Cardiff","createdDate":"Monday, April 8th 2019, 6:47:17 am","timeSince":"3 years ago"},{"type":"link","title":"Computer Vision Lead","link":"https://angel.co/tendertec/jobs/521963-computer-vision-lead","companyName":"Tendertec","location":"Cardiff","createdDate":"Monday, April 8th 2019, 6:46:40 am","timeSince":"3 years ago"},{"type":"link","title":"PHP Web Developer","link":"http://www.indeed.co.uk/job/php-web-developer-symfony-experience-desirable-4d30415bc07995f4?_ga=2.81261911.1112356822.1552508097-1448324503.1539975851","companyName":"WebBox","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 3:13:35 pm","timeSince":"3 years ago"},{"type":"link","title":"Software Engineer","link":"https://www.wealthify.com/careers/software-engineers-multiple-roles","companyName":"Wealthify","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 3:08:32 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior C# .NET Developer","link":"https://prodigigroup.recruitee.com/o/senior-c-net-developer","companyName":"Prodigi","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 3:03:44 pm","timeSince":"3 years ago"},{"type":"link","title":"ReactJS Frontend Developer","link":"https://prodigigroup.recruitee.com/o/reactjs-frontend-developer","companyName":"Prodigi","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 3:03:25 pm","timeSince":"3 years ago"},{"type":"link","title":"Junior C# Developer","link":"https://prodigigroup.recruitee.com/o/junior-c-developer","companyName":"Prodigi","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 3:03:06 pm","timeSince":"3 years ago"},{"type":"link","title":"Services Developer","link":"https://mypinpad.com/careers/#services-developers","companyName":"MyPinPad","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 3:01:56 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior DevOps Engineer","link":"https://mypinpad.com/careers/#senior-devops-engineer","companyName":"MyPinPad","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 3:01:30 pm","timeSince":"3 years ago"},{"type":"link","title":"iOS Developer","link":"https://mypinpad.com/careers/#ios-developers","companyName":"MyPinPad","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 3:01:14 pm","timeSince":"3 years ago"},{"type":"link","title":"Android Developer","link":"https://mypinpad.com/careers/#android-developers","companyName":"MyPinPad","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 3:00:35 pm","timeSince":"3 years ago"},{"type":"link","title":"Junior Web Developer","link":"https://www.motokiki.com/jobs","companyName":"Motokiki","location":"Port Talbot","createdDate":"Sunday, April 7th 2019, 2:59:54 pm","timeSince":"3 years ago"},{"type":"link","title":"Web Developer","link":"https://www.motokiki.com/jobs","companyName":"Motokiki","location":"Port Talbot","createdDate":"Sunday, April 7th 2019, 2:59:30 pm","timeSince":"3 years ago"},{"type":"link","title":"Full Stack App Developer","link":"https://kinderly.co.uk/full-stack-app-developer/","companyName":"Kinderly","location":"Newport","createdDate":"Sunday, April 7th 2019, 2:58:36 pm","timeSince":"3 years ago"},{"type":"link","title":"Junior Web Developer","link":"https://kinderly.co.uk/junior-web-developer/","companyName":"Kinderly","location":"Newport","createdDate":"Sunday, April 7th 2019, 2:58:03 pm","timeSince":"3 years ago"},{"type":"link","title":"Group Leader (Senior Software Engineer)","link":"https://www.gocomparecareers.com/current-roles/188","companyName":"GoCompare","location":"Newport","createdDate":"Sunday, April 7th 2019, 2:55:52 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior Software Engineer","link":"https://www.gocomparecareers.com/current-roles/187","companyName":"GoCompare","location":"Newport","createdDate":"Sunday, April 7th 2019, 2:55:22 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior Test Engineer","link":"https://www.gocomparecareers.com/current-roles/190","companyName":"GoCompare","location":"Newport","createdDate":"Sunday, April 7th 2019, 2:54:51 pm","timeSince":"3 years ago"},{"type":"link","title":"Web Designer","link":"https://dezrezserviceslimited.peoplehr.net/Pages/JobBoard/Opening.aspx?v=91a8dc31-2595-4db9-aaf1-86f9e6dcf39e","companyName":"Dezrez","location":"Swansea","createdDate":"Sunday, April 7th 2019, 2:53:26 pm","timeSince":"3 years ago"},{"type":"link","title":"Cloud Engineer","link":"https://www.devopsgroup.com/careers/cloud-engineer/","companyName":"DevOpsGroup","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:52:45 pm","timeSince":"3 years ago"},{"type":"link","title":"DevOps Engineer","link":"https://www.devopsgroup.com/careers/devops-engineer-cardiff/","companyName":"DevOpsGroup","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:52:29 pm","timeSince":"3 years ago"},{"type":"link","title":"Cloud Operations Engineer","link":"https://www.devopsgroup.com/careers/cloud-operations-engineer/","companyName":"DevOpsGroup","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:51:49 pm","timeSince":"3 years ago"},{"type":"link","title":"Software Developer","link":"https://drive.google.com/file/d/1haYQCDsgvNCEZL9s1fNxzodT8bOd4E4Z/view?usp=sharing","companyName":"Delio","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:50:33 pm","timeSince":"3 years ago"},{"type":"link","title":"Software Engineer","link":"https://careers.creditsafe.com/gb/software-engineer/","companyName":"Creditsafe","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:48:26 pm","timeSince":"3 years ago"},{"type":"link","title":"Python Developer","link":"https://careers.creditsafe.com/gb/python-developer/","companyName":"Creditsafe","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:47:49 pm","timeSince":"3 years ago"},{"type":"link","title":"Software Developer","link":"https://admiraljobs.co.uk/vacancies/3292/CFSD/software_developer_confusedcom/","companyName":"Confused.com","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:46:42 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior Software Engineer","link":"https://admiraljobs.co.uk/vacancies/3320/CFSD/senior_software_developer_confusedcom/","companyName":"Confused.com","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:46:18 pm","timeSince":"3 years ago"},{"type":"link","title":"Data Platform Automation Engineer","link":"https://admiraljobs.co.uk/vacancies/3242/CFSD/data_platform_automation_engineer_confusedcom/","companyName":"Confused.com","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:45:55 pm","timeSince":"3 years ago"},{"type":"link","title":"Database Developer","link":"https://admiraljobs.co.uk/vacancies/2980/CFSD/senior_database_developer_confusedcom/","companyName":"Confused.com","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:45:18 pm","timeSince":"3 years ago"},{"type":"link","title":"Software Enterprise Architect","link":"http://admiraljobs.co.uk/vacancies/3313/CFSD/software_enterprise_architect_confusedcom/","companyName":"Confused.com","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:45:08 pm","timeSince":"3 years ago"},{"type":"link","title":"Full-stack Developer","link":"https://concentric.health/careers.html","companyName":"Concentric","location":"Cardiff","createdDate":"Sunday, April 7th 2019, 2:44:09 pm","timeSince":"3 years ago"},{"type":"link","title":"Systems Software Engineer","link":"https://clinithink.com/systems-software-engineer/","companyName":"Clinithink","location":"Bridgend","createdDate":"Saturday, April 6th 2019, 6:16:08 pm","timeSince":"3 years ago"},{"type":"link","title":"PHP Developer","link":"https://celfcreative.com/careers","companyName":"Celf Creative","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:05:28 pm","timeSince":"3 years ago"},{"type":"link","title":"Full Stack Developer","link":"https://celfcreative.com/careers","companyName":"Celf Creative","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:05:21 pm","timeSince":"3 years ago"},{"type":"link","title":"Software Engineer","link":"https://www.cafex.com/en/company/careers/software-eng/","companyName":"CafeX Communications","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:04:45 pm","timeSince":"3 years ago"},{"type":"link","title":"PHP Software Engineer","link":"https://www.boxuk.com/about-us/careers/php-software-engineer","companyName":"BoxUK","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:04:14 pm","timeSince":"3 years ago"},{"type":"link","title":"Frontend Web Developer","link":"https://workatbackbase.com/job/frontend-web-developer/","companyName":"Backbase","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:02:51 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior Application Security Engineer (Frontend)","link":"https://workatbackbase.com/job/senior-application-security-engineer-frontend-2/","companyName":"Backbase","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:02:31 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior Application Security Engineer (Backend)","link":"https://workatbackbase.com/job/senior-application-security-engineer-back-end/","companyName":"Backbase","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:02:04 pm","timeSince":"3 years ago"},{"type":"link","title":"Software Architect","link":"https://workatbackbase.com/job/software-architect/","companyName":"Backbase","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:01:45 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior Java Developer","link":"https://workatbackbase.com/job/senior-java-developer/","companyName":"Backbase","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:01:27 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior Web Developer","link":"https://workatbackbase.com/job/senior-web-developer/","companyName":"Backbase","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:01:08 pm","timeSince":"3 years ago"},{"type":"link","title":"Java Developer","link":"https://workatbackbase.com/job/java-developer/","companyName":"Backbase","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:00:56 pm","timeSince":"3 years ago"},{"type":"link","title":"Lead QA Engineer","link":"https://workatbackbase.com/job/lead-qa-engineer/","companyName":"Backbase","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:00:45 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior System Engineer","link":"https://workatbackbase.com/job/senior-system-engineer-devops-2/","companyName":"Backbase","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:00:31 pm","timeSince":"3 years ago"},{"type":"link","title":"Full Stack Developer","link":"https://workatbackbase.com/job/full-stack-developer/","companyName":"Backbase","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 6:00:11 pm","timeSince":"3 years ago"},{"type":"link","title":"Junior Developer","link":"https://amplyfigroup.com/img/job-specs/Junior-Software-Developer.pdf","companyName":"Amplyfi","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:58:34 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior Full Stack Software Engineer","link":"https://amplyfigroup.com/img/job-specs/Senior-Full-Stack-Software-Engineer.pdf","companyName":"Amplyfi","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:58:21 pm","timeSince":"3 years ago"},{"type":"link","title":"UI Engineer - Javascript","link":"https://cho.tbe.taleo.net/cho02/ats/careers/v2/viewRequisition?org=ALERTLOGIC&cws=37&rid=2833","companyName":"Alert Logic","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:57:08 pm","timeSince":"3 years ago"},{"type":"link","title":"Associate Software Engineer","link":"https://cho.tbe.taleo.net/cho02/ats/careers/v2/viewRequisition?org=ALERTLOGIC&cws=37&rid=2739","companyName":"Alert Logic","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:56:38 pm","timeSince":"3 years ago"},{"type":"link","title":"Test Automation Lead","link":"http://admiraljobs.co.uk/vacancies/2278/test_automation_lead/","companyName":"Admiral","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:53:30 pm","timeSince":"3 years ago"},{"type":"link","title":"Database Developer","link":"http://admiraljobs.co.uk/vacancies/2980/database_developers_confusedcom/","companyName":"Confused.com","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:53:18 pm","timeSince":"3 years ago"},{"type":"link","title":"Software Developer","link":"http://admiraljobs.co.uk/vacancies/3192/software_developer/","companyName":"Admiral","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:53:03 pm","timeSince":"3 years ago"},{"type":"link","title":"Data Scientist","link":"http://admiraljobs.co.uk/vacancies/3196/data_scientist/","companyName":"Admiral","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:52:52 pm","timeSince":"3 years ago"},{"type":"link","title":"Senior Software Developer","link":"http://admiraljobs.co.uk/vacancies/3320/senior_software_developer_confusedcom/","companyName":"Confused.com","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:52:25 pm","timeSince":"3 years ago"},{"type":"link","title":"Software Developer","link":"http://admiraljobs.co.uk/vacancies/3321/software_developer_confusedcom/","companyName":"Confused.com","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:52:04 pm","timeSince":"3 years ago"},{"type":"link","title":"Software Engineer (Mid / Senior / Principal)","link":"http://admiraljobs.co.uk/vacancies/3314/software_engineer_mid_senior_principal/","companyName":"Admiral","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:51:36 pm","timeSince":"3 years ago"},{"type":"link","title":"SQL Server DBA","link":"http://admiraljobs.co.uk/vacancies/3300/sql_server_dba/","companyName":"Admiral","location":"Cardiff","createdDate":"Saturday, April 6th 2019, 5:50:55 pm","timeSince":"3 years ago"},{"type":"link","title":"Data Warehouse Developer","link":"http://admiraljobs.co.uk/vacancies/3339/data_warehouse_developer/","companyName":"Admiral","location":"Swansea","createdDate":"Saturday, April 6th 2019, 5:50:31 pm","timeSince":"3 years ago"}];
+  const jobList = document.getElementById("job-list");
+  const searchInput = document.getElementById("search-input");
+  const resultCount = document.getElementById("result-count");
+
+  function updateJobs() {
+    let filteredJobs = jobs;
+    filteredJobs = applySearchFilter(filteredJobs);
+
+    jobList.innerHTML = "";
+    resultCount.innerHTML = filteredJobs.length;
+    if (filteredJobs.length === 0) {
+      jobList.appendChild(renderEmptyState());
+      return;
+    }
+
+    filteredJobs.forEach(function(job) {
+      jobList.appendChild(renderJob(job));
+    });
+  }
+
+  function applySearchFilter(items) {
+    const query = searchInput.value.toLowerCase();
+    return items.filter(item => item.title.toLowerCase().indexOf(query) !== -1);
+  }
+
+  function renderEmptyState() {
+    const container = document.createElement("div");
+    container.classList = "p-6 text-center";
+
+    const text = document.createElement("span");
+    text.classList = "text-grey-darker";
+    text.innerHTML = "Sorry, there were no results matching your search.";
+    container.appendChild(text);
+
+    return container;
+  }
+
+  function renderJob(job) {
+    const link = document.createElement("a");
+    link.classList = "no-underline";
+    link.href = job.link;
+    link.target = "_blank";
+
+    const card = document.createElement("div");
+    card.classList = "flex flex-row items-start bg-white p-4 sm:p-6 mb-2 rounded shadow";
+    link.appendChild(card);
+
+    const container = document.createElement("div");
+    container.classList = "flex-1 flex flex-col";
+    card.appendChild(container);
+
+    const title = document.createElement("span");
+    title.classList = "text-black font-bold mb-1";
+    title.innerHTML = job.title;
+    container.appendChild(title);
+
+    const meta = document.createElement("span");
+    meta.classList = "text-black text-sm leading-normal";
+    meta.innerHTML = "at " + job.companyName + ", " + job.location;
+    container.appendChild(meta);
+
+    if (job.type === "post") {
+      const description = document.createElement("span");
+      description.classList = "mt-2 text-grey-darker text-sm leading-normal";
+      description.innerHTML = job.description;
+      container.appendChild(description);
+    }
+
+    const date = document.createElement("span");
+    date.classList = "text-grey-darker text-sm leading-normal";
+    date.innerHTML = "Added " + job.timeSince;
+    card.appendChild(date);
+
+    return link;
+  }
+</script>
+      </main>
+      <footer class="py-12 bg-gray-900 text-white">
+        <div class="container px-4 mx-auto">
+          <div class="w-full flex flex-col sm:flex-row justify-between items-start sm:px-0">
+            <div class="text-sm md:flex-grow">
+              <a href="/groups" class="block mt-4 no-underline lg:inline-block lg:mt-0 hover:text-white mr-4 text-gray-500">Groups</a>
+              <a href="/companies" class="block mt-4 no-underline lg:inline-block lg:mt-0 hover:text-white mr-4 text-gray-500">Companies</a>
+              <a href="/jobs" class="block mt-4 no-underline lg:inline-block lg:mt-0 hover:text-white mr-4 text-white">Jobs</a>
+              <a href="/about" class="block mt-4 no-underline lg:inline-block lg:mt-0 hover:text-white text-gray-500">About</a>
+            </div>
+            <div>
+              <div class="text-sm flex flex-col md:flex-row sm:items-end">
+                <a class="flex items-center text-gray-500 hover:text-white no-underline mt-8 sm:mt-0" href="https://twitter.com/myguysi" target="_blank">
+                  <span class="mr-2">Built by Simon Anthony</span>
+                  <img class="opacity-50" src="/static/twitter.svg" alt="Twitter logo" width="25" height="20" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script>
+    const navToggle = document.getElementById("nav-toggle");
+    const navItems = document.getElementById("nav-items")
+    navToggle.onclick = function () {
+      navItems.classList.toggle("hidden");
+    }
+  </script>
+    </body>
+  </html>

@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="../php/images.php" />
+<meta charset="utf-8">
+
+<meta name="description" content="">
+<link type="text/css" rel="stylesheet" href="../css/libs/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../css/libs/daterangepicker.min.css"/>
+
+<link type="text/css" rel="stylesheet" href="../css/libs/c_materializecss.css">
+<link rel="stylesheet" href="../css/libs/bootstrap-select.min.css"> 
+<link rel="stylesheet" href="../css/libs/magicsuggest-min.css"/>
+<link type="text/css" rel="stylesheet" href="../css/libs/jquery.tag-editor.css"/>
+
+<link rel="stylesheet" href="../css/libs/element-ui.css">
+
+<link type="text/css" rel="stylesheet" href="../css/libs/fontawesome/css/all.css"/>
+
+<link type="text/css" rel="stylesheet" href="../css/main1.css?v=24" />
+<link type="text/css" rel="stylesheet" href="../css/nav1.css?v=3" />    
+
+<script src="../js/libs/vue.min.js"></script>
+<script src="../js/libs/vue-i18n.js"></script>
+<script src="../js/libs/element-ui.js"></script>
+<script>
+    var mainLangs = {en:{},es:{},he:{},it:{},pt:{},vi:{}};
+    var moreLangs = {en:{},es:{},he:{},it:{},pt:{},vi:{}};
+</script>
+
+    
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"rel="stylesheet"/>
+
+        <style>
+            
+           button.btn.tgme_widget_login_button{
+                width: 400px !important;
+                min-width: 100% !important;
+                display: block !important;
+
+            }
+        </style>
+    </head>
+<body class="bg-blue-50">
+    <div class="vueapp">
+        <div v-if="loading.stauts" id="pb_loading" style="pointer-events: none;">
+    <div style="z-index: 1000; top: 0px; left: 0px; position: fixed; width: 100%; height: 100%; background-color: white;">
+        <div style="text-align: center; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                <span class="sr-only" v-t="'loading'"></span>
+            </div>
+            <p id="p_pb_info" style="margin-top: 10px" v-t="'loading'"></p>
+        </div>
+    </div>
+</div>
+
+
+<div id="mainForm" class="modal fade" data-backdrop="static">
+    <div class="modal-dialog"> 
+        <div class="modal-content">
+            <div v-if="form.title" class="modal-header">
+                <div class="invisible"></div>
+                <h5 class="modal-title">{{form.title}}</h5>       
+                <div class="modal-dismiss" data-dismiss="modal" aria-label="Close">
+                    <i class="fal fa-times"></i>  
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="form-group_c">    
+                    <div v-for="item in form.rows" class="form-group">
+                        <label>{{item.label}} <span class="ml-1 op" v-if="!item.required">({{$t('optional')}})</span></label>
+                        <div v-if="item.type == 'text'">
+                            <input v-if="item.maxlength" class="myimput w-100" v-model.trim="item.value" :placeholder="item.placeholder" :maxlength="item.maxlength"/>
+                            <input v-else class="myimput w-100" v-model.trim="item.value" :placeholder="item.placeholder"/>
+                        </div>
+                        <div v-else-if="item.type == 'select'">
+                            <el-select filterable :placeholder="$t('select')" v-model="item.value" class="w-100" @change="formChanged(item)" :multiple="item.multiple">
+                                <el-option v-for="i in item.options" :key="i[item.keyId]" :label="i[item.keyLabel]" :value="i[item.keyId]"></el-option>
+                            </el-select>
+                        </div>
+
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="d-flex px-3 py-2 justify-content-between w-100"> 
+                    <button data-dismiss="modal" type="button" class="btn btn-outline-secondary nagative" v-t="'cancel'"></button>
+                    <button type="button" class="btn btn-primary positive" v-t="'continue'"></button>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+
+<div id="selectChannel" class="modal fade" data-backdrop="static" style="z-index: 1060 !important">
+    <div class="modal-dialog"> 
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="invisible"></div>
+                <h5 class="modal-title" v-t="'selectChannel'">{{form.title}}</h5>       
+                <div class="modal-dismiss" data-dismiss="modal" aria-label="Close">
+                    <i class="fal fa-times"></i>  
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="pb-4">
+                    <div v-for="item in channelSelector.data" class="d-flex bg-white align-items-center py-3 px-2 px-3 px-md-4 justify-content-between z-depth-1 rounded-1 mt-3">
+                        <div class="d-flex align-items-center justify-content-start">
+                            <img width="40" :src="item.img"/>
+                            <span class="ml-3 text-left pr-2">{{item.name}}</span>
+                        </div> 
+                        <button data-dismiss="modal" type="button" class="btn btn-primary" data-v-t="'continue'" v-on:click="channelSelector.callback(item)"></button>
+                    </div>
+                </div>
+                                    
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+<div id="connectBotToAdmin" class="modal fade" style="z-index: 1060 !important">
+    <div class="modal-dialog"> 
+        <div class="modal-content" v-if="channelPreview.channelName">
+            <div class="modal-header">
+                <div class="invisible"></div>
+                <h5 v-if="channelPreview.type == 'getLink'" class="modal-title" v-t="'getLink'"></h5>
+                <h5 v-else class="modal-title" v-t="'msg34'"></h5>       
+                <div class="modal-dismiss" data-dismiss="modal" aria-label="Close">
+                    <i class="fal fa-times"></i>  
+                </div>
+            </div>
+            <div class="modal-body text-center pb-5">
+                <p v-t="'msg35'"></p>
+                <div v-if="channelPreview.android">
+                    <el-tabs value="iphone">
+                        <el-tab-pane label="iPhone" name="iphone">
+                            <div>
+                                <img width="200" height="200" :src="channelPreview.ios.qr_code"/>                                       
+                            </div>
+                            <button class="btt_underline text-secondary mt-2" data-toggle="collapse" data-target="#div_cbta_advanced" aria-expanded="false"
+                                        aria-controls="div_cbta_advanced" data-v-t="'moreOption'"></button>
+                            <div class="collapse mt-3" id="div_cbta_advanced">
+                                <button type="button" class="btn btn-primary  btn-sm rounded w-100 mb-3" v-t="'openLink'" v-on:click="open_link(channelPreview.ios.url,1)"></button>
+
+                                <el-divider content-position="center">{{'or'}}</el-divider>
+                                <p>{{$tc('msg33', channelPreview.channelName)}}</p>
+                                <p><b>{{channelPreview.message}}</b></p> 
+                                <button type="button" class="btn btn-light text-dark  btn-sm rounded mt-1 px-3" v-t="'copy'" v-on:click="copyTextToClipboard(channelPreview.message)"></button>
+                            </div>
+                        </el-tab-pane>
+                        <el-tab-pane label="Android" name="android">
+                            <div>
+                                <img width="200" height="200" :src="channelPreview.android.qr_code"/>                                       
+                            </div>
+                            <button class="btt_underline text-secondary mt-2" data-toggle="collapse" data-target="#div_cbta_advanced" aria-expanded="false"
+                                        aria-controls="div_cbta_advanced" data-v-t="'moreOption'"></button>
+                            <div class="collapse mt-3" id="div_cbta_advanced">
+                                <button type="button" class="btn btn-primary  btn-sm rounded w-100 mb-3" v-t="'openLink'" v-on:click="open_link(channelPreview.android.url,1)"></button>
+
+                                <el-divider content-position="center">{{'or'}}</el-divider>
+                                <p>{{$tc('msg33', channelPreview.channelName)}}</p>
+                                <p><b>{{channelPreview.message}}</b></p> 
+                                <button type="button" class="btn btn-light text-dark  btn-sm rounded mt-1 px-3" v-t="'copy'" v-on:click="copyTextToClipboard(channelPreview.message)"></button>
+                            </div>
+                        </el-tab-pane>
+                    </el-tabs>
+                </div>
+                <div v-else>
+                    <div>
+                        <img width="200" height="200" :src="channelPreview.qr_code"/>                                       
+                    </div>
+                    <button class="btt_underline text-secondary mt-3" data-toggle="collapse" data-target="#div_cbta_advanced" aria-expanded="false"
+                                aria-controls="div_cbta_advanced" data-v-t="'moreOption'"></button>
+                    <div class="collapse mt-4" id="div_cbta_advanced">
+                        <div v-if="channelPreview.type == 'getLink'">                            
+                            <a class="d-block" :href="channelPreview.url" target="blank">{{channelPreview.url}}</a>
+                            <button type="button" class="btn btn-light text-dark  btn-sm rounded mt-2 px-3" v-t="'copy'" v-on:click="copyTextToClipboard(channelPreview.url)"></button>
+                        </div>
+                        <a v-else type="button" class="btn btn-primary  btn-sm rounded w-100 mb-3" v-t="'openLink'" :href="channelPreview.url" target="blank"></a>
+
+                        <div v-if="channelPreview.message">
+                            <el-divider content-position="center">{{'or'}}</el-divider>
+                            <p>{{$tc('msg33', channelPreview.channelName)}}</p>
+                            <p><b>{{channelPreview.message}}</b></p> 
+                            <button type="button" class="btn btn-light text-dark  btn-sm rounded mt-1 px-3" v-t="'copy'" v-on:click="copyTextToClipboard(channelPreview.message)"></button>
+                        </div>
+                        
+                    </div>
+                </div>
+                                                    
+            </div>
+        </div>
+    </div> 
+</div>
+    </div>
+
+    <div class="flex py-3 pl-4 vueapp" v-cloak v-if="wt">
+        <div class="flex flex-row  items-center">
+            <img src="../php/images.php?id=icon500" width="35px" style="margin-right: 10px"></img>
+            <p class="font-bold text-xl text-gray-500 break-words text-center">{{wt.name}}</p>
+        </div>
+    </div>
+
+    
+    <div class="flex justify-center items-center mt-5 pt-5" v-if="wt">
+         
+        <div v-cloak class="grid grid-cols-1 mx-4 w-100 vueapp" style="max-width: 32rem;">
+
+            <!--<div class="flex flex-col justify-center items-center">
+                <div class="flex flex-row  items-center">
+                    <img src="../php/images.php?id=icon500" width="35px" style="margin-right: 10px"></img>
+                    <p class="font-bold text-xl text-gray-500 break-words text-center">{{wt.name}}</p>
+                </div>
+            </div>-->
+            <div v-if="data.provider" class="p-2 cursor-pointer" v-on:click="goBack()">
+                <i class="fa-solid fa-arrow-left-long"></i>
+            </div>
+            <div class=" flex flex-col justify-center items-center pl-4 pr-4 md:pl-8 md:pr-8 bg-white rounded-xl shadow-sm">
+                
+                <div class="flex flex-row items-center my-8" style="color: #007bff">
+                    <span v-if="data.step != 'createAccount'" class="font-bold text-2xl" data-v-t="'signIn'"></span>
+                    <span v-else class="font-bold text-2xl" data-v-t="'signUp'"></span>
+                </div>
+
+                <div class="w-100" v-if="data.type == 'login' && data.provider == 'email'" >
+                    <div v-if="!data.step">
+                        <input v-model.trim="data.data.email" type="text" class="myimput w-100" :placeholder="$t('emailAddress')" v-on:keyup.enter="sendOTP()"/>
+                        <button type="button" class="btn btn-primary w-100 mt-2"  v-t="'continue'" :disabled="!isEmailValid(data.data.email)" v-on:click="sendOTP()"></button>
+                    </div>
+                    <div v-else-if="data.step == 'createAccount'">
+                        <div class="form-group">
+                            <label v-t="'u.firstName'"></label>
+                            <input v-model="data.data.first_name" type="text" class="myimput w-100"/>
+                        </div>
+                        <div class="form-group">
+                            <label v-t="'u.lastName'"></label>
+                            <input v-model="data.data.last_name" type="text" class="myimput w-100"/>
+                        </div>
+                        <button type="button" class="btn btn-primary w-100 mt-2" v-t="'continue'" :disabled="data.data.first_name === '' || data.data.last_name === ''" v-on:click="createAccount()"></button>
+                    </div>
+                    <div v-else>
+                        <label>
+                            <i18n path="out.msg35" tag="span">
+                                <b>{{data.data.email}}</b></a>
+                            </i18n>
+                        </label>
+                        <input v-model.trim="data.data.otp" type="text" class="myimput w-100" placeholder="------" v-on:keyup.enter="validateOTP()"/>
+                        <button type="button" class="btn btn-primary w-100 mt-2" v-t="'continue'" :disabled="data.data.otp.length != 6" v-on:click="validateOTP()"></button>
+                    </div>
+                    
+                </div>
+                <div v-else>
+                    <button v-on:click="fb_loginFLow(null)" class="bg-blue-600 hover:bg-blue-500 h-16 w-full my-2 rounded-xl cursor-pointer">
+                        <div class="flex flex-row justify-center items-center">
+                            <img width="32px" src="../images/landpage/Facebook-white.svg" alt=""/>
+                            <span v-if="!data.nextLink" class="ml-2 text-white text-lg font-bold">{{$tc('signInWith', 'Facebook')}}</span>
+                            <span v-else class="ml-2 text-white text-lg font-bold">{{$tc('continueWith', 'Facebook')}}</span>
+                        </div>
+                    </button>
+
+                    <button v-on:click="getAuthLink('google')" class="h-16 w-full bg-white hover:border-gray-400 my-2 rounded-xl border-2 border-gray-200 cursor-pointer">
+                        <div class="flex flex-row justify-center items-center">
+                            <img width="32px" src="../images/landpage/google.svg" alt=""/>                                                
+                            <span v-if="!data.nextLink" class="ml-2 text-gray-500 text-lg font-bold">{{$tc('signInWith', 'Google')}}</span>
+                            <span v-else class="ml-2 text-gray-500 text-lg font-bold">{{$tc('continueWith', 'Google')}}</span>
+                        </div>
+                    </button>
+
+
+                    <button v-if="wt.smtp" class="h-16 w-full bg-black hover:bg-gray-700 my-2 rounded-xl cursor-pointer" v-on:click="data.provider='email'">
+                        <div class="flex flex-row justify-center items-center">
+                                <i class="fa-solid fa-envelope text-white text-4xl"></i>
+                            <span v-if="!data.nextLink" class="ml-2 text-white text-lg font-bold">{{$tc('signInWith', 'Email')}}</span>
+                            <span v-else class="ml-2 text-white text-lg font-bold">{{$tc('continueWith', 'Email')}}</span>
+                        </div>
+                    </button>
+                                
+                    
+
+                    <button v-cloak class="h-16 w-full bg-black hover:bg-gray-700 my-2 rounded-xl cursor-pointer hide">
+                        <div class="flex flex-row justify-center items-center">
+                            <i class="fab fa-apple text-white text-4xl"></i>
+                            <span v-if="!data.nextLink" class="ml-2 text-white text-lg font-bold">{{$tc('signInWith', 'Apple')}}</span>
+                            <span v-else class="ml-2 text-white text-lg font-bold">{{$tc('continueWith', 'Apple')}}</span>
+                        </div>
+                    </button>
+
+                    <a v-if="!data.nextLink" href="new-bot.php" class="cursor-pointer text-gray-400 hover:text-blue-500 mt-3 mb-2 w-100 text-center">
+                        <div>
+                            <span data-v-t="'out.msg0'"></span>
+                            <span class="font-bold" data-v-t="'signUp'"></span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="vueapp w-full my-4 flex flex-row justify-evenly hover:text-blue-500">
+
+                    <a class="hover:text-blue-500 text-gray-400" href="../php/images.php?id=terms" target="_blank">
+                        <span class="text-sm" v-t="'termsOfService'"></span>
+                    </a>
+
+                    <a class="hover:text-blue-500 text-gray-400" href="../php/images.php?id=policy" target="_blank">
+                        <span class="text-sm" v-t="'privacyPolicy'"></span>
+                    </a>
+
+                </div>
+
+            </div>       
+
+        </div>                          
+
+    </div>
+    
+        
+    
+<script src="../js/libs/jquery.min.js"></script>
+<script src="../js/libs/popper.min.js" ></script>
+<script src="../js/libs/jquery-ui.min.js"></script>
+<script src="../js/libs/bootstrap.min.js"></script>
+        
+<script src="../js/libs/jquery.mCustomScrollbar.concat.min.js"></script>   
+<script src="../js/libs/jquery.dataTables.min.js"></script>
+<script src="../js/libs/dataTables.bootstrap4.min.js"></script> 
+<script src="../js/libs/bootstrap-select.min.js"></script>
+<script src="../js/libs/moment.min.js"></script> 
+<script src="../js/libs/daterangepicker.min.js"></script>   
+<script src="../js/libs/magicsuggest-min.js"></script>   
+<script src="../js/libs/jquery.tag-editor.min.js"></script>
+<script src="../js/libs/jquery.caret.min.js"></script>
+<script src="../js/libs/element-ui-en.js"></script>
+
+
+
+<script src="../locales/en/common.js?v=20"></script> 
+<script>ELEMENT.locale(ELEMENT.lang.en)</script><script src="../locales/en/login.js?v=8"></script><script src="../locales/en/users.js?v=4"></script>
+
+
+<script src="../js/main1.js?v=81"></script>
+<script src="lang/main.js?v=1"></script>
+<script src="../js/libs/search.js"></script>
+<script src="../js/libs/jquery.easing.1.3.min.js"></script>
+<script src="../js/libs/semantic-api.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WW23YX3GDX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WW23YX3GDX');
+
+    try {
+      if(loadGoogleAds)
+      gtag('config', 'AW-945513689');
+    } catch (error) {}
+    
+</script>
+
+
+
+
+                                    
+
+
+
+    <script>var login_page = true;</script>
+    <script src="../js/fb1.js?v=1"></script>     
+    <script src="../js/login.js?v=7"></script>
+    <script src="../js/fb1.js?v=6"></script>
+<script>
+    show_main_menu_new();
+</script></body>
+
+</html>

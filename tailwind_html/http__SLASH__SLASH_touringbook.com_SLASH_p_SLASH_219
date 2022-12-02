@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>初詣 ツーリングコース | ツーリングブックβ版</title>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WDJ38KZ');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+
+
+    <link href="http://touringbook.com/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://touringbook.com/js/bootstrap.min.js"></script> 
+
+    <link href="http://touringbook.com/css/fontawesome.all.min.css" rel="stylesheet">
+    <link href="http://touringbook.com/css/tailwind.min.css" rel="stylesheet">
+    <script src="http://touringbook.com/js/vue.min.js"></script> 
+    <script src="http://touringbook.com/js/axios.min.js"></script>
+
+
+    
+    <link href="/css/app.css" rel="stylesheet">
+    
+
+    <!-- ※Twitter共通設定 -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+</head>
+
+<body style="background: #f0f0f0;">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDJ38KZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="items-center fixed w-full z-50 border-b">  
+  <nav class="bg-white">
+    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0" style="font-family: 'Nico Moji';">
+            <a href="/" class="text-decoration-none">
+              <!-- <div class="text-xs" style="color: #93DBFB;">移動を楽しむお出かけアプリ</div> -->
+              <div class="text-xs leading-none">バイクのおすすめスポット紹介</div>
+              <h1 class="text-2xl tracking-tighter leading-none">ツーリングブック<span class="text-xs">β版</span></h1>
+            </a>
+          </div>
+          <div class="">
+            <div class="flex items-baseline space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <!-- <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a> -->
+
+              <!-- <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a> -->
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="flex items-center md:ml-6 text-xl">
+            <!-- <a href="/explore" class="p-1 rounded-full hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              <i class="far fa-compass"></i>
+            </a>
+            <a href="/p/create" class="p-1 rounded-full hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              <i class="fas fa-edit"></i>
+            </a> -->
+
+            <!-- <button class="p-1 rounded-full hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              <span class="sr-only">View notifications</span>
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </button> -->
+
+            <!-- Profile dropdown -->
+            <div class="ml-3 relative">
+              <div>
+                <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+                  <span class="sr-only">Open user menu</span>
+                                      <a class="nav-link" href="/login/facebook"><i class="fas fa-sign-in-alt"></i></a>
+                                  </button>
+              </div>
+              <!--
+                Profile dropdown panel, show/hide based on dropdown state.
+
+                Entering: "transition ease-out duration-100"
+                  From: "transform opacity-0 scale-95"
+                  To: "transform opacity-100 scale-100"
+                Leaving: "transition ease-in duration-75"
+                  From: "transform opacity-100 scale-100"
+                  To: "transform opacity-0 scale-95"
+                -->
+                <!-- <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+
+<main>
+  <div class="max-w-xl mx-auto py-16">
+    
+<section class="p-3 bg-white mb-3">
+    
+
+    <div class="flex items-center mb-2">
+        <div class="w-8 mr-1">
+            <a href="/a/2">
+                <img src="http://touringbook.com/storage/account_icon/baMPI5dznOyhJl0nlXE7CoALkU3rWA14h6R2aXUv.jpeg" alt="" class="">
+            </a>
+        </div>
+            
+        <div class="">
+            <div>
+                <strong class="text-gray-dark">UWAGAKI</strong>
+                
+
+                            </div>
+        </div>
+    </div>
+
+    <h2 class="text-2xl">初詣</h2>
+    
+    <div>
+                <i class="fas fa-car-side"></i>
+        
+                神奈川県 |
+        
+                2021年01月 |
+        距離--km
+    </div>
+
+    
+</section>
+
+<section class="p-3 mb-3 border bg-gray-100">
+        <ol class="text-xs">
+                <li class="py-1 m-0.5">
+            <span class="text-gray-400">
+                1
+            </span>
+                        <span class="text-gray-600"><i class="far fa-circle"></i> </span>
+            
+                            <a href="/s/40" class="text-gray-600">
+                    バーミヤン 海老名上郷店
+                    <span class="text-gray-400">
+                        -
+                        神奈川県
+                        海老名市
+                    </span>
+                </a>
+                    </li>
+                <li class="py-1 m-0.5">
+            <span class="text-gray-400">
+                2
+            </span>
+                        <span class="text-gray-600"><i class="far fa-circle"></i> </span>
+            
+                            <a href="/s/346" class="text-gray-600">
+                    有鹿神社
+                    <span class="text-gray-400">
+                        -
+                        神奈川県
+                        海老名市
+                    </span>
+                </a>
+                    </li>
+                <li class="py-1 m-0.5">
+            <span class="text-gray-400">
+                3
+            </span>
+                        <span class="text-gray-600"><i class="far fa-circle"></i> </span>
+            
+                            <a href="/s/356" class="text-gray-600">
+                    ラテグラフィック海老名店
+                    <span class="text-gray-400">
+                        -
+                        神奈川県
+                        海老名市
+                    </span>
+                </a>
+                    </li>
+            </ol>
+    </section>
+
+<section class="px-2">
+            
+    <div class="bg-white rounded-xl overflow-hidden my-4">
+        <img src="http://touringbook.com/storage/post_photo/219p5ff2b7c442515.jpeg" alt="" class="" id="photo_1">
+        <div class="p-2">
+            <p>
+                <a href="/explore?tag=家族でドライブ" class="text-blue-600">#家族でドライブ</a> に良い。今日は麻婆炒飯にした。<a href="/explore?tag=ラーメン" class="text-blue-600">#ラーメン</a> 以外もイケる。
+            </p>
+                        <div class="my-2">
+                <span class="border py-1 px-2 m-0.5 rounded-full bg-gray-100">
+                    <a href="/s/40" class="text-gray-600">バーミヤン 海老名上郷店</a>
+                </span>
+
+                                    <span class="border p-1 rounded text-xs">★★☆ よかった</span>
+                                        <i class="far fa-heart"></i>
+            </div>
+                    </div>
+    </div>
+        
+    <div class="bg-white rounded-xl overflow-hidden my-4">
+        <img src="http://touringbook.com/storage/post_photo/219p5ff2d3dc7a260.jpeg" alt="" class="" id="photo_2">
+        <div class="p-2">
+            <p>
+                名物の <a href="/explore?tag=パンダ" class="text-blue-600">#パンダ</a> さんいらっしゃる
+            </p>
+                        <div class="my-2">
+                <span class="border py-1 px-2 m-0.5 rounded-full bg-gray-100">
+                    <a href="/s/346" class="text-gray-600">有鹿神社</a>
+                </span>
+
+                                    <span class="border p-1 rounded text-xs">★★☆ よかった</span>
+                                        <i class="far fa-heart"></i>
+            </div>
+                    </div>
+    </div>
+        
+    <div class="bg-white rounded-xl overflow-hidden my-4">
+        <img src="http://touringbook.com/storage/post_photo/219p5ff2b7c4403d1.jpeg" alt="" class="" id="photo_3">
+        <div class="p-2">
+            <p>
+                顔長っ笑。有鹿神社のこのテンション、好き。
+            </p>
+                        <div class="my-2">
+                <span class="border py-1 px-2 m-0.5 rounded-full bg-gray-100">
+                    <a href="/s/346" class="text-gray-600">有鹿神社</a>
+                </span>
+
+                                    <span class="border p-1 rounded text-xs">★★☆ よかった</span>
+                                        <i class="far fa-heart"></i>
+            </div>
+                    </div>
+    </div>
+        
+    <div class="bg-white rounded-xl overflow-hidden my-4">
+        <img src="http://touringbook.com/storage/post_photo/219p5ff2b7c4428b4.jpeg" alt="" class="" id="photo_4">
+        <div class="p-2">
+            <p>
+                マスクしてる。可愛い,<br />
+<a href="/explore?tag=初詣" class="text-blue-600">#初詣</a>
+            </p>
+                        <div class="my-2">
+                <span class="border py-1 px-2 m-0.5 rounded-full bg-gray-100">
+                    <a href="/s/346" class="text-gray-600">有鹿神社</a>
+                </span>
+
+                                    <span class="border p-1 rounded text-xs">★★☆ よかった</span>
+                                        <i class="far fa-heart"></i>
+            </div>
+                    </div>
+    </div>
+        
+    <div class="bg-white rounded-xl overflow-hidden my-4">
+        <img src="http://touringbook.com/storage/post_photo/219p5ff2cfd4b081f.jpeg" alt="" class="" id="photo_5">
+        <div class="p-2">
+            <p>
+                ラテグラのお弁当を <a href="/explore?tag=テイクアウト" class="text-blue-600">#テイクアウト</a> 。美味しい。アプリから予約注文できて、待たずに受け取れる。おすすめ。<br />
+<a href="/explore?tag=カフェ" class="text-blue-600">#カフェ</a> <a href="/explore?tag=カフェ飯" class="text-blue-600">#カフェ飯</a>
+            </p>
+                        <div class="my-2">
+                <span class="border py-1 px-2 m-0.5 rounded-full bg-gray-100">
+                    <a href="/s/356" class="text-gray-600">ラテグラフィック海老名店</a>
+                </span>
+
+                                        <span class="border p-1 rounded text-xs">★★★ 超おすすめ！</span>
+                                        <i class="far fa-heart"></i>
+            </div>
+                    </div>
+    </div>
+        </section>
+
+<section class="px-2">
+    <div class="border border-gray-800 rounded-xl overflow-hidden my-3 p-3 bg-white">
+        <h3 class="text-xl font-bold">ツーリングスポット情報</h3>
+                <iframe src="https://maps.google.co.jp/maps?output=embed&q=バーミヤン 海老名上郷店" style="width: 100%; height: 256px;"></iframe>
+
+        <ol class="flex flex-wrap">
+                        <li class="border py-1 px-2 m-0.5 rounded-full bg-gray-100">
+                <span class="text-gray-400">
+                    1
+                </span>
+                                <span class="text-gray-600"><i class="far fa-circle"></i> </span>
+                
+                                    <a href="/s/40" class="text-gray-600">
+                        バーミヤン 海老名上郷店
+                        
+                    </a>
+                                <!-- <div style="border: solid 1px #ccc; padding: 8px;">
+                
+                </div> -->
+            </li>
+                        <li class="border py-1 px-2 m-0.5 rounded-full bg-gray-100">
+                <span class="text-gray-400">
+                    2
+                </span>
+                                <span class="text-gray-600"><i class="far fa-circle"></i> </span>
+                
+                                    <a href="/s/346" class="text-gray-600">
+                        有鹿神社
+                        
+                    </a>
+                                <!-- <div style="border: solid 1px #ccc; padding: 8px;">
+                
+                </div> -->
+            </li>
+                        <li class="border py-1 px-2 m-0.5 rounded-full bg-gray-100">
+                <span class="text-gray-400">
+                    3
+                </span>
+                                <span class="text-gray-600"><i class="far fa-circle"></i> </span>
+                
+                                    <a href="/s/356" class="text-gray-600">
+                        ラテグラフィック海老名店
+                        
+                    </a>
+                                <!-- <div style="border: solid 1px #ccc; padding: 8px;">
+                
+                </div> -->
+            </li>
+                    </ol>
+        
+        <div><a href="https://www.google.com/maps/dir/バーミヤン 海老名上郷店/有鹿神社/ラテグラフィック海老名/" target="_blank" class="mt-2 border block text-center text-gray-600 p-2 rounded">コースで地図を見る 
+                        <i class="fas fa-map-marked-alt"></i></a></div>
+        <div class="flex items-center mt-2">
+            <div class="w-8 mr-1">
+                <a href="/a/2">
+                    <img src="http://touringbook.com/storage/account_icon/baMPI5dznOyhJl0nlXE7CoALkU3rWA14h6R2aXUv.jpeg" alt="" class="">
+                </a>
+            </div>
+                
+            <div class="">
+                <div>
+                    <strong class="text-gray-dark">UWAGAKI</strong>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<section class="px-2">
+        <div>
+    <h2>関連コース</h2>
+        <div class="flex-wrap d-flex">
+                                                                                                                                                                                                                                                                </div>
+    </div>
+    
+</section>
+
+
+
+  </div>
+</main>
+
+<footer class="fixed bottom-0 right-0 left-0 z-10 bg-white border-t">
+    <div class="max-w-xl m-auto">
+        <ul class="flex text-3xl text-center">
+            
+            <li class="w-1/5"><a href="/" class="py-2 block"><i class="fas fa-book-open"></i></i></a></li>
+            <li class="w-1/5"><a href="/explore" class="py-2 block"><i class="far fa-compass"></i></a></li>
+            <li class="w-1/5"><a href="/p/create" class="py-2 block"><i class="far fa-plus-square"></i></a></li>
+            <li class="w-1/5"><a href="/bookmarks" class="py-2 block"><i class="far fa-heart"></i></a></li>
+                        <li class="w-1/5"><a href="/a/mypage" class="py-2 block"><i class="far fa-user-circle"></i></a></li>
+                    </ul>
+    </div>
+</footer>
+</body>
+
+</html>

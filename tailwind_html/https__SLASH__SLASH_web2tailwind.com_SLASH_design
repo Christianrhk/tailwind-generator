@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tailwind Css layout and template design examples.
+</title>
+    <script src='/assets/lib/fontawesome/js/all.js'></script>
+    <link rel="stylesheet" href="/assets/css/markdown.css">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="icon" href="/assets/img/icon.png" type="image/png">
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link href="/assets/css/style.css?id=2" rel="stylesheet">
+<script src="/assets/js/alpine.min.js" defer></script>
+<script src="/assets/js/highlight.min.js"></script>
+<link rel="stylesheet" href="/assets/css/dracula.min.css">
+<link
+    href="https://fonts.googleapis.com/css?family=Mulish:wght@300|Manjari:wght@100;400;700|Source+Code+Pro&family=Fira+Sans:wght@300&display=swap"
+    rel="stylesheet">
+    <meta name="keywords" content="Tailwind,layout, templates, css, Online, editor, html, code-editor">
+<meta name="description" content="Lists of templates, layouts, designs with sources using tailwind css.">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://web2tailwind.com/design" />
+<meta property="og:title" content="Tailwind Css layout and template design examples." />
+<meta property="og:site_name" content="Tailwind Component" />
+<meta property="og:description" content="Lists of templates, layouts, designs with sources using tailwind css." />
+<meta property="article:author" content="@tailwindcomponent">
+
+<meta name="twitter:site" content="@tailwindcomponent">
+<meta name="twitter:creator" content="@tailwindcomponent">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:domain" content="https://web2tailwind.com" />
+<meta name="twitter:title" property="og:title" itemprop="title"
+    content="Tailwind Css layout and template design examples." />
+<meta name="twitter:image" property="og:image" content="" />
+<meta name="twitter:description" property="og:description" itemprop="description"
+    content="TLists of templates, layouts, designs with sources using tailwind css." />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+</head>
+
+<body>
+<div id="app">
+        <div class="bg-white border-b-2 border-red-500 sticky shadow-lg md:shadow-none top-0 z-10">
+    <div
+    style="background: #c21500;background: -webkit-linear-gradient(to right, #c21500, #ffc500); background: linear-gradient(to right, #c21500, #ffc500);">
+    <div class="container mx-auto md:px-20 text-center px-6 py-2 ">
+        <a href="https://web2tailwind.com/laratail/introduction" class="text-gray-100 text-lg hover:text-gray-200">
+            Laratail is Out !!! Laravel and Tailwind css based free admin panel starter kit.
+        </a>
+    </div>
+</div>
+    <nav x-data="{show:false}"
+        class="container mx-auto px-6 2xl:px-0 flex items-center justify-between flex-wrap bg-white py-2">
+        <a href="https://web2tailwind.com" class="flex items-center">
+            <img src="/assets/img/logo.png" alt="web2tailwind.com logo" class="h-8 md:h-10 mr-12 md:mr-0">
+        </a>
+        <div class="flex items-center md:hidden">
+            <div class="px-3 py-4 lg:py-3">
+                <a target="_blank" href="/tailwind/try"
+                    class="flex items-center bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-4 md:px-8 rounded-full font-hairline">
+                    <span class="hidden md:inline">Try  Online</span>
+                    <span class="material-icons inline md:hidden">moving</span>
+                </a>
+            </div>
+            <div>
+                <button @click="show=!show"
+                    class="flex items-center px-3 py-2 border rounded text-gray-700 border-gray-200">
+                    <svg class="fill-current h-4 w-4 font-bold" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div @click.away="show = false" :class="{ 'block': show, 'hidden': !show }"
+            class="border-t md:border-t-0 w-full flex-grow md:flex items-center md:justify-end md:w-auto">
+            <div>
+                <a href="https://web2tailwind.com"
+                class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Components</a>
+                <a href="https://web2tailwind.com/blogs"
+                    class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Blogs</a>
+                <a href="https://web2tailwind.com/design"
+                    class="block md:inline-block font-bold text-base px-2 md:px-3 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Design</a>
+            </div>
+            <div class="hidden md:block pl-3 py-6 md:py-3 ">
+                <a target="_blank" href="/tailwind/try"
+                    class="bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-8 rounded-full font-hairline">Try
+                    Online
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+    <div class="container mx-auto">
+        <div class="md:flex">
+            <div class="md:bg-gray-100 w-full md:w-56 xl:w-64">
+                <div id="sidebar" class="md:fixed overflow-y-auto w-full md:w-56 xl:w-64 md:mt-12">
+                    <div x-data="{show:false}" class="px-8 md:pb-10">
+                            <div class="border-b-2 flex justify-between items-center">
+    <div>
+        <h2 class="text-lg font-semibold pt-6 pb-3 md:pb-2 my-0">Components</h2>
+    </div>
+    <div class="block md:hidden">
+        <button x-on:click="show=!show" class="flex items-center text-gray-700">
+                    <span class="material-icons">
+                        view_module
+                    </span>
+        </button>
+    </div>
+</div>
+<ul class="px-1 my-2 hidden md:block" :class="{'block':show,'hidden md:block':!show}">
+    <li class="py-1">
+        <a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/introduction">Introduction</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/alert">Alert</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/badge">Badge</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/button">Button</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/card">Card</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/carousel">Carousel</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/column">Column</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600"
+                        href="https://web2tailwind.com/component/collapse-accordion">Collapse</a>
+    </li>
+    <li class="py-1">
+        <a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/dropdown">Dropdowns</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/list-group">List
+                                                                                                      Group</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/media-object">Media
+                                                                                                        Object</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/modal">Modal</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/popover">Popovers</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/navbar">Navbar</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/form">Form</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/login-form">Login
+                                                                                                      Form</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/tooltip">Tooltips</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/table">Table</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/admin-theme">Admin
+                                                                                                       Theme</a>
+    </li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+            <div id="content" class="w-full md:flex-1">
+                <div class="w-full px-8 py-10 lg:w-4/5">
+                    <div class="md:flex flex-wrap -mx-4">
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/vue-js-bounce-transition-197e3c55d5de" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(https://web2tailwind.com/assets/docs/master/image-01.jpg); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/vue-js-bounce-transition-197e3c55d5de"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Vue js Bounce Transition
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/feedback-slider-using-tailwind-css-and-slider-js-d3e9b20cda53" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(https://web2tailwind.com/storage/documents/JAsHudQCurXXfE5WnhIMQzVpFVga76j6YqW6beDP.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/feedback-slider-using-tailwind-css-and-slider-js-d3e9b20cda53"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Feedback slider using tailwind css and swiper js
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/dropdown-using-tailwind-css-and-tippy-js-fa405805a4fc" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(https://web2tailwind.com/storage/documents/G7HzjFMHeb15MSYe6LHrhDCDSTJX4gycziOK8V01.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/dropdown-using-tailwind-css-and-tippy-js-fa405805a4fc"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Dropdown using Tailwind Css and Tippy Js
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/statistics-card-design-in-tailwind-css-ccb17867e6bb" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(https://web2tailwind.com/storage/documents/MhLEAldzEXdoBDGDDFCLLSN7xwYPEmCKPy8o5DIt.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/statistics-card-design-in-tailwind-css-ccb17867e6bb"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Statistics card design in tailwind css
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/landing-page-in-tailwind-css-2499abe79d4e" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(https://web2tailwind.com/storage/documents/7LL1G7BBZKI7F1QrZcasx1ng2S4GgUvSWByVE0Yj.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/landing-page-in-tailwind-css-2499abe79d4e"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Landing page in tailwind css
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/footer-design-in-tailwindcss-in-blue-bg-color-cc4572243259" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(https://web2tailwind.com/storage/documents/EeDwsRK3YhD6jXB1OUh2BdHin3A7o8MwLD5Ly0AC.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/footer-design-in-tailwindcss-in-blue-bg-color-cc4572243259"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Footer Design tailwind css
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/footer-design-in-tailwind-css-08d39af88e2a" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(https://web2tailwind.com/storage/documents/s4XIX1LG44s1D1rm0BrPMdxwxu0pLYeBEuVwfUF0.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/footer-design-in-tailwind-css-08d39af88e2a"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Footer design in tailwind css
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/tailwind-carousel-example-with-swiper-js-cd58f14f879e" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(https://web2tailwind.com/storage/documents/VzO5UlBQWbhZT0QB0xtDf0zi5X9x5nnLyWzNaol7.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/tailwind-carousel-example-with-swiper-js-cd58f14f879e"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Tailwind Carousel Example with Swiper Js
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/tailwind-css-navbar-blue-6bf50c54ce8a" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(https://web2tailwind.com/storage/documents/zeNLLCRkZTcmDzaTX3caWPDYgH4UoQzbQgKnSOAs.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/tailwind-css-navbar-blue-6bf50c54ce8a"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Tailwind css Navbar Blue
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/facebook-login-page-dda40c922f34" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(https://web2tailwind.com/storage/documents/1cFB1SDcMTGjQzF1MMslG1ZSvB31uc4qQvS4IbIB.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/facebook-login-page-dda40c922f34"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Facebook Login Form
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/tailwind-card-lists-510f6a6e8284" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(http://web2tailwind.com/storage/documents/hkZ7AAo0EHhQMIKcFd0KOs9uYNDweqCTdLkPTfIJ.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/tailwind-card-lists-510f6a6e8284"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Tailwind card lists
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/voluptas-exercitatio-2edb9b893de1" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(http://web2tailwind.com/storage/documents/Gtfu1iWsBn7dBt3vyQJ3ZBQ8dPeBwMf2eVQKfe28.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/voluptas-exercitatio-2edb9b893de1"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Registration Form
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/tailwind-cards-example-4396b0c7d9ca" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(http://web2tailwind.com/storage/documents/Qz0Vun98ki04GcxhjOKT29dW2J4xPiRbSty5yqLU.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/tailwind-cards-example-4396b0c7d9ca"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Tailwind Cards Example
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/curve-css-background-25d69b38f5d2" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(http://web2tailwind.com/storage/documents/eLtdklFcS4EWZ1uJ8YbJ9emRXSlKFskyTzQ2qKQE.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/curve-css-background-25d69b38f5d2"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Curve css background
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="w-full mb-4 px-4 md:w-1/3">
+        <div class="h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <a target="_blank" href="editors/tailwind-table-example-cc1b30d3af8d" class="mb-4">
+                <div class="rounded-t-lg w-full h-40"
+                    style="background: url(http://web2tailwind.com/storage/documents/x51nwZPr1XTuZs8AVpQWHxfgFIKYnL4tltT6IN2W.png); background-size:cover !important; background-position:center !important">
+                </div>
+            </a>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2">
+                    <a target="_blank" href="editors/tailwind-table-example-cc1b30d3af8d"
+                        class="font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                        Tailwind table example
+                    </a>
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between">
+        <div class="flex justify-between flex-1 sm:hidden">
+                            <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
+                    &laquo; Previous
+                </span>
+            
+                            <a href="https://web2tailwind.com/design?page=2" class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                    Next &raquo;
+                </a>
+                    </div>
+
+        <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+            <div>
+                <p class="text-sm text-gray-700 leading-5">
+                    Showing
+                    <span class="font-medium">1</span>
+                    to
+                    <span class="font-medium">15</span>
+                    of
+                    <span class="font-medium">37</span>
+                    results
+                </p>
+            </div>
+
+            <div>
+                <span class="relative z-0 inline-flex shadow-sm">
+                    
+                                            <span aria-disabled="true" aria-label="&amp;laquo; Previous">
+                            <span class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default rounded-l-md leading-5" aria-hidden="true">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </span>
+                    
+                    
+                                            
+                        
+                        
+                                                                                                                        <span aria-current="page">
+                                        <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5">1</span>
+                                    </span>
+                                                                                                                                <a href="https://web2tailwind.com/design?page=2" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150" aria-label="Go to page 2">
+                                        2
+                                    </a>
+                                                                                                                                <a href="https://web2tailwind.com/design?page=3" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150" aria-label="Go to page 3">
+                                        3
+                                    </a>
+                                                                                                        
+                    
+                                            <a href="https://web2tailwind.com/design?page=2" rel="next" class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Next &amp;raquo;">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                                    </span>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="px-8 py-20" style="font-family: Mulish">
+    <div class="flex justify-center mb-2">
+        <div class="font-light text-sm text-gray-600">
+            &copy; 2019 - 2022
+            <a href="https://web2tailwind.com"
+                class="text-base text-gray-600 hover:text-gray-600" style="font-family: 'Source Code Pro';">Web2tailwind.com</a>
+        </div>
+    </div>
+    <div class="flex flex-wrap justify-center text-blue-400">
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/about-us"> About Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/contact-us">Contact Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/copyright">Copyright</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/code-of-conduct">Code of Conduct</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/privacy-and-policy">Privacy & Policy</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const mySwiper = new Swiper(".swiper-container", {
+            // Optional parameters
+            direction: "horizontal",
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: ".swiper-pagination",
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: ".swiper-scrollbar",
+            },
+        })
+    </script>
+</body>
+
+</html>

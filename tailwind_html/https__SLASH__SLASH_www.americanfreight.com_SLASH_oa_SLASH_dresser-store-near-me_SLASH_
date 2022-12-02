@@ -1,0 +1,2427 @@
+
+<!--
+  <span class='float-right'>
+    <section id='UsefulLinks'>
+      <button type='button' class='UsefulLinksButton__Button-border--none text-red-800 pt-2 pb-2'>
+        <i class='fal fa-angle-down text-gray-600' aria-hidden='true'></i> Useful Links
+      </button>
+    </section>
+  </span>
+-->
+
+<style>
+  .flyout {
+    display: none !important;
+    position: absolute;
+    top: 99%;
+    width: 100%;
+    min-width: 800px;
+    min-height: 250px;
+    background: rgb(255, 255, 255);
+    left: 0px;
+    padding: 8px;
+    padding-top: 5px;
+    z-index: 9999;
+  }
+
+  #nav span:hover .flyout {
+    display: block !important;
+  }
+</style>
+
+
+<script type="text/javascript" src="https://www.americanfreight.com/oa/wp-content/themes/af-outlet-advisor-theme/library/components/nav.js"></script>
+
+<script>
+  function buildDeptLink(v) {
+    return "<a role='menuitem' tabindex='-1' class='pr-6' href='" + v.url + "'>" + v.title + "&nbsp;&nbsp;<i class='fal fa-angle-down text-gray-500' aria-hidden='true'></i>&nbsp;&nbsp;</a>";
+  }
+
+  function buildCatLink(c) {
+    return "<div><div class='whitespace-nowrap p-2 bg-gray-100 mb-3'><a role='menuitem' tabindex='-1' class='block whitespace-nowrap' href='" + c.url + "'>" + c.title + "<br /><small>Shop All</small></a></div></div>";
+  }
+
+  function buildSubCatLink(s) {
+      return "<a role='menuitem' tabindex='-1' class='block whitespace-nowrap pl-2 text-md pb-2' href='https://americanfreight.com/br/plp/" + s.deptName + "/" + s.dept_name.replace(/[^a-zA-Z0-9]/g, '-').replace(/\--/g, '').toLowerCase() + "/" + s.category_name.replace(/[^a-zA-Z0-9]/g, '-').replace(/\--/g, '-').toLowerCase() + "/" + s.category_id + "?pno=1&sortBy=1&psize=25'>" + s.category_name + "</a>";
+  }
+
+  var deptHtml = '';
+
+  for (var n = 0; n < nav.vertical.length; n++) {
+    // build the depts
+    deptHtml = deptHtml + '<span class="inline-block">';
+    deptHtml = deptHtml + buildDeptLink(nav.vertical[n]); // set the main depts
+
+    deptHtml = deptHtml + '<div class="flyout shadow-lg w-screen container pt-6"><div class="grid grid-rows-2 grid-flow-col gap-2">';
+    // build the cats
+    for (var c = 0; c < nav.vertical[n].dept.length; c++) {
+      deptHtml = deptHtml + '<div>';
+      deptHtml = deptHtml + buildCatLink(nav.vertical[n].dept[c]);
+
+      // build the subcats
+      for (var s = 0; s < nav.vertical[n].dept[c].cat.length; s++) {
+        deptHtml = deptHtml + buildSubCatLink(nav.vertical[n].dept[c].cat[s]);
+      }
+      deptHtml = deptHtml + '</div>';
+    }
+
+    deptHtml = deptHtml + '</div></div>';
+    deptHtml = deptHtml + '</span>';
+  }
+
+  setTimeout(() => {
+    document.getElementById('nav').innerHTML = deptHtml;
+  }, 1000);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function toggleNav() {
+    var mask = document.getElementById('mask');
+    var nav = document.getElementById('mobileNav');
+
+    mask.classList.toggle('hidden');
+    nav.classList.toggle('hidden');
+  }
+
+  function buildMobileCatLinks(i) {
+    var catHtml = '';
+
+    for (var s = 0; s < nav.vertical[i].dept.length; s++) {
+      catHtml = catHtml + "<div class='p-2'>" + nav.vertical[n].dept[s].title + buildMobileSubCatLinks(i, s) + "</div>";
+    }
+
+    return catHtml;
+  };
+
+  function buildMobileSubCatLinks(i, s) {
+    return "<h1>&nbsp;&nbsp;&nbsp;&nbsp;HI</h1>";
+  }
+
+  function toggleSubcat(el, index) {
+    el.querySelector('.mobileFlyout').classList.toggle('hidden');
+  }
+
+  function buildMobileDeptLink(v, index) {
+    return "<button onclick='toggleSubcat(this)' class='p-4 block text-xl pt-2 pb-2 border-b w-full text-left'>" + v.title + "&nbsp;&nbsp;<i class='fal fa-angle-right float-right text-black text-3xl pt-2' aria-hidden='true'></i>&nbsp;&nbsp;<div class='mobileFlyout hidden'><a class='bg-gray-200 block p-2' href='https://americanfreight.com" + v.url + "'>Shop All " + v.title + "</a>" + buildMobileCatLinks(index) + "</div></button>";
+  }
+
+  var mobileDeptHtml = '';
+
+  for (var n = 0; n < nav.vertical.length; n++) {
+    mobileDeptHtml = mobileDeptHtml + buildMobileDeptLink(nav.vertical[n], n); // set the main depts
+  }
+
+  setTimeout(() => {
+    document.getElementById('mobileNavLinks').innerHTML = mobileDeptHtml;
+  }, 1000);
+</script>
+<!doctype html>
+<!--[if  lt IE 7]>
+<html lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7">
+  <![endif]-->
+  <!--[if (IE 7)&!(IEMobile)]>
+  <html lang="en-US" class="no-js lt-ie9 lt-ie8">
+    <![endif]-->
+    <!--[if (IE 8)&!(IEMobile)]>
+    <html lang="en-US" class="no-js lt-ie9">
+      <![endif]-->
+      <!--[if gt IE 8]><!-->
+      <html lang="en-US" class="no-js">
+        <!--<![endif]-->
+        <head>
+          <meta charset="utf-8">
+          <title>
+            Dresser Store Near Me | American Freight          </title>
+          <!-- Google Chrome Frame for IE -->
+          <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+          <!-- mobile meta (hooray!) -->
+          <meta name="HandheldFriendly" content="True">
+          <meta name="MobileOptimized" content="320">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <!-- icons & favicons (for more: http://themble.com/support/adding-icons-favicons/) -->
+          <link rel="shortcut icon" href="/oa/wp-content/uploads/img/logos/favicon.png">
+          <link rel="pingback" href="https://www.americanfreight.com/oa/xmlrpc.php">
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+          <!-- wordpress head functions -->
+          <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer>//<![CDATA[
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+//]]>
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+	<!-- This site is optimized with the Yoast SEO plugin v18.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="Find a dressers store near you today! At American Freight we offer a huge selection of dressers at discount prices starting from $162! Visit a store near you." />
+	<link rel="canonical" href="https://www.americanfreight.com/oa/dresser-store-near-me/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Dresser Store Near Me | American Freight" />
+	<meta property="og:description" content="Find a dressers store near you today! At American Freight we offer a huge selection of dressers at discount prices starting from $162! Visit a store near you." />
+	<meta property="og:url" content="https://www.americanfreight.com/oa/dresser-store-near-me/" />
+	<meta property="og:site_name" content="American Freight" />
+	<meta property="og:image" content="https://oa-admin.shosecom.com/oa/wp-content/uploads/2021/12/dresser-store.jpg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="2 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.americanfreight.com/oa/#website","url":"https://www.americanfreight.com/oa/","name":"American Freight","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.americanfreight.com/oa/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://www.americanfreight.com/oa/dresser-store-near-me/#primaryimage","inLanguage":"en-US","url":"https://oa-admin.shosecom.com/oa/wp-content/uploads/2021/12/dresser-store.jpg","contentUrl":"https://oa-admin.shosecom.com/oa/wp-content/uploads/2021/12/dresser-store.jpg"},{"@type":"WebPage","@id":"https://www.americanfreight.com/oa/dresser-store-near-me/#webpage","url":"https://www.americanfreight.com/oa/dresser-store-near-me/","name":"Dresser Store Near Me | American Freight","isPartOf":{"@id":"https://www.americanfreight.com/oa/#website"},"primaryImageOfPage":{"@id":"https://www.americanfreight.com/oa/dresser-store-near-me/#primaryimage"},"datePublished":"2021-12-23T12:11:09+00:00","dateModified":"2021-12-23T12:11:09+00:00","description":"Find a dressers store near you today! At American Freight we offer a huge selection of dressers at discount prices starting from $162! Visit a store near you.","breadcrumb":{"@id":"https://www.americanfreight.com/oa/dresser-store-near-me/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.americanfreight.com/oa/dresser-store-near-me/"]}]},{"@type":"BreadcrumbList","@id":"https://www.americanfreight.com/oa/dresser-store-near-me/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Dresser Store Near Me"}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.americanfreight.com\/oa\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.americanfreight.com/oa/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://www.americanfreight.com/oa/wp-content/plugins/contact-form-7/includes/css/styles.css' type='text/css' media='all' />
+<link rel='stylesheet' id='sp-ea-font-awesome-css'  href='https://www.americanfreight.com/oa/wp-content/plugins/easy-accordion-free/public/assets/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='sp-ea-style-css'  href='https://www.americanfreight.com/oa/wp-content/plugins/easy-accordion-free/public/assets/css/ea-style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='ce_responsive-css'  href='https://www.americanfreight.com/oa/wp-content/plugins/simple-embed-code/css/video-container.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpcf7-redirect-script-frontend-css'  href='https://www.americanfreight.com/oa/wp-content/plugins/wpcf7-redirect/build/css/wpcf7-redirect-frontend.min.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.americanfreight.com/oa/wp-includes/js/jquery/jquery.min.js' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/oa/wp-includes/js/jquery/jquery-migrate.min.js' id='jquery-migrate-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/oa/wp-content/plugins/easy-accordion-free/public/assets/js/collapse.js' id='sp-ea-accordion-js-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/oa/wp-content/themes/af-outlet-advisor-theme/library/js/libs/modernizr.custom.min.js' id='bones-modernizr-js'></script>
+<link rel="https://api.w.org/" href="https://www.americanfreight.com/oa/wp-json/" /><link rel="alternate" type="application/json" href="https://www.americanfreight.com/oa/wp-json/wp/v2/pages/4565" /><link rel='shortlink' href='https://www.americanfreight.com/oa/?p=4565' />
+<link rel="alternate" type="application/json+oembed" href="https://www.americanfreight.com/oa/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.americanfreight.com%2Foa%2Fdresser-store-near-me%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.americanfreight.com/oa/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.americanfreight.com%2Foa%2Fdresser-store-near-me%2F&#038;format=xml" />
+<link rel="alternate" href="https://oa-admin.shosecom.com/dresser-store-near-me/" hreflang="x-default" />
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer>//<![CDATA[
+	var dataLayer_content = {"pagePostType":"page","pagePostType2":"single-page","pagePostAuthor":"Ben Heligman"};
+	dataLayer.push( dataLayer_content );//]]>
+</script>
+<script data-cfasync="false">//<![CDATA[
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MPLZW7Z');//]]>
+</script>
+<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->		<style type="text/css" id="wp-custom-css">
+			.wpcf7-form .wpcf7-text {
+background: rgb(255, 255, 255);
+    border: 1px solid rgb(222, 222, 222);
+    padding: 0px 8px;
+    line-height: 35px;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    display: inline-block;
+	  width: 35%;
+	  margin-bottom: 5px;
+}
+
+
+.wpcf7-form [type=submit], .wpcf7-form button {
+    padding: 1px 15px 0px;
+    font-size: 15px;
+    margin: 0px;
+    border: none;
+    line-height: 36px;
+    color: rgb(255, 255, 255);
+    background: rgb(44, 44, 44);
+}		</style>
+		          <!-- end of wordpress head -->
+          <!-- drop Google Analytics Here -->
+          <!-- Global site tag (gtag.js) - Google Analytics -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6081679-15"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-6081679-15');
+          </script>
+          <!-- end analytics -->
+
+          <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+          <style>
+            /* grid */
+            /*!
+            * Bootstrap Grid Only (grid and responsive utilities extracted from Bootstrap 4.1.3)
+            * GitHub: https://github.com/dmhendricks/bootstrap-grid-css
+            * Bootstrap License: MIT (https://github.com/twbs/bootstrap/blob/v4-dev/LICENSE)
+            * Credits: Twitter, Inc. & The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+            */
+
+            @-ms-viewport {
+              width: device-width;
+            }
+
+            html {
+              -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              -ms-overflow-style: scrollbar;
+            }
+
+            *,
+            *::before,
+            *::after {
+              -webkit-box-sizing: inherit;
+              box-sizing: inherit;
+            }
+
+            .clearfix::after {
+              display: block;
+              clear: both;
+              content: '';
+            }
+
+            .visible {
+              visibility: visible !important;
+            }
+
+            .invisible {
+              visibility: hidden !important;
+            }
+
+            .hidden-xs-up {
+              display: none !important;
+            }
+
+            @media (max-width: 575.98px) {
+              .hidden-xs-down {
+                display: none !important;
+              }
+            }
+
+            @media (min-width: 576px) {
+              .hidden-sm-up {
+                display: none !important;
+              }
+            }
+
+            @media (max-width: 767.98px) {
+              .hidden-sm-down {
+                display: none !important;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .hidden-md-up {
+                display: none !important;
+              }
+            }
+
+            @media (max-width: 991.98px) {
+              .hidden-md-down {
+                display: none !important;
+              }
+            }
+
+            @media (min-width: 992px) {
+              .hidden-lg-up {
+                display: none !important;
+              }
+            }
+
+            @media (max-width: 1199.98px) {
+              .hidden-lg-down {
+                display: none !important;
+              }
+            }
+
+            @media (min-width: 1200px) {
+              .hidden-xl-up {
+                display: none !important;
+              }
+            }
+
+            .hidden-xl-down {
+              display: none !important;
+            }
+
+            .visible-print-block {
+              display: none !important;
+            }
+
+            @media print {
+              .visible-print-block {
+                display: block !important;
+              }
+            }
+
+            .visible-print-inline {
+              display: none !important;
+            }
+
+            @media print {
+              .visible-print-inline {
+                display: inline !important;
+              }
+            }
+
+            .visible-print-inline-block {
+              display: none !important;
+            }
+
+            @media print {
+              .visible-print-inline-block {
+                display: inline-block !important;
+              }
+            }
+
+            @media print {
+              .hidden-print {
+                display: none !important;
+              }
+            }
+
+            .container {
+              width: 100%;
+              /* padding-right: 15px;
+              padding-left: 15px; */
+              margin-right: auto;
+              margin-left: auto;
+            }
+
+            @media (min-width: 576px) {
+              .container {
+                max-width: 540px;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .container {
+                max-width: 720px;
+              }
+            }
+
+            @media (min-width: 992px) {
+              .container {
+                max-width: 960px;
+              }
+            }
+
+            @media (min-width: 1200px) {
+              .container {
+                max-width: 1140px;
+              }
+            }
+
+            .container-fluid {
+              width: 100%;
+              padding-right: 15px;
+              padding-left: 15px;
+              margin-right: auto;
+              margin-left: auto;
+            }
+
+            .row {
+              display: -webkit-box;
+              display: -webkit-flex;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-flex-wrap: wrap;
+              -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+              margin-right: -15px;
+              margin-left: -15px;
+            }
+
+            .no-gutters {
+              margin-right: 0;
+              margin-left: 0;
+            }
+
+            .no-gutters > .col,
+            .no-gutters > [class*='col-'] {
+              padding-right: 0;
+              padding-left: 0;
+            }
+
+            .col-1,
+            .col-2,
+            .col-3,
+            .col-4,
+            .col-5,
+            .col-6,
+            .col-7,
+            .col-8,
+            .col-9,
+            .col-10,
+            .col-11,
+            .col-12,
+            .col,
+            .col-auto,
+            .col-sm-1,
+            .col-sm-2,
+            .col-sm-3,
+            .col-sm-4,
+            .col-sm-5,
+            .col-sm-6,
+            .col-sm-7,
+            .col-sm-8,
+            .col-sm-9,
+            .col-sm-10,
+            .col-sm-11,
+            .col-sm-12,
+            .col-sm,
+            .col-sm-auto,
+            .col-md-1,
+            .col-md-2,
+            .col-md-3,
+            .col-md-4,
+            .col-md-5,
+            .col-md-6,
+            .col-md-7,
+            .col-md-8,
+            .col-md-9,
+            .col-md-10,
+            .col-md-11,
+            .col-md-12,
+            .col-md,
+            .col-md-auto,
+            .col-lg-1,
+            .col-lg-2,
+            .col-lg-3,
+            .col-lg-4,
+            .col-lg-5,
+            .col-lg-6,
+            .col-lg-7,
+            .col-lg-8,
+            .col-lg-9,
+            .col-lg-10,
+            .col-lg-11,
+            .col-lg-12,
+            .col-lg,
+            .col-lg-auto,
+            .col-xl-1,
+            .col-xl-2,
+            .col-xl-3,
+            .col-xl-4,
+            .col-xl-5,
+            .col-xl-6,
+            .col-xl-7,
+            .col-xl-8,
+            .col-xl-9,
+            .col-xl-10,
+            .col-xl-11,
+            .col-xl-12,
+            .col-xl,
+            .col-xl-auto {
+              position: relative;
+              width: 100%;
+              padding-right: 15px;
+              padding-left: 15px;
+            }
+
+            .col {
+              -webkit-flex-basis: 0;
+              -ms-flex-preferred-size: 0;
+              flex-basis: 0;
+              -webkit-box-flex: 1;
+              -webkit-flex-grow: 1;
+              -ms-flex-positive: 1;
+              flex-grow: 1;
+              max-width: 100%;
+            }
+
+            .col-auto {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 auto;
+              -ms-flex: 0 0 auto;
+              flex: 0 0 auto;
+              width: auto;
+              max-width: 100%;
+            }
+
+            .col-1 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 8.3333333333%;
+              -ms-flex: 0 0 8.3333333333%;
+              flex: 0 0 8.3333333333%;
+              max-width: 8.3333333333%;
+            }
+
+            .col-2 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 16.6666666667%;
+              -ms-flex: 0 0 16.6666666667%;
+              flex: 0 0 16.6666666667%;
+              max-width: 16.6666666667%;
+            }
+
+            .col-3 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 25%;
+              -ms-flex: 0 0 25%;
+              flex: 0 0 25%;
+              max-width: 25%;
+            }
+
+            .col-4 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 33.3333333333%;
+              -ms-flex: 0 0 33.3333333333%;
+              flex: 0 0 33.3333333333%;
+              max-width: 33.3333333333%;
+            }
+
+            .col-5 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 41.6666666667%;
+              -ms-flex: 0 0 41.6666666667%;
+              flex: 0 0 41.6666666667%;
+              max-width: 41.6666666667%;
+            }
+
+            .col-6 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 50%;
+              -ms-flex: 0 0 50%;
+              flex: 0 0 50%;
+              max-width: 50%;
+            }
+
+            .col-7 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 58.3333333333%;
+              -ms-flex: 0 0 58.3333333333%;
+              flex: 0 0 58.3333333333%;
+              max-width: 58.3333333333%;
+            }
+
+            .col-8 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 66.6666666667%;
+              -ms-flex: 0 0 66.6666666667%;
+              flex: 0 0 66.6666666667%;
+              max-width: 66.6666666667%;
+            }
+
+            .col-9 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 75%;
+              -ms-flex: 0 0 75%;
+              flex: 0 0 75%;
+              max-width: 75%;
+            }
+
+            .col-10 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 83.3333333333%;
+              -ms-flex: 0 0 83.3333333333%;
+              flex: 0 0 83.3333333333%;
+              max-width: 83.3333333333%;
+            }
+
+            .col-11 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 91.6666666667%;
+              -ms-flex: 0 0 91.6666666667%;
+              flex: 0 0 91.6666666667%;
+              max-width: 91.6666666667%;
+            }
+
+            .col-12 {
+              -webkit-box-flex: 0;
+              -webkit-flex: 0 0 100%;
+              -ms-flex: 0 0 100%;
+              flex: 0 0 100%;
+              max-width: 100%;
+            }
+
+            .order-first {
+              -webkit-box-ordinal-group: 0;
+              -webkit-order: -1;
+              -ms-flex-order: -1;
+              order: -1;
+            }
+
+            .order-last {
+              -webkit-box-ordinal-group: 14;
+              -webkit-order: 13;
+              -ms-flex-order: 13;
+              order: 13;
+            }
+
+            .order-0 {
+              -webkit-box-ordinal-group: 1;
+              -webkit-order: 0;
+              -ms-flex-order: 0;
+              order: 0;
+            }
+
+            .order-1 {
+              -webkit-box-ordinal-group: 2;
+              -webkit-order: 1;
+              -ms-flex-order: 1;
+              order: 1;
+            }
+
+            .order-2 {
+              -webkit-box-ordinal-group: 3;
+              -webkit-order: 2;
+              -ms-flex-order: 2;
+              order: 2;
+            }
+
+            .order-3 {
+              -webkit-box-ordinal-group: 4;
+              -webkit-order: 3;
+              -ms-flex-order: 3;
+              order: 3;
+            }
+
+            .order-4 {
+              -webkit-box-ordinal-group: 5;
+              -webkit-order: 4;
+              -ms-flex-order: 4;
+              order: 4;
+            }
+
+            .order-5 {
+              -webkit-box-ordinal-group: 6;
+              -webkit-order: 5;
+              -ms-flex-order: 5;
+              order: 5;
+            }
+
+            .order-6 {
+              -webkit-box-ordinal-group: 7;
+              -webkit-order: 6;
+              -ms-flex-order: 6;
+              order: 6;
+            }
+
+            .order-7 {
+              -webkit-box-ordinal-group: 8;
+              -webkit-order: 7;
+              -ms-flex-order: 7;
+              order: 7;
+            }
+
+            .order-8 {
+              -webkit-box-ordinal-group: 9;
+              -webkit-order: 8;
+              -ms-flex-order: 8;
+              order: 8;
+            }
+
+            .order-9 {
+              -webkit-box-ordinal-group: 10;
+              -webkit-order: 9;
+              -ms-flex-order: 9;
+              order: 9;
+            }
+
+            .order-10 {
+              -webkit-box-ordinal-group: 11;
+              -webkit-order: 10;
+              -ms-flex-order: 10;
+              order: 10;
+            }
+
+            .order-11 {
+              -webkit-box-ordinal-group: 12;
+              -webkit-order: 11;
+              -ms-flex-order: 11;
+              order: 11;
+            }
+
+            .order-12 {
+              -webkit-box-ordinal-group: 13;
+              -webkit-order: 12;
+              -ms-flex-order: 12;
+              order: 12;
+            }
+
+            .offset-1 {
+              margin-left: 8.3333333333%;
+            }
+
+            .offset-2 {
+              margin-left: 16.6666666667%;
+            }
+
+            .offset-3 {
+              margin-left: 25%;
+            }
+
+            .offset-4 {
+              margin-left: 33.3333333333%;
+            }
+
+            .offset-5 {
+              margin-left: 41.6666666667%;
+            }
+
+            .offset-6 {
+              margin-left: 50%;
+            }
+
+            .offset-7 {
+              margin-left: 58.3333333333%;
+            }
+
+            .offset-8 {
+              margin-left: 66.6666666667%;
+            }
+
+            .offset-9 {
+              margin-left: 75%;
+            }
+
+            .offset-10 {
+              margin-left: 83.3333333333%;
+            }
+
+            .offset-11 {
+              margin-left: 91.6666666667%;
+            }
+
+            @media (min-width: 576px) {
+              .col-sm {
+                -webkit-flex-basis: 0;
+                -ms-flex-preferred-size: 0;
+                flex-basis: 0;
+                -webkit-box-flex: 1;
+                -webkit-flex-grow: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                max-width: 100%;
+              }
+              .col-sm-auto {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 auto;
+                -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+                width: auto;
+                max-width: 100%;
+              }
+              .col-sm-1 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 8.3333333333%;
+                -ms-flex: 0 0 8.3333333333%;
+                flex: 0 0 8.3333333333%;
+                max-width: 8.3333333333%;
+              }
+              .col-sm-2 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 16.6666666667%;
+                -ms-flex: 0 0 16.6666666667%;
+                flex: 0 0 16.6666666667%;
+                max-width: 16.6666666667%;
+              }
+              .col-sm-3 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 25%;
+                -ms-flex: 0 0 25%;
+                flex: 0 0 25%;
+                max-width: 25%;
+              }
+              .col-sm-4 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 33.3333333333%;
+                -ms-flex: 0 0 33.3333333333%;
+                flex: 0 0 33.3333333333%;
+                max-width: 33.3333333333%;
+              }
+              .col-sm-5 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 41.6666666667%;
+                -ms-flex: 0 0 41.6666666667%;
+                flex: 0 0 41.6666666667%;
+                max-width: 41.6666666667%;
+              }
+              .col-sm-6 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 50%;
+                -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+                max-width: 50%;
+              }
+              .col-sm-7 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 58.3333333333%;
+                -ms-flex: 0 0 58.3333333333%;
+                flex: 0 0 58.3333333333%;
+                max-width: 58.3333333333%;
+              }
+              .col-sm-8 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 66.6666666667%;
+                -ms-flex: 0 0 66.6666666667%;
+                flex: 0 0 66.6666666667%;
+                max-width: 66.6666666667%;
+              }
+              .col-sm-9 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 75%;
+                -ms-flex: 0 0 75%;
+                flex: 0 0 75%;
+                max-width: 75%;
+              }
+              .col-sm-10 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 83.3333333333%;
+                -ms-flex: 0 0 83.3333333333%;
+                flex: 0 0 83.3333333333%;
+                max-width: 83.3333333333%;
+              }
+              .col-sm-11 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 91.6666666667%;
+                -ms-flex: 0 0 91.6666666667%;
+                flex: 0 0 91.6666666667%;
+                max-width: 91.6666666667%;
+              }
+              .col-sm-12 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 100%;
+                -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+                max-width: 100%;
+              }
+              .order-sm-first {
+                -webkit-box-ordinal-group: 0;
+                -webkit-order: -1;
+                -ms-flex-order: -1;
+                order: -1;
+              }
+              .order-sm-last {
+                -webkit-box-ordinal-group: 14;
+                -webkit-order: 13;
+                -ms-flex-order: 13;
+                order: 13;
+              }
+              .order-sm-0 {
+                -webkit-box-ordinal-group: 1;
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+              }
+              .order-sm-1 {
+                -webkit-box-ordinal-group: 2;
+                -webkit-order: 1;
+                -ms-flex-order: 1;
+                order: 1;
+              }
+              .order-sm-2 {
+                -webkit-box-ordinal-group: 3;
+                -webkit-order: 2;
+                -ms-flex-order: 2;
+                order: 2;
+              }
+              .order-sm-3 {
+                -webkit-box-ordinal-group: 4;
+                -webkit-order: 3;
+                -ms-flex-order: 3;
+                order: 3;
+              }
+              .order-sm-4 {
+                -webkit-box-ordinal-group: 5;
+                -webkit-order: 4;
+                -ms-flex-order: 4;
+                order: 4;
+              }
+              .order-sm-5 {
+                -webkit-box-ordinal-group: 6;
+                -webkit-order: 5;
+                -ms-flex-order: 5;
+                order: 5;
+              }
+              .order-sm-6 {
+                -webkit-box-ordinal-group: 7;
+                -webkit-order: 6;
+                -ms-flex-order: 6;
+                order: 6;
+              }
+              .order-sm-7 {
+                -webkit-box-ordinal-group: 8;
+                -webkit-order: 7;
+                -ms-flex-order: 7;
+                order: 7;
+              }
+              .order-sm-8 {
+                -webkit-box-ordinal-group: 9;
+                -webkit-order: 8;
+                -ms-flex-order: 8;
+                order: 8;
+              }
+              .order-sm-9 {
+                -webkit-box-ordinal-group: 10;
+                -webkit-order: 9;
+                -ms-flex-order: 9;
+                order: 9;
+              }
+              .order-sm-10 {
+                -webkit-box-ordinal-group: 11;
+                -webkit-order: 10;
+                -ms-flex-order: 10;
+                order: 10;
+              }
+              .order-sm-11 {
+                -webkit-box-ordinal-group: 12;
+                -webkit-order: 11;
+                -ms-flex-order: 11;
+                order: 11;
+              }
+              .order-sm-12 {
+                -webkit-box-ordinal-group: 13;
+                -webkit-order: 12;
+                -ms-flex-order: 12;
+                order: 12;
+              }
+              .offset-sm-0 {
+                margin-left: 0;
+              }
+              .offset-sm-1 {
+                margin-left: 8.3333333333%;
+              }
+              .offset-sm-2 {
+                margin-left: 16.6666666667%;
+              }
+              .offset-sm-3 {
+                margin-left: 25%;
+              }
+              .offset-sm-4 {
+                margin-left: 33.3333333333%;
+              }
+              .offset-sm-5 {
+                margin-left: 41.6666666667%;
+              }
+              .offset-sm-6 {
+                margin-left: 50%;
+              }
+              .offset-sm-7 {
+                margin-left: 58.3333333333%;
+              }
+              .offset-sm-8 {
+                margin-left: 66.6666666667%;
+              }
+              .offset-sm-9 {
+                margin-left: 75%;
+              }
+              .offset-sm-10 {
+                margin-left: 83.3333333333%;
+              }
+              .offset-sm-11 {
+                margin-left: 91.6666666667%;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .col-md {
+                -webkit-flex-basis: 0;
+                -ms-flex-preferred-size: 0;
+                flex-basis: 0;
+                -webkit-box-flex: 1;
+                -webkit-flex-grow: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                max-width: 100%;
+              }
+              .col-md-auto {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 auto;
+                -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+                width: auto;
+                max-width: 100%;
+              }
+              .col-md-1 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 8.3333333333%;
+                -ms-flex: 0 0 8.3333333333%;
+                flex: 0 0 8.3333333333%;
+                max-width: 8.3333333333%;
+              }
+              .col-md-2 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 16.6666666667%;
+                -ms-flex: 0 0 16.6666666667%;
+                flex: 0 0 16.6666666667%;
+                max-width: 16.6666666667%;
+              }
+              .col-md-3 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 25%;
+                -ms-flex: 0 0 25%;
+                flex: 0 0 25%;
+                max-width: 25%;
+              }
+              .col-md-4 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 33.3333333333%;
+                -ms-flex: 0 0 33.3333333333%;
+                flex: 0 0 33.3333333333%;
+                max-width: 33.3333333333%;
+              }
+              .col-md-5 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 41.6666666667%;
+                -ms-flex: 0 0 41.6666666667%;
+                flex: 0 0 41.6666666667%;
+                max-width: 41.6666666667%;
+              }
+              .col-md-6 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 50%;
+                -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+                max-width: 50%;
+              }
+              .col-md-7 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 58.3333333333%;
+                -ms-flex: 0 0 58.3333333333%;
+                flex: 0 0 58.3333333333%;
+                max-width: 58.3333333333%;
+              }
+              .col-md-8 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 66.6666666667%;
+                -ms-flex: 0 0 66.6666666667%;
+                flex: 0 0 66.6666666667%;
+                max-width: 66.6666666667%;
+              }
+              .col-md-9 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 75%;
+                -ms-flex: 0 0 75%;
+                flex: 0 0 75%;
+                max-width: 75%;
+              }
+              .col-md-10 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 83.3333333333%;
+                -ms-flex: 0 0 83.3333333333%;
+                flex: 0 0 83.3333333333%;
+                max-width: 83.3333333333%;
+              }
+              .col-md-11 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 91.6666666667%;
+                -ms-flex: 0 0 91.6666666667%;
+                flex: 0 0 91.6666666667%;
+                max-width: 91.6666666667%;
+              }
+              .col-md-12 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 100%;
+                -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+                max-width: 100%;
+              }
+              .order-md-first {
+                -webkit-box-ordinal-group: 0;
+                -webkit-order: -1;
+                -ms-flex-order: -1;
+                order: -1;
+              }
+              .order-md-last {
+                -webkit-box-ordinal-group: 14;
+                -webkit-order: 13;
+                -ms-flex-order: 13;
+                order: 13;
+              }
+              .order-md-0 {
+                -webkit-box-ordinal-group: 1;
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+              }
+              .order-md-1 {
+                -webkit-box-ordinal-group: 2;
+                -webkit-order: 1;
+                -ms-flex-order: 1;
+                order: 1;
+              }
+              .order-md-2 {
+                -webkit-box-ordinal-group: 3;
+                -webkit-order: 2;
+                -ms-flex-order: 2;
+                order: 2;
+              }
+              .order-md-3 {
+                -webkit-box-ordinal-group: 4;
+                -webkit-order: 3;
+                -ms-flex-order: 3;
+                order: 3;
+              }
+              .order-md-4 {
+                -webkit-box-ordinal-group: 5;
+                -webkit-order: 4;
+                -ms-flex-order: 4;
+                order: 4;
+              }
+              .order-md-5 {
+                -webkit-box-ordinal-group: 6;
+                -webkit-order: 5;
+                -ms-flex-order: 5;
+                order: 5;
+              }
+              .order-md-6 {
+                -webkit-box-ordinal-group: 7;
+                -webkit-order: 6;
+                -ms-flex-order: 6;
+                order: 6;
+              }
+              .order-md-7 {
+                -webkit-box-ordinal-group: 8;
+                -webkit-order: 7;
+                -ms-flex-order: 7;
+                order: 7;
+              }
+              .order-md-8 {
+                -webkit-box-ordinal-group: 9;
+                -webkit-order: 8;
+                -ms-flex-order: 8;
+                order: 8;
+              }
+              .order-md-9 {
+                -webkit-box-ordinal-group: 10;
+                -webkit-order: 9;
+                -ms-flex-order: 9;
+                order: 9;
+              }
+              .order-md-10 {
+                -webkit-box-ordinal-group: 11;
+                -webkit-order: 10;
+                -ms-flex-order: 10;
+                order: 10;
+              }
+              .order-md-11 {
+                -webkit-box-ordinal-group: 12;
+                -webkit-order: 11;
+                -ms-flex-order: 11;
+                order: 11;
+              }
+              .order-md-12 {
+                -webkit-box-ordinal-group: 13;
+                -webkit-order: 12;
+                -ms-flex-order: 12;
+                order: 12;
+              }
+              .offset-md-0 {
+                margin-left: 0;
+              }
+              .offset-md-1 {
+                margin-left: 8.3333333333%;
+              }
+              .offset-md-2 {
+                margin-left: 16.6666666667%;
+              }
+              .offset-md-3 {
+                margin-left: 25%;
+              }
+              .offset-md-4 {
+                margin-left: 33.3333333333%;
+              }
+              .offset-md-5 {
+                margin-left: 41.6666666667%;
+              }
+              .offset-md-6 {
+                margin-left: 50%;
+              }
+              .offset-md-7 {
+                margin-left: 58.3333333333%;
+              }
+              .offset-md-8 {
+                margin-left: 66.6666666667%;
+              }
+              .offset-md-9 {
+                margin-left: 75%;
+              }
+              .offset-md-10 {
+                margin-left: 83.3333333333%;
+              }
+              .offset-md-11 {
+                margin-left: 91.6666666667%;
+              }
+            }
+
+            @media (min-width: 992px) {
+              .col-lg {
+                -webkit-flex-basis: 0;
+                -ms-flex-preferred-size: 0;
+                flex-basis: 0;
+                -webkit-box-flex: 1;
+                -webkit-flex-grow: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                max-width: 100%;
+              }
+              .col-lg-auto {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 auto;
+                -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+                width: auto;
+                max-width: 100%;
+              }
+              .col-lg-1 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 8.3333333333%;
+                -ms-flex: 0 0 8.3333333333%;
+                flex: 0 0 8.3333333333%;
+                max-width: 8.3333333333%;
+              }
+              .col-lg-2 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 16.6666666667%;
+                -ms-flex: 0 0 16.6666666667%;
+                flex: 0 0 16.6666666667%;
+                max-width: 16.6666666667%;
+              }
+              .col-lg-3 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 25%;
+                -ms-flex: 0 0 25%;
+                flex: 0 0 25%;
+                max-width: 25%;
+              }
+              .col-lg-4 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 33.3333333333%;
+                -ms-flex: 0 0 33.3333333333%;
+                flex: 0 0 33.3333333333%;
+                max-width: 33.3333333333%;
+              }
+              .col-lg-5 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 41.6666666667%;
+                -ms-flex: 0 0 41.6666666667%;
+                flex: 0 0 41.6666666667%;
+                max-width: 41.6666666667%;
+              }
+              .col-lg-6 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 50%;
+                -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+                max-width: 50%;
+              }
+              .col-lg-7 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 58.3333333333%;
+                -ms-flex: 0 0 58.3333333333%;
+                flex: 0 0 58.3333333333%;
+                max-width: 58.3333333333%;
+              }
+              .col-lg-8 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 66.6666666667%;
+                -ms-flex: 0 0 66.6666666667%;
+                flex: 0 0 66.6666666667%;
+                max-width: 66.6666666667%;
+              }
+              .col-lg-9 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 75%;
+                -ms-flex: 0 0 75%;
+                flex: 0 0 75%;
+                max-width: 75%;
+              }
+              .col-lg-10 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 83.3333333333%;
+                -ms-flex: 0 0 83.3333333333%;
+                flex: 0 0 83.3333333333%;
+                max-width: 83.3333333333%;
+              }
+              .col-lg-11 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 91.6666666667%;
+                -ms-flex: 0 0 91.6666666667%;
+                flex: 0 0 91.6666666667%;
+                max-width: 91.6666666667%;
+              }
+              .col-lg-12 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 100%;
+                -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+                max-width: 100%;
+              }
+              .order-lg-first {
+                -webkit-box-ordinal-group: 0;
+                -webkit-order: -1;
+                -ms-flex-order: -1;
+                order: -1;
+              }
+              .order-lg-last {
+                -webkit-box-ordinal-group: 14;
+                -webkit-order: 13;
+                -ms-flex-order: 13;
+                order: 13;
+              }
+              .order-lg-0 {
+                -webkit-box-ordinal-group: 1;
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+              }
+              .order-lg-1 {
+                -webkit-box-ordinal-group: 2;
+                -webkit-order: 1;
+                -ms-flex-order: 1;
+                order: 1;
+              }
+              .order-lg-2 {
+                -webkit-box-ordinal-group: 3;
+                -webkit-order: 2;
+                -ms-flex-order: 2;
+                order: 2;
+              }
+              .order-lg-3 {
+                -webkit-box-ordinal-group: 4;
+                -webkit-order: 3;
+                -ms-flex-order: 3;
+                order: 3;
+              }
+              .order-lg-4 {
+                -webkit-box-ordinal-group: 5;
+                -webkit-order: 4;
+                -ms-flex-order: 4;
+                order: 4;
+              }
+              .order-lg-5 {
+                -webkit-box-ordinal-group: 6;
+                -webkit-order: 5;
+                -ms-flex-order: 5;
+                order: 5;
+              }
+              .order-lg-6 {
+                -webkit-box-ordinal-group: 7;
+                -webkit-order: 6;
+                -ms-flex-order: 6;
+                order: 6;
+              }
+              .order-lg-7 {
+                -webkit-box-ordinal-group: 8;
+                -webkit-order: 7;
+                -ms-flex-order: 7;
+                order: 7;
+              }
+              .order-lg-8 {
+                -webkit-box-ordinal-group: 9;
+                -webkit-order: 8;
+                -ms-flex-order: 8;
+                order: 8;
+              }
+              .order-lg-9 {
+                -webkit-box-ordinal-group: 10;
+                -webkit-order: 9;
+                -ms-flex-order: 9;
+                order: 9;
+              }
+              .order-lg-10 {
+                -webkit-box-ordinal-group: 11;
+                -webkit-order: 10;
+                -ms-flex-order: 10;
+                order: 10;
+              }
+              .order-lg-11 {
+                -webkit-box-ordinal-group: 12;
+                -webkit-order: 11;
+                -ms-flex-order: 11;
+                order: 11;
+              }
+              .order-lg-12 {
+                -webkit-box-ordinal-group: 13;
+                -webkit-order: 12;
+                -ms-flex-order: 12;
+                order: 12;
+              }
+              .offset-lg-0 {
+                margin-left: 0;
+              }
+              .offset-lg-1 {
+                margin-left: 8.3333333333%;
+              }
+              .offset-lg-2 {
+                margin-left: 16.6666666667%;
+              }
+              .offset-lg-3 {
+                margin-left: 25%;
+              }
+              .offset-lg-4 {
+                margin-left: 33.3333333333%;
+              }
+              .offset-lg-5 {
+                margin-left: 41.6666666667%;
+              }
+              .offset-lg-6 {
+                margin-left: 50%;
+              }
+              .offset-lg-7 {
+                margin-left: 58.3333333333%;
+              }
+              .offset-lg-8 {
+                margin-left: 66.6666666667%;
+              }
+              .offset-lg-9 {
+                margin-left: 75%;
+              }
+              .offset-lg-10 {
+                margin-left: 83.3333333333%;
+              }
+              .offset-lg-11 {
+                margin-left: 91.6666666667%;
+              }
+            }
+
+            @media (min-width: 1200px) {
+              .col-xl {
+                -webkit-flex-basis: 0;
+                -ms-flex-preferred-size: 0;
+                flex-basis: 0;
+                -webkit-box-flex: 1;
+                -webkit-flex-grow: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                max-width: 100%;
+              }
+              .col-xl-auto {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 auto;
+                -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+                width: auto;
+                max-width: 100%;
+              }
+              .col-xl-1 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 8.3333333333%;
+                -ms-flex: 0 0 8.3333333333%;
+                flex: 0 0 8.3333333333%;
+                max-width: 8.3333333333%;
+              }
+              .col-xl-2 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 16.6666666667%;
+                -ms-flex: 0 0 16.6666666667%;
+                flex: 0 0 16.6666666667%;
+                max-width: 16.6666666667%;
+              }
+              .col-xl-3 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 25%;
+                -ms-flex: 0 0 25%;
+                flex: 0 0 25%;
+                max-width: 25%;
+              }
+              .col-xl-4 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 33.3333333333%;
+                -ms-flex: 0 0 33.3333333333%;
+                flex: 0 0 33.3333333333%;
+                max-width: 33.3333333333%;
+              }
+              .col-xl-5 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 41.6666666667%;
+                -ms-flex: 0 0 41.6666666667%;
+                flex: 0 0 41.6666666667%;
+                max-width: 41.6666666667%;
+              }
+              .col-xl-6 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 50%;
+                -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+                max-width: 50%;
+              }
+              .col-xl-7 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 58.3333333333%;
+                -ms-flex: 0 0 58.3333333333%;
+                flex: 0 0 58.3333333333%;
+                max-width: 58.3333333333%;
+              }
+              .col-xl-8 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 66.6666666667%;
+                -ms-flex: 0 0 66.6666666667%;
+                flex: 0 0 66.6666666667%;
+                max-width: 66.6666666667%;
+              }
+              .col-xl-9 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 75%;
+                -ms-flex: 0 0 75%;
+                flex: 0 0 75%;
+                max-width: 75%;
+              }
+              .col-xl-10 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 83.3333333333%;
+                -ms-flex: 0 0 83.3333333333%;
+                flex: 0 0 83.3333333333%;
+                max-width: 83.3333333333%;
+              }
+              .col-xl-11 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 91.6666666667%;
+                -ms-flex: 0 0 91.6666666667%;
+                flex: 0 0 91.6666666667%;
+                max-width: 91.6666666667%;
+              }
+              .col-xl-12 {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 100%;
+                -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+                max-width: 100%;
+              }
+              .order-xl-first {
+                -webkit-box-ordinal-group: 0;
+                -webkit-order: -1;
+                -ms-flex-order: -1;
+                order: -1;
+              }
+              .order-xl-last {
+                -webkit-box-ordinal-group: 14;
+                -webkit-order: 13;
+                -ms-flex-order: 13;
+                order: 13;
+              }
+              .order-xl-0 {
+                -webkit-box-ordinal-group: 1;
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+              }
+              .order-xl-1 {
+                -webkit-box-ordinal-group: 2;
+                -webkit-order: 1;
+                -ms-flex-order: 1;
+                order: 1;
+              }
+              .order-xl-2 {
+                -webkit-box-ordinal-group: 3;
+                -webkit-order: 2;
+                -ms-flex-order: 2;
+                order: 2;
+              }
+              .order-xl-3 {
+                -webkit-box-ordinal-group: 4;
+                -webkit-order: 3;
+                -ms-flex-order: 3;
+                order: 3;
+              }
+              .order-xl-4 {
+                -webkit-box-ordinal-group: 5;
+                -webkit-order: 4;
+                -ms-flex-order: 4;
+                order: 4;
+              }
+              .order-xl-5 {
+                -webkit-box-ordinal-group: 6;
+                -webkit-order: 5;
+                -ms-flex-order: 5;
+                order: 5;
+              }
+              .order-xl-6 {
+                -webkit-box-ordinal-group: 7;
+                -webkit-order: 6;
+                -ms-flex-order: 6;
+                order: 6;
+              }
+              .order-xl-7 {
+                -webkit-box-ordinal-group: 8;
+                -webkit-order: 7;
+                -ms-flex-order: 7;
+                order: 7;
+              }
+              .order-xl-8 {
+                -webkit-box-ordinal-group: 9;
+                -webkit-order: 8;
+                -ms-flex-order: 8;
+                order: 8;
+              }
+              .order-xl-9 {
+                -webkit-box-ordinal-group: 10;
+                -webkit-order: 9;
+                -ms-flex-order: 9;
+                order: 9;
+              }
+              .order-xl-10 {
+                -webkit-box-ordinal-group: 11;
+                -webkit-order: 10;
+                -ms-flex-order: 10;
+                order: 10;
+              }
+              .order-xl-11 {
+                -webkit-box-ordinal-group: 12;
+                -webkit-order: 11;
+                -ms-flex-order: 11;
+                order: 11;
+              }
+              .order-xl-12 {
+                -webkit-box-ordinal-group: 13;
+                -webkit-order: 12;
+                -ms-flex-order: 12;
+                order: 12;
+              }
+              .offset-xl-0 {
+                margin-left: 0;
+              }
+              .offset-xl-1 {
+                margin-left: 8.3333333333%;
+              }
+              .offset-xl-2 {
+                margin-left: 16.6666666667%;
+              }
+              .offset-xl-3 {
+                margin-left: 25%;
+              }
+              .offset-xl-4 {
+                margin-left: 33.3333333333%;
+              }
+              .offset-xl-5 {
+                margin-left: 41.6666666667%;
+              }
+              .offset-xl-6 {
+                margin-left: 50%;
+              }
+              .offset-xl-7 {
+                margin-left: 58.3333333333%;
+              }
+              .offset-xl-8 {
+                margin-left: 66.6666666667%;
+              }
+              .offset-xl-9 {
+                margin-left: 75%;
+              }
+              .offset-xl-10 {
+                margin-left: 83.3333333333%;
+              }
+              .offset-xl-11 {
+                margin-left: 91.6666666667%;
+              }
+            }
+
+            .img-fluid {
+              max-width: 100%;
+              height: auto;
+            }
+
+            p {
+              margin-bottom: 20px;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+              font-weight: bold;
+            }
+          </style>
+          <script src="https://kit.fontawesome.com/c565b86e8f.js" crossorigin="anonymous"></script>
+        </head>
+        <body id="AF" class="page-template-default page page-id-4565 multiple-domain-www-americanfreight-com elementor-default elementor-kit-2857" https://www.americanfreight.com/oa>
+          
+      <header class='pt-5 pb-5 border-b hidden md:block'>
+        <h1 id='SiteHeading' class='sr-only'>American Freight</h1>
+        <div class='container mx-auto flex items-center'>
+          <!-- logo -->
+          
+      <div class='flex-1'>
+        <a href='https://americanfreight.com'>
+          <img
+            id='header--logo'
+            class='img-responsive hidden md:block lg:block'
+            src='https://americanfreight.com/webr/rveca028b/img/logos/logo--american-freight-desktop-dark.svg'
+            alt='American Freight'
+          />
+
+          <img
+            id='header--logo'
+            class='img-responsive md:hidden lg:hidden'
+            src='https://americanfreight.com/webr/rveca028b/img/logos/logo-american-freight-mobile-dark.svg'
+            alt='American Freight'
+          />
+        </a>
+      </div>
+    
+
+          <!-- search -->
+          
+      <form action='' id='searchForm' name='searchForm' class='flex-1' novalidate='' onsubmit="
+        debugger;
+        var searchUrl='https://americanfreight.com/br/plp/search/'
+        + document.getElementById('search--desktop').value
+        + '?psize=25&pno=1';
+        window.location = searchUrl;
+        return false";
+      '>
+        <div class='flex'>
+          <input
+            type='text'
+            placeholder='What can we help you find?'
+            id='search--desktop'
+            autocomplete='off'
+            class='border-gray-400 border-l border-t border-b border-r-0 flex-1 pl-1 pr-1 rounded-none placeholder-gray-700 p-2' required='' value=''
+          />
+          <button type='submit' id='searchBtn' class='border-gray-400 border-t border-b border-r'>
+            <i class='fal fa-search font-black pl-3 pr-3'></i>
+          </button>
+        </div>
+      </form>
+    
+
+          <!-- store locator link -->
+          <div class='flex-1 text-right'>
+            
+      <div class='inline-block mr-2'>
+        <a href='https://www.americanfreight.com/br/stores' class='block'>
+          <span class='inline-block leading-none hidden md:inline-block'>
+            <div class='text-xs'>Click here for</div>
+            <strong class='text-sm'>Your Store</strong>
+          </span>
+          <i class='fal fa-map-marker-alt text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+
+            <!-- cart icon -->
+            
+      <div class='inline-block mr-2'>
+        <a href='https://www.americanfreight.com/br/cart/view' class='block'>
+          <i class='fal fa-shopping-basket text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+
+            <!-- profile icon -->
+            
+      <div class='inline-block'>
+        <a href='https://www.americanfreight.com/br/user/profile' class='block'>
+          <i class='fal fa-user text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+          </div>
+        </div>
+      </header>
+      <nav id='DesktopNavigation' class='border-b hidden md:block'>
+        
+      <div id='nav' class='relative container mx-auto text-md text-gray-800 pt-2 pb-2'>
+
+      </div>
+    
+      </nav>
+              
+      <header class='p-3 border-b md:hidden lg:hidden'>
+        <div class='container mx-auto flex items-center'>
+          <div>
+            <!-- hamburger nav -->
+            <button type='button' class='border--none tap--target' aria-label='Toggle Navigation' onclick='toggleNav()'>
+              <i class='fal fa-bars text-4xl pt-1 mr-5  ' aria-hidden='true'></i></button>
+          </div>
+          <div  class='flex-1'>
+            <!-- logo -->
+            
+      <div class='flex-1'>
+        <a href='https://americanfreight.com'>
+          <img
+            id='header--logo'
+            class='img-responsive hidden md:block lg:block'
+            src='https://americanfreight.com/webr/rveca028b/img/logos/logo--american-freight-desktop-dark.svg'
+            alt='American Freight'
+          />
+
+          <img
+            id='header--logo'
+            class='img-responsive md:hidden lg:hidden'
+            src='https://americanfreight.com/webr/rveca028b/img/logos/logo-american-freight-mobile-dark.svg'
+            alt='American Freight'
+          />
+        </a>
+      </div>
+    
+          </div>
+
+          <div class='flex-1 text-right'>
+            <!-- icons -->
+            
+      <div class='inline-block mr-2'>
+        <a href='https://www.americanfreight.com/br/stores' class='block'>
+          <span class='inline-block leading-none hidden md:inline-block'>
+            <div class='text-xs'>Click here for</div>
+            <strong class='text-sm'>Your Store</strong>
+          </span>
+          <i class='fal fa-map-marker-alt text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+
+            <!-- cart icon -->
+            
+      <div class='inline-block mr-2'>
+        <a href='https://www.americanfreight.com/br/cart/view' class='block'>
+          <i class='fal fa-shopping-basket text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+
+            <!-- profile icon -->
+            
+      <div class='inline-block'>
+        <a href='https://www.americanfreight.com/br/user/profile' class='block'>
+          <i class='fal fa-user text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+          </div>
+        </div>
+
+        <div class='container mx-auto  pt-4'>
+          <!-- search -->
+          
+      <form action='' id='searchForm' name='searchForm' class='flex-1' novalidate='' onsubmit="
+        debugger;
+        var searchUrl='https://americanfreight.com/br/plp/search/'
+        + document.getElementById('search--mobile').value
+        + '?psize=25&pno=1';
+        window.location = searchUrl;
+        return false";
+      '>
+        <div class='flex'>
+          <input
+            type='text'
+            placeholder='What can we help you find?'
+            id='search--mobile'
+            autocomplete='off'
+            class='border-gray-400 border-l border-t border-b border-r-0 flex-1 pl-1 pr-1 rounded-none placeholder-gray-700 p-2' required='' value=''
+          />
+          <button type='submit' id='searchBtn' class='border-gray-400 border-t border-b border-r'>
+            <i class='fal fa-search font-black pl-3 pr-3'></i>
+          </button>
+        </div>
+      </form>
+    
+        </div>
+
+        <div onclick='toggleNav()' id='mask' class='hidden fixed h-screen w-screen bg-black top-0 left-0 opacity-50'></div>
+        <nav id='mobileNav' class='hidden overflow-scroll text-lg leading-loose fixed top-0 left-0 bg-white h-screen shadow-lg w-10/12 z-50'>
+          <button onclick='toggleNav()' aria-label='Open Nav' class='text-5xl float-right mt-1 p-4'>
+            <i class='fal fa-times'></i>
+          </button>
+          <h3 class='text-3xl font-light p-4'>Main Menu</h3>
+          <br />
+          <strong class='p-4'>Shop Departments</strong>
+          <hr />
+          <div id='mobileNavLinks'></div>
+
+          <br />
+          <strong class='p-4'>Useful Links</strong>
+          <hr />
+          <ul class='p-4'>
+            <li><a href='https://americanfreight.com/br/user/order-status'>Order Status</a></li>
+            <li><a href='https://americanfreight.com/br/stores'>Find a Store</a></li>
+            <li><a href='https://americanfreight.com/br/deals'>Deals</a></li>
+            <li><a href='https://americanfreight.com/br/email-sms-text-signup'>Email Savings</a></li>
+            <li><a href='https://americanfreight.com/br/c/price-match-policy'>Price Match Policy</a></li>
+            <li><a href='https://americanfreight.com/br/deal-of-the-week'>Deal of the Week</a></li>
+            <li><a href='https://americanfreight.com/sp/contact-us/'>Customer Service</a></li>
+            <li><a href='https://americanfreight.com/sp/frequently-asked-questions/'>FAQs</a></li>
+            <li><a href='https://go.ownamericanfreight.com/?utm_source=FBIG&amp;utm_medium=DIGITAL&amp;utm_campaign=FRANDEV' target='_blank'>Own A Franchise</a></li>
+            <li><a href='https://www.americanfreight.com/br/c/payment-plans'>Financing Options</a></li>
+            <li><a href='https://www.americanfreight.com/sp/warranty-home/'>Warranty Info</a></li>
+            <li><a href='https://www.americanfreight.com/br/c/mpa-protection-details'>Protection Agreement Info</a></li>
+            <li><a href='https://www.americanfreight.com/br/c/certification-process'>Certification Process</a></li>
+          </ul>
+
+          <br />
+          <br />
+          
+      <div class='text-center'>
+        <span>
+          <a href='https://www.facebook.com/AmericanFreightFurniture' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-facebook-official font--facebook' aria-label='Facebook' aria-hidden='true'></i><span class='sr-only'>Facebook</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://twitter.com/AmericanFreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-twitter-square font--twitter' aria-label='Twitter' aria-hidden='true'></i><span class='sr-only'>Twitter</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.youtube.com/user/furnituredeals' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-youtube-play font--googlePlus' aria-label='YouTube' aria-hidden='true'></i><span class='sr-only'>YouTube</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.linkedin.com/company/american-freight-furniture-and-mattress' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-linkedin-square font--linkedIn' aria-label='LinkedIn' aria-hidden='true'></i><span class='sr-only'>LinkedIn</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.instagram.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-instagram font--ctaActive' aria-label='Instagram' aria-hidden='true'></i><span class='sr-only'>Instagram</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.pinterest.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-pinterest-square font--pinterest' aria-label='Pinterest' aria-hidden='true'></i><span class='sr-only'>Pinterest</span></a>
+          &nbsp;&nbsp;
+        </span>
+      </div>
+    
+          <br />
+          <br />
+          <br />
+        </nav>
+      </header>
+              <div class="container mx-auto p-3 md:p-0"> <!-- ends in footer.php -->
+			
+			<div id="content" class="container">
+			
+				<div id="inner-content" class="wrap clearfix">
+			
+				    <div id="main" class="eightcol first clearfix" role="main">
+
+					    					
+					    <article id="post-4565" class="clearfix post-4565 page type-page status-publish hentry" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+						    <section class="entry-content clearfix" itemprop="articleBody">
+							    <div style="color: #444444;">
+<div class="row">
+<div class="col-12 col-md-6">
+<h1 style="margin: 0.67em 0px; font-size: 40px; font-weight: bold;">Dresser Stores Near Me</h1>
+<p style="font-weight: 700px font-size:15px; margin-bottom: 0px;">Search for a dresser store near you below:</p>
+<div role="form" class="wpcf7" id="wpcf7-f4137-p4565-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/oa/dresser-store-near-me/#wpcf7-f4137-p4565-o1" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="4137" />
+<input type="hidden" name="_wpcf7_version" value="5.5.5" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f4137-p4565-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="4565" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+</div>
+<p><span class="wpcf7-form-control-wrap zip"><input type="text" name="zip" value="" size="40" maxlength="5" minlength="5" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Zip Code" /></span><br />
+<input type="submit" value="Search" class="wpcf7-form-control has-spinner wpcf7-submit" /></p>
+<div class="wpcf7-response-output" aria-hidden="true"></div></form></div>
+</div>
+<div class="col-12 col-md-6"><img class="aligncenter size-medium wp-image-4346" src="https://www.americanfreight.com/oa/wp-content/uploads/2021/12/dresser-store.jpg" alt="dresser" /></div>
+</div>
+<div class="row">
+<div class="col-12 col-md-12">
+<h2 style="font-size: 24px;">American Freight Dresser Store</h2>
+<p>If you’re searching for a new dresser, you’ve come to the right place. At American Freight, we have a great selection of dressers starting at $162. Our dressers are stylish, high quality and always sold at rock bottom prices. With discounts of up to 47% off the current retail price, there is no reason to shop anywhere else for your next dresser. We have a variety of styles to choose from including casual, glam, traditional, contemporary and farmhouse. All our dressers include a matching mirror for extra convenience. What’s the next step? Simply find your local dresser store by searching with your ZIP in the store finder above. Then head on over and an expert team will be there to assist you to find your perfect dresser. You can even shop our store online and get your next <a href="https://www.americanfreight.com/br/plp/furniture/bedroom-furniture/dressers-and-mirrors/9136?pno=1&amp;sortBy=1&amp;psize=25">dresser</a> delivered straight to your door.</p>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<h2 style="font-size: 24px; text-align: left;">Shop All Categories</h2>
+<div class="row">
+<div class="col-12 col-md-3">
+<div class="padding--md text--center">
+<div class="margin--bottom">
+<a href="https://www.americanfreight.com/br/dept/furniture"><img id="CategoryProductImage" class="margin--auto img-responsive padding-sm plp--image" style="mix-blend-mode: multiply;" src="https://res.cloudinary.com/enspire-commerce/image/upload/h_300,w_300,c_pad/v1620405536/f1a4b706c1f381c95bb6bdeff08f50c4.jpg" alt="" /></a>
+</div>
+<h3 class="bg--offLight padding--md text--center margin--top" style="text-align: center;"><a href="https://www.americanfreight.com/br/dept/furniture">Furniture</a></h3>
+<p>&nbsp;</p>
+</div>
+<ul>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/furniture/living-room-furniture/9100">Living Room Furniture</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/furniture/reclining-furniture/9280">Reclining Furniture</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/furniture/bedroom-furniture/9132">Bedroom Furniture</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/furniture/dining-rooms/9143">Dining Rooms</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/furniture/rugs-accents/9121">Rugs &amp; Accents</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/plp/furniture/closeouts/closeouts/9291">Closeouts</a></li>
+</ul>
+</div>
+<div class="col-12 col-md-3">
+<div class="padding--md text--center">
+<div class="bg--offLight padding--md text--center margin--top">
+<div class="margin--bottom">
+<div><a href="https://www.americanfreight.com/br/dept/mattresses-bedding"><img id="CategoryProductImage" class="margin--auto img-responsive padding-sm plp--image" style="mix-blend-mode: multiply;" src="//res.cloudinary.com/enspire-commerce/image/upload/h_300,w_300,c_pad/v1603191211/879e67e2c8f20bdc6cf3dbb3279afbac.jpg" alt="" /></a></div>
+</div>
+<h3 class="font--16 lh--sm margin--top" style="min-height: 3em; text-align: center;"><a href="https://www.americanfreight.com/br/dept/mattresses-bedding">Mattresses &amp; Bedding</a></h3>
+<p>&nbsp;</p>
+</div>
+</div>
+<ul>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/mattresses-bedding/mattresses/1040">Mattresses</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/mattresses-bedding/bedframes/9171">Bed Frames</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/mattresses-bedding/bedding-accessories/9191">Bedding Accessories</a></li>
+</ul>
+</div>
+<div class="col-12 col-md-3">
+<div class="padding--md text--center">
+<div class="bg--offLight padding--md text--center margin--top">
+<div class="margin--bottom">
+<div><a href="https://www.americanfreight.com/br/dept/appliances"><img id="CategoryProductImage" class="margin--auto img-responsive padding-sm plp--image" style="mix-blend-mode: multiply;" src="//c.shld.net/rpx/i/s/i/spin/image/spin_prod_931540412?hei=300&amp;wid=300" alt="" /></a></div>
+</div>
+<h3 class="font--16 lh--sm margin--top" style="min-height: 3em; text-align: center;"><a href="https://www.americanfreight.com/br/dept/appliances">Appliances</a></h3>
+<p>&nbsp;</p>
+</div>
+</div>
+<ul>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/appliances/refrigerators-freezers/695">Refrigerators and Freezers</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/appliances/washers-dryers/507">Washers &amp; Dryers</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/appliances/cooking-appliances/194">Cooking Appliances</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/appliances/dishwashers-disposals/5940">Dishwashers &amp; Disposals</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/appliances/accessories/9260">Accessories</a></li>
+</ul>
+</div>
+<div class="col-12 col-md-3">
+<div class="padding--md text--center">
+<div class="bg--offLight padding--md text--center margin--top">
+<div class="margin--bottom">
+<div><a href="https://www.americanfreight.com/br/dept/outdoor"><img id="CategoryProductImage" class="margin--auto img-responsive padding-sm plp--image" style="mix-blend-mode: multiply;" src="//res.cloudinary.com/enspire-commerce/image/upload/h_300,w_300,c_pad/v1612198858/93061f16e9342adc6b70fcc515505ae9.jpg" alt="" /></a></div>
+</div>
+<h3 class="font--16 lh--sm margin--top" style="min-height: 3em; text-align: center;"><a href="https://www.americanfreight.com/br/dept/outdoor">Outdoor</a></h3>
+<p>&nbsp;</p>
+</div>
+</div>
+<ul>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/outdoor/outdoor-furniture/201">Outdoor Furniture</a></li>
+<li class="text--left"><a class="btn-block mobile--tap font--14 no--underline padding--top padding--bottom tap--target" href="/br/cat/outdoor/outdoor-accessories/207">Outdoor Accessories</a></li>
+</ul>
+</div>
+<div class="col-12 col-md-3">
+<div class="padding--md text--center"></div>
+</div>
+</div>
+							</section> <!-- end article section -->					
+					    </article> <!-- end article -->
+					
+					    			
+    				</div> <!-- end #main -->
+    
+				    				    
+				</div> <!-- end #inner-content -->
+    
+			</div> <!-- end #content -->
+
+
+
+<script>
+  function toggleLinks(id) {
+    document.getElementById(id + 'Links').classList.toggle('hidden');
+    document.getElementById(id + 'Close').classList.toggle('hidden');
+    document.getElementById(id + 'Open').classList.toggle('hidden');
+  }
+</script>
+
+
+
+
+
+
+  </div> <!-- end container from header.php -->
+
+
+      <footer class='pt-20 pb-20 hidden md:block text-center'>
+        
+      <section id='footerLinks' class='container'>
+        <div style='margin-left: -15px; margin-right: -15px; display: flex; flex-flow: row wrap; flex-grow: 0; flex-shrink: 0; align-items: normal; justify-content: flex-start;'>
+          <div style='box-sizing: border-box; min-height: 1px; position: relative; padding-left: 15px; padding-right: 15px; width: 33%; flex: 0 0 33%; max-width: 33%; margin-left: 0%; right: auto; left: auto;'>
+            <strong class='font--16'>Customer Service</strong>
+            <ul class='font--14 lh--md'><a href='/sp/contact-us/' class='block no--underline'>Customer Service</a><a class='block no--underline' href='/br/c/shipping-delivery'>Shipping and Delivery Information</a><a class='block no--underline' href='/br/c/return-policy'>Return Policy</a><a href='/sp/frequently-asked-questions/' class='block no--underline'>FAQs</a></ul>
+          </div>
+          <div style='box-sizing: border-box; min-height: 1px; position: relative; padding-left: 15px; padding-right: 15px; width: 33%; flex: 0 0 33%; max-width: 33%; margin-left: 0%; right: auto; left: auto;'>
+            <strong class='font--16'>Resources</strong>
+            <ul class='font--14 lh--md'><a class='block no--underline' href='/br/email-sms-text-signup'>Sign-up for text or email alerts</a><a class='block no--underline' href='/br/our-brands'>Appliance Brands</a><a href='/br/stores' class='block no--underline'>Find a Store</a><a class='block no--underline' href='/br/c/parts-and-accessories'>Appliance Parts and Accessories</a><a class='block no--underline' href='/br/c/price-match-policy'>Price Match Policy</a><a href='https://www.americanfreight.com/oa/what-were-doing/' class='block no--underline'>Covid-19 Update</a><a href='https://www.americanfreight.com/oa/outlet-advisor/' class='block no--underline'>Outlet Advisor</a></ul>
+          </div>
+          <div style='box-sizing: border-box; min-height: 1px; position: relative; padding-left: 15px; padding-right: 15px; width: 33%; flex: 0 0 33%; max-width: 33%; margin-left: 0%; right: auto; left: auto;'>
+            <strong class='font--16'>Company</strong>
+            <ul class='font--14 lh--md'><a href='/br/c/about-us' class='block no--underline'>About Us</a><a href='https://go.ownamericanfreight.com/?utm_source=FBIG&amp;utm_medium=DIGITAL&amp;utm_campaign=FRANDEV' class='block no--underline'>Own A Franchise</a><a class='block no--underline' href='/br/c/payment-plans'>Payment Plans</a><a href='/oa/sears-outlet-rebrand/' class='block no--underline'>Sears Outlet Rebrand</a><a href='/oa/ffo-home-rebrand/' class='block no--underline'>FFO Home Rebrand</a><a href='https://recruiting2.ultipro.com/CAP1010CUSC/JobBoard/b4352687-7fa4-fce1-f24e-36e4b4241e95/?q=&amp;o=postedDateDesc' class='block no--underline'>Careers</a><a class='block no--underline' href='/br/c/privacy-policy'>Privacy Policy</a><a class='block no--underline' href='/br/c/certification-process'>American Freight Certified</a><a class='block no--underline' href='/br/c/terms-of-use'>Terms of Use</a><a class='block no--underline' href='/br/c/ca-transparency-supply-chain'>CA Transparency in Supply Chains</a><a class='block no--underline' href='/br/c/vendor-code-conduct'>Vendor Code of Conduct</a></ul>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+      </section>
+    
+        
+      <section id='HowWeDoing'>
+        <span class='text-xl'>How Are We Doing?</span>
+        <br />
+        <a href='https://americanfreight.com/sp/contact-us/'>Submit Feedback.</a>
+        <br />
+        <br />
+      </section>
+    
+        
+      <div class='text-center'>
+        <span>
+          <a href='https://www.facebook.com/AmericanFreightFurniture' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-facebook-official font--facebook' aria-label='Facebook' aria-hidden='true'></i><span class='sr-only'>Facebook</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://twitter.com/AmericanFreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-twitter-square font--twitter' aria-label='Twitter' aria-hidden='true'></i><span class='sr-only'>Twitter</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.youtube.com/user/furnituredeals' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-youtube-play font--googlePlus' aria-label='YouTube' aria-hidden='true'></i><span class='sr-only'>YouTube</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.linkedin.com/company/american-freight-furniture-and-mattress' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-linkedin-square font--linkedIn' aria-label='LinkedIn' aria-hidden='true'></i><span class='sr-only'>LinkedIn</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.instagram.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-instagram font--ctaActive' aria-label='Instagram' aria-hidden='true'></i><span class='sr-only'>Instagram</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.pinterest.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-pinterest-square font--pinterest' aria-label='Pinterest' aria-hidden='true'></i><span class='sr-only'>Pinterest</span></a>
+          &nbsp;&nbsp;
+        </span>
+      </div>
+    
+        <br />
+        <br />
+        
+      <section id='footerBBBlogo'>
+        <a href='https://www.bbb.org/us/oh/delaware/profile/furniture-stores/american-freight-furniture-and-mattress-0302-65003501/#sealclick' target='_blank' rel='noreferrer noopener'>
+          <img src='https://seal-centralohio.bbb.org/seals/blue-seal-293-61-bbb-65003501.png' width='200' alt='American Freight Furniture and Mattress BBB Business Review' class='mx-auto' />
+        </a>
+      </section>
+        <br />
+        <section id='Copyright' class='text-xs'>&copy; 2022 American Freight</section>
+        <br />
+        <br />
+        
+      <div class="text-xs text-gray-700 container mx-auto text-left"><dl class="text-left">
+        <dt><strong>1. APPLIANCE OFFERS:</strong></dt> <dd>Savings off list price. Excludes Special Orders, Special Purchases, and New In-box appliances. Item selection and quantities available may vary by location.</dd>
+      <dt><strong>2. FURNITURE &amp; MATTRESS OFFERS:</strong></dt> <dd>Savings off MSRP. Prices shown for item marked as "EA. PC." (meaning, each piece) are valid when specified items are purchased as a set. If sold separately, prices may vary. Item selection and quantities available may vary by location.</dd>
+      <dt><strong>3. Take It Home Today:</strong></dt> <dd>"Take it Home Today" refers to options offered to customers to purchase and take home merchandise paid in full by cash, check (subject to check payment policy) or credit card, or through a variety of alternative payment options, subject to in-store product availability.  Items not in stock can be ordered for customer pick up, scheduled or same-day delivery, or shipment, pursuant to our terms and conditions at <a href="https://www.americanfreight.com/br/c/shipping-delivery">https://www.americanfreight.com/br/c/shipping-delivery</a> and <a href="https://www.americanfreight.com/sp/in-store-pickup-policy/">https://www.americanfreight.com/sp/in-store-pickup-policy/</a></dd>
+      <dd>**Approval is possible without a FICO® Score, but credit may be checked.</dd>
+      <dt><strong>† <u>Terms and conditions</u>:</strong></dt> <dd>Subject to change at any time without prior disclosure or notice. Contact American First Finance for complete details, including terms and conditions.</dd>
+      <dt><strong><u>Bank loans</u>:</strong></dt> <dd>Subject to approval and verification. Loans originated by FinWise Bank, a Utah-chartered bank located in Murray, Utah, Member FDIC. </dd>
+      <dt><strong><u>Retail installment contracts</u>:</strong></dt>
+      <dd>A retail installment contract has a down payment of $50. A representative example of payment terms is as follows: a $50 down payment, an amount financed of $1,000 with an Annual Percentage Rate (APR) of 144.59%, and a term of 12 months would have 25 bi-weekly payments of $72.82 and 1 bi-weekly payment of $72.26. The total amount repayable would be $1,892.76 with full, timely payments over 12 months. Representative APR is based on the amount financed, individual creditworthiness, and other factors. Actual terms may vary. </dd>
+      <dt><strong><u>Leases</u>:</strong></dt><dd>A lease, lease-to-own or rent-to-own program, or rental-purchase agreement has a processing fee or initial rent payment due upon execution of the lease of $50 plus tax. The Total Cost of Ownership must be paid in order to obtain ownership. Acquiring ownership by leasing costs more than the retailer’s cash price. The total number of lease payments necessary to obtain ownership of the property ranges from 1 to 104 payments, depending on your agreement and payment frequency. The timing of scheduled payments may be weekly, bi-weekly, semi-monthly, or monthly depending on when you are paid. As an example, the Total Cost of Ownership for a couch that costs $1,000 could be $2,177.85, including the $1,000 cash price plus applicable tax and fees (e.g., leasing fees, processing fee or initial rental payment, and delivery fees). In this example, after the initial $50 payment plus tax, 52 full, timely payments of $40.86 per week over 12 months may be required for ownership. Late fees, NSF fees, and Liability Damage Waiver (LDW) fees may apply where permitted.</dd>
+      </dl>
+    </div>
+  
+      </footer>
+    
+      <footer class='pt-20 md:hidden lg:hidden text-left'>
+        
+      <section class="nwc--accordion border-b">
+        <div class="nwc--accordion-item">
+          
+      <button onclick="toggleLinks('cs')" class="nwc--accordion-title p-3 cursor-pointer block w-full text-left text-xl">
+        <span id="csClose" class="hidden nwc--accordion-delimiter float-right">
+          -&nbsp;&nbsp;
+        </span>
+        <span id="csOpen" class="nwc--accordion-delimiter float-right">
+          +&nbsp;&nbsp;
+        </span>Customer Service
+      </button><div id="csLinks" class="nwc--accordion-content hidden">
+            <ul class="p-3 leading-loose text-sm">
+              <a href="https://americanfreight.com/sp/contact-us/" class="font--14 block lh--lg no--underline">Customer Service</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/shipping-delivery">Shipping and Delivery Information</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/return-policy">Return Policy</a>
+              <a href="https://americanfreight.com/sp/frequently-asked-questions/" class="font--14 block lh--lg no--underline">FAQs</a>
+            </ul>
+          </div>
+        </div>
+      </section>
+    
+        
+      <section class="nwc--accordion border-b">
+        <div class="nwc--accordion-item">
+          
+      <button onclick="toggleLinks('resource')" class="nwc--accordion-title p-3 cursor-pointer block w-full text-left text-xl">
+        <span id="resourceClose" class="hidden nwc--accordion-delimiter float-right">
+          -&nbsp;&nbsp;
+        </span>
+        <span id="resourceOpen" class="nwc--accordion-delimiter float-right">
+          +&nbsp;&nbsp;
+        </span>Resources
+      </button><div id="resourceLinks" class="nwc--accordion-content hidden">
+            <ul class="p-3 leading-loose text-sm">
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/email-sms-text-signup">Sign-up for text or email alerts</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/our-brands">Appliance Brands</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/stores">Find a Store</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/parts-and-accessories">Appliance Parts and Accessories</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/price-match-policy">Price Match Policy</a>
+              <a href="https://www.americanfreight.com/oa/what-were-doing/" class="font--14 block lh--lg no--underline">Covid-19 Update</a>
+              <a href="https://www.americanfreight.com/oa/outlet-advisor/" class="font--14 block lh--lg no--underline">Outlet Advisor</a>
+              <a href="https://go.ownamericanfreight.com/?utm_source=FBIG&amp;utm_medium=DIGITAL&amp;utm_campaign=FRANDEV" class="font--14 block lh--lg no--underline">Own A Franchise</a>
+            </ul>
+          </div>
+        </div>
+      </section>
+    
+        
+      <section class="nwc--accordion border-b">
+        <div class="nwc--accordion-item">
+          
+      <button onclick="toggleLinks('company')" class="nwc--accordion-title p-3 cursor-pointer block w-full text-left text-xl">
+        <span id="companyClose" class="hidden nwc--accordion-delimiter float-right">
+          -&nbsp;&nbsp;
+        </span>
+        <span id="companyOpen" class="nwc--accordion-delimiter float-right">
+          +&nbsp;&nbsp;
+        </span>Company
+      </button><div id="companyLinks" class="nwc--accordion-content hidden">
+            <ul class="p-3 leading-loose text-sm">
+              <a href="https://americanfreight.com/br/c/about-us" class="font--14 block lh--lg no--underline">About Us</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/payment-plans">Payment Plans</a><a href="https://americanfreight.com/oa/sears-outlet-rebrand/" class="font--14 block lh--lg no--underline">Sears Outlet Rebrand</a><a href="https://americanfreight.com/oa/ffo-home-rebrand/" class="font--14 block lh--lg no--underline">FFO Home Rebrand</a><a href="https://recruiting2.ultipro.com/CAP1010CUSC/JobBoard/b4352687-7fa4-fce1-f24e-36e4b4241e95/?q=&amp;o=postedDateDesc" class="font--14 block lh--lg no--underline">Careers</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/privacy-policy">Privacy Policy</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/certification-process">American Freight Certified</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/terms-of-use">Terms of Use</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/ca-transparency-supply-chain">CA Transparency in Supply Chains</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/vendor-code-conduct">Vendor Code of Conduct</a>
+            </ul>
+          </div>
+        </div>
+      </section>
+    
+        
+      <section class="nwc--accordion border-b">
+        <div class="nwc--accordion-item">
+          
+      <button onclick="toggleLinks('deals')" class="nwc--accordion-title p-3 cursor-pointer block w-full text-left text-xl">
+        <span id="dealsClose" class="hidden nwc--accordion-delimiter float-right">
+          -&nbsp;&nbsp;
+        </span>
+        <span id="dealsOpen" class="nwc--accordion-delimiter float-right">
+          +&nbsp;&nbsp;
+        </span>Deals
+      </button><div id="dealsLinks" class="nwc--accordion-content hidden">
+            <ul class="p-3 leading-loose text-sm">
+              <li><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/deals/coupons">Coupons</a></li><li><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/deals">Current Deals</a></li><li><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/deal-of-the-week">Deal Of the Week</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    
+        
+      <section class="nwc--accordion border-b">
+        <div class="nwc--accordion-item">
+          
+      <button onclick="toggleLinks('topCategories')" class="nwc--accordion-title p-3 cursor-pointer block w-full text-left text-xl">
+        <span id="topCategoriesClose" class="hidden nwc--accordion-delimiter float-right">
+          -&nbsp;&nbsp;
+        </span>
+        <span id="topCategoriesOpen" class="nwc--accordion-delimiter float-right">
+          +&nbsp;&nbsp;
+        </span>Top Categories
+      </button><div id="topCategoriesLinks" class="nwc--accordion-content hidden">
+            <ul class="p-3 leading-loose text-sm">
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/plp/furniture/living-room-furniture/sofas-and-loveseats/sofas/9431">Sofas &amp; Couches</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/plp/furniture/living-room-furniture/sofas-and-loveseats/loveseats/9432">Loveseats</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/plp/furniture/living-room-furniture/sectionals/9102">Sectionals</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/furniture/living-room-furniture/9100">Living Room</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/furniture/bedroom-furniture/9132">Bedroom</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/furniture/kitchen-dining-furniture/9143">Kitchen &amp; Dining</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/mattresses-bedding/mattresses/1040">Mattresses</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/appliances/refrigerators-freezers/695">Refrigerators &amp; Freezers</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/appliances/cooking-applianes/194">Kitchen Appliances</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/appliances/washers-dryers/507">Washing Machines &amp; Dryers</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/plp/theme/scratch-and-dent-appliances">Scratch &amp; Dent Appliances</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/plp/thematic/used-appliances">Used Appliances</a><a class="font--gDark" href="https://americanfreight.com//">Return Home </a>
+            </ul>
+          </div>
+        </div>
+      </section>
+    
+        <br />
+        <div class='text-center'>
+          
+      <section id='HowWeDoing'>
+        <span class='text-xl'>How Are We Doing?</span>
+        <br />
+        <a href='https://americanfreight.com/sp/contact-us/'>Submit Feedback.</a>
+        <br />
+        <br />
+      </section>
+    
+          
+      <div class='text-center'>
+        <span>
+          <a href='https://www.facebook.com/AmericanFreightFurniture' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-facebook-official font--facebook' aria-label='Facebook' aria-hidden='true'></i><span class='sr-only'>Facebook</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://twitter.com/AmericanFreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-twitter-square font--twitter' aria-label='Twitter' aria-hidden='true'></i><span class='sr-only'>Twitter</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.youtube.com/user/furnituredeals' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-youtube-play font--googlePlus' aria-label='YouTube' aria-hidden='true'></i><span class='sr-only'>YouTube</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.linkedin.com/company/american-freight-furniture-and-mattress' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-linkedin-square font--linkedIn' aria-label='LinkedIn' aria-hidden='true'></i><span class='sr-only'>LinkedIn</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.instagram.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-instagram font--ctaActive' aria-label='Instagram' aria-hidden='true'></i><span class='sr-only'>Instagram</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.pinterest.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-pinterest-square font--pinterest' aria-label='Pinterest' aria-hidden='true'></i><span class='sr-only'>Pinterest</span></a>
+          &nbsp;&nbsp;
+        </span>
+      </div>
+    
+        </div>
+        <br />
+        <br />
+        
+      <section id='footerBBBlogo'>
+        <a href='https://www.bbb.org/us/oh/delaware/profile/furniture-stores/american-freight-furniture-and-mattress-0302-65003501/#sealclick' target='_blank' rel='noreferrer noopener'>
+          <img src='https://seal-centralohio.bbb.org/seals/blue-seal-293-61-bbb-65003501.png' width='200' alt='American Freight Furniture and Mattress BBB Business Review' class='mx-auto' />
+        </a>
+      </section>
+        <br />
+        <section id='Copyright' class='text-xs text-center'>&copy; 2022 American Freight</section>
+        <br />
+        <br />
+        <div class='pl-3 pr-3'>
+          
+      <div class="text-xs text-gray-700 container mx-auto text-left"><dl class="text-left">
+        <dt><strong>1. APPLIANCE OFFERS:</strong></dt> <dd>Savings off list price. Excludes Special Orders, Special Purchases, and New In-box appliances. Item selection and quantities available may vary by location.</dd>
+      <dt><strong>2. FURNITURE &amp; MATTRESS OFFERS:</strong></dt> <dd>Savings off MSRP. Prices shown for item marked as "EA. PC." (meaning, each piece) are valid when specified items are purchased as a set. If sold separately, prices may vary. Item selection and quantities available may vary by location.</dd>
+      <dt><strong>3. Take It Home Today:</strong></dt> <dd>"Take it Home Today" refers to options offered to customers to purchase and take home merchandise paid in full by cash, check (subject to check payment policy) or credit card, or through a variety of alternative payment options, subject to in-store product availability.  Items not in stock can be ordered for customer pick up, scheduled or same-day delivery, or shipment, pursuant to our terms and conditions at <a href="https://www.americanfreight.com/br/c/shipping-delivery">https://www.americanfreight.com/br/c/shipping-delivery</a> and <a href="https://www.americanfreight.com/sp/in-store-pickup-policy/">https://www.americanfreight.com/sp/in-store-pickup-policy/</a></dd>
+      <dd>**Approval is possible without a FICO® Score, but credit may be checked.</dd>
+      <dt><strong>† <u>Terms and conditions</u>:</strong></dt> <dd>Subject to change at any time without prior disclosure or notice. Contact American First Finance for complete details, including terms and conditions.</dd>
+      <dt><strong><u>Bank loans</u>:</strong></dt> <dd>Subject to approval and verification. Loans originated by FinWise Bank, a Utah-chartered bank located in Murray, Utah, Member FDIC. </dd>
+      <dt><strong><u>Retail installment contracts</u>:</strong></dt>
+      <dd>A retail installment contract has a down payment of $50. A representative example of payment terms is as follows: a $50 down payment, an amount financed of $1,000 with an Annual Percentage Rate (APR) of 144.59%, and a term of 12 months would have 25 bi-weekly payments of $72.82 and 1 bi-weekly payment of $72.26. The total amount repayable would be $1,892.76 with full, timely payments over 12 months. Representative APR is based on the amount financed, individual creditworthiness, and other factors. Actual terms may vary. </dd>
+      <dt><strong><u>Leases</u>:</strong></dt><dd>A lease, lease-to-own or rent-to-own program, or rental-purchase agreement has a processing fee or initial rent payment due upon execution of the lease of $50 plus tax. The Total Cost of Ownership must be paid in order to obtain ownership. Acquiring ownership by leasing costs more than the retailer’s cash price. The total number of lease payments necessary to obtain ownership of the property ranges from 1 to 104 payments, depending on your agreement and payment frequency. The timing of scheduled payments may be weekly, bi-weekly, semi-monthly, or monthly depending on when you are paid. As an example, the Total Cost of Ownership for a couch that costs $1,000 could be $2,177.85, including the $1,000 cash price plus applicable tax and fees (e.g., leasing fees, processing fee or initial rental payment, and delivery fees). In this example, after the initial $50 payment plus tax, 52 full, timely payments of $40.86 per week over 12 months may be required for ownership. Late fees, NSF fees, and Liability Damage Waiver (LDW) fees may apply where permitted.</dd>
+      </dl>
+    </div>
+  
+        </div>
+      </footer>
+    
+<!-- end #container -->
+<!-- all js scripts are loaded in library/bones.php -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPLZW7Z"
+height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><script type='text/javascript' src='https://www.americanfreight.com/oa/wp-includes/js/dist/vendor/regenerator-runtime.min.js' id='regenerator-runtime-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/oa/wp-includes/js/dist/vendor/wp-polyfill.min.js' id='wp-polyfill-js'></script>
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/www.americanfreight.com\/oa\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/oa/wp-content/plugins/contact-form-7/includes/js/index.js' id='contact-form-7-js'></script>
+<script type='text/javascript' id='sp-ea-accordion-config-js-extra'>
+/* <![CDATA[ */
+var sp_easy_accordion_free = {"url":"https:\/\/www.americanfreight.com\/oa\/wp-content\/plugins\/easy-accordion-free\/","loadScript":"https:\/\/www.americanfreight.com\/oa\/wp-content\/plugins\/easy-accordion-free\/public\/assets\/js\/script.js","link":"https:\/\/www.americanfreight.com\/oa\/wp-admin\/post-new.php?post_type=sp_easy_accordion"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/oa/wp-content/plugins/easy-accordion-free/public/assets/js/script.js' id='sp-ea-accordion-config-js'></script>
+<script type='text/javascript' id='wpcf7-redirect-script-js-extra'>
+/* <![CDATA[ */
+var wpcf7r = {"ajax_url":"https:\/\/www.americanfreight.com\/oa\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/oa/wp-content/plugins/wpcf7-redirect/build/js/wpcf7r-fe.js' id='wpcf7-redirect-script-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/oa/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker.js' id='gtm4wp-form-move-tracker-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/oa/wp-content/themes/af-outlet-advisor-theme/library/js/scripts.js' id='bones-js-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/oa/wp-includes/js/wp-embed.min.js' id='wp-embed-js'></script>
+
+</body>
+</html>
+<!-- end page. what a ride! -->

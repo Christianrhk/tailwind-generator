@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en-GB" >
+<head>
+    <title>Best Aluminium Windows</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/bestaluminiumwindows.co.uk\/wp-includes\/js\/wp-emoji.js?ver=6.0.1","twemoji":"https:\/\/bestaluminiumwindows.co.uk\/wp-includes\/js\/twemoji.js?ver=6.0.1"}};
+/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for Transgender flag compatibility. This flag is shortlisted for the Emoji 13 spec,
+				 * but has landed in Twemoji early, so we can add support for it, too.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (white flag emoji + transgender symbol).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F ],
+					[ 0x1F3F3, 0xFE0F, 0x200B, 0x26A7, 0xFE0F ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Why can't we be friends? Everyone can now shake hands in emoji, regardless of skin tone!
+				 *
+				 * To test for Emoji 14.0 support, try to render a new emoji: Handshake: Light Skin Tone, Dark Skin Tone.
+				 *
+				 * The Handshake: Light Skin Tone, Dark Skin Tone emoji is a ZWJ sequence combining 🫱 Rightwards Hand,
+				 * 🏻 Light Skin Tone, a Zero Width Joiner, 🫲 Leftwards Hand, and 🏿 Dark Skin Tone.
+				 *
+				 * 0x1FAF1 == Rightwards Hand
+				 * 0x1F3FB == Light Skin Tone
+				 * 0x200D == Zero-Width Joiner (ZWJ) that links the code points for the new emoji or
+				 * 0x200B == Zero-Width Space (ZWS) that is rendered for clients not supporting the new emoji.
+				 * 0x1FAF2 == Leftwards Hand
+				 * 0x1F3FF == Dark Skin Tone.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0x1FAF1, 0x1F3FB, 0x200D, 0x1FAF2, 0x1F3FF],
+					[0x1FAF1, 0x1F3FB, 0x200B, 0x1FAF2, 0x1F3FF]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://bestaluminiumwindows.co.uk/wp-includes/css/dist/block-library/style.css?ver=6.0.1' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel="https://api.w.org/" href="https://bestaluminiumwindows.co.uk/wp-json/" /><link rel="alternate" type="application/json" href="https://bestaluminiumwindows.co.uk/wp-json/wp/v2/pages/73" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://bestaluminiumwindows.co.uk/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://bestaluminiumwindows.co.uk/wp-includes/wlwmanifest.xml" /> 
+
+<link rel="alternate" type="application/json+oembed" href="https://bestaluminiumwindows.co.uk/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbestaluminiumwindows.co.uk%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://bestaluminiumwindows.co.uk/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbestaluminiumwindows.co.uk%2F&#038;format=xml" />
+<link rel="canonical" href="https://bestaluminiumwindows.co.uk/" /><meta name="description" content="We are Best Aluminium Windows who can offer you the best rates on your project. Voted the Best Company for Aluminium Windows in the UK." /><meta name="keywords" content="best aluminium windows, aluminium windows, aluminium window, aluminium window company, aluminium window specialists, aluminium window services" /><meta name="geo.placename" content="Barking" /><meta name="geo.position" content="51.53817; 0.07892" /><meta name="geo.county" content="Greater London" /><meta name="geo.postcode" content="IG11 8" /><meta name="geo.region" content="London" /><meta name="geo.country" content="United Kingdom" /><meta property="business:contact_data:locality" content="Greater London" /><meta property="business:contact_data:zip" content="IG11 8" /><meta property="place:location:latitude" content="51.53817" /><meta property="place:location:longitude" content="0.07892" /><meta property="business:contact_data:country_name" content="United Kingdom" /><meta property="og:url" content="https://bestaluminiumwindows.co.uk/" /><meta property="og:title" content="Best Aluminium Windows" /><meta property="og:description" content="We are Best Aluminium Windows who can offer you the best rates on your project. Voted the Best Company for Aluminium Windows in the UK." /><meta property="og:type" content="business.business" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:site" content="Best Aluminium Windows" /><meta name="twitter:creator" content="Best Aluminium Windows" /><meta name="twitter:title" content="Best Aluminium Windows" /><meta name="twitter:description" content="We are Best Aluminium Windows who can offer you the best rates on your project. Voted the Best Company for Aluminium Windows in the UK." /><link rel="icon" href="https://bestaluminiumwindows.co.uk/wp-content/uploads/best-aluminium-windows-icon-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://bestaluminiumwindows.co.uk/wp-content/uploads/best-aluminium-windows-icon-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://bestaluminiumwindows.co.uk/wp-content/uploads/best-aluminium-windows-icon-300x300.png" />
+<meta name="msapplication-TileImage" content="https://bestaluminiumwindows.co.uk/wp-content/uploads/best-aluminium-windows-icon-300x300.png" />
+<meta name="google-site-verification" content="ZUYnWmOdrC7uF7S2Zi6OoKx1FzJHyHZZhPJaqIvY8gA" /><link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.7.3/alpine.js" id="alpine"></script>
+<link href="/wp-content/themes/dash-theme/style.css" rel="stylesheet">
+<script src="/wp-content/themes/dash-theme/script.js" id="custom-script"></script>
+</head>
+
+
+<div class="w-full text-white bg-gray-800 sticky top-0 z-10">
+  <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+    <div class="p-4 flex flex-row items-center justify-between">
+      <a href="/" class="text-lg tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline"><img class="h-6 w-auto" height="217" width="24" src="https://bestaluminiumwindows.co.uk/wp-content/uploads/best-aluminium-windows.png"></a>
+      <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+          <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+          <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" style="display: none;"></path>
+        </svg>
+      </button>
+    </div>
+
+
+
+  <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+              <a href="#contact" class="px-4 py-2 mt-2 bg-blue-600 text-white text-sm rounded-lg md:ml-4 hover:bg-blue-700">Get In Touch</a>   
+  </nav>
+
+
+
+
+
+  </div>
+</div>
+  <div class="bg-white">
+  <div class="max-w-7xl mx-auto py-3 px-2 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 text-xs">
+    	  <div class='col-span-1 flex justify-center'>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-2 h-4 w-4 text-gray-800">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+      </svg>
+        <p>20+ Years Experience</p>
+      </div>
+		  <div class='col-span-1 flex justify-center'>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-2 h-4 w-4 text-gray-800">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+      </svg>
+        <p>Specialist Windows</p>
+      </div>
+		  <div class='col-span-1 justify-center hidden md:flex'>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-2 h-4 w-4 text-gray-800">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+      </svg>
+        <p>Aluminium Window Prices</p>
+      </div>
+		  <div class='col-span-1 justify-center hidden md:flex'>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-2 h-4 w-4 text-gray-800">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+      </svg>
+        <p>Window Suppliers Nationwide</p>
+      </div>
+		    </div>
+  </div>
+</div>
+
+
+
+<!--hero Section-->
+<div class="relative">
+   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <div class="relative shadow-xl sm:overflow-hidden">
+         <div class="absolute inset-0">
+			             <img class="h-full w-full object-cover" src="https://bestaluminiumwindows.co.uk/wp-content/uploads/aluminium-windows.jpg">
+            <div class="absolute inset-0 bg-gray-400 mix-blend-multiply"></div>
+         </div>
+         <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-16 lg:px-8">
+            <h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+               <span class="block text-white">Best Aluminium Windows</span>
+            </h1>
+            <p class="mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl">
+               Enquire Today For A Free No Obligation Quote            </p>
+            <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
+                  <a href="#contact" class="border-white flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-700 hover:bg-opacity-70 sm:px-8">
+                  Get a Quote                  </a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!--content -->
+<div class="mbc max-w-7xl mx-auto px-8 mt-2 text-gray-700 mx-auto">
+
+<p>Aluminium windows can be a great thing to include in a new build or a nice way to upgrade your existing home or commercial property. Many people might overlook aluminium frames, but they can actually be a very effective addition &#8211; providing benefits that most people are not aware of.</p>
+<p>Not only do they look amazing in homes from all eras of history, but they are a very practical choice for a homeowner who wants to limit maintenance and repair costs. Like any kind of new window, they have their upsides and downsides &#8211; but mostly upsides.</p>
+<p>We are able to provide a wide variety of aluminium windows in August 2022, all designed to the highest possible standard of quality. We can help you find the perfect aluminium window frames for your next project, whether that is a fresh new build or an overhaul of your existing home.</p>
+<p>If you want to know more about the <strong>aluminium window options</strong> we have available, contact us and talk to one of our specialists &#8211; or keep reading.</p>
+<div class="blk-cta"><a class="blk-cta__lnk red " href="#contact">Get In Touch Today</a></div>
+<h2>Who Are We?</h2>
+<p>We are a team of experienced aluminium window fitters with a long list of experience, as well as many different clients and customers under our belt. Our past work has involved us installing all kinds of aluminium windows into hundreds of properties, often in bespoke or unique ways.</p>
+<p><img class="alignnone wp-image-234 size-full" src="https://bestaluminiumwindows.co.uk/wp-content/uploads/Who-Are-We_.png" alt="Who Are We_" width="1200" height="400" srcset="https://bestaluminiumwindows.co.uk/wp-content/uploads/Who-Are-We_.png 1200w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Who-Are-We_-300x100.png 300w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Who-Are-We_-1024x341.png 1024w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Who-Are-We_-768x256.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" /></p>
+<p>The new aluminium windows we install on each property are chosen to match the client&#8217;s needs, whether that means certain aluminium window styles or specific aluminium frame sizes.</p>
+<p>We build strong relationships with our clients, so we can help them with future projects too!</p>
+<p>Like all proud window fitters, we aim to install our aluminium frames to the highest possible standard of quality. Each new project that we take on is treated as an entirely new challenge, and we try always to find the best new aluminium windows for each customer&#8217;s needs.</p>
+<h2>Why Use Us?</h2>
+<p>As accredited window installers with a wide pool of experience and training, we know exactly how to install all types of aluminium windows and aluminium frames. Our 30 years of experience installing aluminium windows have given us the skills and tools we need to set up new window designs in homes quickly and flawlessly.</p>
+<p>Our competitive pricing comes from our excellent connections to market-leading suppliers, as well as in-house installers and a good range of experienced installation staff. We aim to keep each project as affordable as possible for our customers.</p>
+<p>On top of that, we have a long list of different certifications and seals of approval, from famous organisations and groups like <strong>CHAS and ConstructionLine</strong> to more niche &#8211; but no less important &#8211; groups.</p>
+<p>Whether you want traditional windows or a more modern feel with slim lines and a stylish exterior, we have the best windows in store for you. </p>
+<h2>How Much Do Aluminium Windows Cost?</h2>
+<p>Most aluminium-based windows cost between <strong>£400 to £600 per window</strong>, depending on their scale and size.</p>
+<p>While this might seem expensive, it also provides more ways to save money on maintenance, cleaning and a range of other factors.</p>
+<p><img loading="lazy" class="alignnone wp-image-247 size-full" src="https://bestaluminiumwindows.co.uk/wp-content/uploads/How-Much-Do-Aluminium-Windows-Cost_-1.png" alt="How Much Do Aluminium Windows Cost_" width="1200" height="400" srcset="https://bestaluminiumwindows.co.uk/wp-content/uploads/How-Much-Do-Aluminium-Windows-Cost_-1.png 1200w, https://bestaluminiumwindows.co.uk/wp-content/uploads/How-Much-Do-Aluminium-Windows-Cost_-1-300x100.png 300w, https://bestaluminiumwindows.co.uk/wp-content/uploads/How-Much-Do-Aluminium-Windows-Cost_-1-1024x341.png 1024w, https://bestaluminiumwindows.co.uk/wp-content/uploads/How-Much-Do-Aluminium-Windows-Cost_-1-768x256.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" /></p>
+<p>While most aluminium windows will cost slightly more than the cheaper options, they can also be more cost-effective in the long run. There is a range of benefits that can make aluminium windows usually cost less in the long term, but the initial installation price is still important.</p>
+<p>The price tends to vary depending on things like window size, number of windows, the size of your property, the kind of glazing you want, and any other specifications you might have. Like all window products, the cost can rise and fall with every little change.</p>
+<p>The type of glazing will also cause costs to change. For example, standard glass, Low E or other coating can cause prices to vary.</p>
+<p>We offer a number of the best aluminium windows and are more than happy in assisting you with anything you need more information on.</p>
+<div class="blk-cta"><a class="blk-cta__lnk green " href="#contact">Receive Best Online Quotes Available</a></div>
+<h2>Where are Aluminium Windows Installed?</h2>
+<p>There are a range of properties we can install aluminium windows including:</p>
+<ul>
+<li aria-level="1">Shops</li>
+<li aria-level="1">Supermarkets</li>
+<li aria-level="1">Hospitals</li>
+<li aria-level="1">Schools</li>
+<li aria-level="1">Leisure centres</li>
+<li aria-level="1">Factories</li>
+</ul>
+<p>They are also installed in other places where things like thermal efficiency and low heating bills can make a bigger impact.</p>
+<h2>Aluminium Shopfronts</h2>
+<p>Weather performance aluminium windows are ideal for storefronts, providing extra security through five-lever security locks and tougher materials.</p>
+<p>They are also harder to break than softwood windows or windows with timber frames and are very low-maintenance overall.</p>
+<h3>Commercial Aluminium Shop Fronts</h3>
+<p>One of the most popular uses of aluminium windows is <strong>commercial aluminium shop fronts.</strong> We offer a range of designs for all commercial properties -ranging from large windows to doors and more.</p>
+<p>We work with big commercial companies like large supermarket stores as well as smaller shops, salons and much more.</p>
+<p>For more information on our commercial household windows, please complete our contact form.</p>
+<h2>Advantages of Aluminium Windows</h2>
+<p><img loading="lazy" class="alignnone wp-image-235 size-full" src="https://bestaluminiumwindows.co.uk/wp-content/uploads/Advantages-of-Aluminium-Windows.png" alt="Advantages of Aluminium Windows" width="1200" height="400" srcset="https://bestaluminiumwindows.co.uk/wp-content/uploads/Advantages-of-Aluminium-Windows.png 1200w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Advantages-of-Aluminium-Windows-300x100.png 300w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Advantages-of-Aluminium-Windows-1024x341.png 1024w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Advantages-of-Aluminium-Windows-768x256.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" /></p>
+<ul>
+<li aria-level="1">High strength.</li>
+<li aria-level="1">High durability.</li>
+<li aria-level="1">Corrosion-resistant.</li>
+<li aria-level="1">Aesthetically pleasing.</li>
+<li aria-level="1">Almost maintenance free.</li>
+<li aria-level="1">A lot of customisation options.</li>
+</ul>
+<h2>Disadvantages of Aluminium Windows</h2>
+<ul>
+<li aria-level="1">Higher initial prices.</li>
+</ul>
+<h2>Thermally Broken Windows and Doors</h2>
+<p>When considering aluminium windows, it is important to make certain they are<strong> thermally broken windows</strong>. </p>
+<p>Aluminium windows that feature thermal breaks improve the overall efficiency of the property. This helps to keep the shop/home warm all year round and keeps energy bills down. </p>
+<p>Most windows will have thermal breaks, but our top tips include making sure of this. </p>
+<h3>What is a Thermal Break?</h3>
+<p>A thermal break is an insulation within a frame of a window or door. </p>
+<p>The <strong>thermal break</strong> is placed between the inside and outside frames and is extremely important in the manufacturing stage. </p>
+<p>It is recommended to use materials such as fabric or polyamide plastic rather than materials like steel. The thermal conductivity of polyamide is 160x better than steel. </p>
+<p>If you are interested in having aluminium windows or doors with thermal breaks, please make sure to contact our team today.</p>
+<h2>Aluminium Doors</h2>
+<p>Aluminium doors are just as useful, providing all of the same benefits as aluminium window frames.</p>
+<p>A multi-point locking system can help keep things secure and can provide year-round heating management in more extreme weather conditions.</p>
+<h3>Entrance Doors</h3>
+<p>Entrance doors can benefit from slim sightlines, meaning that the glass is not reflected back at the other person &#8211; letting them see more of your property as they approach to enter.</p>
+<p>Aluminium windows and doors can also provide more energy-efficient glazing, maintaining a steady temperature to ensure that everybody is comfortable when they actually enter the property. This can matter a lot for stores and other customer-facing businesses.</p>
+<h3>Aluminium Bi-Fold Doors</h3>
+<p>Aluminium bi-fold doors also benefit from slim sightlines, letting them function as aluminium windows when they are closed.</p>
+<p>As before, insulation and security are better than with a budget option, making it easier to protect your property and minimize heat loss without losing the style that you want.</p>
+<h2>Types of Aluminium Windows</h2>
+<p>We can offer multiple kinds of aluminium windows, many of which provide unique benefits compared to others. All of these aluminium windows are available as needed, and some properties work best with a mixture of window styles.</p>
+<p><img loading="lazy" class="alignnone wp-image-246 size-full" src="https://bestaluminiumwindows.co.uk/wp-content/uploads/Types-of-Aluminium-Windows-1.png" alt="Types of Aluminium Windows" width="1200" height="400" srcset="https://bestaluminiumwindows.co.uk/wp-content/uploads/Types-of-Aluminium-Windows-1.png 1200w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Types-of-Aluminium-Windows-1-300x100.png 300w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Types-of-Aluminium-Windows-1-1024x341.png 1024w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Types-of-Aluminium-Windows-1-768x256.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" /></p>
+<p>Whether you are looking for turn windows, tilt windows or standard windows, we can help you. The opening options aren&#8217;t the only designs you can choose. We help with various specific requirements to create the perfect fit for your doors and windows.</p>
+<p>If you wish to get in touch with us regarding replacement windows, whether you require double or triple glazing, please speak to a member of our team today. We offer replacement windows of various types to meet your requirements. </p>
+<h3>Powder Coated</h3>
+<p>Powder coated aluminium windows and doors are standard aluminium window frames that have been coated with a polyester powder, giving them a nicer finish and far more colour options. This also reduces corrosion, providing better weather resistance and keeping the frame low maintenance.</p>
+<p>This can be important for businesses or properties dealing with retail and trade customers on a regular basis, but it also suits homeowners who want a slightly nicer window frame.</p>
+<p>For more information on powder coated aluminium products, please contact us now for a complete guide.</p>
+<h3>Slimline Aluminium Windows</h3>
+<p>Slimline aluminium windows provide smaller sightlines to increase visibility, making the window more suitable as an actual window. This is mostly for aesthetic reasons, but it can still be important if you want an unobstructed view of an outdoor space.</p>
+<h3>Laminated Safety Glass</h3>
+<p>Laminated safety glass is incredibly tough, providing even more strength than adding more glass to a window would. This style of window offers great heat resistance, excellent cold resistance, and much higher physical endurance.</p>
+<p>Laminated windows in the range of 6.4mm &#8211; 10.8mm can often prevent forced entry to a storefront, making it a great security option. The outstanding quality of our own aluminium windows and doors makes this a great choice for commercial businesses or well-prepared homeowners.</p>
+<h3>Fire Rated Pyro Glass</h3>
+<p>Fire-rated pyro glass protects against radiant heat, meaning that fires can&#8217;t damage people or property on the other side. This can be important for all kinds of safety and security reasons &#8211; and even if it seems like a niche option, it can make a huge difference under the right circumstances.</p>
+<h3>Tinted Glass Options</h3>
+<p>Tinted glass can block UV rays, protecting both your furniture and yourself from sunlight damage. It can also have some beneficial effects on a window&#8217;s overall maintenance requirements and can even boost how energy-efficient your home becomes once they are installed.</p>
+<h3>Double Glazed Units</h3>
+<p>We can offer a range of 24mm or 28mm double-glazed sealed units, which provide additional durability and strength on top of better insulation overall. Double glazing improves window strength, and using double glazing also improves energy efficiency.</p>
+<h3>Aluminium Casement Windows</h3>
+<p>Aluminium casement windows are attached to the frame by a hinge. Casement windows can swing open to allow fresh air and natural light in, making aluminium casement windows a great option for a more contemporary feel and style.</p>
+<h3>Other Additions</h3>
+<p>We can provide a range of window styles and designs with different benefits and quirks, such as windows with polyamide thermal break for better thermal efficiency or windows using Georgian bars.</p>
+<p>All of the normal aluminium window FAQs still apply. Georgian bars see some slight benefits in terms of insulation, but the style of the frame is the biggest difference.</p>
+<h3>Window Style</h3>
+<p>If you want a specific style of window, then get in touch with our experts. Style can make a big difference, and an older style may not necessarily work alongside a newer style. Certain window style options might also change the size and thickness of the entire window section.</p>
+<p>On top of that, the general style of a window might alter how you use it. Not every window style can open, and some window style choices are not going to work well with curtains or blinds. Try to think ahead when choosing which window style works best for your home.</p>
+<p>If you would like to receive even more information on aluminium windows, make sure you get in touch with us today!</p>
+<div class="blk-cta"><a class="blk-cta__lnk blue " href="#contact">Contact Our Team For Best Rates</a></div>
+<h2>Manufacturers of Aluminium Windows</h2>
+<p>There are many manufacturers when it comes to aluminium windows, some more notable than others. The windows we have in stock can include brands like:</p>
+<ul>
+<li aria-level="1">Stellar Aluminium Windows</li>
+<li aria-level="1">SAPA</li>
+<li aria-level="1">Comar Eco and ECOLT</li>
+<li aria-level="1">Sheerline Classica and Prestige</li>
+<li aria-level="1">Everest Architectural Windows</li>
+<li aria-level="1">Senior Architectural Windows</li>
+<li aria-level="1">Panoramah</li>
+<li aria-level="1">Keller Minimal Windows</li>
+<li aria-level="1">Smart Systems</li>
+<li aria-level="1">Schuco</li>
+<li aria-level="1">Reynaers</li>
+</ul>
+<h2>Aluminium Windows vs UPVC</h2>
+<p>While aluminium windows are more expensive than UPVC windows in terms of initial costs, the added robustness of aluminium makes it a much better option than other materials. If you need a window that you need to be sure you can rely on, aluminium is usually the better choice.</p>
+<p><img loading="lazy" class="alignnone wp-image-236 size-full" src="https://bestaluminiumwindows.co.uk/wp-content/uploads/Aluminium-Windows-vs-UPVC.png" alt="Aluminium Windows vs UPVC" width="1200" height="400" srcset="https://bestaluminiumwindows.co.uk/wp-content/uploads/Aluminium-Windows-vs-UPVC.png 1200w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Aluminium-Windows-vs-UPVC-300x100.png 300w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Aluminium-Windows-vs-UPVC-1024x341.png 1024w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Aluminium-Windows-vs-UPVC-768x256.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" /></p>
+<p>UPVC windows have multiple major benefits &#8211; UPVC windows are cheaper initially and still fairly strong &#8211; but they still have their flaws. For example, UPVC windows can wear out much faster, requiring more frequent maintenance and replacements.</p>
+<p>Most systems will have a variety of benefits, but aluminium doors and windows are our recommended product and a very popular choice. </p>
+<h2>Aluminium vs Timber Windows</h2>
+<p>Aluminium frames are cheaper than timber frames, and timber windows as a whole are often more expensive. Even when they are not, they can easily break down if left unchecked and require a lot more maintenance.</p>
+<p>The only real benefit of timber is the look &#8211; something that aluminium windows can mimic thanks to a range of colours and finishes, especially when powdered.</p>
+<h2>Frequently Asked Questions </h2>
+<p><img loading="lazy" class="alignnone wp-image-238 size-full" src="https://bestaluminiumwindows.co.uk/wp-content/uploads/Frequently-Asked-Questions-.png" alt="Frequently Asked Questions" width="1200" height="400" srcset="https://bestaluminiumwindows.co.uk/wp-content/uploads/Frequently-Asked-Questions-.png 1200w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Frequently-Asked-Questions--300x100.png 300w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Frequently-Asked-Questions--1024x341.png 1024w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Frequently-Asked-Questions--768x256.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" /></p>
+<h3>What are Composite Aluminium Windows?</h3>
+<p>Composite aluminium windows are standard windows with an outer shell of aluminium. This provides the benefits of aluminium windows while also retaining some of the characteristics of the original material, often timber.</p>
+<p>These can be a niche option, but certain combinations can provide more energy efficiency and insulation.</p>
+<h3>Do I Need Planning Permission for New Windows?</h3>
+<p>You do not need planning permission to install new windows &#8211; as long as they are a similar style. Major changes that might make a window larger and easier to see through, or allow more light to shine out into another property&#8217;s window, might need permission.</p>
+<p><img loading="lazy" class="alignnone wp-image-237 size-full" src="https://bestaluminiumwindows.co.uk/wp-content/uploads/Do-I-Need-Planning-Permission-for-New-Windows_.png" alt="Do I Need Planning Permission for New Windows_" width="1200" height="400" srcset="https://bestaluminiumwindows.co.uk/wp-content/uploads/Do-I-Need-Planning-Permission-for-New-Windows_.png 1200w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Do-I-Need-Planning-Permission-for-New-Windows_-300x100.png 300w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Do-I-Need-Planning-Permission-for-New-Windows_-1024x341.png 1024w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Do-I-Need-Planning-Permission-for-New-Windows_-768x256.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" /></p>
+<p>Replacing existing windows does not need planning permission, regardless of the window colours or glass type. The only exceptions are traditional homes in conservation areas, which may have extra limits on glass options and frame colours.</p>
+<h3>How Long do Aluminium Windows Last?</h3>
+<p>Good aluminium windows can last over 45 years, and we always aim to choose aluminium windows that will withstand the challenges of your area&#8217;s common weather conditions.</p>
+<h3>How do you Clean Aluminium Windows?</h3>
+<p>Aluminium windows can be washed with warm water, mild detergent and or soap. This should not damage the RAL colour or glass, although specialist glass types may require more care.</p>
+<h3>What are the Typical Sizes of Aluminium Windows and Aluminium Window Frames?</h3>
+<p>The average size of an aluminium window is about 4 feet by 3 feet, with a thickness of about 6-10 milometers and a frame thickness of 30 &#8211; 60 milometers.</p>
+<h3>What Colours are Aluminium Windows Available In?</h3>
+<p><img loading="lazy" class="alignnone wp-image-242 size-full" src="https://bestaluminiumwindows.co.uk/wp-content/uploads/What-Colours-are-Aluminium-Windows-Available-In_.png" alt="What Colours are Aluminium Windows Available In_" width="1200" height="400" srcset="https://bestaluminiumwindows.co.uk/wp-content/uploads/What-Colours-are-Aluminium-Windows-Available-In_.png 1200w, https://bestaluminiumwindows.co.uk/wp-content/uploads/What-Colours-are-Aluminium-Windows-Available-In_-300x100.png 300w, https://bestaluminiumwindows.co.uk/wp-content/uploads/What-Colours-are-Aluminium-Windows-Available-In_-1024x341.png 1024w, https://bestaluminiumwindows.co.uk/wp-content/uploads/What-Colours-are-Aluminium-Windows-Available-In_-768x256.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" /></p>
+<p>Most aluminium windows are available in <strong>200+ RAL colours</strong>, including standard colours like:</p>
+<ul>
+<li aria-level="1">RAL 7016 Anthracite Grey</li>
+<li aria-level="1">RAL 9005 Black Matt</li>
+<li aria-level="1">RAL 9910 Standard White Gloss</li>
+<li aria-level="1">RAL 7035 Dove Grey Semi-Gloss</li>
+<li aria-level="1">RAL 8017 Brown Matt</li>
+<li aria-level="1">RAL 1015 Ivory Cream Semi-Gloss</li>
+</ul>
+<p>We can meet whatever requirements you might have for colours, ensuring that you get a window frame style that suits your needs. Anthracite grey is often our default choice, but we can easily work with you to change those old windows into any other colour in the RAL system.</p>
+<p>The vast majority of clients seem to choose grey windows and black aluminium profile systems, however the colour is entirely up to you.</p>
+<h3>Can you Repaint Aluminium Windows and Aluminium Frames?</h3>
+<p>It is easy to repaint existing windows, as long as you are careful. We can repaint older windows if you want to re-use the same window materials with a fresh coat of paint.</p>
+<p>At Best Aluminium Windows, we can assist you on the best options available. Make sure you contact us today for a number of great aluminium windows.</p>
+<div class="blk-cta"><a class="blk-cta__lnk red " href="#contact">Receive Top Online Quotes Here</a></div>
+<h2>Aluminium Windows Product Codes</h2>
+<p>Aluminium windows use some fairly common product codes, including:</p>
+<ul>
+<li aria-level="1">7610 for aluminium structures and parts.</li>
+<li aria-level="1">76101000 for doors, windows and frames.</li>
+<li aria-level="1">16109090 for other aluminium components.</li>
+<li aria-level="1">83024110 for door and window fittings.</li>
+</ul>
+<h2>Niche Safety Standards / Environmental Requirements</h2>
+<p>Our aluminium windows follow the normal safety standards, including:</p>
+<ul>
+<li aria-level="1">Toughened glass around raised areas.</li>
+<li aria-level="1">Means of escape in every property.</li>
+<li aria-level="1">Means of ventilation.</li>
+<li aria-level="1">Protection against impacts through double-glazing and triple-glazing.</li>
+<li aria-level="1">Conservation of fuel and power restrictions, including an energy rating of C or higher.</li>
+</ul>
+<h2>Summary</h2>
+<p>If you are looking for suitable aluminium windows for your home or property, then look no further. Our experts know exactly what they are doing, and we are more than capable of providing whatever window types you need for your home.</p>
+<p><img loading="lazy" class="alignnone wp-image-240 size-full" src="https://bestaluminiumwindows.co.uk/wp-content/uploads/Summary.png" alt="Summary" width="1200" height="400" srcset="https://bestaluminiumwindows.co.uk/wp-content/uploads/Summary.png 1200w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Summary-300x100.png 300w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Summary-1024x341.png 1024w, https://bestaluminiumwindows.co.uk/wp-content/uploads/Summary-768x256.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" /></p>
+<p><span class="">We only use the <strong>very best quality </strong></span><strong><mark class=" ">aluminium profiles</mark></strong><span class=""> to create our windows and doors.</span></p>
+<p>If you want to find out more about the services we offer, then contact us directly to talk with some of our specialists for further information. We can offer plenty of information about our work and the way that we operate.</p>
+<p>Our window options are good-looking and practical in equal measure, and we offer competitive aluminium windows prices. The many benefits of aluminium windows come alongside plenty of style, durability, improved energy efficiency and reduced energy bills thanks to our work.</p>
+<p>We look forward to hearing from you with details of your window needs &#8211; our staff are on standby, waiting for another client to come forward in need of assistance.</p>
+<h2>Searches Associated With Aluminium Shopfronts</h2>
+<ul>
+<li aria-level="1">Aluminium Shop Front Installers in UK</li>
+<li aria-level="1">Voted best shop front company in August 2022</li>
+<li aria-level="1">UK Aluminium Window Contractors</li>
+<li aria-level="1">Best UK aluminium shop front companies</li>
+<li aria-level="1">Aluminium window company near me</li>
+<li aria-level="1">Best Aluminium shopfront specialists near me</li>
+</ul>
+<h2>Find More Info</h2>
+<p>Make sure you contact us today for a number of great aluminium windows</p>
+<div class="blk-cta"><a class="blk-cta__lnk red " href="#contact">Receive Top Online Quotes Here</a></div>
+<div class="p-quotes-section has-wrap text-center"><h2 class="p-quotes-title u-txt-c">What Others Say About Our Services</h2> <div class="p-quotes"><div class="p-quotes__item"><div class="bg-gray-800 rounded-md text-white p-4 p-crd u-bg-lig u-p-x6 u-br-rd"><div class="p-quotes-rating"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><polygon opacity=".3" points="12,15.4 8.24,17.67 9.24,13.39 5.92,10.51 10.3,10.13 12,6.1 13.71,10.14 18.09,10.52 14.77,13.4 15.77,17.68"/><path d="M22,9.24l-7.19-0.62L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27L18.18,21l-1.63-7.03L22,9.24z M12,15.4l-3.76,2.27 l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88l1,4.28L12,15.4z"/></g></g></svg><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><polygon opacity=".3" points="12,15.4 8.24,17.67 9.24,13.39 5.92,10.51 10.3,10.13 12,6.1 13.71,10.14 18.09,10.52 14.77,13.4 15.77,17.68"/><path d="M22,9.24l-7.19-0.62L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27L18.18,21l-1.63-7.03L22,9.24z M12,15.4l-3.76,2.27 l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88l1,4.28L12,15.4z"/></g></g></svg><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><polygon opacity=".3" points="12,15.4 8.24,17.67 9.24,13.39 5.92,10.51 10.3,10.13 12,6.1 13.71,10.14 18.09,10.52 14.77,13.4 15.77,17.68"/><path d="M22,9.24l-7.19-0.62L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27L18.18,21l-1.63-7.03L22,9.24z M12,15.4l-3.76,2.27 l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88l1,4.28L12,15.4z"/></g></g></svg><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><polygon opacity=".3" points="12,15.4 8.24,17.67 9.24,13.39 5.92,10.51 10.3,10.13 12,6.1 13.71,10.14 18.09,10.52 14.77,13.4 15.77,17.68"/><path d="M22,9.24l-7.19-0.62L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27L18.18,21l-1.63-7.03L22,9.24z M12,15.4l-3.76,2.27 l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88l1,4.28L12,15.4z"/></g></g></svg><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><polygon opacity=".3" points="12,15.4 8.24,17.67 9.24,13.39 5.92,10.51 10.3,10.13 12,6.1 13.71,10.14 18.09,10.52 14.77,13.4 15.77,17.68"/><path d="M22,9.24l-7.19-0.62L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27L18.18,21l-1.63-7.03L22,9.24z M12,15.4l-3.76,2.27 l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88l1,4.28L12,15.4z"/></g></g></svg></div> <p>We absolutely love the service provided. Their approach is really friendly but professional. We went out to five different companies and found Best Aluminium Windows to be value for money and their service was by far the best. Thank you for your really awesome work, we will definitely be returning!</p>
+<span class="p-quotes-info"><strong>Ashton Jackson</strong><br/>Cambridge</span></div></div><div class="p-quotes__item"><div class="bg-gray-800 rounded-md text-white p-4 p-crd u-bg-lig u-p-x6 u-br-rd"><div class="p-quotes-rating"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><polygon opacity=".3" points="12,15.4 8.24,17.67 9.24,13.39 5.92,10.51 10.3,10.13 12,6.1 13.71,10.14 18.09,10.52 14.77,13.4 15.77,17.68"/><path d="M22,9.24l-7.19-0.62L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27L18.18,21l-1.63-7.03L22,9.24z M12,15.4l-3.76,2.27 l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88l1,4.28L12,15.4z"/></g></g></svg><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><polygon opacity=".3" points="12,15.4 8.24,17.67 9.24,13.39 5.92,10.51 10.3,10.13 12,6.1 13.71,10.14 18.09,10.52 14.77,13.4 15.77,17.68"/><path d="M22,9.24l-7.19-0.62L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27L18.18,21l-1.63-7.03L22,9.24z M12,15.4l-3.76,2.27 l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88l1,4.28L12,15.4z"/></g></g></svg><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><polygon opacity=".3" points="12,15.4 8.24,17.67 9.24,13.39 5.92,10.51 10.3,10.13 12,6.1 13.71,10.14 18.09,10.52 14.77,13.4 15.77,17.68"/><path d="M22,9.24l-7.19-0.62L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27L18.18,21l-1.63-7.03L22,9.24z M12,15.4l-3.76,2.27 l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88l1,4.28L12,15.4z"/></g></g></svg><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><polygon opacity=".3" points="12,15.4 8.24,17.67 9.24,13.39 5.92,10.51 10.3,10.13 12,6.1 13.71,10.14 18.09,10.52 14.77,13.4 15.77,17.68"/><path d="M22,9.24l-7.19-0.62L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27L18.18,21l-1.63-7.03L22,9.24z M12,15.4l-3.76,2.27 l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88l1,4.28L12,15.4z"/></g></g></svg><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><polygon opacity=".3" points="12,15.4 8.24,17.67 9.24,13.39 5.92,10.51 10.3,10.13 12,6.1 13.71,10.14 18.09,10.52 14.77,13.4 15.77,17.68"/><path d="M22,9.24l-7.19-0.62L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27L18.18,21l-1.63-7.03L22,9.24z M12,15.4l-3.76,2.27 l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88l1,4.28L12,15.4z"/></g></g></svg></div> <p>We have used Best Aluminium Windows for many years as they are certainly the best in the UK. The attention to detail and professional setup is what makes this company our go-to company for all our work. I highly recommend the team for the immense work - we highly recommend them!</p>
+<span class="p-quotes-info"><strong>Jonathan Black</strong><br/>Norwich</span></div></div></div></div>
+<p>For more information on aluminium systems, fill in the contact form below and we will get the right aluminium windows for you.</p>
+<div class="blk-cta"><a class="blk-cta__lnk blue " href="#contact">Get A Free Quote</a></div>
+</div>
+
+<section id="sticky-footer" class="sticky opacity-0 bottom-0 bg-gray-800 pb-6 pl-2 pr-2 full-width shadow-2xl shad min-w-full mx-auto">
+		<div class="p-bar__inr u-row has-wrap u-jc-ce max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
+            <a href="#contact" class="mt-2 border-white flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-700 hover:bg-opacity-70 sm:px-8">
+            Enquire Now            </a>
+		</div>
+</section>
+
+
+  <div class="bg-blue-700 h-screen" id="contact">
+  <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+    <div class="-m-4 text-3xl font-extrabold text-white sm:text-4xl">
+      <span class="block">Get In Touch With Our Team</span>
+   </div>
+    <p class="mt-4 text-lg leading-6 text-blue-200">We Aim To Reply To All Enquiries With-in 24-Hours</p>
+      <script type="text/javascript"> 	window.addEventListener("message", function (event) { 		if (event.data.hasOwnProperty("FrameHeight")) { 			document.getElementById("iframeID-240").style.height = event.data.FrameHeight+"px"         		} 		if (event.data.hasOwnProperty("RedirectURL")) { 			window.location.href = event.data.RedirectURL;      		} 	}); 	function setIframeHeight(ifrm) { 		var height = ifrm.contentWindow.postMessage("FrameHeight", "*");    	} </script> <iframe id="iframeID-240" onload="setIframeHeight(this)" scrolling="no" style="border:0px;width:100%;overflow:hidden;" src="https://leadsimplify.net/fatrank/form/240"></iframe>  </div>
+</div>
+
+
+
+
+<div class="link mt-4 mb-4">
+  <h2 class="text-center font-bold text-2xl mb-4">Areas We Cover</h2>
+   <ul><li><a href="https://bestaluminiumwindows.co.uk/near-me/greater-london/">Greater London</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/essex/">Essex</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/hertfordshire/">Hertfordshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/kent/">Kent</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/surrey/">Surrey</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/bedfordshire/">Bedfordshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/buckinghamshire/">Buckinghamshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/berkshire/">Berkshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/cambridgeshire/">Cambridgeshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/east-sussex/">East Sussex</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/hampshire/">Hampshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/west-sussex/">West Sussex</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/suffolk/">Suffolk</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/oxfordshire/">Oxfordshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/northamptonshire/">Northamptonshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/wiltshire/">Wiltshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/warwickshire/">Warwickshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/norfolk/">Norfolk</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/leicestershire/">Leicestershire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/dorset/">Dorset</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/gloucestershire/">Gloucestershire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/west-midlands/">West Midlands</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/somerset/">Somerset</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/worcestershire/">Worcestershire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/nottinghamshire/">Nottinghamshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/bristol/">Bristol</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/derbyshire/">Derbyshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/lincolnshire/">Lincolnshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/herefordshire/">Herefordshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/staffordshire/">Staffordshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/cardiff/">Cardiff</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/south-yorkshire/">South Yorkshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/shropshire/">Shropshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/greater-manchester/">Greater Manchester</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/cheshire/">Cheshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/west-yorkshire/">West Yorkshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/swansea/">Swansea</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/north-yorkshire/">North Yorkshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/east-riding-of-yorkshire/">East Riding of Yorkshire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/merseyside/">Merseyside</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/devon/">Devon</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/lancashire/">Lancashire</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/durham/">Durham</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/tyne-and-wear/">Tyne and Wear</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/northumberland/">Northumberland</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/cumbria/">Cumbria</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/edinburgh/">Edinburgh</a></li><li><a href="https://bestaluminiumwindows.co.uk/near-me/glasgow/">Glasgow</a></li></ul></div>
+
+<script>
+	.sticky-footer{
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+</script>
+</body>
+
+<!-- This example requires Tailwind CSS v2.0+ -->
+<footer class="bg-gray-800">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+    <div class="flex justify-center space-x-6 md:order-2">
+      
+
+                            </div>
+
+
+
+
+    <div class="mt-8 md:mt-0 md:order-1">
+      <p class="text-center text-base text-gray-400">
+        &copy; 2022 Best Aluminium Windows, All rights reserved.
+      </p>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto pb-12 overflow-hidden sm:px-6 lg:px-8">
+        <p class="text-center text-base text-gray-400">
+                Our website information does not constitute any form of advice or recommendation and is not intended to be relied upon by users in making (or refraining from making) any decisions. Appropriate independent advice should be obtained before making any such decision. The information provided on this website is intended for UK residents only. You should assume all links placed on this website are affiliate links where we get paid a commission if you click through. We are a professional review site that is independently owned and the opinions expressed here are our own.        </p>
+    </div>
+
+
+<div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+    <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+          <div class="px-5 py-2 text-white">As seen on :
+        <a href="https://www.best-companies.co.uk/" class="text-base text-white hover:text-gray-400">
+            Best Companies
+        </a>
+      </div>
+                  <div class="px-5 py-2 text-white">Site Built By : 
+        <a href="https://sitesy.com/" class="text-base text-white hover:text-gray-400">
+            Sitesy
+        </a>
+      </div>
+            <div class="px-5 py-2">
+        <a href="/privacy-policy/" class="text-base text-white hover:text-gray-400">
+            Privacy Policy
+        </a>
+      </div>
+
+      <div class="px-5 py-2">
+        <a href="/cookies/" class="text-base text-white hover:text-gray-400">
+            Cookie Policy
+        </a>
+      </div>
+
+    </nav>
+
+
+</div>
+
+</footer>

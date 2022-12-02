@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>LoverFella - Store</title>
+    <meta charset="utf-8">
+    <meta name="description" content="A store for LoverFella by PlayerLands">
+    <meta name="author" content="PlayerLands">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175052388-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-175052388-1');
+    </script>
+    <script>
+        (function () {
+            function exec_heartbeat() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", 'https://external.api.playerlands.com/api/core/v3/tracking/store', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({
+                    path: window.location.pathname,
+                }));
+            }
+            setInterval(exec_heartbeat, 1000 * 15);
+            exec_heartbeat();
+        })();
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+    background-color: rgb(6, 15, 33);
+}
+
+.bg-lf-dark-blue {
+    background-color: rgb(6, 15, 33);
+}
+
+.font-title {
+    font-family: 'Bebas Neue', cursive;
+}
+
+.bg-lf-red {
+    background-color: #ff004f;
+}
+
+.text-lf-red {
+    color: #ff004f;
+} 
+
+.border-b-lf-red {
+    border-bottom-color: #ff004f !important;
+}
+
+.hover\:text-lf-red:hover {
+    color: #ff004f;
+}
+
+.bg-lf-blue {
+    background-color: #00ccfb;
+}
+
+.bg-lf-dark-blue {
+    background-color: rgb(6, 15, 33);
+}
+
+.text-lf-gray {
+    color: rgb(8, 44, 78);
+}
+
+.bg-lf-gray {
+    background-color: rgb(8, 44, 78);
+}
+
+.text-lf-blue {
+    color: #00f3ff;
+}
+
+.text-lf-alt-blue {
+    color: #01b8c1;
+}
+
+.shadow-lf-blue {
+    filter: drop-shadow(0 1rem 4rem #00f3ff55);
+    transition: ease-in-out 0.3s;
+}
+
+.hover\:shadow-lf-blue:hover img {
+    filter: drop-shadow(0 1rem 2rem #00f3ff20);
+    transition: ease-in-out 0.3s;
+}
+
+.bg-lf-dark {
+    background-color: rgb(6, 15, 33);
+}
+
+.gradient-lf-blue {
+    background: rgb(0,202,249);
+    background: linear-gradient(0deg, rgb(0, 172, 213) 0%, rgb(0, 219, 219) 100%);
+}
+
+.gradient-lf-red {
+     background: rgb(202,30,59);
+    background: linear-gradient(0deg, rgba(202,30,59,1) 0%, rgba(255,33,84,1) 100%); 
+}
+
+.survival_img{
+    opacity:0.4;
+    transition: ease-in-out .5s;
+}
+
+.survival {
+    transition: ease-in-out .5s;
+}
+
+.survival:hover .survival_img {
+    opacity:1;
+    transform:scale(1.03);
+}
+
+ul {
+    text-align:center;
+}
+
+li {
+    font-size:11px;
+    opacity:0.4;
+    transition: 0.3s;
+    text-align:center;
+    cursor:pointer;
+    
+}
+
+li:hover {
+    opacity:1;
+}
+
+.flip-x {
+    transform: scaleX(-1);
+}
+
+@media(max-width: 640px) {
+    .flip-x {
+        transform: scaleX(1);
+    }
+}
+
+.supporter-content {
+    display:none!important;
+}
+
+.supporter:hover .supporter-content {
+    display:block!important;
+}
+
+
+/*
+    Loading spinner
+*/
+
+.lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+}
+.lds-heart div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #e21f44;
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #e21f44;
+}
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+/*
+    end loading spinner
+*/
+
+.buy-button {
+  background: linear-gradient(to right, #ff004f 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .3s ease-out;
+}
+
+.buy-button:hover {
+  background-position: left bottom;
+}
+
+.text {
+  text-align: center;
+  color: #ff004f;
+  transition: all .2s ease-out;
+  display: block;
+}
+
+.text:hover {
+  color: white;  
+}
+    </style>
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+          /*
+      * CKEditor 5 (v31.1.0) content styles.
+      * Generated on Mon, 17 Jan 2022 14:15:25 GMT.
+      * For more information, check out https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/content-styles.html
+      */
+
+      :root {
+          --ck-color-image-caption-background: hsl(0, 0%, 97%);
+          --ck-color-image-caption-text: hsl(0, 0%, 20%);
+          --ck-color-mention-background: hsla(341, 100%, 30%, 0.1);
+          --ck-color-mention-text: hsl(341, 100%, 30%);
+          --ck-color-table-caption-background: hsl(0, 0%, 97%);
+          --ck-color-table-caption-text: hsl(0, 0%, 20%);
+          --ck-highlight-marker-blue: hsl(201, 97%, 72%);
+          --ck-highlight-marker-green: hsl(120, 93%, 68%);
+          --ck-highlight-marker-pink: hsl(345, 96%, 73%);
+          --ck-highlight-marker-yellow: hsl(60, 97%, 73%);
+          --ck-highlight-pen-green: hsl(112, 100%, 27%);
+          --ck-highlight-pen-red: hsl(0, 85%, 49%);
+          --ck-image-style-spacing: 1.5em;
+          --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2);
+          --ck-todo-list-checkmark-size: 16px;
+      }
+
+      /* ckeditor5-image/theme/imagecaption.css */
+      .ck-content .image > figcaption {
+          display: table-caption;
+          caption-side: bottom;
+          word-break: break-word;
+          color: var(--ck-color-image-caption-text);
+          background-color: var(--ck-color-image-caption-background);
+          padding: .6em;
+          font-size: .75em;
+          outline-offset: -1px;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-block-align-left,
+      .ck-content .image-style-block-align-right {
+          max-width: calc(100% - var(--ck-image-style-spacing));
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-align-left,
+      .ck-content .image-style-align-right {
+          clear: none;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-side {
+          float: right;
+          margin-left: var(--ck-image-style-spacing);
+          max-width: 50%;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-align-left {
+          float: left;
+          margin-right: var(--ck-image-style-spacing);
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-align-center {
+          margin-left: auto;
+          margin-right: auto;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-align-right {
+          float: right;
+          margin-left: var(--ck-image-style-spacing);
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-block-align-right {
+          margin-right: 0;
+          margin-left: auto;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-style-block-align-left {
+          margin-left: 0;
+          margin-right: auto;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content p + .image-style-align-left,
+      .ck-content p + .image-style-align-right,
+      .ck-content p + .image-style-side {
+          margin-top: 0;
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-inline.image-style-align-left,
+      .ck-content .image-inline.image-style-align-right {
+          margin-top: var(--ck-inline-image-style-spacing);
+          margin-bottom: var(--ck-inline-image-style-spacing);
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-inline.image-style-align-left {
+          margin-right: var(--ck-inline-image-style-spacing);
+      }
+      /* ckeditor5-image/theme/imagestyle.css */
+      .ck-content .image-inline.image-style-align-right {
+          margin-left: var(--ck-inline-image-style-spacing);
+      }
+      /* ckeditor5-font/theme/fontsize.css */
+      .ck-content .text-tiny {
+          font-size: .7em;
+      }
+      /* ckeditor5-font/theme/fontsize.css */
+      .ck-content .text-small {
+          font-size: .85em;
+      }
+      /* ckeditor5-font/theme/fontsize.css */
+      .ck-content .text-big {
+          font-size: 1.4em;
+      }
+      /* ckeditor5-font/theme/fontsize.css */
+      .ck-content .text-huge {
+          font-size: 1.8em;
+      }
+      /* ckeditor5-code-block/theme/codeblock.css */
+      .ck-content pre {
+          padding: 1em;
+          color: hsl(0, 0%, 20.8%);
+          background: hsla(0, 0%, 78%, 0.3);
+          border: 1px solid hsl(0, 0%, 77%);
+          border-radius: 2px;
+          text-align: left;
+          direction: ltr;
+          tab-size: 4;
+          white-space: pre-wrap;
+          font-style: normal;
+          min-width: 200px;
+      }
+      /* ckeditor5-code-block/theme/codeblock.css */
+      .ck-content pre code {
+          background: unset;
+          padding: 0;
+          border-radius: 0;
+      }
+      /* ckeditor5-image/theme/image.css */
+      .ck-content .image {
+          display: table;
+          clear: both;
+          text-align: center;
+          margin: 0.9em auto;
+          min-width: 50px;
+      }
+      /* ckeditor5-image/theme/image.css */
+      .ck-content .image img {
+          display: block;
+          margin: 0 auto;
+          max-width: 100%;
+          min-width: 100%;
+      }
+      /* ckeditor5-image/theme/image.css */
+      .ck-content .image-inline {
+          /*
+          * Normally, the .image-inline would have "display: inline-block" and "img { width: 100% }" (to follow the wrapper while resizing).;
+          * Unfortunately, together with "srcset", it gets automatically stretched up to the width of the editing root.
+          * This strange behavior does not happen with inline-flex.
+          */
+          display: inline-flex;
+          max-width: 100%;
+          align-items: flex-start;
+      }
+      /* ckeditor5-image/theme/image.css */
+      .ck-content .image-inline picture {
+          display: flex;
+      }
+      /* ckeditor5-image/theme/image.css */
+      .ck-content .image-inline picture,
+      .ck-content .image-inline img {
+          flex-grow: 1;
+          flex-shrink: 1;
+          max-width: 100%;
+      }
+      /* ckeditor5-image/theme/imageresize.css */
+      .ck-content .image.image_resized {
+          max-width: 100%;
+          display: block;
+          box-sizing: border-box;
+      }
+      /* ckeditor5-image/theme/imageresize.css */
+      .ck-content .image.image_resized img {
+          width: 100%;
+      }
+      /* ckeditor5-image/theme/imageresize.css */
+      .ck-content .image.image_resized > figcaption {
+          display: block;
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .marker-yellow {
+          background-color: var(--ck-highlight-marker-yellow);
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .marker-green {
+          background-color: var(--ck-highlight-marker-green);
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .marker-pink {
+          background-color: var(--ck-highlight-marker-pink);
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .marker-blue {
+          background-color: var(--ck-highlight-marker-blue);
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .pen-red {
+          color: var(--ck-highlight-pen-red);
+          background-color: transparent;
+      }
+      /* ckeditor5-highlight/theme/highlight.css */
+      .ck-content .pen-green {
+          color: var(--ck-highlight-pen-green);
+          background-color: transparent;
+      }
+      /* ckeditor5-block-quote/theme/blockquote.css */
+      .ck-content blockquote {
+          overflow: hidden;
+          padding-right: 1.5em;
+          padding-left: 1.5em;
+          margin-left: 0;
+          margin-right: 0;
+          font-style: italic;
+          border-left: solid 5px hsl(0, 0%, 80%);
+      }
+      /* ckeditor5-block-quote/theme/blockquote.css */
+      .ck-content[dir="rtl"] blockquote {
+          border-left: 0;
+          border-right: solid 5px hsl(0, 0%, 80%);
+      }
+      /* ckeditor5-basic-styles/theme/code.css */
+      .ck-content code {
+          background-color: hsla(0, 0%, 78%, 0.3);
+          padding: .15em;
+          border-radius: 2px;
+      }
+      /* ckeditor5-table/theme/tablecaption.css */
+      .ck-content .table > figcaption {
+          display: table-caption;
+          caption-side: top;
+          word-break: break-word;
+          text-align: center;
+          color: var(--ck-color-table-caption-text);
+          background-color: var(--ck-color-table-caption-background);
+          padding: .6em;
+          font-size: .75em;
+          outline-offset: -1px;
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content .table {
+          margin: 0.9em auto;
+          display: table;
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content .table table {
+          border-collapse: collapse;
+          border-spacing: 0;
+          width: 100%;
+          height: 100%;
+          border: 1px double hsl(0, 0%, 70%);
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content .table table td,
+      .ck-content .table table th {
+          min-width: 2em;
+          padding: .4em;
+          border: 1px solid hsl(0, 0%, 75%);
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content .table table th {
+          font-weight: bold;
+          background: hsla(0, 0%, 0%, 5%);
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content[dir="rtl"] .table th {
+          text-align: right;
+      }
+      /* ckeditor5-table/theme/table.css */
+      .ck-content[dir="ltr"] .table th {
+          text-align: left;
+      }
+      /* ckeditor5-page-break/theme/pagebreak.css */
+      .ck-content .page-break {
+          position: relative;
+          clear: both;
+          padding: 5px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      /* ckeditor5-page-break/theme/pagebreak.css */
+      .ck-content .page-break::after {
+          content: '';
+          position: absolute;
+          border-bottom: 2px dashed hsl(0, 0%, 77%);
+          width: 100%;
+      }
+      /* ckeditor5-page-break/theme/pagebreak.css */
+      .ck-content .page-break__label {
+          position: relative;
+          z-index: 1;
+          padding: .3em .6em;
+          display: block;
+          text-transform: uppercase;
+          border: 1px solid hsl(0, 0%, 77%);
+          border-radius: 2px;
+          font-family: Helvetica, Arial, Tahoma, Verdana, Sans-Serif;
+          font-size: 0.75em;
+          font-weight: bold;
+          color: hsl(0, 0%, 20%);
+          background: hsl(0, 0%, 100%);
+          box-shadow: 2px 2px 1px hsla(0, 0%, 0%, 0.15);
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+      }
+      /* ckeditor5-media-embed/theme/mediaembed.css */
+      .ck-content .media {
+          clear: both;
+          margin: 0.9em 0;
+          display: block;
+          min-width: 15em;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list {
+          list-style: none;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list li {
+          margin-bottom: 5px;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list li .todo-list {
+          margin-top: 5px;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label > input {
+          -webkit-appearance: none;
+          display: inline-block;
+          position: relative;
+          width: var(--ck-todo-list-checkmark-size);
+          height: var(--ck-todo-list-checkmark-size);
+          vertical-align: middle;
+          border: 0;
+          left: -25px;
+          margin-right: -15px;
+          right: 0;
+          margin-left: 0;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label > input::before {
+          display: block;
+          position: absolute;
+          box-sizing: border-box;
+          content: '';
+          width: 100%;
+          height: 100%;
+          border: 1px solid hsl(0, 0%, 20%);
+          border-radius: 2px;
+          transition: 250ms ease-in-out box-shadow, 250ms ease-in-out background, 250ms ease-in-out border;
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label > input::after {
+          display: block;
+          position: absolute;
+          box-sizing: content-box;
+          pointer-events: none;
+          content: '';
+          left: calc( var(--ck-todo-list-checkmark-size) / 3 );
+          top: calc( var(--ck-todo-list-checkmark-size) / 5.3 );
+          width: calc( var(--ck-todo-list-checkmark-size) / 5.3 );
+          height: calc( var(--ck-todo-list-checkmark-size) / 2.6 );
+          border-style: solid;
+          border-color: transparent;
+          border-width: 0 calc( var(--ck-todo-list-checkmark-size) / 8 ) calc( var(--ck-todo-list-checkmark-size) / 8 ) 0;
+          transform: rotate(45deg);
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label > input[checked]::before {
+          background: hsl(126, 64%, 41%);
+          border-color: hsl(126, 64%, 41%);
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label > input[checked]::after {
+          border-color: hsl(0, 0%, 100%);
+      }
+      /* ckeditor5-list/theme/todolist.css */
+      .ck-content .todo-list .todo-list__label .todo-list__label__description {
+          vertical-align: middle;
+      }
+      /* ckeditor5-language/theme/language.css */
+      .ck-content span[lang] {
+          font-style: italic;
+      }
+      /* ckeditor5-horizontal-line/theme/horizontalline.css */
+      .ck-content hr {
+          margin: 15px 0;
+          height: 4px;
+          background: hsl(0, 0%, 87%);
+          border: 0;
+      }
+      /* ckeditor5-mention/theme/mention.css */
+      .ck-content .mention {
+          background: var(--ck-color-mention-background);
+          color: var(--ck-color-mention-text);
+      }
+      @media print {
+          /* ckeditor5-page-break/theme/pagebreak.css */
+          .ck-content .page-break {
+              padding: 0;
+          }
+          /* ckeditor5-page-break/theme/pagebreak.css */
+          .ck-content .page-break::after {
+              display: none;
+          }
+      }
+
+    </style>
+    <script>
+
+    
+    
+
+      async function playerlands_Login(game, redirect) {
+        const username = document.getElementById("playerlands_username").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", window.location.href, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "LOGIN",
+            username,
+            game,
+            redirect,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_Logout() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "LOGOUT",
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_AddToBasket(productId, serverId) {
+        let giftedPlayerName = document.getElementById("playerlands_giftedPlayerName");
+        if(giftedPlayerName) {
+            giftedPlayerName = giftedPlayerName.value;
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "ADD_TO_BASKET",
+            productId: productId,
+            serverId: serverId,
+            giftedPlayerName,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_GiftProduct(productId, serverId, giftedPlayerName) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "ADD_TO_BASKET",
+            productId: productId,
+            serverId: serverId,
+            giftedPlayerName,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_GetGiftCardBalance(reference) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "GET_GIFTCARD_BALANCE",
+            reference,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_AddGiftCardToBasket(email, amount) {
+        if(!email || !amount) {
+            email = document.getElementById("playerlands_giftCardEmail").value;
+            amount = parseFloat(document.getElementById("playerlands_giftCardAmount").value) * 100;
+        }
+        
+        if(!amount){
+            alert('Invalid Gift Card Amount')
+            return;
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "ADD_GIFTCARD",
+            recipientEmail: email,
+            balance: amount,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_RemoveGiftCardFromBasket(email, amount) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "REMOVE_GIFTCARD",
+            recipientEmail: email,
+            balance: amount,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_ApplyGiftCardToBasket() {
+        const reference = document.getElementById("playerlands_giftCardReference").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "APPLY_GIFTCARD_TO_BASKET",
+            reference,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_ApplyCouponCodeToBasket(code) {
+          const xhr = new XMLHttpRequest();
+          xhr.open("POST", '#', true);
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.send(JSON.stringify({
+              action: "APPLY_COUPON_CODE",
+              couponCodeCode: code,
+          }))
+          playerlands_Postback(xhr);
+      }
+
+      function playerlands_RemoveCouponCodeFromBasket(code) {
+          const xhr = new XMLHttpRequest();
+          xhr.open("POST", '#', true);
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.send(JSON.stringify({
+              action: "REMOVE_COUPON_CODE",
+          }))
+          playerlands_Postback(xhr);
+      }
+
+      function playerlands_RemoveAppliedGiftCardFromBasket() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "REMOVE_APPLIED_GIFTCARD_FROM_BASKET",
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_IncrementQuantity(productId, serverId, quantity, giftedPlayerName) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "INCREMENT_QUANTITY",
+            productId: productId,
+            serverId: serverId,
+            quantity: quantity,
+            giftedPlayerName,
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_Checkout() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '#', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            action: "REQUEST_CHECKOUT",
+        }));
+        playerlands_Postback(xhr);
+      }
+
+      function playerlands_Postback(xhr) {
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = JSON.parse(xhr.response);
+            if(!response.url) {
+              return;
+            }
+            if(response.url.includes("http")) {
+              window.location.href = response.url;
+              return;
+            }
+            window.location.pathname = response.url;
+          }
+        }
+      }
+      
+      function playerlands_GetPlayerCountData(element, serverUrl, formatter) {
+        const request = new XMLHttpRequest();
+        request.onreadystatechange = () => {
+          if (request.readyState !== 4 || request.status !== 200) return;
+          const response = JSON.parse(request.responseText);
+          let onlineNow = response.players.now;
+          if (formatter) {
+            const formatterX = eval(formatter);
+            onlineNow = formatterX(onlineNow);
+          }
+          element.innerText = onlineNow;
+        };
+        request.open('GET', 'https://mcapi.us/server/status?ip=' + serverUrl);
+        request.send();
+      }
+      function onDomLoaded() {
+        const elements = document.querySelectorAll('[data-playercounter-ip]');
+        if (elements && elements.length > 0) {
+            elements.forEach((element) => {
+                const serverUrl = element.getAttribute('data-playercounter-ip');
+                const formatter = element.getAttribute('data-playercounter-formatter');
+                playerlands_GetPlayerCountData(element, serverUrl, formatter);
+            });
+        }
+      }
+      window.onload = onDomLoaded;
+    </script>
+  </head>
+  <body>
+    
+
+    <pre id="api-data" hidden>
+{
+    "isLoggedIn": false,
+    "playerUsername": "Guest",
+	
+        "playerHead": "https://cravatar.eu/helmavatar/Steve/20.png",
+        "playerBody": "https://visage.surgeplay.com/bust/128/X-Steve",
+	
+    "server": {
+      "url": "PLAY.LOVERFELLA.COM",
+      "online": "<span data-playercounter-ip="PLAY.LOVERFELLA.COM" data-playercounter-status>...</span>",
+      "playerCount": <span data-playercounter-ip="PLAY.LOVERFELLA.COM">0</span>
+    },
+    "store": {
+      "name": "LoverFella",
+      "currency": "USD",
+      "currencySymbol": "$",
+      "game": "minecraft"
+    },
+    "basket": {"lineItems":[],"subtotalExcludingTax":0,"discounts":0,"tax":0,"taxRate":0,"totalExcludingTax":0,"totalIncludingTax":0},
+    "totalBasketItems": 0
+}
+
+</pre>
+
+<style>
+[x-cloak] {
+    display: none;
+}
+</style>
+
+<div x-data x-show="$store.modals.isLoading" class="absolute top-0 left-0 h-screen w-screen bg-black bg-opacity-70 z-50">
+    <div class="lds-heart absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"><div></div></div>
+</div>
+
+<script src="//unpkg.com/alpinejs" defer></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+<script>
+document.addEventListener('alpine:init', () => {
+    let currentPage = 'CATEGORIES';
+    let currentCategory = null;
+    const path = window.location.pathname.toLowerCase();
+    const categoriesRegex = /(\/store)(\/)([a-z\-]*)(\/?)$/;
+    const subcategoriesRegex = /(\/store)(\/)([a-z\-]*)(\/)([a-z\-]*)(\/?)$/;
+    if (categoriesRegex.test(path)) {
+        currentCategory = categoriesRegex.exec(path)[3];
+        currentPage = 'SUBCATEGORIES';
+    }
+    if (subcategoriesRegex.test(path)) {
+        currentCategory = subcategoriesRegex.exec(path)[5];
+        currentPage = 'PRODUCTS';
+    }
+    Alpine.store('spa', {
+        currentPage,
+        currentCategory,
+        breadcrumbs: [
+            {
+                text: 'Store',
+                link: '/'
+            }
+        ]
+    });
+    Alpine.store('api', {
+        core: getStoreDataFromEl(document),
+        categories: null,
+        products: null,
+    });
+    Alpine.store('modals', {
+        isLoading: false,
+        showBasket: false,
+        showMobileNav:false,
+        openProductModalId: '',
+        openArbitraryProductModel: false,
+        arbitrayProduct: {},
+        setLoading(v) {
+            this.isLoading = v;
+        },
+        toggleBasket() {
+            this.showBasket =! this.showBasket;
+        },
+        closeBasket() {
+            this.showBasket = false;
+        },
+        openProductModal(id) {
+            this.openProductModalId = id;
+        },
+        closeMobileNav() {
+            this.showMobileNav = false;
+        }
+    })
+    Alpine.store('discord', {
+        discordLink:'',
+        discordMembers:0,
+        setDiscordStats(discordStats) {
+            this.discordLink = discordStats.instant_invite || `https://discord.com/invite/loverfam`;
+            this.discordMembers = discordStats.presence_count;
+        }
+    })
+    function reqListener() {
+         var response = this.responseText;
+         const discordStats = JSON.parse(response)
+         Alpine.store('discord').setDiscordStats(discordStats);
+    }
+    
+    if (currentPage === 'SUBCATEGORIES') {
+        playerlands_LoadCategoriesAsync();
+    }
+    if (currentPage === 'PRODUCTS') {
+        playerlands_LoadProductsAsync();
+    }
+    calculateBreadcrumbs();
+   
+   var oReq = new XMLHttpRequest();
+   oReq.addEventListener("load", reqListener);
+   oReq.open("GET", "https://discord.com/api/guilds/293801273734725632/widget.json");
+   oReq.send();
+});
+
+function calculateBreadcrumbs() {
+    const path = window.location.pathname.toLowerCase();
+    const categoriesRegex = /(\/store)(\/)([a-z\-]*)(\/?)$/;
+    const subcategoriesRegex = /(\/store)(\/)([a-z\-]*)(\/)([a-z\-]*)(\/?)$/;
+    if (categoriesRegex.test(path)) {
+        const currentCategory = categoriesRegex.exec(path)[3];
+        
+        Alpine.store('spa').breadcrumbs = [
+            {
+                text: 'Store',
+                link: '/'
+            },
+            {
+                text: currentCategory,
+                link: '/' + currentCategory
+            }
+        ];
+    } else if (subcategoriesRegex.test(path)) {
+        const matchedRegex = subcategoriesRegex.exec(path);
+        Alpine.store('spa').breadcrumbs = [
+            {
+                text: 'Store',
+                link: '/'
+            },
+            {
+                text: matchedRegex[3],
+                link: '/' + matchedRegex[3]
+            },
+            {
+                text: matchedRegex[5],
+                link: '/' + matchedRegex[3] + '/' + matchedRegex[5]
+            }
+        ];
+    } else {
+        Alpine.store('spa').breadcrumbs = [
+            {
+                text: 'Store',
+                link: '/'
+            }
+        ];
+    }
+}
+
+function getDataFromEl(el) {
+    const vapidata = el.getElementsByTagName('pre')[0];
+    const jsonData = vapidata.innerText;
+    const data = JSON.parse(jsonData);
+    return data;
+}
+
+function getStoreDataFromEl(el) {
+    const data = getDataFromEl(el);
+    
+    return {
+        ...data,
+        getProductCount(productId) {
+            const lines = data.basket.lineItems.filter((x) => x.productId === productId);
+            const total = lines.reduce((prev, current) => prev + current.quantity, 0);
+            return total;
+        },
+        isProductInBasket(productId) {
+            const product = data.basket?.lineItems.find(x => x.productId.toString() === productId);
+            return !!product;
+        }
+    };
+}
+    
+function updateApiData(el) {
+    Alpine.store('api').core = getStoreDataFromEl(el);
+}
+
+function playerlands_AsyncPostback(data, isBasketUpdate, title) {
+    Alpine.store('modals').setLoading(true); 
+    let postbackUrl = 'https://' + window.location.host + '/~/api/data';
+    if(window.location.host.indexOf('localhost') > -1) {
+      postbackUrl = 'http://' + window.location.host + '/~/api/data';
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", postbackUrl, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(data));
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = JSON.parse(xhr.response);
+            if(!response.url) {
+              return;
+            }
+            let getUrl = 'https://' + window.location.host + response.url;
+            if(window.location.host.indexOf('localhost') > -1) {
+                getUrl = 'http://' + window.location.host + response.url;
+            }
+            const xhrGet = new XMLHttpRequest();
+            xhrGet.open("GET", getUrl, true);
+            xhrGet.send();
+            xhrGet.onreadystatechange = () => {
+                if (xhrGet.readyState === 4 && xhrGet.status === 200) {
+                  const vdom = document.createElement( 'html' );
+                  vdom.innerHTML = xhrGet.response;
+                  updateApiData(vdom);
+                  Alpine.store('modals').setLoading(false);
+                  
+                  if (isBasketUpdate) {
+                      const title = (data.quantity > 0 || data.action === "ADD_TO_BASKET") ? 'Added to Cart' : 'Removed from Cart';
+                      const svg =  (data.quantity > 0 || data.action === "ADD_TO_BASKET") ? '<svg class="w-6 h-6 self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : '<svg class="w-6 h-6 self-center" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>'
+                      const bgColor = (data.quantity > 0 || data.action === "ADD_TO_BASKET") ? '#3fad46' : '#d9534f';
+                      
+                      const basketQuantity = Alpine.store('api').core.totalBasketItems;
+                      const basketTotal = (Alpine.store('api').core.basket.totalIncludingTax / 100 ).toFixed(2);
+
+                      
+                      Swal.fire({
+                          position: 'bottom-end',
+                          background: bgColor,
+                          color:'white',
+                          backdrop:false,
+                          showConfirmButton: false,
+                          width: 400,
+                          timer: 2500,
+                          timerProgressBar: true,
+                          html: `<div class="flex gap-2 font-semibold">
+                          ${svg}
+                          <div class="flex flex-col self-start">
+                                  <span class="flex flex-wrap text-md border-b border-white">
+                                    ${title}
+                                  </span>
+                                  <span class="text-sm text-left">Your cart now has ${basketQuantity} item(s) totaling ${basketTotal} USD.</span>
+                              </div>
+                          </div>`
+                      });
+                  }
+                }
+            }
+        }
+    };
+}
+                              
+function playerlands_AsyncLogin(game, username) {
+    playerlands_AsyncPostback({
+        action: "LOGIN",
+        username,
+        game,
+    });
+}
+
+function playerlands_AsyncLogout() {
+    playerlands_AsyncPostback({
+        action: "LOGOUT",
+    });
+    Alpine.store('modals').closeBasket();
+}
+
+function playerlands_AsyncAddToBasket(productId, serverId, giftedPlayerName) {
+    playerlands_AsyncPostback(
+        {
+            action: "ADD_TO_BASKET",
+            productId: productId,
+            serverId: serverId,
+            giftedPlayerName,
+        },
+        true,
+    );
+    Alpine.store('modals').openProductModal('');
+    if(!Alpine.store('modals').showBasket) {
+      Alpine.store('modals').toggleBasket();
+    }
+
+}
+
+function playerlands_AsyncAddGiftCardToBasket(email, amount) {
+    if(!email || !amount) {
+        email = document.getElementById("playerlands_giftCardEmail").value;
+        amount = parseFloat(document.getElementById("playerlands_giftCardAmount").value) * 100;
+    }
+    
+    if(!amount){
+        alert('Invalid Gift Card Amount')
+        return;
+    }
+    
+    playerlands_AsyncPostback({
+        action: "ADD_GIFTCARD",
+        recipientEmail: email,
+        balance: amount,
+    });
+}
+
+function playerlands_AsyncRemoveGiftCardFromBasket(email, amount) {
+    playerlands_AsyncPostback({
+        action: "REMOVE_GIFTCARD",
+        recipientEmail: email,
+        balance: amount,
+    });
+}
+
+function playerlands_AsyncApplyGiftCardToBasket(reference) {
+    playerlands_AsyncPostback({
+        action: "APPLY_GIFTCARD_TO_BASKET",
+        reference,
+    });
+}
+
+function playerlands_AsyncRemoveAppliedGiftCardFromBasket() {
+    playerlands_AsyncPostback({
+        action: "REMOVE_APPLIED_GIFTCARD_FROM_BASKET",
+    });
+}
+
+function playerlands_AsyncIncrementQuantity(productId, serverId, quantity, giftedPlayerName) {
+    playerlands_AsyncPostback({
+        action: "INCREMENT_QUANTITY",
+        productId: productId,
+        serverId: serverId,
+        quantity: quantity,
+        giftedPlayerName,
+    }, true);
+}
+
+function playerlands_OpenArbitraryProductModal(productId) {
+    console.log(productId)
+    const getUrl = `https://${window.location.host}/api/products/${productId}`;
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", getUrl, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const product = JSON.parse(xhr.response);
+            Alpine.store('modals').arbitrayProduct = product;
+            Alpine.store('modals').openArbitraryProductModel = true;
+        }
+    };
+}
+
+function playerlands_LoadCategoriesAsync () {
+    Alpine.store('modals').setLoading(true);
+    const getUrl = `https://${window.location.host}/~/api/data/categories`;
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", getUrl, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const vdom = document.createElement( 'html' );
+            vdom.innerHTML = xhr.response;
+            const categoriesApiData = getDataFromEl(vdom);
+            Alpine.store('api').categories = categoriesApiData.categories;
+            Alpine.store('modals').setLoading(false);
+            Alpine.store('spa').currentPage = 'SUBCATEGORIES';
+        }
+    };
+}
+
+function playerlands_LoadProductsAsync () {
+    Alpine.store('modals').setLoading(true);
+    const getUrl = `https://${window.location.host}/~/api/data/categories/${Alpine.store('spa').currentCategory}/products`;
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", getUrl, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const freg = new RegExp('(<pre id="api-data-products" hidden>)((.|\n)*)(</pre>)');
+            const regExec = freg.exec(xhr.response.toString());
+            const productsApiData = JSON.parse(regExec[2])
+            Alpine.store('api').products = productsApiData.products;
+            Alpine.store('modals').setLoading(false);
+            Alpine.store('spa').currentPage = 'PRODUCTS';
+        }
+    };
+}
+
+function playerlands_GoToStoreHomeAsync () {
+    window.history.pushState({}, 'LoverFella Store', '/store');
+    Alpine.store('spa').currentCategory = null;
+    Alpine.store('api').categories = null;
+    Alpine.store('api').products = null;
+    Alpine.store('spa').currentPage = 'CATEGORIES';
+    calculateBreadcrumbs();
+}
+
+function playerlands_GoToSubcategoriesAsync (category) {
+    window.history.pushState({}, 'LoverFella Store', window.location.pathname + '/' + category);
+    calculateBreadcrumbs();
+    Alpine.store('spa').currentCategory = category;
+    Alpine.store('api').categories = null;
+    Alpine.store('api').products = null;
+    playerlands_LoadCategoriesAsync();
+}
+
+function playerlands_GoToProductsAsync (category) {
+    window.history.pushState({}, 'LoverFella Store', window.location.pathname + '/' + category);
+    calculateBreadcrumbs();
+    Alpine.store('spa').currentCategory = category;
+    Alpine.store('api').categories = null;
+    Alpine.store('api').products = null;
+    playerlands_LoadProductsAsync();
+}
+
+const clickToCopy = (text) => {
+    const copyText = text;
+    navigator.clipboard.writeText(copyText);
+    Swal.fire({
+      title: 'Server IP Copied!',
+      text: 'We hope to see you online soon!',
+      icon: 'success',
+      confirmButtonColor: '#ff004f',
+      timer: 3000,
+      timerProgressBar: true,
+    })
+  }
+  
+ window.onpopstate = () => {
+    window.location.href = window.location.href;
+ };
+</script>
+
+
+
+
+    <div class="h-screen w-screen top-0 left-0 overflow-x-hidden overflow-y-scroll">
+        <div class="h-full mx-auto flex flex-col justify-between text-white">
+        
+            <div class="container max-w-screen-2xl mx-auto ">
+                <div class="py-4 px-4 md:px-0 flex justify-between">
+                    <div class="self-start flex gap-5 md:gap-10">
+                        <a href="/home" class="py-1 text-lg md:text-2xl font-title tracking-wide hover:text-lf-red">
+                            Blog
+                        </a>
+                        <a href="/rules" class="py-1 text-lg md:text-2xl font-title tracking-wide hover:text-lf-red">
+                            Rules
+                        </a>
+                        <a href="https://loverfam.com/" target="_blank" class="py-1 text-lg md:text-2xl font-title tracking-wide hover:text-lf-red">
+                            Merch
+                        </a>
+                    </div> 
+                     
+                    <div>
+                        <a
+                            href="/"
+                            class="hidden xl:flex px-6 py-1 bg-lf-red border-2 border-white border-opacity-0 hover:border-opacity-40 text-lg md:text-2xl font-title tracking-wide"
+                        >
+                            <span class="self-center mt-1">Store</span>
+                        </a>
+                          <!--mobile nav-->
+                        <div class="flex xl:hidden flex-col w-full h-full gap-2" x-data="{mobileNave: false}">
+                                <span x-on:click="mobileNave = !mobileNave" class="cursor-pointer ml-auto z-50">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path></svg>
+                                </span>
+                            <div class="flex flex-col p-4 gap-2 absolute left-0 right-0 top-0 py-12 z-40 bg-lf-dark-blue h-full" x-show="mobileNave">
+                                <img
+                                    class="h-20 md:h-32 mx-auto my-10 shadow-lf-blue"
+                                    src="https://prod-media-nextgen.s3.eu-west-1.amazonaws.com/61f16669381e4025d2f7bc79/3f732b01-760a-4adf-aac7-4d6548a26812_LoverFella%20Official%20Logo.png"
+                                />
+                                <a href="/" class="flex px-32 py-3 justify-center bg-lf-red border-2 border-white border-opacity-0 hover:border-opacity-40 text-2xl font-title tracking-wide">
+                                <span class="self-center mt-1">
+                                  <svg class="w-6 h-6 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                                    </path>
+                                  </svg>
+                                </span>
+                              </a>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<img
+                    class="h-44 mx-auto"
+                    src="https://prod-media-nextgen.s3.eu-west-1.amazonaws.com/61f16669381e4025d2f7bc79/e4efcdcf-55eb-4f17-b977-0c25821fa54a_LoverFella%20Official%20Icon.png"
+                />-->
+                <img
+                    class="h-20 md:h-32 mx-auto my-10 shadow-lf-blue"
+                    src="https://prod-media-nextgen.s3.eu-west-1.amazonaws.com/61f16669381e4025d2f7bc79/3f732b01-760a-4adf-aac7-4d6548a26812_LoverFella%20Official%20Logo.png"
+                />
+            </div>
+            
+            
+<div class="flex-1 container max-w-screen-lg mx-auto px-10 lg:px-0">
+    <div class="flex-1 flex flex-col my-20">
+        <h2 class="text-4xl tracking-wide font-semibold font-title mb-6">
+            Featured Article
+        </h2>
+        
+        
+            <div class="flex flex-col md:grid md:grid-cols-3 gap-10 hover:shadow-lf-blue">
+                <div class="flex flex-col w-full border-2 border-white ">
+                    <img class="object-cover h-64 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62e824907cbe7c6803c91bed" />
+                </div>
+                <div class="col-span-2 flex-1 flex flex-col self-center gap-2">
+                    <h3 class="text-4xl md:text-5xl font-title tracking-wider text-center md:text-left">Seasonal Crate: Legions!</h3>
+                    <p class="font-light text-center md:text-left">
+                        Our Legion Crate is out now!
+                    </p> 
+                    <div class="flex">
+                        <button class="text-lf-red hover:underline mx-auto md:mx-0" onclick="window.location.href = '/blog/62e827a8bf573abcb6e41f5b'">
+                            Read More 
+                        </button>
+                    </div>
+                </div>
+            </div>
+        
+        
+    </div>
+    
+    <div class="flex gap-10 mx-auto text-center my-10">
+        <!--<h2 class="font-title text-4xl tracking-wide">LoverBlogs</h2>-->
+        <!--<h3 class="text-md text-lf-red text-light">Latest Information From The LoverFam Team</h3>-->
+        <div class="bg-lf-gray h-px flex w-full self-center"></div>
+        <img class="w-12 h-12 opacity-40" src="https://prod-media-nextgen.s3.eu-west-1.amazonaws.com/61f16669381e4025d2f7bc79/e4efcdcf-55eb-4f17-b977-0c25821fa54a_LoverFella%20Official%20Icon.png" />
+        <!--<div class="bg-white h-px flex w-full self-center"></div>-->
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 my-20">
+
+        
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bf50b1c330ad39ea1569ec" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Seasonal Crate: Pirates!</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/62bf50ba52e516e834782598'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bc4c2352e516e834782150" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Skyblock Season 3!</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/629737ec4a6fd76602732d50'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bc4c4252e516e834782151" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Survival Season 5: A Wild Adventurer!</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/628f5d399f014628b32bd405'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bc4c51c330ad39ea1566b3" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Season 5 Survival: Duel Arena!</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/62226eeac41707e547593e53'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bc4d094aae26ee6f6feff5" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Survival Season 5: Luck of the Fella Crate!</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/621fdcb113a97cca0fc7027c'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bc4eba4aae26ee6f6feff6" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Season 5 Survival: VIP Crate!</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/6205302e35662b7a99cefc83'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bc4ec14aae26ee6f6feff7" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Season 5 Survival: Mail System</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/62052c9c6760e93d704e082b'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bc4ecbc330ad39ea1566b6" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Season 5 Survival: Valentine’s Day Crate</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/6205286635662b7a99cefc81'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bc4ed252e516e834782152" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Season 5 Survival: Mythology Crate</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/620527606760e93d704e0828'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bc4ed952e516e834782153" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Ice Crate - December 20th!</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/62052655b7c52081dfa92a92'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bc4ee04aae26ee6f6feff8" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Looking Back at Season 4</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/6205255535662b7a99cefc7e'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+            
+                <div class="flex flex-col gap-4 hover:shadow-lf-blue">
+                    <div class="border-2 border-white flex self-center w-full">
+                        <img class="object-cover h-52 w-full" src="https://external.api.playerlands.com/api/core/v1/media/62bc4ee6c330ad39ea1566b7" />
+                    </div>
+                    <div class="flex-1 flex flex-col self-center gap-1 w-full">
+                        <div class="w-full text-center">
+                            <h3 class="text-xl font-title tracking-wider truncate">Season 5 Survival: Release</h3>
+                        </div>
+                        <div class="mx-auto">
+                            <button class="text-lf-red hover:underline" onclick="window.location.href = '/blog/6205225535662b7a99cefc7d'">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+
+    </div>
+    
+    <div class="flex gap-10 mx-auto text-center my-10">
+        <div class="bg-lf-gray h-px flex w-full self-center"></div>
+        <img class="w-12 h-12 opacity-40" src="https://prod-media-nextgen.s3.eu-west-1.amazonaws.com/61f16669381e4025d2f7bc79/e4efcdcf-55eb-4f17-b977-0c25821fa54a_LoverFella%20Official%20Icon.png" />
+    </div>
+    
+    <div class="mb-10">
+        <div class="flex flex-col py-2 w-full">
+            <h2 class="text-4xl tracking-wide font-semibold font-title mb-6">
+                RECENT SUPPORTERS
+            </h2>
+            <div class="flex gap-2 w-full justify-center lg:justify-start">
+
+                
+                    
+                        
+                        <div class="flex flex-col justify-center gap-1 relative supporter">
+                            <div class="absolute -top-9 left-1/2 transform -translate-x-1/2  rounded-lg py-2 px-3 bg-black bg-opacity-80 block text-white text-xs min-w-content text-center supporter-content">Suhrid</div>
+                            <img class="w-7 h-7 rounded-md self-center" src="https://cravatar.eu/helmavatar/Suhrid/100.png" alt="">
+                        </div> 
+                    
+                
+                        
+                        <div class="flex flex-col justify-center gap-1 relative supporter">
+                            <div class="absolute -top-9 left-1/2 transform -translate-x-1/2  rounded-lg py-2 px-3 bg-black bg-opacity-80 block text-white text-xs min-w-content text-center supporter-content">Trash_Sean1234</div>
+                            <img class="w-7 h-7 rounded-md self-center" src="https://cravatar.eu/helmavatar/Trash_Sean1234/100.png" alt="">
+                        </div> 
+                    
+                
+                        
+                        <div class="flex flex-col justify-center gap-1 relative supporter">
+                            <div class="absolute -top-9 left-1/2 transform -translate-x-1/2  rounded-lg py-2 px-3 bg-black bg-opacity-80 block text-white text-xs min-w-content text-center supporter-content">tramfla</div>
+                            <img class="w-7 h-7 rounded-md self-center" src="https://cravatar.eu/helmavatar/tramfla/100.png" alt="">
+                        </div> 
+                    
+                
+                        
+                        <div class="flex flex-col justify-center gap-1 relative supporter">
+                            <div class="absolute -top-9 left-1/2 transform -translate-x-1/2  rounded-lg py-2 px-3 bg-black bg-opacity-80 block text-white text-xs min-w-content text-center supporter-content">AAce33</div>
+                            <img class="w-7 h-7 rounded-md self-center" src="https://cravatar.eu/helmavatar/AAce33/100.png" alt="">
+                        </div> 
+                    
+                
+                        
+                        <div class="flex flex-col justify-center gap-1 relative supporter">
+                            <div class="absolute -top-9 left-1/2 transform -translate-x-1/2  rounded-lg py-2 px-3 bg-black bg-opacity-80 block text-white text-xs min-w-content text-center supporter-content">SebIsBack</div>
+                            <img class="w-7 h-7 rounded-md self-center" src="https://cravatar.eu/helmavatar/SebIsBack/100.png" alt="">
+                        </div> 
+                    
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+            
+            <!--<div>-->
+            <!--    <div class="flex mx-auto text-center justify-between">-->
+            <!--        <div class="bg-lf-gray h-px flex w-full self-center flex-1"></div>-->
+            <!--        <div class="container max-w-screen-lg flex gap-10">-->
+            <!--            <div class="bg-lf-gray h-px flex w-full self-center flex-1"></div>-->
+            <!--            <img class="w-12 h-12 opacity-40" src="https://prod-media-nextgen.s3.eu-west-1.amazonaws.com/61f16669381e4025d2f7bc79/e4efcdcf-55eb-4f17-b977-0c25821fa54a_LoverFella%20Official%20Icon.png" />-->
+            <!--        </div>-->
+            <!--        <div class="flex justify-end flex-1">-->
+            <!--            <div class="bg-lf-gray h-px flex w-full self-center flex-1 ml-10"></div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--    <div class="container max-w-screen-lg mx-auto mb-6 mt-2">-->
+            <!--        <div class="flex flex-col gap-2">-->
+            <!--            <div>-->
+            <!--                <p class="font-title tracking-wider text-xl opacity-50">PLAY.LOVERFELLA.COM</p>-->
+            <!--                <p class="text-sm tracking-widest font-title opacity-50">231 PLAYERS ONLINE - CLICK TO COPY</p>-->
+            <!--            </div>                    -->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>-->
+            <div class="flex flex-col gap-4 w-full">
+                <div class="flex gap-10">
+                    <div class="bg-lf-gray h-px flex w-full self-center flex-1"></div>
+                    <img class="w-12 h-12 opacity-40" src="https://prod-media-nextgen.s3.eu-west-1.amazonaws.com/61f16669381e4025d2f7bc79/e4efcdcf-55eb-4f17-b977-0c25821fa54a_LoverFella%20Official%20Icon.png" />
+                    <div class="bg-lf-gray h-px flex w-full self-center flex-1"></div>
+                </div>
+               
+                
+                <div class="container max-w-screen-lg mx-auto -mt-4 px-2 md:px-0 flex justify-between">
+                    <div class="flex flex-col gap-2">
+                        <div onclick="clickToCopy('play.loverfella.com')" class="cursor-pointer">
+                            <p class="font-title tracking-wider text-sm md:text-xl opacity-80">PLAY.LOVERFELLA.COM</p>
+                            <p class="text-xs md:text-sm tracking-widest font-title opacity-80"><span data-playercounter-ip="PLAY.LOVERFELLA.COM">0</span> PLAYERS ONLINE - CLICK TO COPY</p>
+                        </div>                    
+                    </div>                
+                    <div class="flex flex-col gap-2">
+                        <a class="text-right cursor-pointer" x-data :href="$store.discord.discordLink" target="_blank">
+                            <p class="font-title tracking-wider text-sm md:text-xl opacity-80">DISCORD</p>
+                            <p class="text-xs md:text-sm tracking-widest font-title opacity-80"><span x-data x-html="$store.discord.discordMembers"></span> USERS ONLINE - CLICK TO JOIN</p>
+                        </a>                    
+                    </div>
+                </div>
+                
+                <div class="bg-lf-gray h-px flex w-full"></div>
+                
+                <div class="container max-w-screen-lg mx-auto mb-6 px-2 md:px-0 mt-2 flex flex-col md:flex-row">
+                    <div class="flex flex-row w-full">
+                        <ul class="flex flex-col mx-auto md:mx-0">
+                            <h2 class="underline text-sm text-opacity-50 text-white mb-1">LOVERFELLA</h2>
+                            <li onclick="window.location.href = '/'">
+                                HOME
+                            </li>                    
+                            <li onclick="window.location.href = 'https://loverfam.com/'">
+                                MERCH
+                            </li>                    
+                            <li onclick="window.location.href = '/store'">
+                                STORE
+                            </li>                    
+                            <li onclick="window.location.href = '/'">
+                                BLOGS
+                            </li>
+                        </ul>                
+                        <ul class="flex flex-col mx-auto">
+                            <h2 class="underline text-sm text-opacity-50 text-white mb-1">TERMS</h2>
+                            <li onclick="window.location.href = '/terms'">
+                                TERMS AND CONDITIONS
+                            </li>                    
+                            <li onclick="window.location.href = '/privacy-policy'">
+                                PRIVACY POLICY
+                            </li>                    
+                            <li onclick="window.location.href = '/impressum'">
+                                IMPRESSUM
+                            </li>
+                        </ul> 
+                    </div>
+                    
+                    <ul class="flex flex-col">
+                        <h2 class="underline text-sm text-opacity-50 text-white mb-1">SOCIALS</h2>
+                        <li onclick="window.location.href = 'https://www.instagram.com/loverfella/'">
+                            INSTAGRAM
+                        </li>                    
+                        <li onclick="window.location.href = 'https://discord.com/invite/loverfam'">
+                            DISCORD
+                        </li>                    
+                        <li onclick="window.location.href = 'https://www.youtube.com/channel/UCt6XC9hvuZtlxfDYvI1WAEg'">
+                            YOUTUBE
+                        </li>                    
+                        <li onclick="window.location.href = 'https://twitter.com/loverfellatv'">
+                            TWITTER
+                        </li>
+                    </ul> 
+                </div>
+                <div class="container max-w-screen-lg mx-auto mb-6 mt-2 flex flex-col text-xs text-opacity-50 text-white text-center md:text-left">
+                    <p>2022 © LoverFella</p>
+                    <p>We are not affiliated with Mojang or Minecraft.</p>
+                    <span class="flex">Powered by&nbsp;<span class="transform hover:text-red-900 ease duration-300 opacity-50 hover:opacity-100"><a href="https://www.playerlands.com"> <img class="h-5 self-center" src="https://playerlands-store-resources.s3.eu-west-1.amazonaws.com/loverfella-media/pl-logo-line-light.svg"></a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  </body>
+</html>

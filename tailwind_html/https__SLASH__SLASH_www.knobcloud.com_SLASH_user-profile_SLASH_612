@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>KnobCloud</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/main.min.css?ver=1004">
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/select2.min.css" />
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://www.knobcloud.com/css/all.min.css" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" /> -->
+    <link  rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"></link>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.knobcloud.com/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.knobcloud.com/img/favicon-32x32.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0c476e">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed" media="all">
+    <link rel="stylesheet" type="text/css" href="https://www.knobcloud.com/vendor/cookie-consent/css/cookie-consent.css">
+
+    <meta name="apple-mobile-web-app-title" content="KnobCloud">
+    <meta name="application-name" content="KnobCloud">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:title" content="KnobCloud" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="" />
+    <meta property="og:description" content="The first dedicated marketplace for audio production software licenses." />
+    <meta property="og:url" content="http://knobcloud.com" />
+    <meta property="og:image" content="http://knobcloud.com/img/knobcloud-logo_1200x630.png" />
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="KnobCloud Logo" />
+    <meta name="description" content="KnobCloud">
+</head>
+    <script type="text/javascript" src="https://www.knobcloud.com/js/app.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/select2.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/js.cookie.min.js"></script>
+<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/developer-database.js?v=1"></script>
+<script type="text/javascript"  src="https://www.knobcloud.com/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://www.knobcloud.com/sw.js"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
+</head>
+<body class="flex flex-col h-screen justify-between" style=" height: 100%;">
+<header>
+        <nav class="mainmenu navbar navbar-light navbar-expand-md navigation-clean-button">
+    <div class="menu-full container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="/img/knobcloud-logo.svg" alt="KnobCloud logo" height="32" width="185">
+        </a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navCollapse">
+            <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="menu-nav collapse navbar-collapse mt-2 md:text-center lg:text-auto" id="navCollapse">
+            <ul class="nav navbar-nav mr-auto md:space-x-4 lg:space-x-0 md:justify-center  lg:justify-auto">
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/developer">Developer</a>
+                </li>
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/sell-license">Sell your License</a>
+                </li>
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/transfers">Messages
+                                            </a>
+                </li>
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link" href="/information">Information</a>
+                </li>
+                <li class="dropdown nav-item">
+                    <div class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">My Account</div>
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item " role="presentation"
+                           href="/my-items">My Items</a>
+                        <a class="dropdown-item " role="presentation"
+                           href="/my-account">Account Settings</a>
+                    </div>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                                    <!-- <div class="d-none d-sm-inline">
+                        <a class="btn btn-outline-primary btn-sm action-button" role="button" href="/login"><i
+                                class="fas fa-sign-in-alt"></i> Login with PayPal</a>
+                    </div> -->
+                        <div class="d-none d-sm-inline">
+                      <span class="mr-4"><a class="nav-textlink" href="https://www.knobcloud.com/register">Register</a></span>
+                        <a class="btn btn-outline-primary btn-sm action-button" role="button"
+                           href="https://www.knobcloud.com/login"><i class="fad fa-sign-in-alt"></i> Sign In</a>
+                    </div>
+                                </span>
+        </div>
+    </div>
+</nav>
+    <div id="searchBar" class="bg-dark-blue">
+    <div class="container max-w-6xl mx-auto md:px-5">
+        <div class="row pt-3 pb-3">
+            <div class="col">
+                <form>
+                    <div class="input-group">
+                        <input class="form-control input-search" type="search"
+                               placeholder="Search for developers or titles" id="inputSearch" name="search_key"
+                                 >
+                        <input type="hidden" name="view" value="">
+                        <a href="/" class="d-none d-sm-block" aria-label="ClearButton" id="btnClear">
+                            <i class="fad fa-times-circle rounded-full" id="deleteButton"></i>
+                        </a>
+                        <div class="input-group-append">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-primary" id="buttonSearch" type="submit">
+                                    <i class="fad fa-search"></i> <span>Search</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('form').each(function () {
+            $(this).find('input').keypress(function (e) {
+                // Enter pressed?
+                if (e.which == 10 || e.which == 13) {
+                    this.form.submit();
+                }
+            });
+
+            $(this).find('input[type=submit]').hide();
+        });
+    });
+</script>
+</header>
+<div class="lg:mx-3 my-3 mb-auto">
+    <main role="main" class="flex-shrink-0 max-w-6xl mx-auto">
+            <div class="container shadow-sm p-4 mt-4 bg-light-blue">
+        <i class="fas fa-star d-none"></i>
+        <i class="far fa-star d-none"></i>
+        <i class="fas fa-star-half-alt d-none"></i>
+        <div class="row">
+            <div class="col-md-4 text-center py-3">
+                <p>
+                                            <i class="fas fa-user fa-8x"></i>
+                                    </p>
+                <h3 class="mt-1 h3">Kirillkedzz</h3>
+                <p> Russian Federation</p>
+                                <p class="mt-1"><strong>Member since:</strong> 23 Jun 2020</p>
+                                <p><strong>Items sold</strong>: 23 </p>
+                <div class="flex justify-center">
+                    <strong class="mr-1">Rating:</strong>
+                    <div class="placeholder relative left-0" style="color: #0c476e;">
+                        <div class="flex items-center">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="small ml-1">(14)</span>
+                        </div>
+                        <div class="overlay absolute left-0 top-0.5 flex items-center" style="color: #0c476e">
+                                                                                                                            <i class="fas fa-star"></i>
+                                                                                                                                                                <i class="fas fa-star"></i>
+                                                                                                                                                                <i class="fas fa-star"></i>
+                                                                                                                                                                <i class="fas fa-star"></i>
+                                                                                                                                                                <i class="fas fa-star"></i>
+                                                                                                                    </div>
+                    </div>
+                </div>
+                </p>
+            </div>
+
+            <div class="col">
+                <div class="mb-4">
+                    <h1 class="h1">Kirillkedzz</h1>
+                </div>
+                <div id="feedback">
+                    <h3 class="mt-4 mb-2 h3">User Feedback</h3>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-4 active" id="sellerTab" data-toggle="tab" href="#sellerFeedback"
+                               role="tab" aria-controls="sellerFeedback" aria-selected="true">As Seller</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-4" id="buyerTab" data-toggle="tab" href="#buyerFeedback"
+                               role="tab" aria-controls="buyerFeedback" aria-selected="false">As Buyer</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content bg-white" id="feedBackContent">
+                        <div class="tab-pane fade p-4 active show" id="sellerFeedback" role="tabpanel"
+                             aria-labelledby="sellerTab">
+                                                                                                <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Smooth process. </span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Crush Pack </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/6979">
+                                                hugsfoya</a>
+                                                                                        <cite title="Source Title">published on: Thu, 17 Feb 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the seller didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Expansion - Solar Breeze </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/5680">
+                                                Soundpig</a>
+                                                                                        <cite title="Source Title">published on: Sun, 30 Jan 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the seller didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Expansion - Polar Flare </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/5680">
+                                                Soundpig</a>
+                                                                                        <cite title="Source Title">published on: Sun, 30 Jan 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Good transaction</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> D16 Group - Nepheton </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4107">
+                                                costellomusic</a>
+                                                                                        <cite title="Source Title">published on: Fri, 14 Jan 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Very fast response and kind seller, recommended. </span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> TAL - TAL-BassLine-101 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/5447">
+                                                Brusie</a>
+                                                                                        <cite title="Source Title">published on: Thu, 13 Jan 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Very fast response and equally fast transfer. Recommended seller!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> TAL - TAL-U-No-LX </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4482">
+                                                Chrisch</a>
+                                                                                        <cite title="Source Title">published on: Wed, 12 Jan 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Fast and Efficient Seller, Recommeneded!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> D16 Group - Phoscyon </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/5288">
+                                                revolution909</a>
+                                                                                        <cite title="Source Title">published on: Tue, 11 Jan 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Quick and easy process. Recommended seller!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Razor </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4088">
+                                                TheSoundWaver</a>
+                                                                                        <cite title="Source Title">published on: Wed, 5 Jan 2022</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">Fast response, recommended seller!</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - FM8 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/4221">
+                                                mrmarkymark</a>
+                                                                                        <cite title="Source Title">published on: Thu, 23 Dec 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the seller didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Expansion Astral Flutter </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/2257">
+                                                Harald1603</a>
+                                                                                        <cite title="Source Title">published on: Wed, 10 Mar 2021</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">smooth and quick license transfer : - )</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Solid Eq </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/1895">
+                                                maartenstst94</a>
+                                                                                        <cite title="Source Title">published on: Thu, 17 Dec 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span class="lead">No Problems</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Expansion - Neon Drive </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/1501">
+                                                Rends</a>
+                                                                                        <cite title="Source Title">published on: Fri, 13 Nov 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the seller didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Session Horns </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/334">
+                                                jwhunter</a>
+                                                                                        <cite title="Source Title">published on: Mon, 17 Aug 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                    <blockquote class="blockquote">
+                                        <p class="mb-1">
+                                                                                            <i class="fal fa-smile mr-1"></i>
+                                                                                                                                        <span
+                                                    class="text-muted font-italic">the seller didn't leave a comment</span>
+                                                                                    </p>
+                                        <div class="blockquote-footer">
+                                            <strong> Native Instruments - Absynth 5 </strong>
+                                            - buyer <a class="text-blue-500" href="/user-profile/685">
+                                                lindeman</a>
+                                                                                        <cite title="Source Title">published on: Wed, 24 Jun 2020</cite>
+                                        </div>
+                                    </blockquote>
+                                                                                    </div>
+                        <div class="tab-pane fade p-4" id="buyerFeedback" role="tabpanel" aria-labelledby="buyerTab">
+                                                                                                                </div>
+                    </div>
+                </div>
+                <h3 class="mt-4 mb-2 h3">Items for Sale</h3>
+                                                                </div>
+        </div>
+    </div>
+    </main>
+</div>
+
+<footer class="bg-dark-blue py-3">
+    <div class="container mx-auto">
+    <div class="w-full">
+        <div class="row justify-content-center">
+            <div class="col-md-3 offset-md-1 item">
+                <h3 class="h3 mb-2">Legal</h3>
+                <ul>
+                    <li><a href="https://www.knobcloud.com/terms-of-use">Terms of Use</a></li>
+                    <li><a href="https://www.knobcloud.com/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="https://www.knobcloud.com/imprint">Imprint</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 item mt-3 mt-md-0">
+                <h3 class="h3 mb-2">Help</h3>
+                <ul>
+                    <li><a href="https://www.knobcloud.com/faq">FAQ</a></li>
+                    <li><a href="/developer">Developer Database</a></li>
+                    <li><a href="https://www.knobcloud.com/contact">Contact</a></li>
+                </ul>
+            </div>
+        <div class="col-md-4 d-xl-flex justify-content-xl-end align-items-xl-end item social">
+            <ul class="md:text-right">
+                <li class="align-text-bottom">Knobcloud © 2020</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+</footer>
+
+<div class="lcc-backdrop js-lcc-backdrop" style="display: none;"></div>
+<div role="dialog" aria-labelledby="lcc-modal-alert-label" aria-describedby="lcc-modal-alert-desc" aria-modal="true" class="lcc-modal lcc-modal--alert js-lcc-modal js-lcc-modal-alert" style="display: none;"
+     data-cookie-key="__cookie_consent"
+     data-cookie-value-analytics="2"
+     data-cookie-value-marketing="3"
+     data-cookie-value-both="true"
+     data-cookie-value-none="false"
+     data-cookie-expiration-days="365"
+     data-gtm-event="cookie_refresh"
+     data-ignored-paths=""
+>
+    <div class="p-4 pb-5 container-fluid bg-blue collapse show js-cookie-consent cookie-consent" style="border-top: 1.5em solid #fff">
+        <div class="d-flex flex-column flex-md-row align-items-md-end">
+            <div class="mr-md-5 ml-md-5">
+                <i class="fad fa-cookie-bite fa-5x"></i>
+            </div>
+            <div class="mr-md-5 mt-1">
+                <h3 class="h3 mt-2">We use cookies only for functional purposes!</h3>
+
+                <p class="text-sm p-1">You accept the <a href="/privacy-policy" target="_blank"><u>use of cookies</u></a> or other identifiers by closing or dismissing this notice, by clicking a link or button or by continuing to browse otherwise.</p>
+            </div>
+            <div class="mr-md-5 mt-4 d-flex flex-row">
+                <div class="lcc-modal__actions">
+                    <button type="button" class="js-lcc-accept btn btn-outline-light btn-sm js-cookie-consent-agree cookie-consent__agree"
+                            data-toggle="collapse" data-target="#cookieConsent">
+                        Reject
+                    </button>
+                    <button type="button" class="js-lcc-accept btn btn-secondary btn-sm js-cookie-consent-agree cookie-consent__agree"
+                            data-toggle="collapse" data-target="#cookieConsent">
+                        Accept
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div role="dialog" aria-labelledby="lcc-modal-settings-label" aria-describedby="lcc-modal-settings-desc" aria-modal="true" class="lcc-modal lcc-modal--settings js-lcc-modal js-lcc-modal-settings" style="display: none;">
+    <button class="lcc-modal__close js-lcc-settings-toggle" type="button">
+        <span class="lcc-u-sr-only">
+            Close        </span>
+        &times;
+    </button>
+    <div class="lcc-modal__content">
+        <div class="lcc-modal__content">
+            <h2 id="lcc-modal-settings-label" class="lcc-modal__title">
+                Cookie settings            </h2>
+            <p id="lcc-modal-settings-desc" class="lcc-text">
+                Our website keeps three levels of cookies. You can adjust your preferences at any time. If you want more information about what cookies are and which cookies we collect, please read our <a href="">cookie policy</a>.            </p>
+            <div class="lcc-modal__section lcc-u-text-center">
+                <button type="button" class="lcc-button js-lcc-accept">
+                    Accept all cookies                </button>
+            </div>
+            <div class="lcc-modal__section">
+                <label for="lcc-checkbox-essential" class="lcc-label">
+                    <input type="checkbox" id="lcc-checkbox-essential" disabled="disabled" checked="checked">
+                    <span>Functional cookies</span>
+                </label>
+                <p class="lcc-text">
+                    are essential cookies that ensure that the website functions properly and that your preferences (e.g. language, region) are saved.                </p>
+            </div>
+            <div class="lcc-modal__section">
+                <label for="lcc-checkbox-analytics" class="lcc-label">
+                    <input type="checkbox" id="lcc-checkbox-analytics">
+                    <span>Analytical cookies</span>
+                </label>
+                <p class="lcc-text">
+                    allow us to analyse website use and to improve the visitor's experience.                </p>
+            </div>
+            <div class="lcc-modal__section">
+                <label for="lcc-checkbox-marketing" class="lcc-label">
+                    <input type="checkbox" id="lcc-checkbox-marketing">
+                    <span>Marketing cookies</span>
+                </label>
+                <p class="lcc-text">
+                    allow us to personalise your experience and to send you relevant content and offers, on this website and other websites.                </p>
+            </div>
+        </div>
+    </div>
+    <div class="lcc-modal__actions">
+        <button type="button" class="lcc-button lcc-button--link js-lcc-settings-toggle">
+            Cancel        </button>
+        <button type="button" class="lcc-button js-lcc-settings-save">
+            Save        </button>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://www.knobcloud.com/vendor/cookie-consent/js/cookie-consent.js"></script>
+</body>
+</html>

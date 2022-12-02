@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Document meta data inserted dynamically -->
+	<title>Join Now</title>
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+
+	<!-- Compiled and minified CSS -->
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+	<script src="./../resources/md5.js"></script>
+	<script src="./../shared_assets/auth.js"></script>
+	<script type="module" src="./../shared_assets/index.js"></script>
+	<script src="https://unpkg.com/axios@0.27.0/dist/axios.min.js"></script>
+
+	<style type="text/css">
+		.form-textarea {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			background-color: #ffffff;
+			border-color: #d2d6dc;
+			border-width: 1px;
+			border-radius: 0.375rem;
+			padding-top: 0.5rem;
+			padding-right: 0.75rem;
+			padding-bottom: 0.5rem;
+			padding-left: 0.75rem;
+			font-size: 1rem;
+			line-height: 1.5;
+		}
+
+		@media (min-width: 600px) {
+			.min-md {
+				min-width: 400px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7X3GJN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	
+	<div id="app" class="md:flex min-h-screen bg-white">
+
+		<div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+
+			<div id="loading" class="loading">
+				<div class="loader loader--style6 width-full m-auto center-align" title="5">
+					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+					<rect x="0" y="13" width="4" height="5" fill="#333">
+						<animate attributeName="height" attributeType="XML" values="5;21;5" begin="0s" dur="0.6s" repeatCount="indefinite" />
+						<animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0s" dur="0.6s" repeatCount="indefinite" />
+					</rect>
+					<rect x="10" y="13" width="4" height="5" fill="#333">
+						<animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+						<animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+					</rect>
+					<rect x="20" y="13" width="4" height="5" fill="#333">
+						<animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+						<animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+					</rect>
+					</svg>
+				</div>
+			</div>
+
+			<div id="mainForm" class="mx-auto w-full max-w-sm min-md hidden">
+				<div>
+					<img class="h-12 w-auto" :src="clientData.company_logo" :alt="clientData.company_name + ' logo'" />
+					<h2 class="mt-6 text-3xl leading-9 font-extrabold text-gray-900">
+						<span>Welcome to <br/> {{ clientData.company_name }}</span>
+					</h2>
+					<p class="mt-2 mb-4 leading-9 text-gray-900">
+						<span>We can't wait to show you around.</span>
+					</p>
+					<p v-if="normalInvite" class="mt-2 text-sm leading-5 text-gray-600 max-w">
+						Please request access below, or 
+						<span>
+							<a href="/signin/" class="font-medium text-teal-600 hover:text-teal-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+								sign in to your account</a>.
+						</span>
+					</p>
+					<p v-if="fastInvite" class="mt-2 text-sm leading-5 text-gray-600 max-w">
+						Please enter your name and email to get started:
+					</p>
+				</div>
+				<div class="mt-4">
+					<div v-if="!requestSuccess" class="mt-0">
+						<form @submit.prevent>
+							<div v-if="step == 1">
+								<div>
+									<label for="name" class="block text-sm font-medium leading-5 text-gray-700">
+										Name
+									</label>
+									<div class="mt-1 rounded-md shadow-sm">
+										<input v-model.trim="formData.name" id="name" type="text" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+									</div>
+								</div>
+								<div class="mt-6">
+									<label for="email" class="block text-sm font-medium leading-5 text-gray-700">
+										Email address
+									</label>
+									<div class="mt-1 rounded-md shadow-sm">
+										<input v-model.trim="formData.email" id="email" type="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+									</div>
+								</div>
+
+								<transition name="fade">
+									<div v-if="errors.length" class="bg-red-100 border-l-4 border-red-400 p-4 mt-4">
+										<div class="flex">
+											<div class="flex-shrink-0">
+												<svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+													<path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+												</svg>
+											</div>
+											<div class="ml-3">
+												<ul>
+														<li class="text-sm leading-5 text-red-700 mb-1" v-for="error in errors">{{ error }}</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</transition>
+
+								<div class="mt-6">
+									<span class="block w-full rounded-md shadow-sm">
+										<button @click="checkContactInput" type="" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700 transition duration-150 ease-in-out mb-6">
+											<span v-if="!performingRequest">Continue</span>
+											<transition name="fade">
+													<div v-if="performingRequest" class="loading">
+															<p>One second...</p>
+													</div>
+											</transition>
+										</button>
+									</span>
+									<a href="https://www.nthround.com/privacy-policy" target="_blank" class="text-sm text-teal-600 hover:text-teal-500 focus:outline-none focus:underline transition ease-in-out duration-150 mt-6">Privacy Policy</a>
+								</div>
+							</div>
+
+							<div v-if="step == 2">
+
+								<fieldset class="mt-6">
+									<legend class="sr-only">
+										Investor status
+									</legend>
+
+									<div class="bg-white rounded-md -space-y-px">
+										<label for="about" class="block text-sm font-medium leading-5 text-gray-700 mb-2">
+											Select all statements that apply.
+										</label>
+										<!-- On: "bg-indigo-50 border-indigo-200 z-10", Off: "border-gray-200" -->
+										<div class="relative border rounded-tl-md rounded-tr-md p-4 flex">
+											<div class="flex items-center h-5">
+												<input id="sophisticated" type="checkbox" v-model="formData.sophisticated" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+											</div>
+											<label for="settings-option-0" class="ml-3 flex flex-col cursor-pointer">
+												<!-- On: "text-indigo-900", Off: "text-gray-900" -->
+												<span class="block text-sm leading-5 font-medium">
+													Sophisticated Investor<!--Knowledgeable & Experienced-->
+												</span>
+												<!-- On: "text-indigo-700", Off: "text-gray-500" -->
+												<span class="block text-sm leading-5 text-gray-600">
+													I have sufficient knowledge and experience in financial and business matters to evaluate the merits and risks of a prospective investment.
+												</span>
+											</label>
+										</div>
+
+										<!-- On: "bg-indigo-50 border-indigo-200 z-10", Off: "border-gray-200" -->
+										<div class="relative border border-gray-200 p-4 flex">
+											<div class="flex items-center h-5">
+												<input id="accredited" type="checkbox" v-model="formData.accredited" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+											</div>
+											<label for="settings-option-1" class="ml-3 flex flex-col cursor-pointer">
+												<!-- On: "text-indigo-900", Off: "text-gray-900" -->
+												<span class="block text-sm leading-5 font-medium">
+													Accredited Investor
+												</span>
+												<!-- On: "text-indigo-700", Off: "text-gray-500" -->
+												<span class="block text-sm leading-5 text-gray-600">
+													I am an Accredited Investor with income > $200,000 or net worth > $1M (or other criteria listed in <a href="https://www.ecfr.gov/current/title-17/section-230.501" target="_blank" class="font-medium text-teal-600 hover:text-teal-500 focus:outline-none focus:underline transition ease-in-out duration-150">SEC Regulation D, Rule 501</a>).
+												</span>
+												<!--<span class="block text-sm leading-5 font-medium">
+													Income > $200,000
+												</span>-->
+												<!-- On: "text-indigo-700", Off: "text-gray-500" -->
+												<!--<span class="block text-sm leading-5 text-gray-600">
+													I am an individual with > $200,000 earned income (or > $300,000 together with a spouse) in each of the prior two years, and reasonably expect the same for the current year.
+												</span>-->
+											</label>
+										</div>
+
+										<!-- On: "bg-indigo-50 border-indigo-200 z-10", Off: "border-gray-200" -->
+										<div class="relative border border-gray-200 rounded-bl-md rounded-br-md p-4 flex">
+											<div class="flex items-center h-5">
+												<input id="qualified" type="checkbox" v-model="formData.qualified" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+											</div>
+											<label for="settings-option-2" class="ml-3 flex flex-col cursor-pointer">
+												<!-- On: "text-indigo-900", Off: "text-gray-900" -->
+												<span class="block text-sm leading-5 font-medium">
+													Qualified Purchaser
+												</span>
+												<!-- On: "text-indigo-700", Off: "text-gray-500" -->
+												<span class="block text-sm leading-5 text-gray-600">
+													I am or represent a Qualified Purchaser with investments > $5M (or other criteria listed in <a href="https://www.law.cornell.edu/uscode/text/15/80a-2#a_49" target="_blank" class="font-medium text-teal-600 hover:text-teal-500 focus:outline-none focus:underline transition ease-in-out duration-150">15 USC § 80a-2(a)(51)</a>).
+												</span>
+												<!--<span class="block text-sm leading-5 font-medium">
+													Net Worth > $1 million
+												</span>-->
+												<!-- On: "text-indigo-700", Off: "text-gray-500" -->
+												<!--<span class="block text-sm leading-5 text-gray-600">
+													I am an individual with > $1 million net worth, either alone or together with a spouse (exclusive of my primary residence).
+												</span>-->
+											</label>
+										</div>
+									</div>
+								</fieldset>
+
+								<transition name="fade">
+									<div v-if="errorMsg !== ''" class="bg-red-100 border-l-4 border-red-400 p-4 mt-4">
+										<div class="flex">
+											<div class="flex-shrink-0">
+												<svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+													<path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+												</svg>
+											</div>
+											<div class="ml-3">
+												<p class="text-sm leading-5 text-red-700">
+													{{ errorMsg }}
+												</p>
+											</div>
+										</div>
+									</div>
+								</transition>
+
+								<div class="mt-6">
+									<span class="block w-full rounded-md shadow-sm">
+										<button @click="handleStatus" type="button" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700 transition duration-150 ease-in-out">
+											<span>Continue</span>
+										</button>
+									</span>
+								</div>
+
+								<button @click="step = 1" class="mt-6 text-sm leading-5 font-medium text-teal-600 hover:text-teal-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+									Go back
+								</button>
+							</div>
+
+							<div v-if="step == 3">
+								<div>
+											<label for="message" class="block text-sm font-medium leading-5 text-gray-700">
+												Message
+											</label>
+											<div class="mt-1">
+												<div class="max-w-lg flex rounded-md shadow-sm">
+													<textarea id="message" v-model="formData.message" rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+												</div>
+												<p class="mt-2 text-sm text-gray-500">Share your thoughts with {{ clientData.company_name }}</p>
+											</div>
+										</div>
+
+										<div class="relative border rounded p-4 flex mt-6">
+										<div class="flex items-center h-5">
+											<input id="terms" v-model="formData.checkedTerms" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out cursor-pointer">
+										</div>
+										<label for="settings-option-0" class="ml-3 flex flex-col">
+											<!-- On: "text-indigo-700", Off: "text-gray-500" -->
+											<span class="block text-sm leading-5 text-gray-600">
+												I am over 18 and have no criminal convictions.
+											</span>
+										</label>
+									</div>
+
+									<transition name="fade">
+													<div v-if="errorMsg !== ''" class="bg-red-100 border-l-4 border-red-400 p-4 mt-4">
+														<div class="flex">
+															<div class="flex-shrink-0">
+																<svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+																	<path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+																</svg>
+															</div>
+															<div class="ml-3">
+																<p class="text-sm leading-5 text-red-700">
+																	{{ errorMsg }}
+																</p>
+															</div>
+														</div>
+													</div>
+												</transition>
+
+									<div class="mt-6">
+														<span class="block w-full rounded-md shadow-sm">
+															<button @click="checkTermsInput" type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700 transition duration-150 ease-in-out">
+																<span v-if="!performingRequest">Request Access</span>
+																<transition name="fade">
+																		<div v-if="performingRequest" class="loading">
+																				<p>One second...</p>
+																		</div>
+																</transition>
+															</button>
+														</span>
+													</div>
+
+													<button @click="step = 2" class="mt-6 text-sm leading-5 font-medium text-teal-600 hover:text-teal-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+														Go back
+													</button>
+							</div>
+						</form>
+					</div>
+					<transition name="fade">
+						<div v-if="requestSuccess" class="bg-green-100 border-l-4 border-green-400 p-4 mt-4">
+							<div class="flex">
+								<div class="flex-shrink-0">
+									<svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+										<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+									</svg>
+								</div>
+								<div class="ml-3">
+									<h3 v-if="normalClose" class="text-sm leading-5 font-medium text-green-800">
+										Your request to <span class="font-bold">{{ clientData.company_name }}</span> is on it’s way. You’ll be contacted at <span class="font-bold">{{ formData.email }}</span> with updates about your request.
+									</h3>
+									<h3 v-if="fastClose" class="text-sm leading-5 font-medium text-green-800">
+										Invitation sent. Check your email!
+									</h3>
+								</div>
+							</div>
+						</div>
+					</transition>
+				</div>
+			</div>
+		</div>
+
+		<div v-if="clientData.join_image" class="block w-full md:w-1/2 md:ml-auto bg-gray-100 md:h-screen">
+			<div class="flex h-screen bg-cover overflow-hidden" v-bind:style="{ backgroundImage: 'url(' + clientData.join_image.replace(/(\/v\d{1,12}\/)/, '/h_800,q_auto,f_auto$1') + ')' }" title="">
+				<!-- <div class="self-end w-full">
+						<div class='p-4 bg-gray-400'>
+								<p class="text-gray-900 mb-2">"Equity is a complicated and murky space. We're here to help."</p>
+								<h5 class="text-gray-900 mb-24"><span class="font-bold">Chris McConnell</span> - Co-Founder</h5>
+					</div>
+				</div> -->
+			</div>
+		</div>
+		<div v-else class="relative flex-1 lg:pl-32 lg:pr-32 py-12 bg-gray-800">
+			<div class="mx-auto max-w-lg px-6 md:h-full flex flex-col justify-center space-y-6 opacity-75 hover:opacity-100 transition ease-in-out duration-300">
+				<div class="flex flex-col px-0 py-8 w-full border-teal-900">
+					<div class="flex flex-grow">
+						<div class="leading-relaxed flex flex-col">
+							<img :src="clientData.product_image" class="mb-6 rounded" />
+							 <!-- <blockquote class="text-white italic mt-1 relative">
+								<div class="absolute pin-t pin-l -mt-2 -ml-2">
+									<svg class="w-8 h-8" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M15.264 19.552C15.264 23.2 17.664 25.12 20.352 25.12C23.328 25.12 26.112 22.624 26.112 19.456C26.112 16.864 24.288 15.136 22.08 15.136C21.888 15.136 21.408 15.136 21.312 15.136C22.368 12.064 25.824 8.8 29.376 7.072L26.4 4C20.448 6.976 15.264 13.504 15.264 19.552ZM0 19.552C0 23.2 2.304 25.12 5.088 25.12C8.064 25.12 10.848 22.624 10.848 19.456C10.848 16.864 8.928 15.136 6.72 15.136C6.528 15.136 6.048 15.136 5.952 15.136C7.008 12.064 10.56 8.8 14.016 7.072L11.136 4C5.184 6.976 0 13.504 0 19.552Z" class="fill-current text-teal-600"></path>
+									</svg>
+								</div>
+								<p class="relative">
+									{{ clientData.product_description }}
+								</p>
+							</blockquote> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+	<script type="text/javascript" src="./join.js"></script>
+</body>
+</html>

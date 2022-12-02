@@ -1,0 +1,324 @@
+<html>
+<head>
+    <title>Revbunny API Manager</title>
+    <link rel="icon" type="image/png" href="/images/logo-s.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="tailwind/tailwind.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="loadingoverlay/loadingoverlay.min.js"></script>
+
+    <style type="text/css">
+        :root {
+            --circle-size: clamp(1.5rem, 5vw, 3rem);
+            --spacing: clamp(0.25rem, 2vw, 0.5rem);
+        }
+
+        .c-stepper {
+            display: flex;
+        }
+
+        .c-stepper__item {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            text-align: center;
+        }
+        .c-stepper__item:before {
+            --size: 3rem;
+            content: "";
+            display: block;
+            width: var(--circle-size);
+            height: var(--circle-size);
+            border-radius: 50%;
+            background-color: lightgrey;
+            opacity: 0.5;
+            margin: 0 auto 1rem;
+        }
+        .c-stepper__item.active:before {
+            background-color: green;
+        }
+        .c-stepper__item:not(:last-child):after {
+            content: "";
+            position: relative;
+            top: calc(var(--circle-size) / 2);
+            width: calc(100% - var(--circle-size) - calc(var(--spacing) * 2));
+            left: calc(50% + calc(var(--circle-size) / 2 + var(--spacing)));
+            height: 2px;
+            background-color: #e0e0e0;
+            order: -1;
+        }
+
+        .c-stepper__title {
+            font-weight: bold;
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .c-stepper__desc {
+            color: grey;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            padding-left: var(--spacing);
+            padding-right: var(--spacing);
+        }
+
+        /*** Non-demo CSS ***/
+        .wrapper {
+            max-width: 1000px;
+            margin: 2rem auto 0;
+        }
+
+    </style>
+</head>
+<body class="container-fluid mr-0 ml-0 pr-0 pl-0 font-mono">
+    <div><div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                &nbsp;<img src="/images/logo-s.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Revbunny
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+        </div>
+    </nav>
+</div></div>
+    <div class="">
+        <div class="flex justify-center">
+            <div class="mt-5 p-2 pt-5 rounded border-2 border-green-400 shadow-sm oauth-box">
+                <img src="/images/logo-wt.png"/>
+                <div class="text-center font-mono text-2xl">
+                    Get Ready to 'Rev up' your Revenue!
+                </div>
+                <div class="wrapper option-1 option-1-1">
+                    <ol class="c-stepper">
+                        <li class="c-stepper__item active">
+                            <h3 class="c-stepper__title">Step 1</h3>
+                            <p class="c-stepper__desc">Basic</p>
+                        </li>
+                        <li class="c-stepper__item">
+                            <h3 class="c-stepper__title">Step 2</h3>
+                            <p class="c-stepper__desc">Parameters</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <hr class="mt-2 mb-1 "/>
+                <div class="mt-3 mr-2 ml-2 mb-3">
+                    <p id="error" class="bg-danger text-white rounded pl-3" style="display: none;"></p>
+                    <div class="grid grid-cols-2 gap-2 step1">
+                        <div>
+                            <label class="form-label">Email<span class="text-red-600">*</span></label>
+                            <input type="text" class="form-control" id="email" placeholder="">
+                        </div>
+                        <div>
+                            <label class="form-label">Name<span class="text-red-600">*</span></label>
+                            <input type="text" class="form-control" id="name" placeholder="">
+                        </div>
+                        <div>
+                            <label for="passwd" class="form-label">Password<span class="text-red-600">*</span></label>
+                            <input type="password" class="form-control" id="passwd" placeholder="">
+                        </div>
+                        <div>
+                            <label for="passwd" class="form-label">Re-Type Password<span class="text-red-600">*</span></label>
+                            <input type="password" class="form-control" id="repasswd" placeholder="">
+                        </div>
+                        <!--
+                        <div>
+                            <label class="form-label">Catalog</label>
+                            <input type="text" class="form-control" id="catalog" placeholder="">
+                        </div>
+                        <div class="col-span-2">
+                            <label class="form-label">Database</label>
+                            <input type="text" class="form-control" id="database" placeholder="">
+                        </div>
+                        -->
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 mt-1 step2 hidden">
+                        <div>
+                            <label class="form-label">Company<span class="text-red-600">*</span></label>
+                            <input type="text" class="form-control" id="company" placeholder="">
+                        </div>
+                        <div>
+                            <label class="form-label">Industry</label>
+                            <!--
+                            <input type="text" class="form-control" id="industry" placeholder="">
+                            -->
+                            <select class="form-control" id="industry">
+                                <option></option>
+                                
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Website</label>
+                            <input type="text" class="form-control" id="website" placeholder="">
+                        </div>
+                        <div>
+                            <label class="form-label">Session Timeout<span class="text-red-600">*</span></label>
+                            <input type="text" class="form-control" id="session_timeout" placeholder="" value="30">
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label class="form-label" for="scheduler_status">Scheduler Status<span class="text-red-600">*</span></label>
+                                <select class="form-control" id="scheduler_status">
+                                    <option></option>
+                                    <option value="Active">Active</option>
+                                    <option value="Non-Active">Non-Active</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        If you have an account already, click <a class="sign-up" href="/login">HERE</a>.
+                    </div>
+                    <div class="text-right">
+                        <button type="button" class="btn btn-info" onclick="onPrev()">Prev</button>
+                        <button type="button" class="btn btn-info" onclick="onNext()">Next</button>
+                        <button type="button" class="btn btn-primary" onclick="onSignUp()">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    var stepNo = 1;
+
+    const showStep = (no) => {
+        $(".step1, .step2, .step3").addClass("hidden");
+        $(".step" + no).removeClass("hidden");
+        $(".c-stepper__item").removeClass("active");
+        $(".c-stepper__item").eq(no-1).addClass("active");
+    }
+    const validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
+
+    function onPrev() {
+        stepNo -= 1;
+        if(stepNo <= 1)
+            stepNo = 1;
+
+        showStep(stepNo);
+    }
+
+    function onNext() {
+        stepNo += 1;
+        if(stepNo >= 2)
+            stepNo = 2;
+
+        showStep(stepNo);
+    }
+
+    function onSignUp() {
+        let email = $("#email").val().trim();
+        let passwd = $("#passwd").val().trim();
+        let repasswd = $("#repasswd").val().trim();
+        let name = $("#name").val().trim();
+
+        let pos = name.indexOf(" ");
+
+        let firstname = "";
+        let lastname = "";
+
+        if(pos > 0) {
+            firstname = name.substring(0, pos);
+            lastname = name.substring(pos+1);
+        } else {
+            firstname = name;
+        }
+
+        let company = $("#company").val().trim();
+        let session_timeout = $("#session_timeout").val().trim();
+        let scheduler_status = $("#scheduler_status").val().trim();
+        let industry = $("#industry").val();
+        let website = $("#website").val();
+
+        if(email == "" || !validateEmail(email)) {
+            showStep(1);
+            $("#email").addClass("is-invalid");
+            return;
+        }
+
+        if(passwd == "") {
+            showStep(1);
+            $("#passwd").addClass("is-invalid");
+            return;
+        }
+
+        if(passwd != repasswd) {
+            showStep(1);
+            $("#repasswd").addClass("is-invalid");
+            return;
+        }
+
+        if(name == "") {
+            showStep(1);
+            $("#name").addClass("is-invalid");
+            return;
+        }
+
+        if(company == "") {
+            showStep(2);
+            $("#company").addClass("is-invalid");
+            return;
+        }
+
+        if(session_timeout == "" || session_timeout <= 0) {
+            showStep(2);
+            $("#lastname").addClass("is-invalid");
+            return;
+        }
+
+        $.LoadingOverlay("show");
+
+        $.ajax({
+            url: "/sign-up",
+            method: "post",
+            data: {
+                email: email,
+                passwd: passwd,
+                firstname: firstname,
+                lastname: lastname,
+                company: company,
+                session_timeout: session_timeout,
+                scheduler_status: scheduler_status,
+                industry: industry,
+                website: website
+            },
+            success: function(response) {
+
+                console.log(response);
+
+                let resp = $.parseJSON(response);
+                console.log(resp);
+
+                setTimeout(function() {
+                    $.LoadingOverlay("hide");
+
+                    if(resp.type == "S_OK") {
+                        window.location.href = "/success-sign-up";
+                    } else {
+                        $("#error").html(resp.message).show();
+                    }
+
+                }, 300);
+            }
+        })
+    }
+
+    $(document).ready(function() {
+        $("input,select").on("keypress focus paste", function() {
+            $(this).removeClass("is-invalid");
+        })
+    })
+</script>
+</body>
+</html>

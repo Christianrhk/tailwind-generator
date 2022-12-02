@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Sweet eggs | ツーリングブックβ版</title>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WDJ38KZ');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+
+
+    <link href="http://touringbook.com/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://touringbook.com/js/bootstrap.min.js"></script> 
+
+    <link href="http://touringbook.com/css/fontawesome.all.min.css" rel="stylesheet">
+    <link href="http://touringbook.com/css/tailwind.min.css" rel="stylesheet">
+    <script src="http://touringbook.com/js/vue.min.js"></script> 
+    <script src="http://touringbook.com/js/axios.min.js"></script>
+
+
+    
+    <link href="/css/app.css" rel="stylesheet">
+    
+
+    <!-- ※Twitter共通設定 -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+</head>
+
+<body style="background: #f0f0f0;">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDJ38KZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="items-center fixed w-full z-50 border-b">  
+  <nav class="bg-white">
+    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0" style="font-family: 'Nico Moji';">
+            <a href="/" class="text-decoration-none">
+              <!-- <div class="text-xs" style="color: #93DBFB;">移動を楽しむお出かけアプリ</div> -->
+              <div class="text-xs leading-none">バイクのおすすめスポット紹介</div>
+              <h1 class="text-2xl tracking-tighter leading-none">ツーリングブック<span class="text-xs">β版</span></h1>
+            </a>
+          </div>
+          <div class="">
+            <div class="flex items-baseline space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <!-- <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a> -->
+
+              <!-- <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a> -->
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="flex items-center md:ml-6 text-xl">
+            <!-- <a href="/explore" class="p-1 rounded-full hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              <i class="far fa-compass"></i>
+            </a>
+            <a href="/p/create" class="p-1 rounded-full hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              <i class="fas fa-edit"></i>
+            </a> -->
+
+            <!-- <button class="p-1 rounded-full hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              <span class="sr-only">View notifications</span>
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </button> -->
+
+            <!-- Profile dropdown -->
+            <div class="ml-3 relative">
+              <div>
+                <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+                  <span class="sr-only">Open user menu</span>
+                                      <a class="nav-link" href="/login/facebook"><i class="fas fa-sign-in-alt"></i></a>
+                                  </button>
+              </div>
+              <!--
+                Profile dropdown panel, show/hide based on dropdown state.
+
+                Entering: "transition ease-out duration-100"
+                  From: "transform opacity-0 scale-95"
+                  To: "transform opacity-100 scale-100"
+                Leaving: "transition ease-in duration-75"
+                  From: "transform opacity-100 scale-100"
+                  To: "transform opacity-0 scale-95"
+                -->
+                <!-- <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+
+<main>
+  <div class="max-w-xl mx-auto py-16">
+    
+
+
+
+<div id="app">
+
+
+	<section class="p-3 bg-white mb-3">
+		<h1 class="text-xl mt-2 font-bold">Sweet eggs</h1>
+		<div class="text-xs">
+			神奈川県
+			相模原市
+			南区麻溝台５丁目１４-３９
+		</div>
+		<div class="text-xs">
+			＜距離：27km＞ 
+			2人がツーリングしてます。
+		</div>
+		<div class="text-xs">
+			最終訪問：--ヶ月前
+		</div>
+
+		
+		
+
+				<div>
+					</div>
+		
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-outline-primary btn-lg my-2" data-toggle="modal" data-target="#exampleModalCenter">
+			<i class="far fa-heart"></i> 保存 
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalCenterTitle">
+							保存先
+						</h5>
+						<a href="/q/create" class="btn btn-outline-primary btn-sm">
+							<i class="fas fa-plus"></i> リストを追加
+						</a>
+					</div>
+					<div class="modal-body">
+						<div class="form-group form-check" v-for="quest in quests" :key="quest.id">
+							<label class="form-check-label" >
+								<input type="checkbox" class="form-check-input" v-model="quest.included" @change="test(quest.id,quest.included)">
+								{{quest.name}}
+							</label>
+						</div>
+					</div>
+					<!-- <div class="modal-footer">
+						<button type="button" class="btn btn-primary">保存する</button>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="px-3">
+		<ul class="flex border-b my-2 text-sm">
+			<li><a class="px-1 py-1 border-b-2 mr-2 block border-blue-600" href="/s/46">TOP</a></li>
+			<li><a class="px-1 py-1 border-b-2 mr-2 block" href="/s/46/photos">写真</a></li>
+			<li><a class="px-1 py-1 border-b-2 mr-2 block" href="/s/46/notes">口コミ</a></li>
+			<li><a class="px-1 py-1 border-b-2 mr-2 block" href="/s/46/courses">コース</a></li>
+			<li><a class="px-1 py-1 border-b-2 mr-2 block" href="/s/46/info">地図</a></li>
+		</ul>
+	</section>
+
+	<section class="p-3 bg-white mb-3">
+		<h2 class="text-l my-3 text-blue-600">写真</h2>
+					<div class="h-44 overflow-hidden">
+				<div class="flex flex-wrap p-px">
+																	<a href="/p/34" class="p-px w-1/3">
+							<img src="http://touringbook.com/storage/post_photo/34p5fd5a18eac994.jpg" alt="Sweet eggs0" class="h-32 w-full object-cover">
+							<!-- <div class="text-xs">ゆっくりできる店内</div> -->
+						</a>
+																	<a href="/p/207" class="p-px w-1/3">
+							<img src="http://touringbook.com/storage/post_photo/207p5fde7454c41e4.JPG" alt="Sweet eggs1" class="h-32 w-full object-cover">
+							<!-- <div class="text-xs">スウィートエッグス。美味しい卵料理が食べられる</div> -->
+						</a>
+																	<a href="/p/207" class="p-px w-1/3">
+							<img src="http://touringbook.com/storage/post_photo/207p5fde740e71ad4.JPG" alt="Sweet eggs2" class="h-32 w-full object-cover">
+							<!-- <div class="text-xs">焼きチーズオムライスをチョイス。美味しいですね。</div> -->
+						</a>
+									</div>
+			</div>
+				<a href="/s/46/photos" class="text-center py-3 border border-solid border-black rounded block font-bold">＞ 全ての写真を見る(3)</a>
+			</section>
+
+	<section class="p-3 bg-white mb-3">
+		<h2 class="text-l my-3 text-blue-600">口コミ</h2>
+				<div>
+			
+				
+				<a href="/p/34" class="flex border-t">
+					<div class="text-xs w-4/5 py-2 pr-2">
+						<div class="flex">
+							<div class="w-8">
+								<img src="/storage/account_icon/1a5ff116ccdebf1.png" class="w-100" />
+							</div>
+							<div class="pl-2">
+								<div>
+									ビクスク喫茶 #フォトツー
+								</div>
+								<div class="my-2">
+																				<span class="border p-1 rounded text-xs">★★★ 超おすすめ！</span>
+																			</div>
+							</div>
+						</div>
+						<div class="my-1">ゆっくりできる店内</div>
+						<div class="text-gray-300">2019.05</div>
+					</div>
+					<div class="w-1/5">
+						<img src="http://touringbook.com/storage/post_photo/34p5fd5a18eac994.jpg" alt="" class="w-100">
+					</div>
+				</a>
+			
+				
+				<a href="/p/207" class="flex border-t">
+					<div class="text-xs w-4/5 py-2 pr-2">
+						<div class="flex">
+							<div class="w-8">
+								<img src="/storage/account_icon/baMPI5dznOyhJl0nlXE7CoALkU3rWA14h6R2aXUv.jpeg" class="w-100" />
+							</div>
+							<div class="pl-2">
+								<div>
+									UWAGAKI
+								</div>
+								<div class="my-2">
+																			<span class="border p-1 rounded text-xs">★★☆ よかった</span>
+																			</div>
+							</div>
+						</div>
+						<div class="my-1">スウィートエッグス。美味しい卵料理が食べられる</div>
+						<div class="text-gray-300">2020.12</div>
+					</div>
+					<div class="w-1/5">
+						<img src="http://touringbook.com/storage/post_photo/207p5fde7454c41e4.JPG" alt="" class="w-100">
+					</div>
+				</a>
+			
+				
+				<a href="/p/207" class="flex border-t">
+					<div class="text-xs w-4/5 py-2 pr-2">
+						<div class="flex">
+							<div class="w-8">
+								<img src="/storage/account_icon/baMPI5dznOyhJl0nlXE7CoALkU3rWA14h6R2aXUv.jpeg" class="w-100" />
+							</div>
+							<div class="pl-2">
+								<div>
+									UWAGAKI
+								</div>
+								<div class="my-2">
+																				<span class="border p-1 rounded text-xs">★★★ 超おすすめ！</span>
+																			</div>
+							</div>
+						</div>
+						<div class="my-1">焼きチーズオムライスをチョイス。美味しいですね。</div>
+						<div class="text-gray-300">2020.12</div>
+					</div>
+					<div class="w-1/5">
+						<img src="http://touringbook.com/storage/post_photo/207p5fde740e71ad4.JPG" alt="" class="w-100">
+					</div>
+				</a>
+					</div>
+		<a href="/s/46/notes" class="text-center py-3 border border-solid border-black rounded block font-bold">＞ 全ての口コミを見る(3)</a>
+
+		
+	</section>
+
+	<section class="p-3 bg-white mb-3">
+		<h2 class="text-l my-3 text-blue-600">ツーリングコース</h2>
+		
+				<!-- <div style="position: relative;">
+			<ul class="nav nav-tabs mt-3">
+				<li class="nav-item"><a href="" class="nav-link
+										active
+										">みんなの投稿 2</a>
+				</li>
+				<li class="nav-item"><a href="" class="nav-link
+										">自分の投稿</a>
+				</li>
+			</ul>
+			<span style="font-size: 10px; color: #fff; position: absolute; top: 0; left: 0; background: rgba(0,0,0,.5)">※近日公開予定</span>
+		</div> -->
+
+		<div class="flex-wrap d-flex">
+			
+			
+			
+			<div class="d-inline-flex w-50 p-1" style="">
+				<div class="w-100 mb-3">
+        <div class="d-flex text-muted">
+
+            <div class="mb-0 lh-sm w-100">
+
+
+                    
+                <div style="position: relative; width: 100%;">
+                    <div style="position: absolute; top: 0px; left: 0px; right: 0; padding: 8px; z-index: 1;">
+                        <a href="/a/1" style="text-decoration: none;">
+                            <img loading="lazy" src="http://touringbook.com/storage/account_icon/1a5ff116ccdebf1.png" alt="" style="width: 32px; height:32px; object-fit: cover; border-radius: 9999px;" class="">
+                        </a>
+                        
+                    </div>
+                    <a href="/p/34" style="color: #444; text-decoration: none;">
+
+                        <div class="d-flex flex-wrap" style="border-radius: 8px; overflow: hidden; position: relative;">
+
+                            
+                                                                <div style="flex-basis: 50%; padding: 0.5px;"><img loading="lazy" src="http://touringbook.com/storage/post_photo/34p5fd5a18eac994.jpg" alt="" class="w-100" style="height: 128px; object-fit: cover;"></div>
+                                <div style="flex-basis: 50%; padding: 0.5px;"><img loading="lazy" src="http://touringbook.com/storage/post_photo/34p5fd5a18eac62e.jpg" alt="" class="w-100" style="height: 128px; object-fit: cover;"></div>
+                                <div style="flex-basis: 33.333%; padding: 0.5px;"><img loading="lazy" src="http://touringbook.com/storage/post_photo/34p5fd5a18eacf58.jpg" alt="" class="w-100" style="height: 128px; object-fit: cover;"></div>
+                                <div style="flex-basis: 33.333%; padding: 0.5px;"><img loading="lazy" src="http://touringbook.com/storage/post_photo/34p5fd5a18eacd0d.jpg" alt="" class="w-100" style="height: 128px; object-fit: cover;"></div>
+                                <div style="flex-basis: 33.333%; padding: 0.5px;"><img loading="lazy" src="http://touringbook.com/storage/post_photo/34p5fd5a18eabfdf.jpg" alt="" class="w-100" style="height: 128px; object-fit: cover;"></div>
+
+                                
+                            
+                        </div>
+
+
+                        <div class="" style="overflow: hidden; font-size:12px; color: #444; max-height: 3.8em; line-height: 1.2em; background: rgba(255,255,255,.7); position: absolute; bottom: 0; left: 0; right: 0; padding: 4px;">
+
+                            <span class="" style="color: #444; font-size: 12px;">
+                                
+                                <span>
+                                                                            <i class="fas fa-motorcycle"></i>
+                                                                            2019.05
+
+                                    <span style="">
+                                                                                    神奈川県
+                                                                            </span>
+                                </span>
+                                
+                            </span>
+
+                            たまご屋さんでモーニングコーヒー。ランチは、横須賀にあるカフェ。城ヶ島で撮影。
+                        </div>
+                    </a>
+                </div>
+
+
+
+                
+                <div style="font-size: 12px; line-height: 1.5" class="m-0">
+                                            
+
+
+                        <span style="margin-top: 1px;">
+                                                    <a href="/s/46">
+                                <i class="far fa-circle"></i>
+                                Sweet eggs
+                                <!-- <div style="font-size: 10px; color: #888;">
+                                    神奈川県
+                                    相模原市
+                                    南区麻溝台５丁目１４-３９
+                                </div> -->
+                            </a>
+                                                </span>
+                                            
+
+
+                        <span style="margin-top: 1px;">
+                                                    <a href="/s/232">
+                                <i class="far fa-circle"></i>
+                                Dessert＆Cafe BlueMoon
+                                <!-- <div style="font-size: 10px; color: #888;">
+                                    神奈川県
+                                    横須賀市
+                                    津久井１丁目４７
+                                </div> -->
+                            </a>
+                                                </span>
+                                            
+
+
+                        <span style="margin-top: 1px;">
+                                                    <a href="/s/115">
+                                <i class="far fa-circle"></i>
+                                城ヶ島公園第１駐車場
+                                <!-- <div style="font-size: 10px; color: #888;">
+                                    神奈川県
+                                    三浦市
+                                    三崎町城ヶ島１２１
+                                </div> -->
+                            </a>
+                                                </span>
+                                    </div>
+                                
+
+
+                
+            </div>
+        </div>
+        
+
+
+
+
+        
+            
+        
+                
+    </div>
+			</div>
+			<!-- <a href="/p/34">
+				<li>たまご屋さんでモーニングコーヒー。ランチは、横須賀にあるカフェ。城ヶ島で撮影。</li>
+			</a> -->
+						
+			
+			
+			<div class="d-inline-flex w-50 p-1" style="">
+				<div class="w-100 mb-3">
+        <div class="d-flex text-muted">
+
+            <div class="mb-0 lh-sm w-100">
+
+
+                    
+                <div style="position: relative; width: 100%;">
+                    <div style="position: absolute; top: 0px; left: 0px; right: 0; padding: 8px; z-index: 1;">
+                        <a href="/a/2" style="text-decoration: none;">
+                            <img loading="lazy" src="http://touringbook.com/storage/account_icon/baMPI5dznOyhJl0nlXE7CoALkU3rWA14h6R2aXUv.jpeg" alt="" style="width: 32px; height:32px; object-fit: cover; border-radius: 9999px;" class="">
+                        </a>
+                        
+                    </div>
+                    <a href="/p/207" style="color: #444; text-decoration: none;">
+
+                        <div class="d-flex flex-wrap" style="border-radius: 8px; overflow: hidden; position: relative;">
+
+                            
+                                                                <div style="flex-basis: 50%; padding: 0.5px;"><img loading="lazy" src="http://touringbook.com/storage/post_photo/207p5fde7313a0111.JPG" alt="" class="w-100" style="height: 128px; object-fit: cover;"></div>
+                                <div style="flex-basis: 50%; padding: 0.5px;"><img loading="lazy" src="http://touringbook.com/storage/post_photo/207p5fde7378b409a.JPG" alt="" class="w-100" style="height: 128px; object-fit: cover;"></div>
+                                <div style="flex-basis: 33.333%; padding: 0.5px;"><img loading="lazy" src="http://touringbook.com/storage/post_photo/207p5fde736d5f121.JPG" alt="" class="w-100" style="height: 128px; object-fit: cover;"></div>
+                                <div style="flex-basis: 33.333%; padding: 0.5px;"><img loading="lazy" src="http://touringbook.com/storage/post_photo/207p5fde7454c41e4.JPG" alt="" class="w-100" style="height: 128px; object-fit: cover;"></div>
+                                <div style="flex-basis: 33.333%; padding: 0.5px;"><img loading="lazy" src="http://touringbook.com/storage/post_photo/207p5fde740e71ad4.JPG" alt="" class="w-100" style="height: 128px; object-fit: cover;"></div>
+
+                                
+                            
+                        </div>
+
+
+                        <div class="" style="overflow: hidden; font-size:12px; color: #444; max-height: 3.8em; line-height: 1.2em; background: rgba(255,255,255,.7); position: absolute; bottom: 0; left: 0; right: 0; padding: 4px;">
+
+                            <span class="" style="color: #444; font-size: 12px;">
+                                
+                                <span>
+                                                                            <i class="fas fa-car-side"></i>
+                                                                            2020.12
+
+                                    <span style="">
+                                                                                    -
+                                                                            </span>
+                                </span>
+                                
+                            </span>
+
+                            家族でドライブ
+                        </div>
+                    </a>
+                </div>
+
+
+
+                
+                <div style="font-size: 12px; line-height: 1.5" class="m-0">
+                                            
+
+
+                        <span style="margin-top: 1px;">
+                                                    相模原麻溝公園
+                            <a href="https://maps.google.com/maps?q=相模原麻溝公園" target="_blank" style="color: #888;">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </a>
+                                                </span>
+                                            
+
+
+                        <span style="margin-top: 1px;">
+                                                    <a href="/s/46">
+                                <i class="far fa-circle"></i>
+                                Sweet eggs
+                                <!-- <div style="font-size: 10px; color: #888;">
+                                    神奈川県
+                                    相模原市
+                                    南区麻溝台５丁目１４-３９
+                                </div> -->
+                            </a>
+                                                </span>
+                                    </div>
+                                
+
+
+                
+            </div>
+        </div>
+        
+
+
+
+
+        
+            
+        
+                
+    </div>
+			</div>
+			<!-- <a href="/p/207">
+				<li>家族でドライブ</li>
+			</a> -->
+								</div>
+		<a href="/s/46/courses" class="text-center py-3 border border-solid border-black rounded block font-bold">＞ 全てのツーリングコースを見る（ 2 ）</a>
+
+			</section>
+
+	<section class="p-3 bg-white mb-3">
+		<h2 class="text-l my-3 text-blue-600">地図</h2>
+
+		<iframe src="https://maps.google.co.jp/maps?output=embed&q=Sweet eggs" style="width: 100%; height: 256px;"></iframe>
+
+		<dl class="text-sm">
+			<dt>
+				住所
+			</dt>
+			<dd>
+				〒252-0328
+				神奈川県
+				相模原市
+				南区麻溝台５丁目１４-３９
+				＜距離：27km＞
+			</dd>
+			<dt>電話番号</dt>
+			<dd>
+				--
+			</dd>
+			<dt>スポット名</dt>
+			<dd>
+				Sweet eggs
+			</dd>
+			<dt>ジャンル</dt>
+			<dd>
+				--
+			</dd>
+		</dl>
+
+		<div>
+			
+		</div>
+
+			</section>
+
+
+
+	<section class="px-3 text-xs">
+		<div class="my-2">
+			<a href="/jp">
+				<!-- <i class="fas fa-map-marker-alt"></i> -->
+				全国のツーリングスポット
+			</a> ＞ 
+			<a href="/jp/kanagawa">神奈川県</a> ＞
+			Sweet eggs
+		</div>
+	</section>
+
+
+</div>
+
+
+<script>
+new Vue({
+	el: '#app',
+	data: {
+		'spot_id':46,
+		'quests':[]
+	},
+	methods: {
+
+        getApi() {
+        	console.log('getApi')
+            // let formData = new FormData(document.forms.postForm);
+			// console.log(formData.entries);
+			let formData = {
+				'spot_id': 46
+			}
+
+			axios.get('/api/quests/v1/spot_included/'+46, formData)
+			.then((response) => {
+				console.log(response.data);
+				this.quests = response.data
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+		},
+		onSubmit() {
+            //let formData = new FormData;
+            let formData = new FormData(document.forms.postForm);
+            
+            console.log(formData.entries);
+            for (item of formData) {
+            	console.log(item);
+            }
+
+            axios.post('/api/quests/v1/save', formData)
+            .then((response) => {
+                    // Ajax通信が成功した時
+                    if( response.data.id ){
+                    	location.href='/q/'
+                    } else {
+                    	alert('投稿できませんでした。');
+                    }
+                    
+                })
+            .catch(function (error) {
+            	alert('エラー 投稿できませんでした。');
+            	console.log(error);
+            });
+        },
+		test(quest_id,included){
+			data = {
+				'spot_id': this.spot_id,
+				'quest_id': quest_id,
+				'included': included,
+			}
+			console.log(data)
+			axios.put('/api/quests/v1/spot_add', data)
+	            .then((response) => {
+                    console.log(response)
+                })
+	            .catch(function (error) {
+	            	alert('エラー 保存できませんでした。');
+	            	console.log(error);
+	            }
+	        );
+		},
+	},
+	mounted() {
+		this.getApi()
+	},
+})
+</script>
+
+  </div>
+</main>
+
+<footer class="fixed bottom-0 right-0 left-0 z-10 bg-white border-t">
+    <div class="max-w-xl m-auto">
+        <ul class="flex text-3xl text-center">
+            
+            <li class="w-1/5"><a href="/" class="py-2 block"><i class="fas fa-book-open"></i></i></a></li>
+            <li class="w-1/5"><a href="/explore" class="py-2 block"><i class="far fa-compass"></i></a></li>
+            <li class="w-1/5"><a href="/p/create" class="py-2 block"><i class="far fa-plus-square"></i></a></li>
+            <li class="w-1/5"><a href="/bookmarks" class="py-2 block"><i class="far fa-heart"></i></a></li>
+                        <li class="w-1/5"><a href="/a/mypage" class="py-2 block"><i class="far fa-user-circle"></i></a></li>
+                    </ul>
+    </div>
+</footer>
+</body>
+
+</html>

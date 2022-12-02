@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chip - Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta content="#FF7104" name="theme-color">
+<meta content="https://cdn.discordapp.com/avatars/614109280508968980/208c1c61c1a7794579f77e7b9f6f764c.png" property="og:image">
+<meta content="The home of Chip, a high quality music bot." name="description">
+<link rel="shortcut icon" type="image/png" href="../static/images/chip_logo.png" />
+<link href="https://unpkg.com/tailwindcss@1.2.0/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+<script data-ad-client="ca-pub-9387947737056514" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GP6BQ93CM"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() { dataLayer.push(arguments); }
+
+      gtag('js', new Date());
+
+      gtag('config', 'G-8GP6BQ93CM');
+    </script>
+</head>
+<style>
+    .dark {
+        background: #1A202C;
+    }
+
+    .not-as-dark {
+        background: #2C2F33;
+    }
+
+    .side-shadow {
+        box-shadow: 5px 0 11px -3px rgba(0, 0, 0, 0.85);
+    }
+
+    .shadow-auto-hover {
+        box-shadow: 0 8px 5px -5px rgba(0, 0, 0, 0.95);
+    }
+
+    .purple {
+        background: #6633FF;
+    }
+
+    .backgradient {
+        background: linear-gradient(#ff5900, #ff3d7b, #f066d2, #9a92ff, #00adff);
+    }
+</style>
+<body class="h-screen w-screen overflow-hidden flex object-cover">
+<div class="fixed md:flex md:flex-row md:min-h-screen w-full" id="sidenav">
+<div @click.away="open = false" class="flex flex-col w-full md:w-64 text-white not-as-dark side-shadow flex-shrink-0 w-full z-30" x-data="{ open: false }">
+<div class="flex-shrink-0 px-8 py-4 flex flex-row w-full justify-between">
+<a href="../home" class="self-center lg:w-full md:w-auto text-xl font-bold tracking-widest uppercase rounded-lg text-white transition duration-150 ease-in-out transform hover:translate-x-2 focus:translate-x-2">
+<img id="spin" src="../static/images/chip_logo.png" alt="" class="inline-block w-10 h-10 object-fit">
+<h1 class="inline-block pt-2">Chip bot</h1>
+</a>
+<button class="rounded-lg md:hidden rounded-lg focus:outline-none" @click="open = !open">
+<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+<path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+<path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+</svg>
+</button>
+</div>
+<nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
+<a class="block px-4 py-2 mt-2 text-lg font-semibold text-red-500 bg-transparent rounded transition duration-150 ease-in-out transform hover:translate-x-2 focus:translate-x-2 border-red-600 border-2 focus:outline-none" href="../premium">
+Chip Premium
+</a>
+<a class="block px-4 py-2 mt-2 text-lg font-semibold text-white bg-transparent rounded transition duration-150 ease-in-out transform hover:translate-x-2 focus:translate-x-2 border-white border-r-0 focus:outline-none" href="../commands">
+Commands
+</a>
+<a class="block px-4 py-2 mt-2 text-lg font-semibold text-white bg-transparent rounded transition duration-150 ease-in-out transform hover:translate-x-2 focus:translate-x-2 border-white border-r-0 focus:outline-none" href="../discord">
+Join Our Discord
+</a>
+<div class="holder z-10">
+<div @click.away="open = false" class="relative block" x-data="{ open: false }">
+<button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2  text-lg font-semibold text-left bg-transparent rounded-lg md:block focus:outline-none">
+<span>Invite Chip</span>
+<svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-5 h-5 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+</svg>
+</button>
+<div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md">
+<div class="px-2 py-2 rounded-md block w-auto h-auto not-as-dark">
+<a class="block px-4 py-2 mt-2 text-lg font-semibold bg-transparent rounded-lg md:mt-0 focus:outline-none transition duration-150 ease-in-out transform hover:translate-x-2" href="../invite/chip">
+<img src="../static/images/chip_logo.png" alt="" class="h-8 w-8 object-fit inline-block">
+Chip
+</a>
+<a class="block px-4 py-2 mt-2 text-lg font-semibold bg-transparent rounded-lg md:mt-0 focus:outline-none transition duration-150 ease-in-out transform hover:translate-x-2" href="../invite/chip2">
+<img src="../static/images/chip_logo_red.png" alt="" class="h-8 w-8 object-fit inline-block">
+Chip 2
+</a>
+<a class="block px-4 py-2 mt-2 text-lg font-semibold bg-transparent rounded-lg md:mt-0 focus:outline-none transition duration-150 ease-in-out transform hover:translate-x-2" href="../invite/chip3">
+<img src="../static/images/chip_logo_yellow.png" alt="" class="h-8 w-8 object-fit inline-block">
+Chip 3
+</a>
+<a class="block px-4 py-2 mt-2 text-lg font-semibold bg-transparent rounded-lg md:mt-0 focus:outline-none transition duration-150 ease-in-out transform hover:translate-x-2" href="../invite/chipbeta">
+<img src="../static/images/chipbeta.png" alt="" class="h-8 w-8 object-fit inline-block">
+Chip Beta
+</a>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<div class="justify-center w-screen h-screen overflow-y-auto backgradient" id="main">
+<div class="center-content-center text-white font-bold text-2xl">
+<div class="block">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220">
+<path fill="#1A202C" fill-opacity="1" d="M0,96L30,90.7C60,85,120,75,180,64C240,53,300,43,360,69.3C420,96,480,160,540,181.3C600,203,660,181,720,160C780,139,840,117,900,106.7C960,96,1020,96,1080,117.3C1140,139,1200,181,1260,202.7C1320,224,1380,224,1410,224L1440,224L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
+</path>
+</svg>
+
+<div class="w-full mx-auto flex justify-around flex-col md:flex-row content-center items-center px-16">
+
+<div class="flex flex-col sm:w-full lg:w-2/3 justify-end items-start text-center md:text-left lg:pl-16">
+<h1 class="my-4 sm:text-2xl lg:text-5xl font-bold leading-tight text-gray-100">Meet Chip! A
+free, high quality <br>Discord music bot.</h1>
+<p class="leading-normal text-2xl mb-8 text-black"></p>
+<button class="lg:hidden mx-auto lg:mx-0 inline-related bg-white text-black rounded-full my-6 py-4 px-8 sm:text-base lg:text-2xl font-bold focus:outline-none cursor-pointer transition ease-in-out duration-150 transform hover:scale-105 hover:shadow-lg" onclick="location.href='/invite/chip';" onmouseover="toggleAnimation(this)" onmouseleave="toggleAnimation(this)">
+<img class="h-10 inline 1em rounded-full animate__animated" alt="" src="../static/images/chip_logo.png">
+Invite Chip
+</button>
+<button class="hidden lg:block mx-auto lg:mx-0 inline-related bg-white text-black rounded-full my-6 py-4 px-4 sm:text-base lg:text-2xl font-bold focus:outline-none cursor-pointer transition ease-in-out duration-150 transform hover:scale-105 hover:shadow-lg" onclick="location.href='/invite/chip';" onmouseover="toggleAnimation(this)" onmouseleave="toggleAnimation(this)">
+<img class="h-10 inline 1em rounded-full animate__animated" alt="" src="../static/images/chip_logo.png">
+Invite Chip and start listening!
+</button>
+</div>
+<div class="flex justify-center sm:w-full lg:w-1/2 flex justify-start animate__animated" onmouseenter="">
+<img class="w-3/4 h-auto rounded-full p-4" src="../static/images/chip_logo.png" alt="">
+</div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 280">
+<path fill="#1A202C" fill-opacity="1" d="M0,96L30,90.7C60,85,120,75,180,64C240,53,300,43,360,69.3C420,96,480,160,540,181.3C600,203,660,181,720,160C780,139,840,117,900,106.7C960,96,1020,96,1080,117.3C1140,139,1200,181,1260,202.7C1320,224,1380,224,1410,224L1440,224L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+</path>
+</svg>
+<div class="flex flex-wrap justify-around items-center p-4 dark pt-2 h-full">
+<div class="px-2 py-4 sm:w-full sm:py-2 lg:w-1/4">
+<div class="flex justify-center">
+<img src="../static/images/time.svg" alt="" class="w-12 h-auto object-cover">
+</div>
+<p class="text-xl font-bold text-center">Reliable</p>
+<p class="text-base font-medium text-center ">
+Never miss a beat with Chip's 24/7 Uptime.
+</p>
+</div>
+<div class="px-2 py-4 sm:w-full sm:py-2 lg:w-1/4">
+<div class="flex justify-center">
+<img src="../static/images/headphones.svg" alt="" class="w-12 h-auto object-cover">
+</div>
+<p class="text-xl font-bold text-center">High quality audio</p>
+<p class="text-base font-medium text-center ">
+Stream your audio at the best quality possible!
+</p>
+</div>
+<div class="px-2 py-4 sm:w-full sm:py-2 lg:w-1/4">
+<div class="flex justify-center">
+<img src="../static/images/tuning.svg" alt="" class="w-12 h-auto object-cover">
+</div>
+<p class="text-xl font-bold text-center">Ultimate Control</p>
+<p class="text-base font-medium text-center ">
+Control everything from Chip's prefix to the equalizer
+for the ultimate DJ experience.
+</p>
+</div>
+<div class="px-2 py-4 sm:w-full sm:py-2 lg:w-1/4">
+<div class="flex justify-center">
+<img src="../static/images/block.svg" alt="" class="w-12 h-auto object-cover">
+</div>
+<p class="text-xl font-bold text-center">Zero Payment Restrictions</p>
+<p class="text-base font-medium text-center ">
+Enjoy Chip's commands without it hiding behind a payment wall.
+</p>
+</div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+<path fill="#1A202C" fill-opacity="1" d="M0,96L30,90.7C60,85,120,75,180,64C240,53,300,43,360,69.3C420,96,480,160,540,181.3C600,203,660,181,720,160C780,139,840,117,900,106.7C960,96,1020,96,1080,117.3C1140,139,1200,181,1260,202.7C1320,224,1380,224,1410,224L1440,224L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
+</path>
+</svg>
+<div class="w-full items-center pb-12">
+<div class="flex flex-wrap justify-around">
+<div class="pb-4">
+<button class="py-2 px-6 rounded-full purple text-xl font-semibold focus:outline-none cursor-pointer transition ease-in-out duration-150 transform hover:scale-105 hover:shadow-md" onclick="location.href='/commands';">
+<img src="../static/images/view-list.svg" alt="" class="w-10 h-auto object-cover inline-block pr-2">
+Commands
+</button>
+</div>
+<div class="pb-4">
+<button class="py-2 px-6 rounded-full purple text-xl font-semibold focus:outline-none cursor-pointer transition ease-in-out duration-150 transform hover:scale-105 hover:shadow-md" onclick="location.href='/premium';">
+<img src="../static/images/heart.svg" alt="" class="w-10 h-auto object-cover inline-block pr-2">
+Chip Premium
+</button>
+</div>
+<div class="pb-4">
+<button class="py-2 px-6 rounded-full purple text-xl font-semibold focus:outline-none cursor-pointer transition ease-in-out duration-150 transform hover:scale-105 hover:shadow-md" onclick="location.href='/discord';">
+<img src="../static/images/Discord-Logo-White.svg" alt="" class="w-10 h-auto object-cover inline-block pr-2">
+Support Server
+</button>
+</div>
+</div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 280">
+<path fill="#1A202C" fill-opacity="1" d="M0,96L30,90.7C60,85,120,75,180,64C240,53,300,43,360,69.3C420,96,480,160,540,181.3C600,203,660,181,720,160C780,139,840,117,900,106.7C960,96,1020,96,1080,117.3C1140,139,1200,181,1260,202.7C1320,224,1380,224,1410,224L1440,224L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+</path>
+</svg>
+<div class="w-full dark">
+<div class="flex justify-center text-sm font-normal text-gray-700">
+<div class="px-4">Made with <3 by CF8</div>
+<div>All Rights Reserved © 2022</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function toggleAnimation(elm_main) {
+    let elm = elm_main.getElementsByTagName('img').item(0);
+    if (elm.classList.contains('animate__heartBeat')) {
+      elm.classList.remove('animate__heartBeat');
+    } else {
+      elm.classList.add('animate__heartBeat');
+    }
+  }
+</script>
+<script>(function(){var js = "window['__CF$cv$params']={r:'737ed170a8748f20',m:'luRwGvxsfklbyhEvTH4kRb8rNYlWTCoK9g8e2YY2jz0-1660030558-0-AYwDzD/ZBM6daDrff66aVxdtNtPcFc2lCZOiXlW3FP39dRI/6QjDOAuG1c4/FulAYc6f9C/NyXxW4CCaCYFjY9FMrD/7kzRGG0ulq85Cx734d2fzIBlZYlqV/VlXemixIQ==',s:[0xbfbad0168a,0x0755c01b9c],u:'/cdn-cgi/challenge-platform/h/g'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/h/g/scripts/alpha/invisible.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</html>

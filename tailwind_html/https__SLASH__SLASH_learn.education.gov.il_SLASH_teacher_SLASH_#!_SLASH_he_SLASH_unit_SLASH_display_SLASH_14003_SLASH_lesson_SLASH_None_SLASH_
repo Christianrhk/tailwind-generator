@@ -1,0 +1,671 @@
+﻿<!DOCTYPE html>
+
+<html data-ng-app="smartClassTeacherApp" lang="en">
+
+<head>
+
+<link rel="icon" href="https://www.classe.world/newImg/logo.png" type="image/png" style="width: 100px">
+        <!-- from design !-->
+
+       <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width; initial-scale = 1.0; maximum-scale=1.0; user-scalable=no" />
+        <meta name="description" content="מערכת מחולל ההוראה היא מערכת חדשה ייחודית של משרד החינוך שמטרתה לאפשר למורים ליצור שיעורים חוויתיים ומרתקים בצורה קלה וידידותית. מחולל ההוראה הדיגיטלי מציע שילוב של מיומנויות, ערכים ופרקטיקות בהם כדאי להשתמש לצורך הוראת היחידה בכיתה, בהתאמה ליעדים ולמטרות הספציפיות שתרצו להשיג בשיעור.">
+        <meta name="keywords" content="classe,class-e,edTec, Class-E, Eduction, interactive, online, class, content, technology">
+        <meta name="robots" content="index">
+        <meta name="author" content="Class-E">
+        <meta name="google" content="notranslate">
+        <title>מחולל הוראה</title>
+        <link href='https://fonts.googleapis.com/css?family=Arimo|Alef&subset=latin,hebrew' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/fonts/Carmela_Webfont/style.css" />
+        <link rel="stylesheet" type="text/css" href="../css/fonts/Shofar/stylesheet.css" />
+        <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,hebrew,latin-ext,vietnamese" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700,800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Scheherazade:400,700&display=swap" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Alef:400,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Secular+One&display=swap&subset=hebrew" rel="stylesheet">
+
+<link type="text/css" href="../newCss/effect.css" rel="stylesheet">
+<link type="text/css" href="../newCss/ng-animation.css" rel="stylesheet">
+<link type="text/css" href="../adminstrtor/css/animate.css" rel="stylesheet">
+<link type="text/css" href="../newCss/bonayich.css" rel="stylesheet">
+<link rel="stylesheet" href="/node_modules/angular-busy/dist/angular-busy.css"/>
+<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../bower_components/ng-tags-input/ng-tags-input.bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../bower_components/ng-tags-input/ng-tags-input.css">
+<link href="../newCss/teacher/ngDialog-teacher.css?v=1" rel="stylesheet" type="text/css"/>
+<link href="../node_modules/md-color-picker/dist/mdColorPicker.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../css/vtooltip_styles.css">
+<link rel="stylesheet" href="../lib/js/angular-material/angular-material.css">
+<link href="../newCss/teacher/main.css?v=5" rel="stylesheet" type="text/css"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+<link href="../newCss/teacher/myAngularMaterial.css" rel="stylesheet" type="text/css"/>
+<link type="text/css" href="../newCss/font-awesome.min.css" rel="stylesheet">
+<link type="text/css" href="../newCss/footerOfLesson.css" rel="stylesheet">
+<link type="text/css" href="../newCss/buttonsCreator.css" rel="stylesheet">
+<!--<link type="text/css"  href="../newCss/buttonsCreator.css" rel="stylesheet">-->
+<link href="../newCss/teacher/ng-scrollbar.css" rel="stylesheet" type="text/css"/>
+<link href="../newCss/commonStyle.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../components/reports/gradeUnitReport/lms-styles/lms-style.css" type="text/css">
+<script src="../configProgram.js"></script>
+<script src="../configGeneral.js?v=3"></script>
+<script type="text/javascript">
+if (settings.heap) {
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("1880926968");
+}
+</script>
+
+<!-- Datadog Logs -->
+<script type="text/javascript" src="https://www.datadoghq-browser-agent.com/datadog-logs-us.js"></script>
+<script src="/services/datadog_logs.js"></script>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-K7D8M2F');</script>
+	<!-- End Google Tag Manager -->
+
+<script src="/dictionary/langHeVue.js"></script>
+<script src="/dictionary/langEnVue.js"></script>
+<script src="/dictionary/langFrVue.js"></script>
+<script src="/dictionary/langRuVue.js"></script>
+<script src="/dictionary/langArVue.js"></script>
+
+
+
+        <!---------------------- Objects -->
+		<script src="../obects/nav_between_slides.js?v=1"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="../node_modules/components-jqueryui/jquery-ui.js"></script>
+
+        <script  src="../bower_components/jquery.ui.touch-punch.min.js"></script>
+        <script src="../lib/js/main.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+<link href="../newCss/teacher/layout.css?v=1" rel="stylesheet" type="text/css"/>
+<link href="../components/gameing/pointsInLesson/pointsInLesson.css" rel="stylesheet" type="text/css"/>
+<link href="../newCss/teacher/new-design2019.css" rel="stylesheet" type="text/css"/>
+
+        <script type="text/javascript" src="../lib/js/tinymce/js/tinymce/tinymce.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.min.js"></script>
+<!--         <script src="../lib/js/angular-1.5.5.min.js"></script>-->
+       <script src="/node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+       <script src="/node_modules/@uirouter/angularjs/release/stateEvents.min.js"></script>
+       <script src="/node_modules/oclazyload/dist/ocLazyLoad.js"></script>
+       <script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+
+
+
+       <script src="/lib/plugins-for-tinymce/equationeditor/mathquill.min.js"></script>
+<!--          <script src="../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>-->
+          <script src="../node_modules/lodash/lodash.js"></script>
+          <script src="../node_modules/restangular/dist/restangular.js"></script>
+
+          <script src="/node_modules/angular-smart-table/dist/smart-table.min.js"></script>
+
+
+<script src="../bower_components/ngFx/dist/ngFx.js"></script>
+<script src="../node_modules/angular-busy/dist/angular-busy.min.js"></script>
+<script src="../bower_components/angular-filter/dist/angular-filter.min.js"></script>
+<script src="../bower_components/angular-ui-router-anim-in-out/anim-in-out.js"></script>
+<script src="../lib/js/angular-dropdowns.js"></script>
+<script src="../node_modules/angular-spinners/dist/angular-spinners.js"></script>
+
+<!--<script src="../lib/js/ng-scrollbar.js"></script>-->
+<script src="../lib/js/ng-scrollbar-teacher.js"></script>
+<script src="../lib/js/angular-aria/angular-aria.js"></script>
+<script src="../node_modules/angular-animate/angular-animate.min.js"></script>
+
+<!--<script src="../lib/js/angular-messages/angular-messages.js"></script>-->
+<script src="../lib/js/angular-material/angular-material.js"></script>
+<script src="../bower_components/chance/chance.js"></script>
+
+<script src="../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+<!--for pdf viewr-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.228/pdf.min.js"></script>
+<!--for uploaderFile-->
+
+<script src="../lib/js/angular-file-upload/dist/angular-file-upload.js"></script>
+<script src="../bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+
+<script src="../lib/js/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
+<script src="../node_modules/ng-dialog/js/ngDialog.js"></script>
+<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-route.js"></script>-->
+<script src="../node_modules/angular-translate/dist/angular-translate.min.js"></script>
+<script
+		src="../node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+<script type="text/javascript" src="../lib/js/angular-ui-tinymce/src/tinymce.js?v=1"></script>
+
+<script type="text/javascript" src="../node_modules/ng-sortable/dist/ng-sortable.js"></script>
+<link rel="stylesheet" type="text/css" href="../node_modules/ng-sortable/dist/ng-sortable.css">
+<!--<link rel="stylesheet" type="text/css" href="../bower_components/ng-sortable/dist/ng-sortable.style.css">-->
+<script src="../node_modules/angular-dragdrop/src/angular-dragdrop.js"></script>
+<script src="../node_modules/angular-read-more/dist/readmore.js"></script>
+<script src="../lib/js/color-contrast.js"></script>
+<link rel="stylesheet" href="../bower_components/angular-multi-select-master/isteven-multi-select.css">
+<script src="../bower_components/angular-multi-select-master/isteven-multi-select.js"></script>
+<!------------ Vue.js imports -------------->
+<script src="/node_modules/vue/dist/vue.js"></script>
+<script src="/node_modules/vuex/dist/vuex.js"></script>
+<script src="/node_modules/@tinymce/tinymce-vue/lib/browser/tinymce-vue.min.js"></script>
+<script src="/node_modules/navscroll/dist/navscroll.js"></script>
+<script src="/node_modules/vue-scrollto/vue-scrollto.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script> -->
+
+<script src="/node_modules/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+	   var axiosInstance = {};
+	   var axiosInstancePhp = {}
+	var getNewJwt=false;
+
+	let createAxiosInstanceWithJwt = function () {
+		axiosInstance = axios.create({
+			baseURL: settings.api,
+			timeout: settings.axiosTimeout,
+			headers: {
+				Authorization: "JWT " + localStorage.getItem('jwt')
+			}
+		});
+		axiosInstancePhp = axios.create({
+			baseURL: settings.server + '/dataManagement/json.api.php',
+			timeout: settings.axiosTimeout,
+			headers: {
+				Authorization: "JWT " + localStorage.getItem('jwt')
+			}
+		});
+		getNewJwt=true
+		axiosInstance.interceptors.response.use(function (response) {
+			// Any status code that lie within the range of 2xx cause this function to trigger
+			// Do something with response data
+			return response;
+		}, function (error) {
+			store.dispatch('responseError', error);
+			// Any status codes that falls outside the range of 2xx cause this function to trigger
+			// Do something with response error
+			return Promise.reject(error);
+		});
+	}
+	/*
+		Create the `axiosInstance` for use in VueJS.
+		In order to communicate with the Django API, the `axiosInstance` is initialized
+		with the JWT taken from the localStorage. The JWT is usually set in the localStorage on
+		login; BUT if we are redirected directly in to a Unit via go.php and are
+		authenticated via IDM, then we need to manually retreive it here, as there
+		was no place for it to be set in the `localStorage` before hitting this page.
+	 */
+		//localStorage.removeItem('jwt')
+		window.getCookie = function(name) {
+	var cookiename = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++)
+	{
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(cookiename) == 0) return c.substring(cookiename.length,c.length);
+	}
+	return null;
+}
+
+	 	if(window.getCookie('jwt')){
+			 localStorage.setItem('jwt',window.getCookie('jwt'));
+		 }
+
+		createAxiosInstanceWithJwt();
+
+</script>
+<script src="/node_modules/ngVue/build/index.min.js"></script>
+<script src="/node_modules/ngVue/build/plugins.min.js"></script>
+
+<script src="/node_modules/vue-i18n/dist/vue-i18n.js"></script>
+<script src="../components/widgets/audio/recordingPopup.js"></script>
+<script src="../components/vue/inputWithHtml/inputWithHtml.js"></script>
+<script src="../components/vue/TableOfContents/TableOfContents.js" type="text/javascript"></script>
+<script src="../components/vue/TableOfContents/suggestionOfPartInLesson.js" type="text/javascript"></script>
+<script src="../components/vue/TableOfContents/itemsInSuggestion.js" type="text/javascript"></script>
+<script src="../components/vue/TableOfContents/tasksInItem.js" type="text/javascript"></script>
+<script src="../components/vue/introductionToTeacherPanelPopup/introductionToTeacherPanelPopup.js"></script>
+<script src="/node_modules/vue-color/dist/vue-color.min.js"></script>
+<script src="/node_modules/vue2-autocomplete-js/dist/vue2-autocomplete.js" type="text/javascript"></script>
+<script src="/components/vue/directives/ReadMoreDirective.js" type="text/javascript"></script>
+<script src="../components/vue/colorPicker/colorPicker.js" type="text/javascript"></script>
+<script src="../components/vue/gradientGenerator/gradientGenerator.js" type="text/javascript"></script>
+<script src="../components/vue/buttonsAddBackground/buttonsAddBackground.js" type="text/javascript"></script>
+<script src="../components/vue/imageManager/imageManager.js" type="text/javascript"></script>
+<script src="../components/vue/slideComments/slideComments.js" type="text/javascript"></script>
+
+<script src="/node_modules/vue-select/dist/vue-select.js"></script>
+
+<script src="/node_modules/popper.js/dist/umd/popper.min.js"
+        type="text/javascript"></script>
+<script src="/node_modules/v-tooltip/dist/v-tooltip.min.js"
+        type="text/javascript"></script>
+<script src="/node_modules/vue-clipboard2/dist/vue-clipboard.min.js"
+        type="text/javascript"></script>
+<script src="../components/vue/library/newClassPopup.js"
+        type="text/javascript"></script>
+<script src="../components/vue/library/studentsManagementPopup.js"
+        type="text/javascript"></script>
+<script src="../components/vue/components/baseComponents/baseButton.js"></script>
+        <script src="../components/vue/library/addClassBar.js"
+        type="text/javascript"></script>
+<script src="../components/vue/library/yearsSelector.js"
+        type="text/javascript"></script>
+<script src="../components/vue/library/classesByYear.js"
+        type="text/javascript"></script>
+<script src="../components/vue/library/libraryClasses.js"
+        type="text/javascript"></script>
+<script src="../components/vue/buttons/showClassButton.js"
+        type="text/javascript"></script>
+<script src="../components/vue/library/unitComponent.js"
+                type="text/javascript"></script>
+        <script src="../components/vue/components/appComponents/product-unit-component.js"
+                type="text/javascript"></script>
+        <script src="../components/vue/components/appComponents/product-units-container.js"
+        type="text/javascript"></script>
+<script src="../components/vue/library/unitsContainerComponent.js"
+        type="text/javascript"></script>
+<script src="../components/vue/library/librarySelectionBar.js"
+        type="text/javascript"></script>
+<script src="../components/vue/library/library.js"
+        type="text/javascript"></script>
+<script src="../components/vue/openFullScreen/openFullScreen.js"
+        type="text/javascript"></script>
+		<script src="../components/vue/bigIdeasComponent/bigIdeasComponent.js"
+        type="text/javascript"></script>
+	<script src="../components/vue/editInputWithHtml/EditInputWithHtml.js"
+        type="text/javascript"></script>
+
+<link href="/css/vtooltip_styles.css" rel="stylesheet">
+<link href="/node_modules/vue-select/dist/vue-select.css"
+      rel="stylesheet">
+<link href="/newCss/VueAnimations.css" rel="stylesheet">
+
+<script src="../components/ng-reports/dashboard.js"></script>
+<script src="../components/ng-reports/reports-menu-bar.js" type="text/javascript"></script>
+<script src="../components/ng-reports/graph-filter-list.js" type="text/javascript"></script>
+<script src="../components/vue/confirmDialog/confirmDialog.js" type="text/javascript"></script>
+<script src="../components/vue/backgroundForLessonsList/backgroundForLessonsList.js" type="text/javascript"></script>
+<script src="../components/ng-reports/class-graph.js"></script>
+<script src="../components/ng-reports/user-lesson-presence.js"></script>
+<script src="../components/vue/classificationTask/classificationTask.js" type="text/javascript"></script>
+<script src="../components/vue/classificationTask/classificationTask_list.js" type="text/javascript"></script>
+<script src="../components/vue/classificationTask/classificationTask_lists_handler.js" type="text/javascript"></script>
+<script src="/store/base.js"></script>
+<script src="/store/lesson_content.js"></script>
+<script src="/store/units.js"></script>
+<script src="/store/reports.js"></script>
+<script src="/store/moe_content.js"></script><script src="/store/angular_bridge.js"></script>
+        <script src="/store/session.js"></script>
+
+
+<!---------- panel_teacher  ------------->
+<script src="../components/panel_teacher/unitSaveOptionsComponent/deleteUnitPopup.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/unitSaveOptionsComponent/duplicateUnitPopup.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/unitSaveOptionsComponent/replaceUnitNamePopup.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/header/header.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/name_unit/name_unit.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/lesson_name/lesson_name.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/navToLesson/navToLesson.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/display_content/loadingComponent/loadingComponent.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/display_content/main-footer.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/display_content/tutorialVideosPopup.js" type="text/javascript"></script>
+<script src="../components/vue/editInputWithHtml/editOptionWithHtml.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/display_content/info_unit/suggestion_lessons.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/display_content/info_unit/timeline_unit.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/contents_bar/item_of_bar.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/contents_bar/contents_bar.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/my_lesson_structure/header_my_lesson_structure.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/my_lesson_structure/my_lesson_structure.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/display_content/one_info_lesson_proposal.js" type="text/javascript"></script>
+<!-- <script src="../components/panel_teacher/display_content/info_lesson_proposal.js?v=1" type="text/javascript"></script> -->
+<script src="../components/panel_teacher/display_content/info_lesson.js?v=1" type="text/javascript"></script>
+<script src="../components/panel_teacher/display_content/classification/classification.js"
+        type="text/javascript"></script>
+<script src="../components/panel_teacher/TheShortWayTo/theShortWayTo.js" type="text/javascript"></script>
+
+<script src="../components/panel_teacher/display_content/info_unit/info_unit_extend.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/display_content/infoLesson/first_info_lesson.js"
+		type="text/javascript"></script>
+		<script src="../components/panel_teacher/display_content/infoLesson/navInfoLesson.js"></script>
+<script src="../components/panel_teacher/display_content/info_unit/info_unit_short.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/display_content/info_unit/info_unit.js" type="text/javascript"></script>
+<script	src="../components/panel_teacher/display_content/selection_panel_from_unit_brothers/selection_panel_from_unit_brothers.js" type="text/javascript"></script>
+<script src="../teacher/app-teacher.js?v=9"></script>
+<script src="../components/panel_teacher/unit_container/unit_container.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/content_container/content_container.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/display_content/item/item.js" type="text/javascript"></script>
+<script src="../components/panel_teacher/export_container/print/print.js" type="text/javascript"></script>
+
+<!--------------- lib -------------------->
+
+<script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+<script src="../node_modules/ngclipboard/dist/ngclipboard.min.js"></script>
+<!----------------------------------->
+
+<!--<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>-->
+<script src="../lib/js/socket.io.js"></script>
+<script src="../services/classAjax.js"></script>
+<script src="../services/slideData.js?v=6"></script>
+<script src="../components/widgets/tricider/service.js"></script>
+<script src="../services/lessonData.js?v=2"></script>
+<script src="../services/configWidgets.js?v=3"></script>
+<script src="../services/buttonsCreatorData.js"></script>
+<script src="../services/featureOfLesson.js?v=2"></script>
+
+
+<!--<script src="../services/scormData.js"></script>-->
+<!--<script src="../lib/js/angular-scorm-wrapper.js"></script>-->
+<script src="../services/cambiumSyncSocket.js"></script>
+<script src="../services/lang.js?v=2"></script>
+<script src="../services/dynamicWords.js"></script>
+<script src="../services/confirmDialog.js"></script>
+<!-- <script src="../services/dinamicLoadScripts.js"></script> -->
+<script src="../services/features.js"></script>
+<script src="../lamda/teacherGroups.js"></script>
+
+<script src="../components/teacher.configLesson/teacher.configLesson.js"></script>
+<script src="../components/teacher.configUnit/teacher.configUnit.js"></script>
+<script src="../components/changePass/changePass.js"></script>
+<script src="../components/imageManager/imageManager.js"></script>
+<script src="../components/session/sessionTeacher.js?v=2"></script><script src="../components/library-ramot/libraryRamot.js"></script>
+<script src="../components/teacher.lessonsTable/teacher.lessonsTable.js"></script>
+<script src="../components/teacher.lessonsTable/lessonTableLearn.js?v=3"></script>
+<script src="../components/classeContent/classeContent/classeContent.js"></script>
+
+<script src="../components/teacher.header/teacher.header.js?v=1"></script>
+<script src="../components/buttonsCreator/buttonsCreator.js"></script>
+<script src="../components/gameing/pointsInLesson/pointsInLesson.js"></script>
+<script src="../components/buttonsCreator/buttonsCreatorLight.js"></script>
+<script src="../components/footerOfLesson/footerOfLesson.js"></script>
+<script src="../components/teacher.footer/teacher.footer.js"></script>
+<script src="../components/openActiveLessonsList/openActiveLessonsList.js"></script>
+<!--<script src="../components/teacher.nav/teacher.nav.js"></script>-->
+<script src="../components/teacher.playLesson/teacher.playLesson.js"></script>
+<script src="../components/teacher.prepareLesson/teacher.prepareLesson.js"></script>
+<!--<script src="../components/teacher.manageGradesLesson/teacher.manageGradesLesson.js"></script>-->
+<!--<script src="../components/teacher.groups/teacher.groups.js"></script>-->
+<script src="../components/teacher.slidesList/teacher.slidesList.js"></script>
+<!--<script src="../components/teacher.slidesList/teacher.display.slideList.js"></script>-->
+<script src="../components/teacher.studentsList/teacher.studentsList.js"></script>
+<!--<script src="../components/teacher.preview/teacher.preview.js"></script>
+<script src="../components/teacher.preview/teacher.prepare.preview.js"></script>-->
+<!-- <script src="../components/teacher.exit/teacher.exit.js"></script> -->
+<script src="../components/teacher.exitFromPrepare/exitFromPrepare.js"></script>
+<script src="../components/teacher.displayLesson/teacher.displayLesson.js"></script>
+<script src="../components/reports/test/test.js"></script>
+<script src="../components/reports/report_1/report_1.js"></script>
+<script src="../components/reports/report_3/report_3.js"></script>
+<script src="../components/teacher.addNewUnit/teacher.addNewUnit.js"></script>
+<script src="../components/teacher.selectClass/teacher.selectClass.js"></script>
+<script src="../components/teacher.lastUnits/teacher.lastUnits.js"></script>
+
+<script src="../components/manager.unitDistribution/unitDistribution.js"></script>
+
+<!-- prepare  -->
+
+<script src="../components/teacher.preparePopup/preparePopup.js"></script>
+<script src="../components/teacher.studentAnswer/teacher.studentAnswer.js"></script>
+<script src="../components/teacher.answContent/teacher.answContent.js"></script>
+<script src="../components/manage/manage.js"></script>
+<script src="../components/teacher.studentsTable/teacher.studentsTable.js"></script>
+
+<script src="../components/widgetsLesson/splitScreen/splitScreenEdit.js"></script>
+<script src="../components/widgetsLesson/splitScreen/splitScreen.js"></script>
+<script src="../components/widgetsLesson/chatBox/chatBoxEdit.js"></script>
+<script src="../components/widgetsLesson/chatBox/chatBox.js?v=1"></script>
+<script src="../components/widgetsLesson/lessonKey/lessonKeyEdit.js"></script>
+<script src="../components/widgetsLesson/lessonKey/lessonKey.js"></script>
+<script src="../components/widgetsLesson/timerForLesson/timerForLessonEdit.js"></script>
+<script src="../components/widgetsLesson/timerForLesson/timerForLesson.js"></script>
+<script src="../components/widgetsLesson/designFeedbackInLesson/designFeedbackInLesson.js"></script>
+<script src="../components/widgetsLesson/designFeedbackInLesson/designFeedbackInLessonEdit.js"></script>
+<script src="../components/widgetsLesson/arrowToSkipSlide/arrowToSkipSlide.js"></script>
+<script src="../components/widgetsLesson/arrowToSkipSlide/arrowToSkipSlideEdit.js"></script>
+
+<script src="../components/slide/slide.js"></script>
+<script src="../components/confirmDeleteUnit/confirmDeleteUnit.js"></script>
+<!--<script src="../components/slide/previewSlide.js"></script>-->
+<script src="../components/slide/PlaySlide.js"></script>
+
+<script src="../components/americanQuestion/slide.americanQuestion.js"></script>
+<script src="../components/markerQuestion/slide.markerQuestion.js?v=3"></script>
+<!-- <script src="../components/dotkomQuestion/slide.dotkomQuestion.js"></script> -->
+
+<!--<script src="../components/editorPanelB/slide.editorPanelB.js"></script>-->
+<link rel="stylesheet" type="text/css" href="../components/widgets/cloudTag/jqcloud.min.css"/>
+<script src="../components/widgets/cloudTag/jqcloud.min.js"></script>
+<script src="../components/widgets/cloudTag/cloudTag.js"></script>
+<script src="../components/widgets/cloudTag/cloudTagEdit.js"></script>
+<!--<script src="../components/widgets/cloudTag/angular-jqcloud.js"></script>-->
+<script src="../components/widgets/cloudTag/angular-tag-cloud-master/dist/ng-tag-cloud.min.js"></script>
+<link rel="stylesheet" href="../components/widgets/cloudTag/angular-tag-cloud-master/src/css/ng-tag-cloud.css">
+<link rel="stylesheet" href="../components/sekerQuestion/studentSekerQuestion.css">
+<script src="../components/widgets/tricider/tricider.js?v=1"></script>
+<script src="../components/widgets/tricider/triciderEdit.js"></script>
+<script src="../components/widgets/wordBank/wordBank.js"></script>
+<script src="../components/widgets/wordBank/wordBankEdit.js"></script>
+<script src="../components/widgets/stickyNotes/stickyNotes.js?v=6"></script>
+<script src="../components/widgets/stickyNotes/stickyNotesEdit.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="../components/widgets/stickyNotes2018/stickyNotes.css"> -->
+<script src="../components/widgets/stickyNotes2018/stickyNotes.js"></script>
+<script src="../components/widgets/stickyNotes2018/stickyNotesEdit.js"></script>
+<script src="../components/widgets/researchWork/researchWork.js"></script>
+<script src="../components/widgets/researchWork/researchWorkEdit.js"></script>
+<script src="../components/widgets/textSelection/textSelection.js"></script>
+<script src="../components/widgets/audio/audio.js"></script>
+<script src="../components/widgets/audio/audioEdit.js"></script>
+<script src="../components/widgets/textSelection/textSelectionEdit.js"></script>
+<script src="../components/widgets/textSelection_27/textSelection_27.js"></script>
+<script src="../components/widgets/textSelection_27/textSelection_27Edit.js"></script>
+<script src="../components/widgets/komdat_20192401/komdat_20192401.js"></script>
+<script src="../components/widgets/komdat_20192401/komdat_20192401Edit.js"></script>
+<script src="../components/widgets/peerAssessment/peerAssessment.js"></script>
+<script src="../components/widgets/peerAssessment/peerAssessmentEdit.js"></script>
+<script src="../components/widgets/sharedTable/sharedTable.js?v=3"></script>
+<script src="../components/widgets/sharedTable/sharedTableEdit.js"></script>
+<script src="../components/widgets/offensiveContent/offensiveContent.js"></script>
+
+<script src="../components/pdfQuestion/slide.pdfQuestionEdit.js"></script>
+<script src="../components/groupMatchQuestion/slide.groupMatchQuestion.js"></script>
+<script src="../components/itemMatchQuestion/slide.studentItemMatchQuestion.js"></script>
+<script src="../components/likeDislikeQuestion/slide.studentLikeDislike.js"></script>
+<script src="../components/openQuestion/slide.studentOpenQuestion.js?v=3"></script>
+
+<script src="../components/sekerMultipleQuestion/slide.studentSekerMultiple.js"></script>
+<script src="../components/sekerQuestion/slide.studentSekerQuestion.js"></script>
+<script src="../components/sekerSliderQuestion/slide.studentSekerSlider.js"></script>
+<script src="../components/chartQuestion/slide.chartQuestion.js?v=1"></script>
+<script src="../components/textParagraph1Question/slide.textParagraph1Question.js"></script>
+<script src="../components/textParagraph2Question/slide.textParagraph2Question.js"></script>
+<script src="../components/textParagraph3Question/slide.textParagraph3Question.js"></script>
+<script src="../components/textParagraph4Question/slide.textParagraph4Question.js"></script>
+<script src="../components/widgets/info_openText/info_openText.js"></script>
+<script src="../components/widgets/info_unit/info_unit.js"></script>
+<script src="../components/widgets/opening_MOE/info_ctrl_MOE.js"></script>
+<script src="../components/widgets/item_MOE/item_MOE.js"></script>
+<script src="../components/urlLinkQuestion/slide.urlLinkQuestion.js?v=1"></script>
+<script src="../components/videoQuestion/slide.videoQuestion.js?v=2"></script>
+
+<script src="../components/americanQuestion/slide.americanQuestionEdit.js?v=1"></script>
+<script src="../components/markerQuestion/slide.markerQuestionEdit.js"></script>
+<!-- <script src="../components/dotkomQuestion/slide.dotkomQuestionEdit.js"></script> -->
+<!--<script src="../components/editorPanelB/slide.editorPanelBEdit.js"></script>-->
+<script src="../components/chartQuestion/slide.chartQuestionEdit.js"></script>
+<script src="../components/groupMatchQuestion/slide.groupMatchQuestionEdit.js"></script>
+<script src="../components/itemMatchQuestion/slide.studentItemMatchQuestionEdit.js"></script>
+<script src="../components/likeDislikeQuestion/slide.studentLikeDislikeEdit.js"></script>
+<script src="../components/openQuestion/slide.studentOpenQuestionEdit.js"></script>
+<script src="../components/widgets/objectPlacement/objectPlacement.js"></script>
+<script src="../components/widgets/objectPlacement/objectPlacementEdit.js"></script>
+
+<script src="../components/sekerQuestion/slide.studentSekerQuestionEdit.js"></script>
+<script src="../components/textParagraph1Question/slide.textParagraph1QuestionEdit.js"></script>
+<script src="../components/textParagraph2Question/slide.textParagraph2QuestionEdit.js"></script>
+<script src="../components/urlLinkQuestion/slide.urlLinkQuestionEdit.js"></script>
+<script src="../components/videoQuestion/slide.videoQuestionEdit.js"></script>
+
+<!--script of reports-->
+<script src="/node_modules/billboard.js/dist/billboard.pkgd.js"></script>
+<link rel="stylesheet" href="/node_modules/billboard.js/dist/billboard.css"/>
+<script src="/node_modules/masonry-layout/dist/masonry.pkgd.js"></script>
+
+
+<script src="../services/reportData.js?v=1"></script>
+<script src="../components/reports/teacher.reports/teacher.reports.js"></script>
+<script src="../components/reports/gradeUnitReport/gradeUnitReport.js?v=1"></script>
+<script src="../components/reports/listStudentsReport/listStudentsReport.js"></script>
+<script src="../components/teacher.ansContentForResultControl/teacher.ansContentForResultControl.js"></script>
+<script src="../components/teacher.resultControl/teacher.resultControl.js"></script>
+<script src="../components/reports/gradeLessonReport/gradeLessonReport.js?v=1"></script>
+<script src="../components/reports/container_report/container_report.js"></script>
+
+<script src="../components/teacher.resultsInLessonPop/teacher.resultsInLessonPop.js"></script>
+<script src="../components/teacher.resultsInLessonPop/teacher.resultsInLessonPopForTable.js"></script>
+<script src="../components/teacher.filterOfResultsInLesson/teacher.filterOfResultsInLesson.js"></script>
+
+<!--nav-->
+<script src="../components/teacher.nav/teacher.nav0.js"></script>
+<!--<script src="../components/teacher.nav/teacher.nav1.js"></script>-->
+<script src="../components/teacher.subNav/subNav0.js"></script>
+<script src="../components/teacher.subNav/subNav1.js"></script>
+<script src="../components/teacher.subNav/subNav2.js"></script>
+<script src="../components/teacher.subNav/subNav3.js"></script>
+<script src="../components/teacher.subNav/subNavInLesson.js"></script>
+<script src="../components/teacher.subNav/subNavLessonsTable.js"></script>
+<script src="../components/teacher.subNav/subNavEditor.js"></script>
+<!-- <script src="../components/teacher.subNav/subNavUnitTable.js"></script> -->
+<!--blockSlideType-->
+<script src="../components/blockSlideType/slide_0.js"></script>
+<script src="../components/blockSlideType/slide_1.js?v=2"></script>
+<script src="../components/blockSlideType/slide_2.js"></script>
+<script src="../components/blockSlideType/slide_11.js"></script>
+<script src="../components/teacher.viewTask/teacher.viewTask.js"></script>
+<script src="../components/teacher.viewTask/teacher.viewTaskForPrepare.js"></script>
+<link href="../lib/js/angular-areas-master/css/angular-areas.css" rel="stylesheet"/>
+<script src="../lib/js/angular-areas-master/angular-areas.js"></script>
+
+<!-- color picker -->
+<script src="../node_modules/tinycolor2/dist/tinycolor-min.js"></script>
+<script src="../node_modules/md-color-picker/dist/mdColorPicker.min.js"></script>
+<!---- carousel -->
+<script src="../lib/js/angular-ui-carousel/dist/ui-carousel.js"></script>
+<link href="../lib/js/angular-ui-carousel/dist/ui-carousel.css" rel="stylesheet"/>
+
+
+<!----publisher---->
+<script src="../components/splitBook/splitBook.js"></script>
+<script src="../services/publisherData.js"></script>
+<script src="../components/publisher/publisher.newLesson/publisher.newLesson.js"></script>
+<script src="../components/publisher/publisher.slide/publisher.slide.js"></script>
+
+<!------------------ student----------->
+<script src="../components/reports/student.gradeLessonReport/student.gradeLessonReport.js"></script>
+<!-------------------sharing-------------------->
+<script src="../components/publishOptions/publishInCloud/publishInCloud.js"></script>
+<script src="../components/publishOptions/publishLink/publishLink.js"></script>
+<script src="../components/publishOptions/panelCreateListOfShared/panelCreateListOfShared.js"></script>
+<script src="../components/publishOptions/publishPartner/publishPartner.js"></script>
+<script src="../components/publishOptions/unitDistribution/unitDistribution.js"></script>
+<!-- <script src="../components/publishOptions/manageClasseInClass/manageClasseInClass.js"></script> -->
+<script src="../components/publishOptions/publishToStudents/publishToStudents.js"></script>
+<script src="../components/publishOptions/creatNewGroupOfStundet/creatNewGroupOfStundet.js"></script>
+<script src="../components/publishOptions/editExistGroupOfStundet/editExistGroupOfStundet.js"></script>
+<script src="../components/student.dataPublished/student.dataPublished.js"></script>
+<link href="../lib/js/angular-input-stars/angular-input-stars.css" rel="stylesheet"/>
+<script src="../lib/js/angular-input-stars/angular-input-stars.js"></script>
+<script src="../components/panel_teacher/my_lesson_structure/results_table_in_lesson/results_table_in_lesson.js"></script>
+
+<script src="/node_modules/jquery-ui/ui/widgets/autocomplete.js"></script>
+<script src="/node_modules/recordrtc/RecordRTC.js"></script>
+<link href="../lib/jquery-ui.min.css" rel="stylesheet"/>
+<link href="../newCss/tailwind/css-before-tailwind.css" rel="stylesheet"/>
+<link href="../newCss/tailwind/tailwind-styles.css" rel="stylesheet"/>
+<link href="../newCss/tailwind/tailwind-utilities.css" rel="stylesheet"/>
+<script src="../directives/uploaderFile/uploaderFile.js"></script>
+
+
+<script src="../components/importTasks/importTasks.js"></script>
+<script
+		src="../components/panel_teacher/display_content/infoLesson/info_lesson_proposal/info_lesson_proposal.js"></script>
+<script src="../components/panel_teacher/display_content/infoLesson/infoLesson.js"></script>
+
+<!-- External CDN Scripts -->
+<script src="https://unpkg.com/jquery-simple-timer@1.0.1/jquery.simple.timer.js"></script>
+
+<!-- CSS -->
+<style type="text/css">
+	.timer .jst-hours,
+	.timer .jst-minutes,
+	.timer .jst-seconds {
+		display: inline;
+		color: #ff0000;
+	}
+
+	.box-header-name-logout form * {
+		border-width: 0;
+		border-style: solid;
+		border-color: #dae1e7;
+	}
+</style>
+<!------------right Click manu------------------- -->
+<link rel="stylesheet" href="../directives/angular-right-click/src/css/ng-right-click.css">
+<script src='../directives/angular-right-click/src/ng-right-click.js'></script>
+<!----------------------------------------------- -->
+<!-- A-Web script <script src='//v2.mk-sense.com/aweb?license=b672c1bd3f974054bcfe8080acffe939' defer></script> -->
+<style type="text/css">
+	#mk-aweb-accessibility-panel-wrapper .mk-aweb-menu-open-accessibility-panel.left {
+		left: 10px !important;
+	}
+
+	#mk-aweb-accessibility-panel-wrapper .mk-aweb-menu-open-accessibility-panel.top {
+		top: 20vh !important;
+		position: fixed;
+	}
+
+	#mk-aweb-accessibility-panel-wrapper .mk-aweb-menu-accessibility-panel.top {
+		top: 135px !important;
+	}
+</style>
+</head>
+
+<body id="classe-body">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7D8M2F"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	<div data-ui-view="main"></div><!--class="h-screen"-->
+
+	<script type="text/javascript">
+		var _userway_config = {
+			/* uncomment the following line to override default position*/
+			/* position: '5', */
+			/* uncomment the following line to override default size (values: small, large)*/
+			/* size: 'small', */
+			/* uncomment the following line to override default language (e.g., fr, de, es, he, nl, etc.)*/
+			/* language: 'en-US', */
+			/* uncomment the following line to override color set via widget (e.g., #053f67)*/
+			/* color: '#053f67', */
+			/* uncomment the following line to override type set via widget(1=person, 2=chair, 3=eye)*/
+			/* type: '1', */
+			/* uncomment the following line to override support on mobile devices*/
+			/* mobile: true, */
+			account: 'SOm92bIDXR'
+		};
+	</script>
+	<script type="text/javascript" src="https://cdn.userway.org/widget.js"></script>
+</body>
+
+</html>

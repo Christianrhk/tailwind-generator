@@ -1,0 +1,2186 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: http://ogp.me/ns#"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("markLoaded dummyfile: "+items[filename].name);}
+function logWhatsBlocked(){for(var i in items){if(items.hasOwnProperty(i)===false)continue;var item=items[i];isBlocked(item)}}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,logWhatsBlocked:logWhatsBlocked,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-2&cb=2', true, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=195-2&cb=20', true, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=195-2&cb=4', true, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/rochester.js', '/detroitchicago/rochester.js?gcb=195-2&cb=13', false, ['/detroitchicago/memphis.js','/detroitchicago/minneapolis.js'], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){function e(i){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(i)}__ez.pel=function(){var i=[];function t(t,o,_,d,n,r,a,s){if(__ez.dot.isDefined(t)&&0!=__ez.dot.isAnyDefined(t.getSlotElementId,t.ElementId)){void 0===s&&(s=!1);var p=parseInt(__ez.dot.getTargeting(t,"ap")),f=__ez.dot.getSlotIID(t),u=__ez.dot.getAdUnit(t,s),g=parseInt(__ez.dot.getTargeting(t,"compid")),c=0,l=0,z=function(i){if("undefined"==typeof _ezim_d)return!1;var t=__ez.dot.getAdUnitPath(i).split("/").pop();if("object"===("undefined"==typeof _ezim_d?"undefined":e(_ezim_d))&&_ezim_d.hasOwnProperty(t))return _ezim_d[t];for(var o in _ezim_d)if(o.split("/").pop()===t)return _ezim_d[o];return!1}(t);"object"==e(z)&&(void 0!==z.creative_id&&(l=z.creative_id),void 0!==z.line_item_id&&(c=z.line_item_id)),__ez.dot.isDefined(f,u)&&__ez.dot.isValid(o)&&("0"===f&&!0!==s||""===u||i.push({type:"impression",impression_id:f,domain_id:__ez.dot.getDID(),unit:u,t_epoch:__ez.dot.getEpoch(0),revenue:_,est_revenue:d,ad_position:p,ad_size:"",bid_floor_filled:n,bid_floor_prev:r,stat_source_id:a,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:g,line_item_id:c,creative_id:l,data:__ez.dot.dataToStr(o),is_orig:s||__ez.template.isOrig}))}}function o(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(i)&&i.length>0&&[i.filter((function(e){return e.is_orig})),i.filter((function(e){return!e.is_orig}))].forEach((function(e){for(;e.length>0;){var i=e[0].is_orig||!1,t=5;t>e.length&&(t=e.length);var o=e.splice(0,t),_=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig="+(!0===i?1:0)+"&sts="+btoa(JSON.stringify(o));void 0!==window.isAmp&&isAmp&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("domain_id")&&(_+="&visit_uuid="+_ezaq.visit_uuid),__ez.dot.Fire(_)}})),i=[])}return{Add:t,AddAndFire:function(e,i){t(e,i,0,0,0,0,0),o()},AddAndFireOrig:function(e,i){t(e,i,0,0,0,0,0,!0),o()},AddById:function(e,t,o,_){var d=e.split("/");if(__ez.dot.isDefined(e)&&3===d.length&&__ez.dot.isValid(t)){var n=d[0],r={type:"impression",impression_id:d[2],domain_id:__ez.dot.getDID(),unit:n,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(t),is_orig:o||__ez.template.isOrig};void 0!==_&&(r.revenue=_),i.push(r)}},Fire:o,GetPixels:function(){return i}}}()}();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-2&cb=6', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-2&cb=4', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=195-2&cb=6', false, [], true, false, true, false);</script>
+	
+	<link rel="profile" href="https://gmpg.org/xfn/11"/>
+	<style type="text/css">			.heateorSssInstagramBackground{background:radial-gradient(circle at 30% 107%,#fdf497 0,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
+											.heateor_sss_horizontal_sharing .heateorSssSharing,.heateor_sss_standard_follow_icons_container .heateorSssSharing{
+							color: #fff;
+						border-width: 0px;
+			border-style: solid;
+			border-color: transparent;
+		}
+				.heateor_sss_horizontal_sharing .heateorSssTCBackground{
+			color:#666;
+		}
+				.heateor_sss_horizontal_sharing .heateorSssSharing:hover,.heateor_sss_standard_follow_icons_container .heateorSssSharing:hover{
+						border-color: transparent;
+		}
+		.heateor_sss_vertical_sharing .heateorSssSharing,.heateor_sss_floating_follow_icons_container .heateorSssSharing{
+							color: #fff;
+						border-width: 0px;
+			border-style: solid;
+			border-color: transparent;
+		}
+				.heateor_sss_vertical_sharing .heateorSssTCBackground{
+			color:#666;
+		}
+				.heateor_sss_vertical_sharing .heateorSssSharing:hover,.heateor_sss_floating_follow_icons_container .heateorSssSharing:hover{
+						border-color: transparent;
+		}
+		
+		@media screen and (max-width:783px) {.heateor_sss_vertical_sharing{display:none!important}}@media screen and (max-width:783px) {.heateor_sss_floating_follow_icons_container{display:none!important}}</style><meta name="robots" content="max-image-preview:large"/>
+
+<!-- Search Engine Optimization by Rank Math - https://s.rankmath.com/home -->
+<title>Laravel 9 Livewire DataTable Pagination Using Package Tutorial</title>
+<meta name="description" content="Laravel 9 Livewire DataTable Pagination Using Package Tutorial. laravel 9 livewire datatables, laravel 9 livewire datatable, datatables in laravel 9 livewire example, laravel 9 mediconesystems/livewire-datatables, laravel 9 livewire-datatables, datatables in laravel 9"/>
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+<link rel="canonical" href="https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Laravel 9 Livewire DataTable Pagination Using Package Tutorial"/>
+<meta property="og:description" content="Laravel 9 Livewire DataTable Pagination Using Package Tutorial. laravel 9 livewire datatables, laravel 9 livewire datatable, datatables in laravel 9 livewire example, laravel 9 mediconesystems/livewire-datatables, laravel 9 livewire-datatables, datatables in laravel 9"/>
+<meta property="og:url" content="https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/"/>
+<meta property="og:site_name" content="Online Web Tutor"/>
+<meta property="article:publisher" content="https://www.facebook.com/owthub"/>
+<meta property="article:section" content="Laravel 9"/>
+<meta property="og:updated_time" content="2022-07-20T16:24:11+00:00"/>
+<meta property="og:image" content="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial.jpg"/>
+<meta property="og:image:secure_url" content="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial.jpg"/>
+<meta property="og:image:width" content="725"/>
+<meta property="og:image:height" content="408"/>
+<meta property="og:image:alt" content="Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial"/>
+<meta property="og:image:type" content="image/jpeg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Laravel 9 Livewire DataTable Pagination Using Package Tutorial"/>
+<meta name="twitter:description" content="Laravel 9 Livewire DataTable Pagination Using Package Tutorial. laravel 9 livewire datatables, laravel 9 livewire datatable, datatables in laravel 9 livewire example, laravel 9 mediconesystems/livewire-datatables, laravel 9 livewire-datatables, datatables in laravel 9"/>
+<meta name="twitter:site" content="@owthub"/>
+<meta name="twitter:creator" content="@owthub"/>
+<meta name="twitter:image" content="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial.jpg"/>
+<script type="application/ld+json" class="rank-math-schema">{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": [
+                "EducationalOrganization",
+                "Organization"
+            ],
+            "@id": "https://onlinewebtutorblog.com/#organization",
+            "name": "Online Web Tutor",
+            "url": "https://onlinewebtutorblog.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://onlinewebtutorblog.com/wp-content/uploads/2021/10/online-web-tutor.png"
+            }
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://onlinewebtutorblog.com/#website",
+            "url": "https://onlinewebtutorblog.com",
+            "name": "Online Web Tutor",
+            "publisher": {
+                "@id": "https://onlinewebtutorblog.com/#organization"
+            },
+            "inLanguage": "en-US",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://onlinewebtutorblog.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        },
+        {
+            "@type": "ImageObject",
+            "@id": "https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/#primaryImage",
+            "url": "https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial.jpg?fit=725%2C408&ssl=1",
+            "width": 725,
+            "height": 408
+        },
+        {
+            "@type": "WebPage",
+            "@id": "https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/#webpage",
+            "url": "https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/",
+            "name": "Laravel 9 Livewire DataTable Pagination Using Package Tutorial",
+            "datePublished": "2022-07-20T16:05:38+00:00",
+            "dateModified": "2022-07-20T16:24:11+00:00",
+            "isPartOf": {
+                "@id": "https://onlinewebtutorblog.com/#website"
+            },
+            "primaryImageOfPage": {
+                "@id": "https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/#primaryImage"
+            },
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": "BlogPosting",
+            "headline": "Laravel 9 Livewire DataTable Pagination Using Package Tutorial",
+            "datePublished": "2022-07-20T16:05:38+00:00",
+            "dateModified": "2022-07-20T16:24:11+00:00",
+            "author": {
+                "@type": "Person",
+                "name": "Sanjay Kumar"
+            },
+            "publisher": {
+                "@id": "https://onlinewebtutorblog.com/#organization"
+            },
+            "description": "Laravel 9 Livewire DataTable Pagination Using Package Tutorial. laravel 9 livewire datatables, laravel 9 livewire datatable, datatables in laravel 9 livewire example, laravel 9 mediconesystems/livewire-datatables, laravel 9 livewire-datatables, datatables in laravel 9",
+            "@id": "https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/#richSnippet",
+            "isPartOf": {
+                "@id": "https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/#webpage"
+            },
+            "image": {
+                "@id": "https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/#primaryImage"
+            },
+            "inLanguage": "en-US",
+            "mainEntityOfPage": {
+                "@id": "https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/#webpage"
+            }
+        }
+    ]
+}</script>
+<!-- /Rank Math WordPress SEO plugin -->
+
+<link rel="dns-prefetch" href="//www.googletagmanager.com"/>
+<link rel="dns-prefetch" href="//www.google.com"/>
+<link rel="dns-prefetch" href="//fonts.googleapis.com"/>
+<link rel="dns-prefetch" href="//s.w.org"/>
+<link rel="dns-prefetch" href="//i0.wp.com"/>
+<link rel="dns-prefetch" href="//i1.wp.com"/>
+<link rel="dns-prefetch" href="//i2.wp.com"/>
+<link rel="dns-prefetch" href="//c0.wp.com"/>
+<link rel="dns-prefetch" href="//pagead2.googlesyndication.com"/>
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect"/>
+<link rel="alternate" type="application/rss+xml" title="Online Web Tutor » Feed" href="https://onlinewebtutorblog.com/feed/"/>
+<link rel="alternate" type="application/rss+xml" title="Online Web Tutor » Comments Feed" href="https://onlinewebtutorblog.com/comments/feed/"/>
+		<style type="text/css">
+			.epvc-eye {
+				margin-right: 3px;
+				width: 13px;
+				display: inline-block;
+				height: 13px;
+				border: solid 1px #000;
+				border-radius:  75% 15%;
+				position: relative;
+				transform: rotate(45deg);
+			}
+			.epvc-eye:before {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 5px;
+				height: 5px;
+				border: solid 1px #000;
+				border-radius: 50%;
+				left: 3px;
+				top: 3px;
+			}
+		</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="https://c0.wp.com/c/5.9.3/wp-includes/css/dist/block-library/style.min.css" media="all"/>
+<style id="wp-block-library-inline-css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel="stylesheet" id="quick-download-button-front-end-styles-css" href="https://onlinewebtutorblog.com/wp-content/plugins/quick-download-button/css/style.css?ver=1635949017" media="all"/>
+<link rel="stylesheet" id="mediaelement-css" href="https://c0.wp.com/c/5.9.3/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css" media="all"/>
+<link rel="stylesheet" id="wp-mediaelement-css" href="https://c0.wp.com/c/5.9.3/wp-includes/js/mediaelement/wp-mediaelement.min.css" media="all"/>
+<link rel="stylesheet" id="simple-sitemap-css-css" href="https://onlinewebtutorblog.com/wp-content/plugins/simple-sitemap/lib/assets/css/simple-sitemap.css?ver=5.9.3" media="all"/>
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel="stylesheet" id="buy-me-a-coffee-css" href="https://onlinewebtutorblog.com/wp-content/plugins/buymeacoffee/public/css/buy-me-a-coffee-public.css?ver=2.7" media="all"/>
+<link rel="stylesheet" id="contact-form-7-css" href="https://onlinewebtutorblog.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.4.2" media="all"/>
+<link rel="stylesheet" id="codemirror-css" href="https://onlinewebtutorblog.com/wp-content/plugins/wp-codemirror-block/vendor/codemirror/lib/codemirror.min.css?ver=5.40.5" media="all"/>
+<link rel="stylesheet" id="codemirror-blocks--css" href="https://onlinewebtutorblog.com/wp-content/plugins/wp-codemirror-block/assets/blocks/blocks.style.build.min.css?ver=1597664774" media="all"/>
+<link rel="stylesheet" id="wp-dark-mode-frontend-css" href="https://onlinewebtutorblog.com/wp-content/plugins/wp-dark-mode//assets/css/frontend.css?ver=2.1.7" media="all"/>
+<link rel="stylesheet" id="wp-dark-mode-generatepress-css" href="https://onlinewebtutorblog.com/wp-content/plugins/wp-dark-mode//assets/css/themes/generatepress.css?ver=5.9.3" media="all"/>
+<link rel="stylesheet" id="ez-icomoon-css" href="https://onlinewebtutorblog.com/wp-content/plugins/easy-table-of-contents/vendor/icomoon/style.min.css?ver=2.0.17" media="all"/>
+<link rel="stylesheet" id="ez-toc-css" href="https://onlinewebtutorblog.com/wp-content/plugins/easy-table-of-contents/assets/css/screen.min.css?ver=2.0.17" media="all"/>
+<style id="ez-toc-inline-css">
+div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}
+</style>
+<link rel="stylesheet" id="helpful-theme-dark-css" href="https://onlinewebtutorblog.com/wp-content/plugins/helpful/core/assets/themes/dark.css?ver=4.4.68" media="all"/>
+<link rel="stylesheet" id="njt-nofi-css" href="https://onlinewebtutorblog.com/wp-content/plugins/notibar/assets/frontend/css/notibar.css?ver=1.9.7" media="all"/>
+<link rel="stylesheet" id="wordpress-popular-posts-css-css" href="https://onlinewebtutorblog.com/wp-content/plugins/wordpress-popular-posts/assets/css/wpp.css?ver=5.5.0" media="all"/>
+<link rel="stylesheet" id="generate-style-css" href="https://onlinewebtutorblog.com/wp-content/themes/generatepress/assets/css/all.min.css?ver=3.0.2" media="all"/>
+<style id="generate-style-inline-css">
+@media (max-width:768px){}
+body{background-color:#efefef;color:#3a3a3a;}a{color:#1e73be;}a:hover, a:focus, a:active{color:#000000;}body .grid-container{max-width:1100px;}.wp-block-group__inner-container{max-width:1100px;margin-left:auto;margin-right:auto;}.site-header .header-image{width:248px;}.generate-back-to-top{font-size:20px;border-radius:3px;position:fixed;bottom:30px;right:30px;line-height:40px;width:40px;text-align:center;z-index:10;transition:opacity 300ms ease-in-out;}.navigation-search{position:absolute;left:-99999px;pointer-events:none;visibility:hidden;z-index:20;width:100%;top:0;transition:opacity 100ms ease-in-out;opacity:0;}.navigation-search.nav-search-active{left:0;right:0;pointer-events:auto;visibility:visible;opacity:1;}.navigation-search input[type="search"]{outline:0;border:0;vertical-align:bottom;line-height:1;opacity:0.9;width:100%;z-index:20;border-radius:0;-webkit-appearance:none;height:60px;}.navigation-search input::-ms-clear{display:none;width:0;height:0;}.navigation-search input::-ms-reveal{display:none;width:0;height:0;}.navigation-search input::-webkit-search-decoration, .navigation-search input::-webkit-search-cancel-button, .navigation-search input::-webkit-search-results-button, .navigation-search input::-webkit-search-results-decoration{display:none;}.main-navigation li.search-item{z-index:21;}li.search-item.active{transition:opacity 100ms ease-in-out;}.nav-left-sidebar .main-navigation li.search-item.active,.nav-right-sidebar .main-navigation li.search-item.active{width:auto;display:inline-block;float:right;}.gen-sidebar-nav .navigation-search{top:auto;bottom:0;}body, button, input, select, textarea{font-family:"Open Sans", sans-serif;font-size:16px;}body{line-height:1.5;}.entry-content > [class*="wp-block-"]:not(:last-child){margin-bottom:1.5em;}.main-title{font-size:24px;}.main-navigation .main-nav ul ul li a{font-size:14px;}.widget-title{font-weight:700;font-size:18px;margin-bottom:18px;}.sidebar .widget, .footer-widgets .widget{font-size:17px;}h1{font-weight:700;font-size:22px;}h2{font-weight:700;font-size:20px;}h3{font-weight:700;font-size:18px;}h4{font-size:inherit;}h5{font-size:inherit;}@media (max-width:768px){.main-title{font-size:30px;}h1{font-size:30px;}h2{font-size:25px;}}.top-bar{background-color:#636363;color:#ffffff;}.top-bar a{color:#ffffff;}.top-bar a:hover{color:#303030;}.site-header{background-color:#ffffff;color:#3a3a3a;}.site-header a{color:#3a3a3a;}.main-title a,.main-title a:hover{color:#3a3a3a;}.site-description{color:#222222;}.main-navigation,.main-navigation ul ul{background-color:#222222;}.main-navigation .main-nav ul li a,.menu-toggle, .main-navigation .menu-bar-items{color:#ffffff;}.main-navigation .main-nav ul li:hover > a,.main-navigation .main-nav ul li:focus > a, .main-navigation .main-nav ul li.sfHover > a, .main-navigation .menu-bar-item:hover > a, .main-navigation .menu-bar-item.sfHover > a{color:#ffffff;background-color:#3f3f3f;}button.menu-toggle:hover,button.menu-toggle:focus,.main-navigation .mobile-bar-items a,.main-navigation .mobile-bar-items a:hover,.main-navigation .mobile-bar-items a:focus{color:#ffffff;}.main-navigation .main-nav ul li[class*="current-menu-"] > a{color:#ffffff;background-color:#3f3f3f;}.main-navigation .main-nav ul li[class*="current-menu-"] > a:hover,.main-navigation .main-nav ul li[class*="current-menu-"].sfHover > a{color:#ffffff;background-color:#3f3f3f;}.navigation-search input[type="search"],.navigation-search input[type="search"]:active, .navigation-search input[type="search"]:focus, .main-navigation .main-nav ul li.search-item.active > a, .main-navigation .menu-bar-items .search-item.active > a{color:#ffffff;background-color:#3f3f3f;}.main-navigation ul ul{background-color:#3f3f3f;}.main-navigation .main-nav ul ul li a{color:#ffffff;}.main-navigation .main-nav ul ul li:hover > a,.main-navigation .main-nav ul ul li:focus > a,.main-navigation .main-nav ul ul li.sfHover > a{color:#ffffff;background-color:#4f4f4f;}.main-navigation .main-nav ul ul li[class*="current-menu-"] > a{color:#ffffff;background-color:#4f4f4f;}.main-navigation .main-nav ul ul li[class*="current-menu-"] > a:hover,.main-navigation .main-nav ul ul li[class*="current-menu-"].sfHover > a{color:#ffffff;background-color:#4f4f4f;}.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .one-container .container, .separate-containers .paging-navigation, .inside-page-header{background-color:#ffffff;}.entry-meta{color:#595959;}.entry-meta a{color:#595959;}.entry-meta a:hover{color:#1e73be;}.sidebar .widget{color:#ffffff;background-color:#ffffff;}.sidebar .widget .widget-title{color:#000000;}.footer-widgets{color:#ffffff;background-color:#3a3a3a;}.footer-widgets a{color:#ffffff;}.footer-widgets .widget-title{color:#ffffff;}.site-info{color:#ffffff;background-color:#222222;}.site-info a{color:#ffffff;}.site-info a:hover{color:#606060;}.footer-bar .widget_nav_menu .current-menu-item a{color:#606060;}input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="search"],input[type="tel"],input[type="number"],textarea,select{color:#666666;background-color:#fafafa;border-color:#cccccc;}input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="number"]:focus,textarea:focus,select:focus{color:#666666;background-color:#ffffff;border-color:#bfbfbf;}button,html input[type="button"],input[type="reset"],input[type="submit"],a.button,a.wp-block-button__link:not(.has-background){color:#ffffff;background-color:#666666;}button:hover,html input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover,a.button:hover,button:focus,html input[type="button"]:focus,input[type="reset"]:focus,input[type="submit"]:focus,a.button:focus,a.wp-block-button__link:not(.has-background):active,a.wp-block-button__link:not(.has-background):focus,a.wp-block-button__link:not(.has-background):hover{color:#ffffff;background-color:#3f3f3f;}a.generate-back-to-top{background-color:rgba( 0,0,0,0.4 );color:#ffffff;}a.generate-back-to-top:hover,a.generate-back-to-top:focus{background-color:rgba( 0,0,0,0.6 );color:#ffffff;}@media (max-width: 768px){.main-navigation .menu-bar-item:hover > a, .main-navigation .menu-bar-item.sfHover > a{background:none;color:#ffffff;}}.inside-top-bar{padding:10px;}.inside-header{padding:20px 38px 27px 40px;}.entry-content .alignwide, body:not(.no-sidebar) .entry-content .alignfull{margin-left:-40px;width:calc(100% + 80px);max-width:calc(100% + 80px);}.main-navigation .main-nav ul li a,.menu-toggle,.main-navigation .mobile-bar-items a{padding-left:14px;padding-right:14px;line-height:59px;}.main-navigation .main-nav ul ul li a{padding:10px 14px 10px 14px;}.navigation-search input[type="search"]{height:59px;}.rtl .menu-item-has-children .dropdown-menu-toggle{padding-left:14px;}.menu-item-has-children .dropdown-menu-toggle{padding-right:14px;}.rtl .main-navigation .main-nav ul li.menu-item-has-children > a{padding-right:14px;}.site-info{padding:20px;}@media (max-width:768px){.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .separate-containers .paging-navigation, .one-container .site-content, .inside-page-header, .wp-block-group__inner-container{padding:30px;}.site-info{padding-right:10px;padding-left:10px;}.entry-content .alignwide, body:not(.no-sidebar) .entry-content .alignfull{margin-left:-30px;width:calc(100% + 60px);max-width:calc(100% + 60px);}}.one-container .sidebar .widget{padding:0px;}/* End cached CSS */@media (max-width: 768px){.main-navigation .menu-toggle,.main-navigation .mobile-bar-items,.sidebar-nav-mobile:not(#sticky-placeholder){display:block;}.main-navigation ul,.gen-sidebar-nav{display:none;}[class*="nav-float-"] .site-header .inside-header > *{float:none;clear:both;}}
+.main-navigation .slideout-toggle a:before,.slide-opened .slideout-overlay .slideout-exit:before{font-family:GeneratePress;}.slideout-navigation .dropdown-menu-toggle:before{content:"\f107" !important;}.slideout-navigation .sfHover > a .dropdown-menu-toggle:before{content:"\f106" !important;}
+.navigation-branding .main-title{font-weight:bold;text-transform:none;font-size:24px;}@media (max-width: 768px){.navigation-branding .main-title{font-size:30px;}}
+.main-navigation .main-nav ul li a,.menu-toggle,.main-navigation .mobile-bar-items a{transition: line-height 300ms ease}.main-navigation.toggled .main-nav > ul{background-color: #222222}
+@media (min-width: 769px) and (max-width: 1024px),(min-width:1025px){.main-navigation.sticky-navigation-transition .main-nav > ul > li > a,.sticky-navigation-transition .menu-toggle,.main-navigation.sticky-navigation-transition .mobile-bar-items a, .sticky-navigation-transition .navigation-branding .main-title{line-height:60px;}.main-navigation.sticky-navigation-transition .site-logo img, .main-navigation.sticky-navigation-transition .navigation-search input, .main-navigation.sticky-navigation-transition .navigation-branding img{height:60px;}}
+</style>
+<link rel="stylesheet" id="generate-font-icons-css" href="https://onlinewebtutorblog.com/wp-content/themes/generatepress/assets/css/components/font-icons.min.css?ver=3.0.2" media="all"/>
+<link rel="stylesheet" id="newsletter-css" href="https://onlinewebtutorblog.com/wp-content/plugins/newsletter/style.css?ver=7.4.2" media="all"/>
+<link rel="stylesheet" id="easy-social-share-buttons-css" href="https://onlinewebtutorblog.com/wp-content/plugins/easy-social-share-buttons3/assets/css/easy-social-share-buttons.min.css?ver=5.4" media="all"/>
+<link rel="stylesheet" id="essb-social-followers-counter-css" href="https://onlinewebtutorblog.com/wp-content/plugins/easy-social-share-buttons3/lib/modules/social-followers-counter/assets/css/essb-followers-counter.min.css?ver=5.4" media="all"/>
+<link rel="stylesheet" id="heateor_sss_frontend_css-css" href="https://onlinewebtutorblog.com/wp-content/plugins/sassy-social-share/public/css/sassy-social-share-public.css?ver=3.3.24" media="all"/>
+<link rel="stylesheet" id="heateor_sss_sharing_default_svg-css" href="https://onlinewebtutorblog.com/wp-content/plugins/sassy-social-share/admin/css/sassy-social-share-svg.css?ver=3.3.24" media="all"/>
+<link rel="stylesheet" id="jquery-lazyloadxt-spinner-css-css" href="//onlinewebtutorblog.com/wp-content/plugins/a3-lazy-load/assets/css/jquery.lazyloadxt.spinner.css?ver=5.9.3" media="all"/>
+<link rel="stylesheet" id="generate-blog-css" href="https://onlinewebtutorblog.com/wp-content/plugins/gp-premium/blog/functions/css/style-min.css?ver=1.8.3" media="all"/>
+<link rel="stylesheet" id="generate-secondary-nav-css" href="https://onlinewebtutorblog.com/wp-content/plugins/gp-premium/secondary-nav/functions/css/style.min.css?ver=1.8.3" media="all"/>
+<style id="generate-secondary-nav-inline-css">
+.secondary-navigation{background-color:#636363;}.secondary-navigation .main-nav ul li a,.secondary-navigation .menu-toggle{color:#ffffff;}button.secondary-menu-toggle:hover,button.secondary-menu-toggle:focus{color:#ffffff;}.widget-area .secondary-navigation{margin-bottom:20px;}.secondary-navigation ul ul{background-color:#303030;top:auto;}.secondary-navigation .main-nav ul ul li a{color:#ffffff;}.secondary-navigation .main-nav ul li:hover > a,.secondary-navigation .main-nav ul li:focus > a,.secondary-navigation .main-nav ul li.sfHover > a{color:#ffffff;background-color:#303030;}.secondary-navigation .main-nav ul ul li:hover > a,.secondary-navigation .main-nav ul ul li:focus > a,.secondary-navigation .main-nav ul ul li.sfHover > a{color:#ffffff;background-color:#474747;}.secondary-navigation .main-nav ul li[class*="current-menu-"] > a, .secondary-navigation .main-nav ul li[class*="current-menu-"] > a:hover,.secondary-navigation .main-nav ul li[class*="current-menu-"].sfHover > a{color:#222222;background-color:#ffffff;}.secondary-navigation .main-nav ul ul li[class*="current-menu-"] > a,.secondary-navigation .main-nav ul ul li[class*="current-menu-"] > a:hover,.secondary-navigation .main-nav ul ul li[class*="current-menu-"].sfHover > a{color:#ffffff;background-color:#474747;}
+</style>
+<link rel="stylesheet" id="generate-secondary-nav-mobile-css" href="https://onlinewebtutorblog.com/wp-content/plugins/gp-premium/secondary-nav/functions/css/mobile.min.css?ver=1.8.3" media="all"/>
+<link rel="stylesheet" id="generate-sticky-css" href="https://onlinewebtutorblog.com/wp-content/plugins/gp-premium/menu-plus/functions/css/sticky.min.css?ver=1.8.3" media="all"/>
+<link rel="stylesheet" id="jetpack_css-css" href="https://c0.wp.com/p/jetpack/10.1/css/jetpack.css" media="all"/>
+<script id="ruigehond006_javascript-js-extra">
+var ruigehond006_c = {"bar_attach":"top","bar_color":"#e53734","bar_height":"5px","mark_it_zero":"Yes","post_types":["post"],"post_identifier":".post-21911.post.type-post.status-publish.format-standard.has-post-thumbnail.hentry.category-laravel-9","post_id":"21911"};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/wp-reading-progress/wp-reading-progress.min.js?ver=1.3.7" id="ruigehond006_javascript-js"></script>
+<script src="https://c0.wp.com/c/5.9.3/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/buymeacoffee/public/js/buy-me-a-coffee-public.js?ver=2.7" id="buy-me-a-coffee-js"></script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/wp-dark-mode//assets/js/dark-mode.js?ver=2.1.7" id="wp-dark-mode-js-js"></script>
+<script id="wpp-json" type="application/json">
+{"sampling_active":0,"sampling_rate":100,"ajax_url":"https:\/\/onlinewebtutorblog.com\/wp-json\/wordpress-popular-posts\/v1\/popular-posts","api_url":"https:\/\/onlinewebtutorblog.com\/wp-json\/wordpress-popular-posts","ID":21911,"token":"66862510b8","lang":0,"debug":0}
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/wordpress-popular-posts/assets/js/wpp.min.js?ver=5.5.0" id="wpp-js-js"></script>
+
+<!-- Google Analytics snippet added by Site Kit -->
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-176065295-1" id="google_gtagjs-js" async=""></script>
+<script id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag('set', 'linker', {"domains":["onlinewebtutorblog.com"]} );
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "UA-176065295-1", {"anonymize_ip":true});
+</script>
+
+<!-- End Google Analytics snippet added by Site Kit -->
+<script id="wp-disable-css-lazy-load-js-extra">
+var WpDisableAsyncLinks = {"wp-disable-google-fonts":"\/\/fonts.googleapis.com\/css?family=Open%20Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic"};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/wp-disable/js/css-lazy-load.min.js?ver=5.9.3" id="wp-disable-css-lazy-load-js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://onlinewebtutorblog.com/xmlrpc.php?rsd"/>
+<link rel="alternate" type="application/json+oembed" href="https://onlinewebtutorblog.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fonlinewebtutorblog.com%2Flaravel-9-livewire-datatable-pagination-using-package-tutorial%2F"/>
+<link rel="alternate" type="text/xml+oembed" href="https://onlinewebtutorblog.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fonlinewebtutorblog.com%2Flaravel-9-livewire-datatable-pagination-using-package-tutorial%2F&amp;format=xml"/>
+        <script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="onlinewebtutor" data-description=" " data-message=" " data-color="#FF813F" data-position=" " data-x_margin=" " data-y_margin=" ">
+        </script>
+<style type="text/css">0</style>			<script type="text/javascript">
+				YCD_VERSION=2.22			</script>
+		<meta name="generator" content="Site Kit by Google 1.41.0"/><style type="text/css" id="tve_global_variables">:root{}</style>                <script>
+                    // Add wp-dark-mode-active class
+                    (function () {
+
+                        //wpDarkMode js config
+                        window.wpDarkMode = {"config":{"brightness":"100","contrast":"90","sepia":"10"},"enable_preset":false,"customize_colors":false,"colors":{"bg":"#000","text":"#dfdedb","link":"#e58c17"},"enable_frontend":true,"enable_backend":false,"enable_os_mode":true,"excludes":"rs-fullwidth-wrap,.mejs-container","includes":"","is_excluded":false,"remember_darkmode":false,"default_mode":false,"keyboard_shortcut":true,"images":"","videos":"","is_pro_active":false,"is_ultimate_active":false,"pro_version":0,"is_elementor_editor":false,"is_block_editor":false,"frontend_mode":false};
+
+                        window.checkOsDarkMode = () => {
+
+                            if (!wpDarkMode.enable_os_mode || localStorage.getItem('wp_dark_mode_active')) {
+                                return false;
+                            }
+
+                            const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+                            //set dark mode
+                            if (darkMediaQuery.matches) return true;
+
+                            //watch changes
+                            try {
+
+                                // Chrome & Firefox
+                                darkMediaQuery.addEventListener('change', function (e) {
+                                    const newColorScheme = e.matches ? 'dark' : 'light';
+                                    const isDark = 'dark' === newColorScheme;
+
+                                    return isDark;
+                                });
+                            } catch (e1) {
+                                try {
+                                    // Safari
+                                    darkMediaQuery.addListener(function (e) {
+                                        const newColorScheme = e.matches ? 'dark' : 'light';
+                                        const isDark = 'dark' === newColorScheme;
+                                        return isDark
+                                    });
+                                } catch (e2) {
+                                    console.error(e2);
+
+                                    return false;
+                                }
+
+                            }
+
+                            return false;
+                        }
+
+                        //check if darkmode was activated
+                        const is_saved = localStorage.getItem('wp_dark_mode_active');
+
+                        //check if custom color mode is selected
+                        const isCustomColor = parseInt("");
+
+                        // was dark mode was activated or dark mode is default mode and dark mode was not activated
+                        const shouldDarkMode = is_saved == '1' || (!is_saved && wpDarkMode.default_mode) || checkOsDarkMode();
+
+                        if (shouldDarkMode) {
+
+                            document.querySelector('html').classList.add('wp-dark-mode-active');
+                            const isPerformanceMode = Boolean();
+
+                            //add preload CSS if not custom color mode selected
+                            if (!isCustomColor && !isPerformanceMode) {
+
+                                var css = `body, div, section, header, article, main, aside{background-color: #2B2D2D !important;}`;
+
+                                var head = document.head || document.getElementsByTagName('head')[0],
+                                    style = document.createElement('style');
+
+                                style.setAttribute('id', 'pre_css');
+
+                                head.appendChild(style);
+
+                                style.type = 'text/css';
+                                if (style.styleSheet) {
+                                    // This is required for IE8 and below.
+                                    style.styleSheet.cssText = css;
+                                } else {
+                                    style.appendChild(document.createTextNode(css));
+                                }
+                            }
+
+                        }
+
+                    })();
+                </script>
+				        <style>
+            @-webkit-keyframes bgslide {
+                from {
+                    background-position-x: 0;
+                }
+                to {
+                    background-position-x: -200%;
+                }
+            }
+
+            @keyframes bgslide {
+                    from {
+                        background-position-x: 0;
+                    }
+                    to {
+                        background-position-x: -200%;
+                    }
+            }
+
+            .wpp-widget-placeholder {
+                margin: 0 auto;
+                width: 60px;
+                height: 3px;
+                background: #dd3737;
+                background: -webkit-gradient(linear, left top, right top, from(#dd3737), color-stop(10%, #571313), to(#dd3737));
+                background: linear-gradient(90deg, #dd3737 0%, #571313 10%, #dd3737 100%);
+                background-size: 200% auto;
+                border-radius: 3px;
+                -webkit-animation: bgslide 1s infinite linear;
+                animation: bgslide 1s infinite linear;
+            }
+        </style>
+        <style type="text/css">img#wpstats{display:none}</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script type="text/javascript">var essb_settings = {"ajax_url":"https:\/\/onlinewebtutorblog.com\/wp-admin\/admin-ajax.php","essb3_nonce":"d83f259eb7","essb3_plugin_url":"https:\/\/onlinewebtutorblog.com\/wp-content\/plugins\/easy-social-share-buttons3","essb3_stats":false,"essb3_ga":false,"essb3_ga_mode":"simple","blog_url":"https:\/\/onlinewebtutorblog.com\/","essb3_postfloat_stay":false,"post_id":21911};</script>      <meta name="onesignal" content="wordpress-plugin"/>
+            <script>
+
+      window.OneSignal = window.OneSignal || [];
+
+      OneSignal.push( function() {
+        OneSignal.SERVICE_WORKER_UPDATER_PATH = "OneSignalSDKUpdaterWorker.js.php";
+                      OneSignal.SERVICE_WORKER_PATH = "OneSignalSDKWorker.js.php";
+                      OneSignal.SERVICE_WORKER_PARAM = { scope: "/" };
+        OneSignal.setDefaultNotificationUrl("https://onlinewebtutorblog.com");
+        var oneSignal_options = {};
+        window._oneSignalInitOptions = oneSignal_options;
+
+        oneSignal_options['wordpress'] = true;
+oneSignal_options['appId'] = 'edbc148e-7fd5-47d2-beab-0467e66b3e17';
+oneSignal_options['allowLocalhostAsSecureOrigin'] = true;
+oneSignal_options['welcomeNotification'] = { };
+oneSignal_options['welcomeNotification']['title'] = "";
+oneSignal_options['welcomeNotification']['message'] = "";
+oneSignal_options['path'] = "https://onlinewebtutorblog.com/wp-content/plugins/onesignal-free-web-push-notifications/sdk_files/";
+oneSignal_options['safari_web_id'] = "web.onesignal.auto.040fbea3-5bf4-4f81-a6ad-042d48246d00";
+oneSignal_options['promptOptions'] = { };
+oneSignal_options['promptOptions']['actionMessage'] = "We'd like to show you notifications for the latest blog posts and updates.";
+oneSignal_options['promptOptions']['acceptButtonText'] = "Allow";
+oneSignal_options['promptOptions']['cancelButtonText'] = "No, thanks";
+oneSignal_options['notifyButton'] = { };
+oneSignal_options['notifyButton']['enable'] = true;
+oneSignal_options['notifyButton']['position'] = 'bottom-left';
+oneSignal_options['notifyButton']['theme'] = 'default';
+oneSignal_options['notifyButton']['size'] = 'medium';
+oneSignal_options['notifyButton']['displayPredicate'] = function() {
+              return OneSignal.isPushNotificationsEnabled()
+                      .then(function(isPushEnabled) {
+                          return !isPushEnabled;
+                      });
+            };
+oneSignal_options['notifyButton']['showCredit'] = true;
+                OneSignal.init(window._oneSignalInitOptions);
+                OneSignal.showSlidedownPrompt();      });
+
+      function documentInitOneSignal() {
+        var oneSignal_elements = document.getElementsByClassName("OneSignal-prompt");
+
+        var oneSignalLinkClickHandler = function(event) { OneSignal.push(['registerForPushNotifications']); event.preventDefault(); };        for(var i = 0; i < oneSignal_elements.length; i++)
+          oneSignal_elements[i].addEventListener('click', oneSignalLinkClickHandler, false);
+      }
+
+      if (document.readyState === 'complete') {
+           documentInitOneSignal();
+      }
+      else {
+           window.addEventListener("load", function(event){
+               documentInitOneSignal();
+          });
+      }
+    </script>
+<style type="text/css">#ruigehond006_wrap{z-index:10001;position:fixed;display:block;left:0;width:100%;margin:0;overflow:visible}#ruigehond006_inner{position:absolute;height:0;width:inherit;background-color:rgba(255,255,255,.2);-webkit-transition:height .4s;transition:height .4s}html[dir=rtl] #ruigehond006_wrap{text-align:right}#ruigehond006_bar{width:0;height:100%;background-color:transparent}</style>
+<!-- Google AdSense snippet added by Site Kit -->
+<script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254645315876098" crossorigin="anonymous"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({"google_ad_client":"ca-pub-3254645315876098","enable_page_level_ads":true,"tag_partner":"site_kit"});
+</script>
+
+<!-- End Google AdSense snippet added by Site Kit -->
+<link rel="alternate" href="https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/" hreflang="en-us"/>
+
+<meta name="yandex-verification" content="5655ea043c576dad"/>
+<!-- valueimpression -->
+<script type="text/javascript" src="//services.vlitag.com/adv1/?q=2885556fdc52b24e11ce056dcd08abc9" defer="" async=""></script><script> var vitag = vitag || {};</script><style type="text/css">.saboxplugin-wrap{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;border:1px solid #eee;width:100%;clear:both;display:block;overflow:hidden;word-wrap:break-word;position:relative}.saboxplugin-wrap .saboxplugin-gravatar{float:left;padding:0 20px 20px 20px}.saboxplugin-wrap .saboxplugin-gravatar img{max-width:100px;height:auto;border-radius:0;}.saboxplugin-wrap .saboxplugin-authorname{font-size:18px;line-height:1;margin:20px 0 0 20px;display:block}.saboxplugin-wrap .saboxplugin-authorname a{text-decoration:none}.saboxplugin-wrap .saboxplugin-authorname a:focus{outline:0}.saboxplugin-wrap .saboxplugin-desc{display:block;margin:5px 20px}.saboxplugin-wrap .saboxplugin-desc a{text-decoration:underline}.saboxplugin-wrap .saboxplugin-desc p{margin:5px 0 12px}.saboxplugin-wrap .saboxplugin-web{margin:0 20px 15px;text-align:left}.saboxplugin-wrap .sab-web-position{text-align:right}.saboxplugin-wrap .saboxplugin-web a{color:#ccc;text-decoration:none}.saboxplugin-wrap .saboxplugin-socials{position:relative;display:block;background:#fcfcfc;padding:5px;border-top:1px solid #eee}.saboxplugin-wrap .saboxplugin-socials a svg{width:20px;height:20px}.saboxplugin-wrap .saboxplugin-socials a svg .st2{fill:#fff; transform-origin:center center;}.saboxplugin-wrap .saboxplugin-socials a svg .st1{fill:rgba(0,0,0,.3)}.saboxplugin-wrap .saboxplugin-socials a:hover{opacity:.8;-webkit-transition:opacity .4s;-moz-transition:opacity .4s;-o-transition:opacity .4s;transition:opacity .4s;box-shadow:none!important;-webkit-box-shadow:none!important}.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-color{box-shadow:none;padding:0;border:0;-webkit-transition:opacity .4s;-moz-transition:opacity .4s;-o-transition:opacity .4s;transition:opacity .4s;display:inline-block;color:#fff;font-size:0;text-decoration:inherit;margin:5px;-webkit-border-radius:0;-moz-border-radius:0;-ms-border-radius:0;-o-border-radius:0;border-radius:0;overflow:hidden}.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-grey{text-decoration:inherit;box-shadow:none;position:relative;display:-moz-inline-stack;display:inline-block;vertical-align:middle;zoom:1;margin:10px 5px;color:#444;fill:#444}.clearfix:after,.clearfix:before{content:' ';display:table;line-height:0;clear:both}.ie7 .clearfix{zoom:1}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-twitch{border-color:#38245c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-addthis{border-color:#e91c00}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-behance{border-color:#003eb0}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-delicious{border-color:#06c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-deviantart{border-color:#036824}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-digg{border-color:#00327c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-dribbble{border-color:#ba1655}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-facebook{border-color:#1e2e4f}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-flickr{border-color:#003576}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-github{border-color:#264874}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-google{border-color:#0b51c5}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-googleplus{border-color:#96271a}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-html5{border-color:#902e13}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-instagram{border-color:#1630aa}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-linkedin{border-color:#00344f}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-pinterest{border-color:#5b040e}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-reddit{border-color:#992900}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-rss{border-color:#a43b0a}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-sharethis{border-color:#5d8420}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-skype{border-color:#00658a}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-soundcloud{border-color:#995200}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-spotify{border-color:#0f612c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-stackoverflow{border-color:#a95009}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-steam{border-color:#006388}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-user_email{border-color:#b84e05}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-stumbleUpon{border-color:#9b280e}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-tumblr{border-color:#10151b}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-twitter{border-color:#0967a0}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-vimeo{border-color:#0d7091}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-windows{border-color:#003f71}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-whatsapp{border-color:#003f71}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-wordpress{border-color:#0f3647}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-yahoo{border-color:#14002d}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-youtube{border-color:#900}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-xing{border-color:#000202}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-mixcloud{border-color:#2475a0}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-vk{border-color:#243549}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-medium{border-color:#00452c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-quora{border-color:#420e00}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-meetup{border-color:#9b181c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-goodreads{border-color:#000}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-snapchat{border-color:#999700}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-500px{border-color:#00557f}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-mastodont{border-color:#185886}.sabox-plus-item{margin-bottom:20px}@media screen and (max-width:480px){.saboxplugin-wrap{text-align:center}.saboxplugin-wrap .saboxplugin-gravatar{float:none;padding:20px 0;text-align:center;margin:0 auto;display:block}.saboxplugin-wrap .saboxplugin-gravatar img{float:none;display:inline-block;display:-moz-inline-stack;vertical-align:middle;zoom:1}.saboxplugin-wrap .saboxplugin-desc{margin:0 10px 20px;text-align:center}.saboxplugin-wrap .saboxplugin-authorname{text-align:center;margin:10px 0 20px}}body .saboxplugin-authorname a,body .saboxplugin-authorname a:hover{box-shadow:none;-webkit-box-shadow:none}a.sab-profile-edit{font-size:16px!important;line-height:1!important}.sab-edit-settings a,a.sab-profile-edit{color:#0073aa!important;box-shadow:none!important;-webkit-box-shadow:none!important}.sab-edit-settings{margin-right:15px;position:absolute;right:0;z-index:2;bottom:10px;line-height:20px}.sab-edit-settings i{margin-left:5px}.saboxplugin-socials{line-height:1!important}.rtl .saboxplugin-wrap .saboxplugin-gravatar{float:right}.rtl .saboxplugin-wrap .saboxplugin-authorname{display:flex;align-items:center}.rtl .saboxplugin-wrap .saboxplugin-authorname .sab-profile-edit{margin-right:10px}.rtl .sab-edit-settings{right:auto;left:0}img.sab-custom-avatar{max-width:75px;}.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-color .st1 {display: none;}.saboxplugin-wrap {background-color:#ffffff;}.saboxplugin-wrap .saboxplugin-authorname a,.saboxplugin-wrap .saboxplugin-authorname span {color:#0c0c0c;}.saboxplugin-wrap {margin-top:0px; margin-bottom:0px; padding: 0px 0px }.saboxplugin-wrap .saboxplugin-authorname {font-size:18px; line-height:25px;}.saboxplugin-wrap .saboxplugin-desc p, .saboxplugin-wrap .saboxplugin-desc {font-size:14px !important; line-height:21px !important;}.saboxplugin-wrap .saboxplugin-web {font-size:14px;}.saboxplugin-wrap .saboxplugin-socials a svg {width:42px;height:42px;}</style><style type="text/css" id="thrive-default-styles"></style><link rel="icon" href="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2021/09/cropped-favicon-updated.png?fit=32%2C32&amp;ssl=1" sizes="32x32"/>
+<link rel="icon" href="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2021/09/cropped-favicon-updated.png?fit=192%2C192&amp;ssl=1" sizes="192x192"/>
+<link rel="apple-touch-icon" href="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2021/09/cropped-favicon-updated.png?fit=180%2C180&amp;ssl=1"/>
+<meta name="msapplication-TileImage" content="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2021/09/cropped-favicon-updated.png?fit=270%2C270&amp;ssl=1"/>
+		<style id="wp-custom-css">
+			html body p, html body div, html body h1, html body h2, html body h3, html body h4, html body h5, html body h6, html body strong, html body b, html body span, html body {
+    /*font-family: open sans !important;*/
+}		</style>
+		<!-- helpful custom css --><style>.helpful>.helpful-header>.helpful-headline {
+	font-size:  18px;
+}
+
+.helpful>.helpful-controls>div>.helpful-button[data-value="pro"] {
+	border-left:  7px solid #88c057;
+}
+
+.helpful>.helpful-controls>div>.helpful-button[data-value="contra"] {
+	border-left:  7px solid #ed7161;
+}
+
+.helpful {
+	background-color:  #222222;
+}
+
+</style><!-- END helpful custom css --><script type="text/javascript">var ezouid = "1";</script><base href="https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 262654;
+var ezdomain = 'onlinewebtutorblog.com';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":262654,"engaged_time_visit":0,"ezcache_level":1,"ezcache_skip_code":4,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"5d7cf44e-41f0-4bf6-505f-2c5d64ac2471","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":170804,"response_time_orig":1452,"serverid":"44.205.23.244:14869","state":"VA","t_epoch":1660040494,"template_id":126,"time_on_site_visit":0,"url":"https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/","user_id":0,"word_count":1155,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_262654=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["5d7cf44e-41f0-4bf6-505f-2c5d64ac2471", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+
+<body class="post-template-default single single-post postid-21911 single-format-standard wp-custom-logo wp-embed-responsive post-image-above-header post-image-aligned-center secondary-nav-above-header secondary-nav-aligned-right sticky-menu-fade sticky-enabled both-sticky-menu right-sidebar nav-below-header separate-containers fluid-header active-footer-widgets-4 nav-search-enabled nav-aligned-left header-aligned-left dropdown-hover featured-image-active" itemtype="https://schema.org/Blog" itemscope="">
+<style>
+	.page-id-9 .wp-block-pullquote,
+.page-id-20656 .wp-block-pullquote{
+    border: 2px dashed #7b7777;
+    border-radius: 15px;
+}
+	
+	.page-id-9 .wp-block-pullquote, 
+.page-id-9 blockquote{
+    padding: 0;
+}
+
+.page-id-20656 .wp-block-pullquote,
+.page-id-20656 blockquote{
+    padding: 0;
+}
+
+.page-id-9 blockquote{
+   margin-top: -14px;
+}
+
+.page-id-20656 blockquote{
+   margin-top: -14px;
+}
+	
+    a, a:hover{transition:.3s;}
+    .banner-bg:after {
+    content: "";
+    background: #00000085;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.banner-bg {
+    position: relative;
+}
+    .d-none{
+    display:none;
+    }
+    .w-100 .tve-page-section-in {
+    width: 100% !important;
+    max-width: unset;
+}
+    div#thrive-footer .menu-item a:hover, div#thrive-footer .menu-item a:hover span {
+    color: #599edf !important;
+    transition: .3s;
+}
+div#thrive-footer .menu-item a, div#thrive-footer .menu-item a span {
+    transition: .3s;
+}
+    #tve_editor ul.tve_w_menu ul {
+    left: unset !important;
+    right: 0 !important;
+}
+    
+    #tve_editor ul.tve_w_menu ul.sub-menu ul.sub-menu span {
+    white-space: break-spaces !important;
+    line-height: normal !important;
+}
+#tve_editor ul.tve_w_menu ul.sub-menu ul.sub-menu{
+    right: unset !important;
+    left: 100% !important;
+}
+.wp-dark-mode-switcher {
+    bottom: 80px !important;
+    right: 21px !important;
+}   
+    .wp-dark-mode-active :not(#tve) .thrv_symbol_3631 .thrv_widget_menu #m-16ea80c5df5 > li:not(.tcb-excluded-from-group-item) {
+    color: #fff !important;
+}
+    .wp-dark-mode-active .site-logo a:after, .wp-dark-mode-active a.tcb-logo.thrv_wrapper:after {
+    content: "";
+    background: url(https://onlinewebtutorblog.com/wp-content/uploads/2021/09/ondark.png?ezimgfmt=ng%3Awebp%2Fngcb5);
+    position: absolute;
+    width: 100%;
+    height: 56px;
+    top: 0px;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+    .wp-dark-mode-active a.tcb-logo.thrv_wrapper img{
+    opacity:0;
+    visibility:hidden;
+}
+    .wp-dark-mode-active a.tcb-logo.thrv_wrapper{
+    position:relative;
+}
+.wp-dark-mode-active .wp-dark-mode-ignore[data-css="tve-u-175133584b9"] {
+    background: unset !important;
+    border-left: 4px solid #731515;
+}
+    .wp-dark-mode-active .wp-dark-mode-ignore[data-css="tve-u-175133584b9"] h3.wp-dark-mode-ignore, .wp-dark-mode-active .wp-dark-mode-ignore[data-css="tve-u-175133584b9"] h3.wp-dark-mode-ignore strong.wp-dark-mode-ignore {
+    color: #e5e0d8 !important;
+}
+.wp-dark-mode-active .banner-bg a.tcb-button-link {
+    background-image: linear-gradient(rgb(42 44 44), rgb(42 44 44)) !important;
+}
+    html body .banner-bg .thrv_wrapper.thrv-columns .tcb-flex-col:nth-child(1) .tcb-col .thrv_wrapper.thrv-button.tcb-local-vars-root {
+    justify-content: flex-end;
+}
+    html body .banner-bg .thrv_wrapper.thrv-columns .tcb-flex-col .tcb-col {
+    display: flex;
+    align-items: center;
+}
+    html body .banner-bg .thrv_wrapper.thrv-columns .tcb-flex-col .tcb-col .thrv_wrapper.thrv-button.tcb-local-vars-root {
+    display: flex !important;
+    width: 100%;
+}
+    html body .banner-bg .thrv_wrapper.thrv-columns .tcb-flex-col .tcb-col .thrv_wrapper.thrv-button.tcb-local-vars-root a.tcb-button-link {
+    width: auto;
+}
+    .wp-dark-mode-active .thrv_wrapper.thrv-columns.wp-dark-mode-ignore[data-css="tve-u-17c273a2e63"]{
+    background: unset !important;
+    border-left: 4px solid #731515;
+}
+    .wp-dark-mode-active .thrv_wrapper.thrv-columns.wp-dark-mode-ignore[data-css="tve-u-17c273a2e63"] h3.wp-dark-mode-ignore, .wp-dark-mode-active .thrv_wrapper.thrv-columns.wp-dark-mode-ignore[data-css="tve-u-17c273a2e63"] h3.wp-dark-mode-ignore strong {
+    color: #fff !important;
+}
+    .site-header .header-image {
+    width: 248px !important;
+}
+    #thrive-header .tcb-flex-row .tcb-flex-col.c-33 {
+    max-width: unset !important;
+}
+    
+    @media (max-width: 767px){
+        /*19-12-2021*/
+         div#content div#left-sidebar {
+    display: none;
+}
+/*      #thrive-header .tcb-mobile-no-wrap img {
+    width: 177px !important;
+    max-width: unset !important;
+} */
+        .ycd-circle-wrapper .ycd-time-circle.wp-dark-mode-ignore {
+    width: 100% !important;
+}   
+        /*19-12-2021*/
+    html body .banner-bg .thrv_wrapper.thrv-columns .tcb-flex-col:nth-child(1) .tcb-col .thrv_wrapper.thrv-button.tcb-local-vars-root, html body .banner-bg .thrv_wrapper.thrv-columns .tcb-flex-col .tcb-col .thrv_wrapper.thrv-button.tcb-local-vars-root {
+    justify-content: center;
+}
+    }
+    
+    @media (min-width: 300px){
+
+        .wp-dark-mode-active .thrv_symbol_3631 [data-css="tve-u-16ea80d7995"] {
+   background-color: rgb(41, 42, 42) !important;
+    --tve-applied-background-color: rgb(41, 42, 42) !important;
+}
+        html body #tcb_landing_page h2 {
+            color: rgb(47 47 47) !important;
+        }
+        .wp-dark-mode-active [data-css="tve-u-1782223dd6d"], .wp-dark-mode-active [data-css="tve-u-15e40f595cf"] {
+    background-image: unset !important;
+    background-color:unset !important;
+}
+    }
+    
+    /*26-09-2021*/
+
+.inside-article .entry-content {
+    margin-top: 0px !important;
+}
+.wp-block-columns.contact-form, .wp-block-columns.contact-form label, .wp-block-columns.contact-form label span, .wp-block-columns.contact-form label span input {
+    display: block;
+}
+.wp-block-columns.contact-form label, .wp-block-columns.contact-form label span, .wp-block-columns.contact-form label span input {
+    width: 100%;
+}
+/* codeigniter 4 */
+.codeigniter-4-template-default.single.single-codeigniter-4 div#content div#left-sidebar .inside-left-sidebar {
+    position: sticky;
+    top: 60px;
+}
+.codeigniter-4-template-default.single.single-codeigniter-4 div#content div#left-sidebar {
+    float: unset !important;
+    left: unset !important;
+    position: sticky !important;
+    top: 40px;
+}
+.codeigniter-4-template-default.single.single-codeigniter-4 div#content div#primary {
+    float: unset !important;
+    left: unset !important;
+}
+.codeigniter-4-template-default.single.single-codeigniter-4 div#content {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* wordpress wp list table */
+.single-wordpress-table div#content div#left-sidebar .inside-left-sidebar {
+    position: sticky;
+    top: 60px;
+}
+.single-wordpress-table div#content div#left-sidebar {
+    float: unset !important;
+    left: unset !important;
+    position: sticky !important;
+    top: 40px;
+}
+.single-wordpress-table div#content div#primary {
+    float: unset !important;
+    left: unset !important;
+}
+.single-wordpress-table div#content {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* wordpress shortcode */
+.single-wordpress-shortcode div#content div#left-sidebar .inside-left-sidebar {
+    position: sticky;
+    top: 60px;
+}
+.single-wordpress-shortcode div#content div#left-sidebar {
+    float: unset !important;
+    left: unset !important;
+    position: sticky !important;
+    top: 40px;
+}
+.single-wordpress-shortcode div#content div#primary {
+    float: unset !important;
+    left: unset !important;
+}
+.single-wordpress-shortcode div#content {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* wordpress-metabox */
+.wordpress-metabox-template-default.single.single-wordpress-metabox div#content div#left-sidebar .inside-left-sidebar {
+    position: sticky;
+    top: 60px;
+}
+.wordpress-metabox-template-default.single.single-wordpress-metabox div#content div#left-sidebar {
+    float: unset !important;
+    left: unset !important;
+    position: sticky !important;
+    top: 40px;
+}
+.wordpress-metabox-template-default.single.single-wordpress-metabox div#content div#primary {
+    float: unset !important;
+    left: unset !important;
+}
+.wordpress-metabox-template-default.single.single-wordpress-metabox div#content {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+    .wp-dark-mode-active .site-header .inside-header .site-logo a:after {
+    content: "";
+    background: url(https://onlinewebtutorblog.com/wp-content/uploads/2021/09/ondark.png?ezimgfmt=ng%3Awebp%2Fngcb5);
+    position: absolute;
+    width: 100%;
+    height: 56px;
+    top: -13px;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+    .wp-dark-mode-active .site-header .inside-header .site-logo a img{
+    opacity:0;
+    visibility:hidden;
+}
+    .wp-dark-mode-active .site-header .inside-header .site-logo a{
+    position:relative;
+}
+.inside-left-sidebar, .inside-right-sidebar {
+    border: 1px solid #b9b9b9;
+    box-shadow: 0 0 5px #00000029;
+}
+.wp-block-columns.contact-form input.wpcf7-form-control.wpcf7-submit {
+    background: #1e73be;
+    padding: 14px 70px;
+    border-radius: 30px;
+}
+.wp-block-columns.contact-form input.wpcf7-form-control.wpcf7-submit:hover {
+    background: #0e5898;
+}
+.wp-block-columns.contact-form label span input, .wp-block-columns.contact-form label span textarea {
+    margin-top: 10px;
+    border-radius:5px;
+}
+.wp-block-columns.contact-form .wp-block-column {
+    margin-left: 0px;
+}
+.wp-block-columns.contact-form .wp-block-column:nth-child(2) p {
+    border-left: 2px solid #1e73be;
+    padding: 10px;
+    background: #cee0f1;
+}
+.wp-block-columns.contact-form label {
+    color: #1e73be;
+    font-weight: 600;
+}
+.wp-block-columns.contact-form form {
+    padding: 20px;
+    border-radius: 5px;
+    background: #1e73be38;
+    border-top: 3px solid #1e73be;
+}
+.inside-right-sidebar li.cat-item, .inside-left-sidebar li {
+    background: #e8f1f7;
+    margin-bottom: 4px;
+    color: #1e73be !important;
+}
+.inside-right-sidebar ul li {
+    margin-bottom: 0px;
+}
+.inside-left-sidebar li a{padding-bottom:0px;}
+.inside-left-sidebar ul li a, .inside-right-sidebar ul li a {
+    padding: 8px;
+    background: #e8f1f7;
+    display:inline-block;
+}
+.inside-left-sidebar aside, .inside-right-sidebar aside {
+    padding: 20px !important;
+}
+.page-template-default .page.type-page header.entry-header {
+    display: none;
+}
+/*26-09-2021*/
+
+
+
+/*old-css*/
+a.read-more.button {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    color: #ffffff;
+    font-family: "Muli", sans-serif;
+    font-weight:700;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 15px;
+    padding: 10px 20px;
+    transition: color .1s ease-in-out,background-color .1s ease-in-out;
+    display: inline-block;
+    background-color: #1e72bd;
+}
+
+a.read-more.button:hover{
+   color:#fff;
+   background-size: 100% 6px;
+   background-color: #333;
+}
+
+.epvc-post-count span.epvc-eye {
+    top: 2px;
+}
+
+.epvc-eye {
+    border: solid 1px #f9f3f3;
+}
+
+.epvc-eye:before {
+    border: solid 1px #f9f8f8;
+}
+
+span.rt-reading-time, .epvc-post-count {
+    display: inline-block !important;
+    background: #3e3b3b;
+    padding: 3px 10px;
+    margin: 10px 4px 0px 0px;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.single-post .inside-article h1{
+    font-size: 22px
+}
+.single-post .inside-article h2{
+    font-size: 20px
+}
+.single-post .inside-article h3{
+    font-size: 18px
+}
+.single-post .inside-article span.ez-toc-section{
+    margin-left: 10px;
+}
+
+.single-post .inside-article h2{
+    margin-bottom: 20px;
+    padding: 10px 0!important;
+    color: #fff;
+    border-left: 7px solid #e53734;
+    background: #333!important;
+}
+@media (max-width: 768px){
+    
+    .single-post .inside-article h1{
+        font-size: 20px
+    }
+    .single-post .inside-article h2{
+        font-size: 18px
+    }
+    .single-post .inside-article h3{
+        font-size: 16px
+    }
+.single-post .inside-article h2{
+        padding-left: 10px !important;
+    }
+    .single-post .inside-article span.ez-toc-section{
+        margin-left: 0px;
+    }
+}
+
+.single-codeigniter-4 .saboxplugin-wrap,
+.single-wordpress-metabox .saboxplugin-wrap,
+.single-wordpress-shortcode .saboxplugin-wrap,
+.single-wordpress-table .saboxplugin-wrap
+ {
+    display: none;
+}
+
+.single-codeigniter-4 .inside-article,
+.single-wordpress-metabox .inside-article,
+.single-wordpress-shortcode .inside-article,
+.single-wordpress-table .inside-article
+ {
+    padding: 17px 23px !important;
+    text-align: left;
+}
+
+.single-codeigniter-4 .featured-image,
+.single-wordpress-metabox .featured-image,
+.single-wordpress-shortcode .featured-image,
+.single-wordpress-table .featured-image
+{
+    display:none;
+}
+    
+.single-codeigniter-4 .entry-header,
+.single-wordpress-metabox .entry-header,
+.single-wordpress-shortcode .entry-header,
+.single-wordpress-table .entry-header
+{
+   margin-bottom: 21px;
+}
+    
+.single-post div.entry-meta{
+   margin-bottom: 5px;
+}
+    
+.single-codeigniter-4 div#left-sidebar.widget-area span.ezoic-ad,
+.single-wordpress-metabox div#left-sidebar.widget-area span.ezoic-ad,
+.single-wordpress-shortcode div#left-sidebar.widget-area span.ezoic-ad,
+.single-wordpress-table div#left-sidebar.widget-area span.ezoic-ad
+{
+   display:none !important;
+}   
+
+.ez-video-link{ display:none !important; }
+
+.single-codeigniter-4 .sidebar .widget,
+.single-wordpress-metabox .sidebar .widget,
+.single-wordpress-shortcode .sidebar .widget, 
+.single-wordpress-table .sidebar .widget 
+{
+    font-size: 15px;
+}
+
+.single-codeigniter-4 .widget ul li,
+.single-wordpress-metabox .widget ul li,
+.single-wordpress-shortcode .widget ul li,
+.single-wordpress-table .widget ul li
+ {
+    padding-bottom: 0px;
+}
+
+.single-codeigniter-4 .inside-left-sidebar li,
+.single-wordpress-metabox .inside-left-sidebar li,
+.single-wordpress-shortcode .inside-left-sidebar li,
+.single-wordpress-table .inside-left-sidebar li
+ {
+    margin-bottom: 4px;
+}   
+
+.single-codeigniter-4 .wp-block-buttons,
+.single-wordpress-metabox .wp-block-buttons,
+.single-wordpress-shortcode .wp-block-buttons,
+.single-wordpress-table .wp-block-buttons
+{
+    float: right;
+}
+	
+body.home li.search-item{
+   display: none !important;	
+}
+	
+/*codeigniter 4 tutorial active link*/
+.single-codeigniter-4.postid-9448 .inside-left-sidebar li:first-child a, 
+.single-codeigniter-4.postid-9448 .inside-left-sidebar li:first-child,
+.single-codeigniter-4.postid-9464 .inside-left-sidebar li:nth-child(2) a, 
+.single-codeigniter-4.postid-9464 .inside-left-sidebar li:nth-child(2),
+.single-codeigniter-4.postid-9449 .inside-left-sidebar li:nth-child(3) a, 
+.single-codeigniter-4.postid-9449 .inside-left-sidebar li:nth-child(3),
+.single-codeigniter-4.postid-9452 .inside-left-sidebar li:nth-child(4) a, 
+.single-codeigniter-4.postid-9452 .inside-left-sidebar li:nth-child(4),
+.single-codeigniter-4.postid-9455 .inside-left-sidebar li:nth-child(5) a, 
+.single-codeigniter-4.postid-9455 .inside-left-sidebar li:nth-child(5),
+.single-codeigniter-4.postid-9480 .inside-left-sidebar li:nth-child(6) a, 
+.single-codeigniter-4.postid-9480 .inside-left-sidebar li:nth-child(6),
+.single-codeigniter-4.postid-9458 .inside-left-sidebar li:nth-child(7) a, 
+.single-codeigniter-4.postid-9458 .inside-left-sidebar li:nth-child(7),
+.single-codeigniter-4.postid-9478 .inside-left-sidebar li:nth-child(8) a, 
+.single-codeigniter-4.postid-9478 .inside-left-sidebar li:nth-child(8),
+.single-codeigniter-4.postid-9482 .inside-left-sidebar li:nth-child(9) a, 
+.single-codeigniter-4.postid-9482 .inside-left-sidebar li:nth-child(9),
+.single-codeigniter-4.postid-9486 .inside-left-sidebar li:nth-child(10) a, 
+.single-codeigniter-4.postid-9486 .inside-left-sidebar li:nth-child(10),
+.single-codeigniter-4.postid-9487 .inside-left-sidebar li:nth-child(11) a, 
+.single-codeigniter-4.postid-9487 .inside-left-sidebar li:nth-child(11),
+.single-codeigniter-4.postid-9491 .inside-left-sidebar li:nth-child(12) a, 
+.single-codeigniter-4.postid-9491 .inside-left-sidebar li:nth-child(12),
+.single-codeigniter-4.postid-10096 .inside-left-sidebar li:nth-child(13) a, 
+.single-codeigniter-4.postid-10096 .inside-left-sidebar li:nth-child(13),
+.single-codeigniter-4.postid-10104 .inside-left-sidebar li:nth-child(14) a, 
+.single-codeigniter-4.postid-10104 .inside-left-sidebar li:nth-child(14),
+.single-codeigniter-4.postid-10113 .inside-left-sidebar li:nth-child(15) a, 
+.single-codeigniter-4.postid-10113 .inside-left-sidebar li:nth-child(15),
+.single-codeigniter-4.postid-10118 .inside-left-sidebar li:nth-child(16) a, 
+.single-codeigniter-4.postid-10118 .inside-left-sidebar li:nth-child(16),
+.single-codeigniter-4.postid-10171 .inside-left-sidebar li:nth-child(17) a, 
+.single-codeigniter-4.postid-10171 .inside-left-sidebar li:nth-child(17),
+.single-codeigniter-4.postid-10176 .inside-left-sidebar li:nth-child(18) a, 
+.single-codeigniter-4.postid-10176 .inside-left-sidebar li:nth-child(18),
+.single-codeigniter-4.postid-13384 .inside-left-sidebar li:nth-child(19) a, 
+.single-codeigniter-4.postid-13384 .inside-left-sidebar li:nth-child(19),
+.single-codeigniter-4.postid-13398 .inside-left-sidebar li:nth-child(20) a, 
+.single-codeigniter-4.postid-13398 .inside-left-sidebar li:nth-child(20),
+.single-codeigniter-4.postid-13401 .inside-left-sidebar li:nth-child(21) a, 
+.single-codeigniter-4.postid-13401 .inside-left-sidebar li:nth-child(21) {
+    color: #fff;
+    background: #3b95d0;
+}
+    
+/*wordpress-metabox tutorial active link*/
+.single-wordpress-metabox.postid-13994 .inside-left-sidebar li:first-child a, 
+.single-wordpress-metabox.postid-13994 .inside-left-sidebar li:first-child,
+.single-wordpress-metabox.postid-14000 .inside-left-sidebar li:nth-child(2) a, 
+.single-wordpress-metabox.postid-14000 .inside-left-sidebar li:nth-child(2),
+.single-wordpress-metabox.postid-14001 .inside-left-sidebar li:nth-child(3) a, 
+.single-wordpress-metabox.postid-14001 .inside-left-sidebar li:nth-child(3),
+.single-wordpress-metabox.postid-14006 .inside-left-sidebar li:nth-child(4) a, 
+.single-wordpress-metabox.postid-14006 .inside-left-sidebar li:nth-child(4),
+.single-wordpress-metabox.postid-14013 .inside-left-sidebar li:nth-child(5) a, 
+.single-wordpress-metabox.postid-14013 .inside-left-sidebar li:nth-child(5),
+.single-wordpress-metabox.postid-14017 .inside-left-sidebar li:nth-child(6) a, 
+.single-wordpress-metabox.postid-14017 .inside-left-sidebar li:nth-child(6),
+.single-wordpress-metabox.postid-14021 .inside-left-sidebar li:nth-child(7) a, 
+.single-wordpress-metabox.postid-14021 .inside-left-sidebar li:nth-child(7),
+.single-wordpress-metabox.postid-14039 .inside-left-sidebar li:nth-child(8) a, 
+.single-wordpress-metabox.postid-14039 .inside-left-sidebar li:nth-child(8),
+.single-wordpress-metabox.postid-14043 .inside-left-sidebar li:nth-child(9) a, 
+.single-wordpress-metabox.postid-14043 .inside-left-sidebar li:nth-child(9),
+.single-wordpress-metabox.postid-14050 .inside-left-sidebar li:nth-child(10) a, 
+.single-wordpress-metabox.postid-14050 .inside-left-sidebar li:nth-child(10),
+.single-wordpress-metabox.postid-14074 .inside-left-sidebar li:nth-child(11) a, 
+.single-wordpress-metabox.postid-14074 .inside-left-sidebar li:nth-child(11){
+    color: #fff;
+    background: #3b95d0;
+}
+
+/* wordpress shortcode */
+.single-wordpress-shortcode.postid-14084 .inside-left-sidebar li:first-child a, 
+.single-wordpress-shortcode.postid-14084 .inside-left-sidebar li:first-child,
+.single-wordpress-shortcode.postid-14099 .inside-left-sidebar li:nth-child(2) a, 
+.single-wordpress-shortcode.postid-14099 .inside-left-sidebar li:nth-child(2),
+.single-wordpress-shortcode.postid-14115 .inside-left-sidebar li:nth-child(3) a, 
+.single-wordpress-shortcode.postid-14115 .inside-left-sidebar li:nth-child(3),
+.single-wordpress-shortcode.postid-14137 .inside-left-sidebar li:nth-child(4) a, 
+.single-wordpress-shortcode.postid-14137 .inside-left-sidebar li:nth-child(4),
+.single-wordpress-shortcode.postid-14149 .inside-left-sidebar li:nth-child(5) a, 
+.single-wordpress-shortcode.postid-14149 .inside-left-sidebar li:nth-child(5),
+.single-wordpress-shortcode.postid-14161 .inside-left-sidebar li:nth-child(6) a, 
+.single-wordpress-shortcode.postid-14161 .inside-left-sidebar li:nth-child(6),
+.single-wordpress-shortcode.postid-14171 .inside-left-sidebar li:nth-child(7) a, 
+.single-wordpress-shortcode.postid-14171 .inside-left-sidebar li:nth-child(7),
+.single-wordpress-shortcode.postid-14190 .inside-left-sidebar li:nth-child(8) a, 
+.single-wordpress-shortcode.postid-14190 .inside-left-sidebar li:nth-child(8),
+.single-wordpress-shortcode.postid-14198 .inside-left-sidebar li:nth-child(9) a, 
+.single-wordpress-shortcode.postid-14198 .inside-left-sidebar li:nth-child(9),
+.single-wordpress-shortcode.postid-14205 .inside-left-sidebar li:nth-child(10) a, 
+.single-wordpress-shortcode.postid-14205 .inside-left-sidebar li:nth-child(10),
+.single-wordpress-shortcode.postid-14213 .inside-left-sidebar li:nth-child(11) a, 
+.single-wordpress-shortcode.postid-14213 .inside-left-sidebar li:nth-child(11),
+.single-wordpress-shortcode.postid-14225 .inside-left-sidebar li:nth-child(12) a, 
+.single-wordpress-shortcode.postid-14225 .inside-left-sidebar li:nth-child(12),
+.single-wordpress-shortcode.postid-14231 .inside-left-sidebar li:nth-child(13) a, 
+.single-wordpress-shortcode.postid-14231 .inside-left-sidebar li:nth-child(13){
+    color: #fff;
+    background: #3b95d0;
+}
+
+/*wordpress-wp-list-table tutorial active link*/
+.single-wordpress-table.postid-14237 .inside-left-sidebar li:first-child a, 
+.single-wordpress-table.postid-14237 .inside-left-sidebar li:first-child,
+.single-wordpress-table.postid-14246 .inside-left-sidebar li:nth-child(2) a, 
+.single-wordpress-table.postid-14246 .inside-left-sidebar li:nth-child(2),
+.single-wordpress-table.postid-14256 .inside-left-sidebar li:nth-child(3) a, 
+.single-wordpress-table.postid-14256 .inside-left-sidebar li:nth-child(3),
+.single-wordpress-table.postid-14263 .inside-left-sidebar li:nth-child(4) a, 
+.single-wordpress-table.postid-14263 .inside-left-sidebar li:nth-child(4),
+.single-wordpress-table.postid-14280 .inside-left-sidebar li:nth-child(5) a, 
+.single-wordpress-table.postid-14280 .inside-left-sidebar li:nth-child(5),
+.single-wordpress-table.postid-14297 .inside-left-sidebar li:nth-child(6) a, 
+.single-wordpress-table.postid-14297 .inside-left-sidebar li:nth-child(6),
+.single-wordpress-table.postid-14307 .inside-left-sidebar li:nth-child(7) a, 
+.single-wordpress-table.postid-14307 .inside-left-sidebar li:nth-child(7),
+.single-wordpress-table.postid-14322 .inside-left-sidebar li:nth-child(8) a, 
+.single-wordpress-table.postid-14322 .inside-left-sidebar li:nth-child(8),
+.single-wordpress-table.postid-14419 .inside-left-sidebar li:nth-child(9) a, 
+.single-wordpress-table.postid-14419 .inside-left-sidebar li:nth-child(9),
+.single-wordpress-table.postid-15184 .inside-left-sidebar li:nth-child(10) a, 
+.single-wordpress-table.postid-15184 .inside-left-sidebar li:nth-child(10),
+.single-wordpress-table.postid-15196 .inside-left-sidebar li:nth-child(11) a, 
+.single-wordpress-table.postid-15196 .inside-left-sidebar li:nth-child(11),
+.single-wordpress-table.postid-15206 .inside-left-sidebar li:nth-child(12) a, 
+.single-wordpress-table.postid-15206 .inside-left-sidebar li:nth-child(12){
+    color: #fff;
+    background: #3b95d0;
+}
+	
+/*hide related posts*/
+div.crp_related{
+	display:none;
+}
+
+/*font size for CodeMirror*/
+.CodeMirror {
+    font-size: 14px;
+}
+
+/*remove border of separator*/
+.wp-block-separator{
+    border-top: 0;
+    border-bottom: 0;
+}	
+
+/*Newsletter*/
+#newsletterwidget-2 .tnp-field label{
+  display:block;
+  color: #3a3a3a !important;
+}
+	
+.page-id-19196 .entry-content p:first-child{
+    background: #80808059;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}	
+	
+.page-id-19196 .entry-content a.wp-block-button__link{
+    background-color: #1e72bd;
+}	
+	
+#menu-item-13562 ul.sub-menu{
+   width: 280px;
+}	
+
+pre.wp-block-code, 
+pre.wp-block-preformatted{
+  background: rgba(169, 106, 194, 0.29);
+}	
+</style>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0.49803921568627"></feFuncR><feFuncG type="table" tableValues="0 0.49803921568627"></feFuncG><feFuncB type="table" tableValues="0 0.49803921568627"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 0.27843137254902"></feFuncG><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0"></feFuncR><feFuncG type="table" tableValues="0 0.64705882352941"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.78039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.94901960784314"></feFuncG><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.44705882352941 0.4"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.098039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.66274509803922"></feFuncG><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>			<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="secondary-navigation" class="secondary-navigation">
+				<div class="inside-navigation grid-container grid-parent">
+										<button class="menu-toggle secondary-menu-toggle">
+												<span class="mobile-menu">Menu</span>
+					</button>
+					<div class="main-nav"><ul id="menu-pages-menus" class=" secondary-menu sf-menu"><li id="menu-item-3612" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-3612"><a href="https://onlinewebtutorblog.com/blog/">Blog</a></li>
+<li id="menu-item-3369" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3369"><a href="https://onlinewebtutorblog.com/about-us/">About Us</a></li>
+<li id="menu-item-3371" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3371"><a href="https://onlinewebtutorblog.com/disclaimer/">Disclaimer</a></li>
+<li id="menu-item-3368" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3368"><a href="https://onlinewebtutorblog.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-3370" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3370"><a href="https://onlinewebtutorblog.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-12582" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12582"><a href="https://onlinewebtutorblog.com/promote-with-online-web-tutor/">Promote with Online Web Tutor</a></li>
+<li id="menu-item-3372" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3372"><a href="https://onlinewebtutorblog.com/sitemap/">HTML Sitemap</a></li>
+</ul></div>				</div><!-- .inside-navigation -->
+			</nav><!-- #secondary-navigation -->
+					<header id="masthead" class="site-header" itemtype="https://schema.org/WPHeader" itemscope="">
+			<div class="inside-header">
+				<div class="site-logo">
+					<a href="https://onlinewebtutorblog.com/" title="Online Web Tutor" rel="home">
+						<img class="header-image is-logo-image" alt="Online Web Tutor" src="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2021/12/Logo_newnew.png?fit=248%2C49&amp;ssl=1" title="Online Web Tutor"/>
+					</a>
+				</div>			</div>
+		</header>
+				<nav id="site-navigation" class="main-navigation sub-menu-right" itemtype="https://schema.org/SiteNavigationElement" itemscope="">
+			<div class="inside-navigation grid-container grid-parent">
+				<form method="get" class="search-form navigation-search" action="https://onlinewebtutorblog.com/">
+					<input type="search" class="search-field" value="" name="s" title="Search"/>
+				</form>		<div class="mobile-bar-items">
+						<span class="search-item">
+				<a aria-label="Open Search Bar" href="#">
+									</a>
+			</span>
+		</div>
+						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+					<span class="mobile-menu">Menu</span>				</button>
+				<div id="primary-menu" class="main-nav"><ul id="menu-primary-menu" class=" menu sf-menu"><li id="menu-item-559" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-559"><a href="https://onlinewebtutorblog.com/">Home</a></li>
+<li id="menu-item-10128" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10128"><a href="#">Tutorials<span role="presentation" class="dropdown-menu-toggle"></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-10129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10129"><a href="https://onlinewebtutorblog.com/codeigniter-4/what-is-codeigniter/">Learn CodeIgniter 4</a></li>
+	<li id="menu-item-13998" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13998"><a href="https://onlinewebtutorblog.com/wordpress-metabox/what-is-a-wordpress-metabox/">WordPress Metabox Tutorial</a></li>
+	<li id="menu-item-14098" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14098"><a href="https://onlinewebtutorblog.com/wordpress-shortcode/what-is-a-wordpress-shortcode/">WordPress Shortcode Tutorial</a></li>
+	<li id="menu-item-14244" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14244"><a href="https://onlinewebtutorblog.com/wordpress-table/what-are-wordpress-admin-tables/">WordPress WP List Table Tutorial</a></li>
+</ul>
+</li>
+<li id="menu-item-10130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10130"><a href="#">Articles<span role="presentation" class="dropdown-menu-toggle"></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-4369" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4369"><a href="#">PHP<span role="presentation" class="dropdown-menu-toggle"></span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-1377" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1377"><a href="https://onlinewebtutorblog.com/category/codeigniter-4/">CodeIgniter 4</a></li>
+		<li id="menu-item-1548" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1548"><a href="https://onlinewebtutorblog.com/category/cakephp-4/">CakePHP 4</a></li>
+		<li id="menu-item-3140" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3140"><a href="https://onlinewebtutorblog.com/category/laravel-8/">Laravel 8</a></li>
+		<li id="menu-item-18715" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-18715"><a href="https://onlinewebtutorblog.com/category/laravel-9/">Laravel 9</a></li>
+		<li id="menu-item-1021" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1021"><a href="https://onlinewebtutorblog.com/category/wordpress/">WordPress</a></li>
+		<li id="menu-item-5143" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5143"><a href="https://onlinewebtutorblog.com/category/php/">PHP Miscellaneous</a></li>
+	</ul>
+</li>
+	<li id="menu-item-465" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-465"><a href="https://onlinewebtutorblog.com/category/mysql/">MySQL</a></li>
+	<li id="menu-item-4853" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4853"><a href="#">Javascript<span role="presentation" class="dropdown-menu-toggle"></span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-3139" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3139"><a href="https://onlinewebtutorblog.com/category/node-js/">Node Js</a></li>
+		<li id="menu-item-4368" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4368"><a href="https://onlinewebtutorblog.com/category/jquery-javascript/">jQuery &amp; Javascript</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-13562" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-13562"><a>Premium Courses<span role="presentation" class="dropdown-menu-toggle"></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-13572" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13572"><a target="_blank" rel="noopener" href="https://skillshike.com/courses/admin-panel-development-codeigniter-3-framework/">Inventory Management System – CodeIgniter v3</a></li>
+	<li id="menu-item-13573" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13573"><a target="_blank" rel="noopener" href="https://skillshike.com/courses/admin-panel-development-cakephp-4-framework/">Admin Panel in CakePHP v4</a></li>
+	<li id="menu-item-13575" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13575"><a target="_blank" rel="noopener" href="https://skillshike.com/courses/lms-admin-panel-development-in-node-express-js/">LMS Development – Node Js &amp; Sequelize ORM</a></li>
+	<li id="menu-item-13577" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13577"><a target="_blank" rel="noopener" href="https://skillshike.com/courses/step-by-step-apis-development-in-node-js-with-sequelize-orm/">APIs in Node Js &amp; Sequelize ORM</a></li>
+	<li id="menu-item-13579" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13579"><a target="_blank" rel="noopener" href="https://skillshike.com/courses/codeigniter-3-rest-api-development-tutorial/">REST APIs in CodeIgniter v3</a></li>
+	<li id="menu-item-13580" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13580"><a target="_blank" rel="noopener" href="https://skillshike.com/courses/codeigniter-4-hmvc-beginners-to-advance-tutorial/">CodeIgniter v4 HMVC Programming</a></li>
+	<li id="menu-item-13582" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13582"><a target="_blank" rel="noopener" href="https://skillshike.com/courses/learn-cakephp-4-beginners-to-advance/">CakePHP v4 Beginners to Advance Course</a></li>
+	<li id="menu-item-13599" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13599"><a target="_blank" rel="noopener" href="https://skillshike.com/courses/laravel-8-api-development-tutorial-step-by-step/">Laravel 8 API Development Tutorial</a></li>
+</ul>
+</li>
+<li class="search-item menu-item-align-right"><a aria-label="Open Search Bar" href="#"></a></li></ul></div>			</div>
+		</nav>
+		
+	<div id="page" class="site grid-container container hfeed grid-parent">
+				<div id="content" class="site-content">
+			
+	<div id="primary" class="content-area grid-parent mobile-grid-100 grid-75 tablet-grid-75">
+		<main id="main" class="site-main">
+			<div class="code-block code-block-7" style="margin: 8px 0; clear: both;">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Site Horizontal Ads -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3254645315876098" data-ad-slot="8184470607" data-ad-format="link" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<article id="post-21911" class="post-21911 post type-post status-publish format-standard has-post-thumbnail hentry category-laravel-9" itemtype="https://schema.org/CreativeWork" itemscope="">
+	<div class="inside-article">
+		<div class="featured-image  page-header-image-single ">
+			<img width="725" height="408" src="//onlinewebtutorblog.com/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif" data-lazy-type="image" data-src="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial.jpg?fit=725%2C408&amp;ssl=1" class="lazy lazy-hidden attachment-full size-full" alt="Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial" loading="lazy" itemprop="image" srcset="" data-srcset="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial.jpg?w=725&amp;ssl=1 725w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial.jpg?resize=300%2C169&amp;ssl=1 300w" sizes="(max-width: 725px) 100vw, 725px"/><noscript><img width="725" height="408" src="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial.jpg?fit=725%2C408&amp;ssl=1" class="attachment-full size-full" alt="Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial" loading="lazy" itemprop="image" srcset="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial.jpg?w=725&amp;ssl=1 725w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/Laravel-9-Livewire-DataTable-Pagination-Using-Package-Tutorial.jpg?resize=300%2C169&amp;ssl=1 300w" sizes="(max-width: 725px) 100vw, 725px" /></noscript>
+		</div>			<header class="entry-header">
+				<h1 class="entry-title" itemprop="headline">Laravel 9 Livewire DataTable Pagination Using Package Tutorial</h1>		<div class="entry-meta">
+			<span class="posted-on"><time class="entry-date published" datetime="2022-07-20T16:05:38+00:00" itemprop="datePublished">July 20, 2022</time></span> <span class="byline">by <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope=""><a class="url fn n" href="https://onlinewebtutorblog.com/author/admin/" title="View all posts by Sanjay Kumar" rel="author" itemprop="url"><span class="author-name" itemprop="name">Sanjay Kumar</span></a></span></span> 		</div>
+					</header>
+			
+		<div class="entry-content" itemprop="text">
+			<div id="ez-toc-container" class="ez-toc-v2_0_17 counter-hierarchy counter-decimal ez-toc-grey">
+<div class="ez-toc-title-container">
+<p class="ez-toc-title">Table of Contents</p>
+<span class="ez-toc-title-toggle"></span></div>
+<nav><ul class="ez-toc-list ez-toc-list-level-1"><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-1" href="#Laravel_Installation" title="Laravel Installation">Laravel Installation</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-2" href="#Create_Database_Connect" title="Create Database &amp; Connect">Create Database &amp; Connect</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-3" href="#Generate_Fake_Data_Using_Factory" title="Generate Fake Data Using Factory">Generate Fake Data Using Factory</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-4" href="#Install_Livewire_-_A_Composer_Package" title="Install Livewire – A Composer Package">Install Livewire – A Composer Package</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-5" href="#Install_Livewire_DataTable_Package" title="Install Livewire DataTable Package">Install Livewire DataTable Package</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-6" href="#Generate_Livewire_Scaffolding" title="Generate Livewire Scaffolding">Generate Livewire Scaffolding</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-7" href="#Livewire_Datatable_Settings" title="Livewire Datatable Settings">Livewire Datatable Settings</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-8" href="#Create_Blade_Template_File" title="Create Blade Template File">Create Blade Template File</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-9" href="#Add_Route" title="Add Route">Add Route</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-10" href="#Application_Testing" title="Application Testing">Application Testing</a></li></ul></nav></div>
+<div class="heateorSssClear"></div><div class="heateor_sss_sharing_container heateor_sss_horizontal_sharing" heateor-sss-data-href="https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/"><div class="heateor_sss_sharing_title" style="font-weight:bold">Share this Article</div><ul class="heateor_sss_sharing_ul"><li class="heateorSssSharingRound"><i style="width:92px;height:35px;" alt="Facebook" title="Facebook" class="heateorSssSharing heateorSssFacebookBackground" onclick="heateorSssPopup(&#34;https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fonlinewebtutorblog.com%2Flaravel-9-livewire-datatable-pagination-using-package-tutorial%2F&#34;)"><ss style="display:block;" class="heateorSssSharingSvg heateorSssFacebookSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:92px;height:35px;" alt="Twitter" title="Twitter" class="heateorSssSharing heateorSssTwitterBackground" onclick="heateorSssPopup(&#34;http://twitter.com/intent/tweet?text=Laravel%209%20Livewire%20DataTable%20Pagination%20Using%20Package%20Tutorial&amp;url=https%3A%2F%2Fonlinewebtutorblog.com%2Flaravel-9-livewire-datatable-pagination-using-package-tutorial%2F&#34;)"><ss style="display:block;" class="heateorSssSharingSvg heateorSssTwitterSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:92px;height:35px;" alt="Linkedin" title="Linkedin" class="heateorSssSharing heateorSssLinkedinBackground" onclick="heateorSssPopup(&#34;http://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fonlinewebtutorblog.com%2Flaravel-9-livewire-datatable-pagination-using-package-tutorial%2F&amp;title=Laravel%209%20Livewire%20DataTable%20Pagination%20Using%20Package%20Tutorial&#34;)"><ss style="display:block;" class="heateorSssSharingSvg heateorSssLinkedinSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:92px;height:35px;" alt="Pinterest" title="Pinterest" class="heateorSssSharing heateorSssPinterestBackground" onclick="javascript:void( (function() {var e=document.createElement(&#39;script&#39; );e.setAttribute(&#39;type&#39;,&#39;text/javascript&#39; );e.setAttribute(&#39;charset&#39;,&#39;UTF-8&#39; );e.setAttribute(&#39;src&#39;,&#39;//assets.pinterest.com/js/pinmarklet.js?r=&#39;+Math.random()*99999999);document.body.appendChild(e)})());"><ss style="display:block;" class="heateorSssSharingSvg heateorSssPinterestSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:92px;height:35px;" title="More" alt="More" class="heateorSssSharing heateorSssMoreBackground" onclick="heateorSssMoreSharingPopup(this, &#39;https://onlinewebtutorblog.com/laravel-9-livewire-datatable-pagination-using-package-tutorial/&#39;, &#39;Laravel%209%20Livewire%20DataTable%20Pagination%20Using%20Package%20Tutorial&#39;, &#39;&#39; )"><ss style="display:block" class="heateorSssSharingSvg heateorSssMoreSvg"></ss></i></li></ul><div class="heateorSssClear"></div></div><div class="heateorSssClear"></div><span class="rt-reading-time" style="display: block;"><span class="rt-label rt-prefix">Reading Time: </span> <span class="rt-time">6</span> <span class="rt-label rt-postfix">minutes</span></span><div class="epvc-post-count"><span class="epvc-eye"></span>  <span class="epvc-count"> 417</span><span class="epvc-label"> Views</span></div>
+<p></p>
+
+
+
+<p>Inside this article we will see the concept i.e Laravel 9 Livewire DataTable Pagination Using Package Tutorial. Article contains the classified information about livewire datatable pagination tutorial. We will list database rows using a livewire datatable.</p>
+
+
+
+<p><meta http-equiv="content-type" content="text/html; charset=utf-8"/><strong>Livewire</strong> is a full-stack framework for Laravel that makes building dynamic interfaces simple, without leaving the comfort of Laravel. It is available in form of a laravel 9 composer package.</p><div class="code-block code-block-8" style="margin: 8px 0; clear: both;">
+<div class="adsbyvli" data-ad-slot="vi_1796191176" style="width: 728px; height: 90px"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_1796191176")})</script></div>
+
+
+
+
+<p>Livewire datatable is a composer package which provides the features of pagination, sorting, export buttons, etc.</p><span id="ezoic-pub-video-placeholder-2" class="ezoic-videopicker-video"></span>
+
+
+
+<span id="ezoic-pub-video-placeholder-4" class="ezoic-videopicker-video"></span><p>Learn More –</p>
+
+
+
+<ul><li><a href="https://onlinewebtutorblog.com/laravel-9-work-with-livewire-form-submit-tutorial/">Laravel 9 Work With Livewire Form Submit Tutorial</a></li><li><a href="https://onlinewebtutorblog.com/laravel-9-how-to-save-array-data-in-database-table/" class="rank-math-link">Laravel 9 How To Save Array Data in Database Table</a></li><li><a href="https://onlinewebtutorblog.com/how-to-print-iframe-content-using-jquery-tutorial/">How To Print Iframe Content Using jQuery Tutorial</a></li><li><a href="https://onlinewebtutorblog.com/how-to-get-selected-checkbox-value-from-checkbox-list-in-jquery/">Laravel 9 How To Work With Livewire Pagination Example</a></li></ul>
+
+
+
+<span id="ezoic-pub-video-placeholder-3" class="ezoic-videopicker-video"></span><p>Let’s get started.</p>
+
+
+
+<h2><span class="ez-toc-section" id="Laravel_Installation"></span>Laravel Installation<span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>Open terminal and run this command to create a laravel project.</p>
+
+
+
+<pre class="wp-block-code"><code>$ composer create-project laravel/laravel myblog</code></pre>
+
+
+
+<p>It will create a project folder with name <strong>myblog</strong> inside your local system.</p>
+
+
+
+<p>To start the development server of laravel – </p>
+
+
+
+<pre class="wp-block-code"><code>$ php artisan serve</code></pre>
+
+
+
+<p>URL: http://127.0.0.1:8000</p>
+
+
+
+<p><strong>Assuming laravel already installed inside your system.</strong></p>
+
+
+
+<h2><span class="ez-toc-section" id="Create_Database_Connect"></span>Create Database &amp; Connect<span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>To create a database, either we can create via Manual tool of PhpMyadmin or by means of a mysql command.</p>
+
+
+
+<pre class="wp-block-preformatted">CREATE DATABASE laravel_app;</pre>
+
+
+
+<p>To connect database with application, Open <strong>.env file</strong> from application root. Search for <strong>DB_</strong> and update your details.</p>
+
+
+
+<pre class="wp-block-preformatted">DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_app
+DB_USERNAME=root
+DB_PASSWORD=root</pre>
+
+
+
+<h2><span class="ez-toc-section" id="Generate_Fake_Data_Using_Factory"></span>Generate Fake Data Using Factory<span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>As you install laravel 9 setup, you should see these files –</p>
+
+
+
+<ul><li><strong>User.php</strong> a model file inside <strong>/app/Models</strong> folder.</li><li><strong>UserFactory.php</strong> a factory file inside <strong>/database/factories</strong> folder.</li></ul>
+
+
+
+<p>We will use concept of factory to seed dummy data to this application. But first you need to migrate your application and create <strong>users</strong> table into your database.</p><div class="code-block code-block-10" style="margin: 8px 0; clear: both;">
+<div class="adsbyvli" data-ad-slot="outstream"></div><script> vitag.outStreamConfig = { type: "slider", position: "right" }; </script></div>
+
+
+
+
+<pre class="wp-block-code"><code>$ php artisan tinker</code></pre>
+
+
+
+<p>It will open tinker shell to execute commands. Copy and paste this command and execute to create test data.</p>
+
+
+
+<pre class="wp-block-code"><code>&gt;&gt;&gt; User::factory()-&gt;count(100)-&gt;create()</code></pre>
+
+
+
+<p>It will generate <strong>100 fake rows of users</strong> into table.</p>
+
+
+
+<figure class="wp-block-image size-large"><img width="825" height="346" src="https://i0.wp.com/onlinewebtutorblog.com/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif?resize=825%2C346" data-lazy-type="image" data-src="https://onlinewebtutorblog.com/wp-content/uploads/2022/07/generate-fake-data-into-laravel-9-factory-1024x430.png" alt="" class="lazy lazy-hidden wp-image-21724" srcset="" data-srcset="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/generate-fake-data-into-laravel-9-factory.png?resize=1024%2C430&amp;ssl=1 1024w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/generate-fake-data-into-laravel-9-factory.png?resize=300%2C126&amp;ssl=1 300w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/generate-fake-data-into-laravel-9-factory.png?resize=768%2C323&amp;ssl=1 768w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/generate-fake-data-into-laravel-9-factory.png?w=1285&amp;ssl=1 1285w" sizes="(max-width: 825px) 100vw, 825px" data-recalc-dims="1"/><noscript><img width="825" height="346" src="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/generate-fake-data-into-laravel-9-factory.png?resize=825%2C346&#038;ssl=1" alt="" class="wp-image-21724" srcset="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/generate-fake-data-into-laravel-9-factory.png?resize=1024%2C430&amp;ssl=1 1024w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/generate-fake-data-into-laravel-9-factory.png?resize=300%2C126&amp;ssl=1 300w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/generate-fake-data-into-laravel-9-factory.png?resize=768%2C323&amp;ssl=1 768w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/generate-fake-data-into-laravel-9-factory.png?w=1285&amp;ssl=1 1285w" sizes="(max-width: 825px) 100vw, 825px" data-recalc-dims="1" /></noscript></figure>
+
+
+
+<p></p>
+
+
+
+<h2><span class="ez-toc-section" id="Install_Livewire_-_A_Composer_Package"></span>Install Livewire – A Composer Package<span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>Back to project terminal and run this command to install livewire inside this laravel application.</p>
+
+
+
+<pre class="wp-block-code"><code>$ composer require livewire/livewire</code></pre>
+
+
+
+<p>You should see like this –</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="825" height="214" src="https://i0.wp.com/onlinewebtutorblog.com/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif?resize=825%2C214" data-lazy-type="image" data-src="https://onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-installation-in-laravel-9-tutorial-1024x265.png" alt="" class="lazy lazy-hidden wp-image-21729" srcset="" data-srcset="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-installation-in-laravel-9-tutorial.png?resize=1024%2C265&amp;ssl=1 1024w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-installation-in-laravel-9-tutorial.png?resize=300%2C78&amp;ssl=1 300w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-installation-in-laravel-9-tutorial.png?resize=768%2C199&amp;ssl=1 768w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-installation-in-laravel-9-tutorial.png?w=1277&amp;ssl=1 1277w" sizes="(max-width: 825px) 100vw, 825px" data-recalc-dims="1"/><noscript><img loading="lazy" width="825" height="214" src="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-installation-in-laravel-9-tutorial.png?resize=825%2C214&#038;ssl=1" alt="" class="wp-image-21729" srcset="https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-installation-in-laravel-9-tutorial.png?resize=1024%2C265&amp;ssl=1 1024w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-installation-in-laravel-9-tutorial.png?resize=300%2C78&amp;ssl=1 300w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-installation-in-laravel-9-tutorial.png?resize=768%2C199&amp;ssl=1 768w, https://i1.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-installation-in-laravel-9-tutorial.png?w=1277&amp;ssl=1 1277w" sizes="(max-width: 825px) 100vw, 825px" data-recalc-dims="1" /></noscript></figure>
+
+
+
+<p></p>
+
+
+
+<p>Now, we are able to use the features and functions of livewire.</p><div class="code-block code-block-12" style="margin: 8px 0; clear: both;">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-3254645315876098" data-ad-slot="8261396182"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+
+
+
+<h2><span class="ez-toc-section" id="Install_Livewire_DataTable_Package"></span>Install Livewire DataTable Package<span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>Back to project terminal and run this command to install livewire datatable package: </p>
+
+
+
+<pre class="wp-block-code"><code>$ composer require mediconesystems/livewire-datatables</code></pre>
+
+
+
+<p>In case if you get any error then needs to run this command:</p>
+
+
+
+<pre class="wp-block-code"><code>$ composer require mediconesystems/livewire-datatables --with-all-dependencies</code></pre>
+
+
+
+<p>You will see this screen –</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="825" height="411" src="https://i0.wp.com/onlinewebtutorblog.com/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif?resize=825%2C411" data-lazy-type="image" data-src="https://onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-datatable-composer-package-laravel-9-installation-1024x510.png" alt="" class="lazy lazy-hidden wp-image-21917" srcset="" data-srcset="https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-datatable-composer-package-laravel-9-installation.png?resize=1024%2C510&amp;ssl=1 1024w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-datatable-composer-package-laravel-9-installation.png?resize=300%2C149&amp;ssl=1 300w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-datatable-composer-package-laravel-9-installation.png?resize=768%2C383&amp;ssl=1 768w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-datatable-composer-package-laravel-9-installation.png?w=1114&amp;ssl=1 1114w" sizes="(max-width: 825px) 100vw, 825px" data-recalc-dims="1"/><noscript><img loading="lazy" width="825" height="411" src="https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-datatable-composer-package-laravel-9-installation.png?resize=825%2C411&#038;ssl=1" alt="" class="wp-image-21917" srcset="https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-datatable-composer-package-laravel-9-installation.png?resize=1024%2C510&amp;ssl=1 1024w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-datatable-composer-package-laravel-9-installation.png?resize=300%2C149&amp;ssl=1 300w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-datatable-composer-package-laravel-9-installation.png?resize=768%2C383&amp;ssl=1 768w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-datatable-composer-package-laravel-9-installation.png?w=1114&amp;ssl=1 1114w" sizes="(max-width: 825px) 100vw, 825px" data-recalc-dims="1" /></noscript></figure>
+
+
+
+<p></p><div class="code-block code-block-15" style="margin: 8px 0; clear: both;">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Site Horizontal Ads -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3254645315876098" data-ad-slot="8184470607" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+
+
+
+<h2><span class="ez-toc-section" id="Generate_Livewire_Scaffolding"></span>Generate Livewire Scaffolding<span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>Again,</p>
+
+
+
+<p>Back to terminal and run this command to create livewire folder &amp; files.</p>
+
+
+
+<pre class="wp-block-code"><code>$ php artisan make:livewire user-datatables</code></pre>
+
+
+
+<p>Above command will create these files –</p>
+
+
+
+<ul><li><strong>UserDatatables.php</strong> file inside /app/Http/Livewire folder.</li><li><strong>user-datatables.blade.php</strong> file inside /resources/views/livewire</li></ul>
+
+
+
+<p></p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="825" height="179" src="https://i0.wp.com/onlinewebtutorblog.com/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif?resize=825%2C179" data-lazy-type="image" data-src="https://onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-scaffolding-generate-laravel-9-1024x222.png" alt="" class="lazy lazy-hidden wp-image-21918" srcset="" data-srcset="https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-scaffolding-generate-laravel-9.png?resize=1024%2C222&amp;ssl=1 1024w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-scaffolding-generate-laravel-9.png?resize=300%2C65&amp;ssl=1 300w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-scaffolding-generate-laravel-9.png?resize=768%2C166&amp;ssl=1 768w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-scaffolding-generate-laravel-9.png?w=1195&amp;ssl=1 1195w" sizes="(max-width: 825px) 100vw, 825px" data-recalc-dims="1"/><noscript><img loading="lazy" width="825" height="179" src="https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-scaffolding-generate-laravel-9.png?resize=825%2C179&#038;ssl=1" alt="" class="wp-image-21918" srcset="https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-scaffolding-generate-laravel-9.png?resize=1024%2C222&amp;ssl=1 1024w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-scaffolding-generate-laravel-9.png?resize=300%2C65&amp;ssl=1 300w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-scaffolding-generate-laravel-9.png?resize=768%2C166&amp;ssl=1 768w, https://i0.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/livewire-scaffolding-generate-laravel-9.png?w=1195&amp;ssl=1 1195w" sizes="(max-width: 825px) 100vw, 825px" data-recalc-dims="1" /></noscript></figure>
+
+
+
+<p></p>
+
+
+
+<h2><span class="ez-toc-section" id="Livewire_Datatable_Settings"></span>Livewire Datatable Settings<span class="ez-toc-section-end"></span></h2>
+
+
+
+<p><meta http-equiv="content-type" content="text/html; charset=utf-8"/>Open <strong>UserDatatables.php</strong> and write this following code into it.</p>
+
+
+
+<div class="wp-block-codemirror-blocks-code-block code-block"><pre class="CodeMirror" data-setting="{&#34;mode&#34;:&#34;php&#34;,&#34;mime&#34;:&#34;text/x-php&#34;,&#34;theme&#34;:&#34;blackboard&#34;,&#34;lineNumbers&#34;:false,&#34;styleActiveLine&#34;:false,&#34;lineWrapping&#34;:false,&#34;readOnly&#34;:true,&#34;fileName&#34;:&#34;UserDatatables.php&#34;,&#34;language&#34;:&#34;PHP&#34;,&#34;modeName&#34;:&#34;php&#34;}">&lt;?php
+
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+use App\Models\User;
+use Illuminate\Support\Str;
+use Mediconesystems\LivewireDatatables\Column;
+use Mediconesystems\LivewireDatatables\NumberColumn;
+use Mediconesystems\LivewireDatatables\DateColumn;
+use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
+
+class UserDatatables extends LivewireDatatable
+{
+    public $model = User::class;
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function columns()
+    {
+        return [
+            NumberColumn::name(&#39;id&#39;)
+                -&gt;label(&#39;ID&#39;)
+                -&gt;sortBy(&#39;id&#39;),
+
+            Column::name(&#39;name&#39;)
+                -&gt;label(&#39;Name&#39;),
+
+            Column::name(&#39;email&#39;),
+
+            DateColumn::name(&#39;created_at&#39;)
+                -&gt;label(&#39;Creation Date&#39;)
+        ];
+    }
+}
+</pre></div>
+
+
+
+<h2><span class="ez-toc-section" id="Create_Blade_Template_File"></span>Create Blade Template File<span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>Create a blade template file <strong>default.blade.php</strong> inside <strong>/resources/views</strong> folder.</p>
+
+
+
+<p>Open default.blade.php and write this following code into it.</p>
+
+
+
+<div class="wp-block-codemirror-blocks-code-block code-block"><pre class="CodeMirror" data-setting="{&#34;mode&#34;:&#34;php&#34;,&#34;mime&#34;:&#34;text/x-php&#34;,&#34;theme&#34;:&#34;blackboard&#34;,&#34;lineNumbers&#34;:false,&#34;styleActiveLine&#34;:false,&#34;lineWrapping&#34;:false,&#34;readOnly&#34;:true,&#34;fileName&#34;:&#34;default.blade.php&#34;,&#34;language&#34;:&#34;PHP&#34;,&#34;modeName&#34;:&#34;php&#34;}">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Laravel 9 Livewire Data Pagination Tutorial&lt;/title&gt;
+    @livewireStyles
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css&#34;/&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css&#34; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;div class=&#34;container&#34;&gt;
+
+        &lt;div class=&#34;card&#34;&gt;
+            &lt;div class=&#34;card-header bg-primary text-white&#34;&gt;
+                Laravel 9 Livewire Data Pagination Tutorial
+            &lt;/div&gt;
+            &lt;div class=&#34;card-body&#34;&gt;
+                &lt;livewire:user-datatables searchable=&#34;name, email&#34; exportable /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+&lt;/body&gt;
+
+@livewireScripts
+
+&lt;/html&gt;
+</pre></div>
+
+
+
+<h2><span class="ez-toc-section" id="Add_Route"></span>Add Route<span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>Open <strong>web.php</strong> file from /routes folder. Add this route into it.</p>
+
+
+
+<div class="wp-block-codemirror-blocks-code-block code-block"><pre class="CodeMirror" data-setting="{&#34;mode&#34;:&#34;php&#34;,&#34;mime&#34;:&#34;text/x-php&#34;,&#34;theme&#34;:&#34;blackboard&#34;,&#34;lineNumbers&#34;:false,&#34;styleActiveLine&#34;:false,&#34;lineWrapping&#34;:false,&#34;readOnly&#34;:true,&#34;fileName&#34;:&#34;web.php&#34;,&#34;language&#34;:&#34;PHP&#34;,&#34;modeName&#34;:&#34;php&#34;}">//...
+
+Route::get(&#39;user-datatables&#39;, function () {
+    return view(&#39;default&#39;);
+});
+</pre></div>
+
+
+
+<h2><span class="ez-toc-section" id="Application_Testing"></span>Application Testing<span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>Open project to terminal and type the command to start development server </p>
+
+
+
+<pre class="wp-block-preformatted">$ php artisan serve</pre>
+
+
+
+<p><meta http-equiv="content-type" content="text/html; charset=utf-8"/>URL: http://127.0.0.1:8000/user-datatables</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="825" height="437" src="https://i0.wp.com/onlinewebtutorblog.com/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif?resize=825%2C437" data-lazy-type="image" data-src="https://onlinewebtutorblog.com/wp-content/uploads/2022/07/laravel-9-livewire-data-pagination-example-tutorial-1024x543.png" alt="" class="lazy lazy-hidden wp-image-21924" srcset="" data-srcset="https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/laravel-9-livewire-data-pagination-example-tutorial.png?resize=1024%2C543&amp;ssl=1 1024w, https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/laravel-9-livewire-data-pagination-example-tutorial.png?resize=300%2C159&amp;ssl=1 300w, https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/laravel-9-livewire-data-pagination-example-tutorial.png?resize=768%2C407&amp;ssl=1 768w, https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/laravel-9-livewire-data-pagination-example-tutorial.png?w=1115&amp;ssl=1 1115w" sizes="(max-width: 825px) 100vw, 825px" data-recalc-dims="1"/><noscript><img loading="lazy" width="825" height="437" src="https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/laravel-9-livewire-data-pagination-example-tutorial.png?resize=825%2C437&#038;ssl=1" alt="" class="wp-image-21924" srcset="https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/laravel-9-livewire-data-pagination-example-tutorial.png?resize=1024%2C543&amp;ssl=1 1024w, https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/laravel-9-livewire-data-pagination-example-tutorial.png?resize=300%2C159&amp;ssl=1 300w, https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/laravel-9-livewire-data-pagination-example-tutorial.png?resize=768%2C407&amp;ssl=1 768w, https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2022/07/laravel-9-livewire-data-pagination-example-tutorial.png?w=1115&amp;ssl=1 1115w" sizes="(max-width: 825px) 100vw, 825px" data-recalc-dims="1" /></noscript></figure>
+
+
+
+<p>You can see, we have used the concept of livewire data pagination to the list of Test users.</p>
+
+
+
+<p>We hope this article helped you to learn Laravel 9 Livewire DataTable Pagination Example Tutorial in a very detailed way.</p>
+
+
+
+        <style>
+            .bmc-btn {
+                min-width: 210px;
+                color: #ffffff !important;
+                background-color: #ff813f !important;
+                height: 60px;
+                border-radius: 12px;
+                font-size: 28px !important;
+                font-weight: Normal;
+                border: none;
+                padding: 0px 24px;
+                line-height: 27px;
+                text-decoration: none !important;
+                display: inline-flex !important;
+                align-items: center;
+                font-family: "Cookie" !important;
+                -webkit-box-sizing: border-box !important;
+                box-sizing: border-box !important;
+            }
+
+            .bmc-btn-text {
+                margin-left: 8px;
+                display: inline;
+                line-height: 0;
+            }
+
+            .bmc-btn svg {
+                height: 32px !important;
+                margin-bottom: 0px !important;
+                box-shadow: none !important;
+                border: none !important;
+                vertical-align: middle !important;
+                transform: scale(0.9);
+            }
+
+            .bmc-button img {
+                box-shadow: none !important;
+                vertical-align:
+                    middle !important;
+            }
+
+            .bmc-button {
+                display:
+                    inline-block !important;
+                padding:0px 10px  !important;
+                color:
+                    #ffffff !important;
+                background-color:
+                    #ff813f !important;
+                border-radius: 3px !important;
+                border: 1px solid transparent !important;
+                font-size: 28px !important;
+                box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;
+                -webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+                -webkit-transition: 0.3s all linear !important;
+                transition: 0.3s all linear !important;
+                margin: 0 auto !important;
+                font-family: "Cookie"
+                     !important;
+            }
+
+            .bmc-button: hover,
+            .bmc-button: active,
+            .bmc-button: focus {
+                -webkit-box-shadow: 0 4px 16px 0 rgba(190, 190, 190, .45) !important;
+                box-shadow: 0 4px 16px 0 rgba(190, 190, 190, .45) !important;
+                opacity: 0.85 !important;
+                color:
+                    #ffffff !important;
+            }
+        </style>
+        
+        <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+                <p style="text-align:center !important; padding-bottom: 10px;">
+            <a class="bmc-btn" target="_blank" href="https://www.buymeacoffee.com/onlinewebtutor" rel="noopener"><svg viewBox="0 0 884 1279" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M791.109 297.518L790.231 297.002L788.201 296.383C789.018 297.072 790.04 297.472 791.109 297.518Z" fill="#0D0C22"></path>
+                <path d="M803.896 388.891L802.916 389.166L803.896 388.891Z" fill="#0D0C22"></path>
+                <path d="M791.484 297.377C791.359 297.361 791.237 297.332 791.118 297.29C791.111 297.371 791.111 297.453 791.118 297.534C791.252 297.516 791.379 297.462 791.484 297.377Z" fill="#0D0C22"></path>
+                <path d="M791.113 297.529H791.244V297.447L791.113 297.529Z" fill="#0D0C22"></path>
+                <path d="M803.111 388.726L804.591 387.883L805.142 387.573L805.641 387.04C804.702 387.444 803.846 388.016 803.111 388.726Z" fill="#0D0C22"></path>
+                <path d="M793.669 299.515L792.223 298.138L791.243 297.605C791.77 298.535 792.641 299.221 793.669 299.515Z" fill="#0D0C22"></path>
+                <path d="M430.019 1186.18C428.864 1186.68 427.852 1187.46 427.076 1188.45L427.988 1187.87C428.608 1187.3 429.485 1186.63 430.019 1186.18Z" fill="#0D0C22"></path>
+                <path d="M641.187 1144.63C641.187 1143.33 640.551 1143.57 640.705 1148.21C640.705 1147.84 640.86 1147.46 640.929 1147.1C641.015 1146.27 641.084 1145.46 641.187 1144.63Z" fill="#0D0C22"></path>
+                <path d="M619.284 1186.18C618.129 1186.68 617.118 1187.46 616.342 1188.45L617.254 1187.87C617.873 1187.3 618.751 1186.63 619.284 1186.18Z" fill="#0D0C22"></path>
+                <path d="M281.304 1196.06C280.427 1195.3 279.354 1194.8 278.207 1194.61C279.136 1195.06 280.065 1195.51 280.684 1195.85L281.304 1196.06Z" fill="#0D0C22"></path>
+                <path d="M247.841 1164.01C247.704 1162.66 247.288 1161.35 246.619 1160.16C247.093 1161.39 247.489 1162.66 247.806 1163.94L247.841 1164.01Z" fill="#0D0C22"></path>
+                <path class="logo-coffee" d="M472.623 590.836C426.682 610.503 374.546 632.802 306.976 632.802C278.71 632.746 250.58 628.868 223.353 621.274L270.086 1101.08C271.74 1121.13 280.876 1139.83 295.679 1153.46C310.482 1167.09 329.87 1174.65 349.992 1174.65C349.992 1174.65 416.254 1178.09 438.365 1178.09C462.161 1178.09 533.516 1174.65 533.516 1174.65C553.636 1174.65 573.019 1167.08 587.819 1153.45C602.619 1139.82 611.752 1121.13 613.406 1101.08L663.459 570.876C641.091 563.237 618.516 558.161 593.068 558.161C549.054 558.144 513.591 573.303 472.623 590.836Z" fill="#FFDD00"></path>
+                <path d="M78.6885 386.132L79.4799 386.872L79.9962 387.182C79.5987 386.787 79.1603 386.435 78.6885 386.132Z" fill="#0D0C22"></path>
+                <path class="logo-outline" d="M879.567 341.849L872.53 306.352C866.215 274.503 851.882 244.409 819.19 232.898C808.711 229.215 796.821 227.633 788.786 220.01C780.751 212.388 778.376 200.55 776.518 189.572C773.076 169.423 769.842 149.257 766.314 129.143C763.269 111.85 760.86 92.4243 752.928 76.56C742.604 55.2584 721.182 42.8009 699.88 34.559C688.965 30.4844 677.826 27.0375 666.517 24.2352C613.297 10.1947 557.342 5.03277 502.591 2.09047C436.875 -1.53577 370.983 -0.443234 305.422 5.35968C256.625 9.79894 205.229 15.1674 158.858 32.0469C141.91 38.224 124.445 45.6399 111.558 58.7341C95.7448 74.8221 90.5829 99.7026 102.128 119.765C110.336 134.012 124.239 144.078 138.985 150.737C158.192 159.317 178.251 165.846 198.829 170.215C256.126 182.879 315.471 187.851 374.007 189.968C438.887 192.586 503.87 190.464 568.44 183.618C584.408 181.863 600.347 179.758 616.257 177.304C634.995 174.43 647.022 149.928 641.499 132.859C634.891 112.453 617.134 104.538 597.055 107.618C594.095 108.082 591.153 108.512 588.193 108.942L586.06 109.252C579.257 110.113 572.455 110.915 565.653 111.661C551.601 113.175 537.515 114.414 523.394 115.378C491.768 117.58 460.057 118.595 428.363 118.647C397.219 118.647 366.058 117.769 334.983 115.722C320.805 114.793 306.661 113.611 292.552 112.177C286.134 111.506 279.733 110.801 273.333 110.009L267.241 109.235L265.917 109.046L259.602 108.134C246.697 106.189 233.792 103.953 221.025 101.251C219.737 100.965 218.584 100.249 217.758 99.2193C216.932 98.1901 216.482 96.9099 216.482 95.5903C216.482 94.2706 216.932 92.9904 217.758 91.9612C218.584 90.9319 219.737 90.2152 221.025 89.9293H221.266C232.33 87.5721 243.479 85.5589 254.663 83.8038C258.392 83.2188 262.131 82.6453 265.882 82.0832H265.985C272.988 81.6186 280.026 80.3625 286.994 79.5366C347.624 73.2301 408.614 71.0801 469.538 73.1014C499.115 73.9618 528.676 75.6996 558.116 78.6935C564.448 79.3474 570.746 80.0357 577.043 80.8099C579.452 81.1025 581.878 81.4465 584.305 81.7391L589.191 82.4445C603.438 84.5667 617.61 87.1419 631.708 90.1703C652.597 94.7128 679.422 96.1925 688.713 119.077C691.673 126.338 693.015 134.408 694.649 142.03L696.732 151.752C696.786 151.926 696.826 152.105 696.852 152.285C701.773 175.227 706.7 198.169 711.632 221.111C711.994 222.806 712.002 224.557 711.657 226.255C711.312 227.954 710.621 229.562 709.626 230.982C708.632 232.401 707.355 233.6 705.877 234.504C704.398 235.408 702.75 235.997 701.033 236.236H700.895L697.884 236.649L694.908 237.044C685.478 238.272 676.038 239.419 666.586 240.486C647.968 242.608 629.322 244.443 610.648 245.992C573.539 249.077 536.356 251.102 499.098 252.066C480.114 252.57 461.135 252.806 442.162 252.771C366.643 252.712 291.189 248.322 216.173 239.625C208.051 238.662 199.93 237.629 191.808 236.58C198.106 237.389 187.231 235.96 185.029 235.651C179.867 234.928 174.705 234.177 169.543 233.397C152.216 230.798 134.993 227.598 117.7 224.793C96.7944 221.352 76.8005 223.073 57.8906 233.397C42.3685 241.891 29.8055 254.916 21.8776 270.735C13.7217 287.597 11.2956 305.956 7.64786 324.075C4.00009 342.193 -1.67805 361.688 0.472751 380.288C5.10128 420.431 33.165 453.054 73.5313 460.35C111.506 467.232 149.687 472.807 187.971 477.556C338.361 495.975 490.294 498.178 641.155 484.129C653.44 482.982 665.708 481.732 677.959 480.378C681.786 479.958 685.658 480.398 689.292 481.668C692.926 482.938 696.23 485.005 698.962 487.717C701.694 490.429 703.784 493.718 705.08 497.342C706.377 500.967 706.846 504.836 706.453 508.665L702.633 545.797C694.936 620.828 687.239 695.854 679.542 770.874C671.513 849.657 663.431 928.434 655.298 1007.2C653.004 1029.39 650.71 1051.57 648.416 1073.74C646.213 1095.58 645.904 1118.1 641.757 1139.68C635.218 1173.61 612.248 1194.45 578.73 1202.07C548.022 1209.06 516.652 1212.73 485.161 1213.01C450.249 1213.2 415.355 1211.65 380.443 1211.84C343.173 1212.05 297.525 1208.61 268.756 1180.87C243.479 1156.51 239.986 1118.36 236.545 1085.37C231.957 1041.7 227.409 998.039 222.9 954.381L197.607 711.615L181.244 554.538C180.968 551.94 180.693 549.376 180.435 546.76C178.473 528.023 165.207 509.681 144.301 510.627C126.407 511.418 106.069 526.629 108.168 546.76L120.298 663.214L145.385 904.104C152.532 972.528 159.661 1040.96 166.773 1109.41C168.15 1122.52 169.44 1135.67 170.885 1148.78C178.749 1220.43 233.465 1259.04 301.224 1269.91C340.799 1276.28 381.337 1277.59 421.497 1278.24C472.979 1279.07 524.977 1281.05 575.615 1271.72C650.653 1257.95 706.952 1207.85 714.987 1130.13C717.282 1107.69 719.576 1085.25 721.87 1062.8C729.498 988.559 737.115 914.313 744.72 840.061L769.601 597.451L781.009 486.263C781.577 480.749 783.905 475.565 787.649 471.478C791.392 467.391 796.352 464.617 801.794 463.567C823.25 459.386 843.761 452.245 859.023 435.916C883.318 409.918 888.153 376.021 879.567 341.849ZM72.4301 365.835C72.757 365.68 72.1548 368.484 71.8967 369.792C71.8451 367.813 71.9483 366.058 72.4301 365.835ZM74.5121 381.94C74.6842 381.819 75.2003 382.508 75.7337 383.334C74.925 382.576 74.4089 382.009 74.4949 381.94H74.5121ZM76.5597 384.641C77.2996 385.897 77.6953 386.689 76.5597 384.641V384.641ZM80.672 387.979H80.7752C80.7752 388.1 80.9645 388.22 81.0333 388.341C80.9192 388.208 80.7925 388.087 80.6548 387.979H80.672ZM800.796 382.989C793.088 390.319 781.473 393.726 769.996 395.43C641.292 414.529 510.713 424.199 380.597 419.932C287.476 416.749 195.336 406.407 103.144 393.382C94.1102 392.109 84.3197 390.457 78.1082 383.798C66.4078 371.237 72.1548 345.944 75.2003 330.768C77.9878 316.865 83.3218 298.334 99.8572 296.355C125.667 293.327 155.64 304.218 181.175 308.09C211.917 312.781 242.774 316.538 273.745 319.36C405.925 331.405 540.325 329.529 671.92 311.91C695.906 308.686 719.805 304.941 743.619 300.674C764.835 296.871 788.356 289.731 801.175 311.703C809.967 326.673 811.137 346.701 809.778 363.615C809.359 370.984 806.139 377.915 800.779 382.989H800.796Z" fill="#0D0C22"></path>
+                </svg><span class="bmc-btn-text"> Buy Me a Coffee</span></a>
+
+        </p>
+    
+
+
+
+<p><meta http-equiv="content-type" content="text/html; charset=utf-8"/>Online Web Tutor invites you to try <a rel="noreferrer noopener" href="https://www.skillshare.com/r/user/onlinewebtutor?gr_tch_ref=on" target="_blank"><strong>Skillshare</strong></a> free for 1 month! Learn CakePHP 4, Laravel APIs Development, CodeIgniter 4, Node Js, etc into a depth level. Master the Coding Skills to Become an Expert in Web Development. So, Search your favourite course and enroll now. Click <strong><a rel="noreferrer noopener" href="https://www.skillshare.com/r/user/onlinewebtutor?gr_tch_ref=on" target="_blank">here</a></strong> to join.</p>
+
+
+
+<p>If you liked this article, then please subscribe to our <strong><a rel="noreferrer noopener" href="https://www.youtube.com/onlinewebtutor?sub_confirmation=1" target="_blank">YouTube Channel</a></strong> for PHP &amp; it’s framework, WordPress, Node Js video tutorials. You can also find us on <strong><a rel="noreferrer noopener" href="https://twitter.com/owthub" target="_blank">Twitter</a></strong> and <strong><a rel="noreferrer noopener" href="https://www.facebook.com/owthub" target="_blank">Facebook</a></strong>.</p>
+
+<div class="helpful ">
+
+		<div class="helpful-header">
+		<h3 class="helpful-headline">Was this post helpful?</h3>	</div><!-- .helpful-header -->
+	
+	<div class="helpful-content" role="alert">
+		<span>Let us know if you liked the post. Please share your feedback.</span>
+	</div><!-- .helpful-content -->
+
+		<div class="helpful-controls">
+
+				<div>
+			<button class="helpful-pro helpful-button" type="button" data-value="pro" data-post="21911" data-instance="810" role="button">
+				Yes							</button>
+		</div>
+		
+				<div>
+			<button class="helpful-contra helpful-button" type="button" data-value="contra" data-post="21911" data-instance="810" role="button">
+				No							</button>
+		</div>
+		
+	</div><!-- .helpful-controls -->
+	
+	
+</div><!-- .helpful -->
+<div class="crp_related  "><h3>Related Posts:</h3><ul><li><a href="https://onlinewebtutorblog.com/laravel-9-how-to-work-with-livewire-pagination-example/" class="crp_link post-21719"><span class="crp_title">Laravel 9 How To Work With Livewire Pagination Example</span></a></li><li><a href="https://onlinewebtutorblog.com/view-logs-using-logviewer-package-laravel-8-tutorial/" class="crp_link post-9543"><span class="crp_title">View Logs Using LogViewer Package Laravel 8 Tutorial</span></a></li><li><a href="https://onlinewebtutorblog.com/laravel-9-view-logs-using-logviewer-package-tutorial/" class="crp_link post-20400"><span class="crp_title">Laravel 9 View Logs Using LogViewer Package Tutorial</span></a></li><li><a href="https://onlinewebtutorblog.com/laravel-8-sitemap-generator-package-tutorial/" class="crp_link post-7676"><span class="crp_title">Laravel 8 Sitemap Generator Package Tutorial</span></a></li><li><a href="https://onlinewebtutorblog.com/remove-composer-package-in-laravel-8-tutorial/" class="crp_link post-11843"><span class="crp_title">How to Remove Composer Package in Laravel 8 Tutorial</span></a></li><li><a href="https://onlinewebtutorblog.com/how-to-remove-composer-package-in-laravel-9-tutorial/" class="crp_link post-19913"><span class="crp_title">How to Remove Composer Package in Laravel 9 Tutorial</span></a></li></ul><div class="crp_clear"></div></div><!-- AI CONTENT END 2 -->
+		</div>
+
+				<footer class="entry-meta">
+			<span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://onlinewebtutorblog.com/category/laravel-9/" rel="category tag">Laravel 9</a></span> 		<nav id="nav-below" class="post-navigation">
+			<span class="screen-reader-text">Post navigation</span>
+
+			<div class="nav-previous"><span class="prev" title="Previous"><a href="https://onlinewebtutorblog.com/laravel-9-how-to-save-array-data-in-database-table/" rel="prev">Laravel 9 How To Save Array Data in Database Table</a></span></div><div class="nav-next"><span class="next" title="Next"><a href="https://onlinewebtutorblog.com/laravel-9-cookies-get-set-delete-cookie-example/" rel="next">Laravel 9 Cookies – Get, Set, Delete Cookie Example Tutorial</a></span></div>		</nav>
+				</footer>
+			</div>
+</article>
+<div class="code-block code-block-5" style="margin: 8px 0; clear: both;">
+<div class="adsbyvli" data-ad-slot="vi_1796191176" style="width: 728px; height: 90px"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_1796191176")})</script></div>
+		</main>
+	</div>
+
+	<div id="right-sidebar" class="widget-area sidebar is-right-sidebar grid-25 tablet-grid-25 grid-parent" itemtype="https://schema.org/WPSideBar" itemscope="">
+	<div class="inside-right-sidebar">
+		<aside id="newsletterwidget-2" class="widget inner-padding widget_newsletterwidget"><h2 class="widget-title">Newsletter</h2><div class="tnp tnp-widget"><form method="post" action="https://onlinewebtutorblog.com/?na=s">
+
+<input type="hidden" name="nr" value="widget"/><input type="hidden" name="nlang" value=""/><div class="tnp-field tnp-field-firstname"><label for="tnp-1">First name or full name</label>
+<input class="tnp-name" type="text" name="nn" id="tnp-1" value=""/></div>
+<div class="tnp-field tnp-field-email"><label for="tnp-2">Email</label>
+<input class="tnp-email" type="email" name="ne" id="tnp-2" value="" required=""/></div>
+<div class="tnp-field tnp-field-button"><input class="tnp-submit" type="submit" value="Subscribe"/>
+</div>
+</form>
+</div></aside><aside id="ai_widget-3" class="widget inner-padding ai_widget"><h2 class="widget-title">Advertisement</h2><div class="code-block code-block-6" style="margin: 8px 0; clear: both;">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Site Horizontal Ads -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3254645315876098" data-ad-slot="8184470607" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+</aside>
+<aside id="wpp-4" class="widget inner-padding popular-posts">
+<h2 class="widget-title">Popular Posts</h2>
+
+
+<ul class="wpp-list">
+<li>
+<a href="https://onlinewebtutorblog.com/php-how-to-work-with-cookie-set-get-and-delete-tutorial/" class="wpp-post-title" target="_self">PHP How To Work with Cookie Set Get And Delete Tutorial</a>
+</li>
+</ul>
+
+</aside>
+<aside id="media_image-4" class="widget inner-padding widget_media_image"><h2 class="widget-title">Find Us on Youtube</h2><figure style="width: 290px" class="wp-caption alignnone"><a href="https://youtube.com/onlinewebtutor" target="_blank" rel="noopener"><img width="300" height="266" src="//onlinewebtutorblog.com/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif" data-lazy-type="image" data-src="https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2020/09/youtube-icon-3249999_640.jpg?fit=300%2C266&amp;ssl=1" class="lazy lazy-hidden image wp-image-3144  attachment-medium size-medium" alt="Online Web Tutor Youtube" loading="lazy" style="max-width: 100%; height: auto;" title="Find Us on Youtube" srcset="" data-srcset="https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2020/09/youtube-icon-3249999_640.jpg?w=640&amp;ssl=1 640w, https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2020/09/youtube-icon-3249999_640.jpg?resize=300%2C266&amp;ssl=1 300w" sizes="(max-width: 300px) 100vw, 300px"/><noscript><img width="300" height="266" src="https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2020/09/youtube-icon-3249999_640.jpg?fit=300%2C266&amp;ssl=1" class="image wp-image-3144  attachment-medium size-medium" alt="Online Web Tutor Youtube" loading="lazy" style="max-width: 100%; height: auto;" title="Find Us on Youtube" srcset="https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2020/09/youtube-icon-3249999_640.jpg?w=640&amp;ssl=1 640w, https://i2.wp.com/onlinewebtutorblog.com/wp-content/uploads/2020/09/youtube-icon-3249999_640.jpg?resize=300%2C266&amp;ssl=1 300w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></a><figcaption class="wp-caption-text">Online Web Tutor Youtube</figcaption></figure></aside><aside id="ai_widget-8" class="widget inner-padding ai_widget"><h2 class="widget-title">Advertisement</h2><div class="code-block code-block-14" style="margin: 8px 0; clear: both;">
+<div class="adsbyvli" data-ad-slot="vi_1796191177" style="width: 160px; height: 600px"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_1796191177")})</script></div>
+</aside><aside id="categories-2" class="widget inner-padding widget_categories"><h2 class="widget-title">Categories</h2>
+			<ul>
+					<li class="cat-item cat-item-39"><a href="https://onlinewebtutorblog.com/category/aws-s3/">AWS S3</a> (4)
+</li>
+	<li class="cat-item cat-item-36"><a href="https://onlinewebtutorblog.com/category/blogging/">Blogging</a> (1)
+</li>
+	<li class="cat-item cat-item-21"><a href="https://onlinewebtutorblog.com/category/cakephp-4/" title="CakePHP 4 tutorials, Best Place to Learn CakePHP 4. CakePHP 4 Advance Articles on Validation, Authentication, Ajax CRUD Methods, Payment Gateway, Cron Jobs, Routes etc. Step by Step CakePHP 4 Tutorials.">CakePHP 4</a> (101)
+</li>
+	<li class="cat-item cat-item-12"><a href="https://onlinewebtutorblog.com/category/codeigniter-4/" title="CodeIgniter 4 tutorials, Best Place to Learn CodeIgniter 4. CodeIgniter 4 Advance Articles on Routing, Scaffolding, Models &amp; Entity, Migrations, Seeders, HMVC, URL, Spark Commands, Config, Database, Multi language, Filters, Validation etc. Step by Step CodeIgniter 4 Tutorials.">CodeIgniter 4</a> (164)
+</li>
+	<li class="cat-item cat-item-35"><a href="https://onlinewebtutorblog.com/category/guest-post/">Guest Post</a> (2)
+</li>
+	<li class="cat-item cat-item-33"><a href="https://onlinewebtutorblog.com/category/jquery-javascript/">jQuery &amp; Javascript</a> (58)
+</li>
+	<li class="cat-item cat-item-27"><a href="https://onlinewebtutorblog.com/category/laravel-8/" title="Laravel 8 tutorials, Best Place to Learn Laravel 8. Laravel 8 Advance Articles on Installation, Payment Gateway, Stubs, Push Notifications, jQuery Notifications, AJAX Request, Livewire, Authentication Methods etc. Step by Step Laravel 8 Tutorials.">Laravel 8</a> (163)
+</li>
+	<li class="cat-item cat-item-38"><a href="https://onlinewebtutorblog.com/category/laravel-9/" title="Laravel 9 tutorials, Best Place to Learn Laravel 9. Laravel 9 Advance Articles on Installation, Payment Gateway, Stubs, Push Notifications, jQuery Notifications, AJAX Request, Livewire, Authentication Methods etc. Step by Step Laravel 9 Tutorials.">Laravel 9</a> (142)
+</li>
+	<li class="cat-item cat-item-8"><a href="https://onlinewebtutorblog.com/category/mysql/">MySQL</a> (10)
+</li>
+	<li class="cat-item cat-item-24"><a href="https://onlinewebtutorblog.com/category/node-js/">Node Js</a> (16)
+</li>
+	<li class="cat-item cat-item-34"><a href="https://onlinewebtutorblog.com/category/php/" title="PHP Tutorials, PHP Tricks, PHP Programming, PHP Best Programming Articles">PHP Miscellaneous</a> (85)
+</li>
+	<li class="cat-item cat-item-1"><a href="https://onlinewebtutorblog.com/category/wordpress/" title="WordPress tutorials, Best Place to Learn WordPress. WordPress Advance Articles on WP CLI, Theme Development, Plugin Development, Widgets, working with jQuery UI, about Database global objects etc. Step by Step WordPress Tutorials.">Wordpress</a> (28)
+</li>
+			</ul>
+
+			</aside>
+		<aside id="recent-posts-2" class="widget inner-padding widget_recent_entries">
+		<h2 class="widget-title">Recent Posts</h2>
+		<ul>
+											<li>
+					<a href="https://onlinewebtutorblog.com/laravel-9-how-to-select-specific-columns-in-eloquent-model/">Laravel 9 How to Select Specific Columns in Eloquent Model</a>
+									</li>
+											<li>
+					<a href="https://onlinewebtutorblog.com/laravel-9-how-to-generate-uuid-in-application-tutorial/">Laravel 9 How To Generate UUID in Application Tutorial</a>
+									</li>
+											<li>
+					<a href="https://onlinewebtutorblog.com/laravel-9-how-to-get-all-models-from-application-tutorial/">Laravel 9 How To Get All Models From Application Tutorial</a>
+									</li>
+											<li>
+					<a href="https://onlinewebtutorblog.com/php-how-to-work-with-data-pagination-tutorial/">PHP How To Work with Data Pagination Tutorial</a>
+									</li>
+											<li>
+					<a href="https://onlinewebtutorblog.com/php-how-to-work-with-cookie-set-get-and-delete-tutorial/">PHP How To Work with Cookie Set Get And Delete Tutorial</a>
+									</li>
+					</ul>
+
+		</aside>	</div>
+</div>
+
+	</div>
+</div>
+
+
+<div class="site-footer">
+			<footer class="site-info" itemtype="https://schema.org/WPFooter" itemscope="">
+			<div class="inside-site-info grid-container grid-parent">
+								<div class="copyright-bar">
+					© 2020 - 2022 Online Web Tutor				</div>
+			</div>
+		</footer>
+		</div>
+
+<a title="Scroll back to top" aria-label="Scroll back to top" rel="nofollow" href="#" class="generate-back-to-top" style="opacity:0;visibility:hidden;" data-scroll-speed="400" data-start-scroll="300">
+					
+				</a>
+            <script>
+                ;(function () {
+
+                    //Handle excludes
+                    if ('' !== `rs-fullwidth-wrap,.mejs-container`) {
+                        const elements = document.querySelectorAll(`rs-fullwidth-wrap,.mejs-container`);
+
+                        elements.forEach((element) => {
+                            element.classList.add('wp-dark-mode-ignore');
+                            const children = element.querySelectorAll('*');
+
+                            children.forEach((child) => {
+                                child.classList.add('wp-dark-mode-ignore');
+                            });
+                        });
+                    }
+
+                    //handle includes
+                    if ('' !== ``) {
+                        const elements = document.querySelectorAll(``);
+
+                        elements.forEach((element) => {
+                            element.classList.add('wp-dark-mode-include');
+                            const children = element.querySelectorAll('*');
+
+                            children.forEach((child) => {
+                                child.classList.add('wp-dark-mode-include');
+                            })
+                        });
+                    }
+
+                })();
+            </script>
+
+
+            <script>
+                ;(function () {
+
+                    window.wpDarkMode = {"config":{"brightness":"100","contrast":"90","sepia":"10"},"enable_preset":false,"customize_colors":false,"colors":{"bg":"#000","text":"#dfdedb","link":"#e58c17"},"enable_frontend":true,"enable_backend":false,"enable_os_mode":true,"excludes":"rs-fullwidth-wrap,.mejs-container","includes":"","is_excluded":false,"remember_darkmode":false,"default_mode":false,"keyboard_shortcut":true,"images":"","videos":"","is_pro_active":false,"is_ultimate_active":false,"pro_version":0,"is_elementor_editor":false,"is_block_editor":false,"frontend_mode":false};
+
+                    const is_saved = localStorage.getItem('wp_dark_mode_active');
+
+                    const shouldDarkMode = is_saved == '1' || (!is_saved && wpDarkMode.default_mode) || checkOsDarkMode();
+
+                    if (shouldDarkMode) {
+                        const isCustomColor = parseInt("");
+
+                        const isPerformanceMode = Boolean();
+
+                        if (!isCustomColor && !isPerformanceMode) {
+
+                            //remove preload css
+                            if (document.getElementById('pre_css')) {
+                                document.getElementById('pre_css').remove();
+                            }
+
+                            //enable dark mode
+                            if ('' === ``) {
+                                DarkMode.enable();
+                            }
+                        }
+                    }
+
+                })();
+
+
+            </script>
+
+			<div class="wp-dark-mode-switcher wp-dark-mode-ignore  style-1  floating right_bottom">
+
+	
+    <label for="wp-dark-mode-switch" class="wp-dark-mode-ignore wp-dark-mode-none">
+        <div class="modes wp-dark-mode-ignore">
+            <img class="light" src="https://onlinewebtutorblog.com/wp-content/plugins/wp-dark-mode//assets/images/btn-1/light.png" alt="Light"/>
+            <img class="dark" src="https://onlinewebtutorblog.com/wp-content/plugins/wp-dark-mode//assets/images/btn-1/dark.png" alt="Dark"/>
+        </div>
+    </label>
+
+</div><div class="essbfc-container essbfc-container-profiles essbfc-col-profiles essbfc-template-color essbfc-profiles-bar essbfc-profiles-left"><ul></ul></div>      <style>
+        .njt-nofi-notification-bar .njt-nofi-hide-button {
+          display: none;
+        }
+        .njt-nofi-notification-bar .njt-nofi-content {
+          font-size : 14px;
+        }
+        /* body{
+          padding-top: 49px;
+        } */
+      </style>
+    <div class="njt-nofi-container-content">
+<div class="njt-nofi-container">
+  <div class="njt-nofi-notification-bar njt-nofi-bgcolor-notification" style="background:#2d3e50">
+    
+    <div class="njt-nofi-content njt-nofi-text-color njt-nofi-align-content njt-nofi-content-deskop njt-display-deskop" style="max-width:100%">
+      <div class="njt-nofi-text njt-nofi-padding-text">Learn Web Development Courses Risk Free @ $5 only.</div>
+      <div class="njt-nofi-button njt-nofi-padding-text " style="">
+          <a target="_blank" href="https://skillshike.com/" class="njt-nofi-button-text njt-nofi-padding-text" style="background:#3d5afe;border-radius:3px">Enroll Now</a>
+      </div>
+    </div>
+
+    <div class="njt-nofi-content njt-nofi-text-color njt-nofi-align-content njt-display-none njt-nofi-content-mobile njt-display-mobile" style="max-width:100%">
+      <div class="njt-nofi-text njt-nofi-padding-text">Web Development Courses @ $5</div>
+      <div class="njt-nofi-button njt-nofi-padding-text " style="">
+          <a target="_blank" href="https://skillshike.com/" class="njt-nofi-button-text njt-nofi-padding-text" style="background:#3d5afe;border-radius:3px">Enroll Now</a>
+      </div>
+    </div>
+
+    <a href="javascript:void(0)" class="njt-nofi-toggle-button njt-nofi-hide njt-nofi-text-color njt-nofi-hide-admin-custom">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 386.667 386.667" style="enable-background:new 0 0 512 512" xml:space="preserve" class="njt-nofi-close-icon"><g><path xmlns="http://www.w3.org/2000/svg" d="m386.667 45.564-45.564-45.564-147.77 147.769-147.769-147.769-45.564 45.564 147.769 147.769-147.769 147.77 45.564 45.564 147.769-147.769 147.769 147.769 45.564-45.564-147.768-147.77z" fill="#ffffff" data-original="#000000" style="" class=""></path></g></svg>
+      </span>
+    </a>
+    <a href="javascript:void(0)" class="njt-nofi-close-button njt-nofi-hide njt-nofi-text-color njt-nofi-hide-admin-custom">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 386.667 386.667" style="enable-background:new 0 0 512 512" xml:space="preserve" class="njt-nofi-close-icon"><g><path xmlns="http://www.w3.org/2000/svg" d="m386.667 45.564-45.564-45.564-147.77 147.769-147.769-147.769-45.564 45.564 147.769 147.769-147.769 147.77 45.564 45.564 147.769-147.769 147.769 147.769 45.564-45.564-147.768-147.77z" fill="#ffffff" data-original="#000000" style="" class=""></path></g></svg>
+      </span>
+    </a>  
+  </div>
+  <div>
+    <a href="javascript:void(0)" class="njt-nofi-display-toggle njt-nofi-text-color njt-nofi-bgcolor-notification" style="background:#2d3e50">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 386.667 386.667" style="enable-background:new 0 0 512 512" xml:space="preserve" class="njt-nofi-display-toggle-icon"><g><path xmlns="http://www.w3.org/2000/svg" d="m386.667 45.564-45.564-45.564-147.77 147.769-147.769-147.769-45.564 45.564 147.769 147.769-147.769 147.77 45.564 45.564 147.769-147.769 147.769 147.769 45.564-45.564-147.768-147.77z" fill="#ffffff" data-original="#000000" style="" class=""></path></g></svg>
+      </span>
+    </a>
+  </div>
+</div>
+</div>
+
+
+      <input type="hidden" id="njt_nofi_checkDisplayReview" name="njt_nofi_checkDisplayReview" value="{&#34;is_home&#34;:false,&#34;is_page&#34;:false,&#34;is_single&#34;:true,&#34;id_page&#34;:21911}"/>
+    <script src="https://onlinewebtutorblog.com/wp-content/plugins/gp-premium/menu-plus/functions/js/sticky.min.js?ver=1.8.3" id="generate-sticky-js"></script>
+<script src="https://c0.wp.com/p/jetpack/10.1/_inc/build/photon/photon.min.js" id="jetpack-photon-js"></script>
+<script src="https://c0.wp.com/c/5.9.3/wp-includes/js/dist/vendor/regenerator-runtime.min.js" id="regenerator-runtime-js"></script>
+<script src="https://c0.wp.com/c/5.9.3/wp-includes/js/dist/vendor/wp-polyfill.min.js" id="wp-polyfill-js"></script>
+<script id="contact-form-7-js-extra">
+var wpcf7 = {"api":{"root":"https:\/\/onlinewebtutorblog.com\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.4.2" id="contact-form-7-js"></script>
+<script id="generate-smooth-scroll-js-extra">
+var smooth = {"elements":[".smooth-scroll","li.smooth-scroll a"],"duration":"800"};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/gp-premium/general/js/smooth-scroll.min.js?ver=1.8.3" id="generate-smooth-scroll-js"></script>
+<script id="quick-download-button-frontend-script-js-extra">
+var quick_download_object = {"ajaxurl":"https:\/\/onlinewebtutorblog.com\/wp-admin\/admin-ajax.php","security":"0459497a04","redirecturl":"https:\/\/onlinewebtutorblog.com\/laravel-9-livewire-datatable-pagination-using-package-tutorial\/"};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/quick-download-button/frontend/index.js?ver=1635949017" id="quick-download-button-frontend-script-js"></script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/wp-codemirror-block/vendor/codemirror/lib/codemirror.min.js?ver=5.40.5" id="codemirror-js"></script>
+<script id="codemirror-autoload-assets-js-before">
+var wpcm = {"plugin_url":"https://onlinewebtutorblog.com/wp-content/plugins/wp-codemirror-block","assets":[],"panelOptions":{"showPanel":true,"languageLabel":"file","runButton":false,"fullScreenButton":true,"copyButton":true},"view":"public"}
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/wp-codemirror-block/assets/js/autoLoadAssets.min.js?ver=1597664774" id="codemirror-autoload-assets-js"></script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/wp-codemirror-block/assets/js/init.min.js?ver=1597664774" id="codemirror-init-js"></script>
+<script src="https://c0.wp.com/c/5.9.3/wp-includes/js/underscore.min.js" id="underscore-js"></script>
+<script id="wp-util-js-extra">
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+</script>
+<script src="https://c0.wp.com/c/5.9.3/wp-includes/js/wp-util.min.js" id="wp-util-js"></script>
+<script id="wp-dark-mode-frontend-js-extra">
+var wpDarkMode = {"config":{"brightness":"100","contrast":"90","sepia":"10"},"enable_preset":"","customize_colors":"","colors":{"bg":"#000","text":"#dfdedb","link":"#e58c17"},"enable_frontend":"1","enable_backend":"","enable_os_mode":"1","excludes":"rs-fullwidth-wrap,.mejs-container","includes":"","is_excluded":"","remember_darkmode":"","default_mode":"","keyboard_shortcut":"1","images":"","videos":"","is_pro_active":"","is_ultimate_active":"","pro_version":"0","is_elementor_editor":"","is_block_editor":"","frontend_mode":""};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/wp-dark-mode//assets/js/frontend.min.js?ver=2.1.7" id="wp-dark-mode-frontend-js"></script>
+<script id="helpful-js-extra">
+var helpful = {"ajax_url":"https:\/\/onlinewebtutorblog.com\/wp-admin\/admin-ajax.php","ajax_data":{"user_id":"44.205.23.244","_wpnonce":"cbd6f6854a"},"translations":{"fieldIsRequired":"This field is required."},"user_voted":{"user_id":"44.205.23.244","post_id":21911,"action":"helpful_has_user_voted","_wpnonce":"1fd3d59292"},"post_id":"21911","ajax_session":{"helpful_user":"bb8d913c09998c0743b9d1b50b8ee5f3"}};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/helpful/core/assets/js/helpful.js?ver=4.4.68" id="helpful-js"></script>
+<script id="njt-nofi-js-extra">
+var wpData = {"admin_ajax":"https:\/\/onlinewebtutorblog.com\/wp-admin\/admin-ajax.php","nonce":"92e4e1695c","isPositionFix":"","hideCloseButton":"no_button","isDisplayButton":"1","presetColor":"1","alignContent":"center","textColorNotification":"#eceff1","textButtonColor":"#ffffff","wp_is_mobile":"","is_customize_preview":"","wp_get_theme":"GeneratePress"};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/notibar/assets/frontend/js/notibar.js?ver=1.9.7" id="njt-nofi-js"></script>
+<!--[if lte IE 11]>
+<script src='https://onlinewebtutorblog.com/wp-content/themes/generatepress/assets/js/classList.min.js?ver=3.0.2' id='generate-classlist-js'></script>
+<![endif]-->
+<script id="generate-main-js-extra">
+var generatepressMenu = {"toggleOpenedSubMenus":"1","openSubMenuLabel":"Open Sub-Menu","closeSubMenuLabel":"Close Sub-Menu"};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/themes/generatepress/assets/js/main.min.js?ver=3.0.2" id="generate-main-js"></script>
+<script id="generate-navigation-search-js-extra">
+var generatepressNavSearch = {"open":"Open Search Bar","close":"Close Search Bar"};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/themes/generatepress/assets/js/navigation-search.min.js?ver=3.0.2" id="generate-navigation-search-js"></script>
+<script src="https://onlinewebtutorblog.com/wp-content/themes/generatepress/assets/js/back-to-top.min.js?ver=3.0.2" id="generate-back-to-top-js"></script>
+<script id="tve-dash-frontend-js-extra">
+var tve_dash_front = {"ajaxurl":"https:\/\/onlinewebtutorblog.com\/wp-admin\/admin-ajax.php","force_ajax_send":"1","is_crawler":""};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/thrive-visual-editor/thrive-dashboard/js/dist/frontend.min.js?ver=2.2.19.1" id="tve-dash-frontend-js"></script>
+<script id="heateor_sss_sharing_js-js-before">
+function heateorSssLoadEvent(e) {var t=window.onload;if (typeof window.onload!="function") {window.onload=e}else{window.onload=function() {t();e()}}};	var heateorSssSharingAjaxUrl = 'https://onlinewebtutorblog.com/wp-admin/admin-ajax.php', heateorSssCloseIconPath = 'https://onlinewebtutorblog.com/wp-content/plugins/sassy-social-share/public/../images/close.png', heateorSssPluginIconPath = 'https://onlinewebtutorblog.com/wp-content/plugins/sassy-social-share/public/../images/logo.png', heateorSssHorizontalSharingCountEnable = 0, heateorSssVerticalSharingCountEnable = 0, heateorSssSharingOffset = -10; var heateorSssMobileStickySharingEnabled = 0;var heateorSssCopyLinkMessage = "Link copied.";var heateorSssUrlCountFetched = [], heateorSssSharesText = 'Shares', heateorSssShareText = 'Share';function heateorSssPopup(e) {window.open(e,"popUpWindow","height=400,width=600,left=400,top=100,resizable,scrollbars,toolbar=0,personalbar=0,menubar=no,location=no,directories=no,status")};var heateorSssWhatsappShareAPI = "web";
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/sassy-social-share/public/js/sassy-social-share-public.js?ver=3.3.24" id="heateor_sss_sharing_js-js"></script>
+<script id="jquery-lazyloadxt-js-extra">
+var a3_lazyload_params = {"apply_images":"1","apply_videos":"1"};
+</script>
+<script src="//onlinewebtutorblog.com/wp-content/plugins/a3-lazy-load/assets/js/jquery.lazyloadxt.extra.min.js?ver=2.4.7" id="jquery-lazyloadxt-js"></script>
+<script src="//onlinewebtutorblog.com/wp-content/plugins/a3-lazy-load/assets/js/jquery.lazyloadxt.srcset.min.js?ver=2.4.7" id="jquery-lazyloadxt-srcset-js"></script>
+<script id="jquery-lazyloadxt-extend-js-extra">
+var a3_lazyload_extend_params = {"edgeY":"0","horizontal_container_classnames":""};
+</script>
+<script src="//onlinewebtutorblog.com/wp-content/plugins/a3-lazy-load/assets/js/jquery.lazyloadxt.extend.js?ver=2.4.7" id="jquery-lazyloadxt-extend-js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcI0oUcAAAAAEQlWcqurq1Xf3yObv1jZAuCI65g&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script id="wpcf7-recaptcha-js-extra">
+var wpcf7_recaptcha = {"sitekey":"6LcI0oUcAAAAAEQlWcqurq1Xf3yObv1jZAuCI65g","actions":{"homepage":"homepage","contactform":"contactform"}};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=5.4.2" id="wpcf7-recaptcha-js"></script>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js?ver=5.9.3" async="async" id="remote_sdk-js"></script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/easy-table-of-contents/vendor/smooth-scroll/jquery.smooth-scroll.min.js?ver=2.2.0" id="jquery-smooth-scroll-js"></script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/easy-table-of-contents/vendor/js-cookie/js.cookie.min.js?ver=2.2.1" id="js-cookie-js"></script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/easy-table-of-contents/vendor/sticky-kit/jquery.sticky-kit.min.js?ver=1.9.2" id="jquery-sticky-kit-js"></script>
+<script id="ez-toc-js-js-extra">
+var ezTOC = {"smooth_scroll":"1","scroll_offset":"30"};
+</script>
+<script src="https://onlinewebtutorblog.com/wp-content/plugins/easy-table-of-contents/assets/js/front.min.js?ver=2.0.17-1617513979" id="ez-toc-js-js"></script>
+<script type="text/javascript">var tcb_post_lists=JSON.parse('[]');</script><script src="https://stats.wp.com/e-202232.js" defer=""></script>
+<script>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:10.1',blog:'198215637',post:'21911',tz:'0',srv:'onlinewebtutorblog.com'} ]);
+	_stq.push([ 'clickTrackerInit', '198215637', '21911' ]);
+</script>
+<link rel="stylesheet" id="essb-cct-style" href="https://onlinewebtutorblog.com/wp-content/plugins/easy-social-share-buttons3/lib/modules/click-to-tweet/assets/css/styles.css" type="text/css" media="all"/><script type="text/javascript">
+				(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async=true;;
+				po.src = 'https://onlinewebtutorblog.com/wp-content/plugins/easy-social-share-buttons3/assets/js/essb-core.min.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();</script><script type="text/javascript"></script>
+
+
+
+<!--[selectrongo:video:done]--><script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('/detroitchicago/edmonton.webp', '/detroitchicago/edmonton.webp?a=a&cb=2&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('/porpoiseant/jellyfish.webp', '/porpoiseant/jellyfish.webp?a=a&cb=2&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="onlinewebtutorblog_com",_audins_did=262654;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=195-2");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.onlinewebtutorblog_com,DomainId.262654" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=2&cb=3', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script>
+<script>__ez.queue.addFile('/beardeddragon/drake.js', '/beardeddragon/drake.js?gcb=2&cb=4', false, [], true, false, true, false);</script></body></html><!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
+
+
+Served from: onlinewebtutorblog.com @ 2022-08-09 10:21:35 by W3 Total Cache
+-->

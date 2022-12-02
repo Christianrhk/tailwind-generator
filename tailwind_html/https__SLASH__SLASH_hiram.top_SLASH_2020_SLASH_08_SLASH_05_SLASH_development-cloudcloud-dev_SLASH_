@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>云开发7天训练营学习 | Hiram&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="云开发7天训练营学习计划 认识Serverless云开发 (8.3) ：学习云开发平台的基本概念和操作、团队协同、应用的开发、部署。 云函数 (8.4) ：函数的基础概念，架构，调用方式、静态文件的托管方式 开发Web接口 (8.5)：学习使用函数开发 Web 接口、多个函数的同时开发，资源复用 服务端渲染(8.6)：学习使用函数接入传统 koa 中间件，构建 Web 应用 数据库调用 (8.7)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="云开发7天训练营学习">
+<meta property="og:url" content="https://hiram-wong.github.io/2020/08/05/development-cloudcloud-dev/index.html">
+<meta property="og:site_name" content="Hiram&#39;s Blog">
+<meta property="og:description" content="云开发7天训练营学习计划 认识Serverless云开发 (8.3) ：学习云开发平台的基本概念和操作、团队协同、应用的开发、部署。 云函数 (8.4) ：函数的基础概念，架构，调用方式、静态文件的托管方式 开发Web接口 (8.5)：学习使用函数开发 Web 接口、多个函数的同时开发，资源复用 服务端渲染(8.6)：学习使用函数接入传统 koa 中间件，构建 Web 应用 数据库调用 (8.7)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/08/04/OrweUb7CjYugin2.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/04/w2k3Ncim48XyWTq.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/8UvYyWXiEKHIhdJ.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/WZ7tpCnyx6PdbXc.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/04/IXgb4TvWS8YnB1C.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/04/baOhn2zScrAUEeu.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/04/iH9XlgzjPGxw6NL.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/04/vTCVHfNhE7WA4Pl.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/04/scu14GMwotWx2yQ.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/04/lQBPpmFdsZ4kirY.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/Nf8hLduB7ZwXFsz.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/6FSHGK2dmC3fPgb.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/ovzE1cQ9FhfNSYL.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/5XzEqoxr1ek2Kpw.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/AOayH3E4ZB9KLxh.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/ceKgslDYSr5H16n.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/oJj6R1dnEx9zS3L.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/3tOmXuRQT6wPBhG.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/HS8WKQ5AlaJyoBE.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/Uou9XWJCf38FYG5.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/k1YoXwVMOBZpgae.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/06/2lEuV8QnBWHaRtD.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/06/xNb2eJhSVi7opcg.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/06/AE58bBChsVvFj6J.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/06/rOh2nZuaKTt4VA3.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/06/phNjzbolQWg1mSV.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/06/MYQF2cvufGatlHd.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/07/PySqpWYcgEXVCvB.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/07/kh9ZMDw61i7Uujf.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/07/r3Z28tgi41YRdSD.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/07/Wwrv1pRM5jGuazk.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/07/RKSot7uJmwxylqD.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/07/O6fwQnjH7hUtkEa.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/07/r239Ued6zbSQBOj.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/07/KMgkta5iScVO3NI.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/10/8uB2fg1lVDrQUnJ.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/10/MPAtHYZ7QSLn5R4.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/10/UIdDJkRsbGtZKnu.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/10/3L1QpfGngAJwok8.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/10/PFWxalRrpbUjdXT.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/07/PySqpWYcgEXVCvB.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/11/O73ZbMFLDYgGuJw.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/07/O6fwQnjH7hUtkEa.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/11/qJOvazmxlEH9pjc.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/11/EjS2vCpZBnz3a9t.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/11/RXarwE1nKSIZfyQ.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/11/uhnpFiP3dAKCwlt.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/11/njHTsudEoWpJQ7X.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/11/z2bp3MHCcRfNu8T.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/11/zWI3fx7kHL2RY6d.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/11/EAo18Th42ND5qSO.png">
+<meta property="article:published_time" content="2020-08-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-12T12:39:10.354Z">
+<meta property="article:author" content="HiramWong">
+<meta property="article:tag" content="云开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/08/04/OrweUb7CjYugin2.png">
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  <!-- font-awesome -->
+  <link href="//cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/js/all.js"></script>
+  <!-- jQuery -->
+  <script src="//cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- valine评论 -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
+  <!-- 代码高亮库 -->
+  <!-- <link href="//cdn.bootcdn.net/ajax/libs/highlight.js/11.0.1/styles/atom-one-dark.min.css" rel="stylesheet"> -->
+  <script src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+  <!-- <script src="//cdn.bootcdn.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script> -->
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  <script >
+  hljs.highlightAll()
+</script>
+  
+<link rel="stylesheet" href="/css/index.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">
+      Hiram&#39;s Blog
+    </a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+          
+          <a href="https://dribbble.com/clovertuan" target="_blank" class="nav-icn">
+            <i class="fab fa-dribbble"></i>
+          </a>
+          
+        
+          
+          
+          <a href="https://www.behance.net/clovertuan" target="_blank" class="nav-icn">
+            <i class="fab fa-behance"></i>
+          </a>
+          
+        
+          
+          
+          <a href="https://www.instagram.com/clovertuan" target="_blank" class="nav-icn">
+            <i class="fab fa-instagram"></i>
+          </a>
+          
+        
+          
+          
+          <a href="https://github.com/Hiram-Wong" target="_blank" class="nav-icn">
+            <i class="fab fa-github"></i>
+          </a>
+          
+        
+      
+      <span id="search">
+        <i class="fas fa-search"></i>
+      </span>
+      <style>
+        .search-active .search-pop-overlay {
+          background: rgba(0,0,0,0.3);
+          visibility: visible;
+        }
+        .search-pop-overlay {
+          background: rgba(0,0,0,0);
+          display: flex;
+          height: 100%;
+          left: 0;
+          position: fixed;
+          top: 0;
+          transition: visibility 0.4s, background 0.4s;
+          visibility: hidden;
+          width: 100%;
+          z-index: 1400;
+        }
+        .search-popup {
+          background: #f5f5f5;
+          border-radius: 5px;
+          height: 80%;
+          margin: auto;
+          transform: scale(0);
+          transition: transform 0.4s;
+          width: 700px;
+        }
+        .search-popup .search-header {
+          background: #eee;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          display: flex;
+          padding: 5px;
+          line-height: 2;
+        }
+        .search-popup .search-icon, .search-popup .popup-btn-close {
+          color: #999;
+          font-size: 18px;
+          padding: 0 10px;
+        }
+        .search-popup .search-input-container {
+          flex-grow: 1;
+          padding: 2px;
+        }
+        .search-popup input.search-input {
+          background: transparent;
+          border: 0;
+          outline: 0;
+          width: 100%;
+        }
+        input {
+          font-family: inherit;
+          font-size: 100%;
+          line-height: 1.15;
+          margin: 0;
+        }
+        [type='search'] {
+          outline-offset: -2px;
+          -webkit-appearance: textfield;
+        }
+        .search-popup .popup-btn-close {
+          cursor: pointer;
+        }
+        .search-popup .search-icon, .search-popup .popup-btn-close {
+          color: #999;
+          font-size: 18px;
+          padding: 0 10px;
+        }
+        .search-popup .no-result {
+            display: flex;
+        }
+        .search-popup .search-result-container {
+            height: calc(100% - 55px);
+            overflow: auto;
+            padding: 5px 25px;
+        }
+        .search-popup .search-result-icon {
+            color: #ccc;
+            margin: auto;
+        }
+        hr {
+          background-image: repeating-linear-gradient(-45deg, #ddd, #ddd 4px, transparent 4px, transparent 8px);
+          border: 0;
+          height: 3px;
+          margin: 40px 0;
+        }
+        .search-popup .no-result {
+          display: flex;
+        }
+        .search-popup .search-result-container hr {
+          margin: 5px 0 10px;
+        }
+        .search-popup .search-result-list {
+          width: 100%;
+        }
+        .search-popup .search-result-list {
+          margin: 0 5px;
+          padding: 0;
+        }
+        .search-popup p.search-result {
+          border-bottom: 1px dashed #ccc;
+          padding: 5px 0;
+          white-space:nowrap;
+          overflow:hidden;
+          text-overflow:ellipsis;
+        }
+        .search-result em {
+          background: transparent;
+          border-bottom: 1px dashed #ff2a2a;
+          color: #ff2a2a;
+          font-weight: bold;
+        }
+        .search-popup a.search-result-title {
+          font-weight: bold;
+        }
+        .search-popup a {
+          border-bottom: 1px solid #999;
+          color: #555;
+          cursor: pointer;
+          outline: 0;
+          text-decoration: none;
+          overflow-wrap: break-word;
+        }
+      </style>
+      
+      <div class="search-pop-overlay">
+        <div class="popup search-popup">
+          <div class="search-header">
+            <span class="search-icon">
+              <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+              <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input" id="local-search-input" >
+              <!-- <input type="search" id="local-search-input" name="s" placeholder="请输入搜索的关键字" class="search-input"> -->
+            </div>
+            <span class="popup-btn-close" role="button">
+              <i class="fa fa-times-circle"></i>
+            </span>
+          </div>
+          <div class="search-result-container no-result"id="local-search-result">
+            <!-- <div class="search-stats">48 results found</div> -->
+            <!-- <hr> -->
+            <div class="search-result-icon">
+              <i class="fa fa-search fa-5x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="local-search1">
+        <!-- <input type="search" id="local-search-input" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        <div id="local-search-result"></div> -->
+        
+<script src="/js/search.js"></script>
+
+        <script type="text/javascript">      
+          var search_path = "search.xml";
+          if (search_path.length == 0) {
+            search_path = "search.xml";
+          }
+          var path = "/" + search_path;
+          searchFunc(path, 'local-search-input', 'local-search-result');
+        </script>
+      </div>
+      <script>
+      </script>
+    </div>
+    <div class="menu">
+      
+        
+          <a href="/" class="nav-menu ">
+            HOME
+          </a>
+          
+        
+          <a href="/archives" class="nav-menu ">
+            ARCHIVE
+          </a>
+          
+        
+          <a href="/categories" class="nav-menu ">
+            CATEGORIES
+          </a>
+          
+        
+          <a href="/tags" class="nav-menu ">
+            TAGS
+          </a>
+          
+        
+          <a href="/links" class="nav-menu ">
+            LINKS
+          </a>
+          
+        
+          <a href="/about" class="nav-menu ">
+            ABOUT
+          </a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">
+    云开发7天训练营学习
+  </h2>
+  <p class="sub">
+    8月 5, 2020
+  </p>
+  <article class="content">
+    <h3 id="云开发7天训练营学习计划"><a href="#云开发7天训练营学习计划" class="headerlink" title="云开发7天训练营学习计划"></a>云开发7天训练营学习计划</h3><ol>
+<li>认识Serverless云开发 (8.3) ：学习云开发平台的基本概念和操作、团队协同、应用的开发、部署。</li>
+<li>云函数 (8.4) ：函数的基础概念，架构，调用方式、静态文件的托管方式</li>
+<li>开发Web接口 (8.5)：学习使用函数开发 Web 接口、多个函数的同时开发，资源复用</li>
+<li>服务端渲染(8.6)：学习使用函数接入传统 koa 中间件，构建 Web 应用</li>
+<li>数据库调用 (8.7)：学习接入数据库，调用数据存储</li>
+<li>多媒体托管和支付 (8.10)：学习函数的文件多媒体托管和支持能力</li>
+<li>一体化方案开发实战(8.11)：学习和前端(react/vue)代码一起开发的一体化方案</li>
+</ol>
+<h3 id="记录每天作业打卡"><a href="#记录每天作业打卡" class="headerlink" title="记录每天作业打卡"></a>记录每天作业打卡</h3><h4 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h4><p>Step1:创建企业团队和选择合适团队人数[<a href="https://workbench.aliyun.com]">https://workbench.aliyun.com]</a><br>Step2:创建应用[NodeJS存量应用迁移方案]</p>
+<p><img src="https://i.loli.net/2020/08/04/OrweUb7CjYugin2.png" alt="image.png"><br><img src="https://i.loli.net/2020/08/04/w2k3Ncim48XyWTq.png" alt="image.png"></p>
+<p>Step3:添加成员列表</p>
+<p><img src="https://i.loli.net/2020/08/05/8UvYyWXiEKHIhdJ.png" alt="image.png"></p>
+<p>Step4:添加项目成员</p>
+<p><img src="https://i.loli.net/2020/08/05/WZ7tpCnyx6PdbXc.png" alt="image.png"></p>
+<h4 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h4><p><code>#介绍：</code>云函数 基于MidwayJs 开发</p>
+<p><code>#步骤：</code></p>
+<p>Step1:安装自己系统版本的Node.js[<a target="_blank" rel="noopener" href="http://nodejs.cn/download]%E5%B9%B6%E9%AA%8C%E8%AF%81node[node">http://nodejs.cn/download]并验证node[node</a> -v]和npm[npm -v]是否安装完成</p>
+<p><img src="https://i.loli.net/2020/08/04/IXgb4TvWS8YnB1C.png" alt="image.png"></p>
+<p>Step2:安装MidwayJs[npm i @midwayjs/faas-cli -g]</p>
+<p><img src="https://i.loli.net/2020/08/04/baOhn2zScrAUEeu.png" alt="image.png"></p>
+<p>Step3:创建项目[f create]</p>
+<p><img src="https://i.loli.net/2020/08/04/iH9XlgzjPGxw6NL.png" alt="image.png"></p>
+<p>Step4:安装依赖[npm install]</p>
+<p><img src="https://i.loli.net/2020/08/04/vTCVHfNhE7WA4Pl.png" alt="image.png"></p>
+<p>Step5:修改源代码</p>
+<p><img src="https://i.loli.net/2020/08/04/scu14GMwotWx2yQ.png" alt="image.png"></p>
+<p>Step6:测试接口[f invoke -f index]</p>
+<p><img src="https://i.loli.net/2020/08/04/lQBPpmFdsZ4kirY.png" alt="image.png"></p>
+<h4 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h4><p>Step1:创建一个项目[Midway Serverless 一体化解决方案(For NodeJS10)]</p>
+<p>创建详见Day1</p>
+<p>Step2:安装依赖[npm install]</p>
+<p><img src="https://i.loli.net/2020/08/05/Nf8hLduB7ZwXFsz.png" alt="image.png"></p>
+<p>Step3:修改源代码</p>
+<p><img src="https://i.loli.net/2020/08/05/6FSHGK2dmC3fPgb.png" alt="image.png"></p>
+<p>Step4:运行项目[npm run dev] </p>
+<p><img src="https://i.loli.net/2020/08/05/ovzE1cQ9FhfNSYL.png" alt="image.png"></p>
+<p>Step5：访问域名[npm run dev后给出的域名]</p>
+<p><img src="https://i.loli.net/2020/08/05/5XzEqoxr1ek2Kpw.png" alt="image.png"></p>
+<pre><code>------
+以上是作业打卡，下面纯属娱乐
+------
+</code></pre>
+<p>Step6：开发者激活和添加机器人[<a href="https://open-dev.dingtalk.com]">https://open-dev.dingtalk.com]</a><br>开发者激活[登录，看提示完成就行]</p>
+<p><img src="https://i.loli.net/2020/08/05/AOayH3E4ZB9KLxh.png" alt="image.png"><br>添加机器人</p>
+<p><img src="https://i.loli.net/2020/08/05/ceKgslDYSr5H16n.png" alt="image.png"></p>
+<p>添加服务信息</p>
+<p><img src="https://i.loli.net/2020/08/05/oJj6R1dnEx9zS3L.png" alt="image.png"></p>
+<p>Step7：安装axios依赖[npm i axios -S]</p>
+<p><img src="https://i.loli.net/2020/08/05/3tOmXuRQT6wPBhG.png" alt="image.png"></p>
+<p>Step8：修改源代码[入口函数]</p>
+<p><img src="https://i.loli.net/2020/08/05/HS8WKQ5AlaJyoBE.png" alt="image.png"></p>
+<p>Step9：修改源代码[函数处理,具体怎么处理自由发挥]</p>
+<p><img src="https://i.loli.net/2020/08/05/Uou9XWJCf38FYG5.png" alt="image.png"></p>
+<p>Step10：机器人测试</p>
+<p><img src="https://i.loli.net/2020/08/05/k1YoXwVMOBZpgae.png" alt="image.png"></p>
+<h4 id="Day-4"><a href="#Day-4" class="headerlink" title="Day 4"></a>Day 4</h4><p>Step1:创建一个项目[KOA应用迁移方案]</p>
+<p>创建详见Day1</p>
+<p>Step2: 安装依赖<br>法①和法②只是单纯的渲染模板引擎不一样<br>法①[npm i 和npm i koa-ejs koa-views]<br>法②[npm i 和npm i koa-swig co]<br>Step3: 修改源代码[函数]<br>法①：</p>
+<p><img src="https://i.loli.net/2020/08/06/2lEuV8QnBWHaRtD.png" alt="image.png"><br>法②：</p>
+<p><img src="https://i.loli.net/2020/08/06/xNb2eJhSVi7opcg.png" alt="image.png"></p>
+<p>Step4: 模板编写<br>法①：</p>
+<p><img src="https://i.loli.net/2020/08/06/AE58bBChsVvFj6J.png" alt="image.png"><br>法②：</p>
+<p><img src="https://i.loli.net/2020/08/06/rOh2nZuaKTt4VA3.png" alt="image.png"><br>Step5：运行[node app.js]</p>
+<p><img src="https://i.loli.net/2020/08/06/phNjzbolQWg1mSV.png" alt="image.png"><br><img src="https://i.loli.net/2020/08/06/MYQF2cvufGatlHd.png" alt="image.png"></p>
+<h4 id="Day-5"><a href="#Day-5" class="headerlink" title="Day 5"></a>Day 5</h4><p>Step1:创建一个项目[Midway Serverless OTS数据库示例]</p>
+<p>创建详见Day1</p>
+<p>Step2: 安装依赖[npm i]</p>
+<p><img src="https://i.loli.net/2020/08/07/PySqpWYcgEXVCvB.png" alt="image.png"></p>
+<p>Step3: 创建表格储存</p>
+<p><img src="https://i.loli.net/2020/08/07/kh9ZMDw61i7Uujf.png" alt="image.png"><br><img src="https://i.loli.net/2020/08/07/r3Z28tgi41YRdSD.png" alt="image.png"><br><img src="https://i.loli.net/2020/08/07/Wwrv1pRM5jGuazk.png" alt="image.png"></p>
+<p>Step4: 获取AccessKey[AccessKey ID、AccessKey Secret]<br><img src="https://i.loli.net/2020/08/07/RKSot7uJmwxylqD.png" alt="image.png"></p>
+<p>Step5：修改环境变量</p>
+<p><img src="https://i.loli.net/2020/08/07/O6fwQnjH7hUtkEa.png" alt="image.png"></p>
+<p>Step6：部署</p>
+<p><img src="https://i.loli.net/2020/08/07/r239Ued6zbSQBOj.png" alt="image.png"><br><img src="https://i.loli.net/2020/08/07/KMgkta5iScVO3NI.png" alt="image.png"></p>
+<h4 id="Day-6"><a href="#Day-6" class="headerlink" title="Day 6"></a>Day 6</h4><p>Step1:创建一个项目[Midway Serverless MySQL数据库示例]</p>
+<p>创建详见Day1</p>
+<p>Step2: 安装依赖[npm i]</p>
+<p><img src="https://i.loli.net/2020/08/10/8uB2fg1lVDrQUnJ.png" alt="image.png"></p>
+<p>Step3: 编写入口文件</p>
+<p><img src="https://i.loli.net/2020/08/10/MPAtHYZ7QSLn5R4.png" alt="image.png"></p>
+<p>Step4: 编写一个函数</p>
+<p><img src="https://i.loli.net/2020/08/10/UIdDJkRsbGtZKnu.png" alt="image.png"></p>
+<p>Step5：部署</p>
+<p><img src="https://i.loli.net/2020/08/10/3L1QpfGngAJwok8.png" alt="image.png"><br><img src="https://i.loli.net/2020/08/10/PFWxalRrpbUjdXT.png" alt="image.png"></p>
+<h4 id="Day-7"><a href="#Day-7" class="headerlink" title="Day 7"></a>Day 7</h4><p>详见[<a target="_blank" rel="noopener" href="https://www.yuque.com/docs/share/95869af8-ceef-46f2-ba93-c1912716fcf0#]">https://www.yuque.com/docs/share/95869af8-ceef-46f2-ba93-c1912716fcf0?#]</a></p>
+<p>Step1:创建一个项目[Midway Serverless OTS数据库示例]</p>
+<p>创建详见Day1</p>
+<p>Step2: 安装依赖[npm i]</p>
+<p><img src="https://i.loli.net/2020/08/07/PySqpWYcgEXVCvB.png" alt="image.png"></p>
+<p>Step3: 创建表格储存</p>
+<p><img src="https://i.loli.net/2020/08/11/O73ZbMFLDYgGuJw.png" alt="image.png"></p>
+<p>Step4: 修改环境变量</p>
+<p><img src="https://i.loli.net/2020/08/07/O6fwQnjH7hUtkEa.png" alt="image.png"></p>
+<p>Step5: 修改前端源码</p>
+<p><img src="https://i.loli.net/2020/08/11/qJOvazmxlEH9pjc.png" alt="image.png"></p>
+<pre><code class="HTML">&lt;link href=&quot;https://cdn.bootcdn.net/ajax/libs/tailwindcss/1.6.2/tailwind.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+</code></pre>
+<p><img src="https://i.loli.net/2020/08/11/EjS2vCpZBnz3a9t.png" alt="image.png"></p>
+<pre><code class="React">&lt;div className=&quot;min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8&quot;&gt;
+      &lt;div className=&quot;max-w-md w-full&quot;&gt;
+        &lt;div&gt;
+          &lt;img className=&quot;mx-auto h-12 w-auto&quot; src=&quot;https://tailwindui.com/img/logos/workflow-mark-on-white.svg&quot; alt=&quot;Workflow&quot; /&gt;
+          &lt;h2 className=&quot;mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900&quot;&gt;
+            注册或者登录
+            &lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;form className=&quot;mt-8&quot; action=&quot;#&quot; method=&quot;POST&quot;&gt;
+          &lt;input type=&quot;hidden&quot; name=&quot;remember&quot; defaultValue=&quot;true&quot; /&gt;
+          &lt;div className=&quot;rounded-md shadow-sm&quot;&gt;
+            &lt;div&gt;
+              &lt;input
+                onChange=&#123;e =&gt; &#123; setName(e.target.value) &#125;&#125;
+                aria-label=&quot;Email address&quot; name=&quot;email&quot; type=&quot;email&quot; required className=&quot;appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5&quot; placeholder=&quot;Email address&quot; /&gt;
+            &lt;/div&gt;
+            &lt;div className=&quot;-mt-px&quot;&gt;
+              &lt;input
+                onChange=&#123;e =&gt; &#123; setPassword(e.target.value) &#125;&#125;
+                aria-label=&quot;Password&quot; name=&quot;password&quot; type=&quot;password&quot; required className=&quot;appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5&quot; placeholder=&quot;Password&quot; /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div className=&quot;mt-6&quot;&gt;
+            &lt;button type=&quot;button&quot; onClick=&#123;handleSubmit&#125; className=&quot;group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out&quot;&gt;
+              &lt;span className=&quot;absolute left-0 inset-y-0 flex items-center pl-3&quot;&gt;
+              &lt;/span&gt;
+                注册
+              &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div className=&quot;mt-6&quot;&gt;
+            &lt;button type=&quot;button&quot; onClick=&#123;handleLogin&#125; className=&quot;group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out&quot;&gt;
+              &lt;span className=&quot;absolute left-0 inset-y-0 flex items-center pl-3&quot;&gt;
+              &lt;/span&gt;
+                登录
+              &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+</code></pre>
+<p>Step6：编写入口文件</p>
+<p><img src="https://i.loli.net/2020/08/11/RXarwE1nKSIZfyQ.png" alt="image.png"></p>
+<pre><code class="yml">  register:
+    handler: user.register
+    events:
+      - apigw:
+          path: /api/register
+
+  login:
+    handler: user.login
+    events:
+      - apigw:
+          path: /api/login
+</code></pre>
+<p>Step7：编写对应的后端文件</p>
+<p><img src="https://i.loli.net/2020/08/11/uhnpFiP3dAKCwlt.png" alt="image.png"></p>
+<pre><code class="ts">import &#123; Func, Inject, Provide &#125; from &#39;@midwayjs/decorator&#39;;
+import TableStore from &#39;tablestore&#39;;
+import format from &#39;otswhere/format&#39;;
+@Provide()
+export class TodoService &#123;
+
+  @Inject()
+  ctx;
+
+  @Inject()
+  tb;
+
+  @Func(&#39;user.login&#39;)
+  async login() &#123;
+    const &#123; name, password &#125; = this.ctx.query;
+
+    const params = &#123;
+      tableName: &#39;user&#39;,
+      direction: TableStore.Direction.BACKWARD,
+      inclusiveStartPrimaryKey: [&#123; id: TableStore.INF_MAX &#125;],
+      exclusiveEndPrimaryKey: [&#123; id: TableStore.INF_MIN &#125;]
+    &#125;;
+
+    return new Promise(resolve =&gt; &#123;
+      this.tb.getRange(params, (_, data) =&gt; &#123;
+        const rows = format.rows(data, &#123; email: true &#125;);
+        const userExists = rows.list.findIndex(user =&gt; user.name === name) !== -1
+        if (!userExists) &#123;
+          resolve(&#123;
+            success: false,
+            message: &#39;用户不存在&#39;
+          &#125;)
+          return
+        &#125;
+
+        const user = rows.list.find(user =&gt; user.name === name)
+        console.log(user.password, password)
+        if (user.password !== password) &#123;
+          resolve(&#123;
+            success: false,
+            message: &#39;密码错误&#39;
+          &#125;)
+          return
+        &#125;
+
+        resolve(&#123;
+          success: true,
+          user
+        &#125;);
+      &#125;);
+    &#125;)
+  &#125;
+
+  @Func(&#39;user.register&#39;)
+  async register() &#123;
+    const &#123; name, password &#125; = this.ctx.query;
+    const params = &#123;
+      tableName: &quot;user&quot;,
+      condition: new TableStore.Condition(TableStore.RowExistenceExpectation.IGNORE, null),
+      primaryKey: [
+        &#123; id: `$&#123;Date.now()&#125;-$&#123;Math.random()&#125;` &#125;
+      ],
+      attributeColumns: [
+        &#123; name &#125;,
+        &#123; password &#125;,
+        &#123; status: &#39;1&#39; &#125;
+      ]
+    &#125;;
+    return new Promise(resolve =&gt; &#123;
+      this.tb.putRow(params, async function (err, data) &#123;
+        if (err) &#123;
+          resolve(&#123;
+            success: false,
+            errmsg: err.message
+          &#125;);
+        &#125; else &#123;
+          resolve(&#123;
+            success: true,
+            data
+          &#125;);
+        &#125;
+      &#125;);
+    &#125;);
+  &#125;
+&#125;
+</code></pre>
+<p>Step8：对接前端和API的请求</p>
+<p><img src="https://i.loli.net/2020/08/11/njHTsudEoWpJQ7X.png" alt="image.png"></p>
+<pre><code class="tsx">export default function App() &#123;
+  const [name, setName] = useState(&#39;&#39;)
+  const [password, setPassword] = useState(&#39;&#39;)
+
+  const handleSubmit = () =&gt; &#123;
+    console.log(name, password)
+    fetch(`/api/register?name=$&#123;name&#125;&amp;password=$&#123;password&#125;`)
+      .then(resp =&gt; resp.json())
+      .then(resp =&gt; &#123;
+        console.log(resp)
+        if (resp.success == true) &#123;
+          alert(&#39;注册成功&#39;)
+        &#125;
+      &#125;)
+  &#125;
+
+  const handleLogin = () =&gt; &#123;
+    fetch(`/api/login?name=$&#123;name&#125;&amp;password=$&#123;password&#125;`)
+      .then(resp =&gt; resp.json())
+      .then(resp =&gt; &#123;
+        if (resp.success == true) &#123;
+          alert(`登录成功,提示信息：$&#123;resp.user.name&#125;`)
+        &#125; else &#123;
+          alert(`登陆失败,提示信息：$&#123;resp.message&#125;`)
+        &#125;
+      &#125;)
+  &#125;
+</code></pre>
+<p>Step9：运行[npm run dev] or 部署</p>
+<p><img src="https://i.loli.net/2020/08/11/z2bp3MHCcRfNu8T.png" alt="image.png"><br><img src="https://i.loli.net/2020/08/11/zWI3fx7kHL2RY6d.png" alt="day7-1.png"><br><img src="https://i.loli.net/2020/08/11/EAo18Th42ND5qSO.png" alt="day7-2.png"></p>
+
+  </article>
+  <div class="Last-Next">
+    
+      <a href="/2020/08/06/development-cloudcloud-ecs7day/">
+        <div class="last">
+          <span>上一篇</span>
+          <p>
+            ECS 7天实践训练营
+          </p>
+        </div>
+      </a>
+      
+
+    
+      <a href="/2020/07/01/python-reptile-project-day/">
+        <div class="next">
+          <span>下一篇</span>
+          <p>
+            Python爬虫-党史上的今天
+          </p>
+        </div>
+      </a>
+      
+  </div>
+</section>
+
+<section class="article">
+  
+    <div id="vcomments"></div>
+    
+</section></div>
+    <footer id="footer" class="f-cf">
+  <div class="left">
+    <span>© 2021 Hiram&#39;s Blog.</span>
+    <span>Theme by Clover 2.0</span>
+  </div>
+
+  <div class="right">
+    
+      <p id="hitokoto"><a href="#" id="hitokoto_text">:D 获取中...</a></p>
+      <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', '//v1.hitokoto.cn');
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            var data = JSON.parse(xhr.responseText);
+            var hitokoto = document.getElementById('hitokoto_text');
+            hitokoto.href = '//hitokoto.cn/?uuid=' + data.uuid
+            hitokoto.innerText = data.hitokoto;
+          }
+        }
+        xhr.send();
+      </script>
+    
+  </div>
+</footer>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<div class="goTop" id="js-go_top">
+	<span>
+		<i class="fas fa-angle-up"></i>
+	</span>
+</div>
+
+<script>
+	$('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+
+
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'iXLhz5jeT2wFRfJCQAJ7V95C-gzGzoHsz',
+      appKey: 'BfEnKf3O35FL0MPe3gVObgvU',
+      placeholder: 'Your commnet here. Be cool.' || 'Your commnet here. Be cool.',
+      avatar: 'mp' || 'mp',
+      pageSize: '10' || 10,
+      visitor: 'true',
+    })
+  </script>
+
+  </div>
+</body>
+</html>

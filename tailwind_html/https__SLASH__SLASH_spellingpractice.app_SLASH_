@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>SpellingPractice.app</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <script
+      src="https://browser.sentry-cdn.com/5.27.4/bundle.tracing.min.js"
+      integrity="sha384-C4FnDB434rh858hdUT1O7fV7zJMZAUKKtHMBPeJjZZrlnf0lmZkWDMV+rAHEq+6b"
+      crossorigin="anonymous"
+  ></script>
+  <script>
+  if (window.Sentry && Sentry && Sentry.init) {
+      Sentry.init({
+          dsn: 'https://3d0d2b19628840f19673de8b4db7870f@o182309.ingest.sentry.io/5525135',
+          integrations: [
+              new Sentry.Integrations.BrowserTracing(),
+          ],
+
+          // We recommend adjusting this value in production, or using tracesSampler
+          // for finer control
+          tracesSampleRate: 1.0,
+      });
+      window.onerror = function (msg, url, lineNo, columnNo, error) {
+          console.log('error', [msg, url, lineNo, columnNo])
+          Sentry.captureException(error)
+          return false;
+      }
+  }
+  </script>
+  <!-- Begin Inspectlet Asynchronous Code -->
+    <script type="text/javascript">
+    (function() {
+    window.__insp = window.__insp || [];
+    __insp.push(['wid', 1593326362]);
+    var ldinsp = function(){
+    if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=1593326362&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+    setTimeout(ldinsp, 0);
+    })();
+    </script>
+  <!-- End Inspectlet Asynchronous Code -->
+  <script src="/assets/client.js?f1f87d0f40fdf33765f0d3644322ecf021070a9a"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+<div id="elm"></div>
+<audio id="mp3player" />
+<script>
+var voices = []
+var now = new Date()
+var app = Elm.Client.init({
+  node: document.getElementById('elm'),
+  flags: {
+      userAgent: navigator.userAgent,
+      topUrl: window.top.location.href,
+      chosenVoiceURI: decodeURIComponent(window.location.hash.substring(1)) || null
+  }
+});
+
+if (window.WebSocket && app.ports && app.ports.websocketOut) {
+  console.log('[js websocket]', window.WebSocket)
+  ;(function (app, WebSocket) {
+    var ws = {}
+    app.ports.websocketOut.subscribe(function (msg) {
+      try {
+        console.log('[js websocket] send', msg)
+        ws.conn.send(msg)
+      } catch (e) {
+        console.log('[js websocket] send fail', e) // e.g. ws.conn not established
+      }
+    })
+    function connectWebSocket (app, wsUrl, optionalProtocol) {
+      ws.conn = new WebSocket(wsUrl, optionalProtocol)
+      ws.conn.onopen = function (event) {
+        console.log('[js websocket] connected', event)
+        app.ports.websocketConnected.send(event.timeStamp | 0)
+      }
+      ws.conn.onmessage = function (event) {
+        console.log('[js websocket] message', event)
+        app.ports.websocketIn.send(event.data)
+      }
+      ws.conn.onerror = function (event) {
+        console.log('[js websocket] error', event)
+      }
+      ws.conn.onclose = function (event) {
+        console.log('[js websocket] close', event)
+        ws.conn.onclose = null
+        ws.conn = null
+        setTimeout(function () {
+          console.log('[js websocket] retrying...')
+          connectWebSocket(app, wsUrl, optionalProtocol)
+        }, 1000)
+      }
+    }
+    connectWebSocket(app, (window.location.protocol === 'https:' ? 'wss' : 'ws') + '://' + window.location.host)
+  })(app, window.WebSocket)
+}
+
+// more gotchas at https://talkrapp.com/speechSynthesis.html
+function speak({ phrase, voiceURI, pitchValue, rateValue }, callback) {
+    try {
+        if (!phrase) return callback()
+        chosenVoice = voices.find(function(v) { return v.voiceURI == voiceURI })
+        if (!chosenVoice) return callback()
+        console.log('speak with', chosenVoice)
+
+        speechSynthesis.cancel()
+        var utterThis = new SpeechSynthesisUtterance(phrase);
+        utterThis.onend = callback
+        utterThis.onerror = callback
+        utterThis.voice = chosenVoice;
+        utterThis.lang = chosenVoice.lang;
+        utterThis.pitch = pitchValue;
+        utterThis.rate = rateValue;
+        speechSynthesis.cancel();
+        speechSynthesis.speak(utterThis);
+    } catch (e) {
+        console.log(e)
+        setTimeout(callback, 500)
+    }
+}
+
+function voicesChanged() {
+    voices = speechSynthesis.getVoices()
+
+    var voicesJSON = JSON.stringify(
+        voices.reduce(function(sum, v) {
+            sum[v.voiceURI] = { name: v.name, lang: v.lang, voiceURI: v.voiceURI };
+            return sum;
+        }, {})
+    )
+    app.ports.onVoices.send(voicesJSON)
+}
+
+if (typeof speechSynthesis !== 'undefined') {
+    voicesChanged();
+    if (speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = voicesChanged
+    }
+}
+
+if (app.ports.onPlayMP3) app.ports.onPlayMP3.subscribe(function(src) {
+    let mp3player = document.getElementById('mp3player')
+    if (mp3player) {
+        mp3player.src = src
+        mp3player.play()
+    }
+})
+
+if (app.ports.onSpeak) app.ports.onSpeak.subscribe(function({ idx, phrase, voiceURI, pitchValue, rateValue }) {
+    // interupt any mp3 playing..
+    let mp3player = document.getElementById('mp3player')
+    if (mp3player) mp3player.pause()
+
+    speak({ phrase, voiceURI, pitchValue, rateValue }, function() {
+        setTimeout(function() {
+            app.ports.onSpoken.send(idx)
+        }, /* why wait? forgot browser quirk */ 500)
+    })
+})
+</script>
+</body>
+</html>

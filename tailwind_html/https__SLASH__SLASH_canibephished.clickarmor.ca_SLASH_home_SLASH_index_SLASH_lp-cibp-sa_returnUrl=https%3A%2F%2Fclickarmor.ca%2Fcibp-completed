@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Cybersecurity Awareness</title>
+    <link href="/Content/css?v=mvHN_pZDEi0PCR702XWprpBtgXYW1NlZBbOLYcp3y4g1" rel="stylesheet"/>
+
+    <script src="/bundles/modernizr?v=inCVuEFe6J4Q07A0AcRsbJic_UE5MwpRMNGcOtk94TE1"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link async href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155155662-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-155155662-1');
+    </script>
+    <!-- End of Google Analytics Embed Code -->
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7453023.js"></script>
+    <!-- End of HubSpot Embed Code -->
+</head>
+<style>
+    body {
+        display: none;
+    }
+</style>
+<body class="block">
+    
+
+
+    <div class="outer-container">
+        <div class="inner-container flex flex-col">
+            <header>
+                <div class="toolbar">
+                    <a href="https://clickarmor.ca/" class="logo flex flex-col">
+                        <img src="https://clickarmor.ca/wp-content/uploads/2021/10/ClickArmor-logo-blue.png" />
+                    </a>
+                    <a href="https://clickarmor.ca/" class="home-navigation">Home</a>
+                </div>
+            </header>
+            <main class="flex-grow">
+
+                
+
+
+<input id="CorrelationId" name="CorrelationId" type="hidden" value="lp-cibp-sa" />
+<input id="ReturnUrl" name="ReturnUrl" type="hidden" value="https://clickarmor.ca/cibp-completed" />
+
+<div class="heading mt-36 mb-0">
+    <h1>
+        In just 2 minutes, you’ll see the power of gamified awareness
+        assessments.
+    </h1>
+    <p style="text-align: center">
+        This assessment works best on desktop browsers, and may not work
+        on some mobile devices at this time.
+    </p>
+    <div class="py-8">
+        <button onclick="onBookMeeting();" class="m-auto flex flex-row font-bold text-center text-lg px-6 py-2 bg-white text-black rounded-full uppercase transition-all duration-300 hover:tracking-wider">
+            Book a Meeting to Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3 h-5 w-5 self-center" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+<section id="section_game" class="game py-24">
+    <div class="container max-w-4xl 2xl:max-w-6xl m-auto">
+        <div class="content aspectratio drop-shadow-2xl" data-ratio="16:9">
+            <div class="lessons-playarea relative">
+                <iframe id="game-instance-frame" src="../../build/index.html?dt=133044806325921622" allowfullscreen=true webkitallowfullscreen=true mozallowfullscreen=true></iframe>
+            </div>
+        </div>
+        <div class="pt-8 text-sm text-center text-white"><em>To report any issues or questions you have about this self-assessment, please use our <a href="http://www.clickarmor.ca/cibp-form">Can I Be Phished</a> contact form.</em></div>
+    </div>
+</section>
+<script>
+
+    function onBookMeeting(){
+        window.open("https://meetings.hubspot.com/swright10", "_blank");
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        //Register the event listner for the instance loaded function
+        window.addEventListener("message", function (e) {
+            var event = JSON.parse(e.data);
+            if (event.type == "event_game_done") {
+                console.log(" -- OnGameOver() -- ");
+                $.ajax({
+                    type: "post",
+                    url: "/Home/SaveResults",
+                    contentType: "application/json; charset=utf-8",
+                    datatype: "json",
+                    data: JSON.stringify({
+                        "body": event?.message?.Body,
+                        "correlation": $("#CorrelationId").val(),
+                        "returnUrl": $("#ReturnUrl").val()
+                    }),
+                    success: function (result) {
+                        if ($("#ReturnUrl").val() === result) {
+                            window.location.replace(result);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(window.summaryPostUrl + " returned with a status of BAD");
+                        console.log(xhr.responseText);
+                    }
+                });
+            }
+        });
+        console.log(" -- InitializeEventBus() -- ");
+    });
+</script>
+
+            </main>
+            <footer class="flex flex-col">
+                <div class="w-full" style="background-color: rgba(255,255,255,0.05);">
+                    <div class="footer-inner-container">
+                        <div class="footer-links gap-2">
+                            <ul id="menu-footer-1" class="bottom-nav list-none">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2458"><a href="https://clickarmor.ca/products/">Products</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2459"><a href="https://clickarmor.ca/industry-solutions/">Industry Solutions</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2460"><a href="https://clickarmor.ca/msp-program/">MSP Program</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2461"><a href="https://clickarmor.ca/news-and-insight/">Blog</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2463"><a href="https://clickarmor.ca/about-us/">About</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2464"><a href="https://clickarmor.ca/contact/">Contact</a></li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2462"><a target="_blank" rel="noopener" href="https://app.clickarmor.ca/account/signin">Sign In</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full" style="background-color: #0b5394;">
+                    <div class="footer-inner-container">
+                        <div class="footer-info gap-2">
+                            <a href="https://www.clickarmor.ca/privacy-policy">Privacy Policy</a>
+                            |
+                            <a href="https://www.clickarmor.ca/terms-of-service">Terms of Use</a>
+                            | Copyright 2021. Click Armor Corp. All rights reserved.
+                        </div>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/company/click-armor/" class="fa fa-facebook"></a>
+                            <a href="https://twitter.com/clickarmor" class="fa fa-twitter"></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/bundles/jquery?v=2u0aRenDpYxArEyILB59ETSCA2cfQkSMlxb6jbMBqf81"></script>
+
+    <script src="/bundles/js?v=3VPOqFF36PYiIblwnR9u2MRinKHRNUUoEoDkECqN0Ms1"></script>
+
+    
+</body>
+</html>

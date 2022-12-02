@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"
+    integrity="sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw=="
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+<link rel="stylesheet" href="style2.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+    integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+<body>
+    <div id="form-container">
+
+    </div>
+    <main id="app" class=" jc--c ">
+        <header class="w-100">
+            <!-- app -->
+            <div class="modal-vue w-100">
+
+
+                <!-- overlay -->
+                <div class="overlay" v-if="showModal" @click="showModal = false"></div>
+
+                <!-- modal -->
+                <div id='pop-up' class="modal" v-show="showModal">
+                    <button id="popup-button" class="close" @click="showModal = false">x</button>
+                    <h3 class="center">PPE + Reopening Supplies customer demand survey!</h3>
+                    <div class="center">
+                        <p class="my-6"><a 
+                            class="border-2 px-3 rounded border-yellow-400 py-1 "
+                            target="_blank"
+                                href="https://docs.google.com/forms/d/1YCEttWwRrH7OX-WCwf_C0JpBQjWxBnXvhUXECkedw2w/viewform?embedded=true&hl=en">Fill
+                                out the survey</a></p>
+                        <button class="already" v-if="showModal" @click="closeForm">Already Answered? Proceed to PPE
+                            Marketplace</button>
+                    </div>
+                    <div ref="formcontent" id="formcontent"></div>
+                </div>
+
+            </div>
+            <section class="heading-info d--f jc--c">
+                <div class="container  d--f ai--c ">
+                    <div class="w-34">
+                        <img class="w-100" src="PPE_Photo.jpeg" alt="">
+                    </div>
+                    <div class="description">
+                        <h1 class=" ">PPE + Reopening Supplies Marketplace</h1>
+
+
+                        As New York City reopens after Covid-19, small businesses, nonprofits, and other organizations
+                        throughout the five boroughs will need to purchase supplies in order to operate safely and
+                        efficiently. The Manufacturing and Industrial Innovation Council,
+                        with volunteer support from TTP and local industry partners have launched the NYC PPE +
+                        Reopening Supplies Marketplace. The Marketplace provides a one-stop-shop for businesses to find
+                        products such as (i) face masks and coverings,
+                        (ii) face shields, (iii) gloves, (iv) cleaning and disinfectant products, (v) thermometers, (vi)
+                        physical barriers and portable furniture, and (vi) other supplies needed for re-opening. This is
+                        the initial phase of the marketplace
+                        and it will continue to evolve with more features. The marketplace represents both local and
+                        regional suppliers and manufacturers to provide a wide-range of order minimums for purchase. <a
+                            href="https://maiic.nyc/ppe-guidelines-how-to-protect-your-staff/" id="inline-aside">PPE
+                            Guidelines: How to Protect Your Staff
+                            <a class="w-100"
+                                href="https://docs.google.com/forms/d/126x8Fw8rrOu2lptHcgpk8xH6_uUOn_VZOTV5CYu0nHU/viewform?edit_requested=true"
+                                target="_BLANK" id="submit">Submit Your Business</a>
+
+                    </div>
+                </div>
+
+            </section>
+
+        </header>
+        <section class="vendor-list container flex">
+
+
+
+            <div class="overlay" v-show="showModal" @click="showModal = false"></div>
+
+            <div :class="{sticky:navView}" id="nav">
+                <div name="filter" class="multi-button" id="filter-select">
+                    <h4 class="center">Filter by Category:</h4>
+
+                    <select name="filter" id="categories" class="w-100" v-model="selectedCategory">
+                        <option value="All">All</option>
+                        <option v-for="category in categories" :value="category">{{category}}</option>
+                    </select>
+
+                    <div id="feedback-form" class="pt-5">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQBUMrkqvnMxFSmweTVbpDbIoHEyu5DxuUQHbiEgVOMfolJg/viewform?usp=sf_link
+
+                        " target="_BLANK">Didn’t find what you were looking for? Please let us know what additional
+                            products you’d like to see included in this directory</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <ul class="list">
+                <p class="legal w-100 mb-12">
+
+                    To help keep your business, employees, and customers safe the City has compiled this directory of
+                    local and national suppliers and manufacturers of medical and non-medical PPE and other reopening
+                    supplies for Covid-19 related workplace modifications.
+                    Please be advised that neither the City of New York (“City”), nor any agency, officer, or employee
+                    of the City warrants the accuracy, reliability or timeliness of any information published in this
+                    document or website, nor endorses
+                    any content, viewpoints, products, or services linked from this document or website, and shall not
+                    be held liable for any losses caused by reliance on the accuracy, reliability or timeliness of such
+                    information. Portions of such information
+                    may be incorrect or not current. Any person or entity that relies on any information obtained from
+                    this document or website does so at his or her own risk.
+                </p>
+                <section>
+                    <!-- <pre>{{entries}}</pre> -->
+                    <ul class="">
+                        <h3 class="text-center text-2xl mb-6">
+                            Product Category: {{selectedCategory}}
+                        </h3>
+                        <li v-for="e in entries" v-show="e[`${selectedCategory}`] || selectedCategory=== 'All'"
+                            class="border-black border-2 rounded-3xl mb-6 bg-gray-100">
+                            <div class="p-4">
+                                <div class="flex justify-between border-b-2 border-gray-500 mb-6">
+                                    <h3 class="font-bold">{{e["Business Name"]}}</h3> <span><span
+                                            v-if="e['Business Type'] =='MWBE'" class="MWBE-flag">Minority or Women
+                                            Business Enterprise</span></span>
+                                </div>
+
+                                <div class="grid grid-cols-3">
+                                    <div class="col-span-2">
+                                        <p class="font-bold">Categories</p>
+                                        <ul class="grid grid-cols-2">
+
+                                            <li class="" v-for="category in categories" v-if="e[category] === 'Yes'">
+                                                <span class="italic bold">{{category}}</span>
+                                                <p v-if="e[`Minimum order_${category}`]"> <span class="">Minimum
+                                                        Order:</span>{{e[`Minimum order_${category}`]}}</p>
+                                                <p v-if="e[`Typical delivery time frame_${category}`]"> <span
+                                                        class="">Minimum Order:</span>{{e[`Typical delivery time
+                                                    frame_${category}`]}}</p>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                    <div class="">
+                                        <p class="font-bold">Contact Info </p>
+                                        <div class="contact ">
+
+                                            <p v-for="(type,i) in ['name','email','site','phone']">
+                                                <a class="underline" v-if="type==='site'"
+                                                    :href="e[`Contact Info_${type}`]">{{ e[`Contact Info_${type}`]
+                                                    }}</a>
+                                                <a class="underline" v-else-if="type==='email'"
+                                                    :href="'mailto:'+e[`Contact Info_${type}`]">{{ e[`Contact
+                                                    Info_${type}`] }}</a>
+                                                <span v-else>{{ e[`Contact Info_${type}`] }}</span>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+
+            </ul>
+        </section>
+    </main>
+
+    <hr>
+
+    <p class="my_aligncenter">
+        <img src="sbs_logo_all.png" alt="SBS logo" width=250 height=75>
+    </p>
+
+
+</body>
+
+</html>
+<script>
+    const sheetUrl =
+        "https://opensheet.elk.sh/1RM41PzHQP5dG7hNioHK2Ym3cuzCh9laV5-QGPZwf-lM/Sheet1";
+    const app = new Vue({
+        el: '#app',
+        data() {
+            return {
+
+                vendors: [],
+                categories: ["Barriers", "Cleaning Supplies/Wipes", "Cleaning and Disinfectant Products", "Fabric Coverings", "Face Coverings/Masks", "Face Shields", "Gloves", "Hand Sanitizer", "Outdoor furniture and structures", "Physical Enhancements and Portable Furniture", "Sanitizer Stands/Stations", "Social Distancing signage", "Surgical masks", "n95", "Other"],
+                sheetID: '1HgSWydbdlyYnwSFTR9CbQ_Ia7EM1v9TFDBJGFCQuJnI',
+                showModal: true,
+                windowTop: 0,
+                navScrollTop: 0,
+                filterString: '',
+                navView: true,
+                entries: [],
+                selectedCategory: 'All'
+            }
+        },
+        methods: {
+            fetchData: function () {
+                const vm = this;
+                fetch(sheetUrl)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data)
+                        this.entries = data
+                    })
+
+            },
+
+            closeForm() {
+                Cookies.set('formFilled', 'true');
+                this.showModal = false;
+            },
+            linkFormat(link) {
+                if (link.startsWith('http')) return link
+                return `//${link}`
+            },
+            hasValidLogoImage(vendor) {
+                return vendor.gsx$logolink.$t.includes('.jpg') ||
+                    vendor.gsx$logolink.$t.includes('.png') ||
+                    vendor.gsx$logolink.$t.includes('.jpeg')
+            },
+            onScroll(e) {
+                this.windowTop = e.target.documentElement.scrollTop;
+            },
+            getPosition(element) {
+                var xPosition = 0;
+                var yPosition = 0;
+
+                while (element) {
+                    xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+                    yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+                    element = element.offsetParent;
+                }
+
+                return {
+                    x: xPosition,
+                    y: yPosition
+                };
+            },
+            link(url, type) {
+                return `${type}:${url}`
+            },
+            hasProduct(vendor) {
+                return this._category_no_all.filter(category => {
+
+                    if (vendor[category.id].$t.toLowerCase() == 'yes') {
+
+                        return true
+                    } else return false
+                })
+            },
+            setPopUpCookie() {
+
+                let a = Cookies.get()
+                if (Cookies.get('formFilled') == 'true') {
+                    this.showModal = false;
+                } else this.showModal = true;
+
+
+                var button = document.getElementById("popup-button");
+                button.addEventListener("click", function () {
+                    Cookies.set('formFilled',
+                        true)
+                }, true);
+            }
+        },
+        mounted() {
+            this.fetchData()
+            this.setPopUpCookie()
+            document.getElementById('pop-up').appendChild(document.getElementById('form-container'))
+        },
+        computed: {
+            _category_no_all() {
+                let suffixIndex = 0
+                return this.categories.filter(category => {
+                    return category.id != 'All'
+                }).map((category, i) => {
+                    if (category.isParent) {
+                        suffixIndex++
+                    }
+
+                    return {
+                        title: category.title,
+                        suffix: suffixIndex < 2 ? '' : `_${suffixIndex}`,
+                        id: category.id
+                    }
+                })
+            }
+        },
+        watch: {
+            windowTop(v) {
+                document.getElementById('nav');
+                if (this.navScrollTop < this.windowTop) {
+                    this.navView = true
+                } else this.navView = false
+
+            }
+        }
+    })
+</script>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> | web2tailwind
+</title>
+    <script src='/assets/lib/fontawesome/js/all.js'></script>
+    <link rel="stylesheet" href="/assets/css/markdown.css">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="icon" href="/assets/img/icon.png" type="image/png">
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link href="/assets/css/style.css?id=2" rel="stylesheet">
+<script src="/assets/js/alpine.min.js" defer></script>
+<script src="/assets/js/highlight.min.js"></script>
+<link rel="stylesheet" href="/assets/css/dracula.min.css">
+<link
+    href="https://fonts.googleapis.com/css?family=Mulish:wght@300|Manjari:wght@100;400;700|Source+Code+Pro&family=Fira+Sans:wght@300&display=swap"
+    rel="stylesheet">
+    <meta name="keywords" content="">
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://web2tailwind.com/component/badge" />
+<meta property="og:title" content="" />
+<meta property="og:image" content="" />
+<meta property="og:site_name" content="Tailwind Component" />
+<meta property="og:description" content="" />
+<meta property="og:updated_time" content="">
+<meta property="article:author" content="@tailwindcomponent">
+
+<meta name="twitter:site" content="@tailwindcomponent">
+<meta name="twitter:creator" content="@tailwindcomponent">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:domain" content="https://web2tailwind.com" />
+<meta name="twitter:title" property="og:title" itemprop="title" content="" />
+<meta name="twitter:image" property="og:image" content="" />
+<meta name="twitter:description" property="og:description" itemprop="description"
+    content="" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+</head>
+
+<body>
+<div id="app">
+        <div class="bg-white border-b-2 border-red-500 sticky shadow-lg md:shadow-none top-0 z-10">
+    <div
+    style="background: #c21500;background: -webkit-linear-gradient(to right, #c21500, #ffc500); background: linear-gradient(to right, #c21500, #ffc500);">
+    <div class="container mx-auto md:px-20 text-center px-6 py-2 ">
+        <a href="https://web2tailwind.com/laratail/introduction" class="text-gray-100 text-lg hover:text-gray-200">
+            Laratail is Out !!! Laravel and Tailwind css based free admin panel starter kit.
+        </a>
+    </div>
+</div>
+    <nav x-data="{show:false}"
+        class="container mx-auto px-6 2xl:px-0 flex items-center justify-between flex-wrap bg-white py-2">
+        <a href="https://web2tailwind.com" class="flex items-center">
+            <img src="/assets/img/logo.png" alt="web2tailwind.com logo" class="h-8 md:h-10 mr-12 md:mr-0">
+        </a>
+        <div class="flex items-center md:hidden">
+            <div class="px-3 py-4 lg:py-3">
+                <a target="_blank" href="/tailwind/try"
+                    class="flex items-center bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-4 md:px-8 rounded-full font-hairline">
+                    <span class="hidden md:inline">Try  Online</span>
+                    <span class="material-icons inline md:hidden">moving</span>
+                </a>
+            </div>
+            <div>
+                <button @click="show=!show"
+                    class="flex items-center px-3 py-2 border rounded text-gray-700 border-gray-200">
+                    <svg class="fill-current h-4 w-4 font-bold" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div @click.away="show = false" :class="{ 'block': show, 'hidden': !show }"
+            class="border-t md:border-t-0 w-full flex-grow md:flex items-center md:justify-end md:w-auto">
+            <div>
+                <a href="https://web2tailwind.com"
+                class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Components</a>
+                <a href="https://web2tailwind.com/blogs"
+                    class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Blogs</a>
+                <a href="https://web2tailwind.com/design"
+                    class="block md:inline-block font-bold text-base px-2 md:px-3 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Design</a>
+            </div>
+            <div class="hidden md:block pl-3 py-6 md:py-3 ">
+                <a target="_blank" href="/tailwind/try"
+                    class="bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-8 rounded-full font-hairline">Try
+                    Online
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+    <div class="container mx-auto">
+        <div class="md:flex">
+            <div class="md:bg-gray-100 w-full md:w-56 xl:w-64">
+                <div id="sidebar" class="md:fixed overflow-y-auto w-full md:w-56 xl:w-64 md:mt-12">
+                    <div x-data="{show:false}" class="px-8 md:pb-10">
+                        <div class="border-b-2 flex justify-between items-center">
+    <div>
+        <h2 class="text-lg font-semibold pt-6 pb-3 md:pb-2 my-0">Components</h2>
+    </div>
+    <div class="block md:hidden">
+        <button x-on:click="show=!show" class="flex items-center text-gray-700">
+                    <span class="material-icons">
+                        view_module
+                    </span>
+        </button>
+    </div>
+</div>
+<ul class="px-1 my-2 hidden md:block" :class="{'block':show,'hidden md:block':!show}">
+    <li class="py-1">
+        <a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/introduction">Introduction</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/alert">Alert</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/badge">Badge</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/button">Button</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/card">Card</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/carousel">Carousel</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/column">Column</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600"
+                        href="https://web2tailwind.com/component/collapse-accordion">Collapse</a>
+    </li>
+    <li class="py-1">
+        <a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/dropdown">Dropdowns</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/list-group">List
+                                                                                                      Group</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/media-object">Media
+                                                                                                        Object</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/modal">Modal</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/popover">Popovers</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/navbar">Navbar</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/form">Form</a></li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/login-form">Login
+                                                                                                      Form</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/tooltip">Tooltips</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/table">Table</a>
+    </li>
+    <li class="py-1"><a class="leading-relaxed text-gray-600" href="https://web2tailwind.com/component/admin-theme">Admin
+                                                                                                       Theme</a>
+    </li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+            <div id="content" class="w-full md:flex-1">
+                <div class="w-full px-8 py-10 lg:w-4/5">
+                        <h1>Bootstrap badge using Tailwind css</h1>
+<h2>Example of badge with button</h2>
+<button class="bg-blue-600 text-gray-100 px-3 py-2 rounded mb-2">
+Notifications <span class="bg-gray-200 text-gray-800 px-1 rounded">4</span>
+</button>
+<pre><code class="language-html">&lt;button class=&quot;bg-blue-600 text-gray-100 px-3 py-2 rounded&quot;&gt;
+Notifications &lt;span class=&quot;bg-gray-200 text-gray-800 px-1 rounded&quot;&gt;4&lt;/span&gt;
+&lt;/button&gt;
+</code></pre>
+<h2>Contextual variations of badges</h2>
+<div class="mb-4">
+<span class="bg-blue-600 text-gray-200 text-xs px-2 py-1 rounded">Primary</span>
+<span class="bg-gray-600 text-gray-100 text-xs px-2 py-1 rounded">Secondary</span>
+<span class="bg-green-400 text-gray-100 text-xs px-2 py-1 rounded">Success</span>
+<span class="bg-red-500 text-gray-200 text-xs px-2 py-1 rounded">Danger</span>
+<span class="bg-yellow-400 text-gray-800 text-xs px-2 py-1 rounded">Warning</span>
+<span class="bg-teal-400 text-gray-100 text-xs px-2 py-1 rounded">Info</span>
+<span class="bg-gray-100 text-gray-900 text-xs px-2 py-1 rounded">Light</span>
+<span class="bg-gray-900 text-gray-100 text-xs px-2 py-1 rounded">Dark</span>
+</div>
+<pre><code class="language-html">&lt;span class=&quot;bg-blue-600 text-gray-200 text-xs px-2 py-1 rounded&quot;&gt;Primary&lt;/span&gt;
+&lt;span class=&quot;bg-gray-600 text-gray-100 text-xs px-2 py-1 rounded&quot;&gt;Secondary&lt;/span&gt;
+&lt;span class=&quot;bg-green-400 text-gray-100 text-xs px-2 py-1 rounded&quot;&gt;Success&lt;/span&gt;
+&lt;span class=&quot;bg-red-500 text-gray-200 text-xs px-2 py-1 rounded&quot;&gt;Danger&lt;/span&gt;
+&lt;span class=&quot;bg-yellow-400 text-gray-800 text-xs px-2 py-1 rounded&quot;&gt;Warning&lt;/span&gt;
+&lt;span class=&quot;bg-teal-400 text-gray-100 text-xs px-2 py-1 rounded&quot;&gt;Info&lt;/span&gt;
+&lt;span class=&quot;bg-gray-100 text-gray-900 text-xs px-2 py-1 rounded&quot;&gt;Light&lt;/span&gt;
+&lt;span class=&quot;bg-gray-900 text-gray-100 text-xs px-2 py-1 rounded&quot;&gt;Dark&lt;/span&gt;
+</code></pre>
+<h2>Pill Badges</h2>
+<p>Add <code>rounded-full</code> class instead of <code>rounded</code> class in above example.</p>
+<div class="my-2">
+    <span class="bg-blue-600 text-gray-200 text-xs px-2 py-1 rounded-full">Primary</span>
+    <span class="bg-gray-600 text-gray-100 text-xs px-2 py-1 rounded-full">Secondary</span>
+    <span class="bg-green-400 text-gray-100 text-xs px-2 py-1 rounded-full">Success</span>
+    <span class="bg-red-500 text-gray-200 text-xs px-2 py-1 rounded-full">Danger</span>
+    <span class="bg-yellow-400 text-gray-800 text-xs px-2 py-1 rounded-full">Warning</span>
+    <span class="bg-teal-400 text-gray-100 text-xs px-2 py-1 rounded-full">Info</span>
+    <span class="bg-gray-100 text-gray-900 text-xs px-2 py-1 rounded-full">Light</span>
+    <span class="bg-gray-900 text-gray-100 text-xs px-2 py-1 rounded-full">Dark</span>
+</div>
+<pre><code class="language-html">&lt;span class=&quot;bg-blue-600 text-gray-200 text-xs px-2 py-1 rounded-full&quot;&gt;Primary&lt;/span&gt;
+&lt;span class=&quot;bg-gray-600 text-gray-100 text-xs px-2 py-1 rounded-full&quot;&gt;Secondary&lt;/span&gt;
+&lt;span class=&quot;bg-green-400 text-gray-100 text-xs px-2 py-1 rounded-full&quot;&gt;Success&lt;/span&gt;
+&lt;span class=&quot;bg-red-500 text-gray-200 text-xs px-2 py-1 rounded-full&quot;&gt;Danger&lt;/span&gt;
+&lt;span class=&quot;bg-yellow-400 text-gray-800 text-xs px-2 py-1 rounded-full&quot;&gt;Warning&lt;/span&gt;
+&lt;span class=&quot;bg-teal-400 text-gray-100 text-xs px-2 py-1 rounded-full&quot;&gt;Info&lt;/span&gt;
+&lt;span class=&quot;bg-gray-100 text-gray-900 text-xs px-2 py-1 rounded-full&quot;&gt;Light&lt;/span&gt;
+&lt;span class=&quot;bg-gray-900 text-gray-100 text-xs px-2 py-1 rounded-full&quot;&gt;Dark&lt;/span&gt;
+</code></pre>
+<h3>Example with Links</h3>
+<div class="my-2">
+    <a href="#"><span class="bg-blue-600 text-gray-200 text-xs px-2 py-1 rounded-full">Primary</span></a>
+    <a href="#"><span class="bg-gray-600 text-gray-100 text-xs px-2 py-1 rounded-full">Secondary</span></a>
+    <a href="#"><span class="bg-green-400 text-gray-100 text-xs px-2 py-1 rounded-full">Success</span></a>
+    <a href="#"><span class="bg-red-500 text-gray-200 text-xs px-2 py-1 rounded-full">Danger</span></a>
+    <a href="#"><span class="bg-yellow-400 text-gray-800 text-xs px-2 py-1 rounded-full">Warning</span></a>
+    <a href="#"><span class="bg-teal-400 text-gray-100 text-xs px-2 py-1 rounded-full">Info</span></a>
+    <a href="#"><span class="bg-gray-100 text-gray-900 text-xs px-2 py-1 rounded-full">Light</span></a>
+    <a href="#"><span class="bg-gray-900 text-gray-100 text-xs px-2 py-1 rounded-full">Dark</span></a>
+</div>
+<pre><code class="language-html">&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;bg-blue-600 text-gray-200 text-xs px-2 py-1 rounded-full&quot;&gt;Primary&lt;/span&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;bg-gray-600 text-gray-100 text-xs px-2 py-1 rounded-full&quot;&gt;Secondary&lt;/span&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;bg-green-400 text-gray-100 text-xs px-2 py-1 rounded-full&quot;&gt;Success&lt;/span&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;bg-red-500 text-gray-200 text-xs px-2 py-1 rounded-full&quot;&gt;Danger&lt;/span&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;bg-yellow-400 text-gray-800 text-xs px-2 py-1 rounded-full&quot;&gt;Warning&lt;/span&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;bg-teal-400 text-gray-100 text-xs px-2 py-1 rounded-full&quot;&gt;Info&lt;/span&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;bg-gray-100 text-gray-900 text-xs px-2 py-1 rounded-full&quot;&gt;Light&lt;/span&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;bg-gray-900 text-gray-100 text-xs px-2 py-1 rounded-full&quot;&gt;Dark&lt;/span&gt;&lt;/a&gt;
+</code></pre>
+
+                        <div class="px-8 py-20" style="font-family: Mulish">
+    <div class="flex justify-center mb-2">
+        <div class="font-light text-sm text-gray-600">
+            &copy; 2019 - 2022
+            <a href="https://web2tailwind.com"
+                class="text-base text-gray-600 hover:text-gray-600" style="font-family: 'Source Code Pro';">Web2tailwind.com</a>
+        </div>
+    </div>
+    <div class="flex flex-wrap justify-center text-blue-400">
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/about-us"> About Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/contact-us">Contact Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/copyright">Copyright</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/code-of-conduct">Code of Conduct</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/privacy-and-policy">Privacy & Policy</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const mySwiper = new Swiper(".swiper-container", {
+            // Optional parameters
+            direction: "horizontal",
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: ".swiper-pagination",
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: ".swiper-scrollbar",
+            },
+        })
+    </script>
+</body>
+
+</html>

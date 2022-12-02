@@ -1,0 +1,732 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="The Semantics of i AM" />
+    <meta property="og:type" content="Blog" />
+    <meta property="og:url" content="https://soiamthat.com/blog" />
+    <meta property="og:image" content="https://assets.grooveapps.com/images/8afc7db2-df04-4e2b-9e62-ed371795e39f/1626075503_bookimagesoiamthatwebsite.png" />
+    <meta property="og:description" content="" />
+    <!-- Pixel head -->
+
+    <!-- Custom Css Code -->
+    <script src="https://kit.fontawesome.com/e7647a48d4.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.0/mustache.min.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/blog" id=blog-base>
+    <title>Leaving Your Past--Loving Your Future</title>
+
+    <script type>
+
+
+        async function exampleFunction() {
+            return new Promise(async (resolve, reject) => {
+
+                console.log("this is " + document.getElementById("blog-base").href);
+                var baseURL = document.getElementById("blog-base").href;
+                var domain = window.location.hostname;
+                console.log("domain:", domain);
+                var pageURL = window.location.href;
+                console.log("pageURL:", pageURL);
+                var pathURL = window.location.pathname;
+                console.log("pathURL:", pathURL);
+                var slugURL = pageURL.substr(pageURL.lastIndexOf("/") + 1);
+                console.log("slugURL:", slugURL);
+                var pathArray = window.location.pathname.split("/");
+                console.log("pathArray:", pathArray);
+                const segment_1 = pathArray[1];
+                console.log("segment_1:", segment_1);
+                var currentBaseUrl = window.location.protocol + "//" + window.location.host + '/' + segment_1;
+                document.getElementById("blog-base").href = document.getElementById("blog-base").href == currentBaseUrl && segment_1 != ""? document.getElementById("blog-base").href +"/": "/";
+                var BasePath = document.getElementById("blog-base").href;
+                var currTimestamp = Date.now();
+                var utcDateString = (new Date(currTimestamp)).toUTCString();
+                var timestamp = new Date(utcDateString).getTime();
+                // current versioning
+                $modulePath = document.getElementById("blog-base").href + "js/version.js?v=" + timestamp;
+                let version = await import($modulePath);
+                console.log(version.updatedVersion());
+                var queryString = window.location.search;
+                var notIndex = true;
+                var tagSlug = false;
+                var temp_tag = [];
+                var temp_categories = [];
+                var popularposts = [];
+                var blogpostSlug = false;
+                var categoriesSlug = false;
+                var blogpost_id;
+                var strArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+                var postdeatilspopularposts = [];
+                var sliderposts = [];
+                var homPagePosts = [];
+                var facebook_comment_settings = "";
+                var width = "";
+                var num_of_post = "";
+                var BLOG_VER = version.updatedVersion();
+                var pageTitle = "";
+                let url = new URL(pageURL);
+                let search_params = url.searchParams;
+                var post_preview = false;
+                var post_preview_id = "";
+                var theme_preview = false;
+                var theme_slug = "";
+                var slider = "";
+                var showDates = true;
+                domain = BasePath;
+
+                // it is theme-preview
+                if (window.location.toString().includes("preview-theme")) {
+                    if (window.location.pathname == "/" + pathArray[1] + "/index.html") {
+                        BasePath = "/" + pathArray[1] + "/";
+                        console.log("basepath:", BasePath);
+                        theme_preview = true;
+                        domain = BasePath + "index.html";
+                        console.log("theme_preview:", theme_preview);
+                    }
+                }
+
+                // Add CSS FILE
+                // Get HTML head element
+                var head = document.getElementsByTagName("HEAD")[0];
+                // Create new link Element
+                var link = document.createElement("link");
+                // set the attributes for link element
+                link.rel = "stylesheet";
+                link.type = "text/css";
+                link.href = "css/style.css?v=" + BLOG_VER;
+                // Append link element to HTML head
+                head.appendChild(link);
+
+                if (search_params.has("slug")) {
+                    notIndex = false;
+                    theme_slug = search_params.get("slug");
+                }
+
+                //CHECK THE URL IS FOR POST PREVIEW 
+                if (search_params.has("type") && search_params.has("id") && search_params.get("type") == "post-preview") {
+
+                    post_preview = true;
+                    console.log(post_preview);
+                    post_preview_id = search_params.get("id");
+
+                }
+
+                //FETCH JSON AND TEMPLATES FILES
+                //1. BLOG POST LISTING FILES
+                await fetch("json/blogpostlist.json?v=" + BLOG_VER)
+                    .then((response) => response.json())
+                    .then(async (blogposts) => {
+                        console.log("1.blogpost listing:", blogposts);
+                        //2. Setting Json File
+                        await fetch("json/setting.json?v=" + BLOG_VER)
+                            .then((response) => response.json())
+                            .then(async (settings) => {
+                                blogpost_url = settings.config.route.blogpost_url;
+                                tag_url = settings.config.route.tag_url;
+                                categories_url = settings.config.route.categories_url;
+                                sidebar = settings.config.layout_setting.homePage.sidebar;
+                                postType = settings.config.layout_setting.homePage.postType;
+                                logo = settings.config.route.logo;
+                                social_links = settings.config.route.social_links;
+                                facebook_comment_settings = settings.config.route.facebook_comment_settings;
+                                form_details = settings.config.route.form_details;
+                                // pageTitle = settings.config.route.blog_title;
+                                copyright = settings.config.route.copyright;
+                                favicon = settings.config.route.favicon;
+                                tracking_ga = settings.config.tracking_ga;
+                                if (favicon == null) {
+                                    favicon = "https://assets.grooveapps.com/images/5f0d5c882a049a001c814670/1612550721_favicon.png";
+                                }
+
+                                // ADDING FAVICON IN HEAD
+                                var faviconHead = document.getElementsByTagName("HEAD")[0];
+                                var link = document.createElement("link");
+                                link.rel = "icon";
+                                link.type = "image/png";
+                                link.href = favicon;
+                                // Append link element to HTML head
+                                head.appendChild(link);
+
+                                // HIDING EMPTY ADS DIV 
+                                if (settings.config.ads != null) {
+                                    if (settings.config.ads.header_ads == null) {
+                                        var element = document.getElementById("header-ads");
+                                        element.classList.add("empty-ads");
+                                    }
+                                    if (settings.config.ads.footer_ads == null) {
+                                        var element = document.getElementById("footer-ads");
+                                        element.classList.add("empty-ads");
+                                    }
+                                }
+                                else {
+                                    var headerAdsElement = document.getElementById("header-ads");
+                                    headerAdsElement.classList.add("empty-ads");
+                                    var footerAdsElement = document.getElementById("footer-ads");
+                                    footerAdsElement.classList.add("empty-ads");
+                                }
+
+                                // POST LISTING LAYOUT TYPE
+                                posttype = postType == 1 ? "list" : postType == 2 ? "grid" : "masonry";
+                                emailForm = settings.config.layout_setting.homePage.emailForm;
+                                categoriesShow = settings.config.layout_setting.homePage.categories;
+                                blogpostsidebar = settings.config.layout_setting.postPage.sidebar;
+                                showDates = settings.config.layout_setting.homePage.showDates;
+                                numOfPosts = settings.config.layout_setting.homePage.numberOfPosts;
+
+                                // DIFFERENTIATING THE URLS OF POST AND CATEGORY 
+                                for (var i = 0; i < blogposts.length; i++) {
+                                    postSlug = blogposts[i]["url"];
+
+                                    if (theme_preview) {
+                                        themePostSlug = "index.html?slug=" + postSlug;
+                                        blogposts[i]["url"] = themePostSlug;
+                                    }
+
+                                    if (pageURL == BasePath + blogposts[i]["url"] || pageURL == BasePath + blogposts[i]["url"] + queryString || pageURL == BasePath + blogposts[i]["url"] + ".html" || theme_slug == postSlug) {
+                                        blogpostSlug = true;
+                                        blogpost_id = blogposts[i]["id"];
+                                        pageTitle = blogposts[i]["id"]["name"];
+                                    }
+                                    else {
+                                        for (var j = 0; j < blogposts[i]["categories"].length; j++) {
+                                            categories_slug_url = blogposts[i]["categories"][j]["url"];
+                                            if (theme_preview) {
+                                                themeCategorySlug = "index.html?slug=" + categories_slug_url;
+                                                // blogposts[i]["categories"][j]["url"] = themeCategorySlug;
+                                            }
+
+                                            if (pageURL == BasePath + blogposts[i]["categories"][j]["url"] || pageURL == BasePath + blogposts[i]["categories"][j]["url"] + ".html" || categories_slug_url == theme_slug) {
+                                                categoriesSlug = true;
+                                                categories_id = blogposts[i]["categories"][j]["id"];
+                                                pageTitle = blogposts[i]["categories"][j]["name"];
+                                                document.title = pageTitle;
+                                            }
+                                        }
+
+
+                                    }
+                                }
+                                // COLLECTION OF POST OF DIFFERENT SECTIONS OF HOME PAGE
+
+                                for (var i = 0; i < blogposts.length; i++) {
+                                    if (blogposts[i]["add_carousel"]) {
+                                        sliderposts.push(blogposts[i]);
+                                    }
+                                    if (blogposts[i]["show_homepage"]) {
+                                        homPagePosts.push(blogposts[i]);
+                                    }
+                                    if (popularposts.length < 6) {
+                                        popularposts.push(blogposts[i]);
+                                    }
+                                }
+                                console.log("sliderposts:", sliderposts);
+                                console.log("homepagePosts:", homPagePosts);
+                                blogdata = {
+                                    sidebar: sidebar,
+                                    emailForm: emailForm,
+                                    categoriesShow: categoriesShow,
+                                    posttype: posttype,
+                                    blogposts: homPagePosts,
+                                    sliderposts: sliderposts,
+                                    popularposts: popularposts,
+                                    form_details: form_details,
+                                    showDates: showDates,
+                                    blogposts0: blogposts[0],
+                                    blogposts1: blogposts[1],
+                                    blogposts2: blogposts[2],
+                                    blogposts3: blogposts[3],
+                                    blogposts4: blogposts[4],
+                                };
+                                //3.NAVIGATIONS
+                                await fetch("json/navigations.json?v=" + BLOG_VER)
+                                    .then((response) => response.json())
+                                    .then(async (navigations) => {
+                                        await fetch("json/categories.json?v=" + BLOG_VER)
+                                            .then((response) => response.json())
+                                            .then(async (visiblecategories) => {
+                                                visiblecategories = visiblecategories;
+                                                for (var j = 0; j < visiblecategories.length; j++) {
+                                                    categories_slug = visiblecategories[j]["slug"];
+                                                    temp_categories_slug = {
+                                                        categories_slug: categories_slug,
+                                                    };
+                                                    categories_slug_url = Mustache.render(categories_url, temp_categories_slug);
+                                                    // visiblecategories[j]["url"] = BasePath + categories_slug_url;
+                                                    console.log(visiblecategories[j]["url"]);
+
+                                                    if (pageURL == visiblecategories[j]["url"]) {
+                                                        categoriesSlug = true;
+                                                        categories_id = visiblecategories[j]["id"];
+                                                        pageTitle = visiblecategories[j]["name"];
+                                                        document.title = pageTitle;
+                                                    }
+
+                                                    if (theme_preview) {
+                                                        themeCategorySlug = "index.html?slug=" + categories_slug_url;
+                                                        visiblecategories[j]["url"] = themeCategorySlug;
+                                                    }
+
+                                                    num_of_child = visiblecategories[j]["children"].length;
+                                                    visiblecategories[j]["child_exist"] = false;
+                                                    if (num_of_child >= 1) {
+                                                        visiblecategories[j]["child_exist"] = true;
+                                                    }
+                                                    for (var k = 0; k < visiblecategories[j]["children"].length; k++) {
+                                                        categories_slug = visiblecategories[j]["children"][k]["slug"];
+                                                        temp_categories_slug = {
+                                                            categories_slug: categories_slug,
+                                                        };
+                                                        categories_slug_url = Mustache.render(categories_url, temp_categories_slug);
+                                                        visiblecategories[j]["children"][k]["slug"] = BasePath + categories_slug_url;
+                                                        if (pageURL == visiblecategories[j]["children"][k]["slug"]) {
+                                                            categoriesSlug = true;
+                                                            categories_id = visiblecategories[j]["children"][k]["id"];
+                                                            pageTitle = visiblecategories[j]["children"][k]["name"];
+                                                            document.title = pageTitle;
+                                                        }
+                                                        if (theme_preview) {
+                                                            themeCategorySlug = "index.html?slug=" + categories_slug_url;
+                                                            visiblecategories[j]["children"][k]["slug"] = themeCategorySlug;
+                                                        }
+                                                    }
+                                                }
+
+
+                                                console.log("visible-categories:", visiblecategories);
+                                                console.log("pageUrL with BasePath:", BasePath+queryString);
+                                                console.log("pageUrL with BaseUrl:", baseURL+queryString);
+
+                                                await fetch("templates/header.html?v=" + BLOG_VER)
+                                                    .then((response) => response.text())
+                                                    .then(async (header_temp) => {
+                                                        temp = header_temp;
+                                                        var headerdata = {
+                                                            logo: logo,
+                                                            social_links: social_links,
+                                                            domain: domain,
+                                                            navigations: navigations,
+                                                            tags: visiblecategories,
+                                                            copyright: copyright,
+                                                        }
+                                                        console.log("headerdata:", headerdata);
+                                                        header = Mustache.to_html(temp, headerdata);
+                                                        await fetch("templates/footer.html?v=" + BLOG_VER)
+                                                            .then((response) => response.text())
+                                                            .then(async (footer) => {
+                                                                footer = footer;
+                                                                footer = Mustache.to_html(footer, headerdata);
+                                                                await fetch("templates/layout.html?v=" + BLOG_VER)
+                                                                    .then((response) => response.text())
+                                                                    .then(async (layout) => {
+
+                                                                    });
+                                                                // POST PREVIEW URL
+                                                                if (post_preview) {
+                                                                    console.log("post_preview:", post_preview);
+                                                                    await fetch("https://v1.gdapis.com/api/grooveblog/post-preview/" + post_preview_id)
+                                                                        .then((response) => response.json())
+                                                                        .then(async (blog) => {
+                                                                            document.getElementById("post-detials-ads").innerHTML = blog["custom_code"];
+                                                                            document.title = blog["title"];
+                                                                            blogpost_id = post_preview_id;
+                                                                            if (facebook_comment_settings != null) {
+                                                                                app_id = facebook_comment_settings.app_id;
+                                                                                width = facebook_comment_settings.width;
+                                                                                num_of_post = facebook_comment_settings.num_of_post;
+                                                                            }
+                                                                            console.log(blog["date_and_time"]);
+                                                                            var publish_date = new Date(blog["date_and_time"]);
+                                                                            if (isNaN(blog["date_and_time"])) {
+                                                                                publish_date = new Date();
+                                                                            }
+                                                                            var formatted = strArray[publish_date.getMonth()] + " " + publish_date.getDate() + ", " + publish_date.getFullYear();
+                                                                            blog["date_and_time"] = formatted;
+                                                                            for (var j = 0; j < blog["categories"].length; j++) {
+                                                                                categories_slug = blog["categories"][j]["slug"];
+                                                                                temp_categories_slug = {
+                                                                                    categories_slug: categories_slug,
+                                                                                };
+                                                                                categories_slug_url = Mustache.render(categories_url, temp_categories_slug);
+                                                                                blog["categories"][j]["url"] = categories_slug_url;
+                                                                                if (pageURL == BasePath + categories_slug_url) {
+                                                                                    categoriesSlug = true;
+                                                                                    categories_id = blog["categories"][j]["id"];
+                                                                                }
+                                                                            }
+                                                                            for (var j = 0; j < popularposts.length; j++) {
+                                                                                if (blogpost_id != popularposts[j]["id"]) {
+                                                                                    postdeatilspopularposts.push(popularposts[j]);
+                                                                                }
+                                                                            }
+                                                                            blogdata = {
+                                                                                pageURL: pageURL,
+                                                                                width: width,
+                                                                                num_of_post: num_of_post,
+                                                                                sidebar: blogpostsidebar,
+                                                                                form_details: form_details,
+                                                                                blogposts: blog,
+                                                                            };
+                                                                            console.log(blogdata);
+                                                                            await fetch("templates/blogpost.html?v=" + BLOG_VER)
+                                                                                .then((response) => response.text())
+                                                                                .then(async (template) => {
+                                                                                    if (blogpostsidebar) {
+                                                                                        var sidebarDetails = {
+                                                                                            sidebar: blogpostsidebar,
+                                                                                            form_details: form_details,
+                                                                                            popularposts: postdeatilspopularposts,
+                                                                                        };
+
+                                                                                        await fetch("templates/sidebar.html?v=" + BLOG_VER)
+                                                                                            .then((response) => response.text())
+                                                                                            .then((sidebarTemplate) => {
+                                                                                                var rightSidebar = Mustache.to_html(sidebarTemplate, sidebarDetails);
+                                                                                                document.getElementById("sidebar").innerHTML = rightSidebar;
+                                                                                            });
+                                                                                    }
+
+                                                                                    else {
+                                                                                        document.getElementById("middle-wrapper").className = "without-sidebar";
+                                                                                    }
+                                                                                    middle = Mustache.to_html(template, blogdata);
+                                                                                    var elem = document.getElementById("main-content");
+                                                                                    elem.style.background = "#ffffff";
+                                                                                    document.getElementById("header").innerHTML = header;
+                                                                                    document.getElementById("slider").innerHTML = slider;
+                                                                                    document.getElementById("container").className = "container-small";
+                                                                                    document.getElementById("middle").innerHTML = middle;
+                                                                                    document.getElementById("footer").innerHTML = footer;
+                                                                                    console.log(middle);
+                                                                                    if (blog.show_comments && facebook_comment_settings != null && facebook_comment_settings.app_id != null) {
+                                                                                        setTimeout(function () {
+                                                                                            let myCommentCode = document.createElement("script");
+                                                                                            myCommentCode.setAttribute("src", "https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=" + app_id + "&autoLogAppEvents=1");
+                                                                                            myCommentCode.setAttribute("crossorigin", "anonymous");
+                                                                                            myCommentCode.setAttribute("nonce", "QBaEqTGW"); document.body.appendChild(myCommentCode);
+                                                                                        }, 1000)
+                                                                                    }
+                                                                                    let myGrooveMailCode = document.createElement("script");
+                                                                                    myGrooveMailCode.setAttribute("src", "https://app.groovefunnels.com/groovemail/embed/app.js");
+                                                                                    document.body.appendChild(myGrooveMailCode);
+                                                                                    let frameCode = document.createElement("script");
+                                                                                    frameCode.setAttribute("src", BasePath + "js/frame.js?v=" + BLOG_VER);
+                                                                                    document.body.appendChild(frameCode);
+                                                                                });
+
+                                                                        });
+
+                                                                }
+                                                                // BLOG POST URL
+                                                                if (blogpostSlug) {
+                                                                    await fetch("json/" + blogpost_id + ".json?v=" + BLOG_VER)
+                                                                        .then((response) => response.json())
+                                                                        .then(async (blog) => {
+                                                                            document.getElementById("post-detials-ads").innerHTML = blog["custom_code"];
+                                                                            document.title = blog["title"];
+                                                                            if (facebook_comment_settings != null) {
+                                                                                app_id = facebook_comment_settings.app_id;
+                                                                                width = facebook_comment_settings.width;
+                                                                                num_of_post = facebook_comment_settings.num_of_post;
+                                                                            }
+
+                                                                            for (var j = 0; j < blog["categories"].length; j++) {
+                                                                                categories_slug = blog["categories"]["slug"];
+                                                                                temp_categories_slug = {
+                                                                                    categories_slug: categories_slug,
+                                                                                };
+                                                                                categories_slug_url = Mustache.render(categories_url, temp_categories_slug);
+                                                                                blog["categories"][j]["url"] = BasePath + categories_slug_url;
+                                                                                if (theme_preview) {
+                                                                                    themeCategorySlug = "index.html?slug=" + categories_slug_url;
+                                                                                    // blog["categories"][j]["url"] = themeCategorySlug;
+                                                                                }
+                                                                                if (pathURL == blog["categories"][j]["url"] || categories_slug_url == theme_slug) {
+                                                                                    categoriesSlug = true;
+                                                                                    categories_id = blog["categories"][j]["id"];
+                                                                                }
+                                                                            }
+
+                                                                            for (var j = 0; j < popularposts.length; j++) {
+                                                                                if (blogpost_id != popularposts[j]["id"]) {
+                                                                                    postdeatilspopularposts.push(popularposts[j]);
+                                                                                }
+
+                                                                            }
+                                                                            await fetch(BasePath + "templates/blogpost.html?v=" + BLOG_VER)
+                                                                                .then((response) => response.text())
+                                                                                .then(async (blogPostDetailsTemplate) => {
+                                                                                    if (blogpostsidebar) {
+                                                                                        var sidebarDetails = {
+                                                                                            sidebar: blogpostsidebar,
+                                                                                            form_details: form_details,
+                                                                                            popularposts: postdeatilspopularposts,
+                                                                                        };
+                                                                                        await fetch(BasePath + "templates/sidebar.html?v=" + BLOG_VER)
+                                                                                            .then((response) => response.text())
+                                                                                            .then(async (sidebarTemplate) => {
+                                                                                                var rightSidebar = Mustache.to_html(sidebarTemplate, sidebarDetails);
+                                                                                                document.getElementById("sidebar").innerHTML = rightSidebar;
+                                                                                            });
+
+
+
+                                                                                    }
+                                                                                    else {
+                                                                                        document.getElementById("middle-wrapper").className = "without-sidebar";
+                                                                                    }
+                                                                                    var elem = document.getElementById("main-content");
+                                                                                    elem.style.background = "#ffffff";
+                                                                                    document.getElementById("header").innerHTML = header;
+                                                                                    document.getElementById("container").className = "container-small";
+                                                                                    document.getElementById("footer").innerHTML = footer;
+                                                                                    if (blog.show_comments && facebook_comment_settings != null && facebook_comment_settings.app_id != null) {
+                                                                                        document.getElementById("fb-comments").setAttribute("data-href", pageURL);
+                                                                                        document.getElementById("fb-comments").setAttribute("data-width", width);
+                                                                                        document.getElementById("fb-comments").setAttribute("data-numposts", num_of_post);
+                                                                                        setTimeout(function () {
+                                                                                            let myCommentCode = document.createElement("script");
+                                                                                            myCommentCode.setAttribute("src", "https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=" + app_id + "&autoLogAppEvents=1");
+                                                                                            myCommentCode.setAttribute("crossorigin", "anonymous");
+                                                                                            myCommentCode.setAttribute("nonce", "QBaEqTGW");
+                                                                                            document.body.appendChild(myCommentCode);
+                                                                                        }, 1000
+
+                                                                                        );
+
+                                                                                    }
+                                                                                    let myGrooveMailCode = document.createElement("script");
+                                                                                    myGrooveMailCode.setAttribute("src", "https://app.groovefunnels.com/groovemail/embed/app.js");
+                                                                                    document.body.appendChild(myGrooveMailCode);
+                                                                                    let frameCode = document.createElement("script");
+                                                                                    frameCode.setAttribute("src", BasePath + "js/frame.js?v=" + BLOG_VER);
+                                                                                    document.body.appendChild(frameCode);
+
+
+                                                                                });
+                                                                        });
+                                                                }
+
+                                                                if (categoriesSlug) {
+                                                                    console.log(categoriesSlug);
+                                                                    var categoryCount = 0;
+                                                                    await fetch(BasePath + "templates/categories.html?v=" + BLOG_VER)
+                                                                        .then((response) => response.text())
+                                                                        .then(async (categoriesTemplate) => {
+                                                                            showDates = settings.config.layout_setting.categoryPage.showDates;
+                                                                            numOfPosts = settings.config.layout_setting.categoryPage.numberOfPosts;
+                                                                            categoryPagepostType = settings.config.layout_setting.categoryPage.postType;
+                                                                            postType = categoryPagepostType == 1 ? "list" : categoryPagepostType == 2 ? "grid" : "masonry";
+                                                                            console.log(postType);
+                                                                            var categoriesblogdata = {
+                                                                                posttype: postType,
+                                                                                blogpost: blogposts,
+                                                                            };
+                                                                            console.log(blogposts);
+                                                                            for (var k in blogposts) {
+                                                                                slug = blogposts[k]["slug"];
+                                                                                var temp_blogpost_slug = {
+                                                                                    slug: slug,
+                                                                                };
+                                                                                postSlug = Mustache.render(blogpost_url, temp_blogpost_slug);
+                                                                                // blogposts[k]["url"] = BasePath + postSlug;
+                                                                                if (theme_preview) {
+                                                                                    themePostSlug = "index.html?slug=" + postSlug;
+                                                                                    blogposts[k]["url"] = themePostSlug;
+                                                                                }
+                                                                                for (var j in blogposts[k]["categories"]) {
+                                                                                    if (blogposts[k]["categories"][j]["id"] == categories_id) {
+                                                                                        temp_categories.push(blogposts[k]);
+                                                                                        categoryCount = categoryCount + 1;
+                                                                                    }
+
+                                                                                }
+                                                                            }
+                                                                            var categorieswiseblogpost = {
+                                                                                postType: postType,
+                                                                                blogpost: temp_categories,
+                                                                                showDates: showDates,
+                                                                            };
+
+                                                                            middle = Mustache.to_html(categoriesTemplate, categorieswiseblogpost);
+                                                                            console.log(middle);
+                                                                            document.getElementById("middle-wrapper").className = "without-sidebar";
+                                                                            document.getElementById("header").innerHTML = header;
+                                                                            document.getElementById("middle").innerHTML = middle;
+                                                                            document.getElementById("footer").innerHTML = footer;
+                                                                            let myCoolCode = document.createElement("script");
+                                                                            myCoolCode.setAttribute("src", BasePath + "js/loadmore.js?v=" + BLOG_VER);
+                                                                            document.body.appendChild(myCoolCode);
+                                                                            // document.getElementById("blogPostListWrapper").innerHTML = html;
+                                                                        });
+                                                                }
+                                                                if (pageURL == BasePath + "?v=" + (BLOG_VER + 1) || pageURL == BasePath + queryString || pageURL == baseURL+ queryString || pageURL == baseURL + "?v=" + (BLOG_VER + 1)|| pageURL== baseURL || pageURL == BasePath || pathURL == BasePath + "index.html" && theme_slug == "" && (!post_preview)) {
+                                                                    // document.title = pageTitle;
+                                                                    await fetch(BasePath + "templates/slider.html?v=" + BLOG_VER)
+                                                                        .then((response) => response.text())
+                                                                        .then(async (sliderTemplate) => {
+                                                                            var sliderData = {
+                                                                                categoriesShow: categoriesShow,
+                                                                                sliderposts: sliderposts,
+                                                                                showDates: showDates,
+                                                                            };
+                                                                            slider = Mustache.to_html(sliderTemplate, sliderData);
+
+
+
+
+                                                                            await fetch(BasePath + "templates/home.html?v=" + BLOG_VER)
+                                                                                .then((response) => response.text())
+                                                                                .then(async (homeTemplate) => {
+                                                                                    if (!sidebar) {
+                                                                                        document.getElementById("middle-wrapper").className = "without-sidebar";
+
+                                                                                    }
+                                                                                    else {
+                                                                                        var sidebarDetails = {
+                                                                                            sidebar: sidebar,
+                                                                                            emailForm: emailForm,
+                                                                                            popularposts: popularposts,
+                                                                                            form_details: form_details,
+                                                                                        };
+                                                                                        await fetch(BasePath + "templates/sidebar.html?v=" + BLOG_VER)
+                                                                                            .then((response) => response.text())
+                                                                                            .then(async (sidebarTemplate) => {
+                                                                                                var rightSidebar = Mustache.to_html(sidebarTemplate, sidebarDetails);
+                                                                                                document.getElementById("sidebar").innerHTML = rightSidebar;
+                                                                                            });
+                                                                                    }
+                                                                                    console.log(blogdata);
+                                                                                    var middle = Mustache.to_html(homeTemplate, blogdata);
+                                                                                    document.getElementById("header").innerHTML = header;
+                                                                                    document.getElementById("slider").innerHTML = slider;
+                                                                                    document.getElementById("middle").innerHTML = middle;
+                                                                                    document.getElementById("footer").innerHTML = footer;
+                                                                                    let myCoolCode = document.createElement("script");
+                                                                                    myCoolCode.setAttribute("src", BasePath + "js/loadmore.js?v=" + BLOG_VER);
+                                                                                    document.body.appendChild(myCoolCode);
+                                                                                    let mySliderCode = document.createElement("script");
+                                                                                    mySliderCode.setAttribute("src", BasePath + "js/slider.js?v=" + BLOG_VER);
+                                                                                    document.body.appendChild(mySliderCode);
+
+                                                                                    let myGrooveMailCode = document.createElement("script");
+                                                                                    myGrooveMailCode.setAttribute("src", "https://app.groovefunnels.com/groovemail/embed/app.js");
+                                                                                    document.body.appendChild(myGrooveMailCode);
+                                                                                    // document.getElementById("blogPostListWrapper").innerHTML = html;
+                                                                                });
+                                                                        });
+                                                                }
+
+
+
+                                                            });
+                                                    });
+
+
+                                            });
+                                    });
+
+
+
+
+
+
+
+                            });
+                        setTimeout(function () {
+                            return resolve("Success");
+                        }, 6000);
+
+                    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            });
+
+        };
+        window.onload = exampleFunction().then(async (res) => {
+            console.log(res);
+            var currTimestamp = Date.now();
+            var utcDateString = (new Date(currTimestamp)).toUTCString();
+            var timestamp = new Date(utcDateString).getTime();
+            var BasePath = document.getElementById("blog-base").href;
+            let script = document.createElement('script');
+            $modulePath = document.getElementById("blog-base").href + "js/version.js?v=" + timestamp;
+            let version = await import($modulePath);
+            let BLOG_VER = version.updatedVersion();
+            script.src = BasePath + 'js/embedads.js?v=' + BLOG_VER;
+            document.head.appendChild(script);
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <!-- Pixel after body -->
+    <div id="blogPostListWrapper">
+        <header id="header" class="header relative">
+            <!--header.html-->
+        </header>
+        <div class="ads-wrapper md:pt-10 md:pb-0 pt-5 pb-5 hidden" id="header-ads">
+            <div class="container flex justify-center">
+                <!-- Embed header ads -->
+            </div>
+        </div>
+        <main id="main-content" class="main-content md:pt-10 md:pb-20 pb-10">
+            <div id="container" class="container">
+                <div id="slider">
+                    <!--slider.html-->
+                </div>
+                <div id="middle-wrapper" class="md:flex">
+                    <div class="flex-1">
+                        <div id="middle">
+                            <!--home.html-->
+                        </div>
+                        <div id="post-detials-ads" class="mt-4"></div>
+                    </div>
+
+                    <div class="sidebar">
+                        <div id="sidebar">
+                            <!--siderbar.html-->
+                        </div>
+                        <div class="hidden" id="sidebar-ads">
+                            <!-- Embed sidebar ads -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="ads-wrapper md:pb-10 pb-5 hidden" id="footer-ads">
+            <div class="container flex justify-center">
+                <!-- Embed footer ads -->
+            </div>
+        </div>
+
+        <footer id="footer" class="footer">
+            <!--footer.html-->
+        </footer>
+        <!-- Pixel before body close -->
+    </div>
+
+
+
+</body>
+
+</html>

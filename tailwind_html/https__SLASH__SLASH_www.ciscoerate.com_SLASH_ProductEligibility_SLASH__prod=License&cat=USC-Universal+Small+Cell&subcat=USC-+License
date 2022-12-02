@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+
+	<head>
+		<title>Product Eligibility - E-Rate Helpdesk</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="content-type" content="text/plain; charset=UTF-8" />
+		<meta name="application-name" content="E-Rate Helpdesk" />
+		<meta name="msapplication-TileColor" content="#005073" />
+		<meta name="msapplication-TileImage" content="/apple-touch-icon.png" />
+		<meta name="theme-color" content="#005073">
+		<meta id="cisco-meta-viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png">
+
+		<!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+		<link href="/css/needed-css.css" rel="stylesheet" type="text/css">
+		<link href="/css/tailwind.css" rel="stylesheet" type="text/css">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+			rel="stylesheet">
+			
+		<script src="/lib/modernizr.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="/lib/responsive.js"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126136373-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'UA-126136373-1');
+		</script>
+	</head>
+
+	<body class="text-gray-700">
+
+				<div class="min-h-screen relative overflow-hidden" id='wrapper'>
+			<header class="w-full shadow-lg bg-white" id="nav">
+				<div class="flex justify-center max-w-screen-lg mx-auto flex-col lg:flex-row lg:justify-between">
+					<div class="wrapper h-full flex items-center justify-between max-w-screen-xl relative py-5 lg:py-2 lg:space-x-10">
+						<a href="/" class="ml-5 h-8 lg:h-16 lg:pb-5 lg:mx-auto lg:mt-5">
+							<img class="h-full w-full" src="/images/logo.svg" alt="E-Rate Helpdesk" title="E-Rate Helpdesk" />
+						</a>
+						<div class="h-full relative flex flex-col items-center gap-2 hidden lg:flex lg:items-start">
+							<h1 class="text-2xl font-bold">E-Rate Helpdesk</h1>
+							<div class="flex flex-wrap lg:space-x-10">
+								<a class="w-2/4 text-sm text-center lg:w-auto lg:text-left" href="/ProductEligibility/">Product
+									Eligibility</a>
+								<a class="w-2/4 text-sm text-center lg:w-auto lg:text-left"
+									href="/GlobalSubstitutions/">Global Substitutions</a>
+								<a class="w-2/4 text-sm text-center lg:w-auto lg:text-left" href="/Questions/">Questions</a>
+							</div>
+						</div>
+						<div class="lg:hidden w-7 h-7 mr-5">
+							<button class="text-gray-700 flex items-center justify-center h-full w-full"
+								onclick="navdropdown()">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+								</svg>
+							</button>
+						</div>
+						<!-- NOTE MOBILE NAV -->
+						<div class="hidden absolute top-0 left-0 w-full" id="nav-drop">
+							<div class="py-5 w-full rounded shadow-xl bg-white z-10 ring-2 ring-gray-200">
+								<div class="w-full flex justify-between">
+									<a href="/" class="ml-5 h-8 lg:h-20 lg:pb-5 lg:mx-auto lg:mt-5">
+										<img class="h-full w-full" src="/images/logo.svg" alt="E-Rate Helpdesk" title="E-Rate Helpdesk" />
+									</a>
+									<button class="mr-5 flex items-center justify-center h-7 w-7 text-gray-700"
+										onclick="navdropdown()">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+										</svg>
+									</button>
+								</div>
+								<ul class="py-5 mt-4 border-t-2 border-gray-100">
+									<li><a class="block pl-7 px-5 py-1 border-l-4 border-transparent text-md hover:border-blue-500 hover:text-gray-900 hover:bg-blue-50"
+											href="/ProductEligibility/">Product Eligibility</a></li>
+									<li><a class="block pl-7 px-5 py-1 border-l-4 border-transparent text-md hover:border-blue-500 hover:text-gray-900 hover:bg-blue-50"
+											href="/GlobalSubstitutions/">Global Substitutions</a></li>
+									<li><a class="block pl-7 px-5 py-1 border-l-4 border-transparent text-md hover:border-blue-500 hover:text-gray-900 hover:bg-blue-50"
+											href="/Questions/">Questions</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<section class="max-w-screen-lg mx-2 pb-96 lg:pb-56 lg:mx-auto" id='section'>
+			<!-- <script src="/lib/editTable.js"></script> -->
+<div class='text-white py-10 px-5 lg:p-10 cisco-darkblue-bg rounded-b'>
+	<div class='w-full p-2 border-l-4 border-red-700 bg-red-500 rounded mb-2'>
+	<p>Eligibility information on this page is subject to the criteria listed in the 
+	<a class='text-white border-b-2 border-white border-dotted' href="/#ImportantEligibilityInformation" data-hover="Go to Important Eligibility Information">Important Eligibility Information</a> section.</p>
+</div>
+<div class='w-full p-2 border-l-4 border-blue-700 bg-blue-500 rounded'>
+<p>To search for multiple products at one time separate them with a comma. &nbsp;&nbsp;&nbsp;&nbsp;<i><a class='text-white border-b-2 border-white border-dotted' data-hover='item 1, item 2, item 3, item 4, ...'>Example</a></i> <br>This is limited to <b>25</b> items</p>
+</div>
+	<h2 class='text-3xl py-6'>Product Eligibility</h2>
+	<form class="search w-full bg-white rounded-full flex justify-end items-center" method="post" action="/ProductEligibility/">
+		<textarea id='prod-elig' class="flex-auto ml-7 text-black truncate resize-none h-50 outline-none" rows="1" type="text" name="search" placeholder="Search Product Eligibility" wrap='off'></textarea>
+		<button class="flex-none rounded-full bg-blue-500 m-1 p-1 outline-none" type="submit"><img class="p-1 " src="/images/search.svg" alt="Search" title="Search" /></button>
+	</form>
+</div>
+<h2 class="text-xl mt-6 mb-3  ml-5 lg:ml-0 lg:text-2xl"><a class="text-blue-500 border-b-2 border-blue-500 border-dotted mr-2" href="/ProductEligibility/" data-hover="Back to Browse">Browse</a> &raquo; <a class="text-blue-500 border-b-2 border-blue-500 border-dotted mr-2" href="?prod=License" data-hover="Back to License">License</a> &raquo; <a class="text-blue-500 border-b-2 border-blue-500 border-dotted mr-2" href="?prod=License&cat=USC-Universal+Small+Cell" data-hover="Back to USC-Universal Small Cell">USC-Universal Small Cell</a> &raquo; USC- License</h2>		<div class="mt-5 flex flex-row space-x-2">
+				<a class="w-20 py-1 px-3 mr-2 ml-5 flex-none flex flex-row items-center justify-between rounded bg-green-500 text-white text-xs  lg:ml-0" href="#" onclick="download_table_as_csv('product-table');">
+					<div class="h-5 w-5">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+							<path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+						</svg>
+					</div>
+					Excel
+				</a>
+					</div>
+		<div class="bg-white ring-2 ring-gray-200 rounded mt-5 pt-2 shadow-md overflow-hidden lg:pt-0">
+		<table class="table-fixed" id='product-table' width="100%">
+			<thead>
+				<tr class="text-left block absolute opacity-0 border-b-2 border-gray-200 lg:table-row lg:opacity-100 lg:relative">
+									<th class="w-1/4 p-2" data-name='sku'>SKU</th>
+					<th class="w-1/4 p-2" data-name='itemdesc'>Desc</th>
+					<th class="aHidden w-1/4 p-2" data-name='eligible'>Eligible</th>
+									<th class="w-1/4 p-2" data-name='notes'>Notes</th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC33-ACTV</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>CloudBase USC3000 3G Provisioning</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC33-ACTV">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC33-BS04-K9</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Base feature license for 4 user USC SW</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>This is a $0 ordering SKU and has no standalone eligible percentage.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC33-CBRC</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Cisco Universal Small Cell 3000 Cell broadcast license</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC33-CBRC">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC33-DBMO</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Debug Mode License for USC3000 3G</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC33-DBMO">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC33-EDCB</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>USC3000 3G SW eDelivery via CloudBase</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC33-EDCB">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC33-FT-OPT</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>USC3000 Feature Upgrades</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>This is a $0 ordering SKU and has no standalone eligible percentage.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC33-OM04</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Open mode  license for 4 user</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC33-OM04">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC33-OM08</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Open mode upgrade for 8 user</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC33-OM08">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC33-UB48</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Cisco Universal Small Cell 3000 8 user upgrade license</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC33-UB48">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-ACTV</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>CloudBase USC5000 3G Provisioning</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC53-ACTV">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-ASON</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Cisco Universal Small Cell 5000 Active SON support</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC53-ASON">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-BS16-K9</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Base feature license for 16 user USC53  SW</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>This is a $0 ordering SKU and has no standalone eligible percentage.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-CBRC</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Cell Broadcast for USC5000 series</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC53-CBRC">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-DBMO</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Debug Mode License for USC5000 3G</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC53-DBMO">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-EDCB</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>USC5000 3G SW eDelivery via CloudBase</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC53-EDCB">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-EMOB</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Increased rate of user camp-on for enhanced mobility</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC53-EMOB">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-FT-OPT</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>USC5000 SW Feature Upgrades</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>This is a $0 ordering SKU and has no standalone eligible percentage.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-HNDN</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Hand in on luh for USC5000 3G</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC53-HNDN">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-HSPP</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>HSDPA+ Upgrade from base load for USC5000 3G</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC53-HSPP">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-IURH</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Cisco Universal Small Cell 5000 Iurh support</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC53-IURH">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-OPMO</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Open access mode  license for 16 user</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC53-OPMO">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC53-TGUI</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Technician GUI API</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC53-TGUI">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC73-ACTV</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>CloudBase USC7000 3G Provisioning</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC73-ACTV">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC73-ASON</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Cisco Universal Small Cell 7000 Active SON support</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC73-ASON">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC73-BS16-K9</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Base feature license for 16 user USC73  SW</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>This is a $0 ordering SKU and has no standalone eligible percentage.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC73-CBRC</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Cell Broadcast for USC7000 series</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC73-CBRC">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC73-DBMO</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Debug Mode License for USC7000 3G</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC73-DBMO">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC73-EDCB</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>USC7000 3G SW eDelivery via CloudBase</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC73-EDCB">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC73-FT-OPT</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>USC7000 SW Feature Upgrades</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>This is a $0 ordering SKU and has no standalone eligible percentage.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC73-HNDN</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Hand in on luh for USC7000 3G</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC73-HNDN">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC73-HSPP</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>HSDPA+ Upgrade from base load for USC7000 3G</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC73-HSPP">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC73-IURH</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Cisco Universal Small Cell 7000 Iurh support</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC73-IURH">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC73-TGUI</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Technician GUI API</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC73-TGUI">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC93-ACTV</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>CloudBase USC9000 3G Provisioning</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC93-ACTV">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC93-BS16-K9</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Base feature license for 16 user USC93  SW</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>This is a $0 ordering SKU and has no standalone eligible percentage.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC93-CBRC</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Cell Broadcast for USC9000 series</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC93-CBRC">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC93-DBMO</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Debug Mode License for USC9000 3G</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC93-DBMO">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC93-EDCB</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>USC9000 3G SW eDelivery via CloudBase</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC93-EDCB">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC93-FT-OPT</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>USC9000 SW Feature Options</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>This is a $0 ordering SKU and has no standalone eligible percentage.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC93-HNDN</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Hand in on luh for USC9000 3G</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC93-HNDN">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC93-HSPP</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>HSDPA+ Upgrade from base load for USC9000 3G</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC93-HSPP">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-gray-200 flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC93-TGUI</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>Technician GUI API</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC93-TGUI">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+						<tr class="bg-white flex flex-wrap w-full lg:table-row">
+								<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">SKU</td>
+				<td class="sku block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name="sku">L-USC93-XRNG</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Description</td>
+				<td class="itemdesc block w-3/4 p-2 break-words lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='itemdesc'>USC9000 Extended Range</td>
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Eligible</td>
+				<td class="aHidden eligible block w-3/4 p-2 lg:border-r lg:border-dotted lg:border-gray-500 lg:w-auto lg:table-cell" data-name='eligible'><a class="text-blue-500 border-b-2 border-blue-500 border-dotted" href="/Questions/?sku=L-USC93-XRNG">Contact Us</a></td>
+				
+					<td class="block w-1/4 p-2 font-bold text-right border-r border-dotted border-gray-500 pr-2 lg:hidden truncate excel-hidden">Notes</td>
+				<td class="notes block w-3/4 p-2 lg:w-auto lg:table-cell" data-name='notes'>Please use the Questions tab to inquire about this product SKU.</td>
+			</tr>
+			</tbody></table></div>						<button class="block fixed h-16 w-16 p-4 bottom-5 right-5 z-40 hidden ring-2 ring-blue-400 bg-blue-500 rounded-full text-white lg:bottom-10 lg:right-10" onclick="topFunction()" id="myBtn" title="Go to top">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+					<path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+				</svg>
+			</button> 
+			</section>
+			<footer class="absolute bottom-0 w-full py-5 cisco-darkblue-bg" id=''>
+				<div class="flex justify-center max-w-screen-lg mx-auto flex-col lg:justify-between">
+					<div class="wrapper h-full flex items-center max-w-screen-xl relative pt-2 pb-2 flex-col lg:flex-row lg:space-x-10">
+						<a href="/" class="lg:mr-10">
+							<img class="h-full w-full" src="/images/logo.svg" alt="E-Rate Helpdesk" title="E-Rate Helpdesk" />
+						</a>
+						<div class="relative flex flex-col items-center py-2 text-white lg:items-start">
+							<h1 class="text-3xl pb-1 font-bold my-2">E-Rate Helpdesk</h1>
+							<div class="flex flex-col text-left w-full space-y-2 lg:flex-row lg:flex-wrap lg:space-x-10 lg:space-y-0">
+								<a class="w-auto lg:text-left" href="/ProductEligibility/">Product Eligibility</a>
+								<a class="w-auto lg:text-left" href="/GlobalSubstitutions/">Global Substitutions</a>
+								<a class="w-auto lg:text-left" href="/Questions/">Questions</a>
+															</div>
+							<div class="pt-5 flex">
+							<a class="bg-blue-500 text-white rounded-full px-5 py-2" href="/admin/">Log In</a>							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+			</body>
+	<script src="/lib/hover-text.js"></script>
+	<script src="/lib/general.js"></script>
+</html>

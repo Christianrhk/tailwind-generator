@@ -1,0 +1,1384 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き） | チエノート | エイチエ</title>
+    <link href="https://d32w4b5zm7phxu.cloudfront.net/sites/favicons/000/000/001/square/55e6b259-73e7-4566-abd5-3d6095ff8116.png?1641368632" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <link rel="apple-touch-icon" href="https://d32w4b5zm7phxu.cloudfront.net/sites/touch_icons/000/000/001/square/54d8300a-81c7-4dcf-9198-6ca3c0bc9326.png?1641368417">
+    <link href="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/546/original/style.css?1658996619" rel="stylesheet" />
+    <link href="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/540/original/tailwind.min.css?1658996618" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <script src="https://d32w4b5zm7phxu.cloudfront.net/clipkit/javascripts/default-1.0.js"></script>
+    
+    
+  <link rel="canonical" href="https://eichie.jp/note/study/study7">
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link href="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/538/original/typography.css?1658996618" rel="stylesheet" />
+  <meta name="description" content="こんにちは！管理栄養士のえぬこです。Excelでのデータ入力に欠かせない「VLOOKUP関数」。皆さんはしっかり活用できていますか？実はこのVLOOKUP関数、一般企業の事務職求人では応募条件の必須スキルとして設定している企業もあるほど、重宝されている関数です。私も、この関数を使って食事箋や食札のテンプレートを作成しています。管理栄養士さんも覚えておいて損はない関数なので、知らない方はこの機会に少し勉強してみましょう！">
+  <meta name="keywords" content="スキルアップ,豆知識">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:domain" content="eichie.jp">
+  <meta name="twitter:title" content="【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き） - チエノート">
+  <meta name="twitter:image" content="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/148/medium/153ed7a0-4cbc-47ec-b545-c58df6d9692c.png?1659499669">
+  <meta name="twitter:description" content="こんにちは！管理栄養士のえぬこです。Excelでのデータ入力に欠かせない「VLOOKUP関数」。皆さんはしっかり活用できていますか？実はこのVLOOKUP関数、一般企業の事務職求人では応募条件の必須スキルとして設定している企業もあるほど、重宝されている関数です。私も、この関数を使って食事箋や食札のテンプレートを作成しています。管理栄養士さんも覚えておいて損はない関数なので、知らない方はこの機会に少し勉強してみましょう！">
+  <meta property="og:site_name" content="チエノート">
+  <meta property="og:title" content="【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き）">
+  <meta property="og:description" content="こんにちは！管理栄養士のえぬこです。Excelでのデータ入力に欠かせない「VLOOKUP関数」。皆さんはしっかり活用できていますか？実はこのVLOOKUP関数、一般企業の事務職求人では応募条件の必須スキルとして設定している企業もあるほど、重宝されている関数です。私も、この関数を使って食事箋や食札のテンプレートを作成しています。管理栄養士さんも覚えておいて損はない関数なので、知らない方はこの機会に少し勉強してみましょう！">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://eichie.jp/note/study/study7">
+  <meta property="og:image" content="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/148/large/153ed7a0-4cbc-47ec-b545-c58df6d9692c.png?1659499669">
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id": "https://eichie.jp/note/study/study7"
+    },
+    "headline": "【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き）",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/148/medium/153ed7a0-4cbc-47ec-b545-c58df6d9692c.png?1659499669",
+      "width": 800,
+      "height": 600
+    },
+    "datePublished": "2022-08-04T09:06:33+09:00",
+    "dateModified": "2022-08-04T19:58:02+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "えぬこ"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "チエノート",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://d32w4b5zm7phxu.cloudfront.net/sites/logos/000/000/001/logo_sm/63aa30bb-593f-4ce9-ae4e-ab66ad0d4f03.jpg?1641368440"
+      }
+    },
+    "description": "こんにちは！管理栄養士のえぬこです。
+
+Excelでのデータ入力に欠かせない「VLOOKUP関数」。皆さんはしっかり活用できていますか？
+
+実はこのVLOOKUP関数、一般企業の事務職求人では応募条件の必須スキルとして設定している企業もあるほど、重宝されている関数です。
+
+私も、この関数を使って食事箋や食札のテンプレートを作成しています。管理栄養士さんも覚えておいて損はない関数なので、知らない方はこの機会に少し勉強してみましょう！"
+  }
+  </script>
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NGQ3R52');</script>
+<!-- End Google Tag Manager -->
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="C3bLBg/Ghs/raRlKwkBq0Gf50SWGOh8cHm06/U+ANxpejF+tVrIz8pcoq1fenZY4VVjYrU4iQmDSsl8PTrBMIg==" /><script>window.routing_root_path = '/note';
+window.site_name = 'media';
+I18n.defaultLocale = 'ja';
+I18n.locale = 'ja';</script></head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGQ3R52"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+  <div class="container mx-auto">
+      <div class="flex flex-nowrap justify-between items-start lg:items-center w-full py-2 lg:py-6 px-4 xl:px-10">
+          <div class="flex flex-nowrap justify-start items-center w-1/2 lg:w-1/3 pt-2 md:pt-0">
+              <h1>
+              <span class="hidden lg:block text-sm text-brown-ei mb-1">管理栄養士・栄養士のコミュニティ</span>
+              <a href="/"><img src="/images/header/logo.jpg" alt="管理栄養士・栄養士のコミュニティ エイチエ" width="240" height="auto" /></a>
+              </h1>
+              <img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/header/appeal.png" alt="会員10万人 栄養士約2人に1人が使う" width="60" height="auto" class="mx-4 hidden lg:block" />
+          </div>
+          <nav id="nav" class="pt-1 lg:pt-0">
+              <ul class="w-full lg:w-fit fixed lg:static bottom-0 left-0 flex flex-nowrap justify-end mb-0 lg:mb-4 text-gray-500 lg:text-white text-2xs lg:text-xs xl:text-base pt-2 lg:pt-0 z-50" style="white-space:nowrap">
+                  <li class="w-1/6 lg:w-fit bg-gray-ei lg:bg-orange-ei lg:rounded mr-0 lg:mr-2 lg:hover:opacity-75 pt-1 lg:pt-0"><a href="/meals"><div class="flex flex-wrap lg:flex-nowrap justify-center items-center px-2 py-2"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/nav/nav-repo.png" width="35" height="auto" class="block lg:hidden"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/header/header-repo_md.png" width="35" height="auto" class="hidden lg:inline"><span class="w-full lg:w-fit block lg:inline text-center font-bold">献立レポ</span></div></a></li>
+                  <li class="w-1/6 lg:w-fit bg-gray-ei lg:bg-orange-ei lg:rounded mr-0 lg:mr-2 lg:hover:opacity-75 pt-1 lg:pt-0"><a href="/hear"><div class="flex flex-wrap lg:flex-nowrap justify-center items-center px-2 py-2"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/nav/nav-qa.png" width="35" height="auto" class="block lg:hidden"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/header/header-qa_md.png" width="35" height="auto" class="hidden lg:inline"><span class="w-full lg:w-fit block lg:inline text-center ml-1 font-bold tracking-widest">Q&amp;A</span></div></a></li>
+                  <li class="w-1/6 lg:w-fit bg-gray-ei lg:bg-orange-ei lg:rounded mr-0 lg:mr-2 lg:hover:opacity-75 pt-1 lg:pt-0"><a href="/recruit/"><div class="flex flex-wrap lg:flex-nowrap justify-center items-center px-2 py-2"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/nav/nav-recruit.png" width="35" height="auto" class="block lg:hidden"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/header/header-recruit_md.png" width="35" height="auto" class="hidden lg:inline"><span class="w-full lg:w-fit block lg:inline text-center ml-1 font-bold">求人<span class="hidden lg:inline">情報</span></span></div></a></li>
+                  <li class="w-1/6 lg:w-fit bg-gray-ei lg:bg-orange-ei lg:rounded mr-0 lg:mr-2 lg:hover:opacity-75 pt-1 lg:pt-0">
+                    <a href="/note/">
+                      <div class="flex flex-wrap lg:flex-nowrap justify-center items-center px-2 py-2">
+                        
+                        <img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/nav/nav-note_on.png" width="35" height="auto" class="block lg:hidden mb-1">
+                        
+                        <img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/header/header-signin_md.png" width="35" height="auto" class="hidden lg:inline">
+                        <span class="w-full lg:w-fit block lg:inline text-center font-bold tracking-tighter"><span class="hidden lg:inline">チエ</span>ノート</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="w-1/6 lg:w-fit bg-gray-ei lg:bg-orange-ei lg:rounded mr-0 lg:mr-2 lg:hover:opacity-75 pt-1 lg:pt-0">
+                    <a href="/note//news">
+                      <div class="flex flex-wrap lg:flex-nowrap justify-center items-center px-2 py-2">
+                        
+                        <img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/nav/nav-news.png" width="35" height="auto" class="block lg:hidden mb-1">
+                        
+                        <img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/header/header-news_md.png" width="35" height="auto" class="hidden lg:inline">
+                        <span class="w-full lg:w-fit block lg:inline text-center font-bold tracking-tighter">ニュース</span>
+                      </div>
+                    </a>
+                  </li>
+                  
+                  <li class="w-fit hidden lg:block bg-green-ei rounded mr-2 hover:opacity-75 pt-1 lg:pt-0"><a href="/register"><div class="flex flex-nowrap items-center py-2 text-xs xl:text-base"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/header/header-mypage_md.png" width="35" height="auto"></div></a></li>
+                  <li class="w-1/6 lg:w-fit bg-gray-ei lg:bg-green-ei lg:rounded mr-0 lg:hover:opacity-75 pt-1 lg:pt-0"><a href="/login"><div class="flex flex-wrap lg:flex-nowrap justify-center items-center p-0 py-2"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/nav/nav-login.png" width="35" height="auto" class="block lg:hidden"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/header/header-login_md.png" width="35" height="auto" class="hidden lg:inline"><span class="w-full lg:w-fit block lg:hidden text-center font-bold">ログイン</span></div></a></li>
+                  
+              </ul>
+              <ul class="flex lg:hidden flex-nowrap justify-end">
+                  
+                  <li>
+                    <a href="/register">
+                      <div class="bg-orange-ei text-white text-2xs rounded p-0.5 mr-2"><div class="flex bg-white justify-center rounded-t-sm"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/header/header-register_sm.png" width="35" class="pb-0.5" /></div><span class="flex px-0.5 pt-0.5">新規登録</span></div>
+                    </a>
+                  </li>
+                  
+                  <li>
+                    <label for="show-search-box">
+                      <div class="bg-green-ei text-white text-2xs rounded p-0.5"><div class="flex bg-white justify-center rounded-t-sm"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/header/header-search_sm.png" width="35" class="pb-0.5" /></div><span class="flex px-0.5 pt-0.5 tracking-tighter">Q&amp;A検索</span></div>
+                    </label>
+                  </li>
+              </ul>
+              <input type="checkbox" id="show-search-box" class="hidden" />
+              <ul id="search-box" class="hidden lg:flex flex-nowrap justify-end mt-2 lg:mt-0">
+                  <li>
+                    <form action="/search" method="GET" _lpchecked="1">
+                        <div class="flex items-center justify-center mr-0 lg:mr-2 text-sm">
+                            <div class="flex border-2 rounded bg-green-ei border-green-ei">
+                                <input type="text" name="keyword" class="text-xs md:text-base px-4 py-1.5 w-56 md:w-80" placeholder="検索したいキーワードを入力">
+                                <input type="submit" class="flex items-center justify-center px-4 border-l text-white cursor-pointer" value="検索">
+                            </div>
+                        </div>
+                    </form>
+                  </li>
+                  <li class="hidden lg:block"><a href="https://ejb.eichie.jp//empinquiry?action=web_top_header_ei"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/nav/pc_saiyo.png" alt="採用担当者の方へ" width="193"></a></li>
+              </ul>
+              <div id="search-box-padding" class="hidden w-1 h-12 md:h-14"></div>
+          </nav>
+      </div>
+  </div>
+</header>
+
+
+<main class="mt-8">
+
+  <div class="container mx-auto px-4 xl:px-20 mb-8">
+    
+    <p class="mb-2 text-brown-ei font-bold text-2xl">チエノート</p>
+    
+    <!--カテゴリナビ-->
+    
+    
+
+
+
+<div class="mr-0 lg:mr-5 xl:mr-20">
+  <nav class="flex flex-nowrap">
+    
+    <!--チエノートカテゴリ-->
+    <ul class="flex flex-nowrap justify-between w-full shrink text-2xs mb-4 overflow-x-auto">
+      
+      
+      <li class="px-0 md:px-1 py-2 w-16 md:w-20 shrink-0">
+        <a href="/note/career">
+        <figure class="flex flex-wrap justify-center ">
+          <img src="https://d32w4b5zm7phxu.cloudfront.net/categories/icons/000/000/003/small/cefc28f3-d040-45f5-adfd-a148d2b86915.png?1640244528" width="30" />
+          <figcaption class="w-full pt-2 text-center">転職ノウハウ</figcaption>
+        </figure>
+        </a>
+      </li>
+      
+      
+      
+      <li class="px-0 md:px-1 py-2 w-16 md:w-20 shrink-0 bg-lime-ei">
+        <a href="/note/study">
+        <figure class="flex flex-wrap justify-center ">
+          <img src="https://d32w4b5zm7phxu.cloudfront.net/categories/icons/000/000/004/small/f7163d6a-f008-4278-9f43-adb763edd0d9.png?1640243961" width="30" />
+          <figcaption class="w-full pt-2 text-center">学び</figcaption>
+        </figure>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="px-0 md:px-1 py-2 w-16 md:w-20 shrink-0">
+        <a href="/note/examination">
+        <figure class="flex flex-wrap justify-center ">
+          <img src="https://d32w4b5zm7phxu.cloudfront.net/categories/icons/000/000/007/small/39b732d0-18e5-45ca-b62a-f194398dbae8.png?1640244004" width="30" />
+          <figcaption class="w-full pt-2 text-center">国家試験</figcaption>
+        </figure>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      <li class="px-0 md:px-1 py-2 w-16 md:w-20 shrink-0">
+        <a href="/note/questionnaire">
+        <figure class="flex flex-wrap justify-center ">
+          <img src="https://d32w4b5zm7phxu.cloudfront.net/categories/icons/000/000/009/small/2055e8cb-dee1-4f07-8dfd-7bdb6b08a036.png?1640244039" width="30" />
+          <figcaption class="w-full pt-2 text-center">アンケート</figcaption>
+        </figure>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="py-2">
+        <a href="/note/">
+          <figure class="flex flex-wrap justify-center w-16">
+            <img src="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/539/original/chienote-top.png?1658996618" width="30" />
+            <figcaption class="w-full pt-2 text-center">チエノート<br />トップ</figcaption>
+          </figure>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="w-0 lg:w-[300px] shrink-0"></div>
+  </nav>
+</div>
+
+    
+    
+    
+    <div class="breadcrumbs mb-2 py-1 overflow-x-auto text-gray-600">
+  <ul class="flex flex-nowrap text-xs">
+    <li class="shrink-0"><a href="/note/"><span class="hover:text-black">チエノートトップ</span></a></li>
+    
+    <li class="shrink-0"><a href="https://eichie.jp/note/study"><span class="hover:text-black">学び</span></a></li>
+    
+    <li class="shrink-0">【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き）</li>
+  </ul>
+</div>
+
+    
+    
+    <div class="flex flex-wrap lg:flex-nowrap items-start justify-center">
+      <div class="w-full mr-0 lg:mr-5 xl:mr-10">
+      
+
+
+
+
+
+
+<article class="w-full shrink mr-0 pb-4">
+  <section>
+    <section class="sentence mb-8 text-justify text-gray-800 pt-0.5">
+  		<div id="article-meta">
+  				<div class="flex flex-nowrap justify-between items-end">
+  				  
+  				  <div>
+  					<p class="w-fit px-4 py-0.5 bg-orange-ei rounded-full text-xs text-white">学び</p>
+  					</div>
+  					
+  					<div class="flex flex-nowrap py-0.5 pr-0 md:pr-2 lg:pr-0">
+    					<p class="w-fit text-xs text-gray-500 mr-4"><img src="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/554/original/clock-28-o.svg?1658996620" class="inline w-4 h-4 mr-1" />2022.08.04</p>
+    					<p class="w-fit text-xs text-gray-500"><img src="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/543/original/update.svg?1658996619" class="inline w-4 h-4 mr-1" />2022.08.04</p>
+  					</div>
+  				</div>
+  				<h1 class="py-2 text-xl md:text-3xl font-bold">【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き）</h1>
+  				<img id="article-cover" src="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/148/large/153ed7a0-4cbc-47ec-b545-c58df6d9692c.png?1659499669" loading="lazy" alt="カバー画像:【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き）" />
+  				<p id="article-description" class="leading-7 tracking-wider my-4">こんにちは！管理栄養士のえぬこです。<br />
+<br />
+Excelでのデータ入力に欠かせない「VLOOKUP関数」。皆さんはしっかり活用できていますか？<br />
+<br />
+実はこのVLOOKUP関数、一般企業の事務職求人では応募条件の必須スキルとして設定している企業もあるほど、重宝されている関数です。<br />
+<br />
+私も、この関数を使って食事箋や食札のテンプレートを作成しています。管理栄養士さんも覚えておいて損はない関数なので、知らない方はこの機会に少し勉強してみましょう！</p>
+    			
+          
+      </div>
+  		<div id="article-body" class="leading-7 tracking-wider">
+  		  
+  			
+  				
+  				  
+  					
+
+
+<h2 id="item3267" class="text-lg md:text-2xl text-white font-bold bg-black py-2 md:py-3 px-2 md:px-4 rounded my-4" data-item-id="3267" data-item-type="ItemHeading">１．はじめに</h2>
+
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3268" data-item-id="3268" data-item-type="ItemRichText"><div class="item-body-hbr">初歩的なExcelスキルを習得できているか不安な方は、先にこちらの記事から学習してみてください。テスト問題もありますよ。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <!-- 通常 -->
+    
+    
+    <div class="article-item item_link" id="item3269" data-item-id="3269" data-item-type="ItemLink">
+        <a href="https://eichie.jp/note/study/study2" rel="nofollow" target="_blank">
+            <div class="p-2 mb-2 md:p-4 border border-gray-600 border-dotted">
+              
+              <div class="flex flex-nowrap items-center">
+                <div class="shrink-0">
+                    <img src="https://d32w4b5zm7phxu.cloudfront.net/item_links/images/000/003/269/medium/f4293dc6-f4ee-4606-ace3-7a6d35b28508.png?1659336882" loading="lazy" class="object-cover w-[120px] md:w-[240px] h-[60px] md:h-[120px] mb-4" />
+                </div>
+                
+                <p class="text-sm font-bold shrink-1 pl-2">【初級編】新人管理栄養士が覚えておきたいExcelスキルを6つ解説！</p>
+                
+              </div>
+            </div>
+        </a>
+        <div class="text-base"></div>
+    </div>
+    
+  
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3270" data-item-id="3270" data-item-type="ItemRichText"><div class="item-body-hbr">今回の記事は、</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_html " id="item3271" data-item-id="3271" data-item-type="ItemHtml"><div class="item-body"><div class="c-frame-dotted-line-white">
+＊最小限の更新作業で仕事をするメリット<BR>
+＊VLOOKUP関数を使った食札・食事箋のテンプレートの紹介<BR>
+＊VLOOKUP関数の使い方マスター</div></div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3272" data-item-id="3272" data-item-type="ItemRichText"><div class="item-body-hbr">について、書いていきます。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+
+
+<h2 id="item3273" class="text-lg md:text-2xl text-white font-bold bg-black py-2 md:py-3 px-2 md:px-4 rounded my-4" data-item-id="3273" data-item-type="ItemHeading">２．最小限の更新作業でミスなく正確に仕事をこなすことの重要性</h2>
+
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3274" data-item-id="3274" data-item-type="ItemRichText"><div class="item-body-hbr">管理栄養士・栄養士の事務作業は、非常に手間がかかるものが多いです。<br>
+<br>
+例えば…</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_html " id="item3275" data-item-id="3275" data-item-type="ItemHtml"><div class="item-body"><div class="c-frame-dotted-line-white">
+<B>厨房</B><BR>
+食札、ボード、禁止食数の書き換え　など<BR>
+<BR>
+<B>カルテ関連</B><BR>
+食事箋、介護記録、厨房への指示書や栄養ケア計画の書き換え　など</div>
+</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3276" data-item-id="3276" data-item-type="ItemRichText"><div class="item-body-hbr">これらは、1つでも漏れたらインシデント・アクシデントにつながる仕事です。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_html " id="item3277" data-item-id="3277" data-item-type="ItemHtml"><div class="item-body"><div class="c-frame-dotted-line-pink">
+  <B>≪ATTENTION≫</B><BR>
+  <BR>
+食札を書き換えても、禁止食一覧を書き換えなければ、<B>誤配膳をしてしまう</B>かもしれません。<BR>
+<BR>
+他にも、食事箋と食札の内容が一致していないと、<B>指示通りの食事提供ができていない</B>ことになり、<B>インシデント</B>となりますよね。
+</div></div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3278" data-item-id="3278" data-item-type="ItemRichText"><div class="item-body-hbr">栄養科はたくさんの書類や一覧表を管理しています。ですが、管理栄養士同士でダブルチェックをしたくても、チェックし合えるほど人員がいない…ということも少なくないですよね。<br>
+<br>
+そのため、<span class="bold"><span class="red">できる限り少ない手順で、ミスなく正確に仕事を処理する仕組み作りが重要</span></span>です。<br>
+<br>
+今回紹介するVLOOKUP関数を使えば、<span class="bold"><span class="bg-yellow">1つの作業で多くの書類にデータを反映できるようになります</span></span>ので、ぜひマスターしてくださいね。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+
+
+<h2 id="item3279" class="text-lg md:text-2xl text-white font-bold bg-black py-2 md:py-3 px-2 md:px-4 rounded my-4" data-item-id="3279" data-item-type="ItemHeading">３．食札・食事箋テンプレートの紹介</h2>
+
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3280" data-item-id="3280" data-item-type="ItemRichText"><div class="item-body-hbr">私の職場では<br>
+<span class="bold">・食札・食事箋<br>
+・栄養ケアマネジメントのスケジュール管理<br>
+・食事観察記録<br>
+</span> などを、1つのExcelで管理しています。<br>
+<br>
+今回は、<span class="bold"><span class="bg-yellow">「食札・食事箋」の部分</span></span>のみ抜粋して、テンプレートの配布と使い方や数式を紹介します。<br>
+<br>
+システムの入っていない<span class="bold"><span class="bg-yellow">小規模な病院や、介護施設では使いやすいテンプレート</span></span>だと思いますので、ぜひダウンロードして使ってみてください。<br>
+</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_file " id="item3281" data-item-id="3281" data-item-type="ItemFile"><div class="media"><div class="pull-left"><img class="item-image" src="https://d32w4b5zm7phxu.cloudfront.net/item_files/images/000/003/281/square/40efb96d-3181-4c8c-b9e7-0c321789be2b.png?1659338078" width="75" height="75" /></div><div class="media-body"><h4 class="media-heading item-body"></h4><div style="margin-top:10px"><a class="btn btn-default btn-download" href="/note/media/works/items/3281/download"><span class="fa fa-download"></span> ダウンロード</a></div><div class="small text-muted">食札・食事せんテンプレート_説明書付.xlsx (70.8 KB)</div></div></div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3282" data-item-id="3282" data-item-type="ItemRichText"><div class="item-body-hbr"><br>
+ダウンロード後に『保護ビュー』『最終版』という黄色で警告されるバーが表示されたら「編集を有効にする」「編集する」を押してくださいね。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_image" id="item3309" data-item-id="3309" data-item-type="ItemImage">
+    <div class="body">
+    <div class="image-large">
+      <img src="https://d32w4b5zm7phxu.cloudfront.net/item_images/images/000/003/309/large/91c87684-be02-4dde-80e0-dee622bc4673.png?1659499515" loading="lazy" />
+    </div>
+
+    
+    
+      
+	  </div>
+  </div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_html " id="item3283" data-item-id="3283" data-item-type="ItemHtml"><div class="item-body"><div class="c-frame-dotted-line-white">
+<B>＊テンプレートの使い方</B><BR>
+<BR>
+①シート名「名簿」に食事内容を入力<BR>
+②シート名「食札・食事箋」の番号入力に「名簿」で指定した番号を入力<BR>
+③シート名「食札・食事箋」のデータを印刷
+</div></div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3284" data-item-id="3284" data-item-type="ItemRichText"><div class="item-body-hbr">詳しくは、Excelデータ内の『【説明書】食札・食事箋』シートにも記載していますので、ご確認ください。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_html " id="item3285" data-item-id="3285" data-item-type="ItemHtml"><div class="item-body"><div class="c-frame-dotted-line-white">
+<B>＊メリット</B><BR>
+・名簿を作っておくことで誰が見ても食事形態が分かる<BR>
+・食札と食事箋が一致するため、確認作業が不要<BR>
+<BR>
+<B>＊デメリット</B><BR>
+・医師が食事箋を「書くまたは入力する」現場では使えない<BR>
+　（看護師や栄養士が記入し、承認印を指示書とするような現場向け）<BR>
+・異動・退職・休職時にPCスキルを含めた引継ぎが必要</div></div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3286" data-item-id="3286" data-item-type="ItemRichText"><div class="item-body-hbr">もし、このExcelを厨房での作業に応用すると<br>
+<span class="bold">・主食・副食の食数表作成<br>
+・count関数を利用して食種別発注数を出す<br>
+・ピボットテーブルを使って丼ものの食数表作成</span><br>
+などにも対応できるようになりますよ！</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+
+
+<h2 id="item3287" class="text-lg md:text-2xl text-white font-bold bg-black py-2 md:py-3 px-2 md:px-4 rounded my-4" data-item-id="3287" data-item-type="ItemHeading">４．VLOOKUP関数の使い方をマスターしよう</h2>
+
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3288" data-item-id="3288" data-item-type="ItemRichText"><div class="item-body-hbr">先ほど紹介したテンプレートで１番活躍している関数は、<span class="bold"><span class="bg-yellow">VLOOKUP関数</span></span>です。<br>
+<br>
+VLOOKUP関数は、「ブイルックアップ」と読み、“「V」(Vertical)=垂直に「LOOKUP」=探す”から由来しています。<br>
+<br>
+つまり、<span class="bold"><span class="border-single">リストや名簿の番号を元に該当データを探してくれる関数</span></span>、ということですね。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_image" id="item3310" data-item-id="3310" data-item-type="ItemImage">
+    <div class="body">
+    <div class="image-large">
+      <img src="https://d32w4b5zm7phxu.cloudfront.net/item_images/images/000/003/310/large/0d5c2adb-8c3e-4ae8-aee1-c534d01d3460.png?1659499531" loading="lazy" />
+    </div>
+
+    
+    
+      
+	  </div>
+  </div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3289" data-item-id="3289" data-item-type="ItemRichText"><div class="item-body-hbr">まずは、VLOOKUP関数の数式を見てみましょう。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_html " id="item3290" data-item-id="3290" data-item-type="ItemHtml"><div class="item-body"><div class="c-frame-double-square">
+<B>VLOOKUP（検査値、範囲、列番号、FALSE）</B><BR>
+<BR>
+検索値　：何を元に検索するか<BR>
+範囲　　：上記の検索値を検索する範囲の選択<BR>
+列番号　：上記の範囲の中から、左から何列目のデータを表示させるか<BR>
+検索方法：基本は「FALSE」(完全一致) 近似値(TRUE)は使うことがあまりないです</div></div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3291" data-item-id="3291" data-item-type="ItemRichText"><div class="item-body-hbr">次に、<span class="bold"><span class="bg-yellow">どんな時に使えるのか？</span></span>の実践編です。こちらの表を見てください。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_image" id="item3311" data-item-id="3311" data-item-type="ItemImage">
+    <div class="body">
+    <div class="image-large">
+      <img src="https://d32w4b5zm7phxu.cloudfront.net/item_images/images/000/003/311/large/7ec53067-f10c-4ee9-8b2f-bc866ed40668.png?1659499546" loading="lazy" />
+    </div>
+
+    
+    
+      
+	  </div>
+  </div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3292" data-item-id="3292" data-item-type="ItemRichText"><div class="item-body-hbr">例えばこの表を埋めたい場合、1人ずつ「胆嚢・膵臓食」「糖尿病性腎症食」「心臓病食」…と<span class="bold"><span class="bg-yellow">手打ちで書いていくのは大変</span></span>ですよね。<br>
+<br>
+そこで、このような形を準備します。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_image" id="item3312" data-item-id="3312" data-item-type="ItemImage">
+    <div class="body">
+    <div class="image-large">
+      <img src="https://d32w4b5zm7phxu.cloudfront.net/item_images/images/000/003/312/large/b9d9b0c4-28c3-4005-913e-1823784aaaf4.png?1659499568" loading="lazy" />
+    </div>
+
+    
+    
+      
+	  </div>
+  </div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3293" data-item-id="3293" data-item-type="ItemRichText"><div class="item-body-hbr">左は特別治療食のリスト、右は患者さんリストに「No.」の列を追加しました。<br>
+<br>
+次に、患者さんリストの「No.」のところに、<span class="bold"><span class="bg-yellow">提供する特別治療食リストの番号</span></span>を記入します。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_image" id="item3313" data-item-id="3313" data-item-type="ItemImage">
+    <div class="body">
+    <div class="image-large">
+      <img src="https://d32w4b5zm7phxu.cloudfront.net/item_images/images/000/003/313/large/c471b550-9894-459e-90d9-00ca5f1ef9e3.png?1659499584" loading="lazy" />
+    </div>
+
+    
+    
+      
+	  </div>
+  </div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3294" data-item-id="3294" data-item-type="ItemRichText"><div class="item-body-hbr">ここからVLOOKUP関数の登場です。患者さんリストの<span class="bold"><span class="bg-yellow">特別治療食のところに関数</span></span>をいれていきます。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_image" id="item3314" data-item-id="3314" data-item-type="ItemImage">
+    <div class="body">
+    <div class="image-large">
+      <img src="https://d32w4b5zm7phxu.cloudfront.net/item_images/images/000/003/314/large/42de7c74-4403-4e94-a45a-a6971ddf6edd.png?1659349451" loading="lazy" />
+    </div>
+
+    
+    
+      
+	  </div>
+  </div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3295" data-item-id="3295" data-item-type="ItemRichText"><div class="item-body-hbr"><span class="bold"><span class="border-single"><span class="blue">F3</span>セルに入力した数字を、<span class="red">赤い範囲</span><span class="red">の一番左の中</span>から探して、左から2番目にある文字を、表示して！</span></span><br>
+という意味になります。<br>
+<br>
+これでエンターキーを押すと…</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_image" id="item3315" data-item-id="3315" data-item-type="ItemImage">
+    <div class="body">
+    <div class="image-large">
+      <img src="https://d32w4b5zm7phxu.cloudfront.net/item_images/images/000/003/315/large/abc14164-f50c-45b6-be70-c65f8fe2fb3f.png?1659350118" loading="lazy" />
+    </div>
+
+    
+    
+      
+	  </div>
+  </div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3316" data-item-id="3316" data-item-type="ItemRichText"><div class="item-body-hbr">数式が機能して『透析食』が表示されます！<br>
+<br>
+このVLOOKUP関数を一番下までコピーして入れると…</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_image" id="item3317" data-item-id="3317" data-item-type="ItemImage">
+    <div class="body">
+    <div class="image-large">
+      <img src="https://d32w4b5zm7phxu.cloudfront.net/item_images/images/000/003/317/large/fde6df72-d1d6-4cbe-8373-d31611535858.png?1659499599" loading="lazy" />
+    </div>
+
+    
+    
+      
+	  </div>
+  </div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3296" data-item-id="3296" data-item-type="ItemRichText"><div class="item-body-hbr">このように、<span class="bold"><span class="bg-yellow">No.が入っている患者さんだけ</span></span>、どの特別治療食を提供すべきか表示されます。これなら<span class="bold"><span class="bg-yellow">何度も同じ食事名を打たなくて良い</span></span>ので、<span class="bold"><span class="bg-yellow">手間と打ち間違えが省けて便利</span></span>ですよね！<br>
+<br>
+ただ、これだと『N/A』（エラー値、No Answerの略）が邪魔で見づらさが残ります。エラー値を消したい場合は<span class="bold">IFERROR関数</span>を組み合わせてみましょう。（詳しくは次項で解説します）</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_image" id="item3319" data-item-id="3319" data-item-type="ItemImage">
+    <div class="body">
+    <div class="image-large">
+      <img src="https://d32w4b5zm7phxu.cloudfront.net/item_images/images/000/003/319/large/e94c6423-b105-4b06-982f-3b8ede46afd6.png?1659351196" loading="lazy" />
+    </div>
+
+    
+    
+      
+	  </div>
+  </div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3297" data-item-id="3297" data-item-type="ItemRichText"><div class="item-body-hbr">このIFERROR関数×VLOOKUP関数を一番下までコピーして入れると…</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_image" id="item3318" data-item-id="3318" data-item-type="ItemImage">
+    <div class="body">
+    <div class="image-large">
+      <img src="https://d32w4b5zm7phxu.cloudfront.net/item_images/images/000/003/318/large/1be1c782-1457-46ea-b7c1-966da29bbd88.png?1659499635" loading="lazy" />
+    </div>
+
+    
+    
+      
+	  </div>
+  </div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3298" data-item-id="3298" data-item-type="ItemRichText"><div class="item-body-hbr">とても見やすくなりました！<br>
+<br>
+これを応用することで、本記事でダウンロードできるテンプレートのように、食札・食事箋を簡単に作成できますよ。<br>
+<br>
+私たち栄養士の現場は、テンプレートのように<br>
+<span class="bold">① リストを作成しておき<br>
+② 必要なデータを呼び出して書類を作る</span><br>
+といった使い方が多いです。<br>
+<br>
+ちなみに、事務職では商品名と金額を呼び出して、在庫管理や発注書を作る時に使うこともありますよ。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+
+
+<h2 id="item3299" class="text-lg md:text-2xl text-white font-bold bg-black py-2 md:py-3 px-2 md:px-4 rounded my-4" data-item-id="3299" data-item-type="ItemHeading">５．テンプレートで使っているその他の関数</h2>
+
+
+
+
+  					
+  				
+  				  
+  					
+
+<h3 id="item3300" class="text-base md:text-xl font-bold text-black px-0 pb-1 border-b-2 border-black my-4" data-item-id="3300" data-item-type="ItemHeading">IFERROR関数</h3>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3301" data-item-id="3301" data-item-type="ItemRichText"><div class="item-body-hbr">IFERROR関数は、先の使い方のように<span class="bold"><span class="bg-yellow">エラー値を表示しない事も出来ます</span></span>し、<span class="bold"><span class="bg-yellow">エラー値を別の文字に置き換え</span></span>たりできる便利な関数です。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3302" data-item-id="3302" data-item-type="ItemRichText"><div class="item-body-hbr">""は「空欄」を意味し、上記は<span class="bold"><span class="bg-yellow">「VLOOKUP関数の結果がエラー値だったら、空欄にする」</span></span>になります。<br>
+<br>
+『こう表示させる』の部分には別の関数を入れることもできますし、"エラー"や"該当なし"など、代替文字を設定することもできますよ。<br>
+<br>
+今回のテンプレートでは、備考や治療食の部分の数式を見ると分かりやすいです。<br>
+<br>
+備考や治療食でない方のデータでは、エラーの数式が表示されてしまうのを、IFERROR関数で何も表示しないように指定しています。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+
+<h3 id="item3303" class="text-base md:text-xl font-bold text-black px-0 pb-1 border-b-2 border-black my-4" data-item-id="3303" data-item-type="ItemHeading">TODAY関数</h3>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3304" data-item-id="3304" data-item-type="ItemRichText"><div class="item-body-hbr">TODAY関数は、文字通り<span class="bold"><span class="bg-yellow">今日の日付を表示する関数</span></span>です。テンプレートでは、食事箋の発行日で使用しています。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_image" id="item3320" data-item-id="3320" data-item-type="ItemImage">
+    <div class="body">
+    <div class="image-large">
+      <img src="https://d32w4b5zm7phxu.cloudfront.net/item_images/images/000/003/320/large/aa6c7214-5e1b-444b-842e-9075ab4b2dbf.png?1659499649" loading="lazy" />
+    </div>
+
+    
+    
+      
+	  </div>
+  </div>
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3305" data-item-id="3305" data-item-type="ItemRichText"><div class="item-body-hbr">TODAY関数を入れておくことで、毎回<span class="bold"></span><span class="bg-yellow">日付を入力する手間とミスを省けます。</span><span class="bold"></span><br>
+<br>
+ちなみに、『=TODAY()-1』で昨日の日付、『=TODAY()+1』で明日の日付を設定することもできます。</div></div>
+
+
+
+  					
+  				
+  				  
+  					
+
+
+<h2 id="item3306" class="text-lg md:text-2xl text-white font-bold bg-black py-2 md:py-3 px-2 md:px-4 rounded my-4" data-item-id="3306" data-item-type="ItemHeading">６．さいごに</h2>
+
+
+
+
+  					
+  				
+  				  
+  					
+  <div class="article-item item_rich_text " id="item3307" data-item-id="3307" data-item-type="ItemRichText"><div class="item-body-hbr">今回は、VLOOKUP関数を中心に、IFERROR関数とTODAY関数の3つを紹介しました。<br>
+<br>
+VLOOKUP関数は、Excelの中級者でもややこしく感じる関数なので、初見で完全には理解できなくても大丈夫です。テンプレートや今回紹介した画像を見ながら、<span class="bold">ゆっくり学習</span>してくださいね。<br>
+<br>
+私は、これまで給食会社や病院・老健と働いてきましたが、ほとんどが100床未満の現場でした。中小規模の職場では、食札や食事箋の専用ソフトを導入してもらえないこともあります。<br>
+<br>
+専用ソフトがない現場では、何度もExcelに助けられてきました。ぜひ、Excelスキルを磨いて、<span class="bold"><span class="bg-yellow">ミスなく正確に仕事ができる環境づくり</span></span>を目指していきましょう。</div></div>
+
+
+
+  					
+  				
+  			
+            
+
+  		</div>
+    </section>
+
+    
+
+    <section id="share-button" class="w-full flex flex-wrap justify-center mb-8">
+      <p class="w-full text-center text-gray-500 font-bold mb-2">この記事をシェアする</p>
+      <div class="share-buttons w-[200px]">
+        <a href="#" data-title="【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き）" data-social="line" data-url="https://eichie.jp/note/study/study7?ref=share_button_line" class="share-button-line"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/icons/line.svg"></a>
+        <a href="#" data-title="【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き）" data-social="facebook" data-url="https://eichie.jp/note/study/study7?ref=share_button_facebook" class="share-button-facebook"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/icons/facebook.svg"></a>
+        <a href="#" data-title="【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き） #エイチエ #栄養士 #管理栄養士 @eichie_jpより" data-social="twitter" data-url="https://eichie.jp/note/study/study7?ref=share_button_twitter" class="share-button-twitter"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/icons/twitter.svg"></a>
+      </div>
+    </section>
+    <section id="article-data" class="flex flex-wrap lg:flex-nowrap mb-8">
+  <section id="author" class="w-full lg:w-[420px] mr-6 shrink-0">
+      <figure class="flex flex-nowrap">
+        
+        <a href="https://eichie.jp/note/writer/enuko">
+          <img src="https://d32w4b5zm7phxu.cloudfront.net/users/images/000/000/006/avater_lg/508bbd60-d7fa-44f0-ab1d-b43c899f5509.jpg?1638945341" loading="lazy" class="w-[100px] md:w-[120px] shrink-0 rounded-full mr-2 md:mr-4" />
+        </a>
+        <figcaption class="shrink py-2">
+          <h3 class="font-bold">えぬこ</h3>
+          <div class="write-bio lines-5 text-2xs md:text-xs"><p>プロフィールと作成記事はアイコンをクリック！</p>
+</div>
+        </figcaption>
+      </figure>
+  </section>
+  <section id="tags" class="w-full flex items-center shrink text-sm">
+    <ul class="w-full flex flex-wrap justify-start lg:justify-end items-start py-4 lg:py-0">
+      
+			
+				<li class="w-fit mr-4 hover:underline"><a href="/note/tags/%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97"><img src="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/542/original/tag.svg?1658996619" width="14" class="inline mr-1" /><span class="bg-green-100">スキルアップ</span></a></li>
+			
+				<li class="w-fit mr-4 hover:underline"><a href="/note/tags/%E8%B1%86%E7%9F%A5%E8%AD%98"><img src="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/542/original/tag.svg?1658996619" width="14" class="inline mr-1" /><span class="bg-green-100">豆知識</span></a></li>
+			
+			
+    </ul>
+  </section>
+</section>
+
+    
+
+<section id="related-articles" class="w-full m-auto">
+  <div class="flex flex-wrap justify-center">
+    <h2 class="w-full text-center text-gray-500 font-bold underline underline-offset-4 decoration-4 mb-2">Related Articles</h2>
+    <ul class="w-full flex flex-wrap text-justify">
+      
+      <li class="w-full lg:w-1/2 mt-4 hover:opacity-75 pr-0 lg:pr-2">
+        <a href="/note/study/career61">
+          <div class="flex flex-norap text-xs">
+            <div class="shrink-0 mr-2"><img src="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/072/small/7cb7c16d-bbb6-4f4a-a952-3b58afd54181.png?1650441111" loading="lazy" class="object-cover w-28 md:w-36 h-16 md:h-20 mb-4"></div>
+            <p class="lines-3 shrink mb-4 leading-relaxed">管理栄養士・栄養士はチェックしよう！国民の健康統計を示す国民健康・栄養調査とは？</p>
+          </div>
+        </a>
+      </li>
+      
+      <li class="w-full lg:w-1/2 mt-4 hover:opacity-75 pl-0 lg:pl-2">
+        <a href="/note/study/study4">
+          <div class="flex flex-norap text-xs">
+            <div class="shrink-0 mr-2"><img src="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/069/small/77e47733-56cb-401e-a876-9d873981cd3d.png?1650020363" loading="lazy" class="object-cover w-28 md:w-36 h-16 md:h-20 mb-4"></div>
+            <p class="lines-3 shrink mb-4 leading-relaxed">管理栄養士の私が定時で仕事を終えるために効率化したポイント </p>
+          </div>
+        </a>
+      </li>
+      
+      <li class="w-full lg:w-1/2 mt-4 hover:opacity-75 pr-0 lg:pr-2">
+        <a href="/note/study/study2">
+          <div class="flex flex-norap text-xs">
+            <div class="shrink-0 mr-2"><img src="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/062/small/5e5ab0ad-4e49-439a-8afe-b02e44bc978b.png?1648186929" loading="lazy" class="object-cover w-28 md:w-36 h-16 md:h-20 mb-4"></div>
+            <p class="lines-3 shrink mb-4 leading-relaxed">【初級編】新人管理栄養士が覚えておきたいExcelスキルを6つ解説！</p>
+          </div>
+        </a>
+      </li>
+      
+      <li class="w-full lg:w-1/2 mt-4 hover:opacity-75 pl-0 lg:pl-2">
+        <a href="/note/study/study6">
+          <div class="flex flex-norap text-xs">
+            <div class="shrink-0 mr-2"><img src="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/132/small/9ac02068-4b1f-43b8-b3fb-3acfba93b3ce.png?1659000736" loading="lazy" class="object-cover w-28 md:w-36 h-16 md:h-20 mb-4"></div>
+            <p class="lines-3 shrink mb-4 leading-relaxed">お口の中の事について教えて！城先生！　～高齢者の口腔と栄養～</p>
+          </div>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</section>
+
+
+  </section>
+</article>
+
+
+
+      </div>
+      
+<aside class="flex flex-wrap md:flex-nowrap lg:flex-wrap justify-center w-full lg:w-[300px] shrink-0 text-gray-600">
+  
+  <section class="ranking w-full md:w-1/2 lg:w-full mb-4 mr-0 md:mr-4 lg:mr-0 shrink-0">
+    
+    <p class="bg-black py-2 text-sm text-white text-center font-bold">Ranking</p>
+    <ol id="popular-ranking" class="text-justify general">
+      
+      
+      <li class="border-b border-dashed border-black mt-4 hover:opacity-75">
+        <a href="/note/study/study7">
+          <div class="flex flex-wrap text-sm">
+            <div class="w-full shrink-0"><img src="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/148/medium/153ed7a0-4cbc-47ec-b545-c58df6d9692c.png?1659499669" alt="アイキャッチ:【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き）" loading="lazy" class="w-full mb-4"></div>
+            <p class="lines-3 shrink mb-4 leading-relaxed" data-href="title">【実践編】VLOOKUPをマスターして、食札・食事箋を自動化しよう！（テンプレ付き）</p>
+          </div>
+        </a>
+      </li>
+      
+      
+      
+      <li class="border-b border-dashed border-black mt-4 hover:opacity-75">
+        <a href="/note/examination/career13">
+          <div class="flex flex-norap text-xs">
+            <div class="shrink-0 mr-2"><img src="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/020/small/0b30117d-cca1-48ce-be24-2c742c6cb865.png?1641376738" alt="アイキャッチ:【社会人向け】働きながら栄養士から管理栄養士へ！一発合格を目指す既卒・社会人の国家試験対策！" loading="lazy" class="object-cover w-28 md:w-36 h-16 md:h-20 mb-4"></div>
+            <div>
+              <p class="lines-3 shrink mb-4 leading-relaxed" data-href="title">【社会人向け】働きながら栄養士から管理栄養士へ！一発合格を目指す既卒・社会人の国家試験対策！</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      
+      
+      
+      <li class="border-b border-dashed border-black mt-4 hover:opacity-75">
+        <a href="/note/examination/exam1">
+          <div class="flex flex-norap text-xs">
+            <div class="shrink-0 mr-2"><img src="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/050/small/5c966c9e-1243-4ff4-b83c-a2a91195f2eb.png?1641380965" alt="アイキャッチ:これがあれば大丈夫！先輩管理栄養士が本当にオススメする国家試験の参考書とは！？" loading="lazy" class="object-cover w-28 md:w-36 h-16 md:h-20 mb-4"></div>
+            <div>
+              <p class="lines-3 shrink mb-4 leading-relaxed" data-href="title">これがあれば大丈夫！先輩管理栄養士が本当にオススメする国家試験の参考書とは！？</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      
+      
+      
+      <li class="border-b border-dashed border-black mt-4 hover:opacity-75">
+        <a href="/note/career/career56">
+          <div class="flex flex-norap text-xs">
+            <div class="shrink-0 mr-2"><img src="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/066/small/4d8f3a89-638b-4f76-b461-cae677022332.png?1647966231" alt="アイキャッチ:超難関！メーカーで働く管理栄養士・栄養士とは？" loading="lazy" class="object-cover w-28 md:w-36 h-16 md:h-20 mb-4"></div>
+            <div>
+              <p class="lines-3 shrink mb-4 leading-relaxed" data-href="title">超難関！メーカーで働く管理栄養士・栄養士とは？</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      
+      
+      
+      <li class="border-b border-dashed border-black mt-4 hover:opacity-75">
+        <a href="/note/career/career16">
+          <div class="flex flex-norap text-xs">
+            <div class="shrink-0 mr-2"><img src="https://d32w4b5zm7phxu.cloudfront.net/articles/images/000/000/047/small/e2503485-11b5-4e86-984f-31e62ba599fb.png?1641957254" alt="アイキャッチ:管理栄養士・栄養士×職務経歴書～魅力的な職歴書を作成するコツ～" loading="lazy" class="object-cover w-28 md:w-36 h-16 md:h-20 mb-4"></div>
+            <div>
+              <p class="lines-3 shrink mb-4 leading-relaxed" data-href="title">管理栄養士・栄養士×職務経歴書～魅力的な職歴書を作成するコツ～</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      
+      
+    </ol>
+    
+  </section>
+  
+  <section class="w-full md:w-1/2 lg:w-full shrink-1">
+    
+    <section class="categories mb-4">
+      <p class="bg-black py-2 text-sm text-white text-center font-bold mb-4">Category</p>
+      <ul class="font-bold">
+        
+        
+        
+        
+        <li class="border-b border-dashed border-black pl-1 py-2 hover:opacity-75">
+          <a href="/note/career">
+            <div>
+              <img src="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/541/original/arrow-drop-right-line.svg?1658996619" width="32" class="inline mr-0.5" />
+              <span>転職ノウハウ</span>
+            </div>
+          </a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="border-b border-dashed border-black pl-1 py-2 hover:opacity-75 bg-lime-ei">
+          <a href="/note/study">
+            <div>
+              <img src="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/541/original/arrow-drop-right-line.svg?1658996619" width="32" class="inline mr-0.5" />
+              <span>学び</span>
+            </div>
+          </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="border-b border-dashed border-black pl-1 py-2 hover:opacity-75">
+          <a href="/note/examination">
+            <div>
+              <img src="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/541/original/arrow-drop-right-line.svg?1658996619" width="32" class="inline mr-0.5" />
+              <span>国家試験</span>
+            </div>
+          </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        <li class="border-b border-dashed border-black pl-1 py-2 hover:opacity-75">
+          <a href="/note/questionnaire">
+            <div>
+              <img src="https://d32w4b5zm7phxu.cloudfront.net/resources/assets/000/000/541/original/arrow-drop-right-line.svg?1658996619" width="32" class="inline mr-0.5" />
+              <span>アンケート</span>
+            </div>
+          </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+    </section>
+    
+    <section class="career mb-4">
+      
+      <p class="bg-black py-2 text-sm text-white text-center font-bold mb-4">Career</p>
+      
+      <ul class="flex flex-wrap justify-center">
+        <li class="mt-2">
+          <a href="https://ejb.eichie.jp//ei/entry/glp/ei_002?action=or_ei_preentry"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/banner/ejb_main.png" width="300" height="auto" loading="lazy"></a>
+        </li>
+        <li class="mt-2">
+          <a href="https://ejb.eichie.jp//empinquiry?action=web_sidebanner_ei"><img src="https://d2y7wobpl1gqzn.cloudfront.net/public/images/banner/ejb_empinquiry.png" width="300" height="auto" loading="lazy"></a>
+        </li>
+
+      </ul>
+    </section>
+  </section>
+</aside>
+
+    </div>
+  </div>
+</main>
+<footer class="bg-lime-ei">
+  <div class="xl:container mx-auto px-4 xl:px-10 pb-14 lg:pb-24 text-gray-500">
+    <nav class="pt-8 pb-2 border-b border-dashed border-[#cfdb00]">
+      <ul class="flex flex-wrap lg:flex-nowrap text-sm">
+        <li class="py-2 w-full md:w-fit md:mr-6 lg:mr-12"><a href="/documents/guideline">エイチエガイドライン</a></li>
+        <li class="py-2 w-full md:w-fit md:mr-6 lg:mr-12"><a href="https://sms.svy.ooo/ng/answers/4d0cacc7c78bc94c6c3337b346ff86/">サイトへのお問い合わせ</a></li>
+        <li class="py-2 w-full md:w-fit md:mr-6 lg:mr-12"><a href="https://eiyo.jinzaibank.com/empinquiry">求人・採用募集のお問い合わせ</a></li>
+        <li class="py-2 w-full md:w-fit md:mr-6 lg:mr-12"><a href="https://policy.bm-sms.co.jp/consumer/terms/eichie-jp">利用規約</a></li>
+        <li class="py-2 w-full md:w-fit"><a href="https://www.bm-sms.co.jp/">運営会社</a></li>
+      </ul>
+    </nav>
+    <div class="w-full text-center p-4"><small>Copyright(C) SMS Co.,LTD. All Rights Reserved.</small></div>
+  </div>
+</footer>
+
+<script src="https://d32w4b5zm7phxu.cloudfront.net/clipkit/javascripts/application-1.0.js" async></script>
+
+<!-- bodyタグ内の下部に挿入されます -->
+
+
+
+
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  $(window).on('load', function() {
+
+    const redirectUrl = location.href || '/'      
+  
+    $.getJSON('/note/users/origin_proxy/redirect_url', {redirect_url: redirectUrl }, function(data){
+
+      if(!data.url){
+        return
+      }
+      
+      if(data.url == 'https://eichie.jp/login'){
+        location.reload()
+        return
+      }
+
+      location.href = data.url
+    
+    })
+  })  
+</script>
+
+
+
+
+  <script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+	<script src="https://cdn.ravenjs.com/3.26.4/raven.min.js" crossorigin="anonymous"></script>
+	<script>
+		var dsn = "";
+		var ravenOptions = {
+			ignoreErrors: [
+				/Blocked a frame with origin/,
+				/Request failed with status code 401/,
+				/Can't find variable: Vue/,
+			]
+		};
+
+		Raven.config(dsn, ravenOptions).install();
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/goodshare.js@6/goodshare.min.js"></script>
+	<script>
+		if (document.getElementById("nav")) {
+			var url = "https://eichie.jp/sapi/notice";
+			var noticeCount = '';
+			var vm = new Vue({
+			  delimiters: ['${', '}'],
+				el: '#nav',
+				data: {
+					countUrl: url,
+					noticeCount: noticeCount,
+				},
+				created: function() {
+					if (noticeCount) {
+						return;
+					}
+
+					axios
+						.get(this.countUrl, {
+							withCredentials: true,
+							headers: {
+								'X-Requested-With': 'XMLHttpRequest',
+							},
+						})
+						.then(function(response) {
+							if (response.data.noticeCount) {
+								this.noticeCount = response.data.noticeCount;
+								this.$refs['notice-box-pc'].style.display = 'block';
+								this.$refs['notice-box-sp'].style.display = 'block';
+							}
+						}.bind(this))
+						.catch(function(response) {
+							this.noticeCount = 0;
+							if (response.status !== 401) {
+								Raven.captureMessage(response);
+							}
+						});
+				},
+				mounted: function() {
+				  
+					if (noticeCount) {
+						this.$refs['notice-box-pc'].style.display = 'block';
+						this.$refs['notice-box-sp'].style.display = 'block';
+					}
+				}
+			});
+		}
+	</script>
+<script async="async" defer="defer" src="//www.instagram.com/embed.js"></script><script src="//d32w4b5zm7phxu.cloudfront.net/clipkit_assets/beacon-81729317976d2ddc8ffa498bb082d67dfffd0801bc3e5915e8dd02110b9a0786.js" async="async" id="clipkit-beacon" data-page-type="article" data-page-id="148" data-domain="" data-url="/note/study/study7" data-href="https://eichie.jp/note/media/beacon"></script><script async="async" src="//b.clipkit.co/"></script>
+
+<!--Clipkit(R) ver1.0.0-3-geef60ff33-20220118 Copyright (C) 2021 Smartmedia inc.-->
+
+</body>
+</html>
+
+

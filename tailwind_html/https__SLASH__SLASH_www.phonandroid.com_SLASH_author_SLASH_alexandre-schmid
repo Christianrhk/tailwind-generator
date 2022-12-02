@@ -1,0 +1,2748 @@
+<!doctype html>
+<html lang="fr-FR">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="fb:pages" content="101102083280258" />
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="shortcut icon" href="https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/images/favicons/apple-touch-icon.png">
+<link rel='dns-prefetch' href='//phonandroid.disqus.com' />
+<script type="rocketlazyloadscript">
+	var current_menu_version = '1659934866';
+	var ajaxurl = 'https://www.phonandroid.com/wp-admin/admin-ajax.php';
+	var light_ajaxurl = 'https://www.phonandroid.com/wp-content/themes/phonadroid-v3/ajax.php';
+</script>
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<title>Alexandre Schmid, Auteur à PhonAndroid</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Play%3A400%2C700%7CElectrolize%7COpen%20Sans%3A400%2C700&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play%3A400%2C700%7CElectrolize%7COpen%20Sans%3A400%2C700&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play%3A400%2C700%7CElectrolize%7COpen%20Sans%3A400%2C700&#038;display=swap" /></noscript><style id="rocket-critical-css">button::-moz-focus-inner{padding:0;border:0}img{max-width:100%;height:auto}.search-form input[type=search]{-webkit-appearance:none;-webkit-border-radius:0;border:1px solid #999;padding:.5em .7em}.search-form input{float:left;height:2em}.search-form input[type=search]{margin:0 4px 0 0;width:150px}.search-form:after{content:"";display:block;clear:both}html,body{padding:0;margin:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}*{box-sizing:border-box}body{font:12px/16px "Open Sans",sans-serif;color:#3e3e3e}a{color:#8fbd00;text-decoration:none}.hidden,.screen-reader-text{position:absolute!important;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);padding:0!important;border:0!important;height:1px!important;width:1px!important;overflow:hidden}.hidden-xxx{display:none}h1{font-size:30px;line-height:36px;margin-top:0;margin-bottom:20px;font-weight:700}@media (min-width:769px){h1{font-size:39px;line-height:47px}}p{margin-top:0;margin-bottom:7px;font-size:12px;line-height:16px}@font-face{font-family:icomoon;src:url(https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/fonts/v3/icomoon.eot?l3b83ue);src:url(https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/fonts/v3/icomoon.eot?l3b83ue#iefix) format("embedded-opentype"),url(https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/fonts/v3/icomoon.ttf?l3b83ue) format("truetype"),url(https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/fonts/v3/icomoon.woff?l3b83ue) format("woff"),url(https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/fonts/v3/icomoon.svg?l3b83ue#icomoon) format("svg");font-weight:400;font-style:normal;font-display:swap}[class^=icon-]{font-family:icomoon!important;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-facebook:before{content:"\ea90"}.icon-twitter:before{content:"\ea96"}.icon-youtube:before{content:"\ea9d"}.icon-instagram:before{content:"\e903"}.icon-search:before{content:"\e901"}button{border:none;background:#8fbd00;color:#fff;padding:10px;box-shadow:inset 0 -3px 0 #7ca400;font-family:ubuntu,sans-serif;line-height:1.5;text-align:center}input[type=email],input[type=search]{-webkit-appearance:none;padding:10px;border:1px solid #ededed}#header{background:#2b2b2b;position:relative;z-index:101;color:#fff;padding:0 20px}.home #header{margin-bottom:0}#header .header-holder{height:50px;max-width:1400px;margin:auto}@media (min-width:961px){#header .header-holder{position:relative;height:60px}}#header h1.logo{line-height:1;margin:0;padding:0}#header .logo{height:50px;width:150px;position:relative;z-index:2}#header .logo img{width:146px;height:28px;position:absolute;top:50%;margin-top:-14px;left:0;image-rendering:optimizeSpeed;image-rendering:-moz-crisp-edges;image-rendering:-o-crisp-edges;image-rendering:-webkit-optimize-contrast;image-rendering:optimize-contrast;-ms-interpolation-mode:nearest-neighbor}@media (min-width:961px){#header .logo{width:195px;height:60px}#header .logo img{width:189.8px;height:36.4px;margin-top:-18.2px}}#header .logo a{height:100%;display:block;position:relative}#header .menu-area{text-transform:uppercase}#main{position:relative;z-index:1}#header_ad{background:inherit}.home #header_ad{padding-bottom:0}div[id$=_ad]{overflow:hidden}.toggle-relative{position:relative}@media (min-width:769px){.toggle-relative.mobile-only{position:inherit}}.toggle-container{max-height:0;overflow:hidden}.toggle-container>div{overflow:auto}.toggle-container.toggle-absolute{visibility:hidden;opacity:0;position:absolute;top:-300vh;left:0;min-width:320px;transform:translateY(-2em);z-index:3;max-height:inherit}@media (min-width:769px){.toggle-container.mobile-only{max-height:inherit;overflow:visible}.toggle-container.mobile-only>div{overflow:visible}.toggle-container.mobile-only.toggle-absolute{visibility:inherit;opacity:inherit;position:inherit;top:inherit;left:inherit;min-width:inherit;transform:inherit;z-index:inherit;max-height:inherit}}@media (min-width:961px){.toggle-container.handeld-only{max-height:inherit;overflow:visible}}.nav-opener{position:relative;z-index:2}.toggle-overlay{opacity:0;transform:translateX(-100%);max-height:inherit;z-index:3}.nav-opener{background:#454545;width:50px;height:50px;display:block;position:absolute;right:0;top:-50px}.nav-opener span,.nav-opener::after,.nav-opener::before{content:"";position:absolute;background:#fff;height:2px;width:50%;left:50%;transform:translateX(-50%)}.nav-opener span{top:50%;margin-top:-1px;transform:translate(-50%)}.nav-opener::before{top:17px}.nav-opener::after{bottom:17px}.menu-area{background:#454545;margin-left:-20px;margin-right:-20px}.menu-area>.toggle-relative>.toggle-container{overflow:hidden}.menu-area .toggle-container{background:#454545;right:0}.menu-area a{color:#fff;text-decoration:none}@media (max-width:767px){.menu-area .toggle-overlay{border-left:3px solid #8fbd00}.menu-area .toggle-overlay:before{content:"";position:absolute;left:0;top:0;right:0;border-top:1px solid #454545}.menu-area .toggle-overlay>label.pseudo-a,.menu-area .toggle-overlay .parent-category{padding-top:15px!important;padding-bottom:15px!important;padding-left:0!important}.menu-area .parent-category{text-transform:uppercase;width:calc(100% - 46px);text-align:center;line-height:inherit;padding-right:46px!important}.menu-area label.pseudo-a.back{width:46px;height:46px;padding:0;position:relative;top:0}.menu-area label.pseudo-a.back:before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(90deg);width:0;height:0;border-style:solid;border-width:10px 7px 0;border-color:#8fbd00 transparent transparent}.menu-area .sub-terms>li,.menu-area .sub-menu>li{border:1px solid #454545;border-collapse:collapse;border-top:none;border-left:none}.menu-area .sub-terms>li:first-child,.menu-area .sub-terms>li:first-child+li,.menu-area .sub-menu>li:first-child,.menu-area .sub-menu>li:first-child+li{border-top:1px solid #454545}.menu-area .sub-terms>li:nth-child(even),.menu-area .sub-menu>li:nth-child(even){border-right:none}.menu-area .sub-menu>li>a,.menu-area label.pseudo-a{padding:10px 15px;font-size:11px;line-height:inherit;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.menu-area .sub-menu>li>a:after,.menu-area label.pseudo-a:after{transform:translateY(-50%) rotate(-90deg)}.menu-area .parent-category,.menu-area label.back{float:left}.menu-area .sub-terms{clear:both}.menu-area label.opener.pseudo-a:after{transform:translateY(-50%) rotate(-90deg);right:13px;border-color:#8fbd00 transparent transparent!important}}.menu-area .social-networks{padding:0}.menu-area .social-networks button{display:block;padding:19.5px 20px;font-size:18px;display:flex}.menu-area .social-networks button i{margin-right:15px}.menu-area .social-networks .text{font-size:15px;margin-left:auto}.menu-area .social-networks .label{font-weight:700;font-size:15px}.menu-area .social-networks .subscribers{font-size:10px}.menu-area .social-networks li button{box-shadow:none;line-height:1;font-size:18px}@media screen and (max-width:768px){.menu-area .social-networks li button{width:100%}}.menu-area .social-networks li button .text{font-size:15px;font-family:open sans,sans-serif}.menu-area .social-networks li.facebook button{background:#3b5997}.menu-area .social-networks li.twitter button{background:#00abed}.menu-area .social-networks li.youtube button{background:#cd1f1f}.menu-area .social-networks li.instagram button{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}@media (min-width:769px){.menu-area .social-networks{display:flex;align-items:flex-start;position:absolute;top:0;right:0;padding:0;text-align:center}.menu-area .social-networks .label,.menu-area .social-networks .subscribers{display:none}.menu-area .social-networks button{width:50px;height:50px;padding:7px 0;display:block}.menu-area .social-networks button i{margin-right:0}.menu-area .social-networks .text{margin-top:2px;display:block}}@media (min-width:961px){.menu-area .social-networks button{width:60px;height:60px;padding:13px 0}}.menu-area .v-mobile-only{display:block!important}@media (min-width:769px){.menu-area .v-mobile-only{display:none!important}}.menu-area .v-desktop-only{display:none!important}@media (min-width:769px){.menu-area .v-desktop-only{display:block!important}}.menu-area a.opener,.menu-area label.opener a,.menu-area label.opener span{display:block;font-size:13px;padding:20px 15px}.menu-area label.opener{position:relative;display:block;padding-right:35px}.menu-area label.opener:after{content:"";position:absolute;top:50%;right:20px;margin-left:10px;transform:translateY(-50%);width:0;height:0;border-style:solid;border-width:10px 7px 0;border-color:#ededed transparent transparent transparent}@media (min-width:769px){.menu-area label.opener:after{display:none}}.menu-area label.opener a{position:relative;padding-right:0!important}.menu-area label.opener.pseudo-a:after{border-color:#454545 transparent transparent transparent}.menu-area .toggle-outer-container .toggle-container.toggle-overlay{position:absolute;top:57px;left:0;bottom:0;right:0}.menu-area .toggle-outer-container .toggle-container ul{display:flex;flex-wrap:wrap;width:100%;text-transform:none;margin-bottom:-1px}.menu-area .toggle-outer-container .toggle-container ul.sub-terms{display:none;padding-left:0;padding-top:0}@media (max-width:767px){.menu-area .toggle-outer-container .toggle-container ul.sub-terms{display:flex}}.menu-area .toggle-outer-container .toggle-container ul li{width:50%}.menu-area .toggle-outer-container .toggle-container ul li a{display:block;padding:10px 15px;font-size:11px}.menu-area ul{padding:0;margin:0;list-style:none}.menu-area ul li{padding:0;margin:0}@media (min-width:769px){.menu-area .nav-opener{display:none}.menu-area label.opener{border-bottom:none;font-size:14px;padding:0}.menu-area .toggle-outer-container .toggle-container ul.sub-menu li label.opener a{line-height:inherit}.menu-area label.opener span,.menu-area a.opener,.menu-area label.opener a{display:block;padding:0 10px;padding-right:10px!important;font-size:15px;line-height:50px;border-bottom:none;position:relative}.menu-area label.opener span::before,.menu-area a.opener::before,.menu-area label.opener a::before{content:"";width:0;position:absolute;bottom:0;left:50%;transform:translateX(-50%);background:#8fbd00;height:3px}.menu-area label.opener span::after,.menu-area a.opener::after,.menu-area label.opener a::after{display:none}.menu-area .accordion{position:absolute;left:179px;right:390px;top:0;display:flex;flex-wrap:wrap}.menu-area .accordion li .toggle-outer-container{position:relative}.menu-area .accordion li .toggle-outer-container .toggle-container ul{padding:20px 5px;margin:0;width:auto;border-bottom:3px solid #8fbd00}.menu-area .accordion li .toggle-container{visibility:hidden;opacity:0;position:absolute;top:100%;left:0;min-width:350px;background:#454545;transform:translateY(-2em);z-index:3;min-height:65px}}@media (min-width:961px){.menu-area .accordion{left:195px;right:350px}.menu-area .social-networks{right:-20px}.menu-area label.opener span,.menu-area a.opener,.menu-area label.opener a{line-height:60px}.menu-area label.opener a.parent-category{line-height:inherit}.menu-area label.opener a.parent-category:before{display:none}}@media (min-width:1081px){.menu-area .accordion{left:195px}.menu-area .accordion a.opener,.menu-area .accordion label.opener a{padding-left:15px;padding-right:15px!important}}.notification-icon{position:absolute;right:100px;top:-50px;width:50px;height:50px;font-size:20px;line-height:50px;text-align:center}@media (min-width:769px){.notification-icon{right:250px;background:#0c8050}}@media (min-width:961px){.notification-icon{right:300px;background:#0c8050;width:60px;height:60px;top:-60px;font-size:25px;line-height:60px}}.search-bar-area{margin-left:-20px;margin-right:-20px;z-index:100}.search-bar-area .toggle-container{right:0;background:#454545}label[for=search-form]{position:absolute;right:50px;top:-50px;width:50px;height:50px;text-align:center}label[for=search-form] [class^=icon-]{font-size:20px;line-height:50px}@media (min-width:769px){label[for=search-form]{right:200px;background:#8fbd00}}@media (min-width:961px){label[for=search-form]{right:240px;background:#8fbd00;width:60px;height:60px;top:-60px}label[for=search-form] [class^=icon-]{font-size:25px;line-height:60px}}.search-bar form{padding:10px;position:relative}.search-bar input[type=search]{padding:20px;width:100%}.search-bar .search-submit,.search-bar button{padding:0;width:42px;height:42px;position:absolute;right:11px;top:50%;transform:translateY(-50%)}.search-bar .search-submit [class^=icon-],.search-bar button [class^=icon-]{font-size:20px;line-height:42px}.featured-grid{transform:translate3d(0,0,0);max-width:1200px;background:#fff;margin:0 auto;padding-bottom:20px}@media (min-width:1240px){.featured-grid{padding-top:20px}}.featured-grid h3{font-family:ubuntu,sans-serif;font-size:18px;line-height:1.2;margin:7px 0 10px}@media (min-width:1000px){.featured-grid h3{font-size:26px;margin:15px 0 10px}}.featured-grid a{color:#fff}.featured-grid img{display:block;width:auto;height:auto;max-width:100%;will-change:opacity}.featured-grid .cat-title{padding:3px 5px;font-size:10px;white-space:nowrap;line-height:21px;background:#8fbd00;text-transform:uppercase;font-weight:700}@media (min-width:1000px){.featured-grid .cat-title{font-size:13px}}.featured-grid .image-link{display:block;position:relative;overflow:hidden;background:#3d3d3d;width:100%}@media (min-width:800px){.featured-grid .image-link{min-height:inherit;max-height:311px}}@media (min-width:1000px){.featured-grid .image-link{min-height:inherit;max-height:587px}}.featured-grid .image-link img{width:100%;height:100%;object-fit:cover}.featured-grid .image-link:after{content:"";position:absolute;bottom:0;width:100%;height:70%;background:linear-gradient(to bottom,transparent 0,rgba(0,0,0,0.22) 20%,rgba(0,0,0,0.88) 100%);opacity:.92;will-change:opacity}.featured-grid .medium-item h3{font-size:18px}@media (min-width:1000px){.featured-grid .medium-item h3{font-size:19px}}.featured-grid .medium-item .cat-title{font-size:10px}.featured-grid .small-item h3{font-size:18px}.featured-grid .small-item .cat-title{font-size:10px}.featured-grid .caption{position:absolute;padding:10px 10px 15px;bottom:0;display:block}@media (min-width:1000px){.featured-grid .caption{padding:20px 20px 25px}}.featured-grid .grid{display:flex;overflow-x:scroll;padding:0;margin:0;scroll-snap-type:x mandatory}@media (min-width:1000px){.featured-grid .grid{display:flex;flex-wrap:wrap;overflow-x:unset;flex-flow:row;max-height:574px}}.featured-grid .grid>*{margin:0}.featured-grid .grid .item{position:relative}.featured-grid .grid .item.large-item{padding-bottom:3px}@media (min-width:1000px){.featured-grid .grid .item.large-item{padding-bottom:0}}.featured-grid .grid .item.small-item{padding:0}@media (min-width:1000px){.featured-grid .grid .item.small-item{flex:50%}}.featured-grid .grid .item.medium-item{padding-bottom:3px}@media (min-width:1000px){.featured-grid .grid .item.medium-item{flex:100%}}.featured-grid .grid .first,.featured-grid .grid .second,.featured-grid .grid .item{display:flex}.featured-grid .grid .first,.featured-grid .grid .item{flex:1 0 346px;scroll-snap-align:start}@media (min-width:800px){.featured-grid .grid .first,.featured-grid .grid .item{flex:1 0 373px}}@media (min-width:1000px){.featured-grid .grid .second{flex:20%;display:flex;flex-wrap:wrap}.featured-grid .grid .second .item{padding-left:3px}}#header_ad{min-height:250px;margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;text-align:center}@media only screen and (min-width:767px){#header_ad{min-height:250px;display:flex;margin-bottom:20px;justify-content:center;align-items:center;margin-left:auto;margin-right:auto;text-align:center}}.mailpoet_validate_success{text-align:center}.dark-theme-icon{position:absolute;right:150px;top:-50px;width:50px;height:50px;font-size:20px;line-height:50px;text-align:center}@media (min-width:769px){.dark-theme-icon{right:300px;background:#000}}@media (min-width:961px){.dark-theme-icon{right:360px;background:#000;width:60px;height:60px;top:-60px;font-size:25px;line-height:60px}}.mailpoet_form_loading{display:none;text-align:center;width:30px}.mailpoet_form_loading>span{animation:mailpoet-bouncedelay 1.4s infinite ease-in-out both;background-color:#5b5b5b;border-radius:100%;display:inline-block;height:5px;width:5px}.mailpoet_form_loading .mailpoet_bounce1{animation-delay:-.32s}.mailpoet_form_loading .mailpoet_bounce2{animation-delay:-.16s;margin:0 7px}@keyframes mailpoet-bouncedelay{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}.mailpoet_form_popup_overlay{background-color:#000;display:none;height:100%;left:0;margin:0;max-width:100%!important;opacity:.7;position:fixed;top:0;width:100%!important;z-index:100000}</style>
+<link rel="canonical" href="https://www.phonandroid.com/author/alexandre-schmid" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Alexandre Schmid" />
+<meta property="og:url" content="https://www.phonandroid.com/author/alexandre-schmid" />
+<meta property="og:site_name" content="PhonAndroid" />
+<meta property="og:image" content="https://img.phonandroid.com/2019/01/alexandre.png" />
+<meta property="og:image:width" content="120" />
+<meta property="og:image:height" content="120" />
+<meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@phonandroid" />
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.phonandroid.com/#organization","name":"PhonAndroid","url":"https://www.phonandroid.com/","sameAs":["https://www.youtube.com/user/Phonandroidtv","https://www.facebook.com/phonandroid","https://twitter.com/phonandroid"],"logo":{"@type":"ImageObject","inLanguage":"fr-FR","@id":"https://www.phonandroid.com/#/schema/logo/image/","url":"https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/images/lg-phonandroid-amp-3.png","contentUrl":"https://img.phonandroid.com/2020/05/phonandroid-noir-vert.png","width":280,"height":60,"caption":"PhonAndroid"},"image":{"@id":"https://www.phonandroid.com/#/schema/logo/image/"}},{"@type":"WebSite","@id":"https://www.phonandroid.com/#website","url":"https://www.phonandroid.com/","name":"PhonAndroid","description":"PhonAndroid","publisher":{"@id":"https://www.phonandroid.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.phonandroid.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"fr-FR"},{"@type":"ImageObject","inLanguage":"fr-FR","@id":"https://www.phonandroid.com/author/alexandre-schmid#primaryimage","url":"https://img.phonandroid.com/2021/10/iPhone-14-Front-Page-Tech-4.jpg","contentUrl":"https://img.phonandroid.com/2021/10/iPhone-14-Front-Page-Tech-4.jpg","width":1200,"height":750,"caption":"Crédit : Front Page Tech"},{"@type":"ProfilePage","@id":"https://www.phonandroid.com/author/alexandre-schmid","url":"https://www.phonandroid.com/author/alexandre-schmid","name":"Alexandre Schmid, Auteur à PhonAndroid","isPartOf":{"@id":"https://www.phonandroid.com/#website"},"primaryImageOfPage":{"@id":"https://www.phonandroid.com/author/alexandre-schmid#primaryimage"},"image":{"@id":"https://www.phonandroid.com/author/alexandre-schmid#primaryimage"},"thumbnailUrl":"https://img.phonandroid.com/2021/10/iPhone-14-Front-Page-Tech-4.jpg","breadcrumb":{"@id":"https://www.phonandroid.com/author/alexandre-schmid#breadcrumb"},"inLanguage":"fr-FR","potentialAction":[{"@type":"ReadAction","target":["https://www.phonandroid.com/author/alexandre-schmid"]}]},{"@type":"BreadcrumbList","@id":"https://www.phonandroid.com/author/alexandre-schmid#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.phonandroid.com/"},{"@type":"ListItem","position":2,"name":"Archives pour Alexandre Schmid"}]},{"@type":"Person","@id":"https://www.phonandroid.com/#/schema/person/d069217d43a3bf568cc48455a8ad8b01","name":"Alexandre Schmid","image":{"@type":"ImageObject","inLanguage":"fr-FR","@id":"https://www.phonandroid.com/#/schema/person/image/","url":"https://img.phonandroid.com/2019/01/alexandre-110x110.png","contentUrl":"https://img.phonandroid.com/2019/01/alexandre-110x110.png","caption":"Alexandre Schmid"},"description":"J'ai cru en Palm et webOS, mais suis fidèle à Android depuis. Nostalgique de l'époque des HTC, BlackBerry et Sony Xperia, mais curieux de voir si les écrans pliables/enroulables représentent vraiment le futur du mobile. Ah, et le jeu vidéo c'est aussi bien mon truc.","sameAs":["https://twitter.com/alx_sd"],"mainEntityOfPage":{"@id":"https://www.phonandroid.com/author/alexandre-schmid"}}]}</script>
+
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//cdn.onesignal.com' />
+<link rel='dns-prefetch' href='//js.stripe.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//fonts.gstatic.com' />
+<link rel='dns-prefetch' href='//cdn.taboola.com' />
+<link rel='dns-prefetch' href='//cdn.galaxiemedia.fr' />
+<link rel='dns-prefetch' href='//cdn.priice.net' />
+<link rel='dns-prefetch' href='//c.disquscdn.com' />
+<link rel='dns-prefetch' href='//disqus.com' />
+<link rel='dns-prefetch' href='//c.amazon-adsystem.com' />
+<link rel='dns-prefetch' href='//cdn.blaick.com' />
+<link rel='dns-prefetch' href='//connect.facebook.net' />
+<link rel='dns-prefetch' href='//sdk.privacy-center.org' />
+<link rel='dns-prefetch' href='//z.moatads.com' />
+<link rel='dns-prefetch' href='//tag.agrvt.com' />
+<link rel='dns-prefetch' href='//kvm.galaxiemedia.fr' />
+<link rel='dns-prefetch' href='//boot.pbstck.com' />
+<link rel='dns-prefetch' href='//api.dmcdn.net' />
+<link rel='dns-prefetch' href='//cdn.permutive.com' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel='dns-prefetch' href='//puffypaste.com' />
+<link rel='dns-prefetch' href='//px.moatads.com' />
+<link rel='dns-prefetch' href='//mb.moatads.com' />
+<link rel='dns-prefetch' href='//ib.adnxs.com' />
+<link rel='dns-prefetch' href='//trc.taboola.com' />
+<link rel='dns-prefetch' href='//api.dailymotion.com' />
+<link rel='dns-prefetch' href='//www.facebook.com' />
+<link rel='dns-prefetch' href='//ad.doubleclick.net' />
+<link rel='dns-prefetch' href='//tpc.googlesyndication.com' />
+<link rel='dns-prefetch' href='//api.permutive.com' />
+<link rel='dns-prefetch' href='//cdn.beta.pbstck.com' />
+<link rel='dns-prefetch' href='//images.taboola.com' />
+<link rel='dns-prefetch' href='//secure.adnxs.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link data-minify="1" rel='preload' href='https://www.phonandroid.com/wp-content/cache/min/1/ajax/libs/tailwindcss/1.7.6/tailwind.min.css?ver=1657093859' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" type='text/css' media='all' />
+<link data-minify="1" rel='preload' href='https://www.phonandroid.com/wp-content/cache/min/1/ajax/libs/slick-carousel/1.8.1/slick.css?ver=1657093859' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" type='text/css' media='all' />
+<link data-minify="1" rel='preload' href='https://www.phonandroid.com/wp-content/cache/min/1/ajax/libs/slick-carousel/1.8.1/slick-theme.css?ver=1657093860' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" type='text/css' media='all' />
+<link data-minify="1" rel='preload' href='https://www.phonandroid.com/wp-content/cache/min/1/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css?ver=1657093856' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" type='text/css' media='all' />
+<link data-minify="1" rel='preload' href='https://www.phonandroid.com/wp-content/cache/min/1/wp-content/themes/phonadroid-v3/assets/css/style.css?ver=1657093856' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" type='text/css' media='all' />
+<link data-minify="1" rel='preload' href='https://www.phonandroid.com/wp-content/cache/min/1/wp-content/plugins/tablepress/css/default.min.css?ver=1657093856' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" type='text/css' media='all' />
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/js/jquery.min.js' id='jquery-core-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.phonandroid.com/wp-content/plugins/gm-affiliate/src/Frontend//../../../public/assets/js/frontend.min.js' id='gmma-affiliate-frontend-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.phonandroid.com/wp-content/plugins/gm-affiliate/src/Frontend//../../../public/assets/js/carousel.js' id='gmma-affiliate-carousel-js' defer></script>
+<script data-minify="1" type='text/javascript' src='https://www.phonandroid.com/wp-content/cache/min/1/sdks/OneSignalSDK.js?ver=1657093856' id='gm-push-notification-sdk-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://js.stripe.com/v3' id='ppress-stripe-v3-js' defer></script>
+<link rel="https://api.w.org/" href="https://www.phonandroid.com/wp-json" /><link rel="alternate" type="application/json" href="https://www.phonandroid.com/wp-json/wp/v2/users/100" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.phonandroid.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.phonandroid.com/wp-includes/wlwmanifest.xml" />
+<style>h3{
+    font-weight:bold;
+}
+
+.gm-product-priice {
+    max-height:315px;
+}
+
+.gmma-products-listing .gm-button {
+    width: 200px;
+}
+
+.gmma-products .gm-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    text-decoration: none !important;
+    color: #fff !important;
+}
+
+.gm-product-image  {
+    display:block;
+    width: 60% !important;
+    margin:0 auto;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.gm-product-affiliate{
+    margin:10px 0;
+}
+
+.gmma-products-priice .gm-product-affiliate {
+    display:none;
+}
+
+@media (min-width: 768px)
+{
+    .gm-product-priice {
+        max-height:435px;
+    }
+    .gmma-products-priice .gm-product-affiliate {
+        display:inline-block;
+    }
+    .gm-product-image  {
+        width: 100% !important;
+        height:150px;
+    }
+    .gmma-products .gm-product-title {
+        text-align:left;
+    }
+    .gm-product-affiliate{
+       margin:none;
+       margin-right: auto;
+}
+    }
+}
+
+.gmma-products .slick-dots li {
+   margin: 0 5px;
+}
+.gmma-products .slick-dots li button,
+.gmma-products .slick-prev, .gmma-products .slick-next {
+   box-shadow: none;
+}
+.gmma-products .slick-prev:before, .gmma-products .slick-next:before {
+   color: #000;
+}
+
+.gmma-products .gm-product-title {
+    line-height: 1.3 !important;
+    text-align:center;
+    font-size: 1.1rem;
+}
+
+.gmma-products #header_ad {
+    display: none !important;
+}
+
+.text-block .gmma-products li {
+    margin-left: 0;
+}
+
+.text-block .gmma-products p {
+    margin-bottom: 10px;
+}
+
+.bg-black{
+    background-color: #f80!important;
+}
+
+.dark-theme .gmma-products {
+    background-color: #232323!important
+}
+
+.dark-theme .border-gray-300 {
+    border-color: #232323!important
+}
+
+.dark-theme .text-gray-800, .dark-theme .text-gray-700 {
+    color:#d0d0d0!important;
+}
+
+.gm-affiliate-display-none{
+    display:none;
+}
+
+.gm-affiliate-show-more {
+    cursor: pointer;
+    background: #ececec;
+    margin-top: 10px;
+    padding: 10px;
+    color: #3E3E3E;
+    border-radius: 0px;
+}
+
+.dark-theme .gm-affiliate-show-more {
+    background: #565656;
+    color: #d0d0d0;
+}
+
+.gm-affiliate-display-show {
+    display:flex!important;
+}
+
+.gm-affiliate-rotate {
+    transform: rotate(180deg);
+    transition : all .5s;
+}
+
+.gm-affiliate-no-margin{
+    margin-bottom:0!important;
+}</style><style>.modal-content #loader{top:17%;position:absolute;margin-left:auto;margin-right:auto;display:none;left:0;right:0;text-align:center}.gm-notification-push span{font-size:16px;margin-bottom:10px}.gm-notification-push-news-settings{margin:10px auto;text-align:center}.gm-notification-push-news-settings input[type=radio]{opacity:0;position:fixed;width:0}.gm-notification-push-news-settings label{color:#fff;display:inline-block;background-color:#688f7f;padding:10px 20px;font-family:sans-serif,Arial;font-size:16px;border-radius:5px}.gm-notification-push-news-settings label:hover{cursor:pointer}.gm-notification-push-news-settings input[type=radio]:checked+label{background-color:#014126}.modal{display:none;position:fixed;z-index:99999999;left:0;top:0;margin:auto;width:100%;height:100%;overflow:no-content;background-color:#000;background-color:rgba(0,0,0,.4)}.modal-content{background-color:#fefefe;margin:0 auto;padding:20px;border:1px solid #888;width:100%;height:100%;position:relative;max-width:600px}.modal-content hr{border-block-color:grey}.modal-content p{font-size:1.1rem}.case-close{color:#41594f;font-size:40px;font-weight:700;position:absolute;margin-top:-5px;right:10px}.case-close:focus,.case-close:hover{color:#014126;text-decoration:none;cursor:pointer}.active-notification [type=checkbox]:checked,.active-notification [type=checkbox]:not(:checked){position:absolute;opacity:.01}.active-notification [type=checkbox]:checked+label,.active-notification [type=checkbox]:not(:checked)+label{position:relative;padding-left:4.5em;cursor:pointer}.active-notification [type=checkbox]:checked+label:after,.active-notification [type=checkbox]:checked+label:before,.active-notification [type=checkbox]:not(:checked)+label:after,.active-notification [type=checkbox]:not(:checked)+label:before{content:'';position:absolute}.active-notification [type=checkbox]:checked+label:before,.active-notification [type=checkbox]:not(:checked)+label:before{left:0;top:-.1em;width:4em;height:1.85em;background:#ddd;border-radius:1em;transition:background-color .2s}.active-notification [type=checkbox]:checked+label:after,.active-notification [type=checkbox]:not(:checked)+label:after{width:1.4em;height:1.4em;transition:all .2s;border-radius:50%;background:#7f8c9a;top:.11em;left:.24em}.active-notification [type=checkbox]:checked+label:before{background:#688f7f}.active-notification [type=checkbox]:checked+label:after{background:#014126;left:2.4em}.active-notification [type=checkbox]:checked+label .ui,.active-notification [type=checkbox]:checked+label .ui:after,.active-notification [type=checkbox]:not(:checked)+label .ui:before{position:absolute;left:.6em;width:6em;border-radius:1em;font-size:.875em;font-weight:700;transition:all .2s}.active-notification [type=checkbox]:not(:checked)+label .ui:before{content:"non";left:2.35em;top:.2em}.active-notification [type=checkbox]:checked+label .ui:after{content:"oui";top:.2em;left:.2em;color:#41594f}.gm-notification-push-deals-settings [type=checkbox]:checked,.gm-notification-push-deals-settings [type=checkbox]:not(:checked){position:absolute;left:0;opacity:.01}.gm-notification-push-deals-settings [type=checkbox]:checked+label,.gm-notification-push-deals-settings [type=checkbox]:not(:checked)+label{position:relative;padding-left:3.3em;font-size:1.1rem;line-height:2;color:#41594f;cursor:pointer;padding-top:6px}.gm-notification-push-deals-settings [type=checkbox]:checked+label:before,.gm-notification-push-deals-settings [type=checkbox]:not(:checked)+label:before{content:'';position:absolute;left:0;top:0;width:1.8em;height:1.8em;border:3px solid #688f7f;background:#fff;border-radius:.2em;box-shadow:inset 0 1px 3px rgba(0,0,0,.1),0 0 0 #688f7f;-webkit-transition:all .275s;transition:all .275s}.gm-notification-push-deals-settings [type=checkbox]:checked+label:after,.gm-notification-push-deals-settings [type=checkbox]:not(:checked)+label:after{content:'✓';position:absolute;top:.3em;left:.15em;font-size:2.4em;color:#41594f;line-height:0;-webkit-transition:all .2s;transition:all .2s}.gm-notification-push-deals-settings [type=checkbox]:not(:checked)+label:after{opacity:0;-webkit-transform:scale(0) rotate(45deg);transform:scale(0) rotate(45deg)}.gm-notification-push-deals-settings [type=checkbox]:checked+label:after{opacity:1;-webkit-transform:scale(1) rotate(0);transform:scale(1) rotate(0)}.gm-notification-push-deals-settings [type=checkbox]:disabled:checked+label:before,.gm-notification-push-deals-settings [type=checkbox]:disabled:not(:checked)+label:before{box-shadow:none;border-color:#bbb;background-color:#e9e9e9}.gm-notification-push-deals-settings [type=checkbox]:disabled:checked+label:after{color:#777}.gm-notification-push-deals-settings [type=checkbox]:disabled+label{color:#aaa}.gm-notification-push-deals-settings [type=checkbox]:checked:focus+label:before,.gm-notification-push-deals-settings [type=checkbox]:not(:checked):focus+label:before{box-shadow:inset 0 1px 3px rgba(0,0,0,.1),0 0 0 6px rgba(57,210,180,.2)}.modal-title{font-size:2rem;margin-top:-5px;margin-bottom:40px;text-align:center}.modal-title-middle{font-size:2rem;margin-top:40px;margin-bottom:20px;text-align:center}.gm-notification-push-settings{width:100%}.close-button{background-color:#688f7f;border:0;-webkit-border-radius:2px;border-radius:2px;-webkit-box-shadow:none;box-shadow:none;color:#fff;cursor:pointer;display:inline-block;font-size:14px;font-size:.875rem;font-weight:800;line-height:1;padding:1em 2em;text-shadow:none;-webkit-transition:background .2s;transition:background .2s}.gm-notification-push-button{text-align:center;clear:both;margin-top:40px;font-size:.9em}.gm-notification-push-button .close-button{font-size:.9rem}.gm-notification-push-button .close-button:hover{box-shadow:none}.close-button:hover{background-color:#014126}.gm-notification-push{padding:0 10px}.modal-sub-title{font-size:1.4rem;margin-bottom:25px;margin-top:25px}.modal-content hr{width:70%;margin:0 auto;text-align:center}.dark-theme .modal-content{background-color:#232323;border:1px solid #201f1f}.dark-theme .modal-content hr{border-block-color:#fff}.dark-theme .active-notification [type=checkbox]:checked+label:after,.dark-theme .close-button:hover,.dark-theme .gm-notification-push-news-settings input[type=radio]:checked+label{background:#014126}.dark-theme .case-close:hover{color:#014126}.dark-theme .case-close,.dark-theme .gm-push-notification-content .h3{color:#fff}.dark-theme .active-notification [type=checkbox]:checked+label:before,.dark-theme .gm-notification-push-deals-settings [type=checkbox]:checked+label:before,.dark-theme .gm-notification-push-deals-settings [type=checkbox]:not(:checked)+label:before,.dark-theme .gm-notification-push-news-settings label{background-color:#41594f}.dark-theme .gm-notification-push-deals-settings [type=checkbox]:checked+label:before{border:3px solid #41594f}.dark-theme .gm-notification-push-deals-settings [type=checkbox]:checked+label:after,.dark-theme .gm-notification-push-deals-settings [type=checkbox]:not(:checked)+label:after{color:#014126}.dark-theme .gm-notification-push-deals-settings [type=checkbox]:checked+label,.dark-theme .gm-notification-push-deals-settings [type=checkbox]:not(:checked)+label{color:#fff}.dark-theme .gm-push-notification-in-content{background:#232323}.gm-push-notification-in-content{background:#dbdbdb}.gm-push-notification-in-content .trending-posts .h2:after{content:url(wp-content/themes/papergeek/assets/img/icon/bell.svg);display:block;color:#fff;position:absolute;width:25px;top:52%;transform:translateY(-50%);z-index:2}.gm-push-notification-in-content .trending-posts .h2{color:#fff;margin-bottom:0}.gm-push-notification-buttons button,.gm-push-notification-content{text-align:center;text-transform:uppercase;box-shadow:none;font-size:.9rem}gm-push-notification-buttons button:hover{box-shadow:none}.gm-push-notification-buttons{margin-top:20px;padding-bottom:40px}.gm-push-notification-buttons button:nth-child(2n){margin-top:20px}.gm-push-notification-content{margin:30px 20px 28px}.gm-push-notification-content .h3{font-size:1.4rem;line-height:40px;text-transform:uppercase;text-align:center;padding-top:30px}.gm-push-notification-content .h3 span{color:#8fbd00;font-weight:700}.gm-push-notification-content p{font-family:"Roboto Condensed",sans-serif;text-transform:uppercase}@media screen and (max-width:400px){.gm-notification-push-news-settings label{width:100%}.gm-notification-push-news-settings label[for=notification-best-news]{margin-top:20px;margin-bottom:20px}}@media screen and (min-width:600px){.gm-notification-push{padding:0 50px}.gm-notification-push-news-settings label[for=notification-best-news]{margin-left:20px;margin-right:20px}}@media screen and (min-width:767px){.gm-push-notification-in-content .trending-posts .h2:after{width:70px}.gm-push-notification-buttons button:nth-child(2n){margin-left:5%}}</style><script type="rocketlazyloadscript">
+            const appIdPushNotification = "4d768a13-64c7-451c-b235-a966d5985f56";
+            const safariWebIdPushNotification = "web.onesignal.auto.5130fec1-dc87-4e71-b719-29a6a70279c4";
+            const notifyButtonPushNotification = true;
+            const welcomeNotificationTitle = "Bienvenue !";
+            const welcomeNotificationMessage = "Vous recevrez désormais les notifications de Phonandroid.com selon vos préférences. Vous pourrez à tout moment les modifier selon vos envies.";
+</script><style>.widget_gm_vpn_widget .heading-text{padding:8px 10px;margin-bottom:20px;align-items:center;font-weight:400;display:flex;height:40px;text-decoration:none;border-radius:5px;justify-content:center;font-size:16px;color:#fff;background:#6a6a6a}.widget_gm_vpn_widget .gm-vpn-item{position:absolute;color:#fff;font-size:1.5rem;display:flex;align-items:center;left:-1px;font-size:17px;top:0;padding-left:5px;z-index:1;justify-content:center;height:18px;width:20px;background:#4dbe3b}.widget_gm_vpn_widget .gm-vpn-item:after{content:" ";position:absolute;left:20px;width:0;top:0;height:0;z-index:1;border-bottom:17px solid transparent;border-left:9px solid #4dbe3b}.gm-vpn-widget{display:flex;cursor:pointer;position:relative;padding:5px 20px;border-left:5px solid #4dbe3b;margin-bottom:15px;background:#fbfbfb}.dark-theme .gm-vpn-widget{background:#232323!important}.gm-vpn-widget img{max-height:80px}.ribbon-gm-vpn-widget{--f:10px;--r:10px;--t:10px;position:absolute;inset:var(--t) calc(-1*var(--f)) auto auto;height:35px;color:#fff;padding:0 10px var(--f) calc(10px + var(--r));clip-path:polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)),var(--r) calc(50% - var(--f)/ 2));background:#f80;box-shadow:0 calc(-1*var(--f)) 0 inset #0005;display:flex;align-items:center;font-size:11px}.widget_gm_vpn_widget .gm-vpn-detail{display:flex;flex-direction:column;align-items:center;align-self:center;color:#4dbe3b;font-family:sans-serif;font-size:20px;flex:50%}.widget_gm_vpn_widget .gm-vpn-detail a{color:#4dbe3b;font-size:14px;font-family:sans-serif;margin-top:15px}.widget_gm_vpn_widget .gm-vpn-detail a:hover{text-decoration:underline}</style> <script type="application/ld+json">
+                        {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien va co\u00fbter l'iPhone 14 ?","acceptedAnswer":{"@type":"Answer","text":"Apple envisage de proposer le prix bas le plus jamais vu pour un iPhone grand format. L'iPhone 14 Max pourrait co\u00fbter 900 dollars aux \u00c9tats-Unis, soit un peu plus de 1000 euros en France apr\u00e8s conversion et ajout de la TVA."}},{"@type":"Question","name":"Quand sort l'iPhone 14 ?","acceptedAnswer":{"@type":"Answer","text":"Sauf situation exceptionnelle, l'iPhone 14 sera pr\u00e9sent\u00e9 courant septembre 2022. Les pr\u00e9commandes seront ouvertes dans la foul\u00e9e et les appareils seront disponibles sur le march\u00e9 une semaine plus tard."}},{"@type":"Question","name":"Quelle taille d'\u00e9cran pour l'iPhone 14 ?","acceptedAnswer":{"@type":"Answer","text":"Les iPhone 14 et 14 Pro profiteront d'une dalle de 6,1 pouces, et les iPhone 14 Max et 14 Pro Max d'un \u00e9cran avec une diagonale de 6,7 pouces. Tous seront \u00e9quip\u00e9s d'une dalle OLED, mais pas forc\u00e9ment de la m\u00eame technologie."}},{"@type":"Question","name":"Quel est le design de l'iPhone 14 ?","acceptedAnswer":{"@type":"Answer","text":"Le titane remplacerait l'acier pour le ch\u00e2ssis des iPhone 14 Pro. Mais la principale r\u00e9volution devrait venir de la suppression de la fameuse encoche."}}]}
+                    </script>
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><link rel="icon" href="https://img.phonandroid.com/2016/10/cropped-favicon2-110x110.png" sizes="32x32" />
+<link rel="icon" href="https://img.phonandroid.com/2016/10/cropped-favicon2-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://img.phonandroid.com/2016/10/cropped-favicon2-300x300.png" />
+<meta name="msapplication-TileImage" content="https://img.phonandroid.com/2016/10/cropped-favicon2-300x300.png" />
+<style type="text/css" id="wp-custom-css">
+			#purch-gdpr-banner{background:#2c333b!important;border-top:none!important}#purch-gdpr-banner p{text-align:center;padding:10px 0!important;margin-bottom:0}#purch-gdpr-banner #purch-gdpr-banner__close{top:50%!important;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+[class*="app_gdpr--"] .button,[class*="app_gdpr--"] button,[class*="app_gdpr--"] input[type=submit]{box-shadow:inherit}		</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><script type="rocketlazyloadscript">
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script> <script>
+                //Headertag for PhonAndroid_FR - Editorial
+                var glxm = glxm || {};
+                glxm.que = glxm.que || [];
+                (function() {
+                    var glxmId = 27402859;
+                    var s = document.createElement('script');
+                    s.async = true;
+                    s.src = '//cdn.galaxiemedia.fr/'+glxmId+'/script.min.js';
+                    var n = document.getElementsByTagName('script')[0];
+                    n.parentNode.insertBefore(s, n);
+                })();
+                glxm.que.push(function(){
+                    window._taboola = window._taboola || [];
+                    _taboola.push({article:'auto'});
+                    glxm.insertTaboola('bestofcontent-phonandroid')
+                    if(window.performance && typeof window.performance.mark == 'function')
+                    {window.performance.mark('tbl_ic');}
+                    glxm.setTargeting({'tag':["iphone", "iphone_14", "concurrence"]}) //Part to be filled by the publisher
+                    glxm.start();
+                });
+            </script>
+<script type="rocketlazyloadscript">
+
+function collapseComments() {
+    if ($('#disqus_thread iframe[id^="dsq-"]').height() <= 400) {
+        $('#expand-comments').prop('checked', true);
+    }
+}
+
+disqus_config = function() {
+    this.callbacks.onReady.push(function() { collapseComments(); });
+}
+
+</script>
+
+<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=G-380CV72LHE"></script>
+<script type="rocketlazyloadscript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-380CV72LHE');
+</script>
+</head>
+<body class="archive author author-alexandre-schmid author-100">
+<div id="fb-root"></div>
+<div id='oop_ad' style="height: 0px!important;"></div>
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		glxm.que.push(function() {
+			glxm.display('oop_ad');
+		});
+	</script>
+<div id="wrapper">
+
+<header id="header">
+
+<div class="header-holder">
+
+<h1 class="logo">
+<a href="https://www.phonandroid.com">
+<span class="hidden">PhonAndroid</span>
+<img width="1214" height="203" src="https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/images/phonandroid-logo.svg" alt="Phonandroid : actu Android et High-tech" data-skip-lazy>
+</a>
+</h1>
+
+
+<div class="menu-area">
+
+<div class="toggle-relative mobile-only">
+<input type="checkbox" id="nav-opener" class="toggle-opener hidden-xxx">
+<label for="nav-opener" class="nav-opener"><span></span></label>
+
+<div class="toggle-container mobile-only toggle-absolute">
+
+<div class="inner">
+<div class="main-menus">
+<ul class="accordion">
+<li>
+<input type="checkbox" id="toggle-cat-actu" class="toggle-opener hidden-xxx">
+<div class="toggle-outer-container">
+<label class="opener" for="toggle-cat-actu" data-cat="posts"><span>Actu</span></label>
+<div class="toggle-container handeld-only"></div>
+</div>
+</li>
+<li>
+<a class="opener" href="https://www.phonandroid.com/cat/voiture">Auto</a>
+</li>
+<li>
+<input type="checkbox" id="toggle-cat-apps" class="toggle-opener hidden-xxx">
+<div class="toggle-outer-container">
+<label class="opener" for="toggle-cat-apps" data-cat="apps"><a class="opener" href="https://www.phonandroid.com/cat/application-android">Apps</a></label>
+<div class="toggle-container handeld-only"></div>
+</div>
+ </li>
+<li>
+<a class="opener" href="https://www.phonandroid.com/cat/tutoriaux">Tutos</a>
+</li>
+<li>
+<input type="checkbox" id="toggle-cat-bonsplans" class="toggle-opener hidden-xxx">
+<div class="toggle-outer-container">
+<label class="opener" for="toggle-cat-bonsplans" data-cat="gooddeals"><a class="opener" href="https://www.phonandroid.com/cat/bon-plan">Bons plans</a></label>
+<div class="toggle-container handeld-only"></div>
+</div>
+</li>
+<li>
+<input type="checkbox" id="toggle-cat-tests" class="toggle-opener hidden-xxx">
+<div class="toggle-outer-container">
+<label class="opener" for="toggle-cat-tests" data-cat="tests"><a class="opener" href="https://www.phonandroid.com/cat/test-android">Tests</a></label>
+<div class="toggle-container handeld-only"></div>
+</div>
+</li>
+<li>
+<input type="checkbox" id="toggle-cat-guides-achat" class="toggle-opener hidden-xxx">
+<div class="toggle-outer-container">
+<label class="opener" for="toggle-cat-guides-achat" data-cat="achat"> <a href="https://www.phonandroid.com/cat/guides-achat">Guide d'Achat</a></label>
+<div class="toggle-container handeld-only"></div>
+</div>
+</li>
+<li>
+<a class="opener" href="https://www.phonandroid.com/vpn">VPN</a>
+</li>
+<li>
+<a class="opener" href="https://www.phonandroid.com/forum/">Forum</a>
+</li>
+</ul>
+<ul class="social-networks">
+<li class="facebook"><button data-href="https://www.facebook.com/phonandroid" data-target="_blank"><i class="icon-facebook"></i> <span class="label">Facebook</span> <span class="text">251K <span class="subscribers">fans</span></span></button></li>
+<li class="twitter"><button data-href="https://twitter.com/phonandroid" data-target="_blank"><i class="icon-twitter"></i> <span class="label">Twitter</span> <span class="text">73K <span class="subscribers">followers</span></span></button></li>
+
+<li class="youtube"><button data-href="https://www.youtube.com/user/PhonandroidTV" data-target="_blank"><i class="icon-youtube"></i><span class="label">Youtube</span> <span class="text">100K <span class="subscribers">abonnés</span></span></button></li>
+<li class="instagram"><button data-href="https://www.instagram.com/phonandroid/" data-target="_blank"><i class="icon-instagram"></i> <span class="label">Instagram</span> <span class="text">20K <span class="subscribers">inscrits</span></span></button></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="search-bar-area toggle-relative">
+<div class="dark-theme-icon">
+ <span class="btn-toggle"><i class="fa fa-adjust"></i></span>
+</div>
+<div class="notification-icon">
+<span class="gm-push-notification-modal-btn"><i class="fa fa-bell"></i></span>
+</div>
+<input type="checkbox" id="search-form" class="toggle-opener hidden-xxx">
+<label for="search-form"><i class="icon-search"></i></label>
+<div class="toggle-container search-bar toggle-absolute">
+<form role="search" method="get" class="search-form" action="https://www.phonandroid.com">
+<label>
+<span class="screen-reader-text">Rechercher :</span>
+<input type="search" class="search-field" placeholder="Rechercher…" value="" name="s" />
+</label>
+<button type="submit" class="search-submit"><i class="icon-search"></i></button>
+</form> </div>
+</div>
+</div>
+</header>
+
+<div id="ctBoc">
+<main id="main">
+<div class="container">
+<div class="row one-col">
+
+<div id='header_ad'>&nbsp;</div>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		glxm.que.push(function() {
+			glxm.display('header_ad');
+		});
+	</script> </div>
+<div class="row">
+<div class="nw-left-content">
+
+<section id="content">
+
+<div class="head">
+
+<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'><a href='https://www.phonandroid.com' rel='home' itemprop='item'><span itemprop='name'>Phonandroid.com</span></a><meta itemprop='position' content='1' /></li> <li itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'><a href='https://www.phonandroid.com/author/alexandre-schmid' itemprop='item'><span itemprop='name'> Alexandre Schmid</span><meta itemprop="position" content="2" /></a></li></ul>
+</div>
+<div class="post-section">
+<div class="author-box">
+<div class="user-avatar">
+<img data-del="avatar" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%20120'%3E%3C/svg%3E" class='avatar pp-user-avatar avatar-120 photo ' height='120' width='120' data-lazy-src="https://img.phonandroid.com/2019/01/alexandre.png" /><noscript><img data-del="avatar" src='https://img.phonandroid.com/2019/01/alexandre.png' class='avatar pp-user-avatar avatar-120 photo ' height='120' width='120'/></noscript> </div>
+<div class="user-articles">
+<h1 class="h2">Tous les articles de Alexandre Schmid</h1>
+<a href="https://twitter.com/alx_sd" class="css_twitter" title="Twitter"><i class="icon-twitter "></i><span>@alx_sd</span></a> 
+<p>J'ai cru en Palm et webOS, mais suis fidèle à Android depuis. Nostalgique de l'époque des HTC, BlackBerry et Sony Xperia, mais curieux de voir si les écrans pliables/enroulables représentent vraiment le futur du mobile. Ah, et le jeu vidéo c'est aussi bien mon truc.</p>
+</div>
+</div>
+<div class="content-flex">
+<div class="post-list">
+<li class="clickredirect post post-2404782 type-post status-publish format-standard has-post-thumbnail hentry category-iphone hubs-iphone-14 category-concurrence">
+
+<div class="img-box">
+<img alt="iPhone 14 Front Page Tech 4" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2021/10/iPhone-14-Front-Page-Tech-4-240x170.jpg" srcset="https://img.phonandroid.com/2021/10/iPhone-14-Front-Page-Tech-4-110x110.jpg 300w,
+							https://img.phonandroid.com/2021/10/iPhone-14-Front-Page-Tech-4-110x110.jpg 768w,
+							https://img.phonandroid.com/2021/10/iPhone-14-Front-Page-Tech-4-240x170.jpg 1024w,
+							https://img.phonandroid.com/2021/10/iPhone-14-Front-Page-Tech-4-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/iphone-14-prix-date-de-sortie-photo-design-coloris-fiche-technique-toutes-les-infos.html" class="url">iPhone 14 : prix, date de sortie, photo, design, coloris, fiche technique, toutes les infos</a></h2> <p>https:youtu.be/XUjEf-HRpeE
+Avec l'iPhone 14, Apple va enfin proposer un évolution majeure de ses smartphones, qui subissent une refonte de design importante. Autre nouveauté de taille, un iPhone non-Pro va avoir droit...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5431">iPhone</span>
+</span>
+<time datetime="2022-08-08T16:43:31+02:00" class="date">08/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2478573 type-post status-publish format-standard has-post-thumbnail hentry category-informatique-pc">
+
+<div class="img-box">
+<img alt="Figure 1. SK hynix Develops Worlds Highest 238 Layer 4D NAND Flash_sized" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/Figure-1.-SK-hynix-Develops-Worlds-Highest-238-Layer-4D-NAND-Flash_sized-240x170.png" srcset="https://img.phonandroid.com/2022/08/Figure-1.-SK-hynix-Develops-Worlds-Highest-238-Layer-4D-NAND-Flash_sized-110x110.png 300w,
+							https://img.phonandroid.com/2022/08/Figure-1.-SK-hynix-Develops-Worlds-Highest-238-Layer-4D-NAND-Flash_sized-110x110.png 768w,
+							https://img.phonandroid.com/2022/08/Figure-1.-SK-hynix-Develops-Worlds-Highest-238-Layer-4D-NAND-Flash_sized-240x170.png 1024w,
+							https://img.phonandroid.com/2022/08/Figure-1.-SK-hynix-Develops-Worlds-Highest-238-Layer-4D-NAND-Flash_sized-240x170.png 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/bientot-des-ssd-plus-performants-et-moins-chers-grace-a-sk-hynix.html" class="url">Bientôt des SSD plus performants et moins chers grâce à SK Hynix ?</a></h2> <p>Les SSD de nos ordinateurs et la mémoire de nos smartphones vont être plus performants dès l'année prochaine grâce aux avancées de SK Hynix et de Micron. Et le prix...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5549">Hardware</span>
+</span>
+<time datetime="2022-08-08T16:22:34+02:00" class="date">08/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2478559 type-post status-publish format-standard has-post-thumbnail hentry category-streaming">
+
+<div class="img-box">
+<img alt="twitch 3" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/twitch-3-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/twitch-3-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/twitch-3-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/twitch-3-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/twitch-3-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/netflix-amazon-disney-et-hbo-sattaquent-aux-diffusions-pirates-sur-twitch.html" class="url">Netflix, Amazon et Disney s&#8217;attaquent aux diffusions pirates sur Twitch</a></h2> <p>Il y a quelques années, Twitch était accusé de servir de plateforme pour diffuser illégalement du sport en direct. C'est maintenant le milieu de la télévision et du cinéma qui...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5095">Streaming</span>
+</span>
+<time datetime="2022-08-08T15:35:13+02:00" class="date">08/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2478543 type-post status-publish format-standard has-post-thumbnail hentry category-twitter category-reseaux-sociaux">
+
+<div class="img-box">
+<img alt="musk" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/musk-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/musk-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/musk-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/musk-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/musk-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/elon-musk-veut-toujours-racheter-twitter-mais-a-une-condition.html" class="url">Elon Musk veut toujours racheter Twitter, mais à une condition</a></h2> <p>Elon Musk estime ne toujours pas avoir reçu de données fiables sur le taux de faux comptes et de spams de la part de Twitter. Si la plateforme prouve ses...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5472">Twitter</span>
+</span>
+<time datetime="2022-08-08T14:08:23+02:00" class="date">08/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2405823 type-post status-publish format-standard has-post-thumbnail hentry category-xbox hubs-xbox-game-pass category-consoles-jeux-video">
+
+<div class="img-box">
+<img alt="Xbox Game Pass 2" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2021/10/Xbox-Game-Pass-2-240x170.jpg" srcset="https://img.phonandroid.com/2021/10/Xbox-Game-Pass-2-110x110.jpg 300w,
+							https://img.phonandroid.com/2021/10/Xbox-Game-Pass-2-110x110.jpg 768w,
+							https://img.phonandroid.com/2021/10/Xbox-Game-Pass-2-240x170.jpg 1024w,
+							https://img.phonandroid.com/2021/10/Xbox-Game-Pass-2-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/xbox-game-pass-prix-jeux-appareils-compatibles-tout-savoir-sur-labonnement.html" class="url">Xbox Game Pass : prix, jeux, appareils compatibles, tout savoir sur l&#8217;abonnement</a></h2> <p>
+Le Xbox Game Pass est devenu un service de jeu incontournable qui séduit aussi bien les habitués de l'écosystème Xbox que les néophytes. Son succès s'est bâti sur un rapport...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5463">Xbox</span>
+</span>
+<time datetime="2022-08-05T17:26:49+02:00" class="date">05/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2478330 type-post status-publish format-standard has-post-thumbnail hentry category-securite category-actu-generaliste">
+
+<div class="img-box">
+<img alt="Macbook Air 2020 2 (1)" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/Macbook-Air-2020-2-1-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/Macbook-Air-2020-2-1-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/Macbook-Air-2020-2-1-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/Macbook-Air-2020-2-1-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/Macbook-Air-2020-2-1-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/un-malware-chinois-se-cache-dans-des-applications-de-lapp-store-pour-macos.html" class="url">Un malware chinois se cache dans des applications de l&#8217;App Store pour macOS</a></h2> <p>Un éditeur chinois a réussi à tromper la vigilance Apple, qui a accepté des applications malveillantes sur l'App Store pour macOS. 
+Apple mise beaucoup sa communication sur la sécurité de l'App...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5188">Sécurité</span>
+</span>
+<time datetime="2022-08-05T16:12:02+02:00" class="date">05/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2478308 type-post status-publish format-standard has-post-thumbnail hentry category-google-nexus category-smartphoneandroid">
+
+<div class="img-box">
+<img alt="pixel7 2" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/pixel7-2-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/pixel7-2-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/pixel7-2-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/pixel7-2-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/pixel7-2-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/pixel-7-ultra-google-passerait-a-la-ceramique-pour-son-smartphone-premium.html" class="url">Pixel 7 Ultra : Google passerait à la céramique pour son smartphone premium</a></h2> <p>Le Pixel 7 Ultra se confirme. Il serait assemblé par Foxconn et se distinguerait par un design en céramique et de meilleurs capteurs photo. Le Pixel Fold, premier smartphone pliant...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5189">Google Pixel</span>
+</span>
+<time datetime="2022-08-05T14:54:00+02:00" class="date">05/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2478296 type-post status-publish format-standard has-post-thumbnail hentry category-voiture tag-tesla">
+
+<div class="img-box">
+<img alt="cybertruck" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/cybertruck-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/cybertruck-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/cybertruck-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/cybertruck-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/cybertruck-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/tesla-cybertruck-elon-musk-annonce-un-changement-de-prix-et-de-fiche-technique.html" class="url">Tesla Cybertruck : Elon Musk annonce un changement de prix et de fiche technique</a></h2> <p>On pouvait s'en douter, Elon Musk l'a confirmé : Tesla va augmenter le prix de son Cybertruck, qui devrait également faire des concessions au niveau de ses spécifications techniques.
+En 2019,...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5342">Voiture</span>
+</span>
+<time datetime="2022-08-05T13:45:26+02:00" class="date">05/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2380572 type-post status-publish format-standard has-post-thumbnail hentry category-playstation hubs-god-of-war hubs-ps5 category-consoles-jeux-video">
+
+<div class="img-box">
+<img alt="God of War Ragnarok" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2021/06/God-of-War-Ragnarok-240x170.jpg" srcset="https://img.phonandroid.com/2021/06/God-of-War-Ragnarok-110x110.jpg 300w,
+							https://img.phonandroid.com/2021/06/God-of-War-Ragnarok-110x110.jpg 768w,
+							https://img.phonandroid.com/2021/06/God-of-War-Ragnarok-240x170.jpg 1024w,
+							https://img.phonandroid.com/2021/06/God-of-War-Ragnarok-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/god-of-war-ragnarok-date-de-sortie-gameplay-trailers-tout-savoir-sur-le-jeu-ps4-et-ps5.html" class="url">God of War Ragnarok : date de sortie, gameplay, trailers, tout savoir sur le jeu PS4 et PS5</a></h2> <p> God of War Ragnarök est l'un des jeux les plus attendus de ce début de génération de la PS5. Mais de nombreuses questions restent en suspens sur le titre...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5462">Playstation</span>
+</span>
+<time datetime="2022-08-04T14:43:21+02:00" class="date">04/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2478165 type-post status-publish format-standard has-post-thumbnail hentry category-securite tag-gmail category-actu-generaliste">
+
+<div class="img-box">
+<img alt="piratage gmail" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/piratage-gmail-1-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/piratage-gmail-1-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/piratage-gmail-1-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/piratage-gmail-1-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/piratage-gmail-1-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/ce-malware-permet-a-des-pirates-de-coree-du-nord-de-lire-vos-emails-gmail.html" class="url">Gmail : ce malware permet à des pirates nord-coréens d&#8217;espionner votre compte</a></h2> <p>SHARPEXT est un malware nord-coréen qui vise des organisations occidentales et sud-coréennes très sensibles. Il permet de lire les emails d'un compte Gmail sur des navigateurs populaires comme Chrome et...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5188">Sécurité</span>
+</span>
+<time datetime="2022-08-04T13:14:44+02:00" class="date">04/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2478151 type-post status-publish format-standard has-post-thumbnail hentry category-voiture tag-tesla">
+
+<div class="img-box">
+<img alt="tesla modelx" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2020/06/tesla-modelx-240x170.jpg" srcset="https://img.phonandroid.com/2020/06/tesla-modelx-110x110.jpg 300w,
+							https://img.phonandroid.com/2020/06/tesla-modelx-110x110.jpg 768w,
+							https://img.phonandroid.com/2020/06/tesla-modelx-240x170.jpg 1024w,
+							https://img.phonandroid.com/2020/06/tesla-modelx-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/tesla-developpe-un-gps-plus-precis-pour-la-navigation-et-la-conduite-autonome.html" class="url">Tesla développe un GPS plus précis pour la navigation et la conduite autonome</a></h2> <p>Tesla veut garantir la propriété intellectuelle d'une technologie d'antenne GPS plus performante et moins coûteuse, qui servirait à la fois pour la navigation et les fonctions de conduite autonome.
+Tesla a...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5342">Voiture</span>
+</span>
+<time datetime="2022-08-04T11:44:59+02:00" class="date">04/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2478140 type-post status-publish format-standard has-post-thumbnail hentry category-mises-a-jour-android category-actualite-android">
+
+<div class="img-box">
+<img alt="oxygenos13" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/oxygenos13-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/oxygenos13-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/oxygenos13-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/oxygenos13-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/oxygenos13-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/apres-le-oneplus-10t-au-tour-doxygenos-13-de-se-montrer.html" class="url">Après le OnePlus 10T, au tour d&#8217;OxygenOS 13 de se montrer</a></h2> <p>OxygenOS 13 vient voler la vedette au OnePlus 10T avec de premières annonces officielles concernant sa disponibilité, son nouveau design et les fonctionnalités qu'embarque l'interface.
+OnePlus ne chôme pas en cet...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5202">Mises à jour Android</span>
+</span>
+<time datetime="2022-08-04T10:37:23+02:00" class="date">04/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2478000 type-post status-publish format-standard has-post-thumbnail hentry category-processeurs hubs-amd category-informatique-pc">
+
+<div class="img-box">
+<img alt="amd ryzen" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/amd-ryzen-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/amd-ryzen-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/amd-ryzen-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/amd-ryzen-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/amd-ryzen-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/ryzen-7000-amd-confirme-un-lancement-imminent-pour-ses-nouveaux-cpu.html" class="url">Ryzen 7000 : AMD dévoile la date de lancement de ses nouveaux CPU</a></h2> <p>Les processeurs AMD Ryzen 7000 seront présentés fin août pour une sortie à la mi-septembre. Les cartes graphiques Radeon RX 7000 sont quant à elles toujours prévues avant la fin...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5282">Processeurs</span>
+</span>
+<time datetime="2022-08-03T14:58:40+02:00" class="date">03/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2477993 type-post status-publish format-standard has-post-thumbnail hentry category-samsung category-smartphoneandroid">
+
+<div class="img-box">
+<img alt="galaxy Z Fold 4" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/galaxy-Z-Fold-4-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/galaxy-Z-Fold-4-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/galaxy-Z-Fold-4-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/galaxy-Z-Fold-4-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/galaxy-Z-Fold-4-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/galaxy-z-fold-4-et-z-flip-4-samsung-changerait-leur-nom-et-cest-pour-le-mieux.html" class="url">Galaxy Z Fold 4 et Z Flip 4 : Samsung changerait leur nom, et c&#8217;est pour le mieux</a></h2> <p>Les Galaxy Z Fold 4 et Z Flip 4 devraient laisser tomber le Z pour s'appeler Fold 4 et Flip 4. Un choix avant tout politique, mais qui simplifie aussi...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5065">Samsung</span>
+</span>
+<time datetime="2022-08-03T13:50:41+02:00" class="date">03/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2477984 type-post status-publish format-standard has-post-thumbnail hentry category-voiture tag-tesla">
+
+<div class="img-box">
+<img alt="0x0 ModelX_07" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/0x0-ModelX_07-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/0x0-ModelX_07-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/0x0-ModelX_07-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/0x0-ModelX_07-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/0x0-ModelX_07-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/les-tesla-model-s-plaid-et-model-x-plaid-debarquent-en-europe-les-commandes-sont-ouvertes.html" class="url">Les Tesla Model S Plaid et Model X Plaid débarquent en Europe, les commandes sont ouvertes</a></h2> <p>Les commandes pour les Tesla Model S Plaid et Model X Plaid sont désormais ouvertes en France, pour une expédition à partir de la toute fin d'année 2022. Les versions...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5342">Voiture</span>
+</span>
+<time datetime="2022-08-03T13:16:35+02:00" class="date">03/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2429414 type-post status-publish format-standard has-post-thumbnail hentry category-mises-a-jour-android hubs-android-13 category-actualite-android">
+
+<div class="img-box">
+<img alt="android 13 nouveautés" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/04/android-13-nouveautes-240x170.jpg" srcset="https://img.phonandroid.com/2022/04/android-13-nouveautes-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/04/android-13-nouveautes-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/04/android-13-nouveautes-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/04/android-13-nouveautes-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/android-13-nouveautes-smartphones-compatibles-date-de-sortie-tout-savoir-sur-la-mise-a-jour.html" class="url">Android 13 : nouveautés, smartphones compatibles, date de sortie, tout savoir sur la mise à jour</a></h2> <p>
+Android 13 a la lourde tâche de prendre la suite d'Android 12, qui a été une mise à jour d'envergure après plusieurs années sans grand bouleversement pour l'écosystème. Cette année,...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5202">Mises à jour Android</span>
+</span>
+<time datetime="2022-08-02T17:25:17+02:00" class="date">02/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2477862 type-post status-publish format-standard has-post-thumbnail hentry category-windows category-actu-generaliste">
+
+<div class="img-box">
+<img alt="microsoft outlook bug" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/microsoft-outlook-bug-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/microsoft-outlook-bug-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/microsoft-outlook-bug-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/microsoft-outlook-bug-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/microsoft-outlook-bug-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/microsoft-outlook-plante-quand-vous-ouvrez-vos-mails-de-recu-uber.html" class="url">Microsoft Outlook plante quand vous ouvrez un mail contenant un tableau</a></h2> <p>Microsoft fait savoir qu'Outlook est victime d'un bug faisant planter le client à l'ouverture de certains types d'emails, comme ceux contenant des reçus Uber ou des tableaux. Une solution provisoire...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5186">Windows</span>
+</span>
+<time datetime="2022-08-02T15:03:16+02:00" class="date">02/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2477832 type-post status-publish format-standard has-post-thumbnail hentry category-iphone category-concurrence">
+
+<div class="img-box">
+<img alt="iphone" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/iphone-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/iphone-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/iphone-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/iphone-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/iphone-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/comment-passer-dandroid-a-liphone-apple-vous-aide-a-migrer.html" class="url">Comment passer d&#8217;Android à l&#8217;iPhone ? Voilà comment Apple vous &#8220;aide&#8221; à migrer</a></h2> <p>Passer d'Android à iOS n'a rien de difficile, et Apple insiste bien sur ce point pour tenter de convaincre les utilisateurs d'un mobile Android de craquer pour un iPhone.
+Apple lorgne...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5431">iPhone</span>
+</span>
+<time datetime="2022-08-02T14:50:36+02:00" class="date">02/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2477838 type-post status-publish format-standard has-post-thumbnail hentry category-crypto-monnaie category-economie">
+
+<div class="img-box">
+<img alt="bitcoin arnaque" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/bitcoin-arnaque-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/bitcoin-arnaque-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/bitcoin-arnaque-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/bitcoin-arnaque-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/bitcoin-arnaque-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/une-vaste-arnaque-crypto-cible-les-nouveaux-investisseurs.html" class="url">Une vaste arnaque de cryptomonnaie cible les nouveaux investisseurs</a></h2> <p>Une arnaque élaborée, mise en avant par des milliers de sites web et des comptes piratés sur les réseaux sociaux, promet un investissement sûr à base de cryptomonnaie. Mais les...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5552">Crypto monnaie</span>
+</span>
+<time datetime="2022-08-02T14:33:35+02:00" class="date">02/08/2022</time>
+</div>
+</div>
+</li>
+<li class="clickredirect post post-2477648 type-post status-publish format-standard has-post-thumbnail hentry category-consoles-jeux-video hubs-stadia">
+
+<div class="img-box">
+<img alt="stadia" class="alignnone wp-image-9 size-large" src="https://img.phonandroid.com/2022/08/stadia-240x170.jpg" srcset="https://img.phonandroid.com/2022/08/stadia-110x110.jpg 300w,
+							https://img.phonandroid.com/2022/08/stadia-110x110.jpg 768w,
+							https://img.phonandroid.com/2022/08/stadia-240x170.jpg 1024w,
+							https://img.phonandroid.com/2022/08/stadia-240x170.jpg 1200w" sizes="(max-width: 709px) 100vw, (max-width: 909px) 100vw,
+	(max-width: 1362px) 100vw, 100vw" data-skip-lazy />
+</div>
+
+<div class="text-box">
+<h2 class="h2"><a href="https://www.phonandroid.com/selon-google-stadia-nest-pas-mort.html" class="url">Non, Stadia n&#8217;est pas mort&#8230; selon Google !</a></h2> <p>Une fuite annonçait la fermeture de Stadia avant la fin de l'été, Google a démenti cette information. Le service continuera sur sa lancée initiée en 2019. Mais pour combien de...</p>
+<div class="post-metas">
+<span class="cat-title">
+<span class="a-style catlink cat_5272">Console et jeux vidéo</span>
+</span>
+<time datetime="2022-08-01T16:11:37+02:00" class="date">01/08/2022</time>
+</div>
+</div>
+</li>
+<span class="arrows-pagination button seemore" href-obs="uggcf://jjj.cubanaqebvq.pbz/nhgube/nyrknaqer-fpuzvq/cntr/2">Voir plus d&#039;articles</span> </div>
+</div>
+</div>
+</section>
+</div>
+<div class="nw-right-sidebar">
+
+<aside id="sidebar" class="nwscrollsidebar">
+<div class="widget-box ads-widget" id="behaba_widget_ads-3"><div class="add-box">
+<div id='side_ad'></div>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		glxm.que.push(function() {
+			glxm.display('side_ad');
+		});
+	</script></div></div> <div class="widget-box widget-social">
+<div class="heading-text">On reste <span>connectés !</span></div>
+
+<div class="mobile-socialnetworks-links" data-ajax-target=".social-networks" data-replace-class="socialnetworks-links"></div>
+</div>
+
+<div class="widget-box widget-trend-categories" role="navigation">
+<div class="heading-text">C'est <span>tendance !</span></div>
+<nav class="cont">
+<ul>
+<li><a href="https://www.phonandroid.com/comparatif-forfaits-mobiles-comment-bien-choisir-forfait-telephone-selon-besoins.html">Meilleur forfait mobile pas cher 2022</a></li>
+<li><a href="https://www.phonandroid.com/forfait-mobile-5g-quelles-sont-les-meilleures-offres-du-moment.html">Meilleur forfait mobile 5G pas cher 2022</a></li>
+<li><a href="https://www.phonandroid.com/guide-dachat-des-smartphones-android.html">Meilleur smartphone 2022</a></li>
+<li><a href="https://www.phonandroid.com/meilleurs-vpn-payants.html">Meilleurs VPN 2022</a></li>
+<li><a href="https://www.phonandroid.com/vpn-gratuit-solutions.html">Meilleur VPN gratuit</a></li>
+<li><a href="https://www.phonandroid.com/precommande-nintendo-switch-moins-chere.html">Nintendo Switch meilleur prix</a></li>
+<li><a href="https://www.phonandroid.com/catalogue-netflix-series-films-mois.html">Nouveautés Netflix août 2022</a></li>
+<li><a href="https://www.phonandroid.com/playstation-5-prix-caracteristiques.html">PS5</a></li>
+<li><a href="https://www.phonandroid.com/ps5-en-stock-ou-acheter-la-console.html">Stock PS5</a></li>
+<li><a href="https://www.phonandroid.com/xbox-scarlett-prix-caracteristiques-date-de-sortie.html">Xbox Series X</a></li>
+<li><a href="https://www.phonandroid.com/xbox-series-x-series-s-comparatif-meilleur-prix.html">Stock Xbox Series X</a></li>
+<li><a href="https://www.phonandroid.com/disney-lancement-le-12-novembre-2019-au-prix-de-699-dollars-par-mois.html">Disney+</a></li>
+<li><a href="https://www.phonandroid.com/microsoft-windows-11-nouveautes-date-de-sortie-tout-savoir.html">Windows 11</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<footer id="footer" class="container">
+<div class="socialnetworks" data-ajax-target="#footer-social"></div>
+<div class="row">
+
+<div class="footer-logo">
+<img width="62" height="90" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2062%2090'%3E%3C/svg%3E" alt="phonandroid" data-lazy-src="https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/images/phonandroid-2.svg"><noscript><img width="62" height="90" src="https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/images/phonandroid-2.svg" alt="phonandroid"></noscript>
+</div>
+<ul id="footer-company-logo" class="company-logo">
+</ul>
+</div>
+</footer>
+</div> 
+
+<div id="gm-push-notification-modal" class="modal">
+
+<div class="modal-content">
+<img width="200" height="200" id="loader" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20200'%3E%3C/svg%3E" alt="loading gif" data-lazy-src="https://www.phonandroid.com/wp-content/plugins/gm-push-notification-phonandroid/assets/img/loading.gif" /><noscript><img width="200" height="200" id="loader" src="https://www.phonandroid.com/wp-content/plugins/gm-push-notification-phonandroid/assets/img/loading.gif" alt="loading gif" /></noscript>
+<span class="case-close close">&times;</span>
+<div class="modal-title">Notifications</div>
+<div class="gm-notification-push">
+<div class="active-notification" style="padding-bottom: 30px;">
+<p style="float:left;">Recevoir les notifications</p>
+<input type="checkbox" name="accept-notification" id="accept-notification" style="float:right;">
+<label for="accept-notification" style="float:right;"></label>
+</div>
+<div class="modal-title-middle">Réglages</div>
+<hr>
+<div class="gm-notification-push-settings">
+<div class="modal-sub-title">Actualité</div>
+<div class="gm-notification-push-news-settings">
+<input type="radio" name="notification-news-settings" value="all" id="notification-all-news">
+<label for="notification-all-news">Toutes</label>
+<input type="radio" name="notification-news-settings" value="best" id="notification-best-news">
+<label for="notification-best-news">Importantes</label>
+<input type="radio" name="notification-news-settings" value="none" id="notification-no-news">
+<label for="notification-no-news">Aucune</label>
+</div>
+<div class="modal-sub-title">Bon plan</div>
+<div class="gm-notification-push-deals-settings">
+<input type="checkbox" name="notification-deals" id="notification-deals">
+<label for="notification-deals">Recevoir les bons plans et guides d'achat</label>
+</div>
+</div>
+</div>
+<div class="gm-notification-push-button"><button class="close-button close">Fermer</button></div>
+</div>
+</div><script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.phonandroid.com/wp-content/cache/min/1/ajax/libs/slick-carousel/1.8.1/slick.min.js?ver=1657093860' id='slick-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/js/jquery.magnific-popup.min.js' id='magnific-popup-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/js/jquery.stickybits.min.js' id='sticky-js' defer></script>
+<script type='text/javascript' id='theme-main-js-extra'>
+/* <![CDATA[ */
+var theme10n = {"ajaxurl":"https:\/\/www.phonandroid.com\/wp-admin\/admin-ajax.php","imgurl":"https:\/\/www.phonandroid.com\/wp-content\/themes\/phonadroid-v3\/assets\/images"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/js/jquery.main.min.js?v=6.3.8' id='theme-main-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.phonandroid.com/wp-content/plugins/gm-push-notification-phonandroid/assets/js/gm_notification.min.js?v=1.1.2' id='gm-push-notification-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/ads.txt|\/robots.txt|\/news-sitemap.xml|\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/postpass\/?|\/aurevoir\/?|\/password\/?|\/pass\/?|\/register\/?|\/acces\/?|\/wp-admin|\/logout|\/acces|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/www.phonandroid.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type='text/javascript' src='https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/js/dark.min.js?v=1.0.3' id='theme-dark-js' defer></script>
+<script type='text/javascript' src='https://www.phonandroid.com/wp-content/themes/phonadroid-v3/assets/js/critical.min.js?v=1.0.1' id='critical-js-js' defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.phonandroid.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+jQuery(function($){
+		  $('.cat_4356').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actu-generaliste";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actualite-android";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5209').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actualite-android/android-tv";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_4357').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/concurrence";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_40').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/application-android";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5061').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/asus";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_6570').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/forfait-mobile/auchan-telecom";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5545').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/forfait-mobile/byou";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5554').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/economie/banque";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5284').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/informatique-pc/batteries";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_3906').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5181').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/operateurs-mobiles/bouygues-telecom";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_6474').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/informatique-pc/carte-graphique";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_4976').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/objets-connectes/casques-realite-virtuelle";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_6571').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/forfait-mobile/cdiscount-mobile";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_35').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/tutoriaux";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5216').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/comparatifs";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5272').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/consoles-jeux-video";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5552').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/economie/crypto-monnaie";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5528').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/darty";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_6488').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/streaming/disney-plus";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_4977').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/objets-connectes/domotique";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_4982').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/economie";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5285').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/informatique-pc/ecrans";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5384').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/objets-connectes/enceintes-connectees";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5453').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/reseaux-sociaux/facebook";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5529').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/fnac";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5199').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/forfait-mobile";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5183').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/operateurs-mobiles/free";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5546').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/forfait-mobile/free-mobile";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5220').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/application-android/google-apps";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5189').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/google-nexus";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5360').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/guides-achat/guide-achat-smartphones";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5211').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/guides-achat";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5659').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/guides-achat/guides-achat-audio";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5653').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/guides-achat/guides-achat-informatique";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5654').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/guides-achat/guides-achat-jeux-video";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5549').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/informatique-pc";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5089').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/honor";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5062').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/htc";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_1428').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/huawei";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5359').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/informatique";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5195').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actu-generaliste/insolite";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5178').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actu-generaliste/internet";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5475').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/concurrence/ios";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5480').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/concurrence/ipad";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5431').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/concurrence/iphone";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_4979').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actualite-android/jeux-android";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5340').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/jeux-video";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5063').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/lg";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5187').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actu-generaliste/logiciels";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_4973').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/objets-connectes/lunettes-connectees";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5202').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actualite-android/mises-a-jour-android";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5700').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/mobilite-urbaine";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_4965').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/objets-connectes/montres-connectees";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5064').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/motorola-lenovo";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5418').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/streaming/netflix";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5458').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/consoles-jeux-video/nintendo";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5543').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/jeux-video/nintendo-switch";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5277').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/nokia";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_6572').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/forfait-mobile/nrj-mobile";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5279').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/objets-connectes";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5358').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/produits-connectes";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_4486').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/oneplus";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5192').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/oppo";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5180').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/operateurs-mobiles/orange";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5370').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/test-android/test-pc";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5203').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actualite-android/personnalisation";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5462').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/consoles-jeux-video/playstation";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5438').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/pocophone";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5282').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/informatique-pc/processeurs";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5540').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/jeux-video/ps4";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5645').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/realme";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5544').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/forfait-mobile/red-sfr";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5273').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/reseaux-sociaux";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5224').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/tablettesandroid/samsung-tablettesandroid";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5065').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/samsung";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5473').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/samsung/galaxy-a";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5459').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/samsung/galaxy-note";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5474').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/samsung/galaxy-s";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5188').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actu-generaliste/securite";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5205').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actualite-android/securite-android";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5182').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/operateurs-mobiles/sfr";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5200').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/telephone-mobile-android";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5367').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/test-android/test-smartphone";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_23').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5066').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/sony";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5548').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/forfait-mobile/sosh";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5095').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/streaming";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_24').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/tablettesandroid";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_39').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/operateurs-mobiles";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5539').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/television";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_204').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/test-android";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5219').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/application-android/top-applications";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5390').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actu-generaliste/tv";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5472').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/reseaux-sociaux/twitter";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5342').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/voiture";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5186').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/actu-generaliste/windows";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5463').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/consoles-jeux-video/xbox";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5541').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/bon-plan/jeux-video/xbox-one";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_2205').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/smartphoneandroid/xiaomi";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	  $('.cat_5423').click(function(e) {
+	  var evtobj=window.event? event : e;
+	     var go_to_url ="https://www.phonandroid.com/cat/streaming/youtube";
+	     
+	     if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	     			//e.preventDefault();
+	     			//$(this).target = "_blank";
+	     			window.open(go_to_url);
+	     			return false;
+	     	} 
+	     else{
+	         document.location.href = go_to_url;
+	          return false;
+	      } 
+	     	  	
+	   });
+	  
+	  	//Trcik pour #nav
+	
+	
+	$('.nwjs_link-home').click(function(e) {
+		 var evtobj=window.event? event : e;
+	   var go_to_url ="https://www.phonandroid.com";
+	   if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	   			//e.preventDefault();
+	   			//$(this).target = "_blank";
+	   			window.open(go_to_url);
+	   			return false;
+	   	} 
+	   else{
+	       document.location.href = go_to_url;
+	        return false;
+	    } 
+	   	  	
+	 });
+	$('.nwjs_link-forum').click(function(e) {
+		 var evtobj=window.event? event : e;
+	   var go_to_url ="httpsDema://www.phonandroid.com/forum/";
+	   if(evtobj.ctrlKey ||   evtobj.metaKey ||  evtobj.which == 2){
+	   			//e.preventDefault();
+	   			//$(this).target = "_blank";
+	   			window.open(go_to_url);
+	   			return false;
+	   	} 
+	   else{
+	       document.location.href = go_to_url;
+	        return false;
+	    } 
+	   	  	
+	 });
+	
+	    
+	});
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">(function() {
+var s = document.createElement("script");
+s.async = "async";s.type="text/javascript";
+s.src="https://cdn.priice.net/js/widget.min.js";
+var h = document.getElementsByTagName("script")[0];h.parentNode.insertBefore(s, h);})();
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">!(function(o,n){function $(){($.q=$.q||[]).push(arguments)}$.v=1,o[n]=o[n]||$})(window,String.fromCharCode(97,100,109,105,114,97,108));!(function(t,c,i){i=t.createElement(c),t=t.getElementsByTagName(c)[0],i.async=1,i.src="https://seatsmoke.com/v2kdq-hqj76dIrWSwCyxYJ-fAHAL9GZuoDbiHtuWusRjeK3ezsLkxaGs",t.parentNode.insertBefore(i,t)})(document,"script");;!(function(o,t,n,c){function e(n){(function(){try{return(localStorage.getItem("v4ac1eiZr0")||"").split(",")[4]>0}catch(o){}return!1})()&&(n=o[t].pubads())&&n.setTargeting("admiral-engaged","true")}(c=o[t]=o[t]||{}).cmd=c.cmd||[],typeof c.pubads===n?e():typeof c.cmd.unshift===n?c.cmd.unshift(e):c.cmd.push(e)})(window,"googletag","function");</script><div id="secondary-nav" style="display: none"><div class="wrapper"></div></div>
+<script>"use strict";function wprRemoveCPCSS(){var preload_stylesheets=document.querySelectorAll('link[data-rocket-async="style"][rel="preload"]');if(preload_stylesheets&&0<preload_stylesheets.length)for(var stylesheet_index=0;stylesheet_index<preload_stylesheets.length;stylesheet_index++){var media=preload_stylesheets[stylesheet_index].getAttribute("media")||"all";if(window.matchMedia(media).matches)return void setTimeout(wprRemoveCPCSS,200)}var elem=document.getElementById("rocket-critical-css");elem&&"remove"in elem&&elem.remove()}window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><noscript><link data-minify="1" rel='stylesheet' id='tailwind-css'  href='https://www.phonandroid.com/wp-content/cache/min/1/ajax/libs/tailwindcss/1.7.6/tailwind.min.css?ver=1657093859' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='slick-css'  href='https://www.phonandroid.com/wp-content/cache/min/1/ajax/libs/slick-carousel/1.8.1/slick.css?ver=1657093859' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='slick-theme-css'  href='https://www.phonandroid.com/wp-content/cache/min/1/ajax/libs/slick-carousel/1.8.1/slick-theme.css?ver=1657093860' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='font-awesome-css'  href='https://www.phonandroid.com/wp-content/cache/min/1/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css?ver=1657093856' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='phonadroid-style-css'  href='https://www.phonandroid.com/wp-content/cache/min/1/wp-content/themes/phonadroid-v3/assets/css/style.css?ver=1657093856' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='tablepress-default-css'  href='https://www.phonandroid.com/wp-content/cache/min/1/wp-content/plugins/tablepress/css/default.min.css?ver=1657093856' type='text/css' media='all' /></noscript><script>(function(){var js = "window['__CF$cv$params']={r:'737a91fb8a4c5cf5',m:'TTel.hQAiPEUT2ekwrC4BfdALN.xv5f5sZXpzxt6Txw-1659986016-0-AdItbJJlxyvGvJTlerzHgD6bG0sSiv/FOjb+jFx/eqxtzB5xIWHhPgiaR+0E47ZdvJvLl7BHHFRbzhO2bUy16gkfgrlmugl5ui+XpvKyVk5YqVRlLeyqMOfqjIvqQN7ct6apk3a0GKbjaLczpzULSns=',s:[0x30338c32a1,0x183263304b],u:'/cdn-cgi/challenge-platform/h/g'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/h/g/scripts/alpha/invisible.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</html>
+

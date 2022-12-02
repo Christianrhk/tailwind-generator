@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+<link href="https://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=6">
+<link rel="stylesheet" href="/public/css/styles.css">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/public/favicon.ico">
+<link type="application/atom+xml" rel="alternate" href="https://www.deanmontgomery.com/atom.xml" title="Of Last Importance" />
+
+<title>Building a serverless donate form | Of Last Importance</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Building a serverless donate form" />
+<meta name="author" content="Dean Montgomery" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="Learn how to put a donation form on a website - using Netlify &amp; Stripe - fully SCA compliant and no servers to manage!" />
+<meta property="og:description" content="Learn how to put a donation form on a website - using Netlify &amp; Stripe - fully SCA compliant and no servers to manage!" />
+<link rel="canonical" href="https://www.deanmontgomery.com/2019/09/18/building-a-serverless-donate-form/" />
+<meta property="og:url" content="https://www.deanmontgomery.com/2019/09/18/building-a-serverless-donate-form/" />
+<meta property="og:site_name" content="Of Last Importance" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-18T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Building a serverless donate form" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Dean Montgomery"},"description":"Learn how to put a donation form on a website - using Netlify &amp; Stripe - fully SCA compliant and no servers to manage!","headline":"Building a serverless donate form","dateModified":"2019-09-18T00:00:00+01:00","datePublished":"2019-09-18T00:00:00+01:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.deanmontgomery.com/2019/09/18/building-a-serverless-donate-form/"},"url":"https://www.deanmontgomery.com/2019/09/18/building-a-serverless-donate-form/","@context":"https://schema.org"}</script>
+
+</head>
+<body class="max-w-3xl px-2 py-16 mx-auto">
+<div class="text-5xl font-semibold text-center" id="header">
+<h1><a href="/">Of Last Importance</a></h1>
+</div>
+<div id="wrapper" class="">
+<div id="nav" class="mt-2 text-center">
+<nav class="flex items-center justify-center font-light divide-gray-400 divide-x">
+<a class="px-1" href="https://www.github.com/monty5811" target="_blank">Github</a>
+<a class="px-1" href="https://www.twitter.com/monty5811" target="_blank">Twitter</a>
+</nav>
+</div>
+<div id="content" class="mt-16">
+<div class="prose max-w-none">
+<h1 class="!mb-0">Building a serverless donate form</h1>
+<div>18 Sep 2019</div>
+<p>Learn how to put a donation form on a website - using Netlify &amp; Stripe - fully SCA compliant and no servers to manage!</p>
+<p>We will:</p>
+<ul>
+<li>Host a static site on <a href="https://www.netlify.com/">Netlify</a></li>
+<li>Use <a href="https://stripe.com/docs/payments/checkout">Stripe Checkout</a> to handle the donation</li>
+<li>Wire it together with a serverless <a href="https://www.netlify.com/docs/functions/">Netlify Function</a></li>
+</ul>
+<p><em>tl;dr</em> jump straight to the code here: <a href="https://github.com/monty5811/donate-form">monty5811/donate-form</a>.</p>
+<p><img src="/public/images/donate-flowchart.png" alt="Donation Flow Chart" /></p>
+<h2 id="step-1-setup">Step 1: Setup</h2>
+<p>First of all we need a form where the user can choose how much to donate:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Serverless Donate Form<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"https://unpkg.com/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4337222a2f342a2d2720303003">[email&#160;protected]</a>^1.0/dist/tailwind.min.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nt">html</span> <span class="p">{</span>
+            <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Lucida Grande'</span><span class="p">,</span> <span class="n">Verdana</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body</span> <span class="na">class=</span><span class="s">"h-screen flex flex-col justify-center"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"antialiased max-w-xs mx-auto"</span> <span class="na">id=</span><span class="s">"payment-form"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"block w-64 py-2 px-3 mx-auto mb-4 border-gray-300 border rounded-md"</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">min=</span><span class="s">"0"</span> <span class="na">placeholder=</span><span class="s">"$50"</span> <span class="na">id=</span><span class="s">"giving-amount"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full mx-auto block"</span> <span class="na">id=</span><span class="s">"giving-button"</span><span class="nt">&gt;</span>
+        Donate
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>Which looks something like this (we’ve used <a href="https://tailwindcss.com">Tailwind</a> for styling):
+<img src="/public/images/donate-form.png" alt="Donate Form" /></p>
+<h2 id="step-2-adding-stripe-to-the-form">Step 2: Adding Stripe to the form</h2>
+<p>Now we need some javascript to handle the interaction with Stripe. We do a few different things to hook our form up to Stripe:</p>
+<ol>
+<li>Listen for the user submitting the form</li>
+<li>Update the form to a “waiting” state</li>
+<li>Get a Stripe Checkout Session ID from our lambda function</li>
+<li>Redirect to Stripe’s hosted checkout with the Session ID</li>
+<li>Handle any errors</li>
+</ol>
+<p>Required changes:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c">&lt;!-- rest of content as above --&gt;</span>
+    <span class="c">&lt;!-- add jquery &amp; stripe --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://code.jquery.com/jquery-3.4.1.min.js"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://js.stripe.com/v3/"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+        <span class="kd">var</span> <span class="nx">errorText</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Failed. You have not been charged.</span><span class="dl">"</span><span class="p">;</span>
+
+        <span class="c1">// look out for submit events on the form</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">DOMContentLoaded</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">submitButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">giving-button</span><span class="dl">"</span><span class="p">);</span>
+
+            <span class="kd">var</span> <span class="nx">stripe</span> <span class="o">=</span> <span class="nx">Stripe</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;YOUR_STRIPE_PUBLISHABLE_KEY_HERE&gt;</span><span class="dl">"</span><span class="p">);</span>
+
+            <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">payment-form</span><span class="dl">"</span><span class="p">);</span>
+            <span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+                <span class="kd">const</span> <span class="nx">buttonText</span> <span class="o">=</span> <span class="nx">submitButton</span><span class="p">.</span><span class="nx">innerText</span><span class="p">;</span>
+                <span class="nx">submitButton</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Working...</span><span class="dl">"</span><span class="p">;</span>
+
+                <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="na">amount</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">giving-amount</span><span class="dl">"</span><span class="p">).</span><span class="nx">valueAsNumber</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+                <span class="p">};</span>
+
+                <span class="c1">// create a stripe session by talking to our netlify function</span>
+                <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+                    <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/.netlify/functions/get_checkout_session/</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="na">data</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span>
+                    <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// we got a response from our netlify function:</span>
+                        <span class="k">switch</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="k">case</span> <span class="dl">"</span><span class="s2">session-created</span><span class="dl">"</span><span class="p">:</span>
+                                <span class="c1">// it worked - send the user to checkout:</span>
+                                <span class="nx">stripe</span>
+                                    <span class="p">.</span><span class="nx">redirectToCheckout</span><span class="p">({</span>
+                                        <span class="na">sessionId</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">sessionId</span>
+                                    <span class="p">})</span>
+                                    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+                                        <span class="nx">submitButton</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">;</span>
+                                    <span class="p">});</span>
+                                <span class="k">break</span><span class="p">;</span>
+                            <span class="nl">default</span><span class="p">:</span>
+                                <span class="nx">submitButton</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">errorText</span><span class="p">;</span>
+                        <span class="p">}</span>
+                    <span class="p">},</span>
+                    <span class="na">dataType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span>
+                <span class="p">});</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<h2 id="step-3-add-our-lambda-function">Step 3: Add our lambda function</h2>
+<p>Now we have a form that will take the donation amount &amp; redirect to Stripe’s hosted checkout. However, in order to use a custom “price” with Stripe Checkout we need a server-side component.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+<p>Setting up a whole server seems like overkill for this - a serverless function is ideal.</p>
+<p>The serverless function simply takes the amount and gets a Session ID from Stripe. This Session ID is then sent back to the browser where the user is redirected to complete their donation.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">stripe</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">stripe</span><span class="dl">"</span><span class="p">)(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">STRIPE_SECRET_KEY</span><span class="p">);</span> <span class="c1">// get from ENV</span>
+
+<span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">Access-Control-Allow-Origin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">*</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">Access-Control-Allow-Headers</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span>
+<span class="p">};</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">handler</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// some error checking:</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">httpMethod</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span> <span class="o">||</span> <span class="o">!</span><span class="nx">event</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">statusCode</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+      <span class="nx">headers</span><span class="p">,</span>
+      <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="na">status</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bad-payload</span><span class="dl">"</span> <span class="p">})</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="c1">// Parse the body contents into an object.</span>
+  <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+  <span class="c1">// Make sure we have all required data. Otherwise, escape.</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">amount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">Required information is missing.</span><span class="dl">"</span><span class="p">);</span>
+
+    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">statusCode</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+      <span class="nx">headers</span><span class="p">,</span>
+      <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="na">status</span><span class="p">:</span> <span class="dl">"</span><span class="s2">missing-information</span><span class="dl">"</span> <span class="p">})</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// actually create the session with Stripe</span>
+  <span class="c1">// we need to provide a couple of redirect urls:</span>
+  <span class="nx">stripe</span><span class="p">.</span><span class="nx">checkout</span><span class="p">.</span><span class="nx">sessions</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="p">{</span>
+      <span class="na">success_url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://donate-form-example.netlify.com/success</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">cancel_url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://donate-form-example.netlify.com/cancel</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">payment_method_types</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">card</span><span class="dl">"</span><span class="p">],</span>
+      <span class="na">billing_address_collection</span><span class="p">:</span> <span class="dl">"</span><span class="s2">required</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">payment_method_types</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">card</span><span class="dl">"</span><span class="p">],</span>
+      <span class="na">submit_type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">donate</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">line_items</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Donation!</span><span class="dl">"</span><span class="p">,</span>
+          <span class="na">amount</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">amount</span><span class="p">,</span>
+          <span class="na">currency</span><span class="p">:</span> <span class="dl">"</span><span class="s2">usd</span><span class="dl">"</span><span class="p">,</span>
+          <span class="na">quantity</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">session</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// asynchronously called</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+          <span class="na">statusCode</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+          <span class="nx">headers</span><span class="p">,</span>
+          <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="na">status</span><span class="p">:</span> <span class="dl">"</span><span class="s2">session-create-failed</span><span class="dl">"</span> <span class="p">})</span>
+        <span class="p">});</span>
+      <span class="p">}</span>
+      <span class="c1">// woohoo! it worked, send the session id back to the browser:</span>
+      <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">statusCode</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="nx">headers</span><span class="p">,</span>
+        <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+          <span class="na">status</span><span class="p">:</span> <span class="dl">"</span><span class="s2">session-created</span><span class="dl">"</span><span class="p">,</span>
+          <span class="na">sessionId</span><span class="p">:</span> <span class="nx">session</span><span class="p">.</span><span class="nx">id</span>
+        <span class="p">})</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+<p>You can see how this is hooked up to Netlify in the full repo: <a href="https://github.com/monty5811/donate-form">monty5811/donate-form</a>.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>That’s it! We have built a donation form where a user can choose how much they would like to donate and we have done it without ever having to worry about running our own server.</p>
+<p>You can just as easily do this for a non-static site - you just need to replace the serverless function with a route on your site that will create a Stripe Session &amp; return the id to the frontend.</p>
+<div class="footnotes" role="doc-endnotes">
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>If you have fixed prices, or fixed donation amounts, then you don’t need any server side components. You can do everything client side. See the <a href="https://stripe.com/docs/payments/checkout/client">Stripe docs</a> for more info <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+navigator.serviceWorker.getRegistrations().then( function(registrations) { for(let registration of registrations) { registration.unregister() .then(function() { return self.clients.matchAll(); }) .then(function(clients) { clients.forEach(client => { if (client.url && "navigate" in client){ client.navigate(client.url)); } }); } }); 
+  </script>
+<link rel="stylesheet" href="/public/css/pygments.css">
+</body>
+</html>

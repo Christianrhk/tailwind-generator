@@ -1,0 +1,118 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Acceptto Demo App</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64603289-2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-64603289-2');
+    </script>
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery.classycountdown.min.css" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="shortcut icon" href="/static/images/favicon.536bebbfe8ea.ico" />
+    <!-- <script src='/static/js/intlTelInput.min.js' ></script> -->
+    <!-- <link href="/static/css/intlTelInput.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/static/js/jquery.classycountdown.min.js"></script>
+    <script src="/static/js/jquery.knob.js"></script>
+    <script src="/static/js/jquery.throttle.js"></script>
+    <script src="https://dbfp.acceptto.com/bfp.js" defer ></script>
+    <script src="https://faye.acceptto.com/faye/faye.js"></script>
+    <style>
+        body{
+            font-family: 'Open Sans', sans-serif !important;
+            background:#23314A;
+        }
+        .blue{color:#0080FF}
+        .rounded-lgx{border-radius: 15px;}
+        .input{height:40px;}
+        .btn {
+          background-color: #0080FF; /* Blue background */
+          height: 40px;
+        }
+        #login_qrcode{
+            width:230px;
+            height:230px;
+        }
+        .logo{
+          vertical-align: middle;
+          height: 40px;
+        }
+        .mfa-icon{
+            width:139px;
+            height:138px;
+        }
+        .wifi-symbol {display: none;}
+        .wifi-symbol {display: block;position: absolute;top: 50%;display: inline-block;width: 50px;height: 50px;margin-top:10px;-ms-transform: rotate(-45deg) translate(-100px);-moz-transform: rotate(-45deg) translate(-100px);-o-transform: rotate(-45deg) translate(-100px);-webkit-transform: rotate(-45deg) translate(-100px);transform: rotate(-45deg) translate(-100px);}
+        .wifi-symbol .wifi-circle {box-sizing: border-box;-moz-box-sizing: border-box;display: block;width: 100%;height: 100%;font-size: 6.42857px;position: absolute;bottom: 18px;left:27px;border-color: #0080FF;border-style: solid;border-width: 0.8em 0.8em 0 0;-webkit-border-radius: 0 100% 0 0;border-radius: 0 100% 0 0;opacity: 0;-o-animation: wifianimation 3s infinite;-moz-animation: wifianimation 3s infinite;-webkit-animation: wifianimation 3s infinite;animation: wifianimation 3s infinite;}.wifi-symbol .wifi-circle.first {-o-animation-delay: 800ms;-moz-animation-delay: 800ms;-webkit-animation-delay: 800ms;animation-delay: 800ms;}.wifi-symbol .wifi-circle.second {width: 5em;height: 5em;-o-animation-delay: 400ms;-moz-animation-delay: 400ms;-webkit-animation-delay: 400ms;animation-delay: 400ms;}.wifi-symbol .wifi-circle.third {width: 3em;height: 3em;}.wifi-symbol .wifi-circle.fourth {width: 1em;height: 1em;opacity: 1;background-color: #FFFFCC;-o-animation: none;-moz-animation: none;-webkit-animation: none;animation: none;}@-o-keyframes wifianimation {0% {opacity: 0.4;}5% {opactiy: 1;}6% {opactiy: 0.1;}100% {opactiy: 0.1;}}@-moz-keyframes wifianimation {0% {opacity: 0.4;}5% {opactiy: 1;}6% {opactiy: 0.1;}100% {opactiy: 0.1;}}@-webkit-keyframes wifianimation {0% {opacity: 0.4;}5% {opactiy: 1;}6% {opactiy: 0.1;}100% {opactiy: 0.1;}} 
+       
+    </style>
+</head>
+<body>
+    <div class="w-screen h-screen flex flex-col justify-center items-center">
+        <a href="https://www.acceptto.com" target="_blank" ><img class="mx-auto mb-2 logo inline-block" src="/static/images/logo-desktop@2x.png" alt="logo"></a>
+        <div class="container mx-auto  min-h-0 max-w-xs sm:max-w-sm md:max-w-sm  overflow-hidden pb-2 rounded-lgx my-2 bg-white">
+          
+ <form action=""  method="post" id="login-form"> <input type="hidden" name="csrfmiddlewaretoken" value="QfZQtjJeOJijEv7KY9NQa6EjNTzExQlf3iu9W3vi1rogffRjZhCuWMLuzwNoYcLV">
+    <div class="w-full text-center mt-2 overflow-hidden">
+        <img  src='/static/images/phone-icon.svg' class='mx-auto my-4 w-10 h-10' alt="phone">
+        <h3 class="blue text-lg mb-2">Sign in with It’sMe App</h3>
+        <p class="text-xs">Scan QR code using It’sMe app to sign in</p> 
+        <img id="login_qrcode" src='/static/images/chart.jpg'  class='text-center  my-0 rounded-lg mx-auto' alt="qrcode">
+    </div>
+    <hr class="mb-2 mt-2 border-t"  />
+    <div class="mb-4 text-left pb-2 px-4 sm:px-8 ">
+         
+          <p class="text-left text-sm mt-4 mb-2" >Or Sign in with your email address:</p>
+          <div class="text-center relative">
+            <input type="email" name="username" placeholder="Email Address" class="appearance-none border input rounded-lg w-full py-2 px-3 text-gray-700 text-sm mt-1 leading-tight" name="username" maxlength="150" required id="id_username">
+            <button class='btn absolute border-none text-white py-2 right-0 object-cover px-4 mt-1 overflow-hidden rounded-r-lg'  type="submit"  name="submit"><i class="fas fa-chevron-right"></i></button> 
+          </div>
+        </div>
+ </form>
+
+<script type="text/javascript">
+$(() => {
+    
+    let uid =  "23b876616efb43102ed1b1043a4ea02df049344a691a45b0b9c7ba956545039c";
+    let callbackUrl = "https://try.acceptto.com"
+    let faye = new Faye.Client("https://faye.acceptto.com/faye");
+    let hex1 = Math.floor(Math.random()*16777215).toString(16);
+    let hex2 = Math.floor(Math.random()*16777215).toString(16);
+    let now = new Date();
+    let time_since_epoch = now.getTime();
+    let channel = time_since_epoch + hex1 + hex2;
+    let qrcodeJSON = '{ "app_uid":"' + uid + '", "channel":"' + channel + '" }';
+    let qrcode = window.btoa(qrcodeJSON);
+    
+    $('#login_qrcode').attr("src", "https://chart.apis.google.com/chart?cht=qr&chco=314465&chs=230x230&chl=" + qrcode + "#&chld=H|0");
+    
+    faye.subscribe(`/messages/${channel}`, (data) => { 
+        window.location.replace(`${callbackUrl}/wscallback?channel=${channel}`);
+    });
+
+});
+</script>
+
+          <div class="clear-both min-h-0" ></div> 
+        </div>
+        
+<div class="text-center mx-auto mt-5">
+    <p class='text-gray-500 text-xs' style='font-size:10px;'>Copyright© 2022 <a href="HTTPS://WWW.ACCEPTTO.COM" style='font-size:10px;' class="underline font-semibold text-gray-600 text-xs">Acceptto</a> Corporation. All rights reserved.</a></p>
+</div>
+
+    </div>
+</body>
+</html>

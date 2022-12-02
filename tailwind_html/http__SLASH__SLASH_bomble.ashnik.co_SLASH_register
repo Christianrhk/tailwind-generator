@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="Z8vSMlUEpaIXY5SvEJY6oRfL5k96Pvqwn46O2ukr">
+
+    <title>Bomble - A platform to send bulk sms</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+    <!-- Styles -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="http://bomble.ashnik.co/js/app.js" defer></script>
+
+    <!-- Styles -->
+    <link href="/css/app.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Oxygen', sans-serif;
+            background: rgb(135,209,250);
+            background: radial-gradient(circle, rgba(135,209,250,1) 0%, rgba(93,188,244,1) 100%);
+        }
+
+        @media (max-width: 767px) {
+            .navicon {
+                width: 1.125em;
+                height: .125em;
+            }
+
+            .navicon::before,
+            .navicon::after {
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                transition: all .2s ease-out;
+                content: '';
+                background: #3D4852;
+            }
+
+            .navicon::before {
+                top: 5px;
+            }
+
+            .navicon::after {
+                top: -5px;
+            }
+
+            .menu-btn:not(:checked)~.menu {
+                display: none;
+            }
+
+            .menu-btn:checked~.menu {
+                display: block;
+            }
+
+            .menu-btn:checked~.menu-icon .navicon {
+                background: transparent;
+            }
+
+            .menu-btn:checked~.menu-icon .navicon::before {
+                transform: rotate(-45deg);
+            }
+
+            .menu-btn:checked~.menu-icon .navicon::after {
+                transform: rotate(45deg);
+            }
+
+            .menu-btn:checked~.menu-icon .navicon::before,
+            .menu-btn:checked~.menu-icon .navicon::after {
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body class="h-screen antialiased leading-none">
+    <div id="app">
+
+        <nav class="nav flex flex-wrap items-center justify-between px-4 md:px-24 md:py-4 bg-white">
+            <div class="flex flex-no-shrink items-center mr-6 py-3 text-grey-darkest">
+                <div class="w-32 h-10">
+                                            <a href="http://bomble.ashnik.co" class=" flex font-semibold no-underline">
+                            <div class="w-32 h-10">
+                                <img class="" src="http://bomble.ashnik.co/logo.png" alt="bomble logo image">
+                            </div>
+                        </a>
+                                        </div>
+            </div>
+
+                        <input class="menu-btn hidden" type="checkbox" id="menu-btn">
+            <label class="menu-icon block cursor-pointer md:hidden px-2 py-4 relative select-none" for="menu-btn">
+                <span class="navicon bg-grey-darkest flex items-center relative"></span>
+            </label>
+
+            <ul class="menu md:border-none flex justify-end list-reset m-0 w-full md:w-auto py-4 md:py-0">
+                                                            <li class="border-b md:border-none py-2 md:mt-2">
+                            <a href="http://bomble.ashnik.co/login" class="self-center">Login</a>
+                        </li>
+                                                    <li class="border-b md:border-none md:ml-6 py-2">
+                                <a class="text-white bg-orange-500 p-2 border-orange-500 hover:bg-orange-700 hidden md:block" href="http://bomble.ashnik.co/register">Sign Up</a>
+                                <a href="http://bomble.ashnik.co/register" class="self-center md:hidden">Register</a>
+                            </li>
+                                                                        </ul>
+                    </nav>
+        <div>
+        <main class="container mx-auto sm:mt-10 p-12 md:p-0">
+    <div class="flex">
+
+        <div class="w-full">
+
+            <section class="flex flex-col md:flex-row break-words bg-white sm:border-1 sm:rounded-md sm:shadow-lg">
+                <div class="hidden md:block md:w-2/5 md:self-center">
+                    <img class="" src="http://bomble.ashnik.co/register.png" alt="bomble logo image">
+                </div>
+                <div class="md:w-3/5">
+                    <form class="w-full px-6 space-y-2 sm:px-10 sm:space-y-8" method="POST" action="http://bomble.ashnik.co/register">
+                        <input type="hidden" name="_token" value="Z8vSMlUEpaIXY5SvEJY6oRfL5k96Pvqwn46O2ukr">
+                        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0">
+                            <div class="w-full"><label for="company_name" class="block text-blue-500 text-sm font-bold mb-2 sm:mb-4">
+                                    Company Name
+                                </label>
+
+                                <input id="company_name" type="text" class=" appearance-none border rounded-lg w-full py-2 px-3 bg-blue-200 text-black leading-tight focus:outline-none focus:shadow-outline " name="company_name" value="" required autofocus>
+
+                                                            </div>
+
+
+                        </div>
+                        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0">
+                        <div class="md:w-1/2"><label for="fname" class="block text-blue-500 text-sm font-bold mb-2 sm:mb-4">
+                                    First Name
+                                </label>
+
+                                <input id="fname" type="text" class=" appearance-none border rounded-lg w-full py-2 px-3 bg-blue-200 text-black leading-tight focus:outline-none focus:shadow-outline " name="fname" value="" required>
+
+                                                            </div>
+                            <div class="md:w-1/2 md:ml-2">
+                                <label for="name" class="block text-blue-500 text-sm font-bold mb-2 sm:mb-4">
+                                    Last Name
+                                </label>
+
+                                <input id="lname" type="text" class=" appearance-none border rounded-lg w-full py-2 px-3 bg-blue-200 text-black leading-tight focus:outline-none focus:shadow-outline " name="lname" value="" required>
+
+                                                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0">
+                            <div class="w-full">
+                                <label for="email" class="block text-blue-500 text-sm font-bold mb-2 sm:mb-4">
+                                    E-Mail Address
+                                </label>
+
+                                <input id="email" type="email" class=" appearance-none border rounded-lg w-full py-2 px-3 bg-blue-200 text-black leading-tight focus:outline-none focus:shadow-outline " name="email" value="" required autocomplete="email">
+
+                                                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0">
+                            <div class="w-full">
+                                <label for="contact_no" class="block text-blue-500 text-sm font-bold mb-2 sm:mb-4">
+                                    Contact No <br class="md:hidden" /><span class="text-orange-500 text-xs">(with country code eg +14155552671)</span>
+                                </label>
+
+                                <input id="contact_no" type="text" class=" appearance-none border rounded-lg w-full py-2 px-3 bg-blue-200 text-black leading-tight focus:outline-none focus:shadow-outline " name="contact_no" value="" required>
+
+                                                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0">
+                            <div class="md:w-1/2">
+                                <label for="password" class="block text-blue-500 text-sm font-bold mb-2 sm:mb-4">
+                                    Password
+                                </label>
+
+                                <input id="password" type="password" class=" appearance-none border rounded-lg w-full py-2 px-3 bg-blue-200 text-black leading-tight focus:outline-none focus:shadow-outline " name="password" required autocomplete="new-password">
+
+                                                            </div>
+                            <div class="md:w-1/2 md:ml-2">
+                                <label for="password-confirm" class="block text-blue-500 text-sm font-bold mb-2 sm:mb-4">
+                                    Confirm Password
+                                </label>
+
+                                <input id="password-confirm" type="password" class=" appearance-none border rounded-lg w-full py-2 px-3 bg-blue-200 text-black leading-tight focus:outline-none focus:shadow-outline" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+
+                        </div>
+
+                        <div class="flex flex-wrap">
+                            <button type="submit" class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-white bg-orange-500  border-orange-500 hover:bg-orange-700 sm:py-4">
+                                Sign Up
+                            </button>
+
+                            <p class="w-full text-sm text-center text-blue-500 my-6 sm:text-sm sm:my-8">
+                                Already have an account?
+                                <a class="text-orange-500 no-underline hover:underline" href="http://bomble.ashnik.co/login">
+                                    Login
+                                </a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</main>
+        </div>
+
+    </div>
+    </body>
+</html>

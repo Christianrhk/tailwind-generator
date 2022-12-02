@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <title>How to: Translate Google Sheets ||  R3ID</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="last-modified" content="2022-06-28">
+    <meta name="description" content="A software engineer based in Hertfordshire who specializes in developing (and occasionally designing) exceptional, high-quality websites and applications.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.1/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" media="screen">
+    <link rel="stylesheet" href="/assets/css/main.css" media="print">
+    <link rel="icon" type="image/png" href="https://r3id.dev/favicon.ico">
+  </head>
+  <body class="home-page text-gray-500">
+
+    <nav class="max-w-5xl m-auto p-5 flex justify-between border-solid border-b border-gray-100 bg-white dark:border-black dark:bg-blackish sticky top-0 opacity-90 z-10">
+  <div class="flex items-center">
+    <a href="/" class="transition-colors">
+      <i class="far fa-arrow-left text-sm text-glow hover:text-gray-700"></i>
+    </a>
+  </div>
+</nav>
+
+
+
+
+<div class="default-container">
+  <div class="pt-20 pb-1 inline-flex overflow-x-auto space-x-2">
+		<a href="/">
+			<p class="cursor-pointer text-sm text-gray-400 dark:text-gray-600 hover:font-medium hover:text-gray-700 dark:hover:text-gray-300 min-w-max">Home /</p>
+		</a>
+    <a href="/notes">
+			<p class="cursor-pointer text-sm text-gray-400 dark:text-gray-600 hover:font-medium hover:text-gray-700 dark:hover:text-gray-300 min-w-max">Notes to self /</p>
+		</a>
+		<a href="/notes/translate-google-sheets">
+			<p class="cursor-pointer text-sm text-glow dark:text-glow hover:font-medium hover:text-gray-700 dark:hover:text-gray-300 min-w-max">How to: Translate Google Sheets</p>
+		</a>
+	</div>
+	<div class="mb-6">
+		<h1 class="pb-2 font-bold text-3xl text-gray-600">How to: Translate Google Sheets</h1>
+    
+	</div>
+  <div class="text-content">
+    <p>On a recent project, I had scraped data from a Spanish site. This data needed to be imported into a Shopify store, but also needed to be translated into English.</p>
+
+<p>After a quick search on Google I found you could translate one cell at a time within Excel. While this is fine when you have a few cells to translate what happens when you need to translate 6000 or more.</p>
+
+<p>Next up I tried google sheets, I found some extensions which claimed they could do the task in hand. Errr… nope they didn’t do anything!</p>
+
+<p>I then discovered the following method, which worked a treat.</p>
+
+<ul>
+  <li><strong>Step 1</strong>, add a new column next to the one you want to translate. We will call this column B.</li>
+  <li><strong>Step 2</strong>, highlight the first cell, and start to enter <code class="language-plaintext highlighter-rouge">=GOOGLETRANSLATE()</code></li>
+  <li><strong>Step 3</strong>, you need to add in the cell you want to translate, then the language of the cell. Next up add the language you’d like to translate to. See below for our final snippet.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=GOOGLETRANSLATE(A1, “es”, “en”)
+</code></pre></div></div>
+
+<p>Once you confirm this works, drag the fill handle at the bottom of the formula cell down to apply this formula to more than one cell. :-)</p>
+
+<p>You can now copy this to an excel sheet and edit as needed. Remember to remove any cells which show #VALUE!. This happens when you have a blank cell.</p>
+
+  </div>
+</div>
+
+
+    <div class="py-20 grid justify-center">
+  <div class="w-full flex align-middle space-x-4">
+    <a href="https://www.linkedin.com/in/alanr3id/" title="LinkedIn">
+      <i class="fab fa-linkedin-in text-xl text-blue-600"></i>
+    </a>
+    <a href="https://twitter.com/alan_r3id" target="_blank" title="Twitter">
+      <i class="fab fa-twitter text-xl text-blue-300"></i>
+    </a>
+    <a href="https://dribbble.com/r3id" target="_blank" title="Dribbble">
+      <i class="fab fa-dribbble text-xl text-pink-600"></i>
+    </a>
+    <a href="https://github.com/r3id" target="_blank" title="GitHub">
+      <i class="fab fa-github text-xl text-black"></i>
+    </a>
+    <a href="https://medium.com/@r3id" target="_blank" title="Medium">
+      <i class="fab fa-medium text-xl text-black"></i>
+    </a>
+  </div>
+  <p class="pt-5 pb-5 text-xs font-medium text-center text-gray-400 dark:text-gray-200">
+    <a href="/privacy">Privacy</a>
+  </p>
+  <p class="pt-5 pb-5 text-xs font-medium text-center text-gray-300 dark:text-gray-200">
+    © 2021 Alan Reid
+  </p>
+</div>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68933763-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68933763-1');
+    </script>
+  </body>
+</html>

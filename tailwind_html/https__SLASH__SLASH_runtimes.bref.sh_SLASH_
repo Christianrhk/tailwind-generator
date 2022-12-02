@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bref runtime versions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600" rel="stylesheet">
+    <style>
+        :root {
+            --font-sans: Open Sans, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+            --font-serif: Poppins, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+            --font-mono: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+        }
+        .font-sans {
+            font-family: var(--font-sans);
+        }
+        .font-serif {
+            font-family: var(--font-serif);
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="font-sans home">
+    <section class="min-h-screen border-t-4 border-grey-dark flex items-center">
+        <div class="container mx-auto py-10 lg:py-24 px-4">
+            <form>
+                <div class="md:float-right">
+                    <label class="inline-block py-2 leading-normal" for="regionSelector">
+                        Region
+                    </label>
+                    <div class="inline-block relative ml-2 mb-3">
+                        <select class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                                id="regionSelector" name="region" onchange="this.form.submit()">
+                                                            <option value="ca-central-1" >ca-central-1</option>
+                                                            <option value="eu-central-1" >eu-central-1</option>
+                                                            <option value="eu-north-1" >eu-north-1</option>
+                                                            <option value="eu-west-1" >eu-west-1</option>
+                                                            <option value="eu-west-2" >eu-west-2</option>
+                                                            <option value="eu-west-3" >eu-west-3</option>
+                                                            <option value="eu-south-1" >eu-south-1</option>
+                                                            <option value="sa-east-1" >sa-east-1</option>
+                                                            <option value="us-east-1" selected>us-east-1</option>
+                                                            <option value="us-east-2" >us-east-2</option>
+                                                            <option value="us-west-1" >us-west-1</option>
+                                                            <option value="us-west-2" >us-west-2</option>
+                                                            <option value="ap-east-1" >ap-east-1</option>
+                                                            <option value="af-south-1" >af-south-1</option>
+                                                            <option value="ap-south-1" >ap-south-1</option>
+                                                            <option value="ap-northeast-1" >ap-northeast-1</option>
+                                                            <option value="ap-northeast-2" >ap-northeast-2</option>
+                                                            <option value="ap-northeast-3" >ap-northeast-3</option>
+                                                            <option value="ap-southeast-1" >ap-southeast-1</option>
+                                                            <option value="ap-southeast-2" >ap-southeast-2</option>
+                                                            <option value="me-south-1" >me-south-1</option>
+                                                    </select>
+                        <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:float-right mr-6">
+                    <label class="inline-block py-2 leading-normal" for="versionSelector">
+                        Bref version
+                    </label>
+                    <div class="inline-block relative ml-2 mb-3">
+                        <select class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                                id="versionSelector" name="version" onchange="this.form.submit()">
+                                                            <option value="1.7.4" selected>1.7.4 (latest)</option>
+                                                            <option value="1.7.3" >1.7.3</option>
+                                                            <option value="1.7.2" >1.7.2</option>
+                                                            <option value="1.7.1" >1.7.1</option>
+                                                            <option value="1.7.0" >1.7.0</option>
+                                                            <option value="1.6.0" >1.6.0</option>
+                                                            <option value="1.5.8" >1.5.8</option>
+                                                            <option value="1.5.7" >1.5.7</option>
+                                                            <option value="1.5.6" >1.5.6</option>
+                                                            <option value="1.5.5" >1.5.5</option>
+                                                            <option value="1.5.4" >1.5.4</option>
+                                                            <option value="1.5.3" >1.5.3</option>
+                                                            <option value="1.5.2" >1.5.2</option>
+                                                            <option value="1.5.1" >1.5.1</option>
+                                                            <option value="1.5.0" >1.5.0</option>
+                                                            <option value="1.4.2" >1.4.2</option>
+                                                            <option value="1.4.1" >1.4.1</option>
+                                                            <option value="1.4.0" >1.4.0</option>
+                                                            <option value="1.3.6" >1.3.6</option>
+                                                            <option value="1.3.5" >1.3.5</option>
+                                                            <option value="1.3.4" >1.3.4</option>
+                                                            <option value="1.3.3" >1.3.3</option>
+                                                            <option value="1.3.2" >1.3.2</option>
+                                                            <option value="1.3.1" >1.3.1</option>
+                                                            <option value="1.3.0" >1.3.0</option>
+                                                            <option value="1.2.14" >1.2.14</option>
+                                                            <option value="1.2.13" >1.2.13</option>
+                                                            <option value="1.2.12" >1.2.12</option>
+                                                            <option value="1.2.11" >1.2.11</option>
+                                                            <option value="1.2.10" >1.2.10</option>
+                                                    </select>
+                        <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <h1 class="font-serif mb-2">Bref runtime versions</h1>
+            <div class="text-lg text-grey-dark mb-12">
+                This page lists the latest versions of the <a href="https://bref.sh/docs/runtimes/">Bref PHP runtimes</a>.
+            </div>
+
+                            <table class="w-full text-left table-collapse">
+                    <tr class="text-grey-dark bg-grey-lightest uppercase text-sm">
+                        <th class="p-3">Layer name</th>
+                        <th class="p-3">ARN</th>
+                        <th class="p-3">Latest version</th>
+                    </tr>
+                                            <tr>
+                            <td class="p-3 border-t border-grey-light font-bold">php-82</td>
+                            <td class="p-3 border-t border-grey-light text-grey-dark text-xs md:text-sm"><code class="font-mono">arn:aws:lambda:us-east-1:209497400698:layer:php-82:3</code></td>
+                            <td class="p-3 border-t border-grey-light text-blue-dark text-right">3</td>
+                        </tr>
+                                            <tr>
+                            <td class="p-3 border-t border-grey-light font-bold">php-82-fpm</td>
+                            <td class="p-3 border-t border-grey-light text-grey-dark text-xs md:text-sm"><code class="font-mono">arn:aws:lambda:us-east-1:209497400698:layer:php-82-fpm:3</code></td>
+                            <td class="p-3 border-t border-grey-light text-blue-dark text-right">3</td>
+                        </tr>
+                                            <tr>
+                            <td class="p-3 border-t border-grey-light font-bold">php-81</td>
+                            <td class="p-3 border-t border-grey-light text-grey-dark text-xs md:text-sm"><code class="font-mono">arn:aws:lambda:us-east-1:209497400698:layer:php-81:28</code></td>
+                            <td class="p-3 border-t border-grey-light text-blue-dark text-right">28</td>
+                        </tr>
+                                            <tr>
+                            <td class="p-3 border-t border-grey-light font-bold">php-81-fpm</td>
+                            <td class="p-3 border-t border-grey-light text-grey-dark text-xs md:text-sm"><code class="font-mono">arn:aws:lambda:us-east-1:209497400698:layer:php-81-fpm:28</code></td>
+                            <td class="p-3 border-t border-grey-light text-blue-dark text-right">28</td>
+                        </tr>
+                                            <tr>
+                            <td class="p-3 border-t border-grey-light font-bold">php-80</td>
+                            <td class="p-3 border-t border-grey-light text-grey-dark text-xs md:text-sm"><code class="font-mono">arn:aws:lambda:us-east-1:209497400698:layer:php-80:42</code></td>
+                            <td class="p-3 border-t border-grey-light text-blue-dark text-right">42</td>
+                        </tr>
+                                            <tr>
+                            <td class="p-3 border-t border-grey-light font-bold">php-80-fpm</td>
+                            <td class="p-3 border-t border-grey-light text-grey-dark text-xs md:text-sm"><code class="font-mono">arn:aws:lambda:us-east-1:209497400698:layer:php-80-fpm:42</code></td>
+                            <td class="p-3 border-t border-grey-light text-blue-dark text-right">42</td>
+                        </tr>
+                                            <tr>
+                            <td class="p-3 border-t border-grey-light font-bold">php-74</td>
+                            <td class="p-3 border-t border-grey-light text-grey-dark text-xs md:text-sm"><code class="font-mono">arn:aws:lambda:us-east-1:209497400698:layer:php-74:53</code></td>
+                            <td class="p-3 border-t border-grey-light text-blue-dark text-right">53</td>
+                        </tr>
+                                            <tr>
+                            <td class="p-3 border-t border-grey-light font-bold">php-74-fpm</td>
+                            <td class="p-3 border-t border-grey-light text-grey-dark text-xs md:text-sm"><code class="font-mono">arn:aws:lambda:us-east-1:209497400698:layer:php-74-fpm:53</code></td>
+                            <td class="p-3 border-t border-grey-light text-blue-dark text-right">53</td>
+                        </tr>
+                                            <tr>
+                            <td class="p-3 border-t border-grey-light font-bold">php-73</td>
+                            <td class="p-3 border-t border-grey-light text-grey-dark text-xs md:text-sm"><code class="font-mono">arn:aws:lambda:us-east-1:209497400698:layer:php-73:67</code></td>
+                            <td class="p-3 border-t border-grey-light text-blue-dark text-right">67</td>
+                        </tr>
+                                            <tr>
+                            <td class="p-3 border-t border-grey-light font-bold">php-73-fpm</td>
+                            <td class="p-3 border-t border-grey-light text-grey-dark text-xs md:text-sm"><code class="font-mono">arn:aws:lambda:us-east-1:209497400698:layer:php-73-fpm:67</code></td>
+                            <td class="p-3 border-t border-grey-light text-blue-dark text-right">67</td>
+                        </tr>
+                                            <tr>
+                            <td class="p-3 border-t border-grey-light font-bold">console</td>
+                            <td class="p-3 border-t border-grey-light text-grey-dark text-xs md:text-sm"><code class="font-mono">arn:aws:lambda:us-east-1:209497400698:layer:console:67</code></td>
+                            <td class="p-3 border-t border-grey-light text-blue-dark text-right">67</td>
+                        </tr>
+                                    </table>
+            
+        </div>
+    </section>
+</body>
+</html>

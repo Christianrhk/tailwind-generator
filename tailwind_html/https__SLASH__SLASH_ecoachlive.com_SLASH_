@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Coach LIVE</title>
+    <link rel="stylesheet" href="https://ecoachlive.com/main/css/all.min.css"/>
+    <link rel="stylesheet" href="https://ecoachlive.com/main/css/tailwind.min.css"/>
+    <link rel="stylesheet" href="https://ecoachlive.com/main/css/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.9/plyr.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://ecoachlive.com/main/js/alpine.min.js"></script>
+    <style>
+        .poppins {
+            font-family: 'Poppins';
+        }
+        .roboto {
+            font-family: 'Roboto';
+        }
+        .hero {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://ecoachlive.com/main/img/ecoach.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            filter: brightness(60%);
+        }
+        .hero-content {
+            position: relative;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .hero2 {
+            position: relative;
+            width: 100vw;
+            height: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero2::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://ecoachlive.com/main/img/sub.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            filter: brightness(60%);
+        }
+        .hero-content2 {
+            position: relative;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .hero3 {
+            position: relative;
+            width: 100vw;
+            height: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero3::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://ecoachlive.com/main/img/engage.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            filter: brightness(60%);
+        }
+        .hero-content3 {
+            position: relative;
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="poppins p-0 m-0 bg-gray-100">
+
+    <header x-data="{isOpen: false}" class="z-50 fixed h-16 bg-gray-200 m-0 p-2 w-screen">
+        <nav class="flex justify-between items-center md:px-12">
+            <div>
+                <img src="https://ecoachlive.com/main/img/logo.png" alt="logo" class="w-60 h-22"/>
+            </div>
+            <div class="hidden md:flex">
+                <a href="/" class="sm:mx-2 bg-transparent text-gray-600 font-light text-lg rounded-lg py-3 px-6">
+                    <span> Home</span>
+                </a>
+                <a href="#" class="sm:mx-2 bg-transparent text-gray-600 font-light text-lg rounded-lg py-3 px-6">
+                    <span> About Us</span>
+                </a>
+                <a href="#" class="sm:mx-2 bg-transparent text-gray-600 font-light text-lg rounded-lg py-3 px-6">
+                    <span> Contact Us</span>
+                </a>
+            </div>
+            <div class="hidden md:inline-block">
+                <a href="/login" class="sm:mx-2 bg-transparent text-gray-600 font-bold text-lg rounded-lg py-3 px-6">
+                    <span> SIGN IN</span>
+                </a>
+            </div>
+            <div @click="isOpen = !isOpen" class="md:hidden mt-2">
+                <span class="py-2 px-4 bg-pink-700 text-white text-xl font-black">
+                    <i class="fa fa-bars"></i>
+                </span>
+            </div>
+        </nav>
+        <div class="hidden md:hidden top-0 fixed w-60 py-8 px-4 h-auto right-0 bg-gray-50" :class="{ 'block': isOpen, 'hidden': !isOpen }" @click.away="isOpen = false" x-show.transition="true">
+            <ul>
+                <li @click="isOpen = false" class="p-2 text-gray-600 border-b-2 border-gray-300">
+                    <a href="/">Home</a>
+                </li>
+                <li @click="isOpen = false" class="p-2 text-gray-600 border-b-2 border-gray-300 mb-3">
+                    <a href="#">About Us</a>
+                </li>
+                <li @click="isOpen = false" class="p-2 text-gray-600 border-b-2 border-gray-300 mb-3">
+                    <a href="#">Contact Us</a>
+                </li>
+                <li @click="isOpen = false" class="p-2 text-gray-50 bg-pink-600 mb-3">
+                    <a href="/login">Sign In</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="flex justify-center">
+        <div class="w-full m-0 p-0">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="roboto font-bold text-2xl md:text-4xl text-gray-100 mb-4 leading-10">LAUNCH YOUR COURSE TODAY</h1>
+                    <h3 class="roboto font-normal text-sm md:text-xl text-gray-100 mb-4 leading-10">CREATE, LAUNCH & SELL YOUR ONLINE COURSE 
+                        FOR FREE</h3>
+                    <p class="mt-6 p-2">
+                        <a href="/register" class="bg-pink-700 text-gray-100 py-4 px-8 text-center">
+                            <span class="text-lg font-bold mb-1">GET STARTED</span>
+                        </a>
+                    </p>
+                </div>
+            </section>
+
+            <section class="mt-2 px-4 md:px-24 py-8">
+
+                <div class="text-center mx-auto">
+                    <div class="text-gray-700 font-light text-3xl mb-5">
+                        LET’S MONETIZE YOUR KNOWLEDGE TODAY
+                    </div>
+                    <div class="text-gray-500 font-extralight text-lg mb-5">
+                        GET STARTED AT NO START-UP COST
+                    </div>
+                    <div class="block w-32 mx-auto h-2 bg-pink-500"></div>
+                </div>
+
+                <div class="mt-24 mx-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 md:p-8 xl:p-12 text-center mx-auto">
+                            <div class="mb-4 flex justify-center">
+                                <img src='https://ecoachlive.com/main/img/books-stack.png' alt="Create" class="w-24 h-24"/>
+                            </div>
+                            <h4 class="font-normal text-xl text-gray-700 mb-4">Create Multiple Courses For Free</h4>
+                            <p class="text-gray-500 font-light text-lg">
+                                Create as many courses as you like, share your knowledge with the world & earn 
+                                Passive Income all for free and 
+                                pay when you make sales
+                            </p>
+                        </div>
+                        <div class="bg-white p-4 md:p-8 xl:p-12 text-center mx-auto">
+                            <div class="mb-4 flex justify-center">
+                                <img src='https://ecoachlive.com/main/img/pillars.png' alt="Create" class="w-24 h-24"/>
+                            </div>
+                            <h4 class="font-normal text-xl text-gray-700 mb-4">Make Sales While You Sleep</h4>
+                            <p class="text-gray-500 font-light text-lg">
+                                Take advantage of one of the strongest affiliate networks in Africa and get your courses sold all over the world 
+                                without lifting a finger 
+                            </p>
+                        </div>
+                        <div class="bg-white p-4 md:p-8 xl:p-12 text-center mx-auto">
+                            <div class="mb-4 flex justify-center">
+                                <img src='https://ecoachlive.com/main/img/computer.png' alt="Create" class="w-24 h-24"/>
+                            </div>
+                            <h4 class="font-normal text-xl text-gray-700 mb-4">Create Marketing Webinar’s</h4>
+                            <p class="text-gray-500 font-light text-lg">
+                                Send peope to a markerting webinar as a lead magnet and use the opportunity to 
+                                build credibility & sell your courses 
+                                with ease
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- <section class="mt-20 py-24 bg-gray-50 h-auto">
+                <div class="md:flex justify-center items-center mx-12 md:mx-40 lg:mx-60">
+                    <div class="w-2/3 md:w-1/3 mt-12">
+                        <div class="bg-gray-200 p-12 h-auto w-auto">
+                            <div class="mb-4 flex justify-center">
+                                <img src='https://ecoachlive.com/main/img/temi-ajibewa.png' alt="Create" class="-mt-24" style="width: 300px;height: 400px;"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="w-full md:w-2/3 p-4 text-justify mt-12 md:mr-16 lg:mr-24">
+                        <p class="text-gray-500 font-light text-lg">Sam Havard is very visionary and I love the platform
+                            Demand for my personal mentorship has increased, 
+                            My book has also sold over a 1,000 copies since 
+                            listing it on learnoflix.
+                        </p>
+                        <div class="mt-6 font-bold">
+                            Temi Ajibewa
+                        </div>
+                        <p class="mt-8">
+                            <a href="/register" class="bg-pink-700 text-gray-100 py-4 px-8 text-center">
+                                <span class="text-lg font-bold mb-1">Learn More</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </section> -->
+
+            <section class="hero2">
+                <div class="hero-content2">
+                    <h4 class="roboto font-light text-xl text-gray-100 mb-4 leading-10">You owe the world a duty.. What you know and what you do can be passed on to many. The power is in your hands now. </h4>
+                    <h3 class="roboto font-bold text-xl text-gray-100 mb-4 leading-10">“Become an Executuve Coach Today’’</h3>
+                    <p class="mt-6 p-2">
+                        <a href="/register" class="bg-pink-700 text-gray-100 py-4 px-16 text-center rounded-full">
+                            <span class="text-lg font-bold mb-1"><i class="fa fa-play"></i></span>
+                        </a>
+                    </p>
+                </div>
+            </section>
+
+            <section class="mt-2 px-4 md:px-24 py-8">
+
+                <div class="text-center mx-auto">
+                    <div class="text-gray-700 font-light text-3xl mb-5">
+                        WHAT WE OFFER YOU
+                    </div>
+                    <div class="text-gray-500 font-extralight text-lg mb-5">
+                        WHAT WE CAN DO FOR YOU
+                    </div>
+                    <div class="block w-32 mx-auto h-2 bg-pink-500"></div>
+                </div>
+
+                <div class="mt-24 mx-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white py-32 px-12 text-center mx-auto">
+                            <h4 class="font-bold text-xl text-gray-700 mb-4">Vision</h4>
+                            <p class="text-gray-500 font-light text-lg">“To be the light that usher in a  global era 
+                                of knowledge and skills that enhances 
+                                global development and change 
+                                beginning from Africa”
+                            </p>
+                        </div>
+                        <div class="bg-white py-32 px-12 text-center mx-auto">
+                            <h4 class="font-bold text-xl text-gray-700 mb-4">About e-Caoch Live </h4>
+                            <p class="text-gray-500 font-light text-lg">This is the best platform to host your online school/courses and trainings in Africa, with our cutting-edge tools, you don’t need to sweat to position your knowledge and expertise before the whole world. 
+                            </p>
+                        </div>
+                        <div class="bg-white py-32 px-12 text-center mx-auto">
+                            <h4 class="font-bold text-xl text-gray-700 mb-4">What We Offer</h4>
+                            <p class="text-gray-500 font-light text-lg">A community of knowledgepreneurs with a  common goal to improve the standard of living across the globe by sharing our knowledge, skills and expertise.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="hero3">
+                <div class="hero-content3">
+                    <h3 class="roboto font-bold text-xl text-gray-100 mb-4 leading-10">“Set Pop Quiz to engage and rate your students’ performance’’</h3>
+                    <h4 class="roboto font-light text-xl text-gray-100 mb-4 leading-10">Make your course very interactive by setting up engaging quiz for each videos in your modules and get feedbacks from your students. 
+                     </h4>
+                    <p class="mt-6 p-2">
+                        <a href="/register" class="bg-pink-700 text-gray-100 py-4 px-16 text-center rounded-full">
+                            <span class="text-lg font-bold mb-1">GET STARTED</span>
+                        </a>
+                    </p>
+                </div>
+            </section>
+
+            <section class="mt-2 px-4 md:px-24 py-8">
+
+                <div class="text-center mx-auto">
+                    <div class="text-gray-700 font-light text-3xl mb-5">
+                        SIGN UP FOR FREE AND HAVE ACCESS 
+                    </div>
+                    <div class="text-gray-500 font-extralight text-lg mb-5">
+                        SIGN UP FOR FREE AND HAVE ACCESS TO THE FOLLOWING PACKAGES AND MORE
+                    </div>
+                    <div class="block w-32 mx-auto h-2 bg-pink-500"></div>
+                </div>
+
+                <div class="mt-24 mx-4">
+                    <div class="block md:flex md:justify-center md:items-center mx-auto">
+                        <div class="my-5 mx-4 md:mx-12">
+                            <ul>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    1.     Paypal, Paystack, Bitcoin, Rave Integration
+                                </li>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    2.     Earn in any currency from any country
+                                </li>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    3.     Over 10,000 email Subscribers
+                                </li>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    4.     24/7 support (phone, ticket and live chats)
+                                </li>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    5.     Access to our market place
+                                </li>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    6.     Marketing Webinar (for your courses)
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="my-4 mx-4 md:mx-12">
+                            <ul>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    7.     Pop quiz and learning tracking
+                                </li>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    8.     Only pay 20% on All Students
+                                </li>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    9.     Inbuilt chat with students
+                                </li>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    10.   Certificates
+                                </li>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    11.   Unlimited Courses
+                                </li>
+                                <li class="text-gray-700 text-lg font-normal mb-6">
+                                    12.   Unlimited School
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bottom-0 p-5 bg-gray-600 text-center text-lg font-normal text-gray-200 w-screen">
+        <p>
+            &copy;2021 Copyrights. By LEARNOFLIX
+        </p>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.9/plyr.js"></script>
+    <script>
+        const player = new Plyr('#player');
+        const player1 = new Plyr('#player1');
+        const player2 = new Plyr('#player2');
+    </script>
+</body>
+</html>

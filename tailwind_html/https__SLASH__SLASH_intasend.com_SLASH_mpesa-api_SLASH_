@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8" />
+<title>
+        
+        M-Pesa API Integration - Collect and Send money and B2B API
+        
+        
+    </title>
+<meta name="description" content="M-Pesa API enables you to integrate mobile payments into your application. Start sending money, collect funds, and pay bills in minutes." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet preconnect">
+<link rel="preload" href="https://website-assets.intasend.com/fontello/css/fontello.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://website-assets.intasend.com/fontello/css/fontello.css"></noscript>
+<link rel="preload" href="https://website-assets.intasend.com/css/website.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://website-assets.intasend.com/css/website.css"></noscript>
+<link rel="preload" href="https://website-assets.intasend.com/css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://website-assets.intasend.com/css/components.css"></noscript>
+<link rel="preconnect stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="preload" href="https://website-assets.intasend.com/css/product.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+    <link rel="stylesheet" href="https://website-assets.intasend.com/css/product.css"></noscript>
+<link rel="icon" type="image/x-icon" href="https://website-assets.intasend.com/img/favicon-16x16.png" />
+</head>
+<body class="">
+<nav id="navbar" class="flex items-center justify-between flex-wrap text-gray-100 fixed p-6 w-full z-50 top-0">
+<div class="flex items-center flex-shrink-0 mr-6">
+<a class="no-underline hover:no-underline" href="/">
+<span class="logo-default hidden" id="logoDefault">
+<img src="https://website-assets.intasend.com/img/intasend-logo.png" class="h-10 lg:h-16 lg:-my-4" alt="IntaSend Logo">
+</span>
+<span class="logo-light" id="logoLight">
+<img src="https://website-assets.intasend.com/img/intasend-logo-dark.png" class="h-10 lg:h-16 lg:-my-4" alt="IntaSend Logo">
+</span>
+</a>
+</div>
+<div class="block lg:hidden">
+<button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-100 hover:text-gray-100 hover:border-white">
+<img src="https://website-assets.intasend.com/img/icons-menu.svg" class="h-6 w-6" alt="Menu">
+</button>
+</div>
+<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-3 lg:pt-0 uppercase text-sm" id="nav-content">
+<ul class="list-reset lg:flex justify-end flex-1 items-center">
+<li class="mr-3">
+<a href="/accept-online-payments/" class="inline-block py-2 lg:px-4 font-bold">Accept Online Payments</a>
+</li>
+<li class="mr-3">
+<a href="/business-payments/" class="inline-block py-2 lg:px-4 font-bold">Business Payments</a>
+</li>
+<li class="mr-3">
+<a href="/pricing/" class="inline-block py-2 lg:px-4 font-bold">Pricing</a>
+</li>
+<li class="mr-3">
+<a href="https://developers.intasend.com" target="_blank" class="inline-block py-2 lg:px-4 font-bold">Developers API</a>
+</li>
+<li class="mr-0 mt-3 lg:-mt-1">
+<a href="https://payment.intasend.com/" class="px-4 py-3 bg-blue-500 hover:bg-blue-400 text-blue-100 rounded shadow font-bold">Log In</a>
+</li>
+</ul>
+</div>
+</nav>
+<div class="py-8 md:py-16 px-4 md:px-8 flex flex-col bg-gray-500">
+<div class="pt-20 pb-6 py-20 text-center">
+<div class="w-full m-auto md:w-3/4">
+<h1 class="text-4xl tracking-tight leading-none font-bold">
+M-Pesa API
+</h1>
+<h2 class="text-gray-600 my-4 text-xl text-gray-700">
+M-Pesa API enables you to integrate mobile payments into your application. Start sending money, collect funds, and pay bills in minutes.
+</h2>
+<div class="pt-8">
+<a href="https://payment.intasend.com/account/signup/" class="bg-blue-600 hover:bg-blue-700 px-6 py-4 text-blue-100 font-bold rounded shadow">
+Send and receive payments
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="flex px-4 lg:px-8 flex-col pt-4 lg:pt-16">
+<div class="text-center">
+<h3 class="text-xl text-gray-700 uppercase font-bold">
+Why IntaSend API
+</h3>
+</div>
+<div class="block lg:flex py-8">
+<div class="w-full lg:w-1/3 mb-6 lg:mb-0 items-center text-center flex flex-col">
+<h5 class="mb-4 text-xl">Easy Integration</h5>
+<p class="text-gray-700 text-lg">We have done all the heavy lifting for you. Use our SDKs to connect M-Pesa API and ship your app faster.</p>
+</div>
+<div class="w-full lg:w-1/3 mb-6 lg:mb-0 items-center text-center flex flex-col">
+<h5 class="mb-4 text-xl">Access M-Pesa B2B API</h5>
+<p class="text-gray-700 text-lg">Enable B2B payments such as Paybills and pay to till numbers within your application</p>
+</div>
+<div class="w-full lg:w-1/3 mb-6 lg:mb-0 items-center text-center flex flex-col">
+<h5 class="mb-4 text-xl">Fanatic support</h5>
+<p class="text-gray-700 text-lg">Built by developers for developers - our developers champions are just a single call away.</p>
+</div>
+</div>
+</div>
+
+
+<div class="shadow-lgd rodunded-lg bg-gray-100 m-auto lg:py-12 flex flex-row pitch">
+<div class="flex lg:flex-row flex-col">
+<div class="w-full lg:w-1/2 flex flex-col space-y-2 p-4 lg:p-12 lg:justify-center">
+<div class="w-full lg:w-3/4 -mb-4">
+<h3 class="text-gray-500 font-semibold text-sm uppercase">Low code payment collection</h3>
+</div>
+<div class="text-gray-800 w-full lg:w-3/4 leading-7">
+<h2 data-block-key="82462">Easy setup and activation</h2><p data-block-key="60sfn">With IntaSend, you can set up your account, integrate, and go live the same day. We understand how complicated it can be to create a robust payment collection and disbursement system. We have developed all you need to get started. Our tools and SDKs will enable you to easily initiate transactions and track statuses. The following are the list of our M-Pesa API SDKs:</p><ul><li data-block-key="b7h6l"><a href="https://developers.intasend.com/plugins-and-sdks/php-sdk">PHP SDK</a> (Send money, M-Pesa B2B API, Collect money - M-Pesa STK push)</li><li data-block-key="3o8l9"><a href="https://developers.intasend.com/plugins-and-sdks/python">Python SDK</a> (Send money, M-Pesa B2B API, Collect money - M-Pesa STK push)</li><li data-block-key="e13n5"><a href="https://developers.intasend.com/online-payments/payment-button">Javascript Inline SDK</a> (Collect money - M-Pesa STK push)</li><li data-block-key="epflh"><a href="https://developers.intasend.com/online-payments/express-checkout">REST API</a> (Send money, M-Pesa B2B API, Collect money - M-Pesa STK push)</li><li data-block-key="375a5"><a href="https://developers.intasend.com/online-payments/bubble.io-no-code">No-code Bubble.io</a>- (Send money, M-Pesa B2B API, Collect money - M-Pesa STK push)</li><li data-block-key="ap2ka"><a href="https://developers.intasend.com/online-payments/wordpress">WordPress</a> and <a href="https://developers.intasend.com/online-payments/woocommerce">WooCommerce</a> - ( Collect money - M-Pesa STK push)</li></ul><p data-block-key="1c5c4"></p>
+</div>
+</div>
+<div class="w-full lg:w-1/2 flex flex-col justify-center lg:py-12">
+<div class="w-full flex flex-row justify-center">
+<img alt="M-Pesa API setup" height="450" src="https://website-assets.intasend.com/images/javascript.width-450.format-webp-lossless.webp" width="450">
+</div>
+</div>
+</div>
+</div>
+<div class="shadow-lgd rodunded-lg bg-white m-auto lg:py-12 flex flex-row pitch">
+<div class="flex lg:flex-row flex-col">
+<div class="w-full lg:w-1/2 flex flex-col justify-center lg:py-12">
+<div class="w-full flex flex-row justify-center">
+<img alt="Business Payments bulk payment" height="450" src="https://website-assets.intasend.com/images/bulk-payment.width-450.format-webp-lossless.webp" width="450">
+</div>
+</div>
+<div class="w-full lg:w-1/2 flex flex-col space-y-2 p-4 lg:p-12 lg:justify-center">
+<div class="w-full lg:w-3/4 -mb-4">
+<h3 class="text-gray-500 font-semibold text-sm uppercase">Send payments</h3>
+</div>
+<div class="text-gray-800 w-full lg:w-3/4 leading-7">
+<h2 data-block-key="82462">Single and bulk payments</h2><p data-block-key="et3r0">Initiate single and bulk payments from your IntaSend wallet to mobile accounts in Kenya. Pay salaries, bills, and suppliers with a single request. IntaSend has been built from the ground up to handle large transactions of up to a batch of 5000 transactions in a single request. We&#x27;ll help you in managing retries and properly document normal failures such as account limit errors etc and provide a proper report for reconciliation.</p><p data-block-key="akgvv">Start building fast and scalable solutions with our M-Pesa API and with less effort.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="shadow-lgd rodunded-lg bg-gray-100 m-auto lg:py-12 flex flex-row pitch">
+<div class="flex lg:flex-row flex-col">
+<div class="w-full lg:w-1/2 flex flex-col space-y-2 p-4 lg:p-12 lg:justify-center">
+<div class="w-full lg:w-3/4 -mb-4">
+<h3 class="text-gray-500 font-semibold text-sm uppercase">MPesa STK Push - easy setup</h3>
+</div>
+<div class="text-gray-800 w-full lg:w-3/4 leading-7">
+<h2 data-block-key="82462">Collect payments easily</h2><p data-block-key="c6q02">In addition to card payments, IntaSend supports the <a href="https://developers.intasend.com/online-payments/collection-api">M-Pesa Express STK push</a>. Send STK push request to your clients using the API. Utilize the JavaScript SDK to add a secure form on your website for users to add their phone numbers and pay.</p><p data-block-key="26t2h">Subscribe to our webhook events for statuses for your back-end application and reporting.</p>
+</div>
+</div>
+<div class="w-full lg:w-1/2 flex flex-col justify-center lg:py-12">
+<div class="w-full flex flex-row justify-center">
+<img alt="M-Pesa API javascript-2" height="450" src="https://website-assets.intasend.com/images/javascript-2.width-450.format-webp-lossless.webp" width="450">
+</div>
+</div>
+</div>
+</div>
+<div class="shadow-lgd rodunded-lg bg-white m-auto lg:py-12 flex flex-row pitch">
+<div class="flex lg:flex-row flex-col">
+<div class="w-full lg:w-1/2 flex flex-col justify-center lg:py-12">
+<div class="w-full flex flex-row justify-center">
+<img alt="M-Pesa API secure" height="450" src="https://website-assets.intasend.com/images/secure.width-450.format-webp-lossless.webp" width="450">
+</div>
+</div>
+<div class="w-full lg:w-1/2 flex flex-col space-y-2 p-4 lg:p-12 lg:justify-center">
+<div class="w-full lg:w-3/4 -mb-4">
+<h3 class="text-gray-500 font-semibold text-sm uppercase">Secure and reliable</h3>
+</div>
+<div class="text-gray-800 w-full lg:w-3/4 leading-7">
+<h2 data-block-key="82462">We have built infrastructure that you can rely on</h2><p data-block-key="1ku1e">IntaSend uses a secure network connection and its infrastructure undergoes periodic audits for <a href="/security/">PCI and payment security </a>standards. We take security seriously and we have implemented this in our APIs (including M-Pesa API) to ensure payments are safe. In addition to the normal authentication mechanisms, we deploy <a href="https://developers.intasend.com/send-payments/extra-payment-authentication">PSD2</a> standards to provide an extra layer of authentication of payment requests.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="shadow-lgd rodunded-lg bg-white m-auto lg:py-12 flex flex-row pitch">
+<div class="flex lg:flex-row flex-col">
+<div class="w-full lg:w-1/2 flex flex-col space-y-2 p-4 lg:p-12 lg:justify-center">
+<div class="w-full lg:w-3/4 -mb-4">
+<h3 class="text-gray-500 font-semibold text-sm uppercase">Documentation</h3>
+</div>
+<div class="text-gray-800 w-full lg:w-3/4 leading-7">
+<h2 data-block-key="82462">Sandbox and everything you need to get started</h2><p data-block-key="3epmi">Get your test keys from your <a href="https://sandbox.intasend.com">sandbox</a> and start <a href="https://developers.intasend.com/sandbox-and-live-environments#test-m-pesa">testing</a> your implementation right away. Visit our <a href="https://developers.intasend.com/send-payments/send-money">Developers API Documentation</a> for more details on how to start sending and receiving payments. Here is also a list of our <a href="https://developers.intasend.com/plugins-and-sdks">tools and SDKs</a>.</p><p data-block-key="8u0k1">Do you need any help? Talk directly to our <a href="https://developers.intasend.com/api-support">Developers Support Lead</a>.</p>
+</div>
+</div>
+<div class="w-full lg:w-1/2 flex flex-col justify-center lg:py-12">
+<div class="w-full flex flex-row justify-center">
+<img alt="M-Pesa API support" height="450" src="https://website-assets.intasend.com/images/support.width-450.format-webp-lossless.webp" width="450">
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="swiper w-100 bg-blue-600">
+
+<div class="swiper-wrapper">
+
+<div class="swiper-slide px-6 lg:px-20 py-6 flex items-center justify-center">
+<div class="py-6">
+<div class="flex jusify-center py-4 text-white text-2xl text-center">
+I would like to commend your service and especially point out your outstanding quick turn-around in processing payment and your after-office hour’s support. We are glad that you can be reached 24/7 for queries and round-the-clock support.
+</div>
+<div class="flex justify-center py-4">
+<img alt="Peter - Twende Twende.png" class="h-20 w-20 rounded-full" height="180" src="https://website-assets.intasend.com/images/Peter_-_Twen.42642ff2.fill-180x180.format-webp-lossless.webp" width="180">
+</div>
+<div class="text-sm flex justify-center text-gray-300"><span class="font-semibold">Peter Nyotta</span>,
+Twende Worldwide Tours and Travel Ltd</div>
+</div>
+</div>
+<div class="swiper-slide px-6 lg:px-20  flex items-center justify-center">
+<div class="py-6">
+<div class="flex jusify-center py-4 text-white text-2xl text-center">
+This payment processor has allowed me to continue serving my local as well as international customers. They also offer reasonable fees and their payouts are timely. Even without a website, IntaSend payment links works just fine.
+</div>
+<div class="flex justify-center py-4">
+<img alt="Shadrack - Gofan Safaris 1.png" class="h-20 w-20 rounded-full" height="180" src="https://website-assets.intasend.com/images/Shadrack_-_G.7ce82596.fill-180x180.format-webp-lossless.webp" width="180">
+</div>
+<div class="text-sm flex justify-center text-gray-300"><span class="font-semibold">Shadrack Masinde</span>,
+Gofan Safaris Limited</div>
+</div>
+</div>
+<div class="swiper-slide px-6 lg:px-20  flex items-center justify-center">
+<div class="py-6">
+<div class="flex jusify-center py-4 text-white text-2xl text-center">
+I have been using Intasend for a while now both on my website as a payment gateway and my business as a payment solution and all I can say is, IntaSend is the best solution to sort out all business payment related difficulties.
+</div>
+<div class="flex justify-center py-4">
+<img alt="Daniel-Nyongesa.png" class="h-20 w-20 rounded-full" height="180" src="https://website-assets.intasend.com/images/Daniel-Nyong.08344efc.fill-180x180.format-webp-lossless.webp" width="180">
+</div>
+<div class="text-sm flex justify-center text-gray-300"><span class="font-semibold">Daniel Nyongesa</span>,
+A+ Academic Consultants</div>
+</div>
+</div>
+<div class="swiper-slide px-6 lg:px-20  flex items-center justify-center">
+<div class="py-6">
+<div class="flex jusify-center py-4 text-white text-2xl text-center">
+IntaSend is one of the best online money transfers with mobile and card payment options and helps in collecting emails for marketing.
+</div>
+<div class="flex justify-center py-4">
+<img alt="Moses - wizard.png" class="h-20 w-20 rounded-full" height="180" src="https://website-assets.intasend.com/images/Moses_-_wiza.a81e5627.fill-180x180.format-webp-lossless.webp" width="180">
+</div>
+<div class="text-sm flex justify-center text-gray-300"><span class="font-semibold">Moses Thoithi</span>,
+WizAdventures Safaris</div>
+</div>
+</div>
+</div>
+
+<div class="swiper-button-prev w-6 h-6 lg:w-16 lg:h-16 text-xs rounded-full text-blue-500 mx-10"></div>
+<div class="swiper-button-next w-6 h-6 lg:w-16 lg:h-16 text-xs rounded-full text-blue-500 mx-10"></div>
+
+<div class="swiper-pagination"></div>
+</div>
+<div class="flex flex-col lg:flex-row border-b border-gray-300">
+<div class="w-full lg:w-1/2 py-4 lg:py-12 px-4 lg:px-8 space-y-4 lg:self-center">
+<h3 class="text-2xl">Join 1,000+ businesses using IntaSend</h3>
+<p class="my-8 text-lg text-gray-600">
+We make it easier for you to focus on building a great product while we work on simplifying your payments.
+Become one of us by joining hundreds of our happy users and simplify the online payment experience for your
+customers.
+</p>
+<p class="text-lg text-gray-600">Sign up today for an individual, business, or <a href="https://sandbox.intasend.com" class="text-blue-600">developers account.</a>
+</p>
+</div>
+<div class="w-full lg:w-1/2 py-4 lg:py-12 px-4 lg:px-8 space-y-4">
+<img src="https://website-assets.intasend.com/img/intasend-sites.png" class="" alt="IntaSend customers">
+</div>
+</div>
+
+<div class="py-8 md:py-12 px-4 text-center">
+<h2 class="text-3xl mt-2 mb-2 md:mb-6 leading-tight font-heading">Get started now</h2>
+<p class="mb-2 md:mb-8 text-gray-500 leading-relaxed">Create an account or get in touch with us.</p>
+<div class="block">
+<a class="w-full lg:w-auto mb-4 inline-block py-4 px-8 mr-6 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow" href="https://payment.intasend.com/account/signup/">Get Started</a>
+<a class="w-full lg:w-auto mb-4 inline-block py-4 px-8 mr-6 text-blue-700 leading-none font-medium rounded-md text-indigo-700 bg-indigo-100 hover:text-indigo-600 hover:bg-indigo-50" href="https://calendly.com/moseskorir/intasend-demo" target="_blank">Request a Demo</a>
+</div>
+</div>
+<div class="bg-gray-900 text-base">
+<div class="container mx-auto px-4 ">
+<section class="p-4">
+<div class="flex flex-wrap -mx-8">
+<div class="md:block md:w-1/5 py-4 px-4 md:px-8 mb-4 md:mb-0 justify-evenly space-y-4">
+<div>
+<a href="javascript:" onclick="window.open('https://www.sisainfosec.com/certificate.php?number=96167599936578922488&type=fsaq','SISA Certificate','width=685,height=670')">
+<img src="https://website-assets.intasend.com/img/certification2.png" alt="SISA Certified" class="w-32 bg-white rounded" /></a>
+</div>
+<div>
+<img class="w-32" src="https://website-assets.intasend.com/img/pci-dss-badge.svg" alt="PCI-DSS Compliance">
+</div>
+<div>
+<img src="https://website-assets.intasend.com/img/sectigo-badge.svg" alt="Secure Connection">
+</div>
+</div>
+<div class="md:w-1/5 py-4 px-4 md:px-8 mb-4 md:mb-0">
+<h3 class="text-xl font-heading text-gray-400">Product</h3>
+
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/business/">Business Account</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/unregistered-freelance-businesses/">Unregistered Business</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed"><a href="/accept-online-payments/">Accept Online Payments</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/business-payments/">Business Payments</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed"><a href="/wallet-as-a-services/">Wallet as a Services</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/mpesa-api/">M-Pesa API</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed"><a href="https://developers.intasend.com" target="_blank">Developers
+API</a>
+</p>
+</div>
+<div class="md:w-1/5 py-4 px-4 md:px-8 mb-4 md:mb-0">
+<h3 class="text-xl font-heading text-gray-400">Resources</h3>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/chargebacks/">Chargebacks</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="https://sandbox.intasend.com" target="_blank">API Testing</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="https://sandbox.intasend.com/pay/faa26ef9-eb08-4353-b125-ec6a8f022815/" target="_blank">Payment Link Demo</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="https://intasend.github.io/payment-buttons-examples/" target="_blank">Integration
+Examples</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/exchange/">Exchange Rates</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/swift-codes/">Bank SWIFT Codes</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/troubleshooting/">Troubleshooting</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/payments/">Learn Payments</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/online-businesses/">Start Online Business</a>
+</p>
+</div>
+<div class="md:w-1/5 py-4 px-4 md:px-8 mb-4 md:mb-0">
+<h3 class="text-xl font-heading text-gray-400">Company</h3>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/about/">About Us</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/contact/">Talk to us</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/privacy-policy/">Privacy</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/terms/">Terms of use</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/security/">Security</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="/branding-and-trust-badges/">Brand and Trust Badges</a>
+</p>
+<p class="my-2 text-gray-500 text-base hover:text-gray-400 leading-relaxed">
+<a href="https://intasend.statuspage.io/" target="_blank">Service Status</a>
+</p>
+</div>
+<div class="md:w-1/5 py-4 px-4 md:px-8 mb-4 md:mb-0">
+<h3 class="text-xl text-gray-400">Contact Us</h3>
+<p class="my-2 text-gray-500 text-base leading-relaxed">
+<a class="text-gray-500" href="http://support.intasend.com/"><i class="icon-lifebuoy text-gray-100" aria-hidden="true"></i> Support</a>
+</p>
+<p class="my-2 text-gray-500 text-base leading-relaxed"><a class="text-gray-500" href="https://twitter.com/intaSendHQ"><i class="icon-twitter text-gray-100" aria-hidden="true"></i> Twitter</a>
+</p>
+<p class="my-2 text-gray-500 text-base leading-relaxed"><a class="text-gray-500" href="https://github.com/intasend"><i class="icon-github-circled text-gray-100" aria-hidden="true"></i> Github</a>
+</p>
+
+</p>
+</div>
+</div>
+<hr class="py-4 border-top border-gray-800">
+<div class="flex flex-wrap items-center justify-center">
+<div class="w-full lg:w-auto lg:mr-6 mb-4 lg:mb-0 text-center text-gray-400">© 2022 IntaSend.
+All rights
+reserved.</div>
+</div>
+</section>
+</div>
+</div>
+<script type="text/javascript" src="https://website-assets.intasend.com/js/website.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    })
+</script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-20323444-11"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-20323444-11');
+    </script>
+
+<script>
+        window.intercomSettings = {
+          app_id: "hj06zrt1"
+        };
+      </script>
+<script>
+      // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/hj06zrt1'
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/hj06zrt1'; s.rel="preconnect"; var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+      </script>
+
+</body>
+</html>

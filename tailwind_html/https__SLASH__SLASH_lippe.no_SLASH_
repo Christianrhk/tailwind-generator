@@ -1,0 +1,3128 @@
+<!doctype html>
+<html lang="nb-NO">
+
+	<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+		<link data-minify="1" rel="preload" href="https://lippe.no/wp-content/cache/min/1/tailwindcss@^2/dist/tailwind.min.css?ver=1656188250" as="style">
+		<link data-minify="1" href="https://lippe.no/wp-content/cache/min/1/tailwindcss@^2/dist/tailwind.min.css?ver=1656188250" rel="stylesheet">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0">
+
+
+		<link rel="profile" href="http://gmpg.org/xfn/11">
+		<link rel="pingback" href="https://lippe.no/xmlrpc.php">
+
+		
+		
+		<link data-minify="1" href="https://lippe.no/wp-content/cache/min/1/wp-content/themes/storefront-child/assets/css/blogg.css?ver=1656188250" rel="stylesheet">
+		<link data-minify="1" rel="stylesheet" href="https://lippe.no/wp-content/cache/min/1/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css?ver=1656188251" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+						<script type="rocketlazyloadscript">document.documentElement.className = document.documentElement.className + ' yes-js js_active js'</script>
+				<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer>
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+	const gtm4wp_use_sku_instead = false;
+	const gtm4wp_id_prefix = '';
+	const gtm4wp_remarketing = false;
+	const gtm4wp_eec = true;
+	const gtm4wp_classicec = false;
+	const gtm4wp_currency = 'NOK';
+	const gtm4wp_product_per_impression = 10;
+	const gtm4wp_needs_shipping_address = false;
+	const gtm4wp_business_vertical = 'retail';
+	const gtm4wp_business_vertical_id = 'id';
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+const gtm4wp_is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+if ( gtm4wp_is_safari ) {
+	window.addEventListener('pageshow', function(event) {
+		if ( event.persisted ) {
+			// if Safari loads the page from cache usually by navigating with the back button
+			// it creates issues with product list click tracking
+			// therefore GTM4WP forces the page reload in this browser
+			window.location.reload();
+		}
+	});
+}
+</script>
+	<!-- This site is optimized with the Yoast SEO plugin v19.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>LIPPE - Kaffe og te &bull; Hjem</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Montserrat%3A400%2C300%2C800%7CSource%20Sans%20Pro%3A400%2C300%2C300italic%2C400italic%2C600%2C700%2C900&#038;subset=latin,latin%2Clatin-ext&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%3A400%2C300%2C800%7CSource%20Sans%20Pro%3A400%2C300%2C300italic%2C400italic%2C600%2C700%2C900&#038;subset=latin,latin%2Clatin-ext&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%3A400%2C300%2C800%7CSource%20Sans%20Pro%3A400%2C300%2C300italic%2C400italic%2C600%2C700%2C900&#038;subset=latin,latin%2Clatin-ext&#038;display=swap" /></noscript>
+	<meta name="description" content="Kjøp kaffe, te, abonnement og maskiner. Vi har alt fra espressomaskiner til bryggeutstyr og tekanner fra Rancilio, Mazzer, Hario, Synesso mm" />
+	<link rel="canonical" href="https://lippe.no/" />
+	<meta property="og:locale" content="nb_NO" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="LIPPE - Kaffe og te &bull; Hjem" />
+	<meta property="og:description" content="Kjøp kaffe, te, abonnement og maskiner. Vi har alt fra espressomaskiner til bryggeutstyr og tekanner fra Rancilio, Mazzer, Hario, Synesso mm" />
+	<meta property="og:url" content="https://lippe.no/" />
+	<meta property="og:site_name" content="LIPPE.no" />
+	<meta property="article:publisher" content="https://www.facebook.com/lippekaffe/" />
+	<meta property="article:modified_time" content="2022-03-17T13:47:10+00:00" />
+	<meta property="og:image" content="https://lippe.no/wp-content/uploads/2020/11/kaffe-250g-bonner-i-pose-scaled-e1605965346629.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="900" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="https://lippe.no/wp-content/uploads/2020/11/kaffe-250g-bonner-i-pose-scaled-e1605965346629.jpg" />
+	<meta name="twitter:site" content="@lippekaffe" />
+	<meta name="twitter:label1" content="Ansl. lesetid" />
+	<meta name="twitter:data1" content="1 minutt" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lippe.no/#organization","name":"LIPPE AS","url":"https://lippe.no/","sameAs":["https://www.instagram.com/lippekaffe/","https://www.facebook.com/lippekaffe/","https://twitter.com/lippekaffe"],"logo":{"@type":"ImageObject","inLanguage":"nb-NO","@id":"https://lippe.no/#/schema/logo/image/","url":"https://lippe.no/wp-content/uploads/2020/01/lippe-logo-white.png","contentUrl":"https://lippe.no/wp-content/uploads/2020/01/lippe-logo-white.png","width":149,"height":56,"caption":"LIPPE AS"},"image":{"@id":"https://lippe.no/#/schema/logo/image/"}},{"@type":"WebSite","@id":"https://lippe.no/#website","url":"https://lippe.no/","name":"LIPPE.no","description":"Kaffe &amp; te","publisher":{"@id":"https://lippe.no/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://lippe.no/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"nb-NO"},{"@type":"ImageObject","inLanguage":"nb-NO","@id":"https://lippe.no/#primaryimage","url":"https://lippe.no/wp-content/uploads/2020/11/kaffe-250g-bonner-i-pose-scaled-e1605965346629.jpg","contentUrl":"https://lippe.no/wp-content/uploads/2020/11/kaffe-250g-bonner-i-pose-scaled-e1605965346629.jpg","width":1200,"height":900,"caption":"Lysbrente kaffebønner"},{"@type":"WebPage","@id":"https://lippe.no/#webpage","url":"https://lippe.no/","name":"LIPPE - Kaffe og te &bull; Hjem","isPartOf":{"@id":"https://lippe.no/#website"},"about":{"@id":"https://lippe.no/#organization"},"primaryImageOfPage":{"@id":"https://lippe.no/#primaryimage"},"datePublished":"2020-01-13T16:29:55+00:00","dateModified":"2022-03-17T13:47:10+00:00","description":"Kjøp kaffe, te, abonnement og maskiner. Vi har alt fra espressomaskiner til bryggeutstyr og tekanner fra Rancilio, Mazzer, Hario, Synesso mm","breadcrumb":{"@id":"https://lippe.no/#breadcrumb"},"inLanguage":"nb-NO","potentialAction":[{"@type":"ReadAction","target":["https://lippe.no/"]}]},{"@type":"BreadcrumbList","@id":"https://lippe.no/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Hjem"}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//js.hs-scripts.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//fonts.gstatic.com' />
+<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//chimpstatic.com' />
+<link rel='dns-prefetch' href='//www.google-analytics.com' />
+<link rel='dns-prefetch' href='//www.facebook.com' />
+<link rel='dns-prefetch' href='//connect.facebook.net' />
+<link rel='dns-prefetch' href='//www.instagram.com' />
+<link rel='dns-prefetch' href='//static.hsappstatic.net' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="LIPPE.no &raquo; strøm" href="https://lippe.no/feed/" />
+<link rel="alternate" type="application/rss+xml" title="LIPPE.no &raquo; kommentarstrøm" href="https://lippe.no/comments/feed/" />
+<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://lippe.no/wp-includes/css/dist/block-library/style.min.css?ver=d4347af9b9c18dee8eee861c8b66ce85' media='all' />
+<style id='wp-block-library-theme-inline-css'>
+.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-pullquote{border-top:4px solid;border-bottom:4px solid;margin-bottom:1.75em;color:currentColor}.wp-block-pullquote__citation,.wp-block-pullquote cite,.wp-block-pullquote footer{color:currentColor;text-transform:uppercase;font-size:.8125em;font-style:normal}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;position:relative;font-style:normal}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote.is-style-plain{border:none}.wp-block-search .wp-block-search__label{font-weight:700}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{padding:.5em;border:1px solid;word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-template-part.has-background{padding:1.25em 2.375em;margin-top:0;margin-bottom:0}
+</style>
+<link data-minify="1" rel='stylesheet' id='wc-blocks-vendors-style-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=1656188251' media='all' />
+<link data-minify="1" rel='stylesheet' id='wc-blocks-style-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=1656188251' media='all' />
+<link data-minify="1" rel='stylesheet' id='jquery-selectBox-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/yith-woocommerce-wishlist/assets/css/jquery.selectBox.css?ver=1656188251' media='all' />
+<link data-minify="1" rel='stylesheet' id='yith-wcwl-font-awesome-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/yith-woocommerce-wishlist/assets/css/font-awesome.css?ver=1656188251' media='all' />
+<link data-minify="1" rel='stylesheet' id='woocommerce_prettyPhoto_css-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/prettyPhoto.css?ver=1656188251' media='all' />
+<link data-minify="1" rel='stylesheet' id='yith-wcwl-main-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/yith-woocommerce-wishlist/assets/css/style.css?ver=1656188251' media='all' />
+<style id='yith-wcwl-main-inline-css'>
+.yith-wcwl-share li a{color: #FFFFFF;}.yith-wcwl-share li a:hover{color: #FFFFFF;}.yith-wcwl-share a.facebook{background: #39599E; background-color: #39599E;}.yith-wcwl-share a.facebook:hover{background: #595A5A; background-color: #595A5A;}.yith-wcwl-share a.email{background: #FBB102; background-color: #FBB102;}.yith-wcwl-share a.email:hover{background: #595A5A; background-color: #595A5A;}
+</style>
+<link data-minify="1" rel='stylesheet' id='storefront-gutenberg-blocks-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/themes/storefront/assets/css/base/gutenberg-blocks.css?ver=1656188251' media='all' />
+<style id='storefront-gutenberg-blocks-inline-css'>
+
+				.wp-block-button__link:not(.has-text-color) {
+					color: #ffffff;
+				}
+
+				.wp-block-button__link:not(.has-text-color):hover,
+				.wp-block-button__link:not(.has-text-color):focus,
+				.wp-block-button__link:not(.has-text-color):active {
+					color: #ffffff;
+				}
+
+				.wp-block-button__link:not(.has-background) {
+					background-color: #3f3f3f;
+				}
+
+				.wp-block-button__link:not(.has-background):hover,
+				.wp-block-button__link:not(.has-background):focus,
+				.wp-block-button__link:not(.has-background):active {
+					border-color: #262626;
+					background-color: #262626;
+				}
+
+				.wp-block-quote footer,
+				.wp-block-quote cite,
+				.wp-block-quote__citation {
+					color: #191919;
+				}
+
+				.wp-block-pullquote cite,
+				.wp-block-pullquote footer,
+				.wp-block-pullquote__citation {
+					color: #191919;
+				}
+
+				.wp-block-image figcaption {
+					color: #191919;
+				}
+
+				.wp-block-separator.is-style-dots::before {
+					color: #666666;
+				}
+
+				.wp-block-file a.wp-block-file__button {
+					color: #ffffff;
+					background-color: #3f3f3f;
+					border-color: #3f3f3f;
+				}
+
+				.wp-block-file a.wp-block-file__button:hover,
+				.wp-block-file a.wp-block-file__button:focus,
+				.wp-block-file a.wp-block-file__button:active {
+					color: #ffffff;
+					background-color: #262626;
+				}
+
+				.wp-block-code,
+				.wp-block-preformatted pre {
+					color: #191919;
+				}
+
+				.wp-block-table:not( .has-background ):not( .is-style-stripes ) tbody tr:nth-child(2n) td {
+					background-color: #fdfdfd;
+				}
+
+				.wp-block-cover .wp-block-cover__inner-container h1:not(.has-text-color),
+				.wp-block-cover .wp-block-cover__inner-container h2:not(.has-text-color),
+				.wp-block-cover .wp-block-cover__inner-container h3:not(.has-text-color),
+				.wp-block-cover .wp-block-cover__inner-container h4:not(.has-text-color),
+				.wp-block-cover .wp-block-cover__inner-container h5:not(.has-text-color),
+				.wp-block-cover .wp-block-cover__inner-container h6:not(.has-text-color) {
+					color: #191919;
+				}
+
+				.wc-block-components-price-slider__range-input-progress,
+				.rtl .wc-block-components-price-slider__range-input-progress {
+					--range-color: #597fd9;
+				}
+
+				/* Target only IE11 */
+				@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+					.wc-block-components-price-slider__range-input-progress {
+						background: #597fd9;
+					}
+				}
+
+				.wc-block-components-button:not(.is-link) {
+					background-color: #333333;
+					color: #ffffff;
+				}
+
+				.wc-block-components-button:not(.is-link):hover,
+				.wc-block-components-button:not(.is-link):focus,
+				.wc-block-components-button:not(.is-link):active {
+					background-color: #1a1a1a;
+					color: #ffffff;
+				}
+
+				.wc-block-components-button:not(.is-link):disabled {
+					background-color: #333333;
+					color: #ffffff;
+				}
+
+				.wc-block-cart__submit-container {
+					background-color: #ffffff;
+				}
+
+				.wc-block-cart__submit-container::before {
+					color: rgba(220,220,220,0.5);
+				}
+
+				.wc-block-components-order-summary-item__quantity {
+					background-color: #ffffff;
+					border-color: #191919;
+					box-shadow: 0 0 0 2px #ffffff;
+					color: #191919;
+				}
+			
+</style>
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 14px;--wp--preset--font-size--medium: 23px;--wp--preset--font-size--large: 26px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 16px;--wp--preset--font-size--huge: 37px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<style id='woocommerce-inline-inline-css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link data-minify="1" rel='stylesheet' id='bambora_online_checkout_front_style-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/bambora-online-checkout/style/bambora-online-checkout-front.css?ver=1656188251' media='all' />
+<link data-minify="1" rel='stylesheet' id='yith-wcwl-theme-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/yith-woocommerce-wishlist/assets/css/themes/storefront.css?ver=1656188251' media='all' />
+<link data-minify="1" rel='stylesheet' id='woosb-frontend-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/woo-product-bundle/assets/css/frontend.css?ver=1656188251' media='all' />
+<link rel='stylesheet' id='dgwt-wcas-style-css'  href='https://lippe.no/wp-content/plugins/ajax-search-for-woocommerce/assets/css/style.min.css?ver=1.19.0' media='all' />
+<link data-minify="1" rel='stylesheet' id='wcsatt-css-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/woocommerce-all-products-for-subscriptions/assets/css/frontend/woocommerce.css?ver=1656188251' media='all' />
+<link data-minify="1" rel='stylesheet' id='storefront-style-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/themes/storefront/style.css?ver=1656188251' media='all' />
+<style id='storefront-style-inline-css'>
+
+			.main-navigation ul li a,
+			.site-title a,
+			ul.menu li a,
+			.site-branding h1 a,
+			button.menu-toggle,
+			button.menu-toggle:hover,
+			.handheld-navigation .dropdown-toggle {
+				color: #ffffff;
+			}
+
+			button.menu-toggle,
+			button.menu-toggle:hover {
+				border-color: #ffffff;
+			}
+
+			.main-navigation ul li a:hover,
+			.main-navigation ul li:hover > a,
+			.site-title a:hover,
+			.site-header ul.menu li.current-menu-item > a {
+				color: #ffffff;
+			}
+
+			table:not( .has-background ) th {
+				background-color: #f8f8f8;
+			}
+
+			table:not( .has-background ) tbody td {
+				background-color: #fdfdfd;
+			}
+
+			table:not( .has-background ) tbody tr:nth-child(2n) td,
+			fieldset,
+			fieldset legend {
+				background-color: #fbfbfb;
+			}
+
+			.site-header,
+			.secondary-navigation ul ul,
+			.main-navigation ul.menu > li.menu-item-has-children:after,
+			.secondary-navigation ul.menu ul,
+			.storefront-handheld-footer-bar,
+			.storefront-handheld-footer-bar ul li > a,
+			.storefront-handheld-footer-bar ul li.search .site-search,
+			button.menu-toggle,
+			button.menu-toggle:hover {
+				background-color: #333333;
+			}
+
+			p.site-description,
+			.site-header,
+			.storefront-handheld-footer-bar {
+				color: #ffffff;
+			}
+
+			button.menu-toggle:after,
+			button.menu-toggle:before,
+			button.menu-toggle span:before {
+				background-color: #ffffff;
+			}
+
+			h1, h2, h3, h4, h5, h6, .wc-block-grid__product-title {
+				color: #666666;
+			}
+
+			.widget h1 {
+				border-bottom-color: #666666;
+			}
+
+			body,
+			.secondary-navigation a {
+				color: #191919;
+			}
+
+			.widget-area .widget a,
+			.hentry .entry-header .posted-on a,
+			.hentry .entry-header .post-author a,
+			.hentry .entry-header .post-comments a,
+			.hentry .entry-header .byline a {
+				color: #1e1e1e;
+			}
+
+			a {
+				color: #597fd9;
+			}
+
+			a:focus,
+			button:focus,
+			.button.alt:focus,
+			input:focus,
+			textarea:focus,
+			input[type="button"]:focus,
+			input[type="reset"]:focus,
+			input[type="submit"]:focus,
+			input[type="email"]:focus,
+			input[type="tel"]:focus,
+			input[type="url"]:focus,
+			input[type="password"]:focus,
+			input[type="search"]:focus {
+				outline-color: #597fd9;
+			}
+
+			button, input[type="button"], input[type="reset"], input[type="submit"], .button, .widget a.button {
+				background-color: #3f3f3f;
+				border-color: #3f3f3f;
+				color: #ffffff;
+			}
+
+			button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .button:hover, .widget a.button:hover {
+				background-color: #262626;
+				border-color: #262626;
+				color: #ffffff;
+			}
+
+			button.alt, input[type="button"].alt, input[type="reset"].alt, input[type="submit"].alt, .button.alt, .widget-area .widget a.button.alt {
+				background-color: #333333;
+				border-color: #333333;
+				color: #ffffff;
+			}
+
+			button.alt:hover, input[type="button"].alt:hover, input[type="reset"].alt:hover, input[type="submit"].alt:hover, .button.alt:hover, .widget-area .widget a.button.alt:hover {
+				background-color: #1a1a1a;
+				border-color: #1a1a1a;
+				color: #ffffff;
+			}
+
+			.pagination .page-numbers li .page-numbers.current {
+				background-color: #e6e6e6;
+				color: #0f0f0f;
+			}
+
+			#comments .comment-list .comment-content .comment-text {
+				background-color: #f8f8f8;
+			}
+
+			.site-footer {
+				background-color: #1a1a1a;
+				color: #ffffff;
+			}
+
+			.site-footer a:not(.button):not(.components-button) {
+				color: #ffffff;
+			}
+
+			.site-footer .storefront-handheld-footer-bar a:not(.button):not(.components-button) {
+				color: #ffffff;
+			}
+
+			.site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6, .site-footer .widget .widget-title, .site-footer .widget .widgettitle {
+				color: #ffffff;
+			}
+
+			.page-template-template-homepage.has-post-thumbnail .type-page.has-post-thumbnail .entry-title {
+				color: #191919;
+			}
+
+			.page-template-template-homepage.has-post-thumbnail .type-page.has-post-thumbnail .entry-content {
+				color: #191919;
+			}
+
+			@media screen and ( min-width: 768px ) {
+				.secondary-navigation ul.menu a:hover {
+					color: #ffffff;
+				}
+
+				.secondary-navigation ul.menu a {
+					color: #ffffff;
+				}
+
+				.main-navigation ul.menu ul.sub-menu,
+				.main-navigation ul.nav-menu ul.children {
+					background-color: #242424;
+				}
+
+				.site-header {
+					border-bottom-color: #242424;
+				}
+			}
+
+			@media screen and (max-width: 768px) {
+				.menu-toggle {
+					color: #ffffff;
+				}
+
+				.menu-toggle:hover {
+					color: #9b9b9b;
+				}
+
+				.main-navigation div.menu,
+				.main-navigation .handheld-navigation {
+					background-color: #333333;
+				}
+
+				.main-navigation ul li a,
+				ul.menu li a,
+				.storefront-hamburger-menu-active .shm-close {
+					color: #ffffff;
+				}
+			}
+		
+</style>
+<link data-minify="1" rel='stylesheet' id='storefront-icons-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/themes/storefront/assets/css/base/icons.css?ver=1656188251' media='all' />
+
+<link data-minify="1" rel='stylesheet' id='shm-styles-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/storefront-hamburger-menu/assets/css/style.css?ver=1656188251' media='all' />
+<link data-minify="1" rel='stylesheet' id='storefront-woocommerce-style-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/themes/storefront/assets/css/woocommerce/woocommerce.css?ver=1656188251' media='all' />
+<style id='storefront-woocommerce-style-inline-css'>
+@font-face {
+				font-family: star;
+				src: url(https://lippe.no/wp-content/plugins/woocommerce/assets/fonts/star.eot);
+				src:
+					url(https://lippe.no/wp-content/plugins/woocommerce/assets/fonts/star.eot?#iefix) format("embedded-opentype"),
+					url(https://lippe.no/wp-content/plugins/woocommerce/assets/fonts/star.woff) format("woff"),
+					url(https://lippe.no/wp-content/plugins/woocommerce/assets/fonts/star.ttf) format("truetype"),
+					url(https://lippe.no/wp-content/plugins/woocommerce/assets/fonts/star.svg#star) format("svg");
+				font-weight: 400;
+				font-style: normal;
+			}
+			@font-face {
+				font-family: WooCommerce;
+				src: url(https://lippe.no/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.eot);
+				src:
+					url(https://lippe.no/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.eot?#iefix) format("embedded-opentype"),
+					url(https://lippe.no/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.woff) format("woff"),
+					url(https://lippe.no/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.ttf) format("truetype"),
+					url(https://lippe.no/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.svg#WooCommerce) format("svg");
+				font-weight: 400;
+				font-style: normal;
+			}
+
+			a.cart-contents,
+			.site-header-cart .widget_shopping_cart a {
+				color: #ffffff;
+			}
+
+			a.cart-contents:hover,
+			.site-header-cart .widget_shopping_cart a:hover,
+			.site-header-cart:hover > li > a {
+				color: #ffffff;
+			}
+
+			table.cart td.product-remove,
+			table.cart td.actions {
+				border-top-color: #ffffff;
+			}
+
+			.storefront-handheld-footer-bar ul li.cart .count {
+				background-color: #ffffff;
+				color: #333333;
+				border-color: #333333;
+			}
+
+			.woocommerce-tabs ul.tabs li.active a,
+			ul.products li.product .price,
+			.onsale,
+			.wc-block-grid__product-onsale,
+			.widget_search form:before,
+			.widget_product_search form:before {
+				color: #191919;
+			}
+
+			.woocommerce-breadcrumb a,
+			a.woocommerce-review-link,
+			.product_meta a {
+				color: #1e1e1e;
+			}
+
+			.wc-block-grid__product-onsale,
+			.onsale {
+				border-color: #191919;
+			}
+
+			.star-rating span:before,
+			.quantity .plus, .quantity .minus,
+			p.stars a:hover:after,
+			p.stars a:after,
+			.star-rating span:before,
+			#payment .payment_methods li input[type=radio]:first-child:checked+label:before {
+				color: #597fd9;
+			}
+
+			.widget_price_filter .ui-slider .ui-slider-range,
+			.widget_price_filter .ui-slider .ui-slider-handle {
+				background-color: #597fd9;
+			}
+
+			.order_details {
+				background-color: #f8f8f8;
+			}
+
+			.order_details > li {
+				border-bottom: 1px dotted #e3e3e3;
+			}
+
+			.order_details:before,
+			.order_details:after {
+				background: -webkit-linear-gradient(transparent 0,transparent 0),-webkit-linear-gradient(135deg,#f8f8f8 33.33%,transparent 33.33%),-webkit-linear-gradient(45deg,#f8f8f8 33.33%,transparent 33.33%)
+			}
+
+			#order_review {
+				background-color: #ffffff;
+			}
+
+			#payment .payment_methods > li .payment_box,
+			#payment .place-order {
+				background-color: #fafafa;
+			}
+
+			#payment .payment_methods > li:not(.woocommerce-notice) {
+				background-color: #f5f5f5;
+			}
+
+			#payment .payment_methods > li:not(.woocommerce-notice):hover {
+				background-color: #f0f0f0;
+			}
+
+			.woocommerce-pagination .page-numbers li .page-numbers.current {
+				background-color: #e6e6e6;
+				color: #0f0f0f;
+			}
+
+			.wc-block-grid__product-onsale,
+			.onsale,
+			.woocommerce-pagination .page-numbers li .page-numbers:not(.current) {
+				color: #191919;
+			}
+
+			p.stars a:before,
+			p.stars a:hover~a:before,
+			p.stars.selected a.active~a:before {
+				color: #191919;
+			}
+
+			p.stars.selected a.active:before,
+			p.stars:hover a:before,
+			p.stars.selected a:not(.active):before,
+			p.stars.selected a.active:before {
+				color: #597fd9;
+			}
+
+			.single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger {
+				background-color: #3f3f3f;
+				color: #ffffff;
+			}
+
+			.single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger:hover {
+				background-color: #262626;
+				border-color: #262626;
+				color: #ffffff;
+			}
+
+			.button.added_to_cart:focus,
+			.button.wc-forward:focus {
+				outline-color: #597fd9;
+			}
+
+			.added_to_cart,
+			.site-header-cart .widget_shopping_cart a.button,
+			.wc-block-grid__products .wc-block-grid__product .wp-block-button__link {
+				background-color: #3f3f3f;
+				border-color: #3f3f3f;
+				color: #ffffff;
+			}
+
+			.added_to_cart:hover,
+			.site-header-cart .widget_shopping_cart a.button:hover,
+			.wc-block-grid__products .wc-block-grid__product .wp-block-button__link:hover {
+				background-color: #262626;
+				border-color: #262626;
+				color: #ffffff;
+			}
+
+			.added_to_cart.alt, .added_to_cart, .widget a.button.checkout {
+				background-color: #333333;
+				border-color: #333333;
+				color: #ffffff;
+			}
+
+			.added_to_cart.alt:hover, .added_to_cart:hover, .widget a.button.checkout:hover {
+				background-color: #1a1a1a;
+				border-color: #1a1a1a;
+				color: #ffffff;
+			}
+
+			.button.loading {
+				color: #3f3f3f;
+			}
+
+			.button.loading:hover {
+				background-color: #3f3f3f;
+			}
+
+			.button.loading:after {
+				color: #ffffff;
+			}
+
+			@media screen and ( min-width: 768px ) {
+				.site-header-cart .widget_shopping_cart,
+				.site-header .product_list_widget li .quantity {
+					color: #ffffff;
+				}
+
+				.site-header-cart .widget_shopping_cart .buttons,
+				.site-header-cart .widget_shopping_cart .total {
+					background-color: #292929;
+				}
+
+				.site-header-cart .widget_shopping_cart {
+					background-color: #242424;
+				}
+			}
+				.storefront-product-pagination a {
+					color: #191919;
+					background-color: #ffffff;
+				}
+				.storefront-sticky-add-to-cart {
+					color: #191919;
+					background-color: #ffffff;
+				}
+
+				.storefront-sticky-add-to-cart a:not(.button) {
+					color: #ffffff;
+				}
+</style>
+<link data-minify="1" rel='stylesheet' id='storefront-child-style-css'  href='https://lippe.no/wp-content/cache/min/1/wp-content/themes/storefront-child/style.css?ver=1656188251' media='all' />
+<script src='https://lippe.no/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js' defer></script>
+<script src='https://lippe.no/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js' defer></script>
+<script data-minify="1" src='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-woocommerce-enhanced.js?ver=1656188251' id='gtm4wp-woocommerce-enhanced-js' defer></script>
+<link rel="https://api.w.org/" href="https://lippe.no/wp-json/" /><link rel="alternate" type="application/json" href="https://lippe.no/wp-json/wp/v2/pages/39335" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://lippe.no/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://lippe.no/wp-includes/wlwmanifest.xml" /> 
+
+<link rel='shortlink' href='https://lippe.no/' />
+<link rel="alternate" type="application/json+oembed" href="https://lippe.no/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flippe.no%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://lippe.no/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flippe.no%2F&#038;format=xml" />
+			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v8.15.76-->
+			<script type="rocketlazyloadscript" data-rocket-type="text/javascript" class="hsq-set-content-id" data-content-id="standard-page">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentId", "standard-page"]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+			<!-- Stream WordPress user activity plugin v3.9.0 -->
+
+<!-- This website runs the Product Feed PRO for WooCommerce by AdTribes.io plugin - version 11.7.7 -->
+<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+	jQuery(document).ready(function($){
+		if (window.location.pathname === '/butikk/' || window.location.pathname === '/butikk') {
+			const elements = document.getElementsByClassName('entry-header')
+			const element = elements && elements[0];
+			if (element) {
+				element.parentNode.removeChild(element);			
+			}
+		}
+	})
+});</script>
+<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+	jQuery(document).ready(function($){
+		const logoutButton = document.getElementById("logout-button");
+		if (logoutButton) {
+			logoutButton.href = "https://lippe.no/wp-login.php?action=logout&redirect_to=https%3A%2F%2Flippe.no&_wpnonce=22bae407c3";			
+		}
+	})
+});</script>
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<!-- GTM Container placement set to manual -->
+<script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+	var dataLayer_content = {"pageTitle":"LIPPE - Kaffe og te &bull; Hjem","pagePostType":"frontpage","pagePostType2":"single-page"};
+	dataLayer.push( dataLayer_content );
+</script>
+<script type="rocketlazyloadscript" data-cfasync="false">
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K34WFZP');
+</script>
+<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><style>.dgwt-wcas-ico-magnifier,.dgwt-wcas-ico-magnifier-handler{max-width:20px}.dgwt-wcas-search-wrapp{max-width:600px}</style>	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<link rel="icon" href="https://lippe.no/wp-content/uploads/2020/10/cropped-lippe-logo-white-on-black-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://lippe.no/wp-content/uploads/2020/10/cropped-lippe-logo-white-on-black-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://lippe.no/wp-content/uploads/2020/10/cropped-lippe-logo-white-on-black-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://lippe.no/wp-content/uploads/2020/10/cropped-lippe-logo-white-on-black-1-270x270.png" />
+		<style id="wp-custom-css">
+			:root {
+	--color-dark: #1a1a1a;
+	--color-primary: #b1ffaa;
+	--color-primary--light: #e2ffe0;
+	--color-yellow: #fff365;
+	--color-pink: #ff57ec;
+	--color-gray: #f4f4f4;
+	--box-shadow-yellow: var(--color-yellow) 0 0 16px -4px !important;
+	--font-size-text: 14px;
+	--font-size-h4: 16px;
+	--border-radius: 8px;
+}
+
+
+h1,
+h2 {
+	text-transform: uppercase;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.wc-block-grid__product-title {
+	color: var(--color-dark) !important;
+	font-family: "Founders Grotesk", sans-serif;
+}
+
+img {
+	border-radius: 0;
+}
+
+/*Fonts*/
+*,
+body,
+button,
+input,
+textarea {
+	font-family: "Founders Grotesk Text", sans-serif;
+}
+p,
+a {
+	font-size: var(--font-size-text);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	margin-top: 0 !important;
+}
+
+h1 {
+	font-weight: 800;
+	font-size: 3.5rem;
+}
+
+.hentry .entry-content .wc-block-grid__products .wc-block-grid__product>a, .hentry .entry-content ul.products li.product>a {
+	align-items: center;
+}
+
+
+/*Header Mobile and Pad*/
+@media (max-width: 746px) {
+	.home.blog .site-header,
+	.home.page:not(.page-template-template-homepage) .site-header,
+	.home.post-type-archive-product .site-header {
+		margin-bottom: 0;
+	}
+}
+@media only screen and (max-width: 868px) {
+	.wc-block-grid.has-4-columns .wc-block-grid__product {
+		flex: 1 0 50% !important;
+		max-width: 50%;
+	}
+}
+
+@media (min-width: 768px) {
+	.sub-menu {
+		overflow: hidden;
+		border-radius: 0 0 var(--border-radius) var(--border-radius);
+		box-shadow: 0 5px 30px 0 #00000030;
+	}
+
+	.cross-sells + .cart_totals {
+		width: 47.82% !important;
+	}
+
+	ul.products li.product {
+		flex: 25%;
+	}
+	.cart_totals {
+		width: 100% !important;
+	}
+	ul.products li.product.product-category .woocommerce-loop-category__title {
+		font-size: 1em !important;
+	}
+}
+
+.dgwt-wcas-om-return {
+	background: none !important;
+	border-bottom: 1px solid #ddd !important;
+	border-radius: 0 !important;
+}
+.dgwt-wcas-om-return path {
+	fill: #666 !important;
+}
+.dgwt-wcas-details-left .dgwt-wcas-details-wrapp {
+	border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.dgwt-wcas-details-right .dgwt-wcas-details-wrapp {
+	border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.dgwt-wcas-details-left .dgwt-wcas-suggestions-wrapp {
+	border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.dgwt-wcas-details-right .dgwt-wcas-suggestions-wrapp {
+	border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.dgwt-wcas-nores .dgwt-wcas-suggestions-wrapp {
+	border-radius: var(--border-radius) !important;
+	padding: 1em 0 1em 0;
+}
+
+.dgwt-wcas-suggestions-wrapp,
+.dgwt-wcas-details-wrapp {
+	transform: translateY(10px);
+	overflow: hidden !important;
+}
+
+.dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input {
+	border: 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.dgwt-wcas-no-submit
+.dgwt-wcas-sf-wrapp
+input[type="search"].dgwt-wcas-search-input {
+	border-radius: var(--border-radius);
+	padding: 20px 15px 20px 40px;
+	transition: 0.3s ease;
+}
+
+@media (min-width: 600px) {
+
+	.dgwt-wcas-no-submit
+	.dgwt-wcas-sf-wrapp
+	input[type="search"].dgwt-wcas-search-input {
+		margin-top: 20px;
+	}
+}
+
+.dgwt-wcas-search-icon-arrow {
+	margin-top: 20px;
+}
+
+
+
+.js-dgwt-wcas-mobile-overlay-enabled.dgwt-wcas-search-wrapp-mobile.dgwt-wcas-search-wrapp.dgwt-wcas-layout-icon {
+	width: 100%;
+	top: 0 !important;
+}
+
+.js-dgwt-wcas-mobile-overlay-enabled.dgwt-wcas-search-wrapp-mobile.dgwt-wcas-no-submit
+.dgwt-wcas-sf-wrapp
+input[type="search"].dgwt-wcas-search-input {
+	border-radius: 0;
+}
+
+.site-header .site-branding img {
+	height: auto;
+	max-width: 140px;
+}
+
+/*Hide default footer*/
+.site-info {
+	display: none;
+}
+
+/* Title */
+.home .woocommerce-products-header {
+	display: none;
+}
+.home .storefront-full-width-content .woocommerce-products-header {
+	padding: 0;
+}
+
+.qty-num {
+	width: auto;
+}
+
+.qty-fieldset {
+	width: 450px;
+}
+
+div.qty_table_container {
+	max-height: none;
+	overflow-y: unset;
+}
+
+table,
+.wc_payment_methods,
+.place-order {
+	border-radius: var(--border-radius);
+	overflow: hidden;
+}
+table,
+.wc_payment_methods,
+.place-order {
+	border-radius: var(--border-radius);
+	overflow: hidden;
+}
+
+/*Product font color and size*/
+.wc-block-grid__product-title {
+	color: var(--color-dark) !important;
+	font-weight: 800 !important;
+	color: black !important;
+	text-transform: uppercase !important;
+
+}
+
+.entry-title {
+	color: var(--color-dark) !important;
+	text-transform: uppercase !important;
+	letter-spacing: -0.1rem !important;
+}
+
+ul.products li.product.product-category .woocommerce-loop-category__title,
+.wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-title,
+.woocommerce-loop-product__title {
+	font-size: var(--font-size-h4) !important;
+	color: var(--color-dark);
+}
+.wc-block-grid__products {
+	border-radius: var(--border-radius);
+	overflow:hidden;
+	margin: 0;
+}
+.wc-block-grid__product {
+	background: var(--color-gray) !important;
+	border: none;
+	padding: 1rem !important;
+}
+
+.wc-block-grid__product-image img {
+	mix-blend-mode: darken;
+}
+
+.sub-menu {
+	transition: none !important;
+}
+.sub-menu li {
+	background: var(--color-dark);
+}
+.menu-item:hover > a {
+	transition: all 0.3s ease !important;
+	color: var(--color-pink) !important;
+}
+.sub-menu .current-menu-item {
+	border: 2px solid var(--color-dark) !important;
+}
+ul.menu li.current-menu-item>a {
+	color: var(--color-pink);
+}
+
+.menu-item-has-children {
+	cursor: default;
+}
+
+.site-header {
+	border-bottom: none !important;
+}
+
+/* Footer */
+.site-footer {
+	padding: 2em 0;
+	margin-top: auto;
+	width: 100%;
+}
+.site-footer .widget,
+.footer-widgets {
+	padding: 0;
+	margin: 0;
+}
+.site-footer a:not(.button):not(.components-button) {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+input[type="search"] {
+	border-radius: var(--border-radius);
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+	border-radius: var(--border-radius);
+	background: #f8f8f8;
+}
+
+textarea {
+	border-radius: var(--border-radius);
+	background: #f8f8f8;
+	resize: none !important;
+}
+
+.widget_shopping_cart {
+	background-color: var(--color-dark) !important;
+	border-radius: 0 0 20px 20px;
+	box-shadow: 0 20px 30px 0 #00000020;
+}
+
+/* Hide add-ons total etc */
+.zaddon_data {
+	display: none !important;
+}
+
+.woocommerce-info, .woocommerce-info * {
+	background: var(--color-primary--light);
+	color: var(--color-dark) !important;
+	border-radius: var(--border-radius);
+	border-left: none;
+}
+.woocommerce-info::before {
+	color: var(--color-dark) !important;
+
+}
+.woocommerce-error {
+	background: #e4002a;
+	border-radius: var(--border-radius);
+	border-left: none;
+}
+.woocommerce-message {
+	background: var(--color-primary--light);
+	color: var(--color-dark);
+	border-radius: var(--border-radius);
+	border-left: none;
+}
+.woocommerce-message:before {
+	color: var(--color-dark);
+}
+.woocommerce-message a.button:hover {
+	color: var(--color-dark) !important;
+	background: none !important;
+	box-shadow: none !important;
+	transform: none !important;
+	border: none;
+	border-left: solid white 1px;
+}
+.woocommerce-message a.button {
+	color: var(--color-dark) !important;
+	background: none !important;
+}
+
+/*Category & Product listings*/
+.product-category.product img {
+	max-height: 432px;
+	max-width: 100%;
+	padding: 0 0.5em 0 0.5em;
+}
+
+@media (max-width: 768px) {
+	.handheld-navigation {
+		width: 100% !important;
+		left: unset !important;
+		right: -100% !important;
+		transition: right 0.4s ease !important;
+		max-height: 3000px !important;
+	}
+
+	.toggled .handheld-navigation {
+		right: 0 !important;
+		right: unset;
+		transition: right 0.4s !important;
+	}
+
+	/*Make submenus clickable on mobile*/
+	.dropdown-toggle {
+		text-align: end;
+		width: 100%;
+	}
+	.dropdown-toggle:after {
+		transition: 0.2s ease !important;
+	}
+	table,
+	.wc_payment_methods,
+	.place-order {
+		overflow: visible !important;
+	}
+	div#hubspot-messages-iframe-container {
+		bottom: 66px !important;
+	}
+	.hs-messages-widget-open div#hubspot-messages-iframe-container {
+		bottom: 0 !important;
+	}
+
+	.header-bow {
+		margin-top: 2em;
+	}
+
+	header .col-full {
+		display: block !important;
+	}
+}
+@media (max-width: 480px) {
+	.wc-block-grid.has-4-columns .wc-block-grid__products {
+		display: flex;
+	}
+}
+
+.wp-image-2303 {
+	width: 200px;
+}
+
+.woocommerce-products-header {
+	padding-bottom: 2em !important;
+}
+
+.header-bow {
+	display: none;
+	transform: translateY(1em);
+}
+
+.posted-on,
+.post-author,
+.post-comments {
+	display: none;
+}
+
+.site-content {
+	padding-top: 2rem;
+}
+.category .site-content .col-full .content-area .site-main {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	justify-content: center;
+}
+
+.category .site-content .col-full .content-area .site-main .page-header {
+	flex: 0 0 100%;
+}
+
+.category .site-content .col-full .content-area .site-main article {
+	flex: 1 0 100%;
+	border-radius: var(--border-radius);
+	border: 1px #f3f3f3 solid;
+	box-shadow: 0 2px 19px 5px rgba(0, 0, 0, 0.1);
+	padding: 1em;
+	margin: 1em;
+	display: flex;
+	flex-direction: column;
+}
+
+.category .site-content .col-full .content-area .site-main article img {
+	width: 100%;
+	margin: 0;
+}
+
+.category
+.site-content
+.col-full
+.content-area
+.site-main
+article
+.entry-header {
+	border-bottom: none;
+	margin-bottom: 0;
+}
+
+.category
+.site-content
+.col-full
+.content-area
+.site-main
+article
+.entry-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	margin-top: auto;
+}
+
+.category .site-content .col-full .content-area .site-main article h2 a {
+	color: var(--color-dark);
+	font-weight: 800;
+	font-size: 0.7em;
+}
+
+.category .site-content .col-full .content-area .site-main article aside {
+	display: none;
+}
+
+.category .site-content .col-full .content-area .site-main article .more-link {
+	display: block;
+	text-align: center;
+	width: 100%;
+	text-decoration: none;
+	background: var(--color-dark);
+	color: white;
+	padding: 1em;
+	border-radius: var(--border-radius);
+	font-weight: 600;
+	font-size: 1.2em;
+	margin-top: auto;
+}
+
+.category .site-content .col-full .content-area .site-main article p {
+	margin-top: 1em;
+}
+
+@media only screen and (min-width: 680px) {
+	.post {
+		padding: 0 8em 0 8em;
+	}
+	.post img {
+		width: 100%;
+	}
+
+	.category .site-content .col-full .content-area .site-main article {
+		flex: 1 0 45%;
+		max-width: 50%;
+	}
+	.hentry .wp-post-image {
+		width: 100%;
+	}
+}
+
+#respond {
+	padding: 0;
+}
+
+.wc-block-grid__product-link {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.wc-block-grid__product-image {
+	margin: auto;
+	display: flex;
+	flex: 1;
+}
+
+.wc-block-grid__product img {
+	margin: auto !important;
+}
+
+.wc-block-grid__product-title {
+	flex: 0 1 17%;
+}
+
+.account-controls {
+	display: flex;
+	justify-content: center;
+}
+.account-item-list {
+	display: flex;
+	list-style-type: none;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	justify-content: center;
+	max-width: 600px;
+}
+.account-item {
+	flex: 20%;
+	margin: 1em;
+	min-width: 180px;
+	min-height: 40px;
+	height: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	font-weight: 800;
+	transition: ease 0.3s;
+	background: none !important;
+	padding: 0.5em 1em;
+	border: 1px solid black;
+	border-radius: var(--border-radius);
+}
+.account-item a {
+	color: var(--color-dark);
+	text-decoration: none !important;
+	height: 100%;
+	width: 100%;
+	text-align: left;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.account-item a:before {
+	font-family: "Font Awesome 5 Free";
+	font-size: 1em;
+	margin-right: 1em;
+	display: block;
+	text-align: center;
+}
+
+.account-item--control a:before {
+	content: "\f3fd";
+}
+.account-item--orders a:before {
+	content: "\f291";
+}
+.account-item--subscription a:before {
+	content: "\f021";
+}
+.account-item--downloads a:before {
+	content: "\f1c6";
+}
+.account-item--adress a:before {
+	content: "\f015";
+}
+.account-item--account a:before {
+	content: "\f007";
+}
+.account-item--logout a:before {
+	content: "\f2f5";
+}
+.account-item--wishlist a:before {
+	content: "\f03a";
+}
+.account-item--control {
+	background: linear-gradient(#ffdebe, #edac6d);
+}
+
+.account-item--wishlist {
+	background: linear-gradient(#fff598, #dacc4e);
+}
+
+.account-item--subscription {
+	background: linear-gradient(#caf7fb, #98d9df);
+}
+
+.account-item--orders {
+	background: linear-gradient(#eed7f5, #9e81a7);
+}
+
+.account-item--adress {
+	background: linear-gradient(#ffecf0, #fcd9df);
+}
+
+.account-item--account {
+	background: linear-gradient(#e9f1ed, #cbe6d7);
+}
+
+.account-item--logout {
+	background: linear-gradient(#f5acae, #db5457);
+}
+
+.woocommerce-MyAccount-navigation,
+.woocommerce-MyAccount-content {
+	display: none;
+}
+.woocommerce-account .woocommerce-MyAccount-content {
+	width: 100%;
+}
+
+.woocommerce-orders .account-controls,
+.woocommerce-subscriptions .account-controls,
+.woocommerce-edit-account .account-controls,
+.woocommerce-edit-address .account-controls,
+.woocommerce-view-order .account-controls,
+.woocommerce-view-subscription .account-controls,
+.woocommerce-view-subscriptions .account-controls {
+	display: none;
+}
+.woocommerce-orders .woocommerce-MyAccount-content,
+.woocommerce-subscriptions .woocommerce-MyAccount-content,
+.woocommerce-edit-account .woocommerce-MyAccount-content,
+.woocommerce-edit-address .woocommerce-MyAccount-content,
+.woocommerce-view-order .woocommerce-MyAccount-content,
+.woocommerce-view-subscription .woocommerce-MyAccount-content,
+.woocommerce-view-subscriptions .woocommerce-MyAccount-content {
+	display: block;
+}
+
+/* HIDE HEADERS ON CERTAIN PAGES */
+.woocommerce-account .entry-header,
+.woocommerce-cart .entry-header,
+.woocommerce-account .entry-header,
+.page-id-3 .entry-header {
+	display: none;
+}
+body:not(.logged-in) .account-controls {
+	display: none;
+}
+
+#site-navigation {
+	width: auto !important;
+}
+
+.site-branding {
+	width: auto !important;
+}
+
+.site-search {
+	min-width: 253px !important;
+	margin-left: auto;
+}
+
+header .col-full {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.site-header-cart {
+	min-width: 253px !important;
+	margin-left: auto;
+}
+
+.site-header {
+	margin-bottom: 1em !important;
+	padding-bottom: 0 !important;
+}
+
+.woocommerce-pagination {
+	display: flex;
+	border: none;
+}
+.woocommerce-pagination ul.page-numbers li:first-child .page-numbers {
+	border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.woocommerce-pagination ul.page-numbers li:last-child .page-numbers {
+	border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.woocommerce-pagination .page-numbers li .page-numbers:not(.current) {
+	background: var(--color-dark);
+	color: white;
+	font-weight: 800;
+}
+.woocommerce-pagination .page-numbers li .page-numbers:not(.current):hover {
+	background: #444;
+	color: white;
+}
+
+.woocommerce-pagination .page-numbers li .page-numbers.current {
+	font-weight: 800;
+	background: white;
+}
+
+ul.page-numbers {
+	border-radius: var(--border-radius);
+	box-shadow: 0 5px 30px 0 #00000025;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.woocommerce-result-count {
+	display: none;
+}
+
+ul.products {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.product-category {
+	justify-content: flex-end;
+	align-items: flex-end;
+	display: flex;
+}
+
+ul.products li.product .star-rating {
+	margin-top: 1em;
+}
+.star-rating:before,
+.star-rating span:before {
+	font-family: "Font Awesome 5 Free";
+}
+
+ul.products li.product .woocommerce-LoopProduct-link {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+ul.products li.product img {
+	max-height: 20em;
+	width: auto;
+	margin-top: auto;
+}
+
+li.product .woocommerce-loop-product__title {
+	margin-top: auto;
+}
+
+li.product {
+	display: flex;
+	flex: 50%;
+	flex-direction: column;
+	align-items: center;
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+	margin-bottom: 2em !important;
+}
+
+.category-blogg .page-title {
+	display: none !important;
+}
+
+/*Remove product sorting/ordering from product pages*/
+.woocommerce-ordering {
+	display: none;
+}
+
+.woocommerce-store-notice {
+	bottom: 0 !important;
+	background: rgb(89, 127, 217);
+}
+
+#hubspot-messages-iframe-container.widget-align-right {
+	right: 0 !important;
+	bottom: 0 !important;
+}
+
+@media (min-width: 768px) {
+	.site-header-cart .cart-contents .count {
+		margin-right: 10px;
+	}
+	.woocommerce-active .site-header .site-header-cart {
+		width: auto;
+	}
+}
+
+.storefront-handheld-footer-bar {
+	display: none;
+}
+
+.main-navigation {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.main-navigation ul.menu>li>a, .main-navigation ul.nav-menu>li>a {
+	font-size: var(--font-size-h4);
+}
+
+.page-id-45688 .col-full {
+	max-width: 1920px !important;
+}
+@media (max-width: 568px) {
+	.page-id-45688 .col-full {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		padding: 0;
+	}
+}
+
+.content {
+	padding: 3rem 1rem 0 1rem;
+	width: 100%;
+}
+
+.content-bottom {
+	overflow-x: hidden;
+	padding: 0 1rem 1rem 1rem;
+}
+
+.container {
+	box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.15);
+	background: white;
+	width: 40rem;
+	padding: 20px;
+}
+
+.wave {
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url(https://lippe.no/wp-content/uploads/2020/11/lippewave_blue.svg);
+	background-repeat: no-repeat;
+	width: 100vw;
+	padding-top: 32.64%;
+}
+
+/* 
+*
+* Form & Switch Field
+*
+*/
+
+.switch-field {
+	display: flex;
+	margin: 0 1em 1em 1em;
+	overflow: hidden;
+	justify-content: center;
+	flex-wrap: wrap;
+
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+
+	overflow: hidden;
+}
+
+.input-number::-webkit-outer-spin-button,
+.input-number::-webkit-inner-spin-button {
+	-webkit-appearance: none !important;
+	margin: 0;
+}
+
+.switch-field label {
+	border: 1px solid var(--color-dark);
+	color: var(--color-dark);
+	font-weight: 800;
+	text-transform: uppercase;
+	background-color: var(--color-primary--light);
+	font-size: var(--font-size-text);
+	font-weight: 600;
+	line-height: 1;
+	text-align: center;
+	padding: 1rem 2rem;
+	transition: all 0.15s ease-in-out;
+	border-radius: var(--border-radius);
+	margin: 0.5em !important;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex: 1 1 auto;
+}
+
+
+.switch-field--large label {
+	padding: 1.5em 2em;
+}
+
+.switch-field label:hover {
+	cursor: pointer;
+}
+
+.switch-field input:checked + label {
+	background-color: var(--color-primary);
+	box-shadow: none;
+}
+
+
+/* 
+*
+* Button
+*
+*/
+
+
+.woocommerce-mini-cart__buttons {
+	border-radius: 0 0 15px 15px;
+}
+
+.woocommerce-mini-cart__buttons .button {
+	color: black !important;
+	background: white !important;
+}
+
+.wp-block-button__link {
+	border-radius: var(--border-radius) !important;
+}
+
+.entry-title a {
+	color: var(--color-dark);
+}
+button.menu-toggle {
+	border-radius: 50px;
+}
+
+button.menu-toggle {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+button.menu-toggle::before,
+button.menu-toggle::after,
+button.menu-toggle span::before {
+	content: "";
+	display: block;
+	height: 2px;
+	width: 18px;
+	position: inherit;
+	left: 0;
+	margin: 0;
+	transition: all, ease, 0.2s;
+	border-radius: 3px;
+}
+
+.button,
+button,
+input[type="submit"],
+.button.alt,
+.wp-block-button__link, .woocommerce-breadcrumb a  {
+	transition: all 0.2s ease;
+	background: var(--color-primary--light) !important;
+	color: var(--color-dark) !important;
+	padding: 12px 24px;
+	margin: 8px 0;
+	font-size: 1em;
+	line-height: 1.5em;
+	border-radius: var(--border-radius) !important;
+	cursor: pointer;
+	font-weight: 600;
+	border: 1px solid var(--color-dark);
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+.button.alt:hover,
+.wp-block-button__link:hover,
+.woocommerce-breadcrumb a:hover{
+	background: var(--color-primary) !important;
+	box-shadow: var(--box-shadow-yellow);
+}
+
+.button--full {
+	width: 100%;
+}
+
+.wc-block-grid__products .wp-block-button a {
+	border: 1px solid var(--color-dark) !important;
+}
+
+/*Breadcrumbs*/
+
+.storefront-breadcrumb {
+	text-align: center;
+	font-size: 18px;
+	font-weight: 600;
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+}
+
+.woocommerce-breadcrumb {
+	font-size: 1rem !important;
+	font-weight: 800;
+	text-transform: uppercase;
+	margin-top: 2em !important;
+}
+
+.woocommerce-breadcrumb a:first-of-type::before {
+	display: none;
+}
+
+.woocommerce-breadcrumb a {
+	background: none !important;
+	padding: 0.3em 1em 0.3em 1em;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.woocommerce-breadcrumb a:hover {
+	background: none !important;
+}
+
+/* 
+*
+* Product
+*
+*/
+
+.products-wrapper {
+	margin: auto;
+	flex-direction: row;
+}
+.lippe-product {
+	display: flex;
+	flex-direction: column;
+	flex: 5 0 25%;
+	text-align: center;
+	background: var(--color-gray);
+	border-radius: var(--border-radius);
+	margin: 1em 1em;
+	padding: 1em;
+}
+
+.lippe-product__image {
+	position: relative;
+	display: flex;
+	align-self: flex-start;
+	justify-content: center;
+	margin: 1em auto;
+	cursor: pointer;
+	height: 20rem;
+	width: 20rem;
+	overflow: hidden;
+	padding: 1rem;
+	mix-blend-mode: darken;
+}
+.wp-block-handpicked-products .wc-block-grid__product-title {
+	display: flex; 
+	justify-content: center;
+	align-items: flex-start
+}
+
+.wp-block-handpicked-products .wc-block-grid__product-image {
+	width: 200px;
+}
+.lippe-product__image img {
+	max-height: 18rem;
+	transition: ease 1s;
+	margin: 0;
+	padding: 0;
+}
+
+.lippe-product__image--offer {
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+	padding: 1em;
+	border-radius: 100%;
+	background: var(--color-dark);
+	color: white;
+	font-weight: 800;
+	box-shadow: #44444430 0 0.4em 15px 7px;
+}
+
+.lippe-product__image--offer span {
+	display: flex;
+	height: 6em;
+	width: 6em;
+	align-items: center;
+	justify-content: center;
+}
+
+.lippe-product img:hover {
+	transition: ease 0.5s !important;
+	transform: scale(1.15) !important;
+}
+
+.lippe-product__info {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	align-items: center;
+}
+
+.lippe-product__info h3 {
+	text-align: center;
+	font-size: var(--font-size-h4);
+	text-transform: uppercase;
+	margin: 0;
+	color: var(--color-dark);
+	font-weight: 600;
+}
+
+.lippe-product__info p {
+	text-align: center;
+	padding: 0 1em 0 1em;
+	margin-bottom: auto;
+	font-size: var(--font-size-text);
+}
+
+.lippe-product__buttons {
+	margin-top: 1em;
+	flex-direction: column;
+}
+
+.lippe-product__buttons a {
+	text-decoration: underline;
+	color: var(--color-dark);
+	font-weight: bold;
+	font-weight: 600;
+	margin-top: 1em;
+}
+
+/* 
+*
+* Cart element
+*
+*/
+.cart-element {
+	transition: 0.2s ease;
+	display: flex;
+	align-items: center;
+	padding: 1em 0;
+	flex-direction: row;
+	flex-wrap: wrap;
+	border-bottom: 1px solid #e2e2e2;
+}
+
+.cart-element:first-child {
+	padding-top: 0;
+}
+
+.cart-element__image {
+	display: none;
+}
+
+.cart-element__info {
+	left: 3rem;
+	max-width: 63%;
+	float: left;
+}
+.cart-element__info * {
+	margin: 0;
+	line-height: 1.4em;
+}
+.cart-element__info h2 {
+	font-weight: 800;
+	color: var(--color-dark);
+	font-size: var(--font-size-h4);
+	text-transform: uppercase;
+	text-align: left;
+}
+.cart-element__info p {
+	text-align: left;
+	color: rgb(90, 90, 90);
+	text-align: left;
+}
+
+.cart-element__buttons {
+	margin-left: auto;
+	padding: 0;
+	display: flex;
+}
+
+.cart-element__buttons span {
+	display: inline-block !important;
+}
+
+.cart-element__buttons label {
+	display: none;
+}
+
+.plus,
+.minus {
+	background: none !important;
+	border-radius: 100%;
+	height: 30px;
+	align-self: center;
+	justify-content: center;
+	font-size: var(--font-size-text);
+	cursor: pointer;
+	line-height: 30px;
+	width: 30px;
+	padding: 0;
+	border-radius: 50px !important;
+}
+
+.plus:hover, .minus:hover {
+	background: none !important;
+}
+
+.cart-element__buttons .plus:before {
+	content: "\002B";
+}
+
+.cart-element__buttons .minus:before {
+	content: "\2212";
+}
+
+.cart-element__buttons span {
+	display: none;
+	font-weight: 700;
+	font-size: var(--font-size-h4);
+	margin-right: 20px;
+}
+
+/* 
+*
+* Price totals
+*
+*/
+
+.price-totals {
+	display: flex;
+	padding-top: 20px;
+}
+
+.price-totals p {
+	font-size: 20px;
+	align-self: center;
+	width: 100%;
+	margin: var(--font-size-text);
+}
+
+.price-totals .button {
+	width: 100%;
+}
+
+@media screen and (max-width: 688px) {
+	.price-totals p {
+		text-align: center;
+	}
+
+	.price-totals {
+		padding-top: 0;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+/* 
+*
+* Modal
+*
+*/
+
+.modal-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #00000066;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#hubspot-messages-iframe-container {
+	z-index: 9 !important;
+}
+
+.modal {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background: white;
+	width: 640px;
+	border-radius: var(--border-radius);
+	padding: 1em;
+	transition: none;
+	overflow: hidden;
+	max-height: 90vh;
+		
+}
+
+.modal__close {
+	font-size: 1.5em;
+	color: #666666;
+	cursor: pointer;
+	position: absolute;
+	top: 0.5em;
+	right: 1.5em;
+	line-height: 1em;
+}
+
+.modal__content {
+	padding: 1em;
+	line-height: 2.5;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	word-break: break-word;
+	justify-content: center;
+	align-items: center;
+	overflow-x: visible;
+	overflow-y: auto;
+	height: 100%;
+	margin-top: auto;
+}
+
+.modal__content--center {
+	text-align: center;
+}
+
+.modal__content img {
+	height: 15em;
+	margin: 0 auto;
+}
+
+.modal__content strong:before {
+	content: " ";
+	display: block;
+}
+
+.modal__content b:before {
+	content: " ";
+	display: block;
+}
+
+.modal__content h1 {
+	color: #27292e;
+	line-height: 1.5em;
+	text-align: center;
+}
+
+.modal__buttons {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: auto;
+	padding-top: 1em;
+}
+
+.modal__buttons .button {
+	flex: 1 0 auto;
+	margin: 0.25em;
+}
+
+/* 
+*
+* Animations
+*
+*/
+
+@keyframes bounce-in {
+	0% {
+		transform: scale(0);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes bounce-in-translated {
+	0% {
+		transform: translate(-50%, -50%) scale(0);
+	}
+	50% {
+		transform: translate(-50%, -50%) scale(1.05);
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.bounce-enter-active {
+	animation: bounce-in 0.6s;
+}
+
+.bounce-leave-active {
+	animation: bounce-in 0.6s reverse;
+}
+
+.bounce-fast-enter-active {
+	animation: bounce-in 0.4s;
+}
+
+.bounce-fast-leave-active {
+	animation: bounce-in 0.4s reverse;
+}
+
+.bounce-translated-enter-active {
+	animation: bounce-in-translated 0.6s;
+}
+
+.bounce-translated-leave-active {
+	animation: bounce-in-translated 0.6s reverse;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
+}
+
+.slide-fade-enter-active {
+	transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+	transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter {
+	transform: translateX(20px);
+	opacity: 0;
+}
+.slide-fade-leave-to {
+	transform: translateX(-20px);
+	opacity: 0;
+}
+
+/* 
+*
+* Media Queries
+*
+*/
+
+@media only screen and (min-width: 680px) {
+	.container {
+		border-radius: var(--border-radius);
+	}
+	.content {
+		padding: 5rem 5rem 1rem 5rem;
+	}
+	.content-bottom {
+		padding: 0 5rem 5rem 5rem;
+	}
+	.cart-element {
+		height: 7rem;
+	}
+	.cart-element__image {
+		height: 80px;
+		width: 80px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		margin-right: 0.5em;
+		height: 90px;
+		width: 90px;
+	}
+	.cart-element__image img {
+		height: 80px;
+		width: auto;
+		transition: ease 0.8s;
+	}
+	.cart-element__info p {
+		text-align: left;
+	}
+	.cart-element__info h2 {
+		text-align: left;
+	}
+
+	.cart-element__buttons span {
+		display: inline-block;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.switch-field label:first-of-type {
+		border-radius: var(--border-radius) 0 0 var(--border-radius);
+		border-left: 1px solid var(--color-dark);
+	}
+	.switch-field label:last-of-type {
+		border-radius: 0 var(--border-radius) var(--border-radius) 0;
+	}
+	.switch-field label {
+	}
+	.switch-field label {
+		border-left: 0;
+		border-radius: 0;
+		margin: 0 !important;
+	}
+}
+
+@media only screen and (max-width: 680px) {
+	h1 {
+		font-weight: 800;
+		font-size: 2.5rem;
+	}
+	.modal {
+		height: 100%;
+		width: 100%;
+		border-radius: 0;
+	}
+}
+
+.select {
+	display: inline-block;
+	position: relative;
+}
+.select select {
+	display: inline-block;
+	position: relative;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	border: none;
+}
+
+.select:after {
+	content: "\f078";
+	font-family: FontAwesome;
+	display: inline-block;
+	pointer-events: none;
+}
+
+.select--simple select {
+	font-size: var(--font-size-text);
+	margin: 0;
+	padding: 0;
+	background: none;
+	color: var(--color-dark);
+	border: none;
+	font-weight: 600;
+	text-decoration: underline;
+	appearance: none;
+}
+
+.select--simple:after {
+	color: var(--color-dark);
+	position: absolute;
+	right: -19px;
+}
+
+/* Featured coffee */
+
+.featured-coffee {
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column-reverse;
+	background: var(--color-gray);
+	border-radius: var(--border-radius);
+	padding: 1em 2em;
+	margin: 2em 0 ;
+}
+
+.featured-coffee div {
+	max-width: 30rem;
+}
+
+.featured-coffee img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-height: 350px;
+	mix-blend-mode: darken;
+}
+
+.featured-coffee h3 {
+	font-size: 36px;
+	color: var(--color-dark); font-weight: 800;
+}
+
+@media only screen and (min-width: 868px) {
+	.featured-coffee {
+		flex-direction: row;
+		text-align: left;
+	}
+}
+
+/*Header */
+.navigation-overlay {
+	display: block;
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000000;
+	background: var(--color-dark);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: .4s ease-in-out;
+}
+
+.navigation-overlay--closed {
+	transform: translatey(-100%);
+}
+
+.custom-logo {
+	max-width: 130px;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.navigation-overlay .menu-item:hover>a {
+	background: none !important;
+}
+
+.navigation-overlay .menu-item-type-post_type:hover {
+	transform: rotate(-2deg) scale(1.05);
+}
+
+.navigation-overlay .menu>.menu-item {
+	margin: 2rem 0;
+}
+
+.navigation-overlay .menu-item {
+	transition: .2s ease-in-out;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	text-transform: uppercase;
+	letter-spacing: -2.5px;
+	margin: 0 1em;
+	font-family: 'Founders Grotesk' !important;
+	font-weight: 800;
+}
+
+.navigation-overlay .menu-item:hover {
+	background: inherit !important;
+}
+
+.navigation-overlay .menu-item:hover>a {
+	color: var(--color-pink) !important;
+}
+
+@media (max-width: 768px) {
+	.navigation-overlay .menu-item a {
+		font-size: 1.8rem !important;
+	}
+}
+
+.navigation-overlay .menu-item a {
+	font-size: 2rem;
+	color: white !important;
+	text-align: center;
+}
+
+.navigation-overlay .sub-menu {
+	border-radius: 0;
+	box-shadow: none;
+	margin: 0;
+}
+
+.navigation-overlay .menu-item-has-children>a {
+	display: none;
+}
+
+.dgwt-wcas-search-wrapp.dgwt-wcas-layout-icon {
+	color: white;
+	min-width: unset;
+	width: 36px;
+	padding: 0;
+	margin: 0;
+	top: 0;
+}
+
+.dgwt-wcas-ico-magnifier-handler path{
+	fill: white !important;
+}		</style>
+			</head>
+
+	<body class="home page-template-default page page-id-39335 wp-custom-logo wp-embed-responsive theme-storefront woocommerce-no-js group-blog storefront-full-width-content storefront-align-wide right-sidebar woocommerce-active storefront-2-3 storefront-hamburger-menu-active">
+		<script type="rocketlazyloadscript">
+			function moveNavIntoView() {
+				const nav = document.getElementById('lippe-nav');
+				nav.className = "navigation-overlay";
+			}
+
+			function closeNav() {
+				const nav = document.getElementById('lippe-nav');
+				nav.className = "navigation-overlay navigation-overlay--closed";
+			}
+		</script>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg>
+<!-- GTM Container placement set to manual -->
+<!-- Google Tag Manager (noscript) -->
+				<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K34WFZP" height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+		
+		<div style="display: flex; flex-direction: column;" class="flex flex-col min-h-screen">
+			<div id="lippe-nav" class="navigation-overlay navigation-overlay--closed">
+				<span class="cursor-pointer absolute top-10 right-10" onclick="closeNav()"><i class="fa fa-times" style="font-size: 26px; color: white;"></i></span>
+				<div class="hanheld-navigation"><ul id="menu-om-oss" class="menu"><li id="menu-item-80002" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-80002"><a>Nettbutikk</a>
+<ul class="sub-menu">
+	<li id="menu-item-59861" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59861"><a href="https://lippe.no/kaffeogte/">Kaffe &#038; te</a></li>
+	<li id="menu-item-86492" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-86492"><a href="https://lippe.no/butikk/">Alle produkter</a></li>
+</ul>
+</li>
+<li id="menu-item-83371" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-83371"><a>Bli kunde</a>
+<ul class="sub-menu">
+	<li id="menu-item-83372" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-83372"><a href="https://lippe.no/nybrent-jobbkaffe/">Kaffe til arbeidsplassen</a></li>
+	<li id="menu-item-69710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-69710"><a href="https://lippe.no/bli-proffkunde/">Kaffe til serveringssted</a></li>
+</ul>
+</li>
+<li id="menu-item-70235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-70235"><a href="https://lippe.no/blogg/">Blogg</a></li>
+<li id="menu-item-33695" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33695"><a>Om</a>
+<ul class="sub-menu">
+	<li id="menu-item-35461" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35461"><a href="https://lippe.no/historien-om-lippe/">Historien om Lippe</a></li>
+	<li id="menu-item-35480" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35480"><a href="https://lippe.no/maskiner-og-utstyr/">Våre produkter</a></li>
+</ul>
+</li>
+<li id="menu-item-33700" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33700"><a href="https://lippe.no/min-konto/">Min konto</a></li>
+</ul></div>			</div>
+
+			
+			<header id="masthead" class="flex justify-center" style="background: var(--color-dark)" role="banner" style="">
+
+				<div class="hidden md:block w-full flex-grow">
+					<div class="grid grid-cols-3">
+						<div class="flex justify-start items-start">
+							<svg  class="h-full w-full max-h-20" xmlns="http://www.w3.org/2000/svg" width="81" height="82"  fill="none">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M81.0003 0H0V81.5855H0.586278L0.000530835 80.9998L81.0003 0Z" fill="white"/>
+							</svg>
+
+						</div>
+
+						<div class="lippe-logo flex justify-center items-center w-full">
+							<a href="https://lippe.no/" class="custom-logo-link" rel="home" aria-current="page"><img width="575" height="169" src="https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1.png" class="custom-logo" alt="LIPPE.no" srcset="https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1.png 575w, https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1-300x88.png 300w, https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1-324x95.png 324w, https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1-416x122.png 416w, https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1-64x19.png 64w" sizes="(max-width: 575px) 100vw, 575px" /></a>						</div>
+						<div class="flex justify-end pr-6">
+							<svg xmlns="http://www.w3.org/2000/svg" width="39" height="100" viewBox="0 0 39 100" fill="none">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0L19.4014 99.8108L38.8027 0H0Z" fill="#FF57EC"/>
+							</svg>
+						</div>
+					</div>
+					<div class="grid grid-cols-6">
+						<div>
+						</div>
+						<div class="col-span-4">
+							<div class="flex justify-center items-center">
+								<nav id="site-navigation" class="main-navigation" style="justify-content: center !important;" role="navigation" aria-label="Primærmeny">
+									<button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span>Meny</span></button>
+									<div class="primary-navigation"><ul id="menu-om-oss-1" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-80002"><a>Nettbutikk</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59861"><a href="https://lippe.no/kaffeogte/">Kaffe &#038; te</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-86492"><a href="https://lippe.no/butikk/">Alle produkter</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-83371"><a>Bli kunde</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-83372"><a href="https://lippe.no/nybrent-jobbkaffe/">Kaffe til arbeidsplassen</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-69710"><a href="https://lippe.no/bli-proffkunde/">Kaffe til serveringssted</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-70235"><a href="https://lippe.no/blogg/">Blogg</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33695"><a>Om</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35461"><a href="https://lippe.no/historien-om-lippe/">Historien om Lippe</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35480"><a href="https://lippe.no/maskiner-og-utstyr/">Våre produkter</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33700"><a href="https://lippe.no/min-konto/">Min konto</a></li>
+</ul></div><div class="handheld-navigation"><ul id="menu-om-oss-2" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-80002"><a>Nettbutikk</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59861"><a href="https://lippe.no/kaffeogte/">Kaffe &#038; te</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-86492"><a href="https://lippe.no/butikk/">Alle produkter</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-83371"><a>Bli kunde</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-83372"><a href="https://lippe.no/nybrent-jobbkaffe/">Kaffe til arbeidsplassen</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-69710"><a href="https://lippe.no/bli-proffkunde/">Kaffe til serveringssted</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-70235"><a href="https://lippe.no/blogg/">Blogg</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33695"><a>Om</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35461"><a href="https://lippe.no/historien-om-lippe/">Historien om Lippe</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35480"><a href="https://lippe.no/maskiner-og-utstyr/">Våre produkter</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33700"><a href="https://lippe.no/min-konto/">Min konto</a></li>
+</ul></div>								</nav><!-- #site-navigation -->
+								<div class="flex items-center justify-center ml-10">
+									<div  class="dgwt-wcas-search-wrapp dgwt-wcas-is-detail-box dgwt-wcas-no-submit woocommerce dgwt-wcas-style-solaris js-dgwt-wcas-layout-icon dgwt-wcas-layout-icon js-dgwt-wcas-mobile-overlay-enabled">
+			<div  class="dgwt-wcas-search-icon js-dgwt-wcas-search-icon-handler">				<svg version="1.1" class="dgwt-wcas-ico-magnifier-handler" xmlns="http://www.w3.org/2000/svg"
+					 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 viewBox="0 0 51.539 51.361" enable-background="new 0 0 51.539 51.361" xml:space="preserve">
+		             <path fill="#444"
+						   d="M51.539,49.356L37.247,35.065c3.273-3.74,5.272-8.623,5.272-13.983c0-11.742-9.518-21.26-21.26-21.26 S0,9.339,0,21.082s9.518,21.26,21.26,21.26c5.361,0,10.244-1.999,13.983-5.272l14.292,14.292L51.539,49.356z M2.835,21.082 c0-10.176,8.249-18.425,18.425-18.425s18.425,8.249,18.425,18.425S31.436,39.507,21.26,39.507S2.835,31.258,2.835,21.082z"/>
+				</svg>
+				</div>
+		<div class="dgwt-wcas-search-icon-arrow"></div>
+		<form class="dgwt-wcas-search-form" role="search" action="https://lippe.no/" method="get">
+		<div class="dgwt-wcas-sf-wrapp">
+							<svg version="1.1" class="dgwt-wcas-ico-magnifier" xmlns="http://www.w3.org/2000/svg"
+					 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 viewBox="0 0 51.539 51.361" enable-background="new 0 0 51.539 51.361" xml:space="preserve">
+		             <path fill="#444"
+						   d="M51.539,49.356L37.247,35.065c3.273-3.74,5.272-8.623,5.272-13.983c0-11.742-9.518-21.26-21.26-21.26 S0,9.339,0,21.082s9.518,21.26,21.26,21.26c5.361,0,10.244-1.999,13.983-5.272l14.292,14.292L51.539,49.356z M2.835,21.082 c0-10.176,8.249-18.425,18.425-18.425s18.425,8.249,18.425,18.425S31.436,39.507,21.26,39.507S2.835,31.258,2.835,21.082z"/>
+				</svg>
+							<label class="screen-reader-text"
+			       for="dgwt-wcas-search-input-1">Products search</label>
+
+			<input id="dgwt-wcas-search-input-1"
+			       type="search"
+			       class="dgwt-wcas-search-input"
+			       name="s"
+			       value=""
+			       placeholder="Søk etter produkter"
+			       autocomplete="off"
+				   			/>
+			<div class="dgwt-wcas-preloader"></div>
+
+			<div class="dgwt-wcas-voice-search"></div>
+
+			
+			<input type="hidden" name="post_type" value="product"/>
+			<input type="hidden" name="dgwt_wcas" value="1"/>
+
+			
+					</div>
+	</form>
+</div>
+								</div>
+							</div>
+						</div>
+						<div class="flex justify-end items-center pr-6 relative">
+							<a href="/kaffeogte" class="relative">
+
+																<svg style="margin-right: 8px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" width="25" height="36">
+									<g class="nc-icon-wrapper" fill="#fff">
+										<polygon fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="28,31 28,31 4,31 4,7 28,7 " stroke-linejoin="miter" />
+										<path data-color="color-2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M11,12V6 c0-2.761,2.239-5,5-5h0c2.761,0,5,2.239,5,5v6" stroke-linejoin="miter" />
+									</g>
+								</svg>
+							</a>
+
+						</div>
+					</div>
+				</div>
+				<div class="md:hidden flex justify-between w-full max-w-5xl py-10 px-5 justify-center">
+					<div class="lippe-logo">
+						<a href="https://lippe.no/" class="custom-logo-link" rel="home" aria-current="page"><img width="575" height="169" src="https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1.png" class="custom-logo" alt="LIPPE.no" srcset="https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1.png 575w, https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1-300x88.png 300w, https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1-324x95.png 324w, https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1-416x122.png 416w, https://lippe.no/wp-content/uploads/2020/06/cropped-LIPPE_white-1-64x19.png 64w" sizes="(max-width: 575px) 100vw, 575px" /></a>					</div>
+
+
+
+					<div class="flex justify-end items-center w-full">
+						<div class="flex items-center justify-center">
+							<div  class="dgwt-wcas-search-wrapp dgwt-wcas-is-detail-box dgwt-wcas-no-submit woocommerce dgwt-wcas-style-solaris js-dgwt-wcas-layout-icon dgwt-wcas-layout-icon js-dgwt-wcas-mobile-overlay-enabled">
+			<div  class="dgwt-wcas-search-icon js-dgwt-wcas-search-icon-handler">				<svg version="1.1" class="dgwt-wcas-ico-magnifier-handler" xmlns="http://www.w3.org/2000/svg"
+					 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 viewBox="0 0 51.539 51.361" enable-background="new 0 0 51.539 51.361" xml:space="preserve">
+		             <path fill="#444"
+						   d="M51.539,49.356L37.247,35.065c3.273-3.74,5.272-8.623,5.272-13.983c0-11.742-9.518-21.26-21.26-21.26 S0,9.339,0,21.082s9.518,21.26,21.26,21.26c5.361,0,10.244-1.999,13.983-5.272l14.292,14.292L51.539,49.356z M2.835,21.082 c0-10.176,8.249-18.425,18.425-18.425s18.425,8.249,18.425,18.425S31.436,39.507,21.26,39.507S2.835,31.258,2.835,21.082z"/>
+				</svg>
+				</div>
+		<div class="dgwt-wcas-search-icon-arrow"></div>
+		<form class="dgwt-wcas-search-form" role="search" action="https://lippe.no/" method="get">
+		<div class="dgwt-wcas-sf-wrapp">
+							<svg version="1.1" class="dgwt-wcas-ico-magnifier" xmlns="http://www.w3.org/2000/svg"
+					 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 viewBox="0 0 51.539 51.361" enable-background="new 0 0 51.539 51.361" xml:space="preserve">
+		             <path fill="#444"
+						   d="M51.539,49.356L37.247,35.065c3.273-3.74,5.272-8.623,5.272-13.983c0-11.742-9.518-21.26-21.26-21.26 S0,9.339,0,21.082s9.518,21.26,21.26,21.26c5.361,0,10.244-1.999,13.983-5.272l14.292,14.292L51.539,49.356z M2.835,21.082 c0-10.176,8.249-18.425,18.425-18.425s18.425,8.249,18.425,18.425S31.436,39.507,21.26,39.507S2.835,31.258,2.835,21.082z"/>
+				</svg>
+							<label class="screen-reader-text"
+			       for="dgwt-wcas-search-input-2">Products search</label>
+
+			<input id="dgwt-wcas-search-input-2"
+			       type="search"
+			       class="dgwt-wcas-search-input"
+			       name="s"
+			       value=""
+			       placeholder="Søk etter produkter"
+			       autocomplete="off"
+				   			/>
+			<div class="dgwt-wcas-preloader"></div>
+
+			<div class="dgwt-wcas-voice-search"></div>
+
+			
+			<input type="hidden" name="post_type" value="product"/>
+			<input type="hidden" name="dgwt_wcas" value="1"/>
+
+			
+					</div>
+	</form>
+</div>
+						</div>
+						<a href="/kaffeogte/" class="relative">
+														<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" width="25" height="36">
+								<g class="nc-icon-wrapper" fill="#fff">
+									<polygon fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="28,31 28,31 4,31 4,7 28,7 " stroke-linejoin="miter" />
+									<path data-color="color-2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M11,12V6 c0-2.761,2.239-5,5-5h0c2.761,0,5,2.239,5,5v6" stroke-linejoin="miter" />
+								</g>
+							</svg>
+						</a>
+
+						<span class="cursor-pointer ml-4" onclick="moveNavIntoView()">
+							<svg xmlns="http://www.w3.org/2000/svg" width="21" height="16" viewBox="0 0 21 16" fill="none">
+								<path d="M0 15H21M0 8H21M0 1H21" stroke="#e9e9e9" stroke-width="2"/>
+							</svg>
+						</span>
+					</div>
+				</div>
+			</header><!-- #masthead -->
+
+			
+			<div id="content" class="site-content" tabindex="-1">
+				<div class="col-full">
+
+					<div class="woocommerce"></div>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+			
+<article id="post-39335" class="post-39335 page type-page status-publish hentry">
+			<header class="entry-header">
+					</header><!-- .entry-header -->
+				<div class="entry-content">
+			
+<div class="featured-coffee">
+   <div>
+      <h3>Kaffe og te</h3>
+      <br>Vi plukker ut den beste råkaffen før vi brenner den skånsomt og sender til deg som kunde. På samme måte velger vi ut gode teer som vi får levert i bulk og pakker dem i beskyttende atmosfære. Du kan raskt få en oversikt over alternativene du kan kjøpe. <p></p>
+      <a class="button" href="https://lippe.no/kaffeogte/">Vis produktene!
+   </a></div>
+   <a href="https://lippe.no/kaffeogte/"><img src="https://lippe.no/wp-content/uploads/2019/01/Muchagara.jpg" alt="LIPPE kaffe og te"></a>
+</div>
+
+
+
+<p></p>
+
+
+
+<div class="featured-coffee">
+   <div>
+      <h3>Abonner på kaffe</h3>
+      <br>Ingen ting er bedre enn å få tilsendt nybrent kaffe rett hjem i postkassen. Velg selv hva slags kaffe, hvor mye og hvor ofte du ønsker. Du kan abonnere på både svart kaffe og espresso<p></p>
+      <a class="button" href="https://lippe.no/produktkategori/kaffe/kaffeabonnement/">Abonner!
+   </a></div>
+   <a href="https://lippe.no/produktkategori/kaffe/kaffeabonnement/"><img src="https://lippe.no/wp-content/uploads/2019/10/abonnement-scaled.jpg" alt="Kaffeabonnement på svart kaffe og espresso"></a>
+</div>
+
+
+<ul class="wp-block-latest-posts__list is-grid columns-3 wp-block-latest-posts"><li><div class="wp-block-latest-posts__featured-image aligncenter"><a href="https://lippe.no/2020/04/30/pias-tips-for-godt-handbrygg/" aria-label="Pias tips for godt håndbrygg"><img loading="lazy" width="980" height="799" src="https://lippe.no/wp-content/uploads/2020/04/IMG_1438-1024x835.jpg" class="attachment-large size-large wp-post-image" alt="" style="max-width:512px;max-height:512px;" srcset="https://lippe.no/wp-content/uploads/2020/04/IMG_1438-1024x835.jpg 1024w, https://lippe.no/wp-content/uploads/2020/04/IMG_1438-324x264.jpg 324w, https://lippe.no/wp-content/uploads/2020/04/IMG_1438-416x339.jpg 416w, https://lippe.no/wp-content/uploads/2020/04/IMG_1438-64x52.jpg 64w, https://lippe.no/wp-content/uploads/2020/04/IMG_1438-300x245.jpg 300w, https://lippe.no/wp-content/uploads/2020/04/IMG_1438-768x626.jpg 768w, https://lippe.no/wp-content/uploads/2020/04/IMG_1438.jpg 2048w" sizes="(max-width: 980px) 100vw, 980px" /></a></div><a class="wp-block-latest-posts__post-title" href="https://lippe.no/2020/04/30/pias-tips-for-godt-handbrygg/">Pias tips for godt håndbrygg</a><div class="wp-block-latest-posts__post-excerpt">Det er noen viktige regler man ikke kommer unna når man skal lage et godt håndbrygg. Sjekk ut denne artikkelen, så kan jeg garantere at du får et bra brygg i koppen til slutt.</div></li>
+<li><div class="wp-block-latest-posts__featured-image aligncenter"><a href="https://lippe.no/2020/04/22/iskaffe-cold-brew/" aria-label="Iskaffe basert på svart kaffe"><img width="605" height="478" src="https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart.jpg" class="attachment-large size-large wp-post-image" alt="iskaffe cold brew" loading="lazy" style="max-width:512px;max-height:512px;" srcset="https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart.jpg 605w, https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart-324x256.jpg 324w, https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart-416x329.jpg 416w, https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart-64x51.jpg 64w, https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart-300x237.jpg 300w" sizes="(max-width: 605px) 100vw, 605px" /></a></div><a class="wp-block-latest-posts__post-title" href="https://lippe.no/2020/04/22/iskaffe-cold-brew/">Iskaffe basert på svart kaffe</a><div class="wp-block-latest-posts__post-excerpt"><p></p> <p>I denne artikkelen tar vi for oss en veldig enkelt metode for å lage iskaffe basert på svart kaffe. Dette er også en metode som ivaretar kaffens naturlige friskehet og er enkel å skalere opp til større kaffetraktere.&nbsp;</p> </div></li>
+<li><div class="wp-block-latest-posts__featured-image aligncenter"><a href="https://lippe.no/2004/08/19/blir-ikke-rancilio-silvia-varm/" aria-label="Blir ikke Rancilio Silvia varm?"><img width="678" height="997" src="https://lippe.no/wp-content/uploads/2013/09/Silvia_E_front.jpg" class="attachment-large size-large wp-post-image" alt="" loading="lazy" style="max-width:512px;max-height:512px;" srcset="https://lippe.no/wp-content/uploads/2013/09/Silvia_E_front.jpg 678w, https://lippe.no/wp-content/uploads/2013/09/Silvia_E_front-324x476.jpg 324w, https://lippe.no/wp-content/uploads/2013/09/Silvia_E_front-416x612.jpg 416w, https://lippe.no/wp-content/uploads/2013/09/Silvia_E_front-64x94.jpg 64w, https://lippe.no/wp-content/uploads/2013/09/Silvia_E_front-204x300.jpg 204w" sizes="(max-width: 678px) 100vw, 678px" /></a></div><a class="wp-block-latest-posts__post-title" href="https://lippe.no/2004/08/19/blir-ikke-rancilio-silvia-varm/">Blir ikke Rancilio Silvia varm?</a><div class="wp-block-latest-posts__post-excerpt"><p>Vi har hatt utstrakt erfaring med Silvia siden våren 1998. Når så mange maskiner fines der ute i markedet, så har vi naturlig nok opplevd noen problemer, om en liten grad. Det vanligste problemet er at maskinen slutter å varme på en eller annen måte, enten det skyldes en termostat som har sluttet å fungere eller varmeelementet har tørrkokt.</p> </div></li>
+</ul>
+
+
+<h2>Nyeste produkter</h2>
+
+
+<div data-block-name="woocommerce/product-new" data-columns="4" class="wc-block-grid wp-block-product-new wc-block-product-new has-4-columns has-multiple-rows"><ul class="wc-block-grid__products"><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="89470" data-gtm4wp_product_name="Rancilio bryter vannuttak c6/8 (Gammel type)" data-gtm4wp_product_price="731.25" data-gtm4wp_product_cat="Elektrisk" data-gtm4wp_product_url="https://lippe.no/butikk/rancilio-bryter-vannuttak-c6-8-gammel-type/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="2" data-gtm4wp_product_brand="Elektrisk"></span>
+				<a href="https://lippe.no/butikk/rancilio-bryter-vannuttak-c6-8-gammel-type/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="280" height="280" src="https://lippe.no/wp-content/uploads/2018/12/bryter-vann-c6-c8.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Rancilio bryter vannuttak c6/8 (Gammel type)" loading="lazy" srcset="https://lippe.no/wp-content/uploads/2018/12/bryter-vann-c6-c8.png 280w, https://lippe.no/wp-content/uploads/2018/12/bryter-vann-c6-c8-100x100.png 100w, https://lippe.no/wp-content/uploads/2018/12/bryter-vann-c6-c8-64x64.png 64w, https://lippe.no/wp-content/uploads/2018/12/bryter-vann-c6-c8-150x150.png 150w" sizes="(max-width: 280px) 100vw, 280px" /></div>
+					<div class="wc-block-grid__product-title">Rancilio bryter vannuttak c6/8 (Gammel type)</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;731,25</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=89470" aria-label="Legg til &ldquo;Rancilio bryter vannuttak c6/8 (Gammel type)&rdquo; i handlekurven" data-quantity="1" data-product_id="89470" data-product_sku="10705366" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="89436" data-gtm4wp_product_name="Etiopia Biftu Gudina Økologisk, 250g" data-gtm4wp_product_price="159" data-gtm4wp_product_cat="Svart kaffe 250g" data-gtm4wp_product_url="https://lippe.no/butikk/etiopia-biftu-gudina-okologisk-250g/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="17" data-gtm4wp_product_brand="Svart kaffe 250g"></span>
+				<a href="https://lippe.no/butikk/etiopia-biftu-gudina-okologisk-250g/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="324" height="398" src="https://lippe.no/wp-content/uploads/2020/10/KET231-Guji-324x398.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Etiopia Biftu Gudina Økologisk, 250g" loading="lazy" srcset="https://lippe.no/wp-content/uploads/2020/10/KET231-Guji-324x398.png 324w, https://lippe.no/wp-content/uploads/2020/10/KET231-Guji-416x511.png 416w, https://lippe.no/wp-content/uploads/2020/10/KET231-Guji-64x79.png 64w, https://lippe.no/wp-content/uploads/2020/10/KET231-Guji-244x300.png 244w, https://lippe.no/wp-content/uploads/2020/10/KET231-Guji.png 684w" sizes="(max-width: 324px) 100vw, 324px" /></div>
+					<div class="wc-block-grid__product-title">Etiopia Biftu Gudina Økologisk, 250g</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;159,00</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=89436" aria-label="Legg til &ldquo;Etiopia Biftu Gudina Økologisk, 250g&rdquo; i handlekurven" data-quantity="1" data-product_id="89436" data-product_sku="KET234" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="89435" data-gtm4wp_product_name="Etiopia Biftu Gudina, 1kg" data-gtm4wp_product_price="510" data-gtm4wp_product_cat="Svart kaffe 1kg" data-gtm4wp_product_url="https://lippe.no/butikk/etiopia-bifdu-gudina-1kg/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="10" data-gtm4wp_product_brand="Svart kaffe 1kg"></span>
+				<a href="https://lippe.no/butikk/etiopia-bifdu-gudina-1kg/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="324" height="514" src="https://lippe.no/wp-content/uploads/2020/10/KET031-Guji-324x514.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Etiopia Biftu Gudina, 1kg" loading="lazy" srcset="https://lippe.no/wp-content/uploads/2020/10/KET031-Guji-324x514.png 324w, https://lippe.no/wp-content/uploads/2020/10/KET031-Guji-416x661.png 416w, https://lippe.no/wp-content/uploads/2020/10/KET031-Guji-64x102.png 64w, https://lippe.no/wp-content/uploads/2020/10/KET031-Guji-189x300.png 189w, https://lippe.no/wp-content/uploads/2020/10/KET031-Guji.png 631w" sizes="(max-width: 324px) 100vw, 324px" /></div>
+					<div class="wc-block-grid__product-title">Etiopia Biftu Gudina, 1kg</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;510,00</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=89435" aria-label="Legg til &ldquo;Etiopia Biftu Gudina, 1kg&rdquo; i handlekurven" data-quantity="1" data-product_id="89435" data-product_sku="KET034" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="88589" data-gtm4wp_product_name="Kakao Stor" data-gtm4wp_product_price="50" data-gtm4wp_product_cat="Rancilio deler/tilbehør" data-gtm4wp_product_url="https://lippe.no/butikk/kakao-stor/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="" data-gtm4wp_product_brand="Rancilio deler/tilbehør"></span>
+				<a href="https://lippe.no/butikk/kakao-stor/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="324" height="397" src="https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE-324x397.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="ZUMA sjokoladesaus" loading="lazy" srcset="https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE-324x397.png 324w, https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE-416x510.png 416w, https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE-64x78.png 64w, https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE-245x300.png 245w, https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE.png 501w" sizes="(max-width: 324px) 100vw, 324px" /></div>
+					<div class="wc-block-grid__product-title">Kakao Stor</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;50,00</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=88589" aria-label="Legg til &ldquo;Kakao Stor&rdquo; i handlekurven" data-quantity="1" data-product_id="88589" data-product_sku="KAF020" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="88555" data-gtm4wp_product_name="Kakao Liten" data-gtm4wp_product_price="45" data-gtm4wp_product_cat="Rancilio deler/tilbehør" data-gtm4wp_product_url="https://lippe.no/butikk/kakao/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="" data-gtm4wp_product_brand="Rancilio deler/tilbehør"></span>
+				<a href="https://lippe.no/butikk/kakao/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="324" height="397" src="https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE-324x397.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="ZUMA sjokoladesaus" loading="lazy" srcset="https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE-324x397.png 324w, https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE-416x510.png 416w, https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE-64x78.png 64w, https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE-245x300.png 245w, https://lippe.no/wp-content/uploads/2020/03/Zuma_dark_chocolate_saus-LIPPE.png 501w" sizes="(max-width: 324px) 100vw, 324px" /></div>
+					<div class="wc-block-grid__product-title">Kakao Liten</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;45,00</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=88555" aria-label="Legg til &ldquo;Kakao Liten&rdquo; i handlekurven" data-quantity="1" data-product_id="88555" data-product_sku="KAF019" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="88554" data-gtm4wp_product_name="Kaffe Stor" data-gtm4wp_product_price="42" data-gtm4wp_product_cat="Rancilio deler/tilbehør" data-gtm4wp_product_url="https://lippe.no/butikk/kaffe-stor/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="" data-gtm4wp_product_brand="Rancilio deler/tilbehør"></span>
+				<a href="https://lippe.no/butikk/kaffe-stor/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="324" height="113" src="https://lippe.no/wp-content/uploads/2016/12/images_artikkelbilder_cupping-324x113.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cupping av svart kaffe" loading="lazy" srcset="https://lippe.no/wp-content/uploads/2016/12/images_artikkelbilder_cupping-324x113.jpg 324w, https://lippe.no/wp-content/uploads/2016/12/images_artikkelbilder_cupping-416x145.jpg 416w, https://lippe.no/wp-content/uploads/2016/12/images_artikkelbilder_cupping-64x22.jpg 64w, https://lippe.no/wp-content/uploads/2016/12/images_artikkelbilder_cupping-300x105.jpg 300w, https://lippe.no/wp-content/uploads/2016/12/images_artikkelbilder_cupping.jpg 734w" sizes="(max-width: 324px) 100vw, 324px" /></div>
+					<div class="wc-block-grid__product-title">Kaffe Stor</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;42,00</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=88554" aria-label="Legg til &ldquo;Kaffe Stor&rdquo; i handlekurven" data-quantity="1" data-product_id="88554" data-product_sku="KAF018" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="88533" data-gtm4wp_product_name="Iste" data-gtm4wp_product_price="45" data-gtm4wp_product_cat="Rancilio deler/tilbehør" data-gtm4wp_product_url="https://lippe.no/butikk/iste/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="" data-gtm4wp_product_brand="Rancilio deler/tilbehør"></span>
+				<a href="https://lippe.no/butikk/iste/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="324" height="324" src="https://lippe.no/wp-content/uploads/2022/06/iste-324x324.webp" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Iste" loading="lazy" srcset="https://lippe.no/wp-content/uploads/2022/06/iste-324x324.webp 324w, https://lippe.no/wp-content/uploads/2022/06/iste-300x300.webp 300w, https://lippe.no/wp-content/uploads/2022/06/iste-150x150.webp 150w, https://lippe.no/wp-content/uploads/2022/06/iste-768x768.webp 768w, https://lippe.no/wp-content/uploads/2022/06/iste-416x416.webp 416w, https://lippe.no/wp-content/uploads/2022/06/iste-100x100.webp 100w, https://lippe.no/wp-content/uploads/2022/06/iste-64x64.webp 64w, https://lippe.no/wp-content/uploads/2022/06/iste-e1655038872845.webp 500w" sizes="(max-width: 324px) 100vw, 324px" /></div>
+					<div class="wc-block-grid__product-title">Iste</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;45,00</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=88533" aria-label="Legg til &ldquo;Iste&rdquo; i handlekurven" data-quantity="1" data-product_id="88533" data-product_sku="KAF017" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="88532" data-gtm4wp_product_name="Te" data-gtm4wp_product_price="40" data-gtm4wp_product_cat="Rancilio deler/tilbehør" data-gtm4wp_product_url="https://lippe.no/butikk/te/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="" data-gtm4wp_product_brand="Rancilio deler/tilbehør"></span>
+				<a href="https://lippe.no/butikk/te/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="324" height="323" src="https://lippe.no/wp-content/uploads/2020/06/tedrypper-largo-hario-324x323.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Te" loading="lazy" srcset="https://lippe.no/wp-content/uploads/2020/06/tedrypper-largo-hario-324x323.jpg 324w, https://lippe.no/wp-content/uploads/2020/06/tedrypper-largo-hario-100x100.jpg 100w, https://lippe.no/wp-content/uploads/2020/06/tedrypper-largo-hario-416x414.jpg 416w, https://lippe.no/wp-content/uploads/2020/06/tedrypper-largo-hario-64x64.jpg 64w, https://lippe.no/wp-content/uploads/2020/06/tedrypper-largo-hario-300x300.jpg 300w, https://lippe.no/wp-content/uploads/2020/06/tedrypper-largo-hario-150x150.jpg 150w, https://lippe.no/wp-content/uploads/2020/06/tedrypper-largo-hario.jpg 477w" sizes="(max-width: 324px) 100vw, 324px" /></div>
+					<div class="wc-block-grid__product-title">Te</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;40,00</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=88532" aria-label="Legg til &ldquo;Te&rdquo; i handlekurven" data-quantity="1" data-product_id="88532" data-product_sku="KAF016" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="88531" data-gtm4wp_product_name="Iskaffe" data-gtm4wp_product_price="45" data-gtm4wp_product_cat="Rancilio deler/tilbehør" data-gtm4wp_product_url="https://lippe.no/butikk/iskaffe/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="" data-gtm4wp_product_brand="Rancilio deler/tilbehør"></span>
+				<a href="https://lippe.no/butikk/iskaffe/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="324" height="256" src="https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart-324x256.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="iskaffe cold brew" loading="lazy" srcset="https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart-324x256.jpg 324w, https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart-416x329.jpg 416w, https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart-64x51.jpg 64w, https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart-300x237.jpg 300w, https://lippe.no/wp-content/uploads/2017/05/baristateknikker_svart_kaffe_iskaffe_iskaffe2_svart.jpg 605w" sizes="(max-width: 324px) 100vw, 324px" /></div>
+					<div class="wc-block-grid__product-title">Iskaffe</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;45,00</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=88531" aria-label="Legg til &ldquo;Iskaffe&rdquo; i handlekurven" data-quantity="1" data-product_id="88531" data-product_sku="KAF015" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="88529" data-gtm4wp_product_name="Bolle" data-gtm4wp_product_price="45" data-gtm4wp_product_cat="Rancilio deler/tilbehør" data-gtm4wp_product_url="https://lippe.no/butikk/bolle/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="" data-gtm4wp_product_brand="Rancilio deler/tilbehør"></span>
+				<a href="https://lippe.no/butikk/bolle/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="324" height="251" src="https://lippe.no/wp-content/uploads/2022/06/Kanelbolle-scaled-1-324x251.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Bolle" loading="lazy" srcset="https://lippe.no/wp-content/uploads/2022/06/Kanelbolle-scaled-1-324x251.jpg 324w, https://lippe.no/wp-content/uploads/2022/06/Kanelbolle-scaled-1-300x232.jpg 300w, https://lippe.no/wp-content/uploads/2022/06/Kanelbolle-scaled-1-768x594.jpg 768w, https://lippe.no/wp-content/uploads/2022/06/Kanelbolle-scaled-1-416x322.jpg 416w, https://lippe.no/wp-content/uploads/2022/06/Kanelbolle-scaled-1-64x50.jpg 64w, https://lippe.no/wp-content/uploads/2022/06/Kanelbolle-scaled-1.jpg 800w" sizes="(max-width: 324px) 100vw, 324px" /></div>
+					<div class="wc-block-grid__product-title">Bolle</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;45,00</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=88529" aria-label="Legg til &ldquo;Bolle&rdquo; i handlekurven" data-quantity="1" data-product_id="88529" data-product_sku="KAF014" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="88342" data-gtm4wp_product_name="Rancilio Classe 5 Compact bryter vann ramme" data-gtm4wp_product_price="265" data-gtm4wp_product_cat="Rancilio deler/tilbehør" data-gtm4wp_product_url="https://lippe.no/butikk/rancilio-classe-5-compact-bryter-vann-ramme/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="2" data-gtm4wp_product_brand="Diverse"></span>
+				<a href="https://lippe.no/butikk/rancilio-classe-5-compact-bryter-vann-ramme/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="324" height="324" src="https://lippe.no/wp-content/uploads/woocommerce-placeholder-324x324.png" class="woocommerce-placeholder wp-post-image" alt="" loading="lazy" srcset="https://lippe.no/wp-content/uploads/woocommerce-placeholder-324x324.png 324w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-100x100.png 100w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-416x416.png 416w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-64x64.png 64w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-150x150.png 150w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-300x300.png 300w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-768x768.png 768w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-1024x1024.png 1024w, https://lippe.no/wp-content/uploads/woocommerce-placeholder.png 1200w" sizes="(max-width: 324px) 100vw, 324px" /></div>
+					<div class="wc-block-grid__product-title">Rancilio Classe 5 Compact bryter vann ramme</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;265,00</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=88342" aria-label="Legg til &ldquo;Rancilio Classe 5 Compact bryter vann ramme&rdquo; i handlekurven" data-quantity="1" data-product_id="88342" data-product_sku="38120302" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li><li class="wc-block-grid__product"><span class="gtm4wp_productdata" style="display:none; visibility:hidden;" data-gtm4wp_product_id="88339" data-gtm4wp_product_name="Rancilio Classe 5 Compact bryter vann" data-gtm4wp_product_price="115" data-gtm4wp_product_cat="Rancilio deler/tilbehør" data-gtm4wp_product_url="https://lippe.no/butikk/rancilio-classe-5-compact-bryter-vann/" data-gtm4wp_product_listposition="0" data-gtm4wp_productlist_name="General Product List" data-gtm4wp_product_stocklevel="2" data-gtm4wp_product_brand="Elektrisk"></span>
+				<a href="https://lippe.no/butikk/rancilio-classe-5-compact-bryter-vann/" class="wc-block-grid__product-link">
+					<div class="wc-block-grid__product-image"><img width="324" height="324" src="https://lippe.no/wp-content/uploads/woocommerce-placeholder-324x324.png" class="woocommerce-placeholder wp-post-image" alt="" loading="lazy" srcset="https://lippe.no/wp-content/uploads/woocommerce-placeholder-324x324.png 324w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-100x100.png 100w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-416x416.png 416w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-64x64.png 64w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-150x150.png 150w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-300x300.png 300w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-768x768.png 768w, https://lippe.no/wp-content/uploads/woocommerce-placeholder-1024x1024.png 1024w, https://lippe.no/wp-content/uploads/woocommerce-placeholder.png 1200w" sizes="(max-width: 324px) 100vw, 324px" /></div>
+					<div class="wc-block-grid__product-title">Rancilio Classe 5 Compact bryter vann</div>
+				</a>
+				
+				<div class="wc-block-grid__product-price price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#107;&#114;</span>&nbsp;115,00</span></div>
+				
+				<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="?add-to-cart=88339" aria-label="Legg til &ldquo;Rancilio Classe 5 Compact bryter vann&rdquo; i handlekurven" data-quantity="1" data-product_id="88339" data-product_sku="34030975" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Kjøp</a></div>
+			</li></ul></div>					</div><!-- .entry-content -->
+		</article><!-- #post-## -->
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+		</div><!-- .col-full -->
+	</div><!-- #content -->
+
+	
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="col-full">
+
+							<div class="footer-widgets row-1 col-1 fix">
+									<div class="block footer-widget-1">
+						<div id="custom_html-4" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="text-left">
+  <div class="flex flex-row flex-wrap justify-between">
+    <div class="p-2">
+      <h5 style="color:white !important;">Åpningstider</h5>
+      <div>man-fre 08:00 - 16:00</div>
+      <a href="https://goo.gl/maps/qRAhAZmqWMv" class="block" target="_blank" rel="noopener">
+        Rosenholmveien 6, 1252 Oslo
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" role="presentation"
+          style="transform:rotate(-135deg); display: inline-block;" data-v-6391f6ed="" data-v-e694bd16="">
+          <g fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+            data-v-6391f6ed="">
+            <g fill="none" data-v-6391f6ed="">
+              <path d="M11 8.5L8 11.5L5 8.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <line x1="8" y1="4.5" x2="8" y2="10.5" stroke-linecap="round"></line>
+            </g>
+          </g>
+        </svg>
+      </a>
+    </div>
+
+    <div class="p-2">
+      <h5 style="color:white !important;">Kontakt</h5>
+      <a class="block" href="tel:004740005759">+47 40 00 57 59</a>
+      <a class="block" href="mailto:post@lippe.no">post@lippe.no</a>
+      <a class="block" href="https://www.instagram.com/lippekaffe/" target="_blank" rel="noopener">
+        Instagram
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" role="presentation"
+          style="transform:rotate(-135deg); display: inline-block;" data-v-6391f6ed="" data-v-e694bd16="">
+          <g fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+            data-v-6391f6ed="">
+            <g fill="none" data-v-6391f6ed="">
+              <path d="M11 8.5L8 11.5L5 8.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <line x1="8" y1="4.5" x2="8" y2="10.5" stroke-linecap="round"></line>
+            </g>
+          </g>
+        </svg>
+      </a>
+      <a class="block" href="https://www.facebook.com/lippekaffe/" target="_blank" rel="noopener">
+        Facebook
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" role="presentation"
+          style="transform:rotate(-135deg); display: inline-block;" data-v-6391f6ed="" data-v-e694bd16="">
+          <g fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+            data-v-6391f6ed="">
+            <g fill="none" data-v-6391f6ed="">
+              <path d="M11 8.5L8 11.5L5 8.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <line x1="8" y1="4.5" x2="8" y2="10.5" stroke-linecap="round"></line>
+            </g>
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="px-2 py-4 mt-2 border-t border-gray-400">
+    <a class="block" href="/personvernerklaering" target="_blank" rel="noopener">
+      Personvernerklæring
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" role="presentation"
+        style="transform:rotate(-135deg); display: inline-block;" data-v-6391f6ed="" data-v-e694bd16="">
+        <g fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+          data-v-6391f6ed="">
+          <g fill="none" data-v-6391f6ed="">
+            <path d="M11 8.5L8 11.5L5 8.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <line x1="8" y1="4.5" x2="8" y2="10.5" stroke-linecap="round"></line>
+          </g>
+        </g>
+      </svg>
+    </a>
+    <a class="block" href="/salgsbetingelser" target="_blank" rel="noopener">
+      Salgsbetingelser
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" role="presentation"
+        style="transform:rotate(-135deg); display: inline-block;" data-v-6391f6ed="" data-v-e694bd16="">
+        <g fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+          data-v-6391f6ed="">
+          <g fill="none" data-v-6391f6ed="">
+            <path d="M11 8.5L8 11.5L5 8.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <line x1="8" y1="4.5" x2="8" y2="10.5" stroke-linecap="round"></line>
+          </g>
+        </g>
+      </svg>
+    </a>
+  </div>
+</div>
+</div></div>					</div>
+									</div><!-- .footer-widgets.row-1 -->
+						<div class="site-info">
+			&copy; LIPPE.no 2022
+							<br />
+				<a class="privacy-policy-link" href="https://lippe.no/personvernerklaering/">Personvern</a><span role="separator" aria-hidden="true"></span><a href="https://woocommerce.com" target="_blank" title="WooCommerce - Den beste netthandelsplatformen for WordPress" rel="noreferrer">Bygget med Storefront og WooCommerce</a>.					</div><!-- .site-info -->
+				<div class="storefront-handheld-footer-bar">
+			<ul class="columns-3">
+									<li class="my-account">
+						<a href="https://lippe.no/min-konto/">Min konto</a>					</li>
+									<li class="search">
+						<a href="">Søk</a>			<div class="site-search">
+				<div  class="dgwt-wcas-search-wrapp dgwt-wcas-is-detail-box dgwt-wcas-no-submit woocommerce dgwt-wcas-style-solaris js-dgwt-wcas-layout-icon dgwt-wcas-layout-icon js-dgwt-wcas-mobile-overlay-enabled">
+			<div  class="dgwt-wcas-search-icon js-dgwt-wcas-search-icon-handler">				<svg version="1.1" class="dgwt-wcas-ico-magnifier-handler" xmlns="http://www.w3.org/2000/svg"
+					 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 viewBox="0 0 51.539 51.361" enable-background="new 0 0 51.539 51.361" xml:space="preserve">
+		             <path fill="#444"
+						   d="M51.539,49.356L37.247,35.065c3.273-3.74,5.272-8.623,5.272-13.983c0-11.742-9.518-21.26-21.26-21.26 S0,9.339,0,21.082s9.518,21.26,21.26,21.26c5.361,0,10.244-1.999,13.983-5.272l14.292,14.292L51.539,49.356z M2.835,21.082 c0-10.176,8.249-18.425,18.425-18.425s18.425,8.249,18.425,18.425S31.436,39.507,21.26,39.507S2.835,31.258,2.835,21.082z"/>
+				</svg>
+				</div>
+		<div class="dgwt-wcas-search-icon-arrow"></div>
+		<form class="dgwt-wcas-search-form" role="search" action="https://lippe.no/" method="get">
+		<div class="dgwt-wcas-sf-wrapp">
+							<svg version="1.1" class="dgwt-wcas-ico-magnifier" xmlns="http://www.w3.org/2000/svg"
+					 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 viewBox="0 0 51.539 51.361" enable-background="new 0 0 51.539 51.361" xml:space="preserve">
+		             <path fill="#444"
+						   d="M51.539,49.356L37.247,35.065c3.273-3.74,5.272-8.623,5.272-13.983c0-11.742-9.518-21.26-21.26-21.26 S0,9.339,0,21.082s9.518,21.26,21.26,21.26c5.361,0,10.244-1.999,13.983-5.272l14.292,14.292L51.539,49.356z M2.835,21.082 c0-10.176,8.249-18.425,18.425-18.425s18.425,8.249,18.425,18.425S31.436,39.507,21.26,39.507S2.835,31.258,2.835,21.082z"/>
+				</svg>
+							<label class="screen-reader-text"
+			       for="dgwt-wcas-search-input-3">Products search</label>
+
+			<input id="dgwt-wcas-search-input-3"
+			       type="search"
+			       class="dgwt-wcas-search-input"
+			       name="s"
+			       value=""
+			       placeholder="Søk etter produkter"
+			       autocomplete="off"
+				   			/>
+			<div class="dgwt-wcas-preloader"></div>
+
+			<div class="dgwt-wcas-voice-search"></div>
+
+			
+			<input type="hidden" name="post_type" value="product"/>
+			<input type="hidden" name="dgwt_wcas" value="1"/>
+
+			
+					</div>
+	</form>
+</div>
+			</div>
+								</li>
+									<li class="cart">
+									<a class="footer-cart-contents" href="https://lippe.no/handlekurv/">Handlekurv				<span class="count">0</span>
+			</a>
+							</li>
+							</ul>
+		</div>
+		
+		</div><!-- .col-full -->
+	</footer><!-- #colophon -->
+
+	
+</div><!-- #page -->
+
+<script type="rocketlazyloadscript" id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/6f44bfd1afaec6deb807f6677/59305602bdf7b221d3e0d527c.js");</script><script type="application/ld+json">{"@context":"https:\/\/schema.org\/","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"name":"Hjem","@id":"https:\/\/lippe.no"}}]}</script>	<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<script src='https://lippe.no/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.selectBox.min.js?ver=1.2.0' id='jquery-selectBox-js' defer></script>
+<script src='//lippe.no/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js?ver=3.1.6' id='prettyPhoto-js' defer></script>
+<script id='jquery-yith-wcwl-js-extra'>
+var yith_wcwl_l10n = {"ajax_url":"\/wp-admin\/admin-ajax.php","redirect_to_cart":"no","multi_wishlist":"","hide_add_button":"1","enable_ajax_loading":"","ajax_loader_url":"https:\/\/lippe.no\/wp-content\/plugins\/yith-woocommerce-wishlist\/assets\/images\/ajax-loader-alt.svg","remove_from_wishlist_after_add_to_cart":"","is_wishlist_responsive":"1","time_to_close_prettyphoto":"3000","fragments_index_glue":".","reload_on_found_variation":"1","mobile_media_query":"768","labels":{"cookie_disabled":"We are sorry, but this feature is available only if cookies on your browser are enabled.","added_to_cart_message":"<div class=\"woocommerce-notices-wrapper\"><div class=\"woocommerce-message\" role=\"alert\">Product added to cart successfully<\/div><\/div>"},"actions":{"add_to_wishlist_action":"add_to_wishlist","remove_from_wishlist_action":"remove_from_wishlist","reload_wishlist_and_adding_elem_action":"reload_wishlist_and_adding_elem","load_mobile_action":"load_mobile","delete_item_action":"delete_item","save_title_action":"save_title","save_privacy_action":"save_privacy","load_fragments":"load_fragments"},"nonce":{"add_to_wishlist_nonce":"dba0057694","remove_from_wishlist_nonce":"e75648e21f","reload_wishlist_and_adding_elem_nonce":"e58dd99036","load_mobile_nonce":"390c2b3737","delete_item_nonce":"200be801bf","save_title_nonce":"94d672fdb3","save_privacy_nonce":"ce92f1e039","load_fragments_nonce":"73e05704d3"}};
+</script>
+<script src='https://lippe.no/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.yith-wcwl.min.js?ver=3.11.0' id='jquery-yith-wcwl-js' defer></script>
+<script id='leadin-script-loader-js-js-extra'>
+var leadin_wordpress = {"userRole":"visitor","pageType":"home","leadinPluginVersion":"8.15.76"};
+</script>
+<script data-minify="1" src='https://lippe.no/wp-content/cache/min/1/7885679.js?ver=1656188251' async defer id='hs-script-loader'></script>
+<script id='logistra-robots-logistra-public-js-js-extra'>
+var logistraRobotsPublic = {"wc_ajax_url":"\/wp-admin\/admin-ajax.php","security":"427366c13a","possiblePostcode":"1252","possibleCountry":"NO","pickupPointCart":"no","pickupPointCheckout":"no","closestServicePartner":"Velg n\u00e6rmeste for meg","woocommercePageTitle":"https:\/\/lippe.no","customerReturnMethods":"","modules":[]};
+</script>
+<script data-minify="1" src='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/logistra-woocommerce-integrasjon-fra-wildrobot-app/public/partials/frontend/public.5668b514.js?ver=1656188251' id='logistra-robots-logistra-public-js-js' defer></script>
+<script src='https://lippe.no/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.6.6.1' id='jquery-blockui-js' defer></script>
+<script src='https://lippe.no/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.6.6.1' id='js-cookie-js' defer></script>
+<script id='woocommerce-js-extra'>
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+</script>
+<script src='https://lippe.no/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=6.6.1' id='woocommerce-js' defer></script>
+<script id='wc-cart-fragments-js-extra'>
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_ed0115f41bb4497019c707d520606e0b","fragment_name":"wc_fragments_ed0115f41bb4497019c707d520606e0b","request_timeout":"5000"};
+</script>
+<script src='https://lippe.no/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=6.6.1' id='wc-cart-fragments-js' defer></script>
+<script data-minify="1" src='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker.js?ver=1656188251' id='gtm4wp-form-move-tracker-js' defer></script>
+<script src='https://lippe.no/wp-content/plugins/woocommerce-table-rate-shipping/assets/js/frontend-checkout.min.js?ver=3.0.40' id='woocommerce_shipping_table_rate_checkout-js' defer></script>
+<script id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id='rocket-preload-links-js-extra'>
+var RocketPreloadLinksConfig = {"excludeUris":"\/kaffeogte\/|\/handlekurv\/|\/kasse\/|\/min-konto\/|\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/kassen\/|\/handlekurv\/|\/min-konto\/|\/wc-api\/v(.*)|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/lippe.no","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script id='mailchimp-woocommerce-js-extra'>
+var mailchimp_public_data = {"site_url":"https:\/\/lippe.no","ajax_url":"https:\/\/lippe.no\/wp-admin\/admin-ajax.php","disable_carts":"","subscribers_only":"","language":"nb","allowed_to_set_cookies":"1"};
+</script>
+<script src='https://lippe.no/wp-content/plugins/mailchimp-for-woocommerce/public/js/mailchimp-woocommerce-public.min.js?ver=2.7.2.01' id='mailchimp-woocommerce-js' defer></script>
+<script id='woosb-frontend-js-extra'>
+var woosb_vars = {"price_decimals":"2","price_format":"%1$s\u00a0%2$s","price_thousand_separator":".","price_decimal_separator":",","currency_symbol":"kr","change_image":"yes","bundled_price":"price","bundled_price_from":"sale_price","change_price":"yes","price_selector":".summary > .price","saved_text":"(saved [d])","price_text":"Pakkepris:","alert_selection":"Please select a purchasable variation for [name] before adding this bundle to the cart.","alert_empty":"Please choose at least one product before adding this bundle to the cart.","alert_min":"Please choose at least a total quantity of [min] products before adding this bundle to the cart.","alert_max":"Sorry, you can only choose at max a total quantity of [max] products before adding this bundle to the cart."};
+</script>
+<script data-minify="1" src='https://lippe.no/wp-content/cache/min/1/wp-content/plugins/woo-product-bundle/assets/js/frontend.js?ver=1656188251' id='woosb-frontend-js' defer></script>
+<script id='storefront-navigation-js-extra'>
+var storefrontScreenReaderText = {"expand":"Fold ut undermeny","collapse":"Fold sammen undermeny"};
+</script>
+<script src='https://lippe.no/wp-content/themes/storefront/assets/js/navigation.min.js?ver=4.1.0' id='storefront-navigation-js' defer></script>
+<script id='shm-scripts-js-extra'>
+var shm_i18n = {"close":"Lukk"};
+</script>
+<script src='https://lippe.no/wp-content/plugins/storefront-hamburger-menu/assets/js/frontend.min.js?ver=1.2.2' id='shm-scripts-js' defer></script>
+<script src='https://lippe.no/wp-content/themes/storefront/assets/js/woocommerce/header-cart.min.js?ver=4.1.0' id='storefront-header-cart-js' defer></script>
+<script src='https://lippe.no/wp-content/themes/storefront/assets/js/footer.min.js?ver=4.1.0' id='storefront-handheld-footer-bar-js' defer></script>
+<script id='jquery-dgwt-wcas-js-extra'>
+var dgwt_wcas = {"labels":{"post":"Innlegg","page":"Page","vendor":"Vendor","product_plu":"Produkter","post_plu":"Innlegg","page_plu":"Sider","vendor_plu":"Vendors","sku_label":"Varenummer:","sale_badge":"Salg","vendor_sold_by":"Sold by:","featured_badge":"Fremhevet","in":"in","read_more":"continue reading","no_results":"Ingen resultater","show_more":"Se alle produkter","show_more_details":"Se alle produkter","search_placeholder":"S\u00f8k etter produkter","submit":"S\u00f8k","tax_product_cat_plu":"Kategorier","tax_product_cat":"Kategori","tax_product_tag_plu":"Stikkord","tax_product_tag":"Tag"},"ajax_search_endpoint":"\/?wc-ajax=dgwt_wcas_ajax_search","ajax_details_endpoint":"\/?wc-ajax=dgwt_wcas_result_details","ajax_prices_endpoint":"\/?wc-ajax=dgwt_wcas_get_prices","action_search":"dgwt_wcas_ajax_search","action_result_details":"dgwt_wcas_result_details","action_get_prices":"dgwt_wcas_get_prices","min_chars":"2","width":"auto","show_details_panel":"1","show_images":"1","show_price":"","show_desc":"","show_sale_badge":"","show_featured_badge":"","dynamic_prices":"","is_rtl":"","show_preloader":"1","show_headings":"1","preloader_url":"","taxonomy_brands":"","img_url":"https:\/\/lippe.no\/wp-content\/plugins\/ajax-search-for-woocommerce\/assets\/img\/","is_premium":"","layout_breakpoint":"992","mobile_overlay_breakpoint":"992","mobile_overlay_wrapper":"body","mobile_overlay_delay":"0","debounce_wait_ms":"400","send_ga_events":"1","enable_ga_site_search_module":"","magnifier_icon":"\t\t\t\t<svg version=\"1.1\" class=\"\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"\n\t\t\t\t\t xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" x=\"0px\" y=\"0px\"\n\t\t\t\t\t viewBox=\"0 0 51.539 51.361\" enable-background=\"new 0 0 51.539 51.361\" xml:space=\"preserve\">\n\t\t             <path fill=\"#444\"\n\t\t\t\t\t\t   d=\"M51.539,49.356L37.247,35.065c3.273-3.74,5.272-8.623,5.272-13.983c0-11.742-9.518-21.26-21.26-21.26 S0,9.339,0,21.082s9.518,21.26,21.26,21.26c5.361,0,10.244-1.999,13.983-5.272l14.292,14.292L51.539,49.356z M2.835,21.082 c0-10.176,8.249-18.425,18.425-18.425s18.425,8.249,18.425,18.425S31.436,39.507,21.26,39.507S2.835,31.258,2.835,21.082z\"\/>\n\t\t\t\t<\/svg>\n\t\t\t\t","close_icon":"\t\t\t\t<svg class=\"\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"24\" viewBox=\"0 0 24 24\"\n\t\t\t\t\t width=\"24\">\n\t\t\t\t\t<path fill=\"#ccc\"\n\t\t\t\t\t\t  d=\"M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z\"\/>\n\t\t\t\t<\/svg>\n\t\t\t\t","back_icon":"\t\t\t\t<svg class=\"\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewBox=\"0 0 16 16\">\n\t\t\t\t\t<path fill=\"#fff\"\n\t\t\t\t\t\t  d=\"M14 6.125H3.351l4.891-4.891L7 0 0 7l7 7 1.234-1.234L3.35 7.875H14z\" fill-rule=\"evenodd\"\/>\n\t\t\t\t<\/svg>\n\t\t\t\t","preloader_icon":"\t\t\t\t<svg class=\"dgwt-wcas-loader-circular \" viewBox=\"25 25 50 50\">\n\t\t\t\t\t<circle class=\"dgwt-wcas-loader-circular-path\" cx=\"50\" cy=\"50\" r=\"20\" fill=\"none\"\n\t\t\t\t\t\t\tstroke=\"#ddd\" stroke-miterlimit=\"10\"\/>\n\t\t\t\t<\/svg>\n\t\t\t\t","voice_search_inactive_icon":"\t\t\t\t<svg class=\"dgwt-wcas-voice-search-mic-inactive\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"24\"\n\t\t\t\t\t width=\"24\">\n\t\t\t\t\t<path fill=\"#444\"\n\t\t\t\t\t\t  d=\"M12 13Q11.15 13 10.575 12.425Q10 11.85 10 11V5Q10 4.15 10.575 3.575Q11.15 3 12 3Q12.85 3 13.425 3.575Q14 4.15 14 5V11Q14 11.85 13.425 12.425Q12.85 13 12 13ZM12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8Q12 8 12 8ZM11.5 20.5V16.975Q9.15 16.775 7.575 15.062Q6 13.35 6 11H7Q7 13.075 8.463 14.537Q9.925 16 12 16Q14.075 16 15.538 14.537Q17 13.075 17 11H18Q18 13.35 16.425 15.062Q14.85 16.775 12.5 16.975V20.5ZM12 12Q12.425 12 12.713 11.712Q13 11.425 13 11V5Q13 4.575 12.713 4.287Q12.425 4 12 4Q11.575 4 11.288 4.287Q11 4.575 11 5V11Q11 11.425 11.288 11.712Q11.575 12 12 12Z\"\/>\n\t\t\t\t<\/svg>\n\t\t\t\t","voice_search_active_icon":"\t\t\t\t<svg class=\"dgwt-wcas-voice-search-mic-active\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"24\"\n\t\t\t\t\t width=\"24\">\n\t\t\t\t\t<path fill=\"#444\"\n\t\t\t\t\t\t  d=\"M12 13Q11.15 13 10.575 12.425Q10 11.85 10 11V5Q10 4.15 10.575 3.575Q11.15 3 12 3Q12.85 3 13.425 3.575Q14 4.15 14 5V11Q14 11.85 13.425 12.425Q12.85 13 12 13ZM11.5 20.5V16.975Q9.15 16.775 7.575 15.062Q6 13.35 6 11H7Q7 13.075 8.463 14.537Q9.925 16 12 16Q14.075 16 15.538 14.537Q17 13.075 17 11H18Q18 13.35 16.425 15.062Q14.85 16.775 12.5 16.975V20.5Z\"\/>\n\t\t\t\t<\/svg>\n\t\t\t\t","voice_search_disabled_icon":"\t\t\t\t<svg class=\"dgwt-wcas-voice-search-mic-disabled\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"24\" width=\"24\">\n\t\t\t\t\t<path fill=\"#444\"\n\t\t\t\t\t\t  d=\"M16.725 13.4 15.975 12.625Q16.1 12.325 16.2 11.9Q16.3 11.475 16.3 11H17.3Q17.3 11.75 17.138 12.337Q16.975 12.925 16.725 13.4ZM13.25 9.9 9.3 5.925V5Q9.3 4.15 9.875 3.575Q10.45 3 11.3 3Q12.125 3 12.713 3.575Q13.3 4.15 13.3 5V9.7Q13.3 9.75 13.275 9.8Q13.25 9.85 13.25 9.9ZM10.8 20.5V17.025Q8.45 16.775 6.875 15.062Q5.3 13.35 5.3 11H6.3Q6.3 13.075 7.763 14.537Q9.225 16 11.3 16Q12.375 16 13.312 15.575Q14.25 15.15 14.925 14.4L15.625 15.125Q14.9 15.9 13.913 16.4Q12.925 16.9 11.8 17.025V20.5ZM19.925 20.825 1.95 2.85 2.675 2.15 20.65 20.125Z\"\/>\n\t\t\t\t<\/svg>\n\t\t\t\t","custom_params":{},"convert_html":"1","suggestions_wrapper":"body","show_product_vendor":"","disable_hits":"","disable_submit":"","fixer":{"broken_search_ui":true,"broken_search_ui_ajax":true,"broken_search_ui_hard":false,"broken_search_elementor_popups":true,"broken_search_browsers_back_arrow":true,"force_refresh_checkout":true},"voice_search_enabled":"","voice_search_lang":"nb-NO"};
+</script>
+<script src='https://lippe.no/wp-content/plugins/ajax-search-for-woocommerce/assets/js/search.min.js?ver=1.19.0' id='jquery-dgwt-wcas-js' defer></script>
+	<style>
+		.dgwt-wcas-open .storefront-handheld-footer-bar,
+		.dgwt-wcas-focused .storefront-handheld-footer-bar {
+			display: none;
+		}
+	</style>
+	<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+		(function ($) {
+			$(window).on('load', function () {
+				$(document).on('click', '.storefront-handheld-footer-bar .search > a', function (e) {
+					var $wrapper = $(this).parent();
+					$wrapper.removeClass('active');
+
+					setTimeout(function () {
+						$wrapper.find('.js-dgwt-wcas-enable-mobile-form')[0].click();
+					}, 200);
+					e.preventDefault();
+				});
+			});
+		}(jQuery));
+	});</script>
+	
+</body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1659900709 -->

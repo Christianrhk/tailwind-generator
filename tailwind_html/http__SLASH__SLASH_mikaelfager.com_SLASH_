@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        
+    <title>Home | Mikael Fager</title>
+    <link rel="canonical" href="http://mikaelfager.com">
+    <meta property="og:url" content="http://mikaelfager.com">
+    <meta property="og:site_name" content="Mikael Fager">
+    <meta property="og:title" content="Home | Mikael Fager">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en-US">
+    <meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@graph":[{"@type":"Organization","@id":"http:\/\/mikaelfager.com\/#site-owner","url":"http:\/\/mikaelfager.com\/"},{"@type":"WebSite","url":"http:\/\/mikaelfager.com\/","publisher":{"@id":"http:\/\/mikaelfager.com\/#site-owner"},"@id":"http:\/\/mikaelfager.com\/#website"},{"@type":"WebPage","@id":"http:\/\/mikaelfager.com\/#web_page","url":"http:\/\/mikaelfager.com\/","name":"","isPartOf":{"@id":"http:\/\/mikaelfager.com\/#website"},"inLanguage":"en-US","datePublished":"2021-09-30T09:46:48+00:00","dateModified":"2021-09-30T09:46:48+00:00"}]}</script>
+
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=1">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=1">
+        <link rel="manifest" href="/site.webmanifest?v=1">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1" color="#5bbad5">
+        <link rel="shortcut icon" href="/favicon.ico?v=1">
+        <meta name="msapplication-TileColor" content="#2d2725">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+
+        <script>
+            window.swiperOptions = [];
+        </script>
+
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body class="font-body text-primary" style="background-color: #f9f9f9;">
+        
+
+        
+                    <div class="menubar menubar-1"></div>
+            <div class="menubar menubar-2"></div>
+            <div class="menubar menubar-3"></div>
+
+            <button class="menu-toggle">
+                <span class="sr-only">Menu</span>
+            </button>
+
+            <nav class="full-menu is-hidden">
+                <a href="/">Home</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        
+        
+<header class="home__header py-12 sm:py-32 lg:py-56">
+    <div class="flex justify-center max-w-[70%] md:max-w-[60%] mx-auto">
+        <img src="/assets/header-image.png" alt="Header image" class="class justify-center items-center">
+    </div>
+</header>
+
+<main class="antialiased">
+
+    <div class="bg-black text-white py-32 custom-content antialiased" id="about">
+        <div class="container-lg">
+            <div class="max-w-[520px]">
+                <h1 class="mb-10 text-6xl"></h1>
+                                                            <p style="line-height: 1.3; font-size: 22px"> Visual designer with more than 14 years of international experience working and living in Australia, London and now Stockholm.</p>
+                                                                                <p></p><p>I thrive in helping clients – from startups to well renowned multinational brands – in finding and creating digital solutions that enable them to reach their true potential. My background and passion is with visual design, but I also have substantial experience in branding and UX design.<br></p><p><br></p>
+                                     
+            </div>     
+        </div>
+    </div>
+ 
+
+    <div x-data="portfolioFilter()">
+        <div class="container-lg flex flex-wrap justify-center pt-32">
+            <button class="w-full sm:w-1/2 md:w-auto px-12 py-4 lg:px-16 rounded-full focus:bg-black hover:bg-black hover:text-white uppercase font-bold block md:mx-1 transition duration-300 md:text-lg active:transform-gpu active:scale-95 active:duration-75"  
+                    @click="filter('all')"
+                    :class="current == 'all' ? 'bg-black text-white' : 'text-black'  ">
+                All
+            </button>
+             
+                <button class="w-full sm:w-1/2 md:w-auto px-12 py-4 lg:px-16 rounded-full focus:bg-black hover:bg-black hover:text-white uppercase font-bold block md:mx-1 transition duration-300 md:text-lg active:transform-gpu active:scale-95 active:duration-75" 
+                        @click="filter('branding')"
+                        :class="current == 'branding' ? 'bg-black text-white' : 'text-black'  ">
+                            Branding
+                </button>
+             
+                <button class="w-full sm:w-1/2 md:w-auto px-12 py-4 lg:px-16 rounded-full focus:bg-black hover:bg-black hover:text-white uppercase font-bold block md:mx-1 transition duration-300 md:text-lg active:transform-gpu active:scale-95 active:duration-75" 
+                        @click="filter('other')"
+                        :class="current == 'other' ? 'bg-black text-white' : 'text-black'  ">
+                            Other
+                </button>
+             
+                <button class="w-full sm:w-1/2 md:w-auto px-12 py-4 lg:px-16 rounded-full focus:bg-black hover:bg-black hover:text-white uppercase font-bold block md:mx-1 transition duration-300 md:text-lg active:transform-gpu active:scale-95 active:duration-75" 
+                        @click="filter('ux-ui')"
+                        :class="current == 'ux-ui' ? 'bg-black text-white' : 'text-black'  ">
+                            UX/UI
+                </button>
+             
+        </div>
+        <div class="container-lg grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-32 antialiased">
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="branding|ux-ui" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9kbmEvZG5hX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9kbmEvZG5hX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9kbmEvZG5hX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9kbmEvZG5hX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9kbmEvZG5hX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/dna" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">Art Direction / Branding / UX / UI</strong>
+        <p class="opacity-50">Digital New Agency</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="ux-ui" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jb2xpdmUvY29saXZlX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9jb2xpdmUvY29saXZlX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jb2xpdmUvY29saXZlX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9jb2xpdmUvY29saXZlX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jb2xpdmUvY29saXZlX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/tenant-colive" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">App / UX / Visual Design</strong>
+        <p class="opacity-50">Colive</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="ux-ui" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9naWJzb24vaGVhZGVyLWRlc2t0b3BAMnguanBn?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9naWJzb24vaGVhZGVyLWRlc2t0b3BAMnguanBn?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9naWJzb24vaGVhZGVyLWRlc2t0b3BAMnguanBn?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9naWJzb24vaGVhZGVyLWRlc2t0b3BAMnguanBn?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9naWJzb24vaGVhZGVyLWRlc2t0b3BAMnguanBn?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/gibson" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">APP / UX / UI</strong>
+        <p class="opacity-50">Amped / Gibson</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="branding|ux-ui" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9sYWNvY2luYS9sYWNvY2luYV90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9sYWNvY2luYS9sYWNvY2luYV90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9sYWNvY2luYS9sYWNvY2luYV90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9sYWNvY2luYS9sYWNvY2luYV90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9sYWNvY2luYS9sYWNvY2luYV90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/lacocina" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">VISUAL DESIGN / BRANDING / UX / UI</strong>
+        <p class="opacity-50">LA COCINA</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="ux-ui" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby92ZXRlbnNza2Fwc3JhZGV0L3ZldGVuc2thcHMtdGh1bWJuYWlsQDJ4LmpwZw==?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby92ZXRlbnNza2Fwc3JhZGV0L3ZldGVuc2thcHMtdGh1bWJuYWlsQDJ4LmpwZw==?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby92ZXRlbnNza2Fwc3JhZGV0L3ZldGVuc2thcHMtdGh1bWJuYWlsQDJ4LmpwZw==?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby92ZXRlbnNza2Fwc3JhZGV0L3ZldGVuc2thcHMtdGh1bWJuYWlsQDJ4LmpwZw==?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby92ZXRlbnNza2Fwc3JhZGV0L3ZldGVuc2thcHMtdGh1bWJuYWlsQDJ4LmpwZw==?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/the-swedish-research-council" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">UX / UI</strong>
+        <p class="opacity-50">The Swedish Research Council</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="branding|other" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zdXJmL25hdGl2ZV90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9zdXJmL25hdGl2ZV90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zdXJmL25hdGl2ZV90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9zdXJmL25hdGl2ZV90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zdXJmL25hdGl2ZV90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/surf" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">Video / Branding / Package</strong>
+        <p class="opacity-50">Surf</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="branding|ux-ui" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jb29saW5zL2Nvb2xpbnNAMnguanBn?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9jb29saW5zL2Nvb2xpbnNAMnguanBn?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jb29saW5zL2Nvb2xpbnNAMnguanBn?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9jb29saW5zL2Nvb2xpbnNAMnguanBn?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jb29saW5zL2Nvb2xpbnNAMnguanBn?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/coolins" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">ART DIRECTION / BRANDING / UX / UI</strong>
+        <p class="opacity-50">Coolins</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="ux-ui" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9iYXhlbmRhbGUvYmF4ZW5kYWxlLXRodW1ibmFpbHMuanBn?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9iYXhlbmRhbGUvYmF4ZW5kYWxlLXRodW1ibmFpbHMuanBn?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9iYXhlbmRhbGUvYmF4ZW5kYWxlLXRodW1ibmFpbHMuanBn?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9iYXhlbmRhbGUvYmF4ZW5kYWxlLXRodW1ibmFpbHMuanBn?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9iYXhlbmRhbGUvYmF4ZW5kYWxlLXRodW1ibmFpbHMuanBn?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/baxendale" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">UX / UI</strong>
+        <p class="opacity-50">Baxendale Driving School</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="branding|ux-ui" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zdmVuc2tfcHJvdnRhZ25pbmcvc3BAMnguanBn?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9zdmVuc2tfcHJvdnRhZ25pbmcvc3BAMnguanBn?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zdmVuc2tfcHJvdnRhZ25pbmcvc3BAMnguanBn?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9zdmVuc2tfcHJvdnRhZ25pbmcvc3BAMnguanBn?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zdmVuc2tfcHJvdnRhZ25pbmcvc3BAMnguanBn?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/svensk-provtagning" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">BRANDING / UX / UI</strong>
+        <p class="opacity-50">Svensk Provtagning</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="branding" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jb25jZXJuL2NvbmNlcm5fdGh1bWJAMnguanBn?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9jb25jZXJuL2NvbmNlcm5fdGh1bWJAMnguanBn?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jb25jZXJuL2NvbmNlcm5fdGh1bWJAMnguanBn?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9jb25jZXJuL2NvbmNlcm5fdGh1bWJAMnguanBn?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jb25jZXJuL2NvbmNlcm5fdGh1bWJAMnguanBn?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/concern" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">BRANDING</strong>
+        <p class="opacity-50">Concern</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="branding" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9kb2dvdGVsL0RvZ290ZWwtdGh1bWJuYWlsc0AyeC5qcGc=?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9kb2dvdGVsL0RvZ290ZWwtdGh1bWJuYWlsc0AyeC5qcGc=?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9kb2dvdGVsL0RvZ290ZWwtdGh1bWJuYWlsc0AyeC5qcGc=?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9kb2dvdGVsL0RvZ290ZWwtdGh1bWJuYWlsc0AyeC5qcGc=?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9kb2dvdGVsL0RvZ290ZWwtdGh1bWJuYWlsc0AyeC5qcGc=?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/dogotel" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">Branding</strong>
+        <p class="opacity-50">Dogotel</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="branding" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zaGFzaGkvc2hhc2hpX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9zaGFzaGkvc2hhc2hpX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zaGFzaGkvc2hhc2hpX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9zaGFzaGkvc2hhc2hpX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zaGFzaGkvc2hhc2hpX3RodW1iQDJ4LmpwZw==?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/shahi-makeup" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">BRANDING / WEBSITE</strong>
+        <p class="opacity-50">Shashi</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="other" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jYW5keW1hbi9jYW5keW1hbl90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9jYW5keW1hbi9jYW5keW1hbl90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jYW5keW1hbi9jYW5keW1hbl90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9jYW5keW1hbi9jYW5keW1hbl90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9jYW5keW1hbi9jYW5keW1hbl90aHVtYkAyeC5qcGc=?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/candyman" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">Animation</strong>
+        <p class="opacity-50">Personal project</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="other" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zdXp1a2lfdml0YXJhL1N1enVraS10aHVtYm5haWxzLmpwZw==?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9zdXp1a2lfdml0YXJhL1N1enVraS10aHVtYm5haWxzLmpwZw==?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zdXp1a2lfdml0YXJhL1N1enVraS10aHVtYm5haWxzLmpwZw==?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9zdXp1a2lfdml0YXJhL1N1enVraS10aHVtYm5haWxzLmpwZw==?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zdXp1a2lfdml0YXJhL1N1enVraS10aHVtYm5haWxzLmpwZw==?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/suzuki-vitara" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">Interactive idea</strong>
+        <p class="opacity-50">Suzuki Vitara</p>
+    </a>
+</article>
+                            <article class="js-portfolio-items relative text-center transition duration-300" data-categories="other" 
+        x-show="show($el)"
+> 
+
+    <picture class="block">
+                <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zcGVjdHJlL3NwZWN0cmVfdGh1bWJuYWlsQDJ4LmpwZw==?w=559&h=374&fit=crop&fm=webp&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9zcGVjdHJlL3NwZWN0cmVfdGh1bWJuYWlsQDJ4LmpwZw==?w=559&h=374&fit=crop&dpr=2&fm=webp&q=90 2x" type="image/webp">
+            <source srcset="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zcGVjdHJlL3NwZWN0cmVfdGh1bWJuYWlsQDJ4LmpwZw==?w=559&h=374&fit=crop&q=90, /img/asset/YXNzZXRzL3BvcnRmb2xpby9zcGVjdHJlL3NwZWN0cmVfdGh1bWJuYWlsQDJ4LmpwZw==?w=559&h=374&fit=crop&dpr=2&q=90 2x">
+            <img src="/img/asset/YXNzZXRzL3BvcnRmb2xpby9zcGVjdHJlL3NwZWN0cmVfdGh1bWJuYWlsQDJ4LmpwZw==?w=559&h=374&fit=crop" alt="" loading="lazy">
+    
+    </picture>
+
+
+    <a href="/work/spectre" class="absolute w-full h-full flex flex-col items-center justify-center px-4 bg-black z-10 top-0 left-0 text-white opacity-0 hover:opacity-100 duration-200 ease cursor-pointer">
+        <strong class="font-display uppercase text-4xl block mb-3 mt-10">Creative Ideas / Pitch</strong>
+        <p class="opacity-50">Spectre</p>
+    </a>
+</article>
+             
+        </div>        
+    </div>
+
+
+    <script>
+        function portfolioFilter() {
+            return {
+                current: 'all',
+
+                filter: function(name) {
+                    this.current = name;
+                },
+
+                show: function(el) {
+                    if (this.current == 'all') return true;
+
+                    let categories = el.dataset.categories;
+                    categories = categories.split("|");
+
+                    return categories.includes(this.current) ? true : false;
+                }
+            }
+        }
+    </script>
+
+</main> 
+
+
+
+
+
+                    <footer class="py-32 bg-black text-white" id="contact">
+                <div class="container-md">
+        
+                    <h2 class="mb-9 text-6xl">CONTACT.</h2>
+        
+                    <div class="footer__content flex flex-wrap md:flex-nowrap flex-row justify-between">
+                        <p class="w-full md:w-[62%] mb-16 md:mb-0">
+                            If you would like to discuss work propositions, or just want to say hello, feel free to drop me an email or catch me on LinkedIn. For a more info about my experience, download my CV.
+                        </p>
+                        <div>
+                            <a href="mailto:info@mikaelfager.com?Subject=Hello%20again" class="flex">
+                                <img src="/assets/system/email.svg" alt="" class="w-[32px] h-[32px] mr-6 mb-6">
+                                <span>info@mikaelfager.com</span>
+                            </a>
+                            <a href="/assets/MikaelFagerCV.pdf" download class="flex">
+                                <img src="/assets/system/cv.svg" alt="" class="w-[32px] h-[32px] mr-6 mb-6">
+                                <span>Download  CV</span>
+                            </a>
+                            <a href="https://uk.linkedin.com/in/mikael-fager-9243106" target="_blank" class="flex">
+                                <img src="/assets/system/linkedin.svg" alt="" class="w-[32px] h-[32px] mr-6">
+                                <span>Find me on Linkedin</span>
+                            </a>
+                        </div>
+                    </div>
+        
+        
+                    <img src="/assets/system/footer-logo-main.svg" alt="Mikael Fager logo" width="175" height="74" class="w-[157px] block mx-auto mt-44">
+                    <span class="text-xs block text-center mb-8">Design by © Mikael Fager. 2016, London, UK</span>
+        
+        
+                </div>
+            </footer>
+        
+        
+
+        <script src="/js/app.js"></script>
+
+    </body> 
+</html>

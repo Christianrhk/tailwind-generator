@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta property="og:title" content="Jam Pro">
+    <meta property="og:description" content="Get your own branded version of Jam and use your own custom domain">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jam.systems/">
+    <meta property="og:image" content="https://jam.systems/img/jam-app-icon.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="/img/jam-app-icon.jpg">
+    <link rel="apple-touch-icon" href="/img/jam-app-icon.jpg">
+    <!-- TODO: move tailwind to build pipeline if we keep it -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      html {
+        font-size: 100%;
+        width: 100%;
+        background: rgb(250, 245, 239);
+      }
+      .jam {
+        /* width: 100%; */
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+            'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+            'Helvetica Neue', sans-serif;
+        }
+      .jam input,
+      .jam textarea {
+        padding: 10px;
+        font-size: 18px;
+        border: 0;
+        border-radius: 3px;
+        border: 1px solid rgb(213, 213, 213);
+      }
+      .jam input[type='color'] {
+        padding: 0;
+      }
+      .jam table td {
+        padding: 0;
+        border: 5px solid transparent;
+        vertical-align: top;
+      }
+      .jam .human-radius {
+        border-radius: 42%;
+      }
+      .jam table th {
+        text-align: center;
+      }
+      .jam table td {
+        padding: 12px;
+      }
+      .jam table td:first-child {
+        color: black;
+        font-weight: 500;
+      }
+      .jam table tr:nth-child(even) {
+        background: rgb(243, 244, 246);
+      }
+    </style>
+    <title>Jam Pro</title>
+  </head>
+  <body class="jam">
+    <div class="relative overflow-hidden">
+      <div class="max-w-5xl mx-auto">
+        <div class="relative z-10 pt-4 pb-8 bg-white rounded-b-3xl sm:pb-12 md:pb-12 lg:max-w-5xl lg:w-full lg:pb-18 xl:pb-18">
+
+          <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+            <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+              <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+                <div class="flex items-center justify-between w-full md:w-auto">
+                  <a href="/">
+                    <span class="sr-only">Workflow</span>
+                    <img class="mb-7 h-12 w-auto sm:h-14 inline-block" src="https://jam.systems/img/jam-app-icon-192.png">
+                    <div class="ml-2 mr-6 mt-7 h-12 w-auto sm:h-14 text-4xl font-medium text-gray-700 inline-block">Jam</div>
+                  </a>
+                  <div class="-mr-2 flex items-center md:hidden">
+                    <button
+                      onclick="(function(){document.querySelector('.burger').classList.remove('hidden')})();"
+                      type="button"
+                      class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false"
+                    >
+                      <span class="sr-only">Open main menu</span>
+                      <!-- Heroicon name: outline/menu -->
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-6">
+                <a href="#integrations" class="font-medium text-gray-500 hover:text-gray-900">Integrations</a>
+
+                <a href="#no-code" class="font-medium text-gray-500 hover:text-gray-900">No-Code</a>
+
+                <a href="#embed" class="font-medium text-gray-500 hover:text-gray-900">Embed</a>
+
+                <a href="#testimonials" class="font-medium text-gray-500 hover:text-gray-900">Testimonials</a>
+
+                <a href="#features" class="font-medium text-gray-500 hover:text-gray-900">Features</a>
+
+                <a href="#pricing" class="font-medium text-gray-500 hover:text-gray-900">Pricing</a>
+
+                <a href="#support" class="font-medium text-gray-500 hover:text-gray-900">Support</a>
+
+              </div>
+            </nav>
+          </div>
+
+          <!--
+            Mobile menu, show/hide based on menu open state.
+
+            Entering: "duration-150 ease-out"
+              From: "opacity-0 scale-95"
+              To: "opacity-100 scale-100"
+            Leaving: "duration-100 ease-in"
+              From: "opacity-100 scale-100"
+              To: "opacity-0 scale-95"
+          -->
+          <div class="burger hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+            <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+              <div class="px-5 pt-4 flex items-center justify-between">
+                <div>
+                  <img class="h-8 w-auto" src="https://jam.systems/img/jam-app-icon-192.png" alt="">
+                </div>
+                <div class="-mr-2">
+                  <button
+                    onclick="(function(){document.querySelector('.burger').classList.add('hidden')})();"
+                    type="button"
+                    class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                  >
+                    <span class="sr-only">Close main menu</span>
+                    <!-- Heroicon name: outline/x -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#integrations" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Integrations</a>
+
+                <a href="#no-code" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">No-Code</a>
+
+                <a href="#embed" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Embed</a>
+
+                <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Testimonials</a>
+
+                <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Features</a>
+
+                <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Pricing</a>
+
+                <a href="#support" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Support</a>
+              </div>
+            </div>
+          </div>
+
+          <main class="mt-8 mx-auto max-w-5xl px-4 sm:mt-8 sm:px-6 md:mt-8 lg:mt-12 lg:px-8 xl:mt-16">
+            <div class="text-center">
+              <h1 class="text-4xl tracking-tight font-semibold text-gray-800 sm:text-5xl md:text-6xl">
+                <span class="block inline">Clubhouse-like</span><br/>
+                <span class="block text-red-500 inline">Audio Rooms</span>
+                <span class="block inline">as a Service</span>
+              </h1>
+              <div class="sm:justify-center lg:justify-center">
+                <p class="mt-3 inline-block text-center text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-10 sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                  Jam lets you add Audio Rooms to your website, webstore or app.<br />Wordpress, Webflow, Wix, Shopify, Slack and React Integrations.
+                </p>
+              </div>
+              <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-center">
+                <div class="rounded-md shadow">
+                  <a href="#pricing" class="w-full flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-900 md:py-2 md:text-lg md:px-6">
+                    Pricing Plans
+                  </a>
+                </div>
+                <div class="mt-3 sm:mt-0 sm:ml-3">
+                  <a href="https://jam.systems" target="_blank" rel="nofollow" class="w-full flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-gray-700 bg-gray-100 hover:bg-gray-200 md:py-2 md:text-lg md:px-6">
+                    Try for Free
+                  </a>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div id="integrations" class="py-12">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-base text-red-500 font-semibold tracking-wide uppercase">Integrations</h2>
+          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-700 sm:text-4xl">
+            Audio Rooms Everywhere
+          </p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            You can add Audio Rooms to your website, webstore or app.<br />
+            Take a look at our examples.<br />
+            Add an Audio Room in only 5 minutes.
+          </p>
+        </div>
+    
+        <div class="mt-10">
+          <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+            <div class="relative">
+              <a class="p-6 rounded-3xl bg-white text-gray-500 hover:text-gray-700 hover:bg-gray-50 inline-block" href="https://medium.com/jam/add-jam-to-shopify-a77865cd7b6f" target="_blank" rel="nofollow">
+                <dt>
+                  <div class="w-36 h-12" style="background-image: url('img/shopify-logo.png'); background-size: contain; background-repeat: no-repeat;" />
+                </dt>
+                <dd class="text-base">
+                  Use Audio Rooms for show rooms, social commerce, pre-sales and post-sales engagement, customer support, product Q&amp;A and community building.
+                </dd>
+              </a>
+            </div>
+    
+            <div class="relative">
+              <a class="p-6 rounded-3xl bg-white text-gray-500 hover:text-gray-700 hover:bg-gray-50 inline-block" href="https://medium.com/jam/add-jam-to-webflow-d8a680959007" target="_blank" rel="nofollow">
+                <dt>
+                  <div class="w-36 h-12" style="background-image: url('img/webflow-logo.svg'); background-size: contain; background-repeat: no-repeat;" />
+                </dt>
+                <dd class=" text-base">
+                  Use Audio Rooms on your Webflow website for monetization, community engagement, micro-conferences, networking or meetups.
+                </dd>
+              </a>
+            </div>
+    
+            <div class="relative">
+              <a class="p-6 rounded-3xl bg-white text-gray-500 hover:text-gray-700 hover:bg-gray-50 inline-block" href="https://medium.com/jam/add-jam-to-wordpress-ca1932cd8ff3" target="_blank" rel="nofollow">
+                <dt>
+                  <div class="w-36 h-12" style="background-image: url('img/wordpress-logo.png'); background-size: contain; background-repeat: no-repeat;" />
+                </dt>
+                <dd class="text-base">
+                  Use Audio Rooms on your Wordpress website for monetization, community engagement, micro-conferences, networking or meetups.
+                </dd>
+              </a>
+            </div>
+
+            <div class="relative">
+              <a class="p-6 rounded-3xl bg-white text-gray-500 hover:text-gray-700 hover:bg-gray-50 inline-block" href="https://medium.com/jam/add-jam-to-wix-6b94a3792315" target="_blank" rel="nofollow">
+                <dt>
+                  <div class="w-14 h-12" style="background-image: url('img/wix-logo.png'); background-size: contain; background-repeat: no-repeat;" />
+                </dt>
+                <dd class="text-base">
+                  Use Audio Rooms on your Wix website for monetization, community engagement, micro-conferences, networking or meetups.
+                </dd>
+              </a>
+            </div>
+    
+            <div class="relative">
+              <a class="p-6 rounded-3xl bg-white text-gray-500 hover:text-gray-700 hover:bg-gray-50 inline-block"  href="https://slack.com/oauth/v2/authorize?client_id=1827991458162.1827997742338&scope=chat:write,chat:write.public,commands&user_scope=" target="_blank" rel="nofollow">
+                <dt>
+                  <div class="w-36 h-12" style="background-image: url('img/slack-logo.png'); background-size: contain; background-repeat: no-repeat;" />
+                </dt>
+                <dd class="text-base">
+                  Use Audio Rooms for stand-up neetings, goofing-off, brainstorming, catching-Up, board meetings, code reviews, design reviews, discussions or coffee breaks. 
+                </dd>
+              </a>
+            </div>
+
+            <div class="relative">
+              <a class="p-6 rounded-3xl bg-white text-gray-500 hover:text-gray-700 hover:bg-gray-50 inline-block"  href="https://www.youtube.com/watch?v=ozLcNjuVHLo" target="_blank" rel="nofollow">
+                <dt>
+                  <div class="w-36 h-12" style="background-image: url('img/adalo-logo.png'); background-size: contain; background-repeat: no-repeat;" />
+                </dt>
+                <dd class="text-base">
+                  Add Audio Rooms to your No-Code Adalo apps. You can integrate Jam Audio Rooms using Webviews in Adalo within minutes. All without a single line of code.
+                </dd>
+              </a>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="no-code" class="py-12">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-base text-red-500 font-semibold tracking-wide uppercase">No-Code</h2>
+          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-700 sm:text-4xl">
+            Audio Rooms Everywhere
+          </p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            You can add Audio Rooms to your website, webstore or app in minutes.<br />
+            Learn more about No-Code and Jam and join our Discord community.<br />
+          </p>
+        </div>
+
+        <div class="mt-10">
+          <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+
+            <div class="relative p-6 rounded-3xl bg-white">
+              <p class="mt-2 text-2xl leading-6 font-semibold tracking-tight text-gray-700">
+                How to add Jam to your Adalo app
+              </p>
+              <p class="mt-4 mb-2 text-gray-500">Learn about how to add Jam to your Adalo app in this special No-Code episode with Michael Ionita.<br/><br/>Also make sure to like and subscribe for future No-Code tutorials by Michael over on Youtube.</p>
+              <iframe class="w-full h-64" src="https://www.youtube.com/embed/a1-N_pxQUwc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="relative p-6 rounded-3xl bg-white">
+              <p class="mt-2 text-2xl leading-6 font-semibold tracking-tight text-gray-700">
+                Looking for other No-Code tutorials?
+              </p>
+              <p class="mt-4 mb-2 text-gray-500">Are you working with a No-Code platform? Are you looking to add Jam to your app?</p>
+
+              <p class="mt-4 mb-2 text-gray-500">We are working on tutorials for Glide, Webflow, Adalo, Zapier and more.</p>
+
+              <p class="mt-2 mb-2 text-gray-500">In the meantime feel free to join our Jam community on Discord and let us know which No-Code tools you are using and the Jam integrations you are looking for.</p>
+
+              <a href="https://discord.gg/BfakmCuXSX" target="_blank" rel="nofollow" class="mt-6 flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-900 md:py-2 md:text-lg md:px-6">
+                Join the Jam community on Discord
+              </a>
+            </div>
+
+          </dl>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="pricing" class="py-12">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-base text-red-500 font-semibold tracking-wide uppercase">Pricing (Early Access)</h2>
+          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-700 sm:text-4xl">
+            Pricing Plans for Jam as a Service
+          </p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            Best-in-class hosting for Jam.<br />
+            Add Audio Rooms powered by Jam to your website, webstore or app.
+          </p>
+        </div>
+
+        <div class="mt-10">
+          <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+            <div class="relative">
+              <div
+                onclick="return checkout('std-m-2020-04')"
+                class="cursor-pointer p-6 rounded-3xl bg-white text-gray-500 hover:text-gray-700 hover:bg-gray-50 inline-block"
+              >
+                <dt>
+                  <p class="mt-2 text-3xl leading-8 font-semibold tracking-tight text-gray-700 sm:text-4xl">
+                    Standard
+                  </p>
+                  <p class="mt-2 text-base text-gray-500">
+                    Best for Creators
+                  </p>
+                  <p class="mt-2 text-lg text-gray-700">
+                    € 29 <span class="text-gray-500">/ month</span>
+                  </p>
+                  <br/>
+                  <p class="mt-2 text-md text-gray-700 leading-7">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Best-in-class Hosting<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline  text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Embedding API<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Unlimited number of rooms<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    50 people per room<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 pb-1 inline text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    Room recording<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 pb-1 inline text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    Room analytics
+                  </p>
+                  <div class="mt-6 rounded-md shadow">
+                    <span href="https://jam.systems" target="_blank" rel="nofollow" class="w-full flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-gray-700 bg-gray-100 hover:bg-gray-200 md:py-2 md:text-lg md:px-6">
+                      Start with Standard
+                    </span>
+                  </div>
+                </dt>
+                <dd class="text-base">
+                </dd>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div
+                onclick="return checkout('pre-m-2020-04')"
+                class="cursor-pointer p-6 rounded-3xl bg-white text-gray-500 hover:text-gray-700 hover:bg-gray-50 inline-block"
+              >
+                <dt>
+                  <p class="mt-2 text-3xl leading-8 font-semibold tracking-tight text-gray-700 sm:text-4xl">
+                    Premium
+                  </p>
+                  <p class="mt-2 text-base text-gray-500">
+                    Best for Event Organizers
+                  </p>
+                  <p class="mt-2 text-lg text-gray-700">
+                    € 199 <span class="text-gray-500">/ month</span>
+                  </p>
+                  <br/>
+                  <p class="mt-2 text-md text-gray-700 leading-7">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Best-in-class Hosting<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline  text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Embedding API<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Unlimited number of rooms<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    500 people per room<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Room recording<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Room analytics
+                  </p>
+                  <div class="mt-6 rounded-md shadow">
+                    <span href="https://jam.systems" target="_blank" rel="nofollow" class="w-full flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-900 md:py-2 md:text-lg md:px-6">
+                      Start with Premium
+                    </span>
+                  </div>
+                </dt>
+                <dd class=" text-base">
+                </dd>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div
+                onclick="return checkout('ent-m-2020-04')"
+                class="cursor-pointer p-6 rounded-3xl bg-white text-gray-500 hover:text-gray-700 hover:bg-gray-50 inline-block"
+              >
+                <dt>
+                  <p class="mt-2 text-3xl leading-8 font-semibold tracking-tight text-gray-700 sm:text-4xl">
+                    Enterprise
+                  </p>
+                  <p class="mt-2 text-base text-gray-500">
+                    Best for Companies
+                  </p>
+                  <p class="mt-2 text-lg text-gray-700">
+                    € 499 <span class="text-gray-500">/ month</span>
+                  </p>
+                  <br/>
+                  <p class="mt-2 text-md text-gray-700 leading-7">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Best-in-class Hosting<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline  text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Embedding API<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Unlimited number of rooms<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    5000+ people per room<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Room recording<br />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Room analytics
+                  </p>
+                  <div class="mt-6 rounded-md shadow">
+                    <span href="https://jam.systems" target="_blank" rel="nofollow" class="w-full flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-gray-700 bg-gray-100 hover:bg-gray-200 md:py-2 md:text-lg md:px-6">
+                      Start with Enterprise
+                    </span>
+                  </div>
+                </dt>
+                <dd class="text-base">
+                </dd>
+              </div>
+            </div>
+
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div id="testimonials" class="py-12">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-base text-red-500 font-semibold tracking-wide uppercase">Testimonials</h2>
+          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-700 sm:text-4xl">
+            What People say about Jam
+          </p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            Here are a few testimonials from all around the web.<br />
+            Do you have thoughts or questions about Jam? <a class="underline" href="https://twitter.com/jam_systems" target="_blank" rel="nofollow">Let us know!</a>
+          </p>
+        </div>
+        <div class="mt-10 bg-white rounded-3xl text-center p-10">
+          <div>
+            <a class="inline-block" href="https://www.producthunt.com/posts/jam-d17ff3cc-556c-4c17-8140-5211cb1cd81f?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-jam-d17ff3cc-556c-4c17-8140-5211cb1cd81f" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=284513&theme=dark&period=daily" alt="Jam - Your own open source Clubhouse for mini conferences, friends | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+            <br/>
+            <br/>
+            <hr/>
+            <br/>
+            <div class="flex flex-wrap">
+              <div class="flex-none p-2" style="width: 292px">
+                <blockquote class="twitter-tweet">
+                  <p lang="en" dir="ltr">Discovering <a href="https://twitter.com/jam_systems?ref_src=twsrc%5Etfw">@jam_systems</a> is like having toast in the morning. It’s the best thing in the world - a pot of coffee on the stove while you apply cold fruit jam onto a crispy, brown to perfection toast. Which is why <a href="https://twitter.com/InfraCode?ref_src=twsrc%5Etfw">@infracode</a> uses Jam. <a href="https://t.co/8CJGmk6wXx">https://t.co/8CJGmk6wXx</a> <a href="https://twitter.com/hashtag/livechat?src=hash&amp;ref_src=twsrc%5Etfw">#livechat</a></p>&mdash; Angeline Tan (@lildrummergie) <a href="https://twitter.com/lildrummergie/status/1374521028332810241?ref_src=twsrc%5Etfw">March 24, 2021</a>
+                </blockquote>
+              </div>
+              <div class="flex-none p-2" style="width: 292px">
+                <blockquote class="twitter-tweet">
+                  <p lang="en" dir="ltr">that‘s interesting - <a href="https://twitter.com/jowyang?ref_src=twsrc%5Etfw">@jowyang</a> your vision of audio everywhere just got way easier to implement!</p>&mdash; Christoph Bauer (@ChristophBauer) <a href="https://twitter.com/ChristophBauer/status/1373725636871778304?ref_src=twsrc%5Etfw">March 21, 2021</a>
+                </blockquote>
+              </div>
+              <div class="flex-none p-2" style="width: 292px">
+                <blockquote class="twitter-tweet">
+                  <p lang="de" dir="ltr">Und es hat geklappt, danke an <a href="https://twitter.com/jam_systems?ref_src=twsrc%5Etfw">@jam_systems</a>! Ein live-podcast im ersten Versuch, der jetzt dann regelmäßig live geht. Ick freu mir. Themenwechsel - der <a href="https://twitter.com/hashtag/Podcast?src=hash&amp;ref_src=twsrc%5Etfw">#Podcast</a> <a href="https://t.co/7Z0XytDOrd">https://t.co/7Z0XytDOrd</a> via <a href="https://twitter.com/YouTube?ref_src=twsrc%5Etfw">@YouTube</a> <a href="https://twitter.com/hashtag/twlz?src=hash&amp;ref_src=twsrc%5Etfw">#twlz</a> <a href="https://twitter.com/hashtag/edupnx?src=hash&amp;ref_src=twsrc%5Etfw">#edupnx</a></p>&mdash; Tom Mittelbach (@MittelbachTom) <a href="https://twitter.com/MittelbachTom/status/1372296262473646081?ref_src=twsrc%5Etfw">March 17, 2021</a>
+                </blockquote>
+              </div>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="embed" class="py-12">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-base text-red-500 font-semibold tracking-wide uppercase">Embed</h2>
+          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-700 sm:text-4xl">
+            Embed a Jam Audio Room
+          </p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            Jam Audio Rooms are super easy to embed. Grab the code below<br/>
+            and embed the room in your website. <a class="underline" href="https://twitter.com/jam_systems" target="_blank" rel="nofollow">Need help? Let us know!</a>
+          </p>
+        </div>
+        <div class="mt-10 bg-white rounded-3xl text-center md:p-10">
+          <div class="flex flex-wrap">
+            <div class="flex-none text-right w-full md:w-1/2">
+              <span class="bg-gray-700 text-white pt-2 pb-1 px-4 rounded-t-lg mt-2 mr-6 inline-block">iFrame</span>
+              <div class="jam-embed-iframe border-2 border-gray-700 rounded-lg bg-white p-2">
+                <video autoplay muted loop id="star-wars" width="100%">
+                  <source src="img/starwars-animated.mov" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="md:ml-10 flex-1 text-left w-full md:w-1/2">
+              <p class="p-4 text-gray-500 pt-12 pb-12">
+                You can use the iFrame Embed Code from below to add a Jam audio room to your website or app.
+              </p>
+
+
+              <div class="p-2 pl-4 md:pl-0 text-gray-700 text-left font-semibold">
+                iFrame Embed Code
+              </div>
+              <pre class="bg-gray-100 border-2 border-gray-700 rounded-lg p-4"><code class="language-html" style="background: rgb(243, 244, 246)">&lt;iframe
+  src="https://jam.systems/70pup9"
+  allow="microphone *;"
+  width="420"
+  height="640">
+&lt;/iframe></code></pre>
+              <div
+                class="ml-4 md:ml-0 text-base font-medium shadow bg-gray-700 rounded-lg hover:bg-gray-900 p-3 text-white mt-4 inline-block cursor-pointer"
+                onclick='(function(){embedHandler()})();'
+              >
+                Embed iFrame
+              </div>
+
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <div class="p-2 pl-4 md:pl-0 text-gray-700 text-left font-semibold">
+                Permalink
+              </div>
+              <div class="bg-gray-100 border rounded-lg p-4 mb-8">
+                <code class="permalink">
+                  https://jam.systems/70pup9
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script>
+var embedRoomId = Math.random().toString(36).substr(2, 6);
+
+document.querySelector("code.permalink").textContent = "https://jam.systems/" + embedRoomId;
+
+document.querySelector("code.language-html").textContent = `<iframe
+  src="https://jam.systems/${embedRoomId}"
+  allow="microphone *;"
+  width="420"
+  height="640">
+</iframe>`;
+
+var embedHandler = function() {
+  document.querySelector(".jam-embed-iframe").innerHTML = `<iframe
+  src="https://jam.systems/${embedRoomId}"
+  allow="microphone *;"
+  width="420"
+  height="640">
+</iframe>`;
+};
+</script>
+
+    <div id="features" class="py-12">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-base text-red-500 font-semibold tracking-wide uppercase">Features</h2>
+          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-700 sm:text-4xl">
+            Embed a Jam Audio Room
+          </p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            Take a look at the features of Jam in comparison to Clubhouse and Twitter Spaces.<br />
+            Are there features you are especially interested in? <a class="underline" href="https://twitter.com/jam_systems" target="_blank" rel="nofollow">Let us know!</a>
+          </p>
+        </div>
+        <div class="my-10 bg-white rounded-3xl text-left pt-4 md:p-10 w-full">
+          <table class="w-full" style="table-layout: fixed;">
+            <thead class="w-full">
+            <tr>
+            <th></th>
+            <th><g-emoji class="g-emoji" alias="bread" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f35e.png">🍞</g-emoji> Jam</th>
+            <th><g-emoji class="g-emoji" alias="wave" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png">👋</g-emoji> Clubhouse</th>
+            <th><g-emoji class="g-emoji" alias="hatching_chick" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f423.png">🐣</g-emoji> Twitter Spaces</th>
+            </tr>
+            </thead>
+            <tbody class="w-full">
+            <tr>
+            <td><g-emoji class="g-emoji" alias="art" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3a8.png">🎨</g-emoji> Branded Rooms</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> set your own logo, color</td>
+            <td><g-emoji class="g-emoji" alias="x" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png">❌</g-emoji></td>
+            <td><g-emoji class="g-emoji" alias="x" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png">❌</g-emoji></td>
+            </tr>
+            <tr>
+            <td><g-emoji class="g-emoji" alias="jigsaw" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f9e9.png">🧩</g-emoji> Embed in Wordpress, Webflow, Wix, Shopify, website, store or app</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> iFrame, WebView, React&nbsp;Component, JavaSript&nbsp;SDK</td>
+            <td><g-emoji class="g-emoji" alias="x" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png">❌</g-emoji></td>
+            <td><g-emoji class="g-emoji" alias="x" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png">❌</g-emoji></td>
+            </tr>
+            <tr>
+            <td><g-emoji class="g-emoji" alias="100" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4af.png">💯</g-emoji> Animated Reactions</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> (<g-emoji class="g-emoji" alias="heart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png">❤️</g-emoji> <g-emoji class="g-emoji" alias="100" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4af.png">💯</g-emoji> <g-emoji class="g-emoji" alias="joy" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png">😂</g-emoji> <g-emoji class="g-emoji" alias="sweat_smile" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png">😅</g-emoji> <g-emoji class="g-emoji" alias="flushed" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f633.png">😳</g-emoji> <g-emoji class="g-emoji" alias="thinking" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f914.png">🤔</g-emoji>)</td>
+            <td><g-emoji class="g-emoji" alias="x" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png">❌</g-emoji></td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> (<g-emoji class="g-emoji" alias="100" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4af.png">💯</g-emoji> <g-emoji class="g-emoji" alias="hand" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/270b.png">✋</g-emoji> <g-emoji class="g-emoji" alias="fist_raised" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/270a.png">✊</g-emoji> <g-emoji class="g-emoji" alias="v" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/270c.png">✌️</g-emoji> <g-emoji class="g-emoji" alias="wave" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png">👋</g-emoji>)</td>
+            </tr>
+            <tr>
+            <td><g-emoji class="g-emoji" alias="paperclip" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4ce.png">📎</g-emoji> Description w/ Links</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> w/ Markdown support</td>
+            <td><g-emoji class="g-emoji" alias="x" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png">❌</g-emoji></td>
+            <td><g-emoji class="g-emoji" alias="ballot_box_with_check" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2611.png">☑️</g-emoji> show tweets</td>
+            </tr>
+            <tr>
+            <td><g-emoji class="g-emoji" alias="dollar" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4b5.png">💵</g-emoji> Earn Money</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> dedicated support for<br>PayPal.me, Bitcoin:, Gumroad</td>
+            <td><g-emoji class="g-emoji" alias="x" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png">❌</g-emoji> no built in support<br><br>currently not allowed<br>unless specifically authorized<br> see Terms of Service<br><a href="https://www.notion.so/Terms-of-Service-cfbd1824d4704e1fa4a83f0312b8cf88" rel="nofollow">(Conditions of Use #9)</a></td>
+            <td><g-emoji class="g-emoji" alias="x" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png">❌</g-emoji>  no built in support</td>
+            </tr>
+            <tr>
+            <td><g-emoji class="g-emoji" alias="iphone" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4f1.png">📱</g-emoji> Platform support</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> Web, iOS, Android,<br>macOS, Windows, Linux, …</td>
+            <td><g-emoji class="g-emoji" alias="ballot_box_with_check" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2611.png">☑️</g-emoji> iOS App Store &amp; invite</td>
+            <td><g-emoji class="g-emoji" alias="ballot_box_with_check" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2611.png">☑️</g-emoji> iOS App Store &amp; invite</td>
+            </tr>
+            <tr>
+            <td><g-emoji class="g-emoji" alias="earth_asia" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f30f.png">🌏</g-emoji> <a href="https://en.wikipedia.org/wiki/Data_sovereignty" rel="nofollow">Data Sovereignty</a></td>
+            <td><g-emoji class="g-emoji" alias="ballot_box_with_check" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2611.png">☑️</g-emoji> EU <g-emoji class="g-emoji" alias="eu" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ea-1f1fa.png">🇪🇺</g-emoji> (Frankfurt, Germany <g-emoji class="g-emoji" alias="de" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e9-1f1ea.png">🇩🇪</g-emoji>)<br><br> <g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> open source, host wherever you want</td>
+            <td><g-emoji class="g-emoji" alias="ballot_box_with_check" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2611.png">☑️</g-emoji> USA <g-emoji class="g-emoji" alias="us" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png">🇺🇸</g-emoji>, China <g-emoji class="g-emoji" alias="cn" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e8-1f1f3.png">🇨🇳</g-emoji> (Audio API Provider)<br><br><g-emoji class="g-emoji" alias="x" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png">❌</g-emoji> proprietary, no self-hosting</td>
+            <td><g-emoji class="g-emoji" alias="ballot_box_with_check" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2611.png">☑️</g-emoji> USA <g-emoji class="g-emoji" alias="us" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png">🇺🇸</g-emoji> (?)<br><br><g-emoji class="g-emoji" alias="x" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png">❌</g-emoji> proprietary, no self-hosting</td>
+            </tr>
+            <tr>
+            <td><g-emoji class="g-emoji" alias="studio_microphone" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f399.png">🎙</g-emoji> Number of Speakers in a Room</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> ~ 20+ (limited by p2p bandwidth)</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> ~ 100s (?)</td>
+            <td><g-emoji class="g-emoji" alias="ballot_box_with_check" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2611.png">☑️</g-emoji> 10</td>
+            </tr>
+            <tr>
+            <td><g-emoji class="g-emoji" alias="ticket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3ab.png">🎫</g-emoji> Number of People in a Room</td>
+            <td><g-emoji class="g-emoji" alias="ballot_box_with_check" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2611.png">☑️</g-emoji> ~ 50+ (limited by p2p bandwidth),<br>we're working on lifting this limit!<br><br>current workaround: stream browser tab to<br>Youtube, Twitch, Facebook Live …</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> ~ 8000</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> ~ millions (?)</td>
+            </tr>
+            <tr>
+            <td><g-emoji class="g-emoji" alias="spiral_calendar" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f5d3.png">🗓</g-emoji> Discovery</td>
+            <td><g-emoji class="g-emoji" alias="ballot_box_with_check" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2611.png">☑️</g-emoji> off-platform (<a href="https://www.eventbrite.com" target="_blank" rel="nofollow">eventbrite</a>, <a href="https://lu.ma" target="_blank" rel="nofollow">lu.ma</a>, <a href="https://www.meetup.com" target="_blank" rel="nofollow">meetup</a> social networks, messengers)</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> hallway, upcoming events, off-platform</td>
+            <td><g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji> fleet bar, off-platform</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="support" class="py-12">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-base text-red-500 font-semibold tracking-wide uppercase">Support</h2>
+          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-700 sm:text-4xl">
+            Get Support for Jam
+          </p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            Learn from others about best practices of using Jam.<br />
+            Take a look at our Readme and join our Jam community on Discord.
+          </p>
+
+          <div class="mt-10">
+            <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+      
+              <div class="relative p-6 rounded-3xl bg-white">
+                <p class="mt-2 text-2xl leading-6 font-semibold tracking-tight text-gray-700">
+                  Readme
+                </p>
+                <p class="mt-4 mb-2 text-gray-500">Learn more about how Jam works, all the available configuration options, best practices and examples for what you can do with Jam.<br/><br/>Readme as well as documentation and source code for Jam are available over on Gitlab.</p>
+                <a href="https://gitlab.com/jam-systems/jam" target="_blank" rel="nofollow" class="mt-6 flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-900 md:py-2 md:text-lg md:px-6">
+                  Readme and Source Code on Gitlab
+                </a>
+              </div>
+  
+              <div class="relative p-6 rounded-3xl bg-white">
+                <p class="mt-2 text-2xl leading-6 font-semibold tracking-tight text-gray-700">
+                  Community
+                </p>
+                <p class="mt-4 mb-2 text-gray-500">Are you using Jam? Are you integrating Jam into your website, webstore or app?<br/><br/>Looking for best practices around using Jam or ready to share some of your own?</p>
+    
+                <p class="mt-2 mb-2 text-gray-500">Join our community on Discord and say hi.</p>
+  
+                <a href="https://discord.gg/BfakmCuXSX" target="_blank" rel="nofollow" class="mt-6 flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-900 md:py-2 md:text-lg md:px-6">
+                  Jam community on Discord
+                </a>
+              </div>
+  
+            </dl>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </body>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script type="application/javascript">
+    const stripe = Stripe("pk_live_51IQp0xLhB3Qkki8ZUr9xxaWQENS6dC8wKtq7KRf4NUmsx6YskIiGO9hiclIqxOQgQvLonzk2gVk7vhQ1U4NSx6el00bZe9pFml");
+    const billingHost = 'https://billing.ops.jam.systems';
+    const billingHost2 = 'https://billing-test.ops.jam.systems';
+
+    const checkout = function(plan) {
+        return fetch(billingHost2 + "/create-checkout-session", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({plan})
+        }).then(function(result) {
+            result.json().then(function(data) {
+                stripe.redirectToCheckout({
+                    sessionId: data.sessionId
+                })
+            });
+        });
+    };
+
+  </script>
+  <!-- Matomo -->
+  <script type="text/javascript">
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.ops.jam.systems/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
+</html>

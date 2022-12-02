@@ -1,0 +1,91 @@
+<!------ Include the above in your HEAD tag ---------->
+
+<!--author:starttemplate-->
+<!--reference site : starttemplate.com-->
+
+
+<!DOCTYPE html>
+<html style="height:100vh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Se connecter | AU BONHEUR DU VIN</title>
+    <meta name="keywords" content="espace membre, aubonheurduvin, abdv, gestion cave, geneve">
+    <link href="/static/css/abdv_login.css" rel="stylesheet" id="style">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.1.2/tailwind.min.css" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body class="h-100">
+<div class="container-fluid h-100">
+<section class="row h-100 bg-img1 imglogin justify-content-center align-items-center">
+  <div class="col-12 col-md-8 col-lg-4 justify-content-center p-md-5 bg-white loginfullmobile">
+      <p class="mb-0  mt-12">Espace client,</p>
+      <h2 class="text-xl md:text-2xl font-bold leading-tight mt-0">
+      Connexion
+      
+      </h2>
+
+      <form class="mt-6" method="POST">
+        <div>
+          <input type="text" name="username" id="" placeholder="Utilisateur" value="" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
+        </div>
+
+        <div class="mt-4">
+          <label class="block text-gray-700"></label>
+          <input type="password" name="password" id="" placeholder="Mot de passe" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+                focus:bg-white focus:outline-none" required>
+        </div>
+
+        <div class="text-right mt-2">
+          <a href="/account-recover" class="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Mot de passe oublié ?</a>
+        </div>
+        <input type="hidden" name="_csrf_token" value="Mdret_919bnDIjyju4vIb4ot6eb5XXoHnMQZw3DKNJE">
+
+        <button type="submit" class="w-full block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg
+              px-4 py-3 mt-6">Se connecter</button>
+              </form>
+
+      <hr class="my-6 border-gray-300 w-full">
+
+      <p class="text-sm text-gray-500 mt-md-5">© 2020 AUBONHEURDUVIN.ch - Tout droit réservé. - <i class='fa fa-lock'></i> Sécurisé par <a href=\"https://www.linkedin.com/in/jlegay/\">Julien Legay</a></p>
+  </div>
+
+</section>
+</div>
+<div class="d-flex align-items-end d-md-none position-fixed" style="bottom:0;left:0;right:0;height:150px;">
+  <button id="pwa" style="background:#bf0c1e;" class="w-100 h-50 btn text-white"><i class="fa fa-mobile"></i> Ajouter à l'écran d'accueil</button>
+</div>
+<script>
+let deferredPrompt;
+const addBtn = document.querySelector('#pwa');
+addBtn.style.display = 'none';
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI to notify the user they can add to home screen
+  addBtn.style.display = 'block';
+
+  addBtn.addEventListener('click', (e) => {
+    // hide our user interface that shows our A2HS button
+    addBtn.style.display = 'none';
+    // Show the prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        deferredPrompt = null;
+      });
+  });
+}); 
+</script>
+</body>
+</html>

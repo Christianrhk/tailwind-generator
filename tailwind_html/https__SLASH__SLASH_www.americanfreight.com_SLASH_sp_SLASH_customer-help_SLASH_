@@ -1,0 +1,2902 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="https://www.americanfreight.com/sp/wp-content/themes/ascendio-child-redesign/library/components/nav.js"></script>
+
+<script>
+  function toggleNav() {
+    var mask = document.getElementById('mask');
+    var nav = document.getElementById('mobileNav');
+
+    mask.classList.toggle('hidden');
+    nav.classList.toggle('hidden');
+  }
+
+  function buildMobileCatLinks(i) {
+    var catHtml = '';
+
+    for (var s = 0; s < nav.vertical[i].dept.length; s++) {
+      catHtml = catHtml + "<div class='p-2'><a href='https://americanfreight.com" + nav.vertical[n].dept[s].url + "'>" + nav.vertical[n].dept[s].title + buildMobileSubCatLinks(nav.vertical[i].dept[s]) + "</a></div>";
+    }
+
+    return catHtml;
+  };
+
+  function buildMobileSubCatLinks(s) {
+    return '';
+    // return "<a tabindex='-1' class='block whitespace-nowrap pl-2 text-md pb-2' href='https://americanfreight.com/br/plp/" + s.deptName + "/" + s.dept_name.replace(/[^a-zA-Z0-9]/g, '-').replace(/\--/g, '').toLowerCase() + "/" + s.category_name.replace(/[^a-zA-Z0-9]/g, '-').replace(/\--/g, '-').toLowerCase() + "/" + s.category_id + "?pno=1&sortBy=1&psize=25'>" + s.category_name + "</a>";
+  }
+
+  function toggleSubcat(el, index) {
+    el.querySelector('.mobileFlyout').classList.toggle('hidden');
+  }
+
+  function buildMobileDeptLink(v, index) {
+    return "<button onclick='toggleSubcat(this)' class='p-2 block text-xl pt-2 pb-2 border-b w-full text-left border-b border-t-0 border-gray-400'>" + v.title + "&nbsp;&nbsp;<i class='fal fa-angle-right float-right text-black text-3xl pt-2' aria-hidden='true'></i>&nbsp;&nbsp;<div class='mobileFlyout hidden'><a class='bg-gray-200 block p-2' href='https://americanfreight.com" + v.url + "'>Shop All " + v.title + "</a>" + buildMobileCatLinks(index) + "</div></button>";
+  }
+
+  var mobileDeptHtml = '';
+
+  for (var n = 0; n < nav.vertical.length; n++) {
+    mobileDeptHtml = mobileDeptHtml + buildMobileDeptLink(nav.vertical[n], n); // set the main depts
+  }
+
+  setTimeout(() => {
+    document.getElementById('mobileNavLinks').innerHTML = mobileDeptHtml;
+  }, 1000);
+</script>
+<!--
+  <span class='float-right'>
+    <section id='UsefulLinks'>
+      <button type='button' class='UsefulLinksButton__Button-border--none text-red-800 pt-2 pb-2'>
+        <i class='fal fa-angle-down text-gray-600' aria-hidden='true'></i> Useful Links
+      </button>
+    </section>
+  </span>
+-->
+
+<style>
+  .flyout {
+    display: none !important;
+    position: absolute;
+    top: 99%;
+    width: 100%;
+    min-width: 800px;
+    min-height: 250px;
+    background: rgb(255, 255, 255);
+    left: 0px;
+    padding: 8px;
+    padding-top: 5px;
+    z-index: 9999;
+  }
+
+  #nav span:hover .flyout {
+    display: block !important;
+  }
+  /* #nav span:hover .flyout, #nav span:focus .flyout, .flyout--trigger:focus + .flyout {
+    display: block !important;
+  } */
+
+  .flyout--trigger[aria-expanded="true"] + .flyout {
+    display: block !important;
+  }
+</style>
+
+
+<script type="text/javascript" src="https://www.americanfreight.com/sp/wp-content/themes/ascendio-child-redesign/library/components/nav.js"></script>
+
+
+<script>
+  function buildDeptLink(v) {
+    return "<a class='pr-6 pb-2 pt-2 inline-block' href='" + v.url + "'>" + v.title + "&nbsp;&nbsp;&nbsp;&nbsp;</a><button type='button' class='flyout--trigger' style='border: none;height: 25px;display: inline-block; margin-left: -32px;margin-top: 8px; margin-right: 15px;'><i class='fal fa-angle-down text-gray-500' aria-hidden='true'></i></button>";
+  }
+
+  function buildCatLink(c) {
+    return "<div><div class='whitespace-nowrap p-2 bg-gray-100 mb-3'><a class='block whitespace-nowrap' href='" + c.url + "'>" + c.title + "<br /><small>Shop All</small></a></div></div>";
+  }
+
+  function buildSubCatLink(s) {
+      return "<a class='block whitespace-nowrap pl-2 text-md pb-2' href='https://americanfreight.com/br/plp/" + s.deptName + "/" + s.dept_name.replace(/[^a-zA-Z0-9]/g, '-').replace(/\--/g, '').toLowerCase() + "/" + s.category_name.replace(/[^a-zA-Z0-9]/g, '-').replace(/\--/g, '-').toLowerCase() + "/" + s.category_id + "?pno=1&sortBy=1&psize=25'>" + s.category_name + "</a>";
+  }
+
+  var deptHtml = '';
+
+  for (var n = 0; n < nav.vertical.length; n++) {
+    // build the depts
+    deptHtml = deptHtml + '<span class="inline-block">';
+    deptHtml = deptHtml + buildDeptLink(nav.vertical[n]); // set the main depts
+
+    deptHtml = deptHtml + '<div class="flyout shadow-lg w-screen container pt-6"><div class="grid grid-rows-2 grid-flow-col gap-2">';
+    // build the cats
+    for (var c = 0; c < nav.vertical[n].dept.length; c++) {
+      deptHtml = deptHtml + '<div>';
+      deptHtml = deptHtml + buildCatLink(nav.vertical[n].dept[c]);
+
+      // build the subcats
+      for (var s = 0; s < nav.vertical[n].dept[c].cat.length; s++) {
+        deptHtml = deptHtml + buildSubCatLink(nav.vertical[n].dept[c].cat[s]);
+      }
+      deptHtml = deptHtml + '</div>';
+    }
+
+    deptHtml = deptHtml + '</div></div>';
+    deptHtml = deptHtml + '</span>';
+  }
+
+  setTimeout(() => {
+    document.getElementById('nav').innerHTML = deptHtml;
+
+    var focusEl  = jQuery('#header--logo');
+
+    // accessibility items
+    jQuery('.flyout--trigger').on('keyup', function (e) {
+      if(e.key == 'Enter' || e.key == ' ') {
+        e.preventDefault();
+        var isExpanded = jQuery(this).attr('aria-expanded');
+
+        focusEl = jQuery(this);
+
+        jQuery('.flyout--trigger').attr('aria-expanded',  false); // close all others
+        jQuery(this).attr('aria-expanded', (isExpanded !== 'true') ? "true" : "false");
+
+        if (isExpanded !== 'true') {
+          jQuery(this).next().find('a').first().focus()
+        } else {
+          jQuery(this).focus();
+        }
+      }
+    });
+
+    jQuery('#nav').on('mouseout', function() {
+      jQuery('.flyout--trigger').attr('aria-expanded',  false);
+    });
+
+    jQuery(document).on('keydown', function(event) {
+      if (event.key == "Escape") {
+        jQuery('.flyout--trigger').attr('aria-expanded',  false);
+        focusEl.focus();
+      }
+    });
+
+    // if focus leaves the navs, close them all
+    jQuery('#menu-item-4875').on('focusin', function() {
+      jQuery('.flyout--trigger').attr('aria-expanded',  false);
+    });
+
+    jQuery('.pr-6.pb-2.pt-2.inline-block').on('focusin', function() {
+      jQuery('.flyout--trigger').attr('aria-expanded',  false);
+    })
+
+
+  }, 1000);
+</script>
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="pingback" href="https://www.americanfreight.com/sp/xmlrpc.php">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel='dns-prefetch' href='//maps-api-ssl.google.com' />
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="American Freight Support &raquo; Feed" href="https://www.americanfreight.com/sp/feed/" />
+<link rel="alternate" type="application/rss+xml" title="American Freight Support &raquo; Comments Feed" href="https://www.americanfreight.com/sp/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/support.americanfreight.com\/wp-includes\/js\/wp-emoji.js?ver=5.5.3","twemoji":"https:\/\/support.americanfreight.com\/wp-includes\/js\/twemoji.js?ver=5.5.3"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for Transgender flag compatibility. This flag is shortlisted for the Emoji 13 spec,
+				 * but has landed in Twemoji early, so we can add support for it, too.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (white flag emoji + transgender symbol).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F ],
+					[ 0x1F3F3, 0xFE0F, 0x200B, 0x26A7, 0xFE0F ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * So easy, even a baby could do it!
+				 *
+				 *  To test for Emoji 13 support, try to render a new emoji: Man Feeding Baby.
+				 *
+				 * The Man Feeding Baby emoji is a ZWJ sequence combining 👨 Man, a Zero Width Joiner and 🍼 Baby Bottle.
+				 *
+				 * 0xD83D, 0xDC68 == Man emoji.
+				 * 0x200D == Zero-Width Joiner (ZWJ) that links the two code points for the new emoji or
+				 * 0x200B == Zero-Width Space (ZWS) that is rendered for clients not supporting the new emoji.
+				 * 0xD83C, 0xDF7C == Baby Bottle.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0x200D, 0xD83C, 0xDF7C],
+					[0xD83D, 0xDC68, 0x200B, 0xD83C, 0xDF7C]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.americanfreight.com/sp/wp-includes/css/dist/block-library/style.css?ver=5.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://www.americanfreight.com/sp/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='ewd-ufaq-style-css'  href='https://www.americanfreight.com/sp/wp-content/plugins/ultimate-faqs/css/ewd-ufaq-styles.css?ver=5.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='ewd-ufaq-rrssb-css'  href='https://www.americanfreight.com/sp/wp-content/plugins/ultimate-faqs/css/rrssb-min.css?ver=5.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wpcf7-redirect-script-frontend-css'  href='https://www.americanfreight.com/sp/wp-content/plugins/wpcf7-redirect/build/css/wpcf7-redirect-frontend.min.css?ver=5.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='parent-style-css'  href='https://www.americanfreight.com/sp/wp-content/themes/ascendio/style.css?ver=5.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='https://www.americanfreight.com/sp/wp-content/themes/ascendio/assets/css/font-awesome.min.css?ver=4.6.0' type='text/css' media='all' />
+<link rel='stylesheet' id='material-icons-css'  href='https://www.americanfreight.com/sp/wp-content/themes/ascendio/assets/css/material-icons.min.css?ver=2.2.0' type='text/css' media='all' />
+<link rel='stylesheet' id='magnific-popup-css'  href='https://www.americanfreight.com/sp/wp-content/themes/ascendio/assets/css/magnific-popup.min.css?ver=1.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jquery-swiper-css'  href='https://www.americanfreight.com/sp/wp-content/themes/ascendio/assets/css/swiper.min.css?ver=3.3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='ascendio-theme-style-css'  href='https://www.americanfreight.com/sp/wp-content/themes/ascendio-child-redesign/style.css?ver=5.5.3' type='text/css' media='all' />
+<style id='ascendio-theme-style-inline-css' type='text/css'>
+.showcase-active .showcase-panel { background-image: url( https://www.americanfreight.com/sp/wp-content/themes/ascendio-child-redesign/assets/images/header_bg.jpg ); }body.error404 { background-image: url(  ); }.header-wrapper { background-image: url(  ); }
+</style>
+<link rel='stylesheet' id='webimax-style-css'  href='https://www.americanfreight.com/sp/wp-content/themes/ascendio/custom/style.css?ver=5.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cherry-google-fonts-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A400%2C700%2C400italic%7CMerriweather%3A700&#038;subset=latin&#038;ver=5.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='tm-builder-swiper-css'  href='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/css/swiper.min.css?ver=1.3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='tm-builder-modules-style-css'  href='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/css/style.css?ver=1.3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='cf7cf-style-css'  href='https://www.americanfreight.com/sp/wp-content/plugins/cf7-conditional-fields/style.css?ver=1.9.14' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp' id='jquery-core-js'></script>
+<link rel="https://api.w.org/" href="https://www.americanfreight.com/sp/wp-json/" /><link rel="alternate" type="application/json" href="https://www.americanfreight.com/sp/wp-json/wp/v2/pages/39" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.americanfreight.com/sp/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.americanfreight.com/sp/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.5.3" />
+<link rel="canonical" href="https://www.americanfreight.com/sp/customer-help/" />
+<link rel='shortlink' href='https://www.americanfreight.com/sp/?p=39' />
+<link rel="alternate" type="application/json+oembed" href="https://www.americanfreight.com/sp/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.americanfreight.com%2Fsp%2Fcustomer-help%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.americanfreight.com/sp/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.americanfreight.com%2Fsp%2Fcustomer-help%2F&#038;format=xml" />
+    <script type="text/javascript">
+        var ajaxurl = 'https://www.americanfreight.com/sp/wp-admin/admin-ajax.php';
+    </script>
+		<script>
+			document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );
+		</script>
+				<style>
+			.no-js img.lazyload { display: none; }
+			figure.wp-block-image img.lazyloading { min-width: 150px; }
+							.lazyload, .lazyloading { opacity: 0; }
+				.lazyloaded {
+					opacity: 1;
+					transition: opacity 400ms;
+					transition-delay: 0ms;
+				}
+					</style>
+		<link rel="icon" href="https://www.americanfreight.com/sp/wp-content/uploads/2017/12/cropped-american-freight-favicon-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="https://www.americanfreight.com/sp/wp-content/uploads/2017/12/cropped-american-freight-favicon-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.americanfreight.com/sp/wp-content/uploads/2017/12/cropped-american-freight-favicon-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://www.americanfreight.com/sp/wp-content/uploads/2017/12/cropped-american-freight-favicon-270x270.jpg" />
+<style type="text/css">/* #Typography */body {font-style: normal;font-weight: 400;font-size: 14px;line-height: 1.5;font-family: 'Open Sans', sans-serif;letter-spacing: 0px;text-align: left;color: #acb8c1;}h1 {font-style: normal;font-weight: 400;font-size: 33px;line-height: 1;font-family: 'Open Sans', sans-serif;letter-spacing: 0px;text-align: inherit;color: #27323d;}h2 {font-style: normal;font-weight: 700;font-size: 21px;line-height: 1.1;font-family: 'Open Sans', sans-serif;letter-spacing: 0px;text-align: inherit;color: #27323d;}h3 {font-style: normal;font-weight: 400;font-size: 18px;line-height: 1.25;font-family: 'Open Sans', sans-serif;letter-spacing: 0px;text-align: inherit;color: #27323d;}h4 {font-style: normal;font-weight: 700;font-size: 16px;line-height: 1.25;font-family: 'Open Sans', sans-serif;letter-spacing: 0px;text-align: inherit;color: #27323d;}h5 {font-style: normal;font-weight: 400;font-size: 16px;line-height: 1.25;font-family: 'Open Sans', sans-serif;letter-spacing: 0px;text-align: inherit;color: #27323d;}h6 {font-style: normal;font-weight: 700;font-size: 15px;line-height: 1.25;font-family: 'Open Sans', sans-serif;letter-spacing: 0px;text-align: inherit;color: #27323d;}@media (min-width: 992px) {body { font-size: 16px; }h1 { font-size: 48px; }h2 { font-size: 30px; }h3 { font-size: 24px; }h4 { font-size: 20px; }h5 { font-size: 18px; }h6 { font-size: 16px; }}a{ color: #36a5ed; }h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover { color: #36a5ed; }.not-found .page-title { color: #323232; }a:hover { color: #323232; }/* #Invert Color Scheme */.invert { color: #acb8c1; }.invert h1 { color: #fff; }.invert h2 { color: #fff; }.invert h3 { color: #fff; }.invert h4 { color: #fff; }.invert h5 { color: #fff; }.invert h6 { color: #fff; }.invert a { color: #ffffff; }.invert a:hover { color: #36a5ed; }/* #Layout */@media (min-width: 1200px) {.container {max-width: 1200px;}}/* #404 */.error-404.not-found .page-title {color: #525b64;}/* #Elements */blockquote {font-style: italic;font-weight: 400;font-size: 15px;line-height: 1.5;font-family: Open Sans, sans-serif;letter-spacing: 0;color: #2a2f33;}@media (min-width: 992px) {blockquote {font-size: 24px;}}blockquote cite {color: #acb8c1;}blockquote cite::before {background: #acb8c1;}blockquote::before {color: #36a5ed;}code {color: #ffffff;background: #36a5ed;}.entry-content > p > a {font-family: Open Sans, sans-serif;font-style: normal;font-weight: 400;}.entry-content ul > li:before,.entry-content ol > li:before {color:#36a5ed;}/* #Project */.projects-item-instance .project-content {background: #ffffff;}.projects-item-instance .hover-content {background-color: rgba(82,91,100,0.6);}.projects-container .projects-list .hover-content a {color: rgba(255,255,255,0.5);}.projects-container .projects-list .hover-content a:hover {color: #ffffff;}.cherry-projects-audio-list .wp-playlist {background: #525b64;}.cherry-projects-audio-list .wp-playlist-item-meta {color: #acb8c1;}.cherry-projects-slider__instance .slider-pro .sp-thumbnails-container .sp-selected-thumbnail .sp-thumbnail {border-color: #36a5ed;}.cherry-projects-slider__instance .slider-pro .sp-arrows .sp-arrow:after,.cherry-projects-slider__instance .slider-pro .sp-arrows .sp-arrow:before {background-color: #36a5ed;}.cherry-projects-slider__instance .slider-pro .sp-full-screen-button:before {color: #36a5ed;}.cherry-spinner-double-bounce .cherry-double-bounce1, .cherry-spinner-double-bounce .cherry-double-bounce2 {background-color: #36a5ed;}.cherry-projects-single-post .featured-image a .cover,.cherry-projects-single-post .additional-image a .cover {color: #ffffff;background-color: rgba(54,165,237,0.35);}.wp-playlist-tracks .wp-playlist-item {background-color: #525b64;}.wp-playlist-item .wp-playlist-item-title,.wp-playlist-item .wp-playlist-item-length {color: #acb8c1;}.cherry-projects-single-details-list ul li {color: #36a5ed;}/* tm_timeline */div.tm_timeline__body-tense {border-color: rgba(54,165,237,0.3);}.tm_timeline__event__dot:before {box-shadow: 0 0 0 6px rgba(54,165,237,0.21);}.tm_timeline__event__dot:before {background-color: #36a5ed;}.tm_timeline__event__date,.tm_timeline__event__description {font-weight: 400;}.tm_timeline__event__description {font-size: 16px;line-height: 1.5;}.tm_timeline__event__title a {color: #323232;}.tm_timeline__event__title a:hover {color: #36a5ed;}.tm_timeline__event .tm_timeline__event__title {font-style: normal;font-weight: 400;font-size: 24px;line-height: 1.25;font-family: 'Open Sans', sans-serif;letter-spacing: 0px;text-align: inherit;color: #27323d;}/* tm-testi */.tm-testi__item-body footer {color: #acb8c1;}.tm-testi__item-body a {color: #36a5ed;}.tm-testi__item-body a:hover {color: #323232;}.tm-testi .swiper-pagination-bullet {background-color: #525b64;}.tm-testi .swiper-pagination-bullet:hover {background-color: #36a5ed;}.tm-testi .swiper-pagination-bullet.swiper-pagination-bullet-active {background-color: #36a5ed;box-shadow: 0 0 0 6px rgba(54,165,237,0.21);}.tm-testi--boxed blockquote {color: #ffffff;background-color: #525b64;}.tm-testi--speech-bubble .tm-testi__item-body {color: #ffffff;background-color: #525b64;}.tm-testi--speech-bubble .tm-testi__item-body:after{border-color: #525b64 transparent transparent transparent;}/* cherry-services */.services-item .service-icon {color: #36a5ed;}.services-single-item .services-thumbnail {background-color: #525b64;}.services-single-item .service-slogan,.services-single-item .service-descr {color: #ffffff;}.services-single-item .service-descr {font-style: normal;font-weight: 400;font-size: 18px;line-height: 1.25;font-family: 'Open Sans', sans-serif;letter-spacing: 0px;}.services-single-item .cta_wrap {background-color:#36a5ed;}.service-cta_title,.service-cta_content {color: #ffffff;}.service-cta .btn {color: #ffffff;border-color: #ffffff;background:none;}.service-cta .btn:hover {color: #36a5ed;border-color: #ffffff;background-color: #ffffff;}.service-cta .cta-form_control {color: #acb8c1;}/* #Header */.header-wrapper {background-image: url();background-repeat: repeat;background-position: center top;background-attachment: scroll;}.site-header {background-color: #fff;}/* showcase-panel */.showcase-panel {background-position: left;background-color: #181618;}.showcase-panel:before {background-color: rgba(54,165,237,0);}.showcase-panel__subtitle {color: #2a2f33;}.showcase-panel__title {color: #2a2f33;}.showcase-panel__description {color: #2a2f33;}/* ##Logo */.site-logo {font-style: normal;font-weight: 700;font-size: 36px;font-family: Merriweather, serif;}.site-logo__link, .site-logo__link:hover {color: #27323d;}/* ##Top Panel */.top-panel {background-color: #2a2f33;}.top-panel a {color: #acb8c1;}.top-panel a:hover {color: #ffffff;}/* ##Header Message */.header__message .info-block a[href^="tel:"] {}.header__message .info-block a[href^="tel:"]:hover {color: #36a5ed;}.header__message .info-block i {color: #36a5ed;}/* #Search Form */input[type='text'],input[type='email'],input[type='url'],input[type='password'],input[type='search'],input[type='number'],input[type='tel'],input[type='range'],input[type='date'],input[type='month'],input[type='week'],input[type='time'],input[type='datetime'],input[type='datetime-local'],input[type='color'],select,textarea,#tm_builder_outer_content .tm_pb_contact_form .tm_pb_contact_field .tm_pb_contact_form_input {color: #525b64;}.search-form__field {color: #acb8c1;}.search-form__field::-webkit-input-placeholder { color: #acb8c1; }.search-form__field::-moz-placeholder { color: #acb8c1; }.search-form__field:-moz-placeholder { color: #acb8c1; }.search-form__field:-ms-input-placeholder { color: #acb8c1; }.invert .search-form .btn {color: #acb8c1;background: #ffffff;}.invert .search-form .btn:hover {color: #525b64;background: #ffffff;}.invert .footer-area .search-form .btn {color: #acb8c1;background: #36a5ed;}.invert .footer-area .search-form .btn:hover {color: #36a5ed;background: #acb8c1;}.header__search .search-form__submit i {color: #acb8c1;}.search-form__toggle:hover,.search-form__close:hover,.header__search .search-form__submit:hover i {color: #36a5ed;}/* #Comment, Contact, Password Forms */.comment-form .submit,.wpcf7-submit,.post-password-form label + input {color: #ffffff;background-color: #36a5ed;border-color: #36a5ed;}.comment-form .submit:hover,.wpcf7-submit:hover,.post-password-form label + input:hover {color: #ffffff;background-color: rgb(29,140,212);border-color: rgb(29,140,212);}.comment-form .submit:focus,.wpcf7-submit:focus,.post-password-form label + input:focus {box-shadow: 0 0 10px #36a5ed;}/* #Input Placeholders */::-webkit-input-placeholder { color: #acb8c1; }::-moz-placeholder{ color: #acb8c1; }:-moz-placeholder{ color: #acb8c1; }:-ms-input-placeholder{ color: #acb8c1; }.share-btns__link {color: #acb8c1;}.share-btns__link:hover {color: #36a5ed;}.single-post .share-btns__link {color: #ffffff;background-color: #36a5ed;}.single-post .share-btns__link:hover {color: #ffffff;background-color: #525b64;}/* #Social (invert scheme) */.invert .social-list a {color: #ffffff;}.invert .social-list a:hover {color: #525b64;}.social-list .menu-item a {color: #acb8c1;}.social-list .menu-item a:hover {color: #ffffff;}/* #Member Social */.tm_pb_builder #tm_builder_outer_content .tm_pb_team_member .tm_pb_team_member_description .tm_pb_member_social_links li a {background: #36a5ed;}.tm_pb_builder #tm_builder_outer_content .tm_pb_team_member .tm_pb_team_member_description .tm_pb_member_social_links li a:hover {background: #525b64;}#tm_builder_outer_content .tm_pb_team_member .tm_pb_member_social_links li a.tm_pb_font_icon {color: #ffffff;}/* #Main Menu */.main-navigation .menu > li > a {color: #acb8c1;font-family: Open Sans, sans-serif;font-weight: 700;font-style: normal;font-size: 12px;line-height: 1.7;letter-spacing: 0px;color: #acb8c1;}.main-navigation .menu > li > a::after {background: #36a5ed;}.main-navigation .menu > li > a:hover,.main-navigation .menu > li.menu-hover > a,.main-navigation .menu > li.current_page_item > a,.main-navigation .menu > li.current_page_ancestor > a,.main-navigation .menu > li.current-menu-item > a,.main-navigation .menu > li.current-menu-ancestor > a {color: #323232;}.main-navigation ul ul a {color: #323232;font-family: Open Sans, sans-serif;font-style: normal;font-size: 12px;line-height: 1.7;}.main-navigation .sub-menu > li > a:hover,.main-navigation .sub-menu > li.current_page_item > a,.main-navigation .sub-menu > li.current_page_ancestor > a,.main-navigation .sub-menu > li.current-menu-item > a,.main-navigation .sub-menu > li.current-menu-ancestor > a {color: #36a5ed;}.main-navigation .sub-menu {border-top: 2px solid #36a5ed;background:rgb(246,246,246);}.menu-item__desc {color: #acb8c1;font-style: normal;font-weight: 400;font-family: 'Open Sans', sans-serif;}/* #Footer Menu */.footer-menu__items li.current-menu-item a,.footer-menu__items li.current_page_item a {color: #acb8c1;}/* #Stuck Menu */.main-navigation.isStuck {background-color: rgb(246,246,246);}/* #Mobile Menu */.menu-toggle__icon,.menu-off__icon {color: #36a5ed;}.menu-toggle {color: #323232;}.menu-toggle:hover {color: #36a5ed;}.menu-toggle span {font-family: Open Sans, sans-serif;font-weight: 700;font-style: normal;}@media (max-width: 767px) {.main-menu__wrap .menu > li {background-color: rgb(246,246,246);}.main-menu__wrap .top-panel__menu .menu-item a {color: #acb8c1;}.main-menu__wrap .top-panel__menu .menu-item.current-menu-item a {color: #36a5ed;}.main-menu__wrap .menu .sub-menu-toggle {color: #acb8c1;}.main-menu__wrap .menu .sub-menu .sub-menu-toggle {color: #acb8c1;}}/* #Entry Meta */.entry-meta {font-family: Open Sans, sans-serif;font-style: normal;font-weight: 400;line-height: 2;font-size: 12px;letter-spacing: 0px;}.post__cats a,.sticky__label {color: #ffffff;background-color: #36a5ed;}.post__cats a:hover {color: #acb8c1;background-color: #525b64;}.posted-by,.posted-by__author,.post-featured-content {color: #acb8c1;}.posted-by,.posted-by__author,.post-featured-content,.post__tags,.post__comments,.post__date {font-family: Open Sans, sans-serif;font-style: normal;font-weight: 400;}.posted-by a:hover,.posted-by__author:hover {color: #36a5ed;}.invert .post__cats a:hover {color: #36a5ed;background-color: #ffffff;}/* #Post Format */.format-quote .post-quote {color: #acb8c1;background-color: #525b64;}.post-format-link {color: #ffffff;background-color: rgba(82,91,100,0.78);}.post-format-link:hover {color:#ffffff;background-color: #36a5ed;}.post-format-link {font-family: Open Sans, sans-serif;font-style: normal;font-weight: 400;}.entry-post-format-audio {background: #36a5ed;}.entry-post-format-audio .post-format-audio-caption,.entry-post-format-audio .post-format-audio-description {color: #ffffff;}.entry-post-format-audio .post-format-audio-description {font-family: Open Sans, sans-serif;font-style: normal;font-weight: 400;}.entry-post-format-audio .mejs-container .mejs-time-rail .mejs-time-loaded {background: rgb(80,191,255);}.entry-post-format-audio .mejs-controls .mejs-time-rail .mejs-time-current {background: rgb(105,216,255);}.format-image .post-thumbnail__link::before {background: rgba(82,91,100,0.35);color: #ffffff;}.format-gallery .swiper-button-next,.format-gallery .swiper-button-prev {color: #ffffff;background-color: #36a5ed;}.format-gallery .swiper-button-next:hover,.format-gallery .swiper-button-prev:hover {color: #ffffff;background-color: #525b64;}/* #Author Bio */.post-author__holder {background-color: #525b64;}.post-author__title a:hover {color: #36a5ed;}/* #Comment Reply Link */#cancel-comment-reply-link {color: #525b64;}#cancel-comment-reply-link:hover {color: #36a5ed;}.comment-reply-title,.comments-title {font-style: normal;font-weight: 400;font-family: 'Open Sans', sans-serif;color: #27323d;}.comment-metadata {font-family: Open Sans, sans-serif;font-style: normal;font-weight: 400;}/* #Paginations */.page-numbers,.page-links a {color: #525b64;}a.page-numbers:hover,.page-numbers.current,.page-links a:hover,.page-links > .page-links__item {color: #36a5ed;}.page-numbers.next,.page-numbers.prev,#tm_builder_outer_content .pagination a.next,#tm_builder_outer_content .pagination a.prev {color: #ffffff;background-color: #36a5ed;}.page-numbers.next:hover,.page-numbers.prev:hover,#tm_builder_outer_content .pagination a.next:hover,#tm_builder_outer_content .pagination a.prev:hover {color: #ffffff;background-color: #525b64;}/* #Breadcrumbs */.breadcrumbs {background-color: #f8fafb;}.breadcrumbs__item-target {color: #525b64;}.breadcrumbs__item-link:hover {color: #36a5ed;}.breadcrumbs__item-link,.breadcrumbs__item-sep {color: #acb8c1;}.post-navigation .nav-links a .nav-text {font-style: normal;font-weight: 400;font-family: 'Open Sans', sans-serif;}.post-navigation .nav-links a .post-title {font-style: normal;font-weight: 700;font-family: 'Open Sans', sans-serif;color: #323232;}.post-navigation .nav-links .nav-previous > a::before,.post-navigation .nav-links .nav-next > a::after {color: #ffffff;background-color: #36a5ed;}.post-navigation .nav-links .nav-previous > a:hover::before,.post-navigation .nav-links .nav-next > a:hover::after {color: #ffffff;background-color: #525b64;}/* #Footer */.site-footer:not(.container) {background-color: #272b2f;}.footer-container {background-color: #272b2f;}.footer-area-wrap {background-color: #2a2f33;}.footer-menu li a:hover {color: #acb8c1;}.footer-area {color: rgba(172,184,193,0.7);}.footer-area a {color: #ffffff;}.footer-area a:hover {color: #36a5ed;}.footer-area address + a {color: #36a5ed;}.footer-area address + a:hover {color: #acb8c1;}.footer-area time {color: #ffffff;}/* #ToTop button */#toTop {color: #ffffff;background-color: #36a5ed;}#toTop:hover {/*color: #ffffff;*/background-color: #525b64;}/* #Page Preloader */.page-preloader__cube:before {background-color: #36a5ed;}.page-preloader-cover {background: #525b64;}.page-preloader > div {background: #36a5ed;}/* #TM Header Banner */.tm-hb__wrapper .tm-hb__title {font-style: normal;font-weight: 400;line-height: 1.25;font-family: 'Open Sans', sans-serif;letter-spacing: 0px;color: #fff;}.tm-hb__wrapper .tm-hb__close {color: #525b64;background-color: #ffffff;border-color: #ffffff;box-shadow: 3px 4px 18px 0px rgba(82,91,100,0.17);}.tm-hb__wrapper .tm-hb__close:hover {color: #acb8c1;}/* #Button Appearance Styles (regular scheme) */.btn-primary,.btn-secondary,.btn-primary:hover,.btn-secondary:hover,#tm_builder_outer_content .tm_pb_button,#tm_builder_outer_content .tm_pb_button:hover,#tm_builder_outer_content .tm_pb_promo a.tm_pb_promo_button {color: #acb8c1;}.btn-primary,.comment-form .btn-primary,#tm_builder_outer_content a.tm_pb_button,#tm_builder_outer_content .tm_pb_button.btn-primary,#tm_builder_outer_content button.tm_pb_button,.projects-container .projects-ajax-button-wrapper .projects-ajax-button span {color: #ffffff;background-color: #36a5ed;border-color: #36a5ed;}.btn-primary:hover,.comment-form .btn-primary:hover,#tm_builder_outer_content a.tm_pb_button:hover,#tm_builder_outer_content button.tm_pb_button:hover,#tm_builder_outer_content .tm_pb_button.btn-primary:hover,.more-link.btn.btn-primary:hover,.projects-container .projects-ajax-button-wrapper .projects-ajax-button span:hover {color: #ffffff;background-color: #525b64;border-color: #525b64;}#tm_builder_outer_content .tm_contact_bottom_container.tm_pb_contact_submit.tm_pb_button {color: #acb8c1;background-color: #36a5ed;}.btn-primary:focus,.comment-form .btn-primary:focus,#tm_builder_outer_content .tm_pb_button.btn-primary:focus {background-color: #525b64;border-color: #525b64;}.btn-secondary,#tm_builder_outer_content .tm_pb_button.btn-secondary {color: #acb8c1;}.btn-secondary:hover,#tm_builder_outer_content .tm_pb_button.btn-secondary:hover,.btn-secondary:focus,#tm_builder_outer_content .tm_pb_button.btn-secondary:focus {color: #36a5ed;border-color: #ffffff;}/* #Button Appearance Styles (invert scheme) */.invert .btn-primary,#tm_builder_outer_content .invert a.tm_pb_button,#tm_builder_outer_content .invert .tm_pb_button.btn-primary,#tm_builder_outer_content .invert .tm_pb_contact_submit.tm_pb_button,.tm-hb__wrapper .btn-primary {color: #ffffff;border-color: #ffffff;}.invert .btn-primary:hover,.tm-hb__wrapper .btn-primary:hover,#tm_builder_outer_content .invert a.tm_pb_button:hover,#tm_builder_outer_content .invert .tm_pb_contact_submit.tm_pb_button:hover,#tm_builder_outer_content .invert .tm_pb_button.btn-primary:hover {color: #36a5ed;background: #ffffff;border-color: #ffffff;}#tm_builder_outer_content .tm_pb_promo_button.tm_pb_button {color: #acb8c1;background-color: #ffffff;border-color: #ffffff;}#tm_builder_outer_content .tm_pb_button.btn.btn-primary.invert,#tm_builder_outer_content .tm_pb_contact_submit.tm_pb_button.invert,#tm_builder_outer_content .tm_pb_promo_button.tm_pb_button {color: #acb8c1;background-color: #36a5ed;border-color: #36a5ed;}#tm_builder_outer_content .tm_pb_button.btn.btn-primary.invert:hover {color: #acb8c1;background-color: #ffffff;border-color: #ffffff;}.btn-secondary,#tm_builder_outer_content .invert .tm_pb_button.btn-secondary {color: #acb8c1;}.btn-secondary:hover,#tm_builder_outer_content .invert .tm_pb_button.btn-secondary:hover {color: #36a5ed;background-color: #acb8c1;border-color:#acb8c1;}#tm_builder_outer_content .tm_pb_post .btn-primary {color: #36a5ed;}#tm_builder_outer_content .tm_pb_post .btn-primary:hover {color: #525b64;}.subscribe-block.invert .btn-primary:hover {color: #36a5ed;border-color: #36a5ed;}.showcase-panel__btn {color: #ffffff;background-color: #36a5ed;border-color: #36a5ed;}.showcase-panel__btn:hover {color: #ffffff;background-color: #525b64;border-color: #525b64;}.showcase-panel__btn.btn-secondary {color: #323232;border-color: rgb(178,178,178);}.showcase-panel__btn.btn-secondary:hover {color: #ffffff;background-color: #525b64;border-color: #525b64;}.projects-container .projects-ajax-button span {color: #acb8c1;background-color: #36a5ed;border-color: #36a5ed;}.projects-container .projects-ajax-button span:hover {color: #acb8c1;background-color: #525b64;border-color: #525b64;}/* #Widgets (defaults) */.widget li {color: #36a5ed;}.invert .widget li {color: #ffffff;}.invert .widget select {color: #acb8c1;}/* #Widget Calendar */.widget_calendar caption {color: #ffffff;background-color: #36a5ed;}.widget_calendar caption {font-style: normal;font-weight: 700;font-family: 'Open Sans', sans-serif;}.widget_calendar thead tr th {font-style: normal;font-weight: 700;font-family: 'Open Sans', sans-serif;}.widget_calendar thead tr th,.widget_calendar tbody tr td {color: #27323d;}.widget_calendar tbody tr td a {border-color: #acb8c1;color: #27323d;}.widget_calendar tbody tr td a:hover {background: #525b64;border-color: #525b64;color: #acb8c1;}.widget_calendar tfoot tr td a {font-style: normal;font-weight: 700;font-family: 'Open Sans', sans-serif;color: #acb8c1;}.widget_calendar tfoot tr td a:hover {color: #323232;}.widget_calendar th {color: #36a5ed;}.invert .widget_calendar th,.invert .widget_calendar tbody tr td {color: #fff;}.invert .widget_calendar tfoot tr td a {color: #ffffff;}.invert .widget_calendar tfoot tr td a:hover {color: #36a5ed;}.invert .widget_calendar tbody tr td a {border-color: #acb8c1;color: #fff;}.invert .widget_calendar tbody tr td a:hover {background: #ffffff;border-color: #ffffff;color: #acb8c1;}/* #Widget Recent Posts */.widget_recent_entries .post-date {color: #acb8c1;}.invert .widget_recent_entries .post-date {color: #acb8c1;}.widget_recent_entries a,.widget_recent_comments a {font-style: normal;font-weight: 700;font-family: 'Open Sans', sans-serif;color: #36a5ed;}.widget_recent_entries a:hover,.widget_recent_comments a:hover {color: #323232;}.invert .widget_recent_entries a,.invert .widget_recent_comments a {color: #ffffff;}.invert .widget_recent_entries a:hover,.invert .widget_recent_comments a:hover {color: #36a5ed;}.widget_recent_entries .post-date,.widget_recent_comments li {color: #525b64;font-family: Open Sans, sans-serif;font-style: normal;font-weight: 400;line-height: 2;font-size: 12px;letter-spacing: 0px;}.widget_recent_comments li {color: #525b64;font-family: Open Sans, sans-serif;font-style: normal;font-weight: 400;}.widget_recent_comments .comment-author-link,.widget_recent_comments .comment-author-link a {color: #525b64;font-family: Open Sans, sans-serif;font-style: normal;font-weight: 400;}.widget_recent_comments .comment-author-link a:hover {color: #36a5ed;}.invert .widget_recent_comments .comment-author-link,.invert .widget_recent_comments .comment-author-link a {color: rgba(172,184,193,0.7);}.invert .widget_recent_comments .comment-author-link a:hover {color: #36a5ed;}.widget_tag_cloud a {color: #acb8c1;font-family: Open Sans, sans-serif;font-style: normal;font-weight: 400;}.invert .widget_tag_cloud a {color: rgba(172,184,193,0.7);}.widget_tag_cloud a:hover {color: #36a5ed;}.widget_archive,.widget_categories,.widget_pages,.widget_meta,.widget_rss,.widget_nav_menu {font-family: Open Sans, sans-serif;font-style: normal;font-weight: 400;}.footer-area .widget_nav_menu a {color: #acb8c1;}.footer-area .widget_nav_menu a:hover,.footer-area .widget_nav_menu .current-menu-item a {color: #ffffff;}.widget .select_wrap select,.widget .select_wrap option {font-style: normal;font-weight: 400;font-family: 'Open Sans', sans-serif;}.footer-area .widget:not(.widget-subscribe) .widget-title {}.rsswidget {font-style: normal;font-weight: 700;font-family: 'Open Sans', sans-serif;color: #323232;}.rsswidget:hover {color: #36a5ed;}.rssSummary {font-style: normal;font-weight: 400;font-family: 'Open Sans', sans-serif;color: #323232;}.invert .rsswidget {color: #ffffff;}.invert .rsswidget:hover {color: #36a5ed;}.invert .rssSummary {color: rgba(172,184,193,0.7);}.invert blockquote {color: rgba(172,184,193,0.7);}.invert blockquote cite {color: rgba(172,184,193,0.5);}.invert blockquote cite::before {background: rgba(172,184,193,0.5);}.sidebar .follow-block {background-color: #525b64;}.follow-block .social-list__items .menu-item a {color: #36a5ed;}.follow-block .social-list__items .menu-item a:hover {color: #323232;}.follow-block .social-list__items .menu-item a {color: #ffffff;}.follow-block .social-list__items .menu-item a:hover {color: #36a5ed;}.subscribe-block .widget-title,.subscribe-block .subscribe-block__message,.follow-block .widget-title,.follow-block .follow-block__message {color: #ffffff;}.sidebar .subscribe-block {background-color: #36a5ed;}.tm_pb_widget_area .subscribe-block .subscribe-block__input {color: #ffffff;}.subscribe-block .subscribe-block__submit {color: #ffffff;border-color: #ffffff;}.subscribe-block .subscribe-block__submit:hover {color: #ffffff;border-color: #36a5ed;background-color: #36a5ed;}.sidebar .subscribe-block .subscribe-block__submit:hover {color: #ffffff;border-color: #525b64;background-color: #525b64;}/* #Slider */.tm_pb_builder #tm_builder_outer_content .tm-pb-controllers > a::before,.tm_pb_builder #tm_builder_outer_content .tm-pb-controllers > a:hover,.tm_pb_builder #tm_builder_outer_content .tm-pb-controllers > a.tm-pb-active-control {background: #36a5ed;}.tm_pb_builder #tm_builder_outer_content .tm-pb-controllers > a::after {background: rgba(54,165,237,0.46);}.tm_pb_builder #tm_builder_outer_content .tm-pb-slider-arrows .tm-pb-arrow-prev,.tm_pb_builder #tm_builder_outer_content .tm-pb-slider-arrows .tm-pb-arrow-next {background-color: #36a5ed;}.tm_pb_builder #tm_builder_outer_content .tm-pb-slider-arrows .tm-pb-arrow-prev::before,.tm_pb_builder #tm_builder_outer_content .tm-pb-slider-arrows .tm-pb-arrow-next::before {color: #ffffff;}.tm_pb_builder #tm_builder_outer_content .tm-pb-slider-arrows .tm-pb-arrow-prev:hover::before,.tm_pb_builder #tm_builder_outer_content .tm-pb-slider-arrows .tm-pb-arrow-next:hover::before {color: #ffffff;}.tm_pb_builder #tm_builder_outer_content .tm-pb-slider-arrows .tm-pb-arrow-prev:hover,.tm_pb_builder #tm_builder_outer_content .tm-pb-slider-arrows .tm-pb-arrow-next:hover {background-color: #525b64;}/* #video_slider */#tm_builder_outer_content .tm_pb_video_slider .tm_pb_slider:hover .tm_pb_video_overlay_hover {background-color: rgba(82,91,100,0.6);}.tm_pb_builder #tm_builder_outer_content .tm_pb_video_overlay .tm_pb_video_overlay_hover a.tm_pb_video_play::before {color: #ffffff;background: #36a5ed;}.tm_pb_builder #tm_builder_outer_content .tm_pb_video_overlay .tm_pb_video_overlay_hover a:hover.tm_pb_video_play::before {color: #36a5ed;background: #ffffff;}#tm_builder_outer_content .tm_pb_carousel_item .tm_pb_video_overlay_hover:hover,#tm_builder_outer_content .tm_pb_module.tm_pb_video_slider .tm_pb_carousel_items .tm_pb_carousel_item.tm-pb-active-control .tm_pb_video_overlay_hover {background: rgba(82,91,100,0.6);}#tm_builder_outer_content .tm_pb_carousel .tm_pb_video_overlay .tm_pb_video_overlay_hover a.tm_pb_video_play::before,#tm_builder_outer_content .tm_pb_carousel .tm_pb_video_overlay .tm_pb_video_overlay_hover a:hover.tm_pb_video_play::before {color: #ffffff;}/* #Blog */#tm_builder_outer_content .tm_pb_blog .entry-title {font-style: normal;font-weight: 700;font-family: 'Open Sans', sans-serif;}#tm_builder_outer_content .tm_pb_blog .tm_pb_post_meta {font-family: Open Sans, sans-serif;font-weight: 400;font-style: normal;}#tm_builder_outer_content .tm_pb_blog .published {color: #36a5ed;}#tm_builder_outer_content .tm_pb_blog .entry-title a:hover {color: #36a5ed;}#tm_builder_outer_content .tm_pb_blog .author a {color: #acb8c1;}#tm_builder_outer_content .tm_pb_blog .author a:hover {color: #36a5ed;}#tm_builder_outer_content .tm_audio_content,#tm_builder_outer_content .tm_quote_content,#tm_builder_outer_content .tm_link_content {background-color: #36a5ed;}#tm_builder_outer_content .tm_quote_content cite::before {background: #acb8c1;}#tm_builder_outer_content .tm_link_content .tm_link_main_url:hover {color: #323232!important;}/* #Tabs */.tm_pb_builder #tm_builder_outer_content .tm_pb_tabs .tm_pb_tabs_controls li:hover {background: #36a5ed;}/* #Number Counter */#tm_builder_outer_content .tm_pb_number_counter .percent {border-color: #36a5ed;}/* #Pricing Table */.tm_pb_builder #tm_builder_outer_content div.tm_pb_pricing_table .tm_pb_sum {color: #36a5ed;}.tm_pb_builder #tm_builder_outer_content div.tm_pb_pricing_table.tm_pb_featured_table {color: #ffffff;background-color: #36a5ed;}.tm_pb_builder #tm_builder_outer_content div.tm_pb_pricing_table.tm_pb_featured_table .tm_pb_pricing_title,.tm_pb_builder #tm_builder_outer_content div.tm_pb_pricing_table.tm_pb_featured_table .tm_pb_sum,.tm_pb_builder #tm_builder_outer_content div.tm_pb_pricing_table.tm_pb_featured_table .tm_pb_frequency,.tm_pb_builder #tm_builder_outer_content div.tm_pb_pricing_table.tm_pb_featured_table .tm_pb_dollar_sign {color: #ffffff;}.tm_pb_builder #tm_builder_outer_content div.tm_pb_pricing_table.tm_pb_featured_table .tm_pb_button {color: #36a5ed;background-color: #ffffff;}.tm_pb_builder #tm_builder_outer_content div.tm_pb_pricing_table.tm_pb_featured_table .tm_pb_button:hover {color: #ffffff;background-color: #323232;}.tm_pb_builder #tm_builder_outer_content .tm_pb_pricing_content_top::after {border-bottom-color: #36a5ed;}/* #Social Media Follow */.tm_pb_builder #tm_builder_outer_content .tm_pb_social_media_follow li a.icon:hover {background: #525b64!important;}/* #Person */#tm_builder_outer_content .tm_pb_team_member .tm_pb_member_social_links li a.tm_pb_font_icon { background: #36a5ed;}#tm_builder_outer_content .tm_pb_team_member .tm_pb_member_social_links li a.tm_pb_font_icon:hover { background: #323232;}/* #Testimonial */#tm_builder_outer_content div.tm_pb_testimonial .tm_pb_testimonial_description:before {color:#36a5ed;}#tm_builder_outer_content .tm_pb_testimonial .tm_pb_testimonial_author {font-style: normal;font-weight: 700;font-size: 1.25em;line-height: 1.25;font-family: 'Open Sans', sans-serif;color: #36a5ed;}#tm_builder_outer_content .tm_pb_testimonial .tm_pb_testimonial_author::before {background: #36a5ed;}/* #Countdown Timer */#tm_builder_outer_content .tm_pb_countdown_timer_container .section span.countdown-sep {color: #ffffff;}#tm_builder_outer_content .tm_pb_countdown_timer_container span.countdown-sep::before,#tm_builder_outer_content .tm_pb_countdown_timer_container span.countdown-sep::after {background: #acb8c1;}#tm_builder_outer_content .tm_pb_countdown_timer_circle_layout .tm_pb_countdown_timer_container span.countdown-sep::before,#tm_builder_outer_content .tm_pb_countdown_timer_circle_layout .tm_pb_countdown_timer_container span.countdown-sep::after {background: #acb8c1;}/* #Typography */#tm_builder_outer_content .tm_pb_blurb_content ul li {color: #36a5ed;}#tm_builder_outer_content .tm_pb_contact_form .tm_pb_contact_form_input {color: #acb8c1;}/* #Post Slider */#tm_builder_outer_content div.tm_pb_post_slider.tm_pb_bg_layout_light {background: #525b64;}#tm_builder_outer_content div.tm_pb_post_slider .tm_pb_slide_content {color: #acb8c1;}#tm_builder_outer_content div.tm_pb_post_slider .tm_pb_slide_content .post-meta {color: #acb8c1!important;}#tm_builder_outer_content div.tm_pb_post_slider .tm_pb_slide_content .post-meta a {color: #36a5ed!important;}#tm_builder_outer_content div.tm_pb_post_slider .tm_pb_slide_content .post-meta a:hover {color: #acb8c1!important;}/* #Blurb */.widget_nav_menu li.active a {color: #323232;}/* #Image */#tm_builder_outer_content .tm_pb_image a:hover {box-shadow: 3px 4px 18px 0 rgba(172,184,193,0.3);}#tm_builder_outer_content .tm_pb_audio_module {background-color: #36a5ed;}#tm_builder_outer_content .tm_pb_video_play:before{color: #36a5ed;}.tm_pb_testimonial:before {color: #36a5ed;}#tm_builder_outer_content .tm_pb_promo{color: #36a5ed;}#tm_builder_outer_content .tm_pb_promo .tm_pb_promo_button{background-color: #36a5ed;color: #ffffff;}#tm_builder_outer_content .tm_pb_promo .tm_pb_promo_button:after{color: #36a5ed;}#tm_builder_outer_content .tm-pb-spinner-double-bounce .tm-pb-double-bounce1,#tm_builder_outer_content .tm-pb-spinner-double-bounce .tm-pb-double-bounce2 {background: #36a5ed;}#tm_builder_outer_content .tm_pb_pricing_heading {background-color: #525b64;}#tm_builder_outer_content .tm_pb_featured_table .tm_pb_pricing_heading {background-color: #36a5ed;}#tm_builder_outer_content .tm_pb_pricing li:before {color: #36a5ed;}#tm_builder_outer_content .tm_pb_pricing .tm_pb_dollar_sign {color: #36a5ed;}#tm_builder_outer_content .tm_pb_button{border-color: #36a5ed;background-color: #36a5ed;color: #ffffff;}#tm_builder_outer_content .tm_pb_button:hover{color: #36a5ed;}#tm_builder_outer_content .tm_pb_button:hover:after{color: #36a5ed;}#tm_builder_outer_content .tm_pb_button:after{color: #ffffff;}#tm_builder_outer_content .tm_pb_countdown_timer_container{color: #36a5ed;}#tm_builder_outer_content .tm_pb_tabs_controls li.tm_pb_tab_active{border-bottom: 2px solid #36a5ed;}</style>    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <!-- TrustBox script -->
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+    <!-- End Trustbox script -->
+
+    <script src="https://kit.fontawesome.com/c565b86e8f.js" crossorigin="anonymous"></script>
+  </head>
+
+   <style>
+      #extra-nav li{
+        display: inline-block;
+        position: relative;
+      }
+
+      #extra-nav li a {
+        display: block;
+        color: #000;
+        padding: 9px;
+      }
+
+      #extra-nav li:hover .sub-menu {
+        display: block !important;
+        top: 39px;
+        box-shadow: 0 4px 13px 3px rgb(0 0 0 / 10%);
+      }
+
+      #extra-nav .sub-menu {
+        display: none;
+        position: absolute;
+      }
+      .site {
+        overflow: visible !important;
+      }
+  </style>
+
+  <body data-rsssl=1 class="page-template-default page page-id-39 header-layout-fullwidth content-layout-fullwidth footer-layout-fullwidth blog-masonry-2-cols position-fullwidth sidebar-1-4 tm_pb_builder">
+        <div id="page" class="site">
+      <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+      <header class='pt-2 hidden md:block'>
+        
+        <h1 id='SiteHeading' class='sr-only'>American Freight</h1>
+        <div class='container mx-auto flex items-center pb-2 border-b'>
+          <!-- logo -->
+          
+      <div class='flex-1'>
+        <a href='https://americanfreight.com'>
+          <img
+            id='header--logo'
+            
+            
+            alt='American Freight'
+ data-src='https://americanfreight.com/webr/rveca028b/img/logos/logo--american-freight-desktop-dark.svg' class='img-responsive hidden md:block lg:block lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img
+            id='header--logo'
+            
+            
+            alt='American Freight'
+ data-src='https://americanfreight.com/webr/rveca028b/img/logos/logo--american-freight-desktop-dark.svg' class='img-responsive hidden md:block lg:block lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img
+            id='header--logo'
+            class='img-responsive hidden md:block lg:block'
+            src='https://americanfreight.com/webr/rveca028b/img/logos/logo--american-freight-desktop-dark.svg'
+            alt='American Freight'
+          /></noscript></noscript>
+
+          <img
+            id='header--logo'
+            
+            
+            alt='American Freight'
+ data-src='https://americanfreight.com/webr/rveca028b/img/logos/logo-american-freight-mobile-dark.svg' class='img-responsive md:hidden lg:hidden lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img
+            id='header--logo'
+            
+            
+            alt='American Freight'
+ data-src='https://americanfreight.com/webr/rveca028b/img/logos/logo-american-freight-mobile-dark.svg' class='img-responsive md:hidden lg:hidden lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img
+            id='header--logo'
+            class='img-responsive md:hidden lg:hidden'
+            src='https://americanfreight.com/webr/rveca028b/img/logos/logo-american-freight-mobile-dark.svg'
+            alt='American Freight'
+          /></noscript></noscript>
+        </a>
+      </div>
+    
+
+          <!-- search -->
+          
+      <form action='' id='searchForm' name='searchForm' class='flex-1' novalidate='' onsubmit="
+        debugger;
+        var searchUrl='https://americanfreight.com/br/plp/search/'
+        + document.getElementById('search--desktop').value
+        + '?psize=25&pno=1';
+        window.location = searchUrl;
+        return false";
+      '>
+        <div class='flex'>
+          <input
+            type='searchs'
+            placeholder='What can we help you find?'
+            id='search--desktop'
+            autocomplete='off'
+            class='border-gray-400 border-l border-t border-b border-r-0 flex-1 pl-1 pr-1 rounded-none placeholder-gray-700 p-2' required='' value=''
+          />
+          <button type='submit' id='searchBtn' aria-label='search' class='border-gray-400 border-t border-b border-r m-0 border-l-0 pr-3'>
+            <i class='fal fa-search text-black pl-3 pr-0'></i>
+          </button>
+        </div>
+      </form>
+    
+
+          <!-- store locator link -->
+          <div class='flex-1 text-right text-black'>
+            
+      <div class='inline-block mr-2'>
+        <a href='https://www.americanfreight.com/br/stores' class='block'>
+          <span class='inline-block leading-none hidden md:inline-block'>
+            <div class='text-xs'>Click here for</div>
+            <strong class='text-sm'>Your Store</strong>
+          </span>
+          <i class='fal fa-map-marker-alt text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+
+            <!-- cart icon -->
+            
+      <div class='inline-block mr-1'>
+        <a href='https://www.americanfreight.com/br/cart/view' class='block' aria-label='my cart'>
+          <i class='fal fa-shopping-basket text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+
+            <!-- profile icon -->
+            
+      <div class='inline-block'>
+        <a href='https://www.americanfreight.com/br/user/profile' class='block' aria-label='my profile'>
+          <i class='fal fa-user text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+          </div>
+        </div>
+            <nav id='DesktopNavigation' class='border-b hidden md:block'>
+          <div class="flex container">
+            <div class="flex-1">
+              
+      <div id='nav' class='relative mx-auto text-md text-gray-800'>
+
+      </div>
+                </div>
+
+            <nav id='extra-nav' class=''>
+              <div class="custom-menu-class"><ul id="menu-primary" class="menu"><li id="menu-item-4875" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4875"><a href="https://www.americanfreight.com/sp/frequently-asked-questions/">FAQ</a></li>
+<li id="menu-item-5124" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5124"><a href="https://recruiting2.ultipro.com/CAP1010CUSC/JobBoard/b4352687-7fa4-fce1-f24e-36e4b4241e95/?q=&#038;o=postedDateDesc&#038;w=&#038;wc=&#038;we=&#038;wpst=">Careers</a></li>
+<li id="menu-item-5450" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5450"><a href="https://www.americanfreight.com/sp/warranty-home/">Warranty Information</a></li>
+<li id="menu-item-4087" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4087"><a href="https://www.americanfreight.com/sp/contact-us/">Contact</a></li>
+</ul></div>            </nav>
+          </header>
+        </div>
+      </nav>
+      
+      <header class='p-3 border-b md:hidden lg:hidden'>
+        <div class='container mx-auto flex items-center'>
+          <div>
+            <!-- hamburger nav -->
+            <button type='button' class='border-none tap--target' aria-label='Toggle Navigation' onclick='toggleNav()'>
+              <i class='fal fa-bars text-4xl pt-2 mr-3 text-black' aria-hidden='true'></i></button>
+          </div>
+          <div  class='flex-1'>
+            <!-- logo -->
+            
+      <div class='flex-1'>
+        <a href='https://americanfreight.com'>
+          <img
+            id='header--logo'
+            
+            
+            alt='American Freight'
+ data-src='https://americanfreight.com/webr/rveca028b/img/logos/logo--american-freight-desktop-dark.svg' class='img-responsive hidden md:block lg:block lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img
+            id='header--logo'
+            
+            
+            alt='American Freight'
+ data-src='https://americanfreight.com/webr/rveca028b/img/logos/logo--american-freight-desktop-dark.svg' class='img-responsive hidden md:block lg:block lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img
+            id='header--logo'
+            class='img-responsive hidden md:block lg:block'
+            src='https://americanfreight.com/webr/rveca028b/img/logos/logo--american-freight-desktop-dark.svg'
+            alt='American Freight'
+          /></noscript></noscript>
+
+          <img
+            id='header--logo'
+            
+            
+            alt='American Freight'
+ data-src='https://americanfreight.com/webr/rveca028b/img/logos/logo-american-freight-mobile-dark.svg' class='img-responsive md:hidden lg:hidden lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img
+            id='header--logo'
+            
+            
+            alt='American Freight'
+ data-src='https://americanfreight.com/webr/rveca028b/img/logos/logo-american-freight-mobile-dark.svg' class='img-responsive md:hidden lg:hidden lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img
+            id='header--logo'
+            class='img-responsive md:hidden lg:hidden'
+            src='https://americanfreight.com/webr/rveca028b/img/logos/logo-american-freight-mobile-dark.svg'
+            alt='American Freight'
+          /></noscript></noscript>
+        </a>
+      </div>
+    
+          </div>
+
+          <div class='flex-1 text-right text-black'>
+            <!-- icons -->
+            
+      <div class='inline-block mr-2'>
+        <a href='https://www.americanfreight.com/br/stores' class='block'>
+          <span class='inline-block leading-none hidden md:inline-block'>
+            <div class='text-xs'>Click here for</div>
+            <strong class='text-sm'>Your Store</strong>
+          </span>
+          <i class='fal fa-map-marker-alt text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+
+            <!-- cart icon -->
+            
+      <div class='inline-block mr-1'>
+        <a href='https://www.americanfreight.com/br/cart/view' class='block' aria-label='my cart'>
+          <i class='fal fa-shopping-basket text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+
+            <!-- profile icon -->
+            
+      <div class='inline-block'>
+        <a href='https://www.americanfreight.com/br/user/profile' class='block' aria-label='my profile'>
+          <i class='fal fa-user text-3xl m-1' aria-hidden='true'></i>
+        </a>
+      </div>
+    
+          </div>
+        </div>
+
+        <div class='container mx-auto  pt-4'>
+          <!-- search -->
+          
+      <form action='' id='searchForm' name='searchForm' class='flex-1' novalidate='' onsubmit="
+        debugger;
+        var searchUrl='https://americanfreight.com/br/plp/search/'
+        + document.getElementById('search--mobile').value
+        + '?psize=25&pno=1';
+        window.location = searchUrl;
+        return false";
+      '>
+        <div class='flex'>
+          <input
+            type='searchs'
+            placeholder='What can we help you find?'
+            id='search--mobile'
+            autocomplete='off'
+            class='border-gray-400 border-l border-t border-b border-r-0 flex-1 pl-1 pr-1 rounded-none placeholder-gray-700 p-2' required='' value=''
+          />
+          <button type='submit' id='searchBtn' aria-label='search' class='border-gray-400 border-t border-b border-r m-0 border-l-0 pr-3'>
+            <i class='fal fa-search text-black pl-3 pr-0'></i>
+          </button>
+        </div>
+      </form>
+    
+        </div>
+
+        <div onclick='toggleNav()' id='mask' class='hidden fixed h-screen w-screen bg-black top-0 left-0 opacity-50'></div>
+        <nav id='mobileNav' class='hidden overflow-scroll text-lg leading-loose fixed top-0 left-0 bg-white h-screen shadow-lg w-10/12 text-black z-50'>
+          <button onclick='toggleNav()' aria-label='Open Nav' class='text-5xl float-right mt-1 p-4 border-none text-black'>
+            <i class='fal fa-times'></i>
+          </button>
+          <h3 class='text-3xl font-light p-4'>Main Menu</h3>
+          <br />
+          <strong class='p-4'>Shop Departments</strong>
+          <hr />
+          <div id='mobileNavLinks'></div>
+
+          <br />
+
+          <style>
+            #mobile-extra-nav ul { float: none; }
+            #mobile-extra-nav a { margin-left: 0; font-weight: normal; font-size: 18px; }
+          </style>
+          <strong class='p-4'>Useful Links</strong>
+          <hr />
+          <div id='mobile-extra-nav' class='container'>
+            <ul id='menu-primary' class='menu'><li id='menu-item-4082' class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-39 current_page_item menu-item-has-children menu-item-4082'><a href='https://www.americanfreight.com/sp/customer-help/' aria-current='page'>Customer Help</a>
+              <ul class='sub-menu'>
+                <li id='menu-item-4080' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-4080'><a href='https://www.americanfreight.com/sp/my-account/'>My Account</a></li>
+                <li id='menu-item-5114' class='menu-item menu-item-type-custom menu-item-object-custom menu-item-5114'><a href='https://www.americanfreight.com/br/c/payment-plans'>Payment Options</a></li>
+                <li id='menu-item-5155' class='menu-item menu-item-type-custom menu-item-object-custom menu-item-5155'><a href='https://www.americanfreight.com/br/c/shipping-delivery'>Delivery Policy</a></li>
+                <li id='menu-item-4086' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-4086'><a href='https://www.americanfreight.com/sp/layaway-policy/'>Layaway Policy</a></li>
+                <li id='menu-item-4083' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-4083'><a href='https://www.americanfreight.com/sp/in-store-pickup-policy/'>In-Store Pickup Policy</a></li>
+                <li id='menu-item-4085' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-4085'><a href='https://www.americanfreight.com/sp/floor-model-policy/'>Furniture Floor Model Policy</a></li>
+              </ul>
+              </li>
+              <li id='menu-item-4875' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-4875'><a href='https://www.americanfreight.com/sp/frequently-asked-questions/'>FAQ</a></li>
+              <li id='menu-item-5124' class='menu-item menu-item-type-custom menu-item-object-custom menu-item-5124'><a href='https://recruiting2.ultipro.com/CAP1010CUSC/JobBoard/b4352687-7fa4-fce1-f24e-36e4b4241e95/?q=&amp;o=postedDateDesc&amp;w=&amp;wc=&amp;we=&amp;wpst='>Careers</a></li>
+              <li id='menu-item-5143' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5143'><a href='https://www.americanfreight.com/sp/warranty-home/'>Warranty</a>
+              <ul class='sub-menu'>
+                <li id='menu-item-5144' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-5144'><a href='https://www.americanfreight.com/sp/appliance-warranty/'>Appliance Warranty</a></li>
+                <li id='menu-item-5135' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-5135'><a href='https://www.americanfreight.com/sp/warranty/'>Furniture Warranty</a></li>
+              </ul>
+              </li>
+              <li id='menu-item-4087' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-4087'><a href='https://www.americanfreight.com/sp/contact-us/'>Contact</a></li>
+              </ul>
+          </div>
+          <ul class='p-4'>
+            <li><a href='https://americanfreight.com/br/user/order-status'>Order Status</a></li>
+            <li><a href='https://americanfreight.com/br/stores'>Find a Store</a></li>
+            <li><a href='https://americanfreight.com/br/deals'>Deals</a></li>
+            <li><a href='https://americanfreight.com/br/email-sms-text-signup'>Email Savings</a></li>
+            <li><a href='https://americanfreight.com/br/c/price-match-policy'>Price Match Policy</a></li>
+            <li><a href='https://americanfreight.com/br/deal-of-the-week'>Deal of the Week</a></li>
+            <li><a href='https://americanfreight.com/sp/contact-us/'>Customer Service</a></li>
+            <li><a href='https://americanfreight.com/sp/frequently-asked-questions/'>FAQs</a></li>
+            <li><a href='https://go.ownamericanfreight.com/?utm_source=FBIG&amp;utm_medium=DIGITAL&amp;utm_campaign=FRANDEV' target='_blank'>Own A Franchise</a></li>
+            <li><a href='https://www.americanfreight.com/br/c/payment-plans'>Financing Options</a></li>
+            <li><a href='https://www.americanfreight.com/sp/warranty-home/'>Warranty Info</a></li>
+            <li><a href='https://www.americanfreight.com/br/c/mpa-protection-details'>Protection Agreement Info</a></li>
+            <li><a href='https://www.americanfreight.com/br/c/certification-process'>Certification Process</a></li>
+          </ul>
+
+          <br />
+          <br />
+          
+      <div class='text-center'>
+        <span>
+          <a href='https://www.facebook.com/AmericanFreightFurniture' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-facebook-official' aria-label='Facebook' aria-hidden='true'></i><span class='sr-only'>Facebook</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://twitter.com/AmericanFreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-twitter-square' aria-label='Twitter' aria-hidden='true'></i><span class='sr-only'>Twitter</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.youtube.com/user/furnituredeals' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-youtube-play' aria-label='YouTube' aria-hidden='true'></i><span class='sr-only'>YouTube</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.linkedin.com/company/american-freight-furniture-and-mattress' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-linkedin-square' aria-label='LinkedIn' aria-hidden='true'></i><span class='sr-only'>LinkedIn</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.instagram.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-instagram' aria-label='Instagram' aria-hidden='true'></i><span class='sr-only'>Instagram</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.pinterest.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-pinterest-square' aria-label='Pinterest' aria-hidden='true'></i><span class='sr-only'>Pinterest</span></a>
+          &nbsp;&nbsp;
+        </span>
+      </div>
+    
+          <br />
+          <br />
+          <br />
+        </nav>
+      </header>
+    
+      <header id="masthead" class="site-header minimal" role="banner">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-38862706-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-38862706-1');
+        </script>
+      </header><!-- #masthead -->
+      <div id="content" class="site-content">
+      <div class="container mx-auto p-3 md:p-0"> <!-- ends in footer.php -->
+
+	<div id="full-width-header-area" class="full-width-header-area widget-area"></div>
+	<div id="before-content-area" class="before-content-area widget-area"></div>
+	<div class="row">
+
+		<div id="primary" class="col-xs-12 col-md-12">
+
+			<div id="before-loop-area" class="before-loop-area widget-area"></div>
+			<main id="main" class="site-main" role="main">
+
+				<article id="post-39" class="post-39 page type-page status-publish hentry no-thumb">
+
+	
+	<div class="entry-header">
+		<h2 class="entry-title screen-reader-text">Customer Help</h2>	</div><!-- .entry-header -->
+
+	
+	<div class="entry-content builder_on">
+		<div class="tm_builder_outer_content" id="tm_builder_outer_content">
+				<div class="tm_builder_inner_content tm_pb_gutters3">
+					<div class="tm_pb_section  tm_pb_section_0 tm_section_regular tm_section_transparent">
+				
+				
+					
+					<div class="container">
+				<div class=" row tm_pb_row tm_pb_row_0">
+					
+					<div class="tm_pb_column tm_pb_column_1_2  tm_pb_column_0 col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+				
+				<div class="tm_pb_text tm_pb_module tm_pb_bg_layout_light tm_pb_text_align_left  tm_pb_text_0">
+				
+<h1>Customer Help</h1>
+<p>Read on to find out more about how our company policies work, including details about how to read your receipt, in-store pickups, deliveries, floor models, and layaway. Our customers are important to us. If we can improve your experience, we’d love to chat. Get in touch with our friendly customer service team today.</p>
+
+			</div> <!-- .tm_pb_text -->
+			</div> <!-- .tm_pb_column --><div class="tm_pb_column tm_pb_column_1_2  tm_pb_column_1 col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+				
+				<div class="tm_pb_text tm_pb_module tm_pb_bg_layout_light tm_pb_text_align_center  tm_pb_text_1">
+				
+<p><img loading="lazy"   alt="" width="600" height="401" data-srcset="https://www.americanfreight.com/sp/wp-content/uploads/2014/04/open-sign.jpg 600w, https://www.americanfreight.com/sp/wp-content/uploads/2014/04/open-sign-300x201.jpg 300w"  data-src="https://www.americanfreight.com/sp/wp-content/uploads/2014/04/open-sign.jpg" data-sizes="(max-width: 600px) 100vw, 600px" class="alignnone size-full wp-image-4421 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img loading="lazy" class="alignnone size-full wp-image-4421" src="https://www.americanfreight.com/sp/wp-content/uploads/2014/04/open-sign.jpg" alt="" width="600" height="401" srcset="https://www.americanfreight.com/sp/wp-content/uploads/2014/04/open-sign.jpg 600w, https://www.americanfreight.com/sp/wp-content/uploads/2014/04/open-sign-300x201.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript></p>
+
+			</div> <!-- .tm_pb_text -->
+			</div> <!-- .tm_pb_column -->
+						
+				</div> <!-- .tm_pb_row -->
+			</div><div class="container">
+				<div class=" row tm_pb_row tm_pb_row_1">
+					
+					<div class="tm_pb_column tm_pb_column_4_4  tm_pb_column_2 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+				
+				<div class="tm_pb_text tm_pb_module tm_pb_bg_layout_light tm_pb_text_align_left  tm_pb_text_2">
+				
+<p><a class="btn btn-primary" style="display: inline-block; margin-right: 10px; margin-top: 0 ! important; margin-left: 45px;" href="/sp/my-receipt/">My Receipt</a><a class="btn btn-primary" style="display: inline-block; margin-right: 10px; margin-top: 0 !;" href="/sp/layaway-policy/">Layaway Program</a><a class="btn btn-primary" style="display: inline-block; margin-right: 10px;" href="/sp/in-store-pickup-policy/">In-Store Pickup Policy</a><a class="btn btn-primary" style="display: inline-block; margin-right: 10px;" href="/sp/delivery-policy/">Delivery Policy</a><a class="btn btn-primary" style="display: inline-block;" href="/sp/floor-model-policy/">Floor Model Policy</a></p>
+
+			</div> <!-- .tm_pb_text -->
+			</div> <!-- .tm_pb_column -->
+						
+				</div> <!-- .tm_pb_row -->
+			</div><div class="container">
+				<div class=" row tm_pb_row tm_pb_row_2">
+					
+					<div class="tm_pb_column tm_pb_column_4_4  tm_pb_column_3 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+				
+				<div class="tm_pb_text tm_pb_module tm_pb_bg_layout_light tm_pb_text_align_left  tm_pb_text_3">
+				
+<p style="text-align: left;"><a class="btn btn-primary" style="display: inline-block; margin-right: 10px; margin-top: 0 !;" href="/sp/my-receipt/">My Receipt</a></p>
+<p style="text-align: left;"><a class="btn btn-primary" style="display: inline-block; margin-right: 10px; margin-top: 0 !;" href="/sp/layaway-policy/">Layaway Program</a></p>
+<p style="text-align: left;"><a class="btn btn-primary" style="display: inline-block; margin-right: 10px;" href="/in-store-pickup-policy/">In-Store Pickup Policy</a></p>
+<p style="text-align: left;"><a class="btn btn-primary" style="display: inline-block; margin-right: 10px;" href="/sp/delivery-policy/">Delivery Policy</a></p>
+<p style="text-align: left;"><a class="btn btn-primary" style="display: inline-block;" href="/sp/floor-model-policy/">Floor Model Policy</a></p>
+
+			</div> <!-- .tm_pb_text -->
+			</div> <!-- .tm_pb_column -->
+						
+				</div> <!-- .tm_pb_row -->
+			</div>
+				
+			</div> <!-- .tm_pb_section -->
+
+				</div>
+			</div>			</div><!-- .entry-content -->
+
+	
+</article><!-- #post-## -->
+
+			</main><!-- #main -->
+
+			<div id="after-loop-area" class="after-loop-area widget-area"></div>
+		</div><!-- #primary -->
+
+		
+	</div><!-- .row -->
+
+	<div id="after-content-area" class="after-content-area widget-area"></div>
+	<div id="after-content-full-width-area" class="after-content-full-width-area widget-area"></div>
+
+
+<script>
+  function toggleLinks(id) {
+    document.getElementById(id + 'Links').classList.toggle('hidden');
+    document.getElementById(id + 'Close').classList.toggle('hidden');
+    document.getElementById(id + 'Open').classList.toggle('hidden');
+  }
+</script>
+
+
+
+
+
+
+  </div> <!-- .container from header.php -->
+	</div><!-- #content -->
+
+  <div>
+    
+      <footer class='pt-20 pb-20 hidden md:block text-center'>
+        <div>
+         <a href='https://www.americanfreight.com/sp/customer-help/' class='text-xl text-black'>Customer Help</a>
+          <ul class='sub-menu' style='margin: auto;'>
+            <li id='menu-item-4080' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-4080'><a href='https://www.americanfreight.com/sp/my-account/'>My Account</a></li>
+            <li id='menu-item-5114' class='menu-item menu-item-type-custom menu-item-object-custom menu-item-5114'><a href='https://www.americanfreight.com/br/c/payment-plans'>Payment Options</a></li>
+            <li id='menu-item-5155' class='menu-item menu-item-type-custom menu-item-object-custom menu-item-5155'><a href='https://www.americanfreight.com/br/c/shipping-delivery'>Delivery Policy</a></li>
+            <li id='menu-item-4086' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-4086'><a href='https://www.americanfreight.com/sp/layaway-policy/'>Layaway Policy</a></li>
+            <li id='menu-item-4083' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-4083'><a href='https://www.americanfreight.com/sp/in-store-pickup-policy/'>In-Store Pickup Policy</a></li>
+            <li id='menu-item-4085' class='menu-item menu-item-type-post_type menu-item-object-page menu-item-4085'><a href='https://www.americanfreight.com/sp/floor-model-policy/'>Furniture Floor Model Policy</a></li>
+          </ul>
+          <br />
+        </div>
+        
+      <section id='HowWeDoing'>
+        <span class='text-xl text-black'>How Are We Doing?</span>
+        <br />
+        <a href='https://americanfreight.com/sp/contact-us/' class='text-black text-md'>Submit Feedback.</a>
+        <br />
+        <br />
+      </section>
+    
+        
+      <div class='text-center'>
+        <span>
+          <a href='https://www.facebook.com/AmericanFreightFurniture' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-facebook-official' aria-label='Facebook' aria-hidden='true'></i><span class='sr-only'>Facebook</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://twitter.com/AmericanFreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-twitter-square' aria-label='Twitter' aria-hidden='true'></i><span class='sr-only'>Twitter</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.youtube.com/user/furnituredeals' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-youtube-play' aria-label='YouTube' aria-hidden='true'></i><span class='sr-only'>YouTube</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.linkedin.com/company/american-freight-furniture-and-mattress' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-linkedin-square' aria-label='LinkedIn' aria-hidden='true'></i><span class='sr-only'>LinkedIn</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.instagram.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-instagram' aria-label='Instagram' aria-hidden='true'></i><span class='sr-only'>Instagram</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.pinterest.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-pinterest-square' aria-label='Pinterest' aria-hidden='true'></i><span class='sr-only'>Pinterest</span></a>
+          &nbsp;&nbsp;
+        </span>
+      </div>
+    
+        <br />
+        <br />
+        
+      <section id='footerBBBlogo'>
+        <a href='https://www.bbb.org/us/oh/delaware/profile/furniture-stores/american-freight-furniture-and-mattress-0302-65003501/#sealclick' target='_blank' rel='noreferrer noopener'>
+          <img  width='200' alt='American Freight Furniture and Mattress BBB Business Review'  data-src='https://seal-centralohio.bbb.org/seals/blue-seal-293-61-bbb-65003501.png' class='mx-auto lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img  width='200' alt='American Freight Furniture and Mattress BBB Business Review'  data-src='https://seal-centralohio.bbb.org/seals/blue-seal-293-61-bbb-65003501.png' class='mx-auto lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img src='https://seal-centralohio.bbb.org/seals/blue-seal-293-61-bbb-65003501.png' width='200' alt='American Freight Furniture and Mattress BBB Business Review' class='mx-auto' /></noscript></noscript>
+        </a>
+      </section>
+        <br />
+        <section id='Copyright' class='text-xs text-black'>&copy; 2022 American Freight</section>
+        <br />
+        <br />
+        
+      <div class="text-xs text-gray-700 container mx-auto text-left"><dl class="text-left">
+        <dt><strong>1. APPLIANCE OFFERS:</strong></dt> <dd>Savings off list price. Excludes Special Orders, Special Purchases, and New In-box appliances. Item selection and quantities available may vary by location.</dd>
+      <dt><strong>2. FURNITURE &amp; MATTRESS OFFERS:</strong></dt> <dd>Savings off MSRP. Prices shown for item marked as "EA. PC." (meaning, each piece) are valid when specified items are purchased as a set. If sold separately, prices may vary. Item selection and quantities available may vary by location.</dd>
+      <dt><strong>3. Take It Home Today:</strong></dt> <dd>"Take it Home Today" refers to options offered to customers to purchase and take home merchandise paid in full by cash, check (subject to check payment policy) or credit card, or through a variety of alternative payment options, subject to in-store product availability.  Items not in stock can be ordered for customer pick up, scheduled or same-day delivery, or shipment, pursuant to our terms and conditions at <a href="https://www.americanfreight.com/br/c/shipping-delivery">https://www.americanfreight.com/br/c/shipping-delivery</a> and <a href="https://www.americanfreight.com/sp/in-store-pickup-policy/">https://www.americanfreight.com/sp/in-store-pickup-policy/</a></dd>
+      <dd>**Approval is possible without a FICO® Score, but credit may be checked.</dd>
+      <dt><strong>† <u>Terms and conditions</u>:</strong></dt> <dd>Subject to change at any time without prior disclosure or notice. Contact American First Finance for complete details, including terms and conditions.</dd>
+      <dt><strong><u>Bank loans</u>:</strong></dt> <dd>Subject to approval and verification. Loans originated by FinWise Bank, a Utah-chartered bank located in Murray, Utah, Member FDIC. </dd>
+      <dt><strong><u>Retail installment contracts</u>:</strong></dt>
+      <dd>A retail installment contract has a down payment of $50. A representative example of payment terms is as follows: a $50 down payment, an amount financed of $1,000 with an Annual Percentage Rate (APR) of 144.59%, and a term of 12 months would have 25 bi-weekly payments of $72.82 and 1 bi-weekly payment of $72.26. The total amount repayable would be $1,892.76 with full, timely payments over 12 months. Representative APR is based on the amount financed, individual creditworthiness, and other factors. Actual terms may vary. </dd>
+      <dt><strong><u>Leases</u>:</strong></dt><dd>A lease, lease-to-own or rent-to-own program, or rental-purchase agreement has a processing fee or initial rent payment due upon execution of the lease of $50 plus tax. The Total Cost of Ownership must be paid in order to obtain ownership. Acquiring ownership by leasing costs more than the retailer’s cash price. The total number of lease payments necessary to obtain ownership of the property ranges from 1 to 104 payments, depending on your agreement and payment frequency. The timing of scheduled payments may be weekly, bi-weekly, semi-monthly, or monthly depending on when you are paid. As an example, the Total Cost of Ownership for a couch that costs $1,000 could be $2,177.85, including the $1,000 cash price plus applicable tax and fees (e.g., leasing fees, processing fee or initial rental payment, and delivery fees). In this example, after the initial $50 payment plus tax, 52 full, timely payments of $40.86 per week over 12 months may be required for ownership. Late fees, NSF fees, and Liability Damage Waiver (LDW) fees may apply where permitted.</dd>
+      </dl>
+    </div>
+  
+      </footer>
+        
+      <footer class='pt-20 md:hidden lg:hidden text-left'>
+        
+      <section class="nwc--accordion border-b">
+        <div class="nwc--accordion-item">
+          
+      <button onclick="toggleLinks('cs')" class="nwc--accordion-title p-3 cursor-pointer block w-full text-left text-xl border-none text-black">
+        <span id="csClose" class="hidden nwc--accordion-delimiter float-right text-black">
+          -&nbsp;&nbsp;
+        </span>
+        <span id="csOpen" class="nwc--accordion-delimiter float-right text-black">
+          +&nbsp;&nbsp;
+        </span>Customer Service
+      </button><div id="csLinks" class="nwc--accordion-content hidden">
+            <ul class="p-3 leading-loose text-sm">
+              <a href="https://americanfreight.com/sp/contact-us/" class="font--14 block lh--lg no--underline">Customer Service</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/shipping-delivery">Shipping and Delivery Information</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/return-policy">Return Policy</a>
+              <a href="https://americanfreight.com/sp/frequently-asked-questions/" class="font--14 block lh--lg no--underline">FAQs</a>
+            </ul>
+          </div>
+        </div>
+      </section>
+    
+        
+      <section class="nwc--accordion border-b">
+        <div class="nwc--accordion-item">
+          
+      <button onclick="toggleLinks('resource')" class="nwc--accordion-title p-3 cursor-pointer block w-full text-left text-xl border-none text-black">
+        <span id="resourceClose" class="hidden nwc--accordion-delimiter float-right text-black">
+          -&nbsp;&nbsp;
+        </span>
+        <span id="resourceOpen" class="nwc--accordion-delimiter float-right text-black">
+          +&nbsp;&nbsp;
+        </span>Resources
+      </button><div id="resourceLinks" class="nwc--accordion-content hidden">
+            <ul class="p-3 leading-loose text-sm">
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/email-sms-text-signup">Sign-up for text or email alerts</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/our-brands">Appliance Brands</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/stores">Find a Store</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/parts-and-accessories">Appliance Parts and Accessories</a>
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/price-match-policy">Price Match Policy</a>
+              <a href="https://www.americanfreight.com/oa/what-were-doing/" class="font--14 block lh--lg no--underline">Covid-19 Update</a>
+              <a href="https://www.americanfreight.com/oa/outlet-advisor/" class="font--14 block lh--lg no--underline">Outlet Advisor</a>
+              <a href="https://go.ownamericanfreight.com/?utm_source=FBIG&amp;utm_medium=DIGITAL&amp;utm_campaign=FRANDEV" class="font--14 block lh--lg no--underline">Own A Franchise</a>
+            </ul>
+          </div>
+        </div>
+      </section>
+    
+        
+      <section class="nwc--accordion border-b">
+        <div class="nwc--accordion-item">
+          
+      <button onclick="toggleLinks('company')" class="nwc--accordion-title p-3 cursor-pointer block w-full text-left text-xl border-none text-black">
+        <span id="companyClose" class="hidden nwc--accordion-delimiter float-right text-black">
+          -&nbsp;&nbsp;
+        </span>
+        <span id="companyOpen" class="nwc--accordion-delimiter float-right text-black">
+          +&nbsp;&nbsp;
+        </span>Company
+      </button><div id="companyLinks" class="nwc--accordion-content hidden">
+            <ul class="p-3 leading-loose text-sm">
+              <a href="https://americanfreight.com/br/c/about-us" class="font--14 block lh--lg no--underline">About Us</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/payment-plans">Payment Plans</a><a href="https://americanfreight.com/oa/sears-outlet-rebrand/" class="font--14 block lh--lg no--underline">Sears Outlet Rebrand</a><a href="https://americanfreight.com/oa/ffo-home-rebrand/" class="font--14 block lh--lg no--underline">FFO Home Rebrand</a><a href="https://recruiting2.ultipro.com/CAP1010CUSC/JobBoard/b4352687-7fa4-fce1-f24e-36e4b4241e95/?q=&amp;o=postedDateDesc" class="font--14 block lh--lg no--underline">Careers</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/privacy-policy">Privacy Policy</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/certification-process">American Freight Certified</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/terms-of-use">Terms of Use</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/ca-transparency-supply-chain">CA Transparency in Supply Chains</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/c/vendor-code-conduct">Vendor Code of Conduct</a>
+            </ul>
+          </div>
+        </div>
+      </section>
+    
+        
+      <section class="nwc--accordion border-b">
+        <div class="nwc--accordion-item">
+          
+      <button onclick="toggleLinks('deals')" class="nwc--accordion-title p-3 cursor-pointer block w-full text-left text-xl border-none text-black">
+        <span id="dealsClose" class="hidden nwc--accordion-delimiter float-right text-black">
+          -&nbsp;&nbsp;
+        </span>
+        <span id="dealsOpen" class="nwc--accordion-delimiter float-right text-black">
+          +&nbsp;&nbsp;
+        </span>Deals
+      </button><div id="dealsLinks" class="nwc--accordion-content hidden">
+            <ul class="p-3 leading-loose text-sm">
+              <li><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/deals/coupons">Coupons</a></li><li><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/deals">Current Deals</a></li><li><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com/br/deal-of-the-week">Deal Of the Week</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    
+        
+      <section class="nwc--accordion border-b">
+        <div class="nwc--accordion-item">
+          
+      <button onclick="toggleLinks('topCategories')" class="nwc--accordion-title p-3 cursor-pointer block w-full text-left text-xl border-none text-black">
+        <span id="topCategoriesClose" class="hidden nwc--accordion-delimiter float-right text-black">
+          -&nbsp;&nbsp;
+        </span>
+        <span id="topCategoriesOpen" class="nwc--accordion-delimiter float-right text-black">
+          +&nbsp;&nbsp;
+        </span>Top Categories
+      </button><div id="topCategoriesLinks" class="nwc--accordion-content hidden">
+            <ul class="p-3 leading-loose text-sm">
+              <a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/plp/furniture/living-room-furniture/sofas-and-loveseats/sofas/9431">Sofas &amp; Couches</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/plp/furniture/living-room-furniture/sofas-and-loveseats/loveseats/9432">Loveseats</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/plp/furniture/living-room-furniture/sectionals/9102">Sectionals</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/furniture/living-room-furniture/9100">Living Room</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/furniture/bedroom-furniture/9132">Bedroom</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/furniture/kitchen-dining-furniture/9143">Kitchen &amp; Dining</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/mattresses-bedding/mattresses/1040">Mattresses</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/appliances/refrigerators-freezers/695">Refrigerators &amp; Freezers</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/appliances/cooking-applianes/194">Kitchen Appliances</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/cat/appliances/washers-dryers/507">Washing Machines &amp; Dryers</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/plp/theme/scratch-and-dent-appliances">Scratch &amp; Dent Appliances</a><a class="font--14 block lh--lg no--underline" href="https://americanfreight.com//br/https://www.americanfreight.com/br/plp/thematic/used-appliances">Used Appliances</a><a class="font--gDark" href="https://americanfreight.com//">Return Home </a>
+            </ul>
+          </div>
+        </div>
+      </section>
+    
+        <br />
+        <div class='text-center'>
+          
+      <section id='HowWeDoing'>
+        <span class='text-xl text-black'>How Are We Doing?</span>
+        <br />
+        <a href='https://americanfreight.com/sp/contact-us/' class='text-black text-md'>Submit Feedback.</a>
+        <br />
+        <br />
+      </section>
+    
+          
+      <div class='text-center'>
+        <span>
+          <a href='https://www.facebook.com/AmericanFreightFurniture' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-facebook-official' aria-label='Facebook' aria-hidden='true'></i><span class='sr-only'>Facebook</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://twitter.com/AmericanFreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-twitter-square' aria-label='Twitter' aria-hidden='true'></i><span class='sr-only'>Twitter</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.youtube.com/user/furnituredeals' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-youtube-play' aria-label='YouTube' aria-hidden='true'></i><span class='sr-only'>YouTube</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.linkedin.com/company/american-freight-furniture-and-mattress' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-linkedin-square' aria-label='LinkedIn' aria-hidden='true'></i><span class='sr-only'>LinkedIn</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.instagram.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-instagram' aria-label='Instagram' aria-hidden='true'></i><span class='sr-only'>Instagram</span></a>
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          <a href='https://www.pinterest.com/americanfreight' target='_blank' rel='noopener noreferrer' class='no--underline tap--target'><i class='fa fa-pinterest-square' aria-label='Pinterest' aria-hidden='true'></i><span class='sr-only'>Pinterest</span></a>
+          &nbsp;&nbsp;
+        </span>
+      </div>
+    
+        </div>
+        <br />
+        <br />
+        
+      <section id='footerBBBlogo'>
+        <a href='https://www.bbb.org/us/oh/delaware/profile/furniture-stores/american-freight-furniture-and-mattress-0302-65003501/#sealclick' target='_blank' rel='noreferrer noopener'>
+          <img  width='200' alt='American Freight Furniture and Mattress BBB Business Review'  data-src='https://seal-centralohio.bbb.org/seals/blue-seal-293-61-bbb-65003501.png' class='mx-auto lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img  width='200' alt='American Freight Furniture and Mattress BBB Business Review'  data-src='https://seal-centralohio.bbb.org/seals/blue-seal-293-61-bbb-65003501.png' class='mx-auto lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' /><noscript><img src='https://seal-centralohio.bbb.org/seals/blue-seal-293-61-bbb-65003501.png' width='200' alt='American Freight Furniture and Mattress BBB Business Review' class='mx-auto' /></noscript></noscript>
+        </a>
+      </section>
+        <br />
+        <section id='Copyright' class='text-xs text-center text-black'>&copy; 2022 American Freight</section>
+        <br />
+        <br />
+        <div class='pl-3 pr-3'>
+          
+      <div class="text-xs text-gray-700 container mx-auto text-left"><dl class="text-left">
+        <dt><strong>1. APPLIANCE OFFERS:</strong></dt> <dd>Savings off list price. Excludes Special Orders, Special Purchases, and New In-box appliances. Item selection and quantities available may vary by location.</dd>
+      <dt><strong>2. FURNITURE &amp; MATTRESS OFFERS:</strong></dt> <dd>Savings off MSRP. Prices shown for item marked as "EA. PC." (meaning, each piece) are valid when specified items are purchased as a set. If sold separately, prices may vary. Item selection and quantities available may vary by location.</dd>
+      <dt><strong>3. Take It Home Today:</strong></dt> <dd>"Take it Home Today" refers to options offered to customers to purchase and take home merchandise paid in full by cash, check (subject to check payment policy) or credit card, or through a variety of alternative payment options, subject to in-store product availability.  Items not in stock can be ordered for customer pick up, scheduled or same-day delivery, or shipment, pursuant to our terms and conditions at <a href="https://www.americanfreight.com/br/c/shipping-delivery">https://www.americanfreight.com/br/c/shipping-delivery</a> and <a href="https://www.americanfreight.com/sp/in-store-pickup-policy/">https://www.americanfreight.com/sp/in-store-pickup-policy/</a></dd>
+      <dd>**Approval is possible without a FICO® Score, but credit may be checked.</dd>
+      <dt><strong>† <u>Terms and conditions</u>:</strong></dt> <dd>Subject to change at any time without prior disclosure or notice. Contact American First Finance for complete details, including terms and conditions.</dd>
+      <dt><strong><u>Bank loans</u>:</strong></dt> <dd>Subject to approval and verification. Loans originated by FinWise Bank, a Utah-chartered bank located in Murray, Utah, Member FDIC. </dd>
+      <dt><strong><u>Retail installment contracts</u>:</strong></dt>
+      <dd>A retail installment contract has a down payment of $50. A representative example of payment terms is as follows: a $50 down payment, an amount financed of $1,000 with an Annual Percentage Rate (APR) of 144.59%, and a term of 12 months would have 25 bi-weekly payments of $72.82 and 1 bi-weekly payment of $72.26. The total amount repayable would be $1,892.76 with full, timely payments over 12 months. Representative APR is based on the amount financed, individual creditworthiness, and other factors. Actual terms may vary. </dd>
+      <dt><strong><u>Leases</u>:</strong></dt><dd>A lease, lease-to-own or rent-to-own program, or rental-purchase agreement has a processing fee or initial rent payment due upon execution of the lease of $50 plus tax. The Total Cost of Ownership must be paid in order to obtain ownership. Acquiring ownership by leasing costs more than the retailer’s cash price. The total number of lease payments necessary to obtain ownership of the property ranges from 1 to 104 payments, depending on your agreement and payment frequency. The timing of scheduled payments may be weekly, bi-weekly, semi-monthly, or monthly depending on when you are paid. As an example, the Total Cost of Ownership for a couch that costs $1,000 could be $2,177.85, including the $1,000 cash price plus applicable tax and fees (e.g., leasing fees, processing fee or initial rental payment, and delivery fees). In this example, after the initial $50 payment plus tax, 52 full, timely payments of $40.86 per week over 12 months may be required for ownership. Late fees, NSF fees, and Liability Damage Waiver (LDW) fees may apply where permitted.</dd>
+      </dl>
+    </div>
+  
+        </div>
+      </footer>
+    		</div><!-- #colophon -->
+</div><!-- #page -->
+
+<style type="text/css" id="tm-builder-advanced-style">
+				
+.tm_pb_builder #tm_builder_outer_content .tm_pb_row_0 { margin-top: 45px; }
+
+@media only screen and ( max-width: 767px ) {
+	.tm_pb_builder #tm_builder_outer_content .tm_pb_row_1 { display: none !important; }
+}
+
+@media only screen and ( min-width: 768px ) and ( max-width: 980px ) {
+	.tm_pb_builder #tm_builder_outer_content .tm_pb_row_2 { display: none !important; }
+}
+
+@media only screen and ( min-width: 61.9em ) and ( max-width: 1440px ) {
+	.tm_pb_builder #tm_builder_outer_content .tm_pb_row_2 { display: none !important; }
+}
+
+@media only screen and ( min-width: 1441px ) {
+	.tm_pb_builder #tm_builder_outer_content .tm_pb_row_2 { display: none !important; }
+}
+			</style><script type='text/javascript' id='cherry-js-core-js-extra'>
+/* <![CDATA[ */
+var wp_load_style = ["wp-block-library.css","contact-form-7.css","ewd-ufaq-style.css","ewd-ufaq-rrssb.css","wpcf7-redirect-script-frontend.css","parent-style.css","ascendio-theme-style.css","webimax-style.css","cherry-google-fonts.css","tm-builder-swiper.css","tm-builder-modules-style.css","magnific-popup.css","font-awesome.css","cf7cf-style.css"];
+var wp_load_script = ["cherry-js-core.js","tm-builder-modules-global-functions-script.js","contact-form-7.js","wpcf7-redirect-script.js","smush-lazy-load.js","ascendio-theme-script.js","cherry-post-formats.js","google-maps-api.js","divi-fitvids.js","waypoints.js","magnific-popup.js","tm-jquery-touch-mobile.js","tm-builder-frontend-closest-descendent.js","tm-builder-frontend-reverse.js","tm-builder-frontend-simple-carousel.js","tm-builder-frontend-simple-slider.js","tm-builder-frontend-easy-pie-chart.js","tm-builder-frontend-tm-hash.js","tm-builder-modules-script.js","tm-builder-swiper.js","fittext.js","wpcf7cf-scripts.js","google-recaptcha.js","wpcf7-recaptcha.js"];
+var cherry_ajax = "8459d07977";
+var ui_init_object = {"auto_init":"false","targets":[]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/themes/ascendio/cherry-framework/modules/cherry-js-core/assets/js/min/cherry-js-core.min.js?ver=1.1.2' id='cherry-js-core-js'></script>
+<script type='text/javascript' id='cherry-js-core-js-after'>
+function CherryCSSCollector(){"use strict";var t,e=window.CherryCollectedCSS;void 0!==e&&(t=document.createElement("style"),t.setAttribute("title",e.title),t.setAttribute("type",e.type),t.textContent=e.css,document.head.appendChild(t))}CherryCSSCollector();
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/frontend-builder-global-functions.js?ver=1.3.0' id='tm-builder-modules-global-functions-script-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-includes/js/dist/vendor/wp-polyfill.js?ver=7.4.4' id='wp-polyfill-js'></script>
+<script type='text/javascript' id='wp-polyfill-js-after'>
+( 'fetch' in window ) || document.write( '<script src="https://www.americanfreight.com/sp/wp-includes/js/dist/vendor/wp-polyfill-fetch.js?ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://www.americanfreight.com/sp/wp-includes/js/dist/vendor/wp-polyfill-node-contains.js?ver=3.42.0"></scr' + 'ipt>' );( window.DOMRect ) || document.write( '<script src="https://www.americanfreight.com/sp/wp-includes/js/dist/vendor/wp-polyfill-dom-rect.js?ver=3.42.0"></scr' + 'ipt>' );( window.URL && window.URL.prototype && window.URLSearchParams ) || document.write( '<script src="https://www.americanfreight.com/sp/wp-includes/js/dist/vendor/wp-polyfill-url.js?ver=3.6.4"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://www.americanfreight.com/sp/wp-includes/js/dist/vendor/wp-polyfill-formdata.js?ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://www.americanfreight.com/sp/wp-includes/js/dist/vendor/wp-polyfill-element-closest.js?ver=2.0.2"></scr' + 'ipt>' );
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-includes/js/dist/i18n.js?ver=bb7c3c45d012206bfcd73d6a31f84d9e' id='wp-i18n-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-includes/js/dist/vendor/lodash.js?ver=4.17.15' id='lodash-js'></script>
+<script type='text/javascript' id='lodash-js-after'>
+window.lodash = _.noConflict();
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-includes/js/dist/url.js?ver=9dd4e33d1648e90d1390113c29d21f27' id='wp-url-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-includes/js/dist/hooks.js?ver=b4778690e29d8a2b7518413652ba30c4' id='wp-hooks-js'></script>
+<script type='text/javascript' id='wp-api-fetch-js-translations'>
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", { "locale_data": { "messages": { "": {} } } } );
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-includes/js/dist/api-fetch.js?ver=8773a93ea0d1278a2eaa147fdb6eb96d' id='wp-api-fetch-js'></script>
+<script type='text/javascript' id='wp-api-fetch-js-after'>
+wp.apiFetch.use( wp.apiFetch.createRootURLMiddleware( "https://www.americanfreight.com/sp/wp-json/" ) );
+wp.apiFetch.nonceMiddleware = wp.apiFetch.createNonceMiddleware( "cafb2f69dc" );
+wp.apiFetch.use( wp.apiFetch.nonceMiddleware );
+wp.apiFetch.use( wp.apiFetch.mediaUploadMiddleware );
+wp.apiFetch.nonceEndpoint = "https://www.americanfreight.com/sp/wp-admin/admin-ajax.php?action=rest-nonce";
+</script>
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = [];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.4' id='contact-form-7-js'></script>
+<script type='text/javascript' id='wpcf7-redirect-script-js-extra'>
+/* <![CDATA[ */
+var wpcf7r = {"ajax_url":"https:\/\/support.americanfreight.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/wpcf7-redirect/build/js/wpcf7-redirect-frontend-script.js?ver=1.1' id='wpcf7-redirect-script-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/wp-smushit/app/assets/js/smush-lazy-load.min.js?ver=3.8.3' id='smush-lazy-load-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-includes/js/hoverIntent.js?ver=1.8.1' id='hoverIntent-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/themes/ascendio/assets/js/super-guacamole.min.js?ver=1.0.0' id='super-guacamole-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/themes/ascendio/assets/js/swiper.jquery.min.js?ver=3.3.0' id='jquery-swiper-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/themes/ascendio/assets/js/jquery.ui.totop.min.js?ver=1.2.0' id='jquery-totop-js'></script>
+<script type='text/javascript' id='ascendio-theme-script-js-extra'>
+/* <![CDATA[ */
+var ascendio = {"ajaxurl":"https:\/\/support.americanfreight.com\/wp-admin\/admin-ajax.php","labels":{"totop_button":"Top","hidden_menu_items_title":"More"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/themes/ascendio/assets/js/theme-script.js?ver=5.5.3' id='ascendio-theme-script-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/themes/ascendio/cherry-framework/modules/cherry-post-formats-api/assets/js/min/cherry-post-formats.min.js?ver=1.1.0' id='cherry-post-formats-js'></script>
+<script type='text/javascript' src='https://maps-api-ssl.google.com/maps/api/js?v=3&ver=1.3.0&key' id='google-maps-api-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/libs/jquery.fitvids.js?ver=1.3.0' id='divi-fitvids-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/libs/waypoints.min.js?ver=1.3.0' id='waypoints-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/themes/ascendio/assets/js/jquery.magnific-popup.min.js?ver=1.0.1' id='magnific-popup-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/libs/jquery.mobile.custom.min.js?ver=1.3.0' id='tm-jquery-touch-mobile-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/libs/jquery.closest-descendent.js?ver=1.3.0' id='tm-builder-frontend-closest-descendent-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/libs/jquery.reverse.js?ver=1.3.0' id='tm-builder-frontend-reverse-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/jquery.tm-pb-simple-carousel.js?ver=1.3.0' id='tm-builder-frontend-simple-carousel-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/jquery.tm-pb-simple-slider.js?ver=1.3.0' id='tm-builder-frontend-simple-slider-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/libs/jquery.easypiechart.js?ver=1.3.0' id='tm-builder-frontend-easy-pie-chart-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/tm-hash.js?ver=1.3.0' id='tm-builder-frontend-tm-hash-js'></script>
+<script type='text/javascript' id='tm-builder-modules-script-js-extra'>
+/* <![CDATA[ */
+var tm_pb_custom = {"ajaxurl":"https:\/\/support.americanfreight.com\/wp-admin\/admin-ajax.php","images_uri":"https:\/\/support.americanfreight.com\/wp-content\/themes\/ascendio\/images","builder_images_uri":"https:\/\/support.americanfreight.com\/wp-content\/plugins\/power-builder\/framework\/assets\/images","tm_frontend_nonce":"adfb6f5dcc","subscription_failed":"Please, check the fields below to make sure you entered the correct information.","fill_message":"Please, fill in the following fields:","contact_error_message":"Please, fix the following errors:","invalid":"Invalid email","captcha":"Captcha","prev":"Prev","previous":"Previous","next":"Next","wrong_captcha":"You entered the wrong number in captcha.","is_builder_plugin_used":"1","is_divi_theme_used":"","widget_search_selector":".widget_search"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/scripts.js?ver=1.3.0' id='tm-builder-modules-script-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/swiper.jquery.min.js?ver=1.3.0' id='tm-builder-swiper-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/power-builder/framework/assets/js/libs/jquery.fittext.js?ver=1.3.0' id='fittext-js'></script>
+<script type='text/javascript' id='wpcf7cf-scripts-js-extra'>
+/* <![CDATA[ */
+var wpcf7cf_global_settings = {"ajaxurl":"https:\/\/support.americanfreight.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/cf7-conditional-fields/js/scripts.js?ver=1.9.14' id='wpcf7cf-scripts-js'></script>
+<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?render=6LdImaUZAAAAAMSjJOOntTaQSYMngNWNX5dvyojm&#038;ver=3.0' id='google-recaptcha-js'></script>
+<script type='text/javascript' id='wpcf7-recaptcha-js-extra'>
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6LdImaUZAAAAAMSjJOOntTaQSYMngNWNX5dvyojm","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=5.4' id='wpcf7-recaptcha-js'></script>
+<script type='text/javascript' src='https://www.americanfreight.com/sp/wp-includes/js/wp-embed.js?ver=5.5.3' id='wp-embed-js'></script>
+<script src="https://global.localizecdn.com/localize.js"></script>
+<script>
+  jQuery(document).ready(function ($) {
+    $('.social-list--footer a').empty();
+    $('.social-list--footer a').attr('href', 'https://www.bbb.org/centralohio/business-reviews/furniture-stores/american-freight-furniture-and-mattress-in-delaware-oh-65003501')
+
+    var subMenu = $('#footer-area .sub-menu');
+    $(subMenu).parent().attr("data-toggle","dropdown");
+    $(subMenu).before('<a class="caret" href="javascript:void(0);"><i class="fa fa-chevron-down"></i></a>');
+
+    $('.caret').click(function(){
+      if($(subMenu).hasClass('open')){
+        $(subMenu).removeClass('open')
+      }else{
+        $(subMenu).addClass('open')
+      }
+    })
+  });
+
+  // localization translation
+  if(window.location.search === '?translate=true') {
+      console.log('translate');
+      !function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
+
+      Localize.initialize({
+        key: 'PTZkWeSyxYK3n',
+        rememberLanguage: true,
+        autoApprove: true,
+        // other options go here, separated by commas
+      });
+    }
+
+  // upload limit detection
+  /*
+  var uploadField1 = document.querySelector('[name=picture-1]');
+  var uploadField2 = document.querySelector('[name=picture-2]');
+  var uploadField3 = document.querySelector('[name=picture-3]');
+  var uploadField4 = document.querySelector('[name=picture-4]');
+
+  uploadField1.addEventListener('change', (e) => {
+    if (e.target.files[0].size > 6200000) {
+    alert('Please upload a smaller file');
+      uploadField1.value = ''
+      return false;
+    } else {
+      console.log('File size is good');
+  }
+  });
+
+    uploadField2.addEventListener('change', (e) => {
+    if (e.target.files[0].size > 6200000) {
+    alert('Please upload a smaller file');
+      uploadField2.value = ''
+      return false;
+    } else {
+      console.log('File size is good');
+  }
+  });
+
+    uploadField3.addEventListener('change', (e) => {
+    if (e.target.files[0].size > 6200000) {
+    alert('Please upload a smaller file');
+      uploadField3.value = ''
+      return false;
+    } else {
+      console.log('File size is good');
+  }
+  });
+
+    uploadField4.addEventListener('change', (e) => {
+    if (e.target.files[0].size > 6200000) {
+    alert('Please upload a smaller file');
+      uploadField4.value = ''
+      return false;
+    } else {
+      console.log('File size is good');
+  }
+  });
+  */
+</script>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      /* grid */
+      /*!
+      * Bootstrap Grid Only (grid and responsive utilities extracted from Bootstrap 4.1.3)
+      * GitHub: https://github.com/dmhendricks/bootstrap-grid-css
+      * Bootstrap License: MIT (https://github.com/twbs/bootstrap/blob/v4-dev/LICENSE)
+      * Credits: Twitter, Inc. & The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+      */
+
+      @-ms-viewport {
+        width: device-width;
+      }
+
+      html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -ms-overflow-style: scrollbar;
+      }
+
+      *,
+      *::before,
+      *::after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+      }
+
+      .clearfix::after {
+        display: block;
+        clear: both;
+        content: '';
+      }
+
+      .visible {
+        visibility: visible !important;
+      }
+
+      .invisible {
+        visibility: hidden !important;
+      }
+
+      .hidden-xs-up {
+        display: none !important;
+      }
+
+      @media (max-width: 575.98px) {
+        .hidden-xs-down {
+          display: none !important;
+        }
+      }
+
+      @media (min-width: 576px) {
+        .hidden-sm-up {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .hidden-sm-down {
+          display: none !important;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .hidden-md-up {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 991.98px) {
+        .hidden-md-down {
+          display: none !important;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .hidden-lg-up {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 1199.98px) {
+        .hidden-lg-down {
+          display: none !important;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .hidden-xl-up {
+          display: none !important;
+        }
+      }
+
+      .hidden-xl-down {
+        display: none !important;
+      }
+
+      .visible-print-block {
+        display: none !important;
+      }
+
+      @media print {
+        .visible-print-block {
+          display: block !important;
+        }
+      }
+
+      .visible-print-inline {
+        display: none !important;
+      }
+
+      @media print {
+        .visible-print-inline {
+          display: inline !important;
+        }
+      }
+
+      .visible-print-inline-block {
+        display: none !important;
+      }
+
+      @media print {
+        .visible-print-inline-block {
+          display: inline-block !important;
+        }
+      }
+
+      @media print {
+        .hidden-print {
+          display: none !important;
+        }
+      }
+
+      .container {
+        width: 100%;
+        /* padding-right: 15px;
+        padding-left: 15px; */
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      @media (min-width: 576px) {
+        .container {
+          max-width: 540px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          max-width: 720px;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .container {
+          max-width: 960px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1140px;
+        }
+      }
+
+      .container-fluid {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+      }
+
+      .no-gutters {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      .no-gutters > .col,
+      .no-gutters > [class*='col-'] {
+        padding-right: 0;
+        padding-left: 0;
+      }
+
+      .col-1,
+      .col-2,
+      .col-3,
+      .col-4,
+      .col-5,
+      .col-6,
+      .col-7,
+      .col-8,
+      .col-9,
+      .col-10,
+      .col-11,
+      .col-12,
+      .col,
+      .col-auto,
+      .col-sm-1,
+      .col-sm-2,
+      .col-sm-3,
+      .col-sm-4,
+      .col-sm-5,
+      .col-sm-6,
+      .col-sm-7,
+      .col-sm-8,
+      .col-sm-9,
+      .col-sm-10,
+      .col-sm-11,
+      .col-sm-12,
+      .col-sm,
+      .col-sm-auto,
+      .col-md-1,
+      .col-md-2,
+      .col-md-3,
+      .col-md-4,
+      .col-md-5,
+      .col-md-6,
+      .col-md-7,
+      .col-md-8,
+      .col-md-9,
+      .col-md-10,
+      .col-md-11,
+      .col-md-12,
+      .col-md,
+      .col-md-auto,
+      .col-lg-1,
+      .col-lg-2,
+      .col-lg-3,
+      .col-lg-4,
+      .col-lg-5,
+      .col-lg-6,
+      .col-lg-7,
+      .col-lg-8,
+      .col-lg-9,
+      .col-lg-10,
+      .col-lg-11,
+      .col-lg-12,
+      .col-lg,
+      .col-lg-auto,
+      .col-xl-1,
+      .col-xl-2,
+      .col-xl-3,
+      .col-xl-4,
+      .col-xl-5,
+      .col-xl-6,
+      .col-xl-7,
+      .col-xl-8,
+      .col-xl-9,
+      .col-xl-10,
+      .col-xl-11,
+      .col-xl-12,
+      .col-xl,
+      .col-xl-auto {
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+
+      .col {
+        -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+
+      .col-auto {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%;
+      }
+
+      .col-1 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 8.3333333333%;
+        -ms-flex: 0 0 8.3333333333%;
+        flex: 0 0 8.3333333333%;
+        max-width: 8.3333333333%;
+      }
+
+      .col-2 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 16.6666666667%;
+        -ms-flex: 0 0 16.6666666667%;
+        flex: 0 0 16.6666666667%;
+        max-width: 16.6666666667%;
+      }
+
+      .col-3 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+      }
+
+      .col-4 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 33.3333333333%;
+        -ms-flex: 0 0 33.3333333333%;
+        flex: 0 0 33.3333333333%;
+        max-width: 33.3333333333%;
+      }
+
+      .col-5 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 41.6666666667%;
+        -ms-flex: 0 0 41.6666666667%;
+        flex: 0 0 41.6666666667%;
+        max-width: 41.6666666667%;
+      }
+
+      .col-6 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+
+      .col-7 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 58.3333333333%;
+        -ms-flex: 0 0 58.3333333333%;
+        flex: 0 0 58.3333333333%;
+        max-width: 58.3333333333%;
+      }
+
+      .col-8 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 66.6666666667%;
+        -ms-flex: 0 0 66.6666666667%;
+        flex: 0 0 66.6666666667%;
+        max-width: 66.6666666667%;
+      }
+
+      .col-9 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+        flex: 0 0 75%;
+        max-width: 75%;
+      }
+
+      .col-10 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 83.3333333333%;
+        -ms-flex: 0 0 83.3333333333%;
+        flex: 0 0 83.3333333333%;
+        max-width: 83.3333333333%;
+      }
+
+      .col-11 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 91.6666666667%;
+        -ms-flex: 0 0 91.6666666667%;
+        flex: 0 0 91.6666666667%;
+        max-width: 91.6666666667%;
+      }
+
+      .col-12 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      .order-first {
+        -webkit-box-ordinal-group: 0;
+        -webkit-order: -1;
+        -ms-flex-order: -1;
+        order: -1;
+      }
+
+      .order-last {
+        -webkit-box-ordinal-group: 14;
+        -webkit-order: 13;
+        -ms-flex-order: 13;
+        order: 13;
+      }
+
+      .order-0 {
+        -webkit-box-ordinal-group: 1;
+        -webkit-order: 0;
+        -ms-flex-order: 0;
+        order: 0;
+      }
+
+      .order-1 {
+        -webkit-box-ordinal-group: 2;
+        -webkit-order: 1;
+        -ms-flex-order: 1;
+        order: 1;
+      }
+
+      .order-2 {
+        -webkit-box-ordinal-group: 3;
+        -webkit-order: 2;
+        -ms-flex-order: 2;
+        order: 2;
+      }
+
+      .order-3 {
+        -webkit-box-ordinal-group: 4;
+        -webkit-order: 3;
+        -ms-flex-order: 3;
+        order: 3;
+      }
+
+      .order-4 {
+        -webkit-box-ordinal-group: 5;
+        -webkit-order: 4;
+        -ms-flex-order: 4;
+        order: 4;
+      }
+
+      .order-5 {
+        -webkit-box-ordinal-group: 6;
+        -webkit-order: 5;
+        -ms-flex-order: 5;
+        order: 5;
+      }
+
+      .order-6 {
+        -webkit-box-ordinal-group: 7;
+        -webkit-order: 6;
+        -ms-flex-order: 6;
+        order: 6;
+      }
+
+      .order-7 {
+        -webkit-box-ordinal-group: 8;
+        -webkit-order: 7;
+        -ms-flex-order: 7;
+        order: 7;
+      }
+
+      .order-8 {
+        -webkit-box-ordinal-group: 9;
+        -webkit-order: 8;
+        -ms-flex-order: 8;
+        order: 8;
+      }
+
+      .order-9 {
+        -webkit-box-ordinal-group: 10;
+        -webkit-order: 9;
+        -ms-flex-order: 9;
+        order: 9;
+      }
+
+      .order-10 {
+        -webkit-box-ordinal-group: 11;
+        -webkit-order: 10;
+        -ms-flex-order: 10;
+        order: 10;
+      }
+
+      .order-11 {
+        -webkit-box-ordinal-group: 12;
+        -webkit-order: 11;
+        -ms-flex-order: 11;
+        order: 11;
+      }
+
+      .order-12 {
+        -webkit-box-ordinal-group: 13;
+        -webkit-order: 12;
+        -ms-flex-order: 12;
+        order: 12;
+      }
+
+      .offset-1 {
+        margin-left: 8.3333333333%;
+      }
+
+      .offset-2 {
+        margin-left: 16.6666666667%;
+      }
+
+      .offset-3 {
+        margin-left: 25%;
+      }
+
+      .offset-4 {
+        margin-left: 33.3333333333%;
+      }
+
+      .offset-5 {
+        margin-left: 41.6666666667%;
+      }
+
+      .offset-6 {
+        margin-left: 50%;
+      }
+
+      .offset-7 {
+        margin-left: 58.3333333333%;
+      }
+
+      .offset-8 {
+        margin-left: 66.6666666667%;
+      }
+
+      .offset-9 {
+        margin-left: 75%;
+      }
+
+      .offset-10 {
+        margin-left: 83.3333333333%;
+      }
+
+      .offset-11 {
+        margin-left: 91.6666666667%;
+      }
+
+      @media (min-width: 576px) {
+        .col-sm {
+          -webkit-flex-basis: 0;
+          -ms-flex-preferred-size: 0;
+          flex-basis: 0;
+          -webkit-box-flex: 1;
+          -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+          flex-grow: 1;
+          max-width: 100%;
+        }
+        .col-sm-auto {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 auto;
+          -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+          width: auto;
+          max-width: 100%;
+        }
+        .col-sm-1 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 8.3333333333%;
+          -ms-flex: 0 0 8.3333333333%;
+          flex: 0 0 8.3333333333%;
+          max-width: 8.3333333333%;
+        }
+        .col-sm-2 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 16.6666666667%;
+          -ms-flex: 0 0 16.6666666667%;
+          flex: 0 0 16.6666666667%;
+          max-width: 16.6666666667%;
+        }
+        .col-sm-3 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 25%;
+          -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+        .col-sm-4 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 33.3333333333%;
+          -ms-flex: 0 0 33.3333333333%;
+          flex: 0 0 33.3333333333%;
+          max-width: 33.3333333333%;
+        }
+        .col-sm-5 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 41.6666666667%;
+          -ms-flex: 0 0 41.6666666667%;
+          flex: 0 0 41.6666666667%;
+          max-width: 41.6666666667%;
+        }
+        .col-sm-6 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 50%;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+        .col-sm-7 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 58.3333333333%;
+          -ms-flex: 0 0 58.3333333333%;
+          flex: 0 0 58.3333333333%;
+          max-width: 58.3333333333%;
+        }
+        .col-sm-8 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 66.6666666667%;
+          -ms-flex: 0 0 66.6666666667%;
+          flex: 0 0 66.6666666667%;
+          max-width: 66.6666666667%;
+        }
+        .col-sm-9 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 75%;
+          -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+          max-width: 75%;
+        }
+        .col-sm-10 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 83.3333333333%;
+          -ms-flex: 0 0 83.3333333333%;
+          flex: 0 0 83.3333333333%;
+          max-width: 83.3333333333%;
+        }
+        .col-sm-11 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 91.6666666667%;
+          -ms-flex: 0 0 91.6666666667%;
+          flex: 0 0 91.6666666667%;
+          max-width: 91.6666666667%;
+        }
+        .col-sm-12 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 100%;
+          -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .order-sm-first {
+          -webkit-box-ordinal-group: 0;
+          -webkit-order: -1;
+          -ms-flex-order: -1;
+          order: -1;
+        }
+        .order-sm-last {
+          -webkit-box-ordinal-group: 14;
+          -webkit-order: 13;
+          -ms-flex-order: 13;
+          order: 13;
+        }
+        .order-sm-0 {
+          -webkit-box-ordinal-group: 1;
+          -webkit-order: 0;
+          -ms-flex-order: 0;
+          order: 0;
+        }
+        .order-sm-1 {
+          -webkit-box-ordinal-group: 2;
+          -webkit-order: 1;
+          -ms-flex-order: 1;
+          order: 1;
+        }
+        .order-sm-2 {
+          -webkit-box-ordinal-group: 3;
+          -webkit-order: 2;
+          -ms-flex-order: 2;
+          order: 2;
+        }
+        .order-sm-3 {
+          -webkit-box-ordinal-group: 4;
+          -webkit-order: 3;
+          -ms-flex-order: 3;
+          order: 3;
+        }
+        .order-sm-4 {
+          -webkit-box-ordinal-group: 5;
+          -webkit-order: 4;
+          -ms-flex-order: 4;
+          order: 4;
+        }
+        .order-sm-5 {
+          -webkit-box-ordinal-group: 6;
+          -webkit-order: 5;
+          -ms-flex-order: 5;
+          order: 5;
+        }
+        .order-sm-6 {
+          -webkit-box-ordinal-group: 7;
+          -webkit-order: 6;
+          -ms-flex-order: 6;
+          order: 6;
+        }
+        .order-sm-7 {
+          -webkit-box-ordinal-group: 8;
+          -webkit-order: 7;
+          -ms-flex-order: 7;
+          order: 7;
+        }
+        .order-sm-8 {
+          -webkit-box-ordinal-group: 9;
+          -webkit-order: 8;
+          -ms-flex-order: 8;
+          order: 8;
+        }
+        .order-sm-9 {
+          -webkit-box-ordinal-group: 10;
+          -webkit-order: 9;
+          -ms-flex-order: 9;
+          order: 9;
+        }
+        .order-sm-10 {
+          -webkit-box-ordinal-group: 11;
+          -webkit-order: 10;
+          -ms-flex-order: 10;
+          order: 10;
+        }
+        .order-sm-11 {
+          -webkit-box-ordinal-group: 12;
+          -webkit-order: 11;
+          -ms-flex-order: 11;
+          order: 11;
+        }
+        .order-sm-12 {
+          -webkit-box-ordinal-group: 13;
+          -webkit-order: 12;
+          -ms-flex-order: 12;
+          order: 12;
+        }
+        .offset-sm-0 {
+          margin-left: 0;
+        }
+        .offset-sm-1 {
+          margin-left: 8.3333333333%;
+        }
+        .offset-sm-2 {
+          margin-left: 16.6666666667%;
+        }
+        .offset-sm-3 {
+          margin-left: 25%;
+        }
+        .offset-sm-4 {
+          margin-left: 33.3333333333%;
+        }
+        .offset-sm-5 {
+          margin-left: 41.6666666667%;
+        }
+        .offset-sm-6 {
+          margin-left: 50%;
+        }
+        .offset-sm-7 {
+          margin-left: 58.3333333333%;
+        }
+        .offset-sm-8 {
+          margin-left: 66.6666666667%;
+        }
+        .offset-sm-9 {
+          margin-left: 75%;
+        }
+        .offset-sm-10 {
+          margin-left: 83.3333333333%;
+        }
+        .offset-sm-11 {
+          margin-left: 91.6666666667%;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .col-md {
+          -webkit-flex-basis: 0;
+          -ms-flex-preferred-size: 0;
+          flex-basis: 0;
+          -webkit-box-flex: 1;
+          -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+          flex-grow: 1;
+          max-width: 100%;
+        }
+        .col-md-auto {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 auto;
+          -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+          width: auto;
+          max-width: 100%;
+        }
+        .col-md-1 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 8.3333333333%;
+          -ms-flex: 0 0 8.3333333333%;
+          flex: 0 0 8.3333333333%;
+          max-width: 8.3333333333%;
+        }
+        .col-md-2 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 16.6666666667%;
+          -ms-flex: 0 0 16.6666666667%;
+          flex: 0 0 16.6666666667%;
+          max-width: 16.6666666667%;
+        }
+        .col-md-3 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 25%;
+          -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+        .col-md-4 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 33.3333333333%;
+          -ms-flex: 0 0 33.3333333333%;
+          flex: 0 0 33.3333333333%;
+          max-width: 33.3333333333%;
+        }
+        .col-md-5 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 41.6666666667%;
+          -ms-flex: 0 0 41.6666666667%;
+          flex: 0 0 41.6666666667%;
+          max-width: 41.6666666667%;
+        }
+        .col-md-6 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 50%;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+        .col-md-7 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 58.3333333333%;
+          -ms-flex: 0 0 58.3333333333%;
+          flex: 0 0 58.3333333333%;
+          max-width: 58.3333333333%;
+        }
+        .col-md-8 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 66.6666666667%;
+          -ms-flex: 0 0 66.6666666667%;
+          flex: 0 0 66.6666666667%;
+          max-width: 66.6666666667%;
+        }
+        .col-md-9 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 75%;
+          -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+          max-width: 75%;
+        }
+        .col-md-10 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 83.3333333333%;
+          -ms-flex: 0 0 83.3333333333%;
+          flex: 0 0 83.3333333333%;
+          max-width: 83.3333333333%;
+        }
+        .col-md-11 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 91.6666666667%;
+          -ms-flex: 0 0 91.6666666667%;
+          flex: 0 0 91.6666666667%;
+          max-width: 91.6666666667%;
+        }
+        .col-md-12 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 100%;
+          -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .order-md-first {
+          -webkit-box-ordinal-group: 0;
+          -webkit-order: -1;
+          -ms-flex-order: -1;
+          order: -1;
+        }
+        .order-md-last {
+          -webkit-box-ordinal-group: 14;
+          -webkit-order: 13;
+          -ms-flex-order: 13;
+          order: 13;
+        }
+        .order-md-0 {
+          -webkit-box-ordinal-group: 1;
+          -webkit-order: 0;
+          -ms-flex-order: 0;
+          order: 0;
+        }
+        .order-md-1 {
+          -webkit-box-ordinal-group: 2;
+          -webkit-order: 1;
+          -ms-flex-order: 1;
+          order: 1;
+        }
+        .order-md-2 {
+          -webkit-box-ordinal-group: 3;
+          -webkit-order: 2;
+          -ms-flex-order: 2;
+          order: 2;
+        }
+        .order-md-3 {
+          -webkit-box-ordinal-group: 4;
+          -webkit-order: 3;
+          -ms-flex-order: 3;
+          order: 3;
+        }
+        .order-md-4 {
+          -webkit-box-ordinal-group: 5;
+          -webkit-order: 4;
+          -ms-flex-order: 4;
+          order: 4;
+        }
+        .order-md-5 {
+          -webkit-box-ordinal-group: 6;
+          -webkit-order: 5;
+          -ms-flex-order: 5;
+          order: 5;
+        }
+        .order-md-6 {
+          -webkit-box-ordinal-group: 7;
+          -webkit-order: 6;
+          -ms-flex-order: 6;
+          order: 6;
+        }
+        .order-md-7 {
+          -webkit-box-ordinal-group: 8;
+          -webkit-order: 7;
+          -ms-flex-order: 7;
+          order: 7;
+        }
+        .order-md-8 {
+          -webkit-box-ordinal-group: 9;
+          -webkit-order: 8;
+          -ms-flex-order: 8;
+          order: 8;
+        }
+        .order-md-9 {
+          -webkit-box-ordinal-group: 10;
+          -webkit-order: 9;
+          -ms-flex-order: 9;
+          order: 9;
+        }
+        .order-md-10 {
+          -webkit-box-ordinal-group: 11;
+          -webkit-order: 10;
+          -ms-flex-order: 10;
+          order: 10;
+        }
+        .order-md-11 {
+          -webkit-box-ordinal-group: 12;
+          -webkit-order: 11;
+          -ms-flex-order: 11;
+          order: 11;
+        }
+        .order-md-12 {
+          -webkit-box-ordinal-group: 13;
+          -webkit-order: 12;
+          -ms-flex-order: 12;
+          order: 12;
+        }
+        .offset-md-0 {
+          margin-left: 0;
+        }
+        .offset-md-1 {
+          margin-left: 8.3333333333%;
+        }
+        .offset-md-2 {
+          margin-left: 16.6666666667%;
+        }
+        .offset-md-3 {
+          margin-left: 25%;
+        }
+        .offset-md-4 {
+          margin-left: 33.3333333333%;
+        }
+        .offset-md-5 {
+          margin-left: 41.6666666667%;
+        }
+        .offset-md-6 {
+          margin-left: 50%;
+        }
+        .offset-md-7 {
+          margin-left: 58.3333333333%;
+        }
+        .offset-md-8 {
+          margin-left: 66.6666666667%;
+        }
+        .offset-md-9 {
+          margin-left: 75%;
+        }
+        .offset-md-10 {
+          margin-left: 83.3333333333%;
+        }
+        .offset-md-11 {
+          margin-left: 91.6666666667%;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .col-lg {
+          -webkit-flex-basis: 0;
+          -ms-flex-preferred-size: 0;
+          flex-basis: 0;
+          -webkit-box-flex: 1;
+          -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+          flex-grow: 1;
+          max-width: 100%;
+        }
+        .col-lg-auto {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 auto;
+          -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+          width: auto;
+          max-width: 100%;
+        }
+        .col-lg-1 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 8.3333333333%;
+          -ms-flex: 0 0 8.3333333333%;
+          flex: 0 0 8.3333333333%;
+          max-width: 8.3333333333%;
+        }
+        .col-lg-2 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 16.6666666667%;
+          -ms-flex: 0 0 16.6666666667%;
+          flex: 0 0 16.6666666667%;
+          max-width: 16.6666666667%;
+        }
+        .col-lg-3 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 25%;
+          -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+        .col-lg-4 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 33.3333333333%;
+          -ms-flex: 0 0 33.3333333333%;
+          flex: 0 0 33.3333333333%;
+          max-width: 33.3333333333%;
+        }
+        .col-lg-5 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 41.6666666667%;
+          -ms-flex: 0 0 41.6666666667%;
+          flex: 0 0 41.6666666667%;
+          max-width: 41.6666666667%;
+        }
+        .col-lg-6 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 50%;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+        .col-lg-7 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 58.3333333333%;
+          -ms-flex: 0 0 58.3333333333%;
+          flex: 0 0 58.3333333333%;
+          max-width: 58.3333333333%;
+        }
+        .col-lg-8 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 66.6666666667%;
+          -ms-flex: 0 0 66.6666666667%;
+          flex: 0 0 66.6666666667%;
+          max-width: 66.6666666667%;
+        }
+        .col-lg-9 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 75%;
+          -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+          max-width: 75%;
+        }
+        .col-lg-10 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 83.3333333333%;
+          -ms-flex: 0 0 83.3333333333%;
+          flex: 0 0 83.3333333333%;
+          max-width: 83.3333333333%;
+        }
+        .col-lg-11 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 91.6666666667%;
+          -ms-flex: 0 0 91.6666666667%;
+          flex: 0 0 91.6666666667%;
+          max-width: 91.6666666667%;
+        }
+        .col-lg-12 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 100%;
+          -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .order-lg-first {
+          -webkit-box-ordinal-group: 0;
+          -webkit-order: -1;
+          -ms-flex-order: -1;
+          order: -1;
+        }
+        .order-lg-last {
+          -webkit-box-ordinal-group: 14;
+          -webkit-order: 13;
+          -ms-flex-order: 13;
+          order: 13;
+        }
+        .order-lg-0 {
+          -webkit-box-ordinal-group: 1;
+          -webkit-order: 0;
+          -ms-flex-order: 0;
+          order: 0;
+        }
+        .order-lg-1 {
+          -webkit-box-ordinal-group: 2;
+          -webkit-order: 1;
+          -ms-flex-order: 1;
+          order: 1;
+        }
+        .order-lg-2 {
+          -webkit-box-ordinal-group: 3;
+          -webkit-order: 2;
+          -ms-flex-order: 2;
+          order: 2;
+        }
+        .order-lg-3 {
+          -webkit-box-ordinal-group: 4;
+          -webkit-order: 3;
+          -ms-flex-order: 3;
+          order: 3;
+        }
+        .order-lg-4 {
+          -webkit-box-ordinal-group: 5;
+          -webkit-order: 4;
+          -ms-flex-order: 4;
+          order: 4;
+        }
+        .order-lg-5 {
+          -webkit-box-ordinal-group: 6;
+          -webkit-order: 5;
+          -ms-flex-order: 5;
+          order: 5;
+        }
+        .order-lg-6 {
+          -webkit-box-ordinal-group: 7;
+          -webkit-order: 6;
+          -ms-flex-order: 6;
+          order: 6;
+        }
+        .order-lg-7 {
+          -webkit-box-ordinal-group: 8;
+          -webkit-order: 7;
+          -ms-flex-order: 7;
+          order: 7;
+        }
+        .order-lg-8 {
+          -webkit-box-ordinal-group: 9;
+          -webkit-order: 8;
+          -ms-flex-order: 8;
+          order: 8;
+        }
+        .order-lg-9 {
+          -webkit-box-ordinal-group: 10;
+          -webkit-order: 9;
+          -ms-flex-order: 9;
+          order: 9;
+        }
+        .order-lg-10 {
+          -webkit-box-ordinal-group: 11;
+          -webkit-order: 10;
+          -ms-flex-order: 10;
+          order: 10;
+        }
+        .order-lg-11 {
+          -webkit-box-ordinal-group: 12;
+          -webkit-order: 11;
+          -ms-flex-order: 11;
+          order: 11;
+        }
+        .order-lg-12 {
+          -webkit-box-ordinal-group: 13;
+          -webkit-order: 12;
+          -ms-flex-order: 12;
+          order: 12;
+        }
+        .offset-lg-0 {
+          margin-left: 0;
+        }
+        .offset-lg-1 {
+          margin-left: 8.3333333333%;
+        }
+        .offset-lg-2 {
+          margin-left: 16.6666666667%;
+        }
+        .offset-lg-3 {
+          margin-left: 25%;
+        }
+        .offset-lg-4 {
+          margin-left: 33.3333333333%;
+        }
+        .offset-lg-5 {
+          margin-left: 41.6666666667%;
+        }
+        .offset-lg-6 {
+          margin-left: 50%;
+        }
+        .offset-lg-7 {
+          margin-left: 58.3333333333%;
+        }
+        .offset-lg-8 {
+          margin-left: 66.6666666667%;
+        }
+        .offset-lg-9 {
+          margin-left: 75%;
+        }
+        .offset-lg-10 {
+          margin-left: 83.3333333333%;
+        }
+        .offset-lg-11 {
+          margin-left: 91.6666666667%;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .col-xl {
+          -webkit-flex-basis: 0;
+          -ms-flex-preferred-size: 0;
+          flex-basis: 0;
+          -webkit-box-flex: 1;
+          -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+          flex-grow: 1;
+          max-width: 100%;
+        }
+        .col-xl-auto {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 auto;
+          -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+          width: auto;
+          max-width: 100%;
+        }
+        .col-xl-1 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 8.3333333333%;
+          -ms-flex: 0 0 8.3333333333%;
+          flex: 0 0 8.3333333333%;
+          max-width: 8.3333333333%;
+        }
+        .col-xl-2 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 16.6666666667%;
+          -ms-flex: 0 0 16.6666666667%;
+          flex: 0 0 16.6666666667%;
+          max-width: 16.6666666667%;
+        }
+        .col-xl-3 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 25%;
+          -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+        .col-xl-4 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 33.3333333333%;
+          -ms-flex: 0 0 33.3333333333%;
+          flex: 0 0 33.3333333333%;
+          max-width: 33.3333333333%;
+        }
+        .col-xl-5 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 41.6666666667%;
+          -ms-flex: 0 0 41.6666666667%;
+          flex: 0 0 41.6666666667%;
+          max-width: 41.6666666667%;
+        }
+        .col-xl-6 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 50%;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+        .col-xl-7 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 58.3333333333%;
+          -ms-flex: 0 0 58.3333333333%;
+          flex: 0 0 58.3333333333%;
+          max-width: 58.3333333333%;
+        }
+        .col-xl-8 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 66.6666666667%;
+          -ms-flex: 0 0 66.6666666667%;
+          flex: 0 0 66.6666666667%;
+          max-width: 66.6666666667%;
+        }
+        .col-xl-9 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 75%;
+          -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+          max-width: 75%;
+        }
+        .col-xl-10 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 83.3333333333%;
+          -ms-flex: 0 0 83.3333333333%;
+          flex: 0 0 83.3333333333%;
+          max-width: 83.3333333333%;
+        }
+        .col-xl-11 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 91.6666666667%;
+          -ms-flex: 0 0 91.6666666667%;
+          flex: 0 0 91.6666666667%;
+          max-width: 91.6666666667%;
+        }
+        .col-xl-12 {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 100%;
+          -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .order-xl-first {
+          -webkit-box-ordinal-group: 0;
+          -webkit-order: -1;
+          -ms-flex-order: -1;
+          order: -1;
+        }
+        .order-xl-last {
+          -webkit-box-ordinal-group: 14;
+          -webkit-order: 13;
+          -ms-flex-order: 13;
+          order: 13;
+        }
+        .order-xl-0 {
+          -webkit-box-ordinal-group: 1;
+          -webkit-order: 0;
+          -ms-flex-order: 0;
+          order: 0;
+        }
+        .order-xl-1 {
+          -webkit-box-ordinal-group: 2;
+          -webkit-order: 1;
+          -ms-flex-order: 1;
+          order: 1;
+        }
+        .order-xl-2 {
+          -webkit-box-ordinal-group: 3;
+          -webkit-order: 2;
+          -ms-flex-order: 2;
+          order: 2;
+        }
+        .order-xl-3 {
+          -webkit-box-ordinal-group: 4;
+          -webkit-order: 3;
+          -ms-flex-order: 3;
+          order: 3;
+        }
+        .order-xl-4 {
+          -webkit-box-ordinal-group: 5;
+          -webkit-order: 4;
+          -ms-flex-order: 4;
+          order: 4;
+        }
+        .order-xl-5 {
+          -webkit-box-ordinal-group: 6;
+          -webkit-order: 5;
+          -ms-flex-order: 5;
+          order: 5;
+        }
+        .order-xl-6 {
+          -webkit-box-ordinal-group: 7;
+          -webkit-order: 6;
+          -ms-flex-order: 6;
+          order: 6;
+        }
+        .order-xl-7 {
+          -webkit-box-ordinal-group: 8;
+          -webkit-order: 7;
+          -ms-flex-order: 7;
+          order: 7;
+        }
+        .order-xl-8 {
+          -webkit-box-ordinal-group: 9;
+          -webkit-order: 8;
+          -ms-flex-order: 8;
+          order: 8;
+        }
+        .order-xl-9 {
+          -webkit-box-ordinal-group: 10;
+          -webkit-order: 9;
+          -ms-flex-order: 9;
+          order: 9;
+        }
+        .order-xl-10 {
+          -webkit-box-ordinal-group: 11;
+          -webkit-order: 10;
+          -ms-flex-order: 10;
+          order: 10;
+        }
+        .order-xl-11 {
+          -webkit-box-ordinal-group: 12;
+          -webkit-order: 11;
+          -ms-flex-order: 11;
+          order: 11;
+        }
+        .order-xl-12 {
+          -webkit-box-ordinal-group: 13;
+          -webkit-order: 12;
+          -ms-flex-order: 12;
+          order: 12;
+        }
+        .offset-xl-0 {
+          margin-left: 0;
+        }
+        .offset-xl-1 {
+          margin-left: 8.3333333333%;
+        }
+        .offset-xl-2 {
+          margin-left: 16.6666666667%;
+        }
+        .offset-xl-3 {
+          margin-left: 25%;
+        }
+        .offset-xl-4 {
+          margin-left: 33.3333333333%;
+        }
+        .offset-xl-5 {
+          margin-left: 41.6666666667%;
+        }
+        .offset-xl-6 {
+          margin-left: 50%;
+        }
+        .offset-xl-7 {
+          margin-left: 58.3333333333%;
+        }
+        .offset-xl-8 {
+          margin-left: 66.6666666667%;
+        }
+        .offset-xl-9 {
+          margin-left: 75%;
+        }
+        .offset-xl-10 {
+          margin-left: 83.3333333333%;
+        }
+        .offset-xl-11 {
+          margin-left: 91.6666666667%;
+        }
+      }
+
+      .img-fluid {
+        max-width: 100%;
+        height: auto;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+      }
+    </style>
+</body>
+</html>

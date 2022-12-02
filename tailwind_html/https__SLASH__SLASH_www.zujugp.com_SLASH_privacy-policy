@@ -1,0 +1,2095 @@
+<!doctype html><html lang="en"><head>
+    <meta charset="utf-8">
+
+    
+
+    <script>
+      console.log('page content', 54357474387)
+    </script>
+
+    <title>Privacy Policy | zujuGP</title>
+    <link rel="shortcut icon" href="https://www.zujugp.com/hubfs/BRAND%20ASSETS/favicon-tm.png">
+    <meta name="description" content="">
+
+    
+      <meta property="og:image" content="https://www.zujugp.com/hubfs/raw_assets/public/zuju-theme/images/assets/bg/ZujuGP-OG.png">
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    
+
+
+<script>
+  var ref_redirect = false
+</script>
+
+
+<script>
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  const selector = document.querySelectorAll('.lang-select__nav a')
+  selector.forEach((el) => {
+    if (!el.href.includes('hsLang')) return
+    const o = el.href
+    const url = new URL(o)
+    url.searchParams.delete('hsLang')
+
+    el.setAttribute('href', url.toString())
+  })
+
+  const currLang = ''
+  const languages = []
+  const API_KEY = '20c9512716114437b92c93eeea778519'
+
+  const spinner = document.querySelector('.spinner-container')
+  function hideSpinner() {
+    setTimeout(() => {
+      spinner.style.opacity = 0
+      spinner.style.visibility = 'hidden'
+      spinner.style.display = 'none'
+    }, 300)
+  }
+
+  // external redirect ---------------------------------------------------------------------------------
+  // Referral campaign => redirect user if the url is referral page but don't have ref in the url param
+  //if (ref_redirect) {
+   // return window.location.href = 'https://www.zujugp.com/anniversary-giveaway/subscribe'
+  //}
+  // !Delete when the campaign is done -----------------------------------------------------------------
+
+  fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${API_KEY}`)
+    .then(res => res.json())
+    .then(res => {
+      const loc = res?.country_code2?.toLowerCase()
+      // console.log('current lang', currLang)
+      // console.log('available lang: ', languages)
+      // console.log('geo loc: ', loc)
+
+      const coverage = ['cn', 'id', 'en', 'vn']
+      const url = new URL(window.location.href)
+
+      
+      if (localStorage.getItem('zj-redirected')) return hideSpinner()
+
+      
+      
+
+
+      
+      if (!coverage.includes(loc) && currLang !== 'en') {
+        localStorage.setItem('zj-redirected', true)
+        url.searchParams.set('hsLang', 'en')
+        window.location.replace(url.toString())
+        return
+      }
+
+      if (loc === 'cn' && currLang !== 'zh-cn') {
+        localStorage.setItem('zj-redirected', true)
+        url.searchParams.set('hsLang', 'zh-cn')
+        window.location.replace(url.toString())
+        return
+      } else if (loc === 'id' && currLang !== 'id') {
+        url.searchParams.set('hsLang', 'id')
+        window.location.replace(url.toString())
+        localStorage.setItem('zj-redirected', true)
+        return
+      } else if (loc === 'vn' && currLang !== 'vi-vn') {
+        url.searchParams.set('hsLang', 'vi-vn')
+        window.location.replace(url.toString())
+        localStorage.setItem('zj-redirected', true)
+        return
+      }
+      hideSpinner()
+    })
+});
+</script>
+
+<style>
+  .spinner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(34,34,34);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader {
+    border: 5px solid #58585870;
+    border-top: 5px solid #ed2938;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css">
+    
+
+    
+    <!-- Begin partial -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&amp;display=swap">
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<script defer src="https://unpkg.com/@alpinejs/intersect@3.4.1/dist/cdn.min.js"></script>
+
+
+
+
+<!-- End partial -->
+
+    <style>
+    @media (max-width: 1023.98px) {
+      .app main .STO-gpform #hs_form_target_form {
+        padding: 1rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      .app main .STO-gpform #hs_form_target_form {
+        padding: 4rem;
+      }
+    }
+    .app main .STO-gpform form {
+      display: flex;
+    }
+    .app main .STO-gpform form {
+      align-items: center;
+    }
+    .app main .STO-gpform form {
+      -moz-column-gap: 1rem;
+      column-gap: 1rem;
+    }
+    @media (max-width: 1023.98px) {
+      .app main .STO-gpform form {
+        flex-direction: column;
+      }
+    }
+    .app main .STO-gpform form .hs-form-field {
+      margin: 0;
+    }
+    .app main .STO-gpform form .hs-form-field input {
+      height: 3rem;
+    }
+    @media (max-width: 1023.98px) {
+      .app main .STO-gpform form .hs-form-field input {
+        margin-bottom: 2rem;
+      }
+    }
+    @media (max-width: 1023.98px) {
+      .app main .STO-gpform form .hs-form-field input {
+        width: 100%;
+      }
+    }
+    @media (min-width: 1024px) {
+      .app main .STO-gpform form .hs-form-field input {
+        width: 24rem;
+      }
+    }
+    .app main .STO-gpform form .hs_submit {
+      margin: 0;
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      height: 3rem;
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      border-radius: 0.25rem;
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      --tw-bg-opacity: 1;
+      background-color: rgba(237, 41, 56, var(--tw-bg-opacity));
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      font-weight: 700;
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      line-height: 1;
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      --tw-text-opacity: 1;
+      color: rgba(255, 255, 255, var(--tw-text-opacity));
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+      transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+      transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.15s;
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      transition-duration: 0.2s;
+    }
+    .app main .STO-gpform form input[type="submit"] {
+      transition-timing-function: linear;
+    }
+    .app main .STO-gpform form input[type="submit"]:hover {
+      --tw-bg-opacity: 1;
+      background-color: rgba(189, 16, 31, var(--tw-bg-opacity));
+    }
+    .app main .STO-gpform form input[type="submit"]:disabled {
+      cursor: not-allowed;
+    }
+    .app main .STO-gpform form input[type="submit"]:disabled {
+      --tw-bg-opacity: 1;
+      background-color: rgba(221, 221, 221, var(--tw-bg-opacity));
+    }
+    .app main .AP-form-wrapper {
+      width: clamp(300px, 660px, 90%);
+    }
+    .app main .AP-form {
+      padding: 20px 50px 50px;
+      color: #666;
+      border-radius: 3px;
+    }
+    .app main .AP-form .form-contact-wrapper {
+      padding-top: 1.875rem;
+    }
+    .app main .AP-form .no-list.hs-error-msgs {
+      margin-bottom: 0;
+    }
+    .app main .AP-form form {
+      display: flex;
+    }
+    .app main .AP-form form {
+      flex-direction: column;
+    }
+    .app main .AP-form form {
+      align-items: center;
+    }
+    .app main .AP-form form {
+      -moz-column-gap: 1rem;
+      column-gap: 1rem;
+    }
+    .app main .AP-form form .hs-form-field {
+      margin: 0;
+    }
+    .app main .AP-form form .hs-form-field {
+      width: 100%;
+    }
+    .app main .AP-form form .hs-form-field {
+      padding-bottom: 0.5rem;
+    }
+    .app main .AP-form form .hs-form-field input {
+      height: 3rem;
+    }
+    .app main .AP-form form .hs-form-field input {
+      width: 100%;
+    }
+    @media (max-width: 1023.98px) {
+      .app main .AP-form form .hs-form-field input {
+        margin-bottom: 2rem;
+      }
+    }
+    .app main .AP-form form .hs-form-field textarea {
+      width: 100%;
+    }
+    .app main .AP-form form .hs-form-field textarea {
+      resize: none;
+    }
+    .app main .AP-form form .hs-form-field textarea {
+      padding-left: 1.25rem;
+    }
+    @media (max-width: 1023.98px) {
+      .app main .AP-form form .hs-form-field textarea {
+        margin-bottom: 2rem;
+      }
+    }
+    .app main .AP-form form .hs_submit {
+      margin: 0;
+    }
+    .app main .AP-form form .hs_submit {
+      margin-top: 2rem;
+    }
+    .app main .AP-form form input[type="submit"] {
+      height: 3rem;
+    }
+    .app main .AP-form form input[type="submit"] {
+      border-radius: 0.25rem;
+    }
+    .app main .AP-form form input[type="submit"] {
+      --tw-bg-opacity: 1;
+      background-color: rgba(237, 41, 56, var(--tw-bg-opacity));
+    }
+    .app main .AP-form form input[type="submit"] {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .app main .AP-form form input[type="submit"] {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+    .app main .AP-form form input[type="submit"] {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+    .app main .AP-form form input[type="submit"] {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+    .app main .AP-form form input[type="submit"] {
+      font-weight: 700;
+    }
+    .app main .AP-form form input[type="submit"] {
+      line-height: 1;
+    }
+    .app main .AP-form form input[type="submit"] {
+      --tw-text-opacity: 1;
+      color: rgba(255, 255, 255, var(--tw-text-opacity));
+    }
+    .app main .AP-form form input[type="submit"] {
+      --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+    .app main .AP-form form input[type="submit"] {
+      transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+      transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+      transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.15s;
+    }
+    .app main .AP-form form input[type="submit"] {
+      transition-duration: 0.2s;
+    }
+    .app main .AP-form form input[type="submit"] {
+      transition-timing-function: linear;
+    }
+    .app main .AP-form form input[type="submit"]:hover {
+      --tw-bg-opacity: 1;
+      background-color: rgba(189, 16, 31, var(--tw-bg-opacity));
+    }
+    .app main .AP-form form input[type="submit"]:disabled {
+      cursor: not-allowed;
+    }
+    .app main .AP-form form input[type="submit"]:disabled {
+      --tw-bg-opacity: 1;
+      background-color: rgba(221, 221, 221, var(--tw-bg-opacity));
+    }
+    .app .NMM-form form {
+      display: flex;
+    }
+    .app .NMM-form form {
+      flex-wrap: wrap;
+    }
+    .app .NMM-form form .hs-form-field {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .app .NMM-form form .hs-form-field {
+      margin-bottom: 0;
+    }
+    .app .NMM-form form .hs-form-field {
+      padding-bottom: 2rem;
+    }
+    .app .NMM-form form .hs-form-field .input {
+      border-width: 1px;
+    }
+    .app .NMM-form form .hs-form-field .input {
+      --tw-border-opacity: 1;
+      border-color: rgba(221, 221, 221, var(--tw-border-opacity));
+    }
+    .app .NMM-form form .hs-form-field input {
+      --tw-bg-opacity: 1;
+      background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+    }
+    .app .NMM-form form .hs-form-field:nth-child(1) {
+      position: relative;
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-form-field:nth-child(1) {
+        order: 1;
+      }
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-form-field:nth-child(4) {
+        order: 2;
+      }
+    }
+    .app .NMM-form form .hs-form-field:nth-child(2) {
+      position: relative;
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-form-field:nth-child(2) {
+        order: 3;
+      }
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-form-field:nth-child(5) {
+        order: 4;
+      }
+    }
+    .app .NMM-form form .hs-form-field:nth-child(3) {
+      position: relative;
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-form-field:nth-child(3) {
+        order: 5;
+      }
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-submit {
+        order: 6;
+      }
+    }
+    .app .NMM-form form .hs-form-field:nth-child(1):after,
+    .app .NMM-form form .hs-form-field:nth-child(2):after,
+    .app .NMM-form form .hs-form-field:nth-child(3):after {
+      position: absolute;
+    }
+    .app .NMM-form form .hs-form-field:nth-child(1):after,
+    .app .NMM-form form .hs-form-field:nth-child(2):after,
+    .app .NMM-form form .hs-form-field:nth-child(3):after {
+      top: -0.5rem;
+    }
+    .app .NMM-form form .hs-form-field:nth-child(1):after,
+    .app .NMM-form form .hs-form-field:nth-child(2):after,
+    .app .NMM-form form .hs-form-field:nth-child(3):after {
+      right: 0px;
+    }
+    .app .NMM-form form .hs-form-field:nth-child(1):after,
+    .app .NMM-form form .hs-form-field:nth-child(2):after,
+    .app .NMM-form form .hs-form-field:nth-child(3):after {
+      display: block;
+    }
+    @media (max-width: 1023.98px) {
+      .app .NMM-form form .hs-form-field:nth-child(1):after,
+      .app .NMM-form form .hs-form-field:nth-child(2):after,
+      .app .NMM-form form .hs-form-field:nth-child(3):after {
+        right: -2rem;
+      }
+    }
+    .app .NMM-form form .hs-form-field:nth-child(1):after,
+    .app .NMM-form form .hs-form-field:nth-child(2):after,
+    .app .NMM-form form .hs-form-field:nth-child(3):after {
+      content: "";
+      width: 110px;
+      height: 149px;
+      background-size: 110px 149px;
+    }
+    .app .NMM-form form .hs-form-field:nth-child(1):after {
+      background-image: url(https://www.zujugp.com/hubfs/statics/assets/nmm-mask-1.png);
+    }
+    .app .NMM-form form .hs-form-field:nth-child(2):after {
+      background-image: url(https://www.zujugp.com/hubfs/statics/assets/nmm-mask-2.png);
+    }
+    .app .NMM-form form .hs-form-field:nth-child(3):after {
+      background-image: url(https://www.zujugp.com/hubfs/statics/assets/nmm-mask-3.png);
+    }
+    .app .NMM-form form .hs-form-field:nth-child(1),
+    .app .NMM-form form .hs-form-field:nth-child(2),
+    .app .NMM-form form .hs-form-field:nth-child(3) {
+      --tw-border-opacity: 1;
+      border-color: rgba(221, 221, 221, var(--tw-border-opacity));
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-form-field:nth-child(1),
+      .app .NMM-form form .hs-form-field:nth-child(2),
+      .app .NMM-form form .hs-form-field:nth-child(3) {
+        width: 50%;
+      }
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-form-field:nth-child(1),
+      .app .NMM-form form .hs-form-field:nth-child(2),
+      .app .NMM-form form .hs-form-field:nth-child(3) {
+        border-right-width: 1px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-form-field:nth-child(1),
+      .app .NMM-form form .hs-form-field:nth-child(2),
+      .app .NMM-form form .hs-form-field:nth-child(3) {
+        padding-right: 4rem;
+      }
+    }
+    .app .NMM-form form .hs-form-field:nth-child(1) input,
+    .app .NMM-form form .hs-form-field:nth-child(2) input,
+    .app .NMM-form form .hs-form-field:nth-child(3) input {
+      padding-right: 2rem;
+    }
+    @media (max-width: 1023.98px) {
+      .app .NMM-form form .hs-form-field:nth-child(1) input,
+      .app .NMM-form form .hs-form-field:nth-child(2) input,
+      .app .NMM-form form .hs-form-field:nth-child(3) input {
+        padding-right: 3.5rem;
+      }
+    }
+    .app .NMM-form form .hs-form-field:nth-child(4):before {
+      display: block;
+    }
+    .app .NMM-form form .hs-form-field:nth-child(4):before {
+      border-top-width: 1px;
+    }
+    .app .NMM-form form .hs-form-field:nth-child(4):before {
+      --tw-border-opacity: 1;
+      border-color: rgba(221, 221, 221, var(--tw-border-opacity));
+    }
+    .app .NMM-form form .hs-form-field:nth-child(4):before {
+      padding-top: 4rem;
+    }
+    .app .NMM-form form .hs-form-field:nth-child(4):before {
+      padding-bottom: 2rem;
+    }
+    .app .NMM-form form .hs-form-field:nth-child(4):before {
+      text-align: center;
+    }
+    .app .NMM-form form .hs-form-field:nth-child(4):before {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+    .app .NMM-form form .hs-form-field:nth-child(4):before {
+      font-weight: 700;
+    }
+    .app .NMM-form form .hs-form-field:nth-child(4):before {
+      text-transform: uppercase;
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-form-field:nth-child(4):before {
+        display: none;
+      }
+    }
+    .app .NMM-form form .hs-form-field:nth-child(4):before {
+      content: var(--next-text);
+    }
+    @media (max-width: 1023.98px) {
+      .app .NMM-form form .hs-form-field:nth-child(4),
+      .app .NMM-form form .hs-form-field:nth-child(5),
+      .app .NMM-form form .hs-submit {
+        width: 100%;
+      }
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-form-field:nth-child(4),
+      .app .NMM-form form .hs-form-field:nth-child(5),
+      .app .NMM-form form .hs-submit {
+        width: 50%;
+      }
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form form .hs-form-field:nth-child(4),
+      .app .NMM-form form .hs-form-field:nth-child(5),
+      .app .NMM-form form .hs-submit {
+        padding-left: 4rem;
+      }
+    }
+    .app .NMM-form input[type="submit"] {
+      height: 3rem;
+    }
+    .app .NMM-form input[type="submit"] {
+      border-radius: 0.25rem;
+    }
+    .app .NMM-form input[type="submit"] {
+      --tw-bg-opacity: 1;
+      background-color: rgba(237, 41, 56, var(--tw-bg-opacity));
+    }
+    .app .NMM-form input[type="submit"] {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .app .NMM-form input[type="submit"] {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+    .app .NMM-form input[type="submit"] {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+    .app .NMM-form input[type="submit"] {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+    .app .NMM-form input[type="submit"] {
+      font-weight: 700;
+    }
+    .app .NMM-form input[type="submit"] {
+      line-height: 1;
+    }
+    .app .NMM-form input[type="submit"] {
+      --tw-text-opacity: 1;
+      color: rgba(255, 255, 255, var(--tw-text-opacity));
+    }
+    .app .NMM-form input[type="submit"] {
+      --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+    .app .NMM-form input[type="submit"] {
+      transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+      transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+      transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.15s;
+    }
+    .app .NMM-form input[type="submit"] {
+      transition-duration: 0.2s;
+    }
+    .app .NMM-form input[type="submit"] {
+      transition-timing-function: linear;
+    }
+    .app .NMM-form input[type="submit"]:hover {
+      --tw-bg-opacity: 1;
+      background-color: rgba(189, 16, 31, var(--tw-bg-opacity));
+    }
+    .app .NMM-form input[type="submit"]:disabled {
+      cursor: not-allowed;
+    }
+    .app .NMM-form input[type="submit"]:disabled {
+      --tw-bg-opacity: 1;
+      background-color: rgba(221, 221, 221, var(--tw-bg-opacity));
+    }
+    @media (min-width: 1024px) {
+      .app .NMM-form input[type="submit"] {
+        float: right;
+      }
+    }
+    </style>
+
+    
+
+    
+    
+    <meta property="og:description" content="">
+    <meta property="og:title" content="Privacy Policy">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="Privacy Policy">
+
+    
+
+    
+
+    <style>
+a.cta_button{-moz-box-sizing:content-box !important;-webkit-box-sizing:content-box !important;box-sizing:content-box !important;vertical-align:middle}.hs-breadcrumb-menu{list-style-type:none;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px}.hs-breadcrumb-menu-item{float:left;padding:10px 0px 10px 10px}.hs-breadcrumb-menu-divider:before{content:'›';padding-left:10px}.hs-featured-image-link{border:0}.hs-featured-image{float:right;margin:0 0 20px 20px;max-width:50%}@media (max-width: 568px){.hs-featured-image{float:none;margin:0;width:100%;max-width:100%}}.hs-screen-reader-text{clip:rect(1px, 1px, 1px, 1px);height:1px;overflow:hidden;position:absolute !important;width:1px}
+</style>
+
+<link rel="stylesheet" href="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/54935666710/1656485158147/zuju-theme/css/main.min.css">
+<link rel="stylesheet" href="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/60490022046/1645841675185/zuju-theme/css/vendors/glide.min.css">
+<link rel="stylesheet" href="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/60490022053/1645841674716/zuju-theme/css/vendors/glide.theme.min.css">
+<link rel="stylesheet" href="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/75560119146/1654577711890/zuju-theme/css/gt-america.min.css">
+<link rel="stylesheet" href="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/75560119166/1659510305165/zuju-theme/css/tailwind.min.css">
+<!-- Editor Styles -->
+<style id="hs_editor_style" type="text/css">
+#hs_cos_wrapper_widget_1633160593855  { display: block !important; padding-bottom: 40px !important; padding-left: 0px !important; padding-right: 0px !important; padding-top: 40px !important }
+/* HubSpot Non-stacked Media Query Styles */
+@media (min-width:768px) {
+  .dnd_area-row-0-vertical-alignment > .row-fluid {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: row;
+    display: flex !important;
+    flex-direction: row;
+  }
+  .cell_16331664575312-vertical-alignment {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: column !important;
+    -ms-flex-pack: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .cell_16331664575312-vertical-alignment > div {
+    flex-shrink: 0 !important;
+  }
+}
+</style>
+    
+
+
+    
+<!--  Added by GoogleAnalytics integration -->
+<script>
+var _hsp = window._hsp = window._hsp || [];
+_hsp.push(['addPrivacyConsentListener', function(consent) { if (consent.allowed || (consent.categories && consent.categories.analytics)) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create','UA-202997516-1','auto');
+  ga('send','pageview');
+}}]);
+</script>
+
+<!-- /Added by GoogleAnalytics integration -->
+
+<!--  Added by GoogleTagManager integration -->
+<script>
+var _hsp = window._hsp = window._hsp || [];
+
+var hsLoadGtm = function loadGtm() {
+    if(window._hsGtmLoadOnce) {
+      return;
+    }
+
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5CSBFPZ');
+
+    window._hsGtmLoadOnce = true;
+};
+
+var useGoogleConsentMode = true;
+
+if (!useGoogleConsentMode){
+    _hsp.push(['addPrivacyConsentListener', function(consent){
+      if(consent.allowed || (consent.categories && consent.categories.analytics)){
+        hsLoadGtm();
+      }
+  }]);
+} else{
+
+    hsLoadGtm();
+
+    if(!window._hsGoogleConsentRunOnce){
+      window._hsGoogleConsentRunOnce=true;
+
+      window.dataLayer=window.dataLayer||[];
+      function gtag(){dataLayer.push(arguments);}
+
+      gtag('consent','default',{
+        'ad_storage':'denied',
+        'analytics_storage':'denied'
+      });
+
+      gtag('set','developer_id.dZTQ1Zm',true);
+
+      _hsp.push(['addPrivacyConsentListener',function(consent){
+      var hasAnalyticsConsent=consent&&(consent.allowed||(consent.categories&&consent.categories.analytics));
+      var hasAdsConsent=consent&&(consent.allowed||(consent.categories&&consent.categories.advertisement));
+
+      gtag('consent','update',{
+        'ad_storage':hasAdsConsent?'granted':'denied',
+        'analytics_storage':hasAnalyticsConsent?'granted':'denied'
+      });
+    }]);
+  }
+}
+</script>
+
+<!-- /Added by GoogleTagManager integration -->
+
+    <link rel="canonical" href="https://www.zujugp.com/privacy-policy">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '336640328218264');
+fbq('track', 'PageView');
+</script>
+<noscript>&lt;img  height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=336640328218264&amp;amp;ev=PageView&amp;amp;noscript=1"&gt;</noscript>
+<!-- End Facebook Pixel Code -->
+
+
+<!-- Hotjar Tracking Code for https://www.zujugp.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2939026,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+<meta name="ahrefs-site-verification" content="07c673e760473f9a0c30a490aa6b6a82156d54c6c68d2dbf8239edcff356290d">
+<meta property="og:url" content="https://www.zujugp.com/privacy-policy">
+<meta name="twitter:card" content="summary">
+<meta http-equiv="content-language" content="en">
+
+
+
+
+
+
+
+    
+     <style>
+      .footer__cta-alpha {
+        display:none;
+      }
+      .footer__cta-omega {
+          border: none;
+          padding-left: 0;
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+     .footer__cta-omega button {
+          text-transform: none;
+          font-size: 13px;
+      }
+      .exploring-a-partners {
+        height: 19px;
+        width: 278px;
+        color: #666666;
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: 1.07px;
+        line-height: 17px;
+      }
+      @media screen and (max-width: 900px) {
+       .footer__cta-omega button {
+          float: none;
+          margin-top: unset;
+        }
+      }
+      @media (max-width: 800px) {
+        .footer__nav-col {
+           width: 100%;
+        }
+        .footer__cta-omega {
+            padding: 1rem 0 2rem;
+        }
+      }
+      @media screen and (max-width: 368px) {
+        .footer__cta h3 {
+          line-height: 1.5;
+        }
+      }
+      .form-contact-wrapper h3 {
+        font-size: 2rem;
+        color: #666;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      .form-contact-wrapper .actions input[type="submit"] {
+          color: #fff;
+          padding: 0 20px;
+          font-size: 1rem;
+          font-family: var(--ff-accent);
+          text-transform: none;
+      }
+      .modal__main {
+        overflow: auto;
+      }
+      .callout-section__triangle {
+        z-index: 99;
+      }
+    </style>
+  <meta name="generator" content="HubSpot"></head>
+  <body>
+<!--  Added by GoogleTagManager integration -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CSBFPZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- /Added by GoogleTagManager integration -->
+
+    <div class="spinner-container">
+      <div class="loader"></div>
+    </div>
+    <div class="body-wrapper   hs-content-id-54357474387 hs-site-page page ">
+      
+        <div class="nav-sticky is-sticky">
+          <div data-global-resource-path="zuju-theme/templates/partials/header.html">
+
+
+
+
+<script>
+  var contact = {}
+  var currLang = ""
+</script>
+<!-- Top nav -->
+<div class="nav">
+  <nav class="top-nav">
+    <div class="top-nav__container">
+      <div>
+        
+      </div>
+
+      <div class="top-nav__social social-links">
+        
+          <a href="https://www.facebook.com/zujugp" target="_blank">
+            
+	<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-square" class="svg-inline--fa fa-facebook-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg>
+
+          </a>
+        
+        
+        
+          <a href="https://instagram.com/zujugp" target="_blank">
+            
+	<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" class="svg-inline--fa fa-instagram fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+
+          </a>
+        
+        <a href="https://twitter.com/zujugp" target="_blank">
+          
+	<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+
+        </a>
+        <a href="https://www.youtube.com/channel/UCbXvRvjZAt5aZhBNlDFxHuw" target="_blank">
+          
+	<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" class="svg-inline--fa fa-youtube fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+
+        </a>
+        <a href="https://weibo.com/u/7706292600" target="_blank">
+          
+	<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="weibo" class="svg-inline--fa fa-weibo" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"><path fill="currentColor" d="M407 177.6c7.6-24-13.4-46.8-37.4-41.7-22 4.8-28.8-28.1-7.1-32.8 50.1-10.9 92.3 37.1 76.5 84.8-6.8 21.2-38.8 10.8-32-10.3zM214.8 446.7C108.5 446.7 0 395.3 0 310.4c0-44.3 28-95.4 76.3-143.7C176 67 279.5 65.8 249.9 161c-4 13.1 12.3 5.7 12.3 6 79.5-33.6 140.5-16.8 114 51.4-3.7 9.4 1.1 10.9 8.3 13.1 135.7 42.3 34.8 215.2-169.7 215.2zm143.7-146.3c-5.4-55.7-78.5-94-163.4-85.7-84.8 8.6-148.8 60.3-143.4 116s78.5 94 163.4 85.7c84.8-8.6 148.8-60.3 143.4-116zM347.9 35.1c-25.9 5.6-16.8 43.7 8.3 38.3 72.3-15.2 134.8 52.8 111.7 124-7.4 24.2 29.1 37 37.4 12 31.9-99.8-55.1-195.9-157.4-174.3zm-78.5 311c-17.1 38.8-66.8 60-109.1 46.3-40.8-13.1-58-53.4-40.3-89.7 17.7-35.4 63.1-55.4 103.4-45.1 42 10.8 63.1 50.2 46 88.5zm-86.3-30c-12.9-5.4-30 .3-38 12.9-8.3 12.9-4.3 28 8.6 34 13.1 6 30.8 .3 39.1-12.9 8-13.1 3.7-28.3-9.7-34zm32.6-13.4c-5.1-1.7-11.4 .6-14.3 5.4-2.9 5.1-1.4 10.6 3.7 12.9 5.1 2 11.7-.3 14.6-5.4 2.8-5.2 1.1-10.9-4-12.9z"></path></svg>
+
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main nav -->
+  <nav class="main-nav">
+    <div class="main-nav__container">
+      <div class="main-nav__logo clr-primary">
+        
+          <a href="/?hsLang=en" id="hs-link-logo_zuju" style="border-width:0px;border:0px;"><img src="https://www.zujugp.com/hubfs/Logo.svg" class="hs-image-widget " style="width:212px;border-width:0px;border:0px;" width="212" alt="" title=""></a>
+        
+      </div>
+
+      <div class="main-nav__omega">
+        
+          <span id="hs_cos_wrapper_main-nav" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_menu" style="" data-hs-cos-general-type="widget" data-hs-cos-type="menu"><div id="hs_menu_wrapper_main-nav" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="default" data-menu-id="54357477653" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/articles" role="menuitem">Articles</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/footballverse" role="menuitem">Our footballverse</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/about-us" role="menuitem">About us</a></li>
+ </ul>
+</div></span>
+        
+
+        
+        
+          
+            <a class="nav__link nav-auth" href="/registration?hsLang=">Sign up</a>
+          
+        
+
+        <div class="off-canvas">
+          <div class="is-hidden">
+            54357474387
+          </div>
+
+          
+	<svg width="31" height="31" viewbox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M1.35783 1.35787L29.6421 29.6421" stroke="#ED2938" stroke-linecap="square" />
+		<path d="M29.6421 1.35786L1.35783 29.6421" stroke="#ED2938" stroke-linecap="square" />
+	</svg>
+
+
+          <!-- Off canvas menu content -->
+          
+            
+	<ul class="off-canvas__menu">
+		
+
+		
+			<li class=""><a href="https://www.zujugp.com/articles?hsLang=en" class="nav__link">Articles</a></li>
+		
+			<li class=""><a href="https://www.zujugp.com/footballverse?hsLang=en" class="nav__link">Our footballverse</a></li>
+		
+			<li class=""><a href="https://www.zujugp.com/about-us?hsLang=en" class="nav__link">About us</a></li>
+		
+	</ul>
+
+          
+        </div>
+
+        <!-- Burger menu -->
+        <div class="burger-menu">
+          <div class="burger-menu__item"></div>
+          <div class="burger-menu__item"></div>
+          <div class="burger-menu__item"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
+
+<script>
+  var membership_tier = "";
+  var user_vid = "";
+  var lang = "en" || '';
+</script></div>
+        </div>
+      
+
+      
+
+<div>
+  <div class="container-fluid">
+<div class="row-fluid-wrapper">
+<div class="row-fluid">
+<div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 dnd_area-row-0-vertical-alignment dnd-section">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell dnd-column cell_16331664575312-vertical-alignment" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-row">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget dnd-module" style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_widget_1633160593855" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><span id="hs_cos_wrapper_widget_1633160593855_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text"><div style="width: 100vw;">
+<div style="max-width: 1000px; padding-left: 1rem; padding-right: 1rem; margin-left: auto; margin-right: auto;">
+<p style="font-weight: bold; font-size: 36px; line-height: 1;">PRIVACY POLICY</p>
+<p><span style="font-size: 16px;"><strong><span style="color: black;">1. ABOUT THIS POLICY</span></strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px; font-weight: normal;"><span style="color: black;">&nbsp;1.1 </span></span><span style="font-size: 16px;"><span style="color: black;"><span style="font-weight: normal;">This is the Pri</span>vacy &amp; Cookies Policy (“<strong>Policy</strong>”) for z</span><span style="color: black;">ujuGP</span><span style="color: black;">.</span></span></p>
+<p style="text-align: justify;"><span style="font-family: var(--ff-primary);">1.2 In this Policy, “<span style="font-weight: bold;">z</span></span><strong style="font-family: var(--ff-primary);">ujuGP</strong><span style="font-family: var(--ff-primary);">”, “</span><strong style="font-family: var(--ff-primary);">we</strong><span style="font-family: var(--ff-primary);">”, “</span><strong style="font-family: var(--ff-primary);">us</strong><span style="font-family: var(--ff-primary);">” or “</span><strong style="font-family: var(--ff-primary);">our</strong><span style="font-family: var(--ff-primary);">” refers to Mint Media Sports Limited and its affiliates.</span></p>
+<p style="text-align: justify;"><span style="font-size: 16px; color: black;">&nbsp;1.3 </span><span style="font-size: 16px;"><span style="color: black;">We</span> will only use your personal data where you have given us your consent or where we have other lawful basis for doing so, and in the manner set out in this Policy.</span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><span style="color: black;">1.4 This Policy sets out the manner in which and for what purposes we </span><span style="color: black;">collect, use, disclose and process your personal data when you access or use our website or mobile and web-based applications </span><span style="color: black;">(collectively, “<strong>Applications</strong>”), services, or when you otherwise provide us with your personal data, regardless of the medium through which such personal data is provided. If the stated purposes of processing are altered for any reason after we have collected your personal data, we will seek for your consent for such further processing where required by applicable data protection law.</span></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;">1.5 By providing us with your personal data, you acknowledge that our collection, use, disclosure and processing of your personal data will be in accordance with this Policy, including, for the avoidance of doubt, the cross jurisdictional transfer of your data. <strong>If you object to how we will collect, use and share your personal data as set out in this Policy, please DO NOT provide any personal data to us.</strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;">1.6 This Policy supplements but does not supersede or replace any consents you have provided to us, or any other agreements or arrangements that you have with us, in respect of your personal data.</span></p>
+<p><span style="font-size: 16px;"><span style="color: black;">1.7 Our Applications </span>may contain links to websites that are not owned or maintained by us. These links are provided only for your convenience. This Policy only applies to our Applications. When visiting and being redirected to these third party websites or engaging third party service providers, their privacy policies apply. We recommend that you read their privacy policies so you can understand the manner in which your personal information will be handled by these third party service providers. We are not liable to you in respect of any data you transfer to these third parties websites or your engagement and use of third party service providers.</span></p>
+<p><span style="font-size: 16px;"><span style="color: black;">1.8 Please note that our webstore is hosted on Shopify Inc. They provide us with the online e-commerce platform that allows us to sell our products to you. Your data is stored through Shopify’s data storage, databases and the general Shopify application. They store your data on a secure server behind a firewall.</span></span></p>
+<br>
+<p><span style="font-size: 16px; color: black;">&nbsp;1.9 </span><span style="color: black;">If you choose a direct payment gateway to complete your purchase, then Shopify stores your credit card data. It is encrypted through the Payment Card Industry Data Security Standard (PCI-DSS). Your purchase transaction data is stored only as long as is necessary to complete your purchase transaction. After that is complete, your purchase transaction information is deleted. All direct payment gateways adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, MasterCard, American Express and Discover.PCI-DSS requirements help ensure the secure handling of credit card information by our store and its service providers. For more insight, you may also want to read Shopify’s </span><a href="https://www.shopify.com/legal/terms" style="text-align: justify; font-family: var(--ff-primary);">Terms of Service</a><span style="color: black;"> or </span><a href="https://www.shopify.com/legal/privacy" style="text-align: justify; font-family: var(--ff-primary);">Privacy</a><span style="text-align: justify; font-family: var(--ff-primary);"> </span><span style="color: black;">Payment gateways and other payment transaction processors, also have their own privacy policies in respect to the information required for your purchase-related transactions. Certain providers may be located in or have facilities that are located a different jurisdiction than either you or us. So if you elect to proceed with a transaction that involves the services of a third-party service provider, then your information may become subject to the laws of the jurisdiction(s) in which that service provider or its facilities are located.</span></p>
+<p style="text-align: justify;"><span style="font-size: 16px; color: black; font-weight: bold;">2. </span><span style="font-size: 16px;"><span style="color: black; font-weight: bold;">AMEND</span><strong><span style="color: black;">MENTS TO THIS POLICY</span></strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><span style="color: black;">2.1 We may amend this Policy from time to time without notice to you, in compliance with applicable laws or as we update our data usage and handling processes.</span> You are encouraged to re-visit our Policy from time to time to keep yourself updated on these changes. <span style="color: black;">The updated Policy will take effect when made available through </span><a href="https://zujugp.com/privacy-policy/?hsLang=en"></a>. <span style="color: black;">The updated Policy will supersede earlier versions and will apply to your personal data provided to us previously. If we make a change that significantly affects your rights or, to the extent we are permitted to do so, significantly changes how or why we use your personal data, we will notify you by way of a prominent notice on our website or, if we have your email address, by email.</span></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">3. COLLECTING PERSONAL DATA</span></strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong>3.1 What</strong><strong> is personal data</strong>. “Personal Data” is data that can be used to identify a natural person. Personal Data we collect and for what purpose will depend on the type of services provided to you and may include:</span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> Identification information such as first and last name, date of birth, nationality, country of residence, gender, photograph/images; </span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> Contact details such as postal address, billing address, phone number and email address; </span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> Membership information such as your username and password or any other information about you when you sign up as a zujuGP member, and when you use our Applications, as well as information related to how you use our Applications;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> Financial information such as bank account information; </span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> Family information such as marital status, number of children, identity of spouse;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> Marketing and communications data, such as your preferences in receiving marketing from us and third parties, your communication preferences and history of communications with us, our service providers, and other third parties;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> Usage and transaction data, such as details about your searches, orders, the advertising and content you interact with on the Applications, and other products and services related to you; and</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> Aggregate data on content you engage with.</span></p>
+</li>
+</ul>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">&nbsp;3.2 </span></strong></span><span style="font-size: 16px;"><strong>Provision of personal data.</strong> We may collect personal data (1) that you voluntarily provide to us; or (2) from third parties; or (3) through your use of our digital technologies and services <em>(please see Section 4 How We Collect Personal Data for further details)</em>. What type of personal data we collect depends on the purposes for which the personal data is collected and what you have chosen to provide.</span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;">Where our collection is based on consent, you can choose not to provide us with personal data. You also have the right to withdraw your consent from us to continue collecting, using, disclosing and processing your personal data, by contacting us as outlined in Section 11.1. </span><span style="font-size: 16px;">However, if you do withdraw your consent, it may then not be possible for us to fulfil the purposes for which we require the personal data, including processing your transactions or providing you with the products and services that you require.</span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">&nbsp;3.3 </span></strong></span><span style="font-size: 16px;"><strong>Providing personal data belonging to others.</strong> In certain circumstances, you may also provide us with personal data of persons other than yourself. If you do so, you warrant that you have brought this Policy to his/her attention, informed him/her of the purposes for which we are collecting his/her personal data and that he/she has consented to your disclosure of his/her personal data to us for those purposes. You agree to indemnify and hold us harmless from and against any and all claims by such individuals relating to our collection, use and disclosure of such personal data in accordance with the terms of this Policy.</span></p>
+<br>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">&nbsp;3.4 </span></strong></span><span style="font-size: 16px;"><strong><span style="color: black;">Accuracy and completeness of personal data. </span></strong>You are responsible for ensuring that all personal data that you provide is true, accurate and complete, and to inform us of any changes to your personal data.</span></p>
+<br>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">&nbsp;3.5 Minors </span></strong></span><span style="font-size: 16px;">Our Applications and/or services are not intended to be accessed or used by children, minors or persons who are not of legal age in the relevant jurisdiction. If you <span style="color: black;">are a parent or guardian and you have reason to believe your child or ward has provided us with their personal data without your consent, please contact us. </span></span></p>
+<br>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">&nbsp;4. </span></strong></span><span style="font-size: 16px;"><strong><span style="color: black;">HOW WE COLLECT PERSONAL DATA</span></strong></span></p>
+<br>
+<p style="text-align: justify;"><span style="font-size: 16px; color: black; font-weight: bold;">&nbsp;4.1 </span><span style="font-size: 16px;"><span style="font-weight: bold;">Persona</span><strong>l data you provide.</strong> We collect personal data that is relevant to our relationship with you. We may collect your personal data directly or indirectly through various channels, such as when:</span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">you download or use our Applications and services</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span>you register or create a zujuGP membership account;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">you submit any form, including, but not limited to, application forms or other forms relating to any of our products and services, whether online or by way of a physical form;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> you authorise us to obtain your personal data from a third party;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> you enter into agreements with us; </span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> you transact with us, contact us or request that we contact you through various communication channels, for example, through social media platforms, messenger platforms, face-to-face meetings, telephone calls, emails, fax and letters;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> you request to be included in an email or our mailing list;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> your images are captured via CCTV cameras while you are within our premises;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> your images are captured via photographs or videos taken by us or our representatives when you attend events organised by us; </span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> when you attend events or functions organised by us;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> we seek information about you and receive your personal data in connection with your relationship with us,; and/or</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> you submit an application for employment, internship or secondment, or when you provide documents or information including your resume in connection with the aforesaid application.</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"></span><span style="font-family: var(--ff-primary);">The above does not purport to be exhaustive and sets out some common instances of when personal data about you may be collected.</span></p>
+</li>
+</ul>
+<p style="text-align: justify;"><span style="font-weight: bold;"><span style="font-size: 16px; color: black;">&nbsp;4.2 </span>Perso</span><strong style="font-family: var(--ff-primary);">nal</strong><strong style="font-family: var(--ff-primary);"><span> data provided by others. </span></strong><span style="font-family: var(--ff-primary);">Depending on your relationship with us, we may also collect your personal data from third party sources, for example, from:</span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> our business partners such as third parties providing advertising, marketing, promotional, payment management and e-commerce services to us;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> your family members or friends who provide your personal data to us on your behalf;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> your referees, educational institutions or previous employers (if you have applied to us for a job); and/or</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> public agencies or other public sources. </span></p>
+</li>
+</ul>
+<p><span style="font-size: 16px;"><strong>4.3 Automated</strong><strong><span style="color: black;"> Data Collection Technologies. </span></strong><span style="color: black;">Our Applications </span><span style="color: black;">may contain or we may deploy certain technologies (including those described at Section </span><span style="color: black;">6 below</span><span style="color: black;">) that collect data from you, such as your Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Applications that you visit, the time and date of your visit, your time spent on our Applications, unique device identifiers and other diagnostic data.</span></span></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p><span style="font-size: 16px;"><strong><span style="color: black;">5. WHAT WE DO WITH PERSONAL DATA</span></strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">5.1 What we do.</span></strong><span style="color: black;"> We collect, use, disclose and process your personal data where:</span></span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">you have voluntarily provided us with your personal data;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">you have given us consent;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">necessary to comply with our legal or regulatory obligations, e.g. responding to valid requests from public authorities;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">necessary to support our legitimate business interests, provided that</span><span style="color: black; background-color: white;"> this does not override your interests or rights; and</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">necessary to perform a transaction you have entered into with us, or provide a service that you have requested or require from us.</span></span></p>
+</li>
+</ul>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">&nbsp;5.2 </span></strong></span><span style="font-size: 16px;"><strong><span style="color: black;">Purposes</span></strong><span style="color: black;">. We </span><span style="color: black;">collect, use, disclose and process your personal data for purposes </span><span style="color: black;">connected or relevant to our business, or to manage your relationship with us. Such purposes would include</span><span style="color: black;">:</span></span></p>
+<ul>
+<li>
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">carrying out your transactions with us and our business partners, taking steps as may be directed by you, or to provide products and/or services to you;</span></span></p>
+</li>
+<li>
+<p><span style="font-size: 16px;"> facilitating your use of our Applications, including verifying and establishing your identity, and authenticating, operating and maintaining user accounts;</span></p>
+</li>
+<li>
+<p><span style="font-size: 16px;"> providing you with relevant information and updates concerning our products and/or services, including such products and/or services that are made available to you on our Applications;</span></p>
+</li>
+<li>
+<p><span style="font-size: 16px;"> providing our products and services and processing payment or credit transactions;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> communicating with you and assisting you with your enquiries, feedback, complaints, disputes and requests;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> resolving any disputes, investigating any complaint, claim or dispute or any actual or suspected illegal or unlawful conduct;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black;">administrative purposes, e.g. accounting, risk management and record keeping, business research, data, planning and statistical analysis, and staff training; </span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black;">security purposes, e.g. protecting our Applications and platforms from </span><span style="color: black; background-color: white;">unauthorised access or usage and to monitor for security threats;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> providing and maintaining our Applications;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> monitoring the usage of our Applications;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black;">performing data analytics and related technologies on data, to enable us to deliver relevant content and information to you, and to improve our </span><span style="color: black;">Applications;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black;">managing and engaging third parties or data processors that provide services to us, e.g. IT services, delivery services, messaging marketing, and other professional services;</span></span></p>
+</li>
+<li>
+<p><span style="font-size: 16px;"> managing the safety and security of our premises;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> if you were applying to us for employment, taking steps in connection with your recruitment and on-boarding as our employee;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black; background-color: white;">carrying out our legitimate business interests;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black; background-color: white;">such purposes that may be informed to you when your personal data is collected;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black;">complying with legal or regulatory obligations</span><span style="color: black; background-color: white;">; and/or</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black;">other reasonable purposes related to the above.</span></span></p>
+</li>
+</ul>
+<p style="text-align: justify; padding-left: 0.5in;"><span style="font-size: 16px; color: black;">Where personal data is used for a new purpose and where required under applicable law, we shall obtain your consent for the new purpose.</span></p>
+<p><span style="font-size: 16px;"><strong><span style="color: black;">5.3 Legitimate </span></strong><strong><span style="color: black; background-color: white;">business</span></strong> <span style="color: black;"> </span>We may also collect, use, disclose and process your personal data for the following purposes to support our legitimate business interests, provided that<span style="color: #333333; background-color: white;"> this does not override your interests or rights</span>, which include:</span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">managing our business and relationship with you, and providing services to our customers;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black;">protecting our rights and interests and those of our employees and/or members;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black;">complying with legal or regulatory obligations, internal policies and procedures;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black;">enforcing our terms and conditions and obligations owed to us, or protecting ourselves from legal liability;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> offer additional employment opportunities to job seekers or employees of zujuGP;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black;">manage our investor and shareholder relations; and</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <span style="color: black;">carrying out corporate restructuring plans or processing or sharing your personal data to facilitate acquisitions, mergers or transfers of our business.</span></span></p>
+</li>
+</ul>
+<p><span style="font-size: 16px;"><span style="color: black;"></span></span><strong style="font-family: var(--ff-primary);"><span>5.4 Marketing purposes</span></strong><span style="color: black;">. </span><span style="font-family: var(--ff-primary);">We may use your personal data for direct marketing. </span><span style="color: black;">In order for us to market products, events and services which are of specific interest and relevance to you, we may analyse and rely on your personal data provided to us, or data collected from your interactions with us. However, no marketing, whether direct, jointly, or by a third party, using your personal data would be carried out unless you have provided us with your consent to use your personal data for such marketing purposes (unless we are exempted by applicable law from having to obtain your express consent</span><span style="color: black;">).</span><span style="font-family: var(--ff-primary);"> In particular, we will not transfer your personal data to a third party for direct marketing, </span><span style="color: black;">unless you have provided us with your consent.If you do not want us to use your personal data for the purposes of marketing you can withdraw your consent at any time by sending an email to support@zujugp.com</span><span style="color: black;">. Your withdrawal will be effective on the date of our acknowledgement of receipt.</span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">5.5 Use permitted under applicable laws</span></strong><span style="color: black;">. We may also collect, use, disclose and process your personal data for other purposes, without your knowledge or consent, where this is required or permitted by law.</span> <span style="color: black;">Your personal data may be processed if it is necessary on reasonable request by a law enforcement or regulatory authority, body or agency or in the defence of a legal claim. We will not delete your personal data if relevant to an investigation or a dispute. It will continue to be stored until those issues are fully resolved.</span></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">5.6 Contacting you. </span></strong><span style="color: black;">When using your</span><span style="color: black;"> personal data to contact you for the above purposes, we may contact you through the Application or via e-mail, telephone</span><span style="color: black;"> or any other means.</span><span style="color: black;"> If you do not wish to receive any communication or information from us, or wish to restrict the manner by which we may contact or send you information, you may contact us by </span><span style="color: black;">support@zujugp.com</span><span style="color: black;">.</span></span></p>
+<br>
+<p style="text-align: justify;"><span style="font-size: 16px; color: black; font-weight: bold;">&nbsp;6. </span><span style="font-size: 16px;"><span style="font-weight: bold;"><span style="color: black;">US</span><span style="color: black;"></span></span><strong><span style="color: black;">E</span></strong><strong><span style="color: black;"> OF AUTOMATED DATA COLLECTION TECHNOLOGIES</span></strong></span></p>
+<p><span style="font-size: 16px;"><span style="color: black;">6.1 In order to improve our products or services, we collect data by way of “cookies”. </span>A cookie is a small file of letters and numbers that we store via your browser on the hard drive of your computer or mobile device. There are three main types of cookies:</span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong>Session cookies</strong>: specific to a particular visit and limited to sending session identifiers (random numbers generated by the server) so you don't have to re-enter information when you navigate to a new page or check out. Session cookies are not permanently stored on your device and are deleted when the browser closes;</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong>Persistent cookies</strong>: record information about your preferences and are stored in your browser cache; and </span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong>Third party cookies</strong>: placed by someone other than us which may gather data across multiple websites or sessions.</span></p>
+</li>
+</ul>
+<p><span style="font-size: 16px;"></span><span style="font-size: 16px;"><span style="color: black; font-weight: normal;">6.2</span><strong><span style="color: black;"> How we use cookies. </span></strong>We use cookies for the following purposes:</span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"></span><strong style="font-family: var(--ff-primary);"><span>Strictly necessary:</span></strong><span style="font-family: var(--ff-primary);"> These cookies are essential for you to browse our Applications and use its features. The information collected relates to the operation of the Applications (e.g. website scripting language and security tokens) and enables us to provide you with the service you have requested.</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-family: var(--ff-primary);"></span><span style="font-size: 16px;"><strong><span style="color: black;">Functionality: </span></strong>These cookies remember the choices you have made, for example the country you visit our Applications from, your language and any changes you have made to text size and other parts of the web pages that you can customise to improve your user experience and to make your visits more tailored and enjoyable. [The information these cookies collect may be anonymised and cannot be used to track your browsing activity on other websites]</span></p>
+</li>
+</ul>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">Performance/analytics: </span></strong>These cookies collect information on how users use our Applications, for example which pages you visit most often, whether you receive any error messages and how you arrived at our website. Information collected by these cookies is used only to improve your use of our Applications. These cookies are sometimes placed by third party providers of web traffic and analysis services. We use Google Analytics. For information on how Google processes and collects your information and how you can opt out, please click <u>here</u>.<a href="#_ftn1" name="_ftnref1">[1]</a></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">Targeting or advertising</span></strong>: These cookies collect information about your browsing habits and inferred interests to make advertising more relevant to you. They are also used to limit the number of times you see an advert as well as to measure the effectiveness of an advertising campaign. These cookies are usually placed by third party advertising networks. They remember the other websites you visit and this information is shared with third party organisations, for example advertisers. </span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">Social Media: </span></strong><span style="color: black;">These cookies allow users to share our content on our Applications on social media such as Facebook and Twitter. These cookies are not within our control. Please refer to the respective privacy policies of the social media providers for how their cookies work.</span></span></p>
+</li>
+</ul>
+<p style="text-align: justify;"><span style="font-size: 16px; color: black;">We may also automatically collect and store certain information about your interaction with our Applications including IP address, browser type, internet service provider, referring/exit pages, operating system, date/time stamps and related data. </span></p>
+<p><span style="font-size: 16px;"><span style="color: black; font-weight: normal;">6.3 </span><strong><span style="color: black;">Other technologies</span></strong><span style="color: black;">. In addition to cookies, we use some other similar technologies as follows</span><span style="color: black;">:</span></span></p>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">Web Beacons</span></strong><span style="color: black;">: small graphic images included on our Applications or emails or those of third parties to provide analytics information.</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">Social widgets</span></strong><span style="color: black;">: buttons or icons provided by third party social media networks which may collect browsing data and will be received by the third party and are controlled by the third party.</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">SDKs</span></strong><span style="color: black;">: these are mobile application third party software development kits used in our apps. They enable us to collect information about app activity and the device it runs on. </span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">Local shared objects</span></strong><span style="color: black;">: these are sometimes called flash cookies and can be stored on your browser. They are used to maintain preferences and usage records.</span></span></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;"><strong>6.5 Refusing or deleting cookies. </strong>Most internet browsers are set up by default to accept cookies. However if you want to refuse or delete them (or similar technologies) please refer to the help and support area on your browser for instructions on how to block or delete cookies (for example: Internet Explorer, Google Chrome, Mozilla Firefox, Safari, Opera, etc.). Please note you may not be able to take advantage of all the features of our Applications, including certain personalised features, if you delete or refuse cookies.</span></p>
+<p><span style="font-size: 16px;"><strong><span style="color: black;">6.6 Mobile Opt-out</span></strong><span style="color: black;">. If you access our Applications through a mobile device, you can enable a "do not track" feature so as to control interest-based advertising on an iOS or Android mobile device by selecting the Limit Add Tracking option in the privacy section of your Settings on iOS or via advertising preferences on Android devices (e.g. in Google Settings). This will not prevent the display of advertisements but will mean that they will no longer be personalised to your interests.</span></span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span>To opt out of Google Analytics, visit <a href="https://tools.google.com/dlpage/gaoptout"><span style="color: blue;">https://tools.google.com/dlpage/gaoptout</span></a></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span>For more information on managing cookies, please go to <a href="http://www.allaboutcookies.org/"><span style="color: blue;">allaboutcookies.org</span></a></span></p>
+</li>
+</ul>
+<p><span style="font-size: 16px;"><strong><span style="color: black;">6.7 If you are a resident in the EU</span></strong><span style="color: black;">. For more information on managing cookies, please visit www.youronlinechoices.eu which has further information about behavioral advertising and online privacy.</span></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">6.8 Changes to our uses of Cookies</span></strong><span style="color: black;">. If we change anything important about this Section </span><span style="color: black;">6</span><span style="color: black;"> on cookies, we will notify you through a pop-up on the website for a reasonable length of time prior to and following the change. You may review this Section by visiting the sites and clicking on the “Privacy Policy” link.</span></span></p>
+<br>
+<p style="text-align: justify; padding-left: 0in;"><span style="font-size: 16px; color: black; font-weight: bold;">&nbsp;7. </span><span style="font-size: 16px;"><span style="color: black; font-weight: bold;">DIS</span><strong><span style="color: black;">CLOSURE OF PERSONAL DATA</span></strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">7.1 Disclosure to related parties. </span></strong><span style="color: black;">We may disclose or share your personal data with our zujuGP affiliates in order to provide our services to you and for management and compliance purposes</span><span style="color: black;">.</span></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">7.2 Disclosure to third parties. </span></strong>We may also disclose your personal data to third parties in connection with purposes described in <span style="color: black;">Section </span><span style="color: black;">5</span>, including without limitation the following circumstances:</span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">disclosing your personal data to third parties who provide services to us (including, but not limited to, data providers, technology providers, insurance providers, financial institutions, credit card payment processors and professional service providers</span> <span style="color: black;">(including accountants, lawyers and auditors));</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">disclosing your personal data to third parties in order to fulfil such third party products and/or services as may be requested or directed by you;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">disclosing your personal data to third parties that we conduct joint marketing and cross promotions with; </span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">disclosing your personal data to regulatory authorities, </span>governments<span style="color: black;">, law enforcement agencies or public agencies</span><span style="color: black;">;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">If we are discussing selling or transferring part or all of our business – the information may be transferred to prospective purchasers under suitable terms as to confidentiality;</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">If we are reorganised or sold, information may be transferred to a buyer who can continue to provide services to you; and</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">If we are defending a legal claim your information may be transferred as required in connection with defending such claim.</span></span></p>
+</li>
+</ul>
+<p style="text-align: justify;"><span style="font-size: 16px; color: black;">&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-size: 16px;"><span style="color: black;">7.3 When disclosing personal data to third parties, we will (where appropriate and permissible) </span><span style="color: black;">enter into contracts with these third parties to protect your personal data in a manner that is consistent with all applicable laws and/or ensure that they only process your personal data in accordance with our instructions</span><span style="color: black;">.</span></span></p>
+<p><span style="font-size: 16px;"><strong><span style="color: black;">8. TRANSFER OF PERSONAL DATA TO OTHER COUNTRIES</span></strong></span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;"><strong><span style="color: black;">&nbsp;8.1 Transfers </span></strong></span><span style="color: black;">We may transfer your personal data to different jurisdictions in connection with the </span><span style="color: black;">purposes described in Section </span><span style="color: black;">5</span><span style="color: black;">:</span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">from the jurisdiction where it is collected (or where you are located) to any other jurisdictions that we operate in; and</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><span style="color: black;">to third parties in other jurisdictions</span><span style="color: black;">.</span></span></p>
+</li>
+</ul>
+<p><span style="font-size: 16px;"><strong><span style="color: black;">8.2 Safeguards</span></strong><strong><span style="color: black;">. </span></strong><span style="color: black;">Where</span><span style="color: black;"> we transfer your personal data across jurisdictions, we will ensure that your personal data is protected in accordance with this Policy and applicable laws regardless of the jurisdictions they are transferred to, but in any event to a level that is no less stringent than the jurisdiction from which the personal data is transferred. When we transfer your personal data internationally and where required by applicable law we put in place appropriate safeguards including EU Model Clauses or rely on EU Commission adequacy decisions. </span><span style="color: black;">You may </span><span style="color: black;">obtain</span><span style="color: black;"> details of these safeguards by contacting us.</span></span></p>
+<p><span style="font-size: 16px;"><strong><span style="color: black;">9. SECURITY AND RETENTION OF PERSONAL DATA</span></strong></span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><strong><span style="color: black;">Unauthorised access. </span></strong><span style="color: black;">While we take reasonable precautions to safeguard your personal data in our possession or under our control, </span><span style="color: black;">you agree not to hold us liable or responsible for any loss or damage resulting from unauthorised or unintended access that is beyond our control, such as hacking or cybercrimes.</span></span></p>
+</li>
+</ul>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">Vulnerabilities</span></strong><span style="color: black;">. </span><span style="color: black;">We do not make any warranty, guarantee, or representation that our systems and your use of our Applications are safe and protected from malware and other vulnerabilities. </span><span style="color: black;">We also do not guarantee the security of data that you choose to send us electronically. Sending such data is entirely at your own risk.</span></span></p>
+</li>
+</ul>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">Period</span></strong><strong><span style="color: black;"> of retention</span></strong><strong><span style="color: black;">. </span></strong><span style="color: black;">We retain your personal data only for as long as is necessary to fulfil the purposes we collected it for, and to satisfy our business and/or legal purposes, including data analytics, audit, accounting or reporting purposes. How long we keep your personal data depends on the nature of the data, e.g. we keep personal data for at least the duration of the limitation period for bringing claims if the personal data may be required to commence or defend legal proceedings. Some information may also be retained for longer, e.g. where we are required to do so by law in the relevant jurisdiction.</span></span></p>
+</li>
+</ul>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">Anonymised data</span></strong><span style="color: black;">. In some circumstances we may anonymise your personal data so that it can no longer be associated with you, in which case we are entitled to retain and use such data without restriction.</span></span></p>
+</li>
+</ul>
+<p><span style="font-size: 16px;"><span style="color: black;"></span></span><span style="font-size: 16px;"><strong><span>10. </span></strong></span><span style="font-size: 16px;"><strong><span>YOUR</span></strong><strong><span> RIGHTS</span></strong></span></p>
+<p><span style="font-size: 16px;"><strong><span style="color: black;">10.1 Rights you may enjoy. </span></strong><span style="color: black;">Depending on the jurisdiction that you are in or where we operate, you may enjoy certain rights under applicable law in relation to our collection, use, disclosure and processing of your personal data</span><span style="color: black;">. Such rights include:</span></span></p>
+<ul>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">Access: </span></strong><span style="color: black;">you may ask us if we hold your personal data and, if we do, you may request access to your personal data. This enables you to receive a copy of and information on the personal data we hold about you.</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"><span style="color: black;"> </span><strong><span style="color: black;">Correction: </span></strong><span style="color: black;">you may request that any incomplete or inaccurate personal data we hold about you is corrected.</span></span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <strong>Erasure</strong>: you may ask us to delete or remove personal data that we hold about you in certain circumstances. </span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <strong>Restriction</strong>: you may withdraw consent for our use of your personal data, or ask us to suspend the processing of certain of your personal data about you, for example if you want us to establish its accuracy.</span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <strong>Portability:</strong> you may request the transfer of certain of your personal data to another party under certain conditions. </span></p>
+</li>
+<li style="text-align: justify;">
+<p><span style="font-size: 16px;"> <strong>Objection</strong>: where we are processing your personal data based on a legitimate interest (or those of a third party) you may object to processing on this ground.</span></p>
+</li>
+</ul>
+<p style="text-align: justify;"><span style="font-size: 16px;"><span style="color: black;">If you wish to exercise your rights, you may </span><span style="color: black;">contact us to in accordance with Section </span><span style="color: black;">11.1 below</span><span style="color: black;">. We may require that you submit certain forms or provide certain information to process your request. Where permitted by law, we may also charge you a fee to process your request.</span></span></p>
+<p style="margin-top: 0in; margin-right: 0in; margin-bottom: 0in; text-align: justify; padding-left: 0in;"><span style="color: black; font-size: 16px;"><span style="font-weight: bold;">10.2 Limitations</span> </span><span style="color: black;">We may be permitted under applicable laws to refuse a request. For example, we may refuse (a) a request for erasure </span><span style="font-family: var(--ff-primary);">where the personal data is required for in connection with claims</span><span style="color: black;">; or (b) an objection request and continue processing your personal data based on compelling legitimate grounds for the processing.</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;"><strong><span style="color: black;">11. CONTACT US</span></strong></span></p>
+<p><strong style="text-align: justify; font-family: var(--ff-primary);">11.1 Contact Data Protection Officer</strong><span style="text-align: justify; font-family: var(--ff-primary);">. If you have any feedback or issues in relation to your personal data, or about this Policy, or wish to make a complaint to us, you may contact our Data Protection Officer at :</span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;">Email&nbsp;&nbsp;&nbsp; :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;support@zujugp.com</span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;">This does not affected your statutory rights. For example, if the GDPR applies to you, you may also have a right to lodge a complaint with a European supervisory authority, in particular in the Member State in the European Union where you are habitually resident, where you work or where an alleged infringement of Data Protection law has taken place.</span></p>
+<p style="text-align: justify;"><span style="font-size: 16px;">When you contact us, we may require that you submit certain forms or provide certain information, including verification of your identity, before we are able to respond.</span></p>
+</div>
+</div></span></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+      
+        <div data-global-resource-path="zuju-theme/templates/partials/footer.html">
+
+
+
+
+<section class="callout-section">
+  <img src="https://www.zujugp.com/hubfs/raw_assets/public/zuju-theme/images/assets/triangle.png" alt="" class="callout-section__triangle" loading="lazy">
+
+  <div>
+    
+      <div id="hs_cos_wrapper_footer_callout" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-linked_image" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+    
+
+
+
+
+
+
+  
+
+
+
+<span id="hs_cos_wrapper_footer_callout_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_linked_image" style="" data-hs-cos-general-type="widget" data-hs-cos-type="linked_image"><img src="https://www.zujugp.com/hs-fs/hubfs/footer-1.png?width=855&amp;height=54&amp;name=footer-1.png" class="hs-image-widget " width="855" height="54" alt="footer-1" title="footer-1" loading="lazy" srcset="https://www.zujugp.com/hs-fs/hubfs/footer-1.png?width=428&amp;height=27&amp;name=footer-1.png 428w, https://www.zujugp.com/hs-fs/hubfs/footer-1.png?width=855&amp;height=54&amp;name=footer-1.png 855w, https://www.zujugp.com/hs-fs/hubfs/footer-1.png?width=1283&amp;height=81&amp;name=footer-1.png 1283w, https://www.zujugp.com/hs-fs/hubfs/footer-1.png?width=1710&amp;height=108&amp;name=footer-1.png 1710w, https://www.zujugp.com/hs-fs/hubfs/footer-1.png?width=2138&amp;height=135&amp;name=footer-1.png 2138w, https://www.zujugp.com/hs-fs/hubfs/footer-1.png?width=2565&amp;height=162&amp;name=footer-1.png 2565w" sizes="(max-width: 855px) 100vw, 855px"></span></div>
+    
+  </div>
+
+  
+  <div id="back-to-top" class="is-hidden fixed">
+    <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M4.99991 9.60224L10.7415 4L12.3492 4L18.0908 9.60224L16.4832 11.1933L12.6937 7.51821L12.6937 20L10.397 20L10.397 7.51821L6.60757 11.2157L4.99991 9.60224Z" fill="#C5C5C5" />
+      <mask id="mask0_0_541" style="mask-type:alpha" maskunits="userSpaceOnUse" x="5" y="4" width="14" height="16">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M4.99991 9.60224L10.7415 4L12.3492 4L18.0908 9.60224L16.4832 11.1933L12.6937 7.51821L12.6937 20L10.397 20L10.397 7.51821L6.60757 11.2157L4.99991 9.60224Z" fill="white" />
+      </mask>
+      <g mask="url(#mask0_0_541)">
+      <rect y="24" width="24" height="24" transform="rotate(-90 0 24)" fill="white" />
+      </g>
+    </svg>
+  </div>
+</section>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+<footer class="footer">
+  <div class="container" x-data="accordion()" x-init="mobile = window.innerWidth < 500" @resize.window="mobile = window.innerWidth < 500">
+    <div id="hs_cos_wrapper_footer_cta" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+<div class="footer__cta">
+  <div class="footer__cta-alpha">
+    <h3 class="">
+      STAY IN THE KNOW
+    </h3>
+
+    <div class="p">
+      Keep updated with news and rewards with us.
+    </div>
+
+    <div class="subscription-form">
+      <span id="hs_cos_wrapper_footer_cta_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_form" style="" data-hs-cos-general-type="widget" data-hs-cos-type="form"><h3 id="hs_cos_wrapper_footer_cta__title" class="hs_cos_wrapper form-title" data-hs-cos-general-type="widget_field" data-hs-cos-type="text"></h3>
+
+<div id="hs_form_target_footer_cta_"></div>
+
+
+
+
+
+
+
+
+
+</span>
+    </div>
+  </div>
+  <div class="footer__cta-omega">
+    <div class="sm:w-full">
+      <h3 class="">
+        Exploring a partnership?
+      </h3>
+      <div class="p">
+        We welcome visionaries who are looking to build a digital football future together.
+      </div>
+    </div>
+    <div class="sm:w-full">
+      <button class="button button--primary" data-modal-target="modal-contact-us">
+        Let's talk
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+	<div class="modal" id="modal-contact-us">
+		<div class="modal__overlay"></div>
+
+		<div class="modal__main ">
+			<div class="modal__close" data-modal-close>
+				
+	<svg width="31" height="31" viewbox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M1.35783 1.35787L29.6421 29.6421" stroke="#ED2938" stroke-linecap="square" />
+		<path d="M29.6421 1.35786L1.35783 29.6421" stroke="#ED2938" stroke-linecap="square" />
+	</svg>
+
+			</div>
+
+			
+
+			<div class="modal__body">
+				
+  <div class="form-contact-wrapper">
+    <h3 class="text-center">
+      
+        Contact Us
+      
+    </h3>
+
+    <span id="hs_cos_wrapper_footer_cta_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_form" style="" data-hs-cos-general-type="widget" data-hs-cos-type="form"><h3 id="hs_cos_wrapper_footer_cta_-1659864668155_title" class="hs_cos_wrapper form-title" data-hs-cos-general-type="widget_field" data-hs-cos-type="text"></h3>
+
+<div id="hs_form_target_footer_cta_-1659864668155"></div>
+
+
+
+
+
+
+
+
+
+</span>
+  </div>
+
+			</div>
+
+			
+		</div>
+	</div>
+</div>
+
+    <div class="footer__nav">
+      <div class="footer__nav-col">
+        <div class="accordion-title">
+          <span id="hs_cos_wrapper_header_col1" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_header" style="" data-hs-cos-general-type="widget" data-hs-cos-type="header"><h4>Company</h4></span>
+
+          
+  <svg xmlns="http://www.w3.org/2000/svg" x-show="active !== $el.closest('.footer__nav-col') || !mobile" @click="show" class="h-5 w-5 lg:hidden accordion-icon" viewbox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" x-show="active === $el.closest('.footer__nav-col') || !mobile" @click="show" class="h-5 w-5 lg:hidden accordion-icon" viewbox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+  </svg>
+
+        </div>
+
+        <div class="accordion-content" x-effect="toggleAccordion()">
+          <span id="hs_cos_wrapper_footer_menu1x" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_menu" style="" data-hs-cos-general-type="widget" data-hs-cos-type="menu"><div id="hs_menu_wrapper_footer_menu1x" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-vertical" role="navigation" data-sitemap-name="default" data-menu-id="58740734136" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/about-us" role="menuitem">About</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/impact" role="menuitem">Impact</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/advertising" role="menuitem">Advertise</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/partnerships" role="menuitem">Partnerships</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/career" role="menuitem">Career</a></li>
+ </ul>
+</div></span>
+        </div>
+      </div>
+
+      <div class="footer__nav-col">
+        <div class="accordion-title">
+          <span id="hs_cos_wrapper_header_col3" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_header" style="" data-hs-cos-general-type="widget" data-hs-cos-type="header"><h4>Our footballverse</h4></span>
+
+          
+  <svg xmlns="http://www.w3.org/2000/svg" x-show="active !== $el.closest('.footer__nav-col') || !mobile" @click="show" class="h-5 w-5 lg:hidden accordion-icon" viewbox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" x-show="active === $el.closest('.footer__nav-col') || !mobile" @click="show" class="h-5 w-5 lg:hidden accordion-icon" viewbox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+  </svg>
+
+        </div>
+
+        <div class="accordion-content" x-effect="toggleAccordion()">
+          <span id="hs_cos_wrapper_footer_menu3x" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_menu" style="" data-hs-cos-general-type="widget" data-hs-cos-type="menu"><div id="hs_menu_wrapper_footer_menu3x" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-vertical" role="navigation" data-sitemap-name="default" data-menu-id="58740701700" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/footballverse/zujugameplay" role="menuitem">zujuGamePlay</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/footballverse/zujugp-exchange" role="menuitem">zujuGP Exchange</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/footballverse/zujugp-rank" role="menuitem">zujuGP Rank</a></li>
+ </ul>
+</div></span>
+        </div>
+      </div>
+
+      <div class="footer__nav-col">
+        <div class="accordion-title">
+          <span id="hs_cos_wrapper_header_col4" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_header" style="" data-hs-cos-general-type="widget" data-hs-cos-type="header"><h4>Legal</h4></span>
+
+          
+  <svg xmlns="http://www.w3.org/2000/svg" x-show="active !== $el.closest('.footer__nav-col') || !mobile" @click="show" class="h-5 w-5 lg:hidden accordion-icon" viewbox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" x-show="active === $el.closest('.footer__nav-col') || !mobile" @click="show" class="h-5 w-5 lg:hidden accordion-icon" viewbox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+  </svg>
+
+        </div>
+
+        <div class="accordion-content" x-effect="toggleAccordion()">
+          <span id="hs_cos_wrapper_footer_menu4x" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_menu" style="" data-hs-cos-general-type="widget" data-hs-cos-type="menu"><div id="hs_menu_wrapper_footer_menu4x" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-vertical" role="navigation" data-sitemap-name="default" data-menu-id="58740701713" aria-label="Navigation Menu">
+ <ul role="menu" class="active-branch">
+  <li class="hs-menu-item hs-menu-depth-1 active active-branch" role="none"><a href="https://www.zujugp.com/privacy-policy" role="menuitem">Privacy Policy</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://www.zujugp.com/terms-of-use" role="menuitem">Terms of use</a></li>
+ </ul>
+</div></span>
+        </div>
+      </div>
+
+      <div class="footer__nav-col">
+        <div class="accordion-title">
+          <span id="hs_cos_wrapper_header_col5" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_header" style="" data-hs-cos-general-type="widget" data-hs-cos-type="header"><h4>Connect with us</h4></span>
+
+            
+  <svg xmlns="http://www.w3.org/2000/svg" x-show="active !== $el.closest('.footer__nav-col') || !mobile" @click="show" class="h-5 w-5 lg:hidden accordion-icon" viewbox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" x-show="active === $el.closest('.footer__nav-col') || !mobile" @click="show" class="h-5 w-5 lg:hidden accordion-icon" viewbox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+  </svg>
+
+          </div>
+
+          <div class="accordion-content" x-effect="toggleAccordion()">
+            <div id="hs_cos_wrapper_footer_social" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><ul class="footer__social">
+  
+    
+    
+    
+    
+    
+      
+    
+
+    <li>
+      <a href="https://www.facebook.com/zujugp" target="_blank" rel="noopener">
+        <span id="hs_cos_wrapper_footer_social_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_icon" style="" data-hs-cos-general-type="widget" data-hs-cos-type="icon"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" aria-hidden="true"><g id="Facebook1_layer"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" /></g></svg></span>
+        <span style="padding-left: 8px">Facebook<span>
+      </span></span></a>
+    </li>
+  
+    
+    
+    
+    
+    
+      
+    
+
+    <li>
+      <a href="https://instagram.com/zujugp" target="_blank" rel="noopener">
+        <span id="hs_cos_wrapper_footer_social_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_icon" style="" data-hs-cos-general-type="widget" data-hs-cos-type="icon"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512" aria-hidden="true"><g id="Instagram2_layer"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" /></g></svg></span>
+        <span style="padding-left: 8px">Instagram<span>
+      </span></span></a>
+    </li>
+  
+    
+    
+    
+    
+    
+      
+    
+
+    <li>
+      <a href="https://twitter.com/zujugp" target="_blank" rel="noopener">
+        <span id="hs_cos_wrapper_footer_social_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_icon" style="" data-hs-cos-general-type="widget" data-hs-cos-type="icon"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" aria-hidden="true"><g id="Twitter3_layer"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" /></g></svg></span>
+        <span style="padding-left: 8px">Twitter<span>
+      </span></span></a>
+    </li>
+  
+    
+    
+    
+    
+    
+      
+    
+
+    <li>
+      <a href="https://www.youtube.com/channel/UCbXvRvjZAt5aZhBNlDFxHuw" target="_blank" rel="noopener">
+        <span id="hs_cos_wrapper_footer_social_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_icon" style="" data-hs-cos-general-type="widget" data-hs-cos-type="icon"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512" aria-hidden="true"><g id="YouTube4_layer"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" /></g></svg></span>
+        <span style="padding-left: 8px">Youtube<span>
+      </span></span></a>
+    </li>
+  
+    
+    
+    
+    
+    
+      
+    
+
+    <li>
+      <a href="https://weibo.com/u/7706292600" target="_blank" rel="noopener">
+        <span id="hs_cos_wrapper_footer_social_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_icon" style="" data-hs-cos-general-type="widget" data-hs-cos-type="icon"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" aria-hidden="true"><g id="Weibo5_layer"><path d="M407 177.6c7.6-24-13.4-46.8-37.4-41.7-22 4.8-28.8-28.1-7.1-32.8 50.1-10.9 92.3 37.1 76.5 84.8-6.8 21.2-38.8 10.8-32-10.3zM214.8 446.7C108.5 446.7 0 395.3 0 310.4c0-44.3 28-95.4 76.3-143.7C176 67 279.5 65.8 249.9 161c-4 13.1 12.3 5.7 12.3 6 79.5-33.6 140.5-16.8 114 51.4-3.7 9.4 1.1 10.9 8.3 13.1 135.7 42.3 34.8 215.2-169.7 215.2zm143.7-146.3c-5.4-55.7-78.5-94-163.4-85.7-84.8 8.6-148.8 60.3-143.4 116s78.5 94 163.4 85.7c84.8-8.6 148.8-60.3 143.4-116zM347.9 35.1c-25.9 5.6-16.8 43.7 8.3 38.3 72.3-15.2 134.8 52.8 111.7 124-7.4 24.2 29.1 37 37.4 12 31.9-99.8-55.1-195.9-157.4-174.3zm-78.5 311c-17.1 38.8-66.8 60-109.1 46.3-40.8-13.1-58-53.4-40.3-89.7 17.7-35.4 63.1-55.4 103.4-45.1 42 10.8 63.1 50.2 46 88.5zm-86.3-30c-12.9-5.4-30 .3-38 12.9-8.3 12.9-4.3 28 8.6 34 13.1 6 30.8.3 39.1-12.9 8-13.1 3.7-28.3-9.7-34zm32.6-13.4c-5.1-1.7-11.4.6-14.3 5.4-2.9 5.1-1.4 10.6 3.7 12.9 5.1 2 11.7-.3 14.6-5.4 2.8-5.2 1.1-10.9-4-12.9z" /></g></svg></span>
+        <span style="padding-left: 8px">Weibo<span>
+      </span></span></a>
+    </li>
+  
+</ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__copyright">
+      © 2022 ZUJUGP PTE LTD
+    </div>
+  </footer></div>
+</div>
+      
+
+      
+      <script>
+        var user_vid = "";
+      </script>
+      
+    
+    <script src="/hs/hsstatic/jquery-libs/static-1.1/jquery/jquery-1.7.1.js"></script>
+<script>hsjQuery = window['jQuery'];</script>
+<script>
+(function () {
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/_hcms/perf', true /*async*/);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () {
+                // do nothing.
+            };
+            var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            function populateNetworkInfo(name, connection, info) {
+                if (name in connection) {
+                    info[name] = connection[name];
+                }
+            }
+            var networkInfo = {};
+            if (connection) {
+                ['type', 'effectiveType', 'downlink', 'rtt'].forEach(function(name) {
+                    populateNetworkInfo(name, connection, networkInfo);
+                });
+            }
+            var perfData = {
+                url: location.href,
+                portal: 20618228,
+                content: 54357474387,
+                group: -1,
+                connection: networkInfo,
+                timing: performance.timing
+            };
+            xhr.send(JSON.stringify(perfData));
+        }, 3000);  // Execute this 3 seconds after onload.
+    });
+})();
+</script>
+
+<script src="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/61774587308/1645841675148/zuju-theme/js/vendors/three.min.js"></script>
+<script defer src="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/60496056163/1645841675404/zuju-theme/js/vendors/smoothscroll-polyfill.min.js"></script>
+<script defer src="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/55971237407/1656631532725/zuju-theme/js/statics/magic.min.js"></script>
+<script defer src="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/60496055630/1645841674531/zuju-theme/js/vendors/bodymovin.min.js"></script>
+<script defer src="https://unpkg.com/alpinejs@3.7.0/dist/cdn.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+<script src="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/54935666730/1651655378932/zuju-theme/js/main.min.js"></script>
+<script src="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/60490021817/1645841674089/zuju-theme/js/vendors/glide.min.js"></script>
+<script src="/hs/hsstatic/keyboard-accessible-menu-flyouts/static-1.17/bundles/project.js"></script>
+<script>
+var hsVars = hsVars || {}; hsVars['language'] = 'en';
+</script>
+
+<script src="/hs/hsstatic/cos-i18n/static-1.53/bundles/project.js"></script>
+
+    <!--[if lte IE 8]>
+    <script charset="utf-8" src="https://js.hsforms.net/forms/v2-legacy.js"></script>
+    <![endif]-->
+
+<script data-hs-allowed="true" src="/_hcms/forms/v2.js"></script>
+
+    <script data-hs-allowed="true">
+        var options = {
+            portalId: '20618228',
+            formId: '2df3156e-384b-4ed8-8dea-af0bc8503144',
+            formInstanceId: '5220',
+            pageId: '54357474387',
+            region: 'na1',
+            
+            
+            
+            
+            pageName: "Privacy Policy",
+            
+            
+            
+            inlineMessage: "<p style=\"text-align: left;\">Thanks for submitting the form.</p>",
+            
+            
+            rawInlineMessage: "<p style=\"text-align: left;\">Thanks for submitting the form.</p>",
+            
+            
+            hsFormKey: "f1e47c53fc2c9374542670d97ee438e5",
+            
+            
+            css: '',
+            target: '#hs_form_target_footer_cta_',
+            
+            
+            
+            
+            
+            contentType: "standard-page",
+            
+            
+            formsBaseUrl: '/_hcms/forms/',
+            
+            
+            
+            formData: {
+                cssClass: 'hs-form stacked hs-custom-form'
+            }
+        };
+
+        options.getExtraMetaDataBeforeSubmit = function() {
+            var metadata = {};
+            
+
+            if (hbspt.targetedContentMetadata) {
+                var count = hbspt.targetedContentMetadata.length;
+                var targetedContentData = [];
+                for (var i = 0; i < count; i++) {
+                    var tc = hbspt.targetedContentMetadata[i];
+                     if ( tc.length !== 3) {
+                        continue;
+                     }
+                     targetedContentData.push({
+                        definitionId: tc[0],
+                        criterionId: tc[1],
+                        smartTypeId: tc[2]
+                     });
+                }
+                metadata["targetedContentMetadata"] = JSON.stringify(targetedContentData);
+            }
+
+            return metadata;
+        };
+
+        hbspt.forms.create(options);
+    </script>
+
+
+    <script data-hs-allowed="true">
+        var options = {
+            portalId: '20618228',
+            formId: 'ff4fd248-ad02-4d39-9971-a8880316c297',
+            formInstanceId: '2931',
+            pageId: '54357474387',
+            region: 'na1',
+            
+            
+            
+            
+            pageName: "Privacy Policy",
+            
+            
+            
+            inlineMessage: "Thank you for submitting the form.",
+            
+            
+            rawInlineMessage: "Thank you for submitting the form.",
+            
+            
+            hsFormKey: "aaec57218a75d33bbc06e20f0b49dbed",
+            
+            
+            css: '',
+            target: '#hs_form_target_footer_cta_-1659864668155',
+            
+            
+            
+            
+            
+            contentType: "standard-page",
+            
+            
+            formsBaseUrl: '/_hcms/forms/',
+            
+            
+            
+            formData: {
+                cssClass: 'hs-form stacked hs-custom-form'
+            }
+        };
+
+        options.getExtraMetaDataBeforeSubmit = function() {
+            var metadata = {};
+            
+
+            if (hbspt.targetedContentMetadata) {
+                var count = hbspt.targetedContentMetadata.length;
+                var targetedContentData = [];
+                for (var i = 0; i < count; i++) {
+                    var tc = hbspt.targetedContentMetadata[i];
+                     if ( tc.length !== 3) {
+                        continue;
+                     }
+                     targetedContentData.push({
+                        definitionId: tc[0],
+                        criterionId: tc[1],
+                        smartTypeId: tc[2]
+                     });
+                }
+                metadata["targetedContentMetadata"] = JSON.stringify(targetedContentData);
+            }
+
+            return metadata;
+        };
+
+        hbspt.forms.create(options);
+    </script>
+
+
+<!-- Start of HubSpot Analytics Code -->
+<script type="text/javascript">
+var _hsq = _hsq || [];
+_hsq.push(["setContentType", "standard-page"]);
+_hsq.push(["setCanonicalUrl", "https:\/\/www.zujugp.com\/privacy-policy"]);
+_hsq.push(["setPageId", "54357474387"]);
+_hsq.push(["setContentMetadata", {
+    "contentPageId": 54357474387,
+    "legacyPageId": "54357474387",
+    "contentFolderId": null,
+    "contentGroupId": null,
+    "abTestId": null,
+    "languageVariantId": 54357474387,
+    "languageCode": "en",
+    
+}]);
+</script>
+
+<script type="text/javascript" id="hs-script-loader" async defer src="/hs/scriptloader/20618228.js"></script>
+<!-- End of HubSpot Analytics Code -->
+
+
+<script type="text/javascript">
+var hsVars = {
+    ticks: 1659864667906,
+    page_id: 54357474387,
+    
+    content_group_id: 0,
+    portal_id: 20618228,
+    app_hs_base_url: "https://app.hubspot.com",
+    cp_hs_base_url: "https://cp.hubspot.com",
+    language: "en",
+    analytics_page_type: "standard-page",
+    analytics_page_id: "54357474387",
+    category_id: 1,
+    folder_id: 0,
+    is_hubspot_user: false
+}
+</script>
+
+
+<script defer src="/hs/hsstatic/HubspotToolsMenu/static-1.138/js/index.js"></script>
+
+
+
+
+    <!-- Begin partial -->
+<!-- <div class="app"> -->
+<!--   <div class="absolute z-50 w-8 cursor-pointer" x-data="egg({ uid: '' })" x-bind="root" /> -->
+<!--   <div -->
+<!--     x-cloak -->
+<!--     x-data="{ showingMessage: false, msg: '' }" -->
+<!--     x-show="showingMessage" -->
+<!--     x-transition.opacity.duration.300ms -->
+<!--     class="fixed inset-0 bg-black/90 z-50 sm:p-4 lg:p-24" -->
+<!--     x-on:click="showingMessage = false" -->
+<!--     x-on:keyup.window.escape="showingMessage = false" -->
+<!--     x-on:show-message.window="msg = $event.detail; showingMessage = true" -->
+<!--   > -->
+<!--     <div class="h-full w-full flex items-center justify-center" x-effect="document.body.classList[showingMessage ? 'add' : 'remove']('overflow-hidden')"> -->
+<!--       <div class="relative"> -->
+<!--         <button class="absolute top-0 right-0 transform -translate-y-full text-white text-4xl" x-on:click="showingMessage = false">&times;</button> -->
+<!--         <div x-on:click.stop class="w-full bg-white font-monsterrat rounded-lg p-4" x-text="msg"></div> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </div> -->
+
+
+
+
+
+
+
+  <script src="https://www.zujugp.com/hs-fs/hub/20618228/hub_generated/template_assets/55971090060/1645841674698/zuju-theme/js/statics/particle.min.js"></script>
+
+<!-- End partial -->
+  
+</body></html>

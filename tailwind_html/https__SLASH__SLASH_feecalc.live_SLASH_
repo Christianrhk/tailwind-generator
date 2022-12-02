@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="h-full">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Fee Calc</title>
+
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+
+    <body class="h-full font-mono antialiased bg-gradient-to-r from-pink-400 to-blue-500">
+
+        <div class="flex flex-col justify-center items-center h-full p-3">
+            <div class="bg-white p-6 max-w-lg w-full border rounded-lg">
+                <h1 class="text-2xl bg-clip-text text-transparent bg-gradient-to-l from-pink-400 to-blue-500">Candy Machine Fee Calculator</h1>
+
+                <p class="mt-3 text-sm">Setting up a project on the candy machine will typically mean that you have two costs; the cost of storing your files somewhere and the cost of the rent to store the candy machine config on the Solana blockchain.</p>
+
+                <p class="mt-3 text-sm">Generally most projects will store their files on arweave as this is the default option when using the upload command. Until recently arweave uploads had a fixed cost per file, but this has now changed and you will be charged the true cost based on the file size. You can calculate your arweave costs using the <a href="https://arweavefees.com/" class="underline text-pink-400" target="_blank">arweave calculator</a>.
+
+                <p class="mt-3 text-sm">To calculate the cost of the rent for your candy machine configuration just enter the collection size below.</p>
+
+                <form class="mt-6">
+                    <div class="flex justify-between items-center">
+                        <label>Collection Size</label>
+                        <input type="number" name="files" class="w-32 text-right border-blue-500 p-1 border rounded files" min="1" placeholder="10000">
+                    </div>
+
+                    <button class="mt-3 border rounded bg-blue-500 text-white px-6 py-3 font-semibold w-full">Calculate</button>
+
+                    <div class="mt-3 response hidden text-sm text-purple-500"></div>
+                </form>
+            </div>
+
+            <p class="text-white mt-3 text-sm text-center">Not affiliated with Solana or Metaplex. Created by <a href="https://discord.gg/CyborgApeGang" class="text-green-300 font-semibold">Cyborg Ape Gang</a></p>
+        </div>
+
+        <!-- Hey :) -->
+        <script src="/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>
+   Blog</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="Barry O'Sullivan" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" />
+
+<!--Replace with your tailwind.css once created-->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
+
+<style>
+    .gradient {
+        background: linear-gradient(90deg, #d56c33 0%, #ffd658 100%);
+    }
+
+    #header.gradient .logo {
+        filter:invert();
+    }
+
+    table {
+        margin: 10px 0;
+    }
+
+    table th, table td {
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        padding: 2px 4px;
+    }
+
+    .entry-content img {
+        display: block;
+        margin: 0 auto;
+    }
+
+</style>
+</head>
+<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+<!--Nav-->
+<nav id="header" class="fixed w-full z-30 top-0 text-white gradient">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+        <div class="pl-4 flex items-center">
+            <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">
+                <img alt="logo" class="logo h-8 fill-current inline" src="/images/icon.svg"/>
+                Barry O'Sullivan
+            </a>
+        </div>
+        <div class="block lg:hidden pr-4">
+            <button id="nav-toggle" class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>Menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                </svg>
+            </button>
+        </div>
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
+            <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                <li class="mr-3">
+                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/blog">Blog</a>
+                </li>
+                <li class="mr-3">
+                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/talks">Talks</a>
+                </li>
+                <li class="mr-3">
+                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/cv">CV</a>
+                </li>
+                <li class="mr-3">
+                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="https://github.com/barryosull">Github</a>
+                </li>
+                <li class="mr-3">
+                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="https://twitter.com/barryosull">Twitter</a>
+                </li>
+                <li class="mr-3">
+                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="https://www.linkedin.com/in/barryosu/">LinkedIn</a>
+                </li>
+            </ul>
+            <button
+                    id="navAction"
+                    class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                    onclick="location.href='mailto:barry@tercet.io';"
+            >
+                Contact me
+            </button>
+        </div>
+    </div>
+    <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+</nav>
+
+<section class="bg-white border-b pt-8 lg:pt-16 pb-8">
+    <div class="w-full container mx-auto max-w-5xl mx-auto m-8">
+        <div class="text-black m-2">
+            <h1 class="text-2xl font-bold mb-3">Blog: arachitecture</h1>
+            <p class="text-lg mb-6">My thoughts on software development.</p>
+
+            <div class="text-xl font-bold mb-4">Categories</div>
+            <p class="text-lg mb-3">I have many interests in software development and I enjoy writing about then. As such my blog doesn't cover just one topic.</p>
+
+            <div class="flex flex-col lg:flex-row lg:space-x-4 mb-6">
+                                <a class="lg:flex-1 mb-2 text-base text-center text-white py-2 px-2 font-bold rounded-full bg-purple-500 hover:bg-purple-400 " href="/blog/category/legacy#articles" >
+                    Legacy                </a>
+                                <a class="lg:flex-1 mb-2 text-base text-center text-white py-2 px-2 font-bold rounded-full bg-red-500 hover:bg-red-400 " href="/blog/category/architecture#articles" >
+                    Architecture                </a>
+                                <a class="lg:flex-1 mb-2 text-base text-center text-white py-2 px-2 font-bold rounded-full bg-green-500 hover:bg-green-400 " href="/blog/category/development-strategy#articles" >
+                    Development Strategy                </a>
+                                <a class="lg:flex-1 mb-2 text-base text-center text-white py-2 px-2 font-bold rounded-full bg-blue-500 hover:bg-blue-400 " href="/blog/category/event-sourcing#articles" >
+                    Event Sourcing                </a>
+                                <a class="lg:flex-1 mb-2 text-base text-center text-white py-2 px-2 font-bold rounded-full bg-yellow-500 hover:bg-yellow-400 " href="/blog/category/implementation#articles" >
+                    Implementation                </a>
+                            </div>
+
+            <div class="grid grid-cols-4">
+                <div class="col-span-4 lg:col-span-1 pb-8">
+                    <div class="text-xl font-bold mb-4">Topics</div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/acceptance-tests" class="btn">acceptance-tests</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/arachitecture" class="btn">arachitecture</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/architecture" class="btn">architecture</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/book" class="btn">book</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/brainstorming" class="btn">brainstorming</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/communication" class="btn">communication</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/cqrs" class="btn">cqrs</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/ddd" class="btn">ddd</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/design" class="btn">design</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/development-strategy" class="btn">development-strategy</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/dsl" class="btn">dsl</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/estimates" class="btn">estimates</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/event-driven" class="btn">event-driven</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/event-sourcing" class="btn">event-sourcing</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/event-storming" class="btn">event-storming</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/experiments" class="btn">experiments</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/factories" class="btn">factories</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/implementation" class="btn">implementation</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/leadership" class="btn">leadership</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/legacy" class="btn">legacy</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/management" class="btn">management</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/php" class="btn">php</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/productivity" class="btn">productivity</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/projectors" class="btn">projectors</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/refactoring" class="btn">refactoring</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/software-design" class="btn">software-design</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/software-development" class="btn">software-development</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/tdd" class="btn">tdd</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/tests" class="btn">tests</a>
+                        </div>
+                                            <div class="inline-block lg:block">
+                            <a class="inline-block px-2 mr-2 mb-2 lg:inline-block rounded-full bg-yellow-600 text-white" href="/blog/category/training" class="btn">training</a>
+                        </div>
+                                    </div>
+                   
+                <div id="articles" class="col-span-4 lg:col-span-3">
+                                                                <article class="mb-6 py-3 px-6 shadow-md rounded-md">
+                            <header>
+                                <h2 class="text-xl font-bold mb-3"><a href="/blog/ddd-eu-2022">DDD EU 2022</a></h2>
+                            </header>
+                            <blockquote class="article-excerpt overflow-hidden">
+                                Here are my notes from [DDD EU 2022](https://2022.dddeurope.com/schedule/). It was a great conference this year with a focus on models, growth, managing complexity and dealing with legacy.
+
+Will definitely review these notes in the near future and see how I can apply them to my work day to day.
+
+## Opening Keynote
+Speakers:
+- Andrew Harmel-Law
+- Diana Montalion
+- Mike Rozinsky
+- Gayathri Thiyagarajan
+
+**The advice process:**
+1. When working on something, get advice from two groups:
+	1. Those affected by the decision
+	2. Experts in the area
+2. Then it's up to you to decide
+
+The goal is to free up decision bottlenecks from making deci... <br>                                <a href="/blog/ddd-eu-2022" class="float-right border rounded mt-2 pl-2 pr-2 bg-white hover:bg-gray-100">Read more &raquo;</a>
+                                <div style="clear:both"></div>
+                            </blockquote>
+                        </article>
+                                    </div>
+            </div>
+    
+
+                    </div>
+    </div>
+</section>
+<svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
+            <g class="wave" fill="#f8fafc">
+                <path
+                        d="M1440,84 C1383.555,64.3 1342.555,51.3 1317,45 C1259.5,30.824 1206.707,25.526 1169,22 C1129.711,18.326 1044.426,18.475 980,22 C954.25,23.409 922.25,26.742 884,32 C845.122,37.787 818.455,42.121 804,45 C776.833,50.41 728.136,61.77 713,65 C660.023,76.309 621.544,87.729 584,94 C517.525,105.104 484.525,106.438 429,108 C379.49,106.484 342.823,104.484 319,102 C278.571,97.783 231.737,88.736 205,84 C154.629,75.076 86.296,57.743 0,32 L0,0 L1440,0 L1440,84 Z"
+                ></path>
+            </g>
+            <g transform="translate(1.000000, 15.000000)" fill="#FFFFFF">
+                <g transform="translate(719.500000, 68.500000) rotate(-180.000000) translate(-719.500000, -68.500000) ">
+                    <path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.100000001"></path>
+                    <path
+                            d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+                            opacity="0.100000001"
+                    ></path>
+                    <path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" opacity="0.200000003"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+<section class="container mx-auto text-center py-6 mb-12">
+    <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
+        Expert help
+    </h1>
+    <div class="w-full mb-4">
+        <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+    </div>
+    <h3 class="my-4 text-3xl leading-tight">
+        Have a codebase where change is expensive and risky?
+    </h3>
+    <button
+            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+            onclick="location.href='mailto:barry@tercet.io';"
+    >
+        Contact Me
+    </button>
+</section>
+<!--Footer-->
+<footer class="bg-white">
+    <div class="container mx-auto px-8">
+        <div class="w-full flex flex-col md:flex-row py-3">
+            <div class="flex-3 text-black">
+                <a class="no-underline hover:no-underline font-bold text-xl lg:text-2xl" href="/">
+                    <img alt="logo" class="h-8 fill-current inline" src="/images/icon.svg"/>
+                    Barry O'Sullivan
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    var scrollpos = window.scrollY;
+    var header = document.getElementById("header");
+    var navcontent = document.getElementById("nav-content");
+    var navaction = document.getElementById("navAction");
+    var brandname = document.getElementById("brandname");
+    var toToggle = document.querySelectorAll(".toggleColour");
+
+    document.addEventListener("scroll", updateHeader);
+    updateHeader();
+
+    function updateHeader()
+    {
+        scrollpos = window.scrollY;
+        if (scrollpos > 10) {
+            enableWhiteHeader();
+        } else {
+            enableColouredHeader();
+        }
+    }
+
+    function enableWhiteHeader()
+    {
+        header.classList.add("bg-white");
+        header.classList.remove("gradient");
+        navaction.classList.remove("bg-white");
+        navaction.classList.add("gradient");
+        navaction.classList.remove("text-gray-800");
+        navaction.classList.add("text-white");
+        //Use to switch toggleColour colours
+        for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add("text-gray-800");
+            toToggle[i].classList.remove("text-white");
+        }
+        header.classList.add("shadow");
+        navcontent.classList.remove("bg-gray-100");
+        navcontent.classList.add("bg-white");
+    }
+
+    function enableColouredHeader()
+    {
+        header.classList.add("gradient");
+        header.classList.remove("bg-white");
+        navaction.classList.remove("gradient");
+        navaction.classList.add("bg-white");
+        navaction.classList.remove("text-white");
+        navaction.classList.add("text-gray-800");
+        //Use to switch toggleColour colours
+        for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add("text-white");
+            toToggle[i].classList.remove("text-gray-800");
+        }
+
+        header.classList.remove("shadow");
+        navcontent.classList.remove("bg-white");
+        navcontent.classList.add("bg-gray-100");
+    }
+
+</script>
+<script>
+
+    var navMenuDiv = document.getElementById("nav-content");
+    var navMenu = document.getElementById("nav-toggle");
+
+    document.onclick = toggleMenu;
+
+    function toggleMenu(e) {
+        var target = (e && e.target) || (event && event.srcElement);
+
+        if (checkParent(target, navMenuDiv)) {
+            return;
+        }
+
+        if (checkParent(target, navMenu)) {
+            if (navMenuDiv.classList.contains("hidden")) {
+                navMenuDiv.classList.remove("hidden");
+            } else {
+                navMenuDiv.classList.add("hidden");
+            }
+            return;
+        }
+
+        navMenuDiv.classList.add("hidden");
+    }
+
+    function checkParent(t, elm) {
+        while (t.parentNode) {
+            if (t === elm) {
+                return true;
+            }
+            t = t.parentNode;
+        }
+        return false;
+    }
+
+</script>
+
+<script src="https://unpkg.com/prismjs@1.23.0/components/prism-core.min.js"></script>
+<script src="https://unpkg.com/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+</body>
+</html>

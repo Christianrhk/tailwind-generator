@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/timetable_styles.css">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlaG9sem1hbiIsImEiOiJjazA1cHc0bGwyc25zM29xZGptdnJ3N2FlIn0.c6NVNxyMLyAONXtQtpUjyg';
+  </script>
+  <script src="../js/timetable-map.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Timetable generated on Thu Jul 01 2021 11:54:53 GMT-0700 (Pacific Daylight Time) using GTFS-to-HTML version 2.0.3 -->
+  <div class="timetable-page menu-type-simple">
+    <div class="container mx-4 md:mx-auto">
+      <h1 class="timetable-page-label text-2xl pt-4 flex items-center">
+        <div class="route-color-swatch-large mr-2 flex-none" style="background-color: #C9500E; color: #ffffff">Goldendale</div>
+        <div>Route Goldendale</div>
+      </h1>
+      <div class="effective-date text-gray-600 mb-2">Effective May 26, 2021</div>
+      <div class="timetable mb-5" id="timetable_id_6815c1d411111000" data-day-list="Mon-Fri" data-timetable-id="6815c1d4|1111100|0" data-direction-id="0" data-route-id="6815c1d4">
+        <h2 class="text-xl">Route Goldendale - Golden &amp; Main to E Main &amp; N Columbus | monday-friday</h2>
+        <div class="service-notes"></div>
+        <div class="map" id="map_timetable_id_6815c1d411111000"></div>
+        <script>
+          (function() {
+            const id = 'timetable_id_6815c1d411111000';
+            const geojson = {
+              "type": "FeatureCollection",
+              "features": [{
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "REPLACEME",
+                  "route_id": "6815c1d4",
+                  "agency_id": "1",
+                  "route_short_name": "Goldendale",
+                  "route_long_name": "City Route",
+                  "route_type": 3,
+                  "route_color": "#C9500E",
+                  "route_text_color": "#ffffff"
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-120.82641, 45.8222],
+                    [-120.83006, 45.82227],
+                    [-120.83189, 45.82227],
+                    [-120.83195, 45.82078],
+                    [-120.832, 45.82008],
+                    [-120.83203, 45.81933],
+                    [-120.83024, 45.8193],
+                    [-120.82838, 45.8193],
+                    [-120.82266, 45.81924],
+                    [-120.82265, 45.8185],
+                    [-120.82268, 45.81781],
+                    [-120.82271, 45.81595],
+                    [-120.8227, 45.81456],
+                    [-120.82273, 45.813],
+                    [-120.82273, 45.8118],
+                    [-120.82277, 45.81084],
+                    [-120.82273, 45.80997],
+                    [-120.82274, 45.80892],
+                    [-120.82283, 45.80598]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "REPLACEME",
+                  "route_id": "6815c1d4",
+                  "agency_id": "1",
+                  "route_short_name": "Goldendale",
+                  "route_long_name": "City Route",
+                  "route_type": 3,
+                  "route_color": "#C9500E",
+                  "route_text_color": "#ffffff"
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-120.82276, 45.80798],
+                    [-120.82273, 45.80997],
+                    [-120.82277, 45.81084],
+                    [-120.82273, 45.8118],
+                    [-120.82272, 45.81355],
+                    [-120.81758, 45.81355],
+                    [-120.81239, 45.81358],
+                    [-120.81242, 45.81778],
+                    [-120.81241, 45.81923],
+                    [-120.81015, 45.81923],
+                    [-120.81014, 45.8195],
+                    [-120.8101, 45.8196],
+                    [-120.81003, 45.8197],
+                    [-120.80972, 45.82003],
+                    [-120.80969, 45.82069],
+                    [-120.8123, 45.8207],
+                    [-120.81228, 45.82144],
+                    [-120.81225, 45.8218],
+                    [-120.81224, 45.82297],
+                    [-120.81161, 45.82307],
+                    [-120.81089, 45.82321],
+                    [-120.81009, 45.82342],
+                    [-120.80936, 45.82377],
+                    [-120.80878, 45.82411],
+                    [-120.80842, 45.82436],
+                    [-120.80819, 45.82456],
+                    [-120.80729, 45.82525],
+                    [-120.80649, 45.82594],
+                    [-120.80619, 45.82617],
+                    [-120.80598, 45.8263],
+                    [-120.80561, 45.82644]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "REPLACEME",
+                  "route_id": "6815c1d4",
+                  "agency_id": "1",
+                  "route_short_name": "Goldendale",
+                  "route_long_name": "City Route",
+                  "route_type": 3,
+                  "route_color": "#C9500E",
+                  "route_text_color": "#ffffff"
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-120.80561, 45.82644],
+                    [-120.80545, 45.82632],
+                    [-120.80553, 45.82646],
+                    [-120.80561, 45.82644]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "agency_name": "REPLACEME",
+                  "route_id": "6815c1d4",
+                  "agency_id": "1",
+                  "route_short_name": "Goldendale",
+                  "route_long_name": "City Route",
+                  "route_type": 3,
+                  "route_color": "#C9500E",
+                  "route_text_color": "#ffffff"
+                },
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [-120.80673, 45.82572],
+                    [-120.80729, 45.82525],
+                    [-120.80819, 45.82456],
+                    [-120.80861, 45.82454],
+                    [-120.80875, 45.82455],
+                    [-120.81139, 45.82454],
+                    [-120.81202, 45.82452],
+                    [-120.81378, 45.82451],
+                    [-120.81389, 45.82446],
+                    [-120.81392, 45.82418],
+                    [-120.8139, 45.82373],
+                    [-120.81392, 45.823],
+                    [-120.81572, 45.82302],
+                    [-120.81575, 45.82218],
+                    [-120.82083, 45.82219],
+                    [-120.82274, 45.82221]
+                  ]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_18c3b60f-6607-4cf5-9ab8-2f57e438f3cb",
+                  "stop_name": "S. Columbus & Collins",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.82266, 45.81922]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_1b44f2ca-5488-4b28-b030-eaff7eaf12fe",
+                  "stop_name": "S. Washington & Collins",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.83205, 45.81932]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_1d4a7ee5-04da-4527-90fd-6a60ad5a4336",
+                  "stop_name": "E. Simcoe & Schuster Ave",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.81759, 45.81357]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_3fd15c8a-4848-4049-bffe-3767a3cd8826",
+                  "stop_name": "S. Columbus & Nesbitt",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.82275, 45.81455]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_4ce5ec25-e23d-480b-ae36-3a5b41de1892",
+                  "stop_name": "N. Roosevelt & Broadway",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.81228, 45.82294]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_50e97f88-83db-484f-a7cd-f83460be6619",
+                  "stop_name": "S. Columbus & E 21st St",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.82284, 45.80608]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_64a3ab43-0437-4d82-99a5-d46a8e6def70",
+                  "stop_name": "S. Columbus & Golden Ridge Dr.",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.8227, 45.80998]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_776ff9af-9403-414c-a65d-27174a13624c",
+                  "stop_name": "N King Ave & NE 3rd St",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.81385, 45.82448]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_85f997f7-da4e-490d-a8d9-18dd71cbf91d",
+                  "stop_name": "E Main & N Columbus",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.82264, 45.82217]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_a4ca1c41-45e8-4988-804e-cd8d7c93e51d",
+                  "stop_name": "E Broadway 76 Station",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.80536, 45.82627]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_caacd186-dd03-430c-9a6a-b3a30eb20451",
+                  "stop_name": "E Collins Dr. & Sanders Way",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.81017, 45.81922]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_d27fd452-5642-4832-b993-1552b1a1b8ee",
+                  "stop_name": "E. Simcoe & S. Roosevelt",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.81238, 45.81357]
+                }
+              }, {
+                "type": "Feature",
+                "properties": {
+                  "stop_id": "remix_eaa5526e-d8dc-4049-8339-59ff23a843a6",
+                  "stop_name": "Golden & Main",
+                  "routes": [{
+                    "route_id": "6815c1d4",
+                    "agency_id": "1",
+                    "route_short_name": "Goldendale",
+                    "route_long_name": "City Route",
+                    "route_type": 3,
+                    "route_color": "#C9500E",
+                    "route_text_color": "#ffffff"
+                  }],
+                  "agency_name": "REPLACEME"
+                },
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-120.82637, 45.82219]
+                }
+              }]
+            };
+            createMap(id, geojson);
+          })();
+        </script>
+        <div class="table-container">
+          <table class="table-horizontal" summary="This table shows schedules for a selection of key stops on the route for Route Goldendale - Golden &amp; Main to E Main &amp; N Columbus Mon-Fri. Stops and their schedule times are listed in the columns." data-orientation="horizontal">
+            <caption class="sr-only">Route Goldendale - Golden &amp; Main to E Main &amp; N Columbus | Mon-Fri</caption>
+            <colgroup>
+              <col>
+              <col class="run_0 " id="trip_id_c1398fc7-e-29164925-6">
+              <col class="run_1 " id="trip_id_220d565e-8-29164925-6">
+              <col class="run_2 " id="trip_id_f6db0d4f-e-29164925-6">
+              <col class="run_3 " id="trip_id_6f646ca9-c-29164925-6">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="stop-header" scope="col">Stop</th>
+                <th class="run-header" scope="col">Run #1</th>
+                <th class="run-header" scope="col">Run #2</th>
+                <th class="run-header" scope="col">Run #3</th>
+                <th class="run-header" scope="col">Run #4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="city-row">
+                <th scope="row" colspan="5"></th>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_eaa5526e-d8dc-4049-8339-59ff23a843a6" data-stop-id="remix_eaa5526e-d8dc-4049-8339-59ff23a843a6">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">Golden &amp; Main</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:00am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:45pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:30pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:15pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_1b44f2ca-5488-4b28-b030-eaff7eaf12fe" data-stop-id="remix_1b44f2ca-5488-4b28-b030-eaff7eaf12fe">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">S. Washington &amp; Collins</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:02am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:47pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:32pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:17pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_18c3b60f-6607-4cf5-9ab8-2f57e438f3cb" data-stop-id="remix_18c3b60f-6607-4cf5-9ab8-2f57e438f3cb">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">S. Columbus &amp; Collins</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:04am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:49pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:34pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:19pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_3fd15c8a-4848-4049-bffe-3767a3cd8826" data-stop-id="remix_3fd15c8a-4848-4049-bffe-3767a3cd8826">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">S. Columbus &amp; Nesbitt</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:08am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:53pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:38pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:23pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_50e97f88-83db-484f-a7cd-f83460be6619" data-stop-id="remix_50e97f88-83db-484f-a7cd-f83460be6619">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">S. Columbus &amp; E 21st St</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:10am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:55pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:40pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:25pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_64a3ab43-0437-4d82-99a5-d46a8e6def70" data-stop-id="remix_64a3ab43-0437-4d82-99a5-d46a8e6def70">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">S. Columbus &amp; Golden Ridge Dr.</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:12am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:57pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:42pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:27pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_1d4a7ee5-04da-4527-90fd-6a60ad5a4336" data-stop-id="remix_1d4a7ee5-04da-4527-90fd-6a60ad5a4336">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">E. Simcoe &amp; Schuster Ave</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:13am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:58pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:43pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:28pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_d27fd452-5642-4832-b993-1552b1a1b8ee" data-stop-id="remix_d27fd452-5642-4832-b993-1552b1a1b8ee">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">E. Simcoe &amp; S. Roosevelt</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:14am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">1:59pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:44pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:29pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_caacd186-dd03-430c-9a6a-b3a30eb20451" data-stop-id="remix_caacd186-dd03-430c-9a6a-b3a30eb20451">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">E Collins Dr. &amp; Sanders Way</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:17am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:02pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:47pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:32pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_4ce5ec25-e23d-480b-ae36-3a5b41de1892" data-stop-id="remix_4ce5ec25-e23d-480b-ae36-3a5b41de1892">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">N. Roosevelt &amp; Broadway</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:18am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:03pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:48pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:33pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_a4ca1c41-45e8-4988-804e-cd8d7c93e51d" data-stop-id="remix_a4ca1c41-45e8-4988-804e-cd8d7c93e51d">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">E Broadway 76 Station</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:20am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:05pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:50pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:35pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_776ff9af-9403-414c-a65d-27174a13624c" data-stop-id="remix_776ff9af-9403-414c-a65d-27174a13624c">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">N King Ave &amp; NE 3rd St</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:24am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:09pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:54pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:39pm</span></td>
+              </tr>
+              <tr class="stop-row" id="stop_id_remix_85f997f7-da4e-490d-a8d9-18dd71cbf91d" data-stop-id="remix_85f997f7-da4e-490d-a8d9-18dd71cbf91d">
+                <th class="stop-name-container" scope="row">
+                  <div class="stop-name">E Main &amp; N Columbus</div>
+                  <div class="stop-code"></div>
+                </th>
+                <td class="stop-time am"><span class="stop-time-text">10:27am</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:12pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">2:57pm</span></td>
+                <td class="stop-time pm"><span class="stop-time-text">3:42pm</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

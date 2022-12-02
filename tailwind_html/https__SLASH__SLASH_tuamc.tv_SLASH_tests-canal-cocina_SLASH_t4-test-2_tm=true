@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- OneTrust Cookies Consent Notice start for tuamc.tv -->
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="22fd3869-861f-47cf-a183-df32257aa868" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for tuamc.tv -->
+
+<!-- Smartclip -->
+<script src="https://s3.eu-central-1.amazonaws.com/sc-devel/Skins/SMCService.js" type="text/plain" class="optanon-category-C0004"></script>
+<script async='async' src='https://sc-devel.s3.eu-central-1.amazonaws.com/sc-tagmanager/sc_gpt_lstapc7.js' type="text/plain" class="optanon-category-C0004"></script>
+<script type="text/plain" class="optanon-category-C0004">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+</script>
+<script src="https://s3.eu-central-1.amazonaws.com/sc-devel/sc-tagmanager/amc.js" type="text/plain" class="optanon-category-C0004"></script>
+<script src="https://cdn.smartclip-services.com/v1/Storage-a482323/smartclip-services/HeaderBidding/js/SmartclipConfig.js" async="async" type="text/plain" class="optanon-category-C0004"></script>
+<!-- End Smartclip -->
+
+<!-- Global site tag (gtag.js) - Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-743809320" type="text/plain" class="optanon-category-C0004"></script>
+<script type="text/plain" class="optanon-category-C0004">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-743809320');
+</script>
+
+<!-- Google Tag Manager -->
+<script type="text/plain" class="optanon-category-C0004">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-595P5GQ');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3749328-80"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  const GA_LOCAL_STORAGE_KEY = 'Parse/EqXj3CWkTa9Ens1sPrzQkKMbBdnc6bYbHKR2qvRE/installationId'
+  console.log('localid:'+localStorage.getItem(GA_LOCAL_STORAGE_KEY))
+  gtag('config', 'UA-3749328-80', { 
+       client_storage: 'none', 
+       anonymize_ip: true,
+       client_id: localStorage.getItem(GA_LOCAL_STORAGE_KEY)
+  });
+</script>
+<!-- End Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/static/img/tuamc/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Test 2</title>
+    <link href="/static/css/tailwind.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="/static/css/tuamc/main.css" rel="stylesheet">
+    <link href="/static/css/tuamc/fonts.css" rel="stylesheet">
+    <style>
+
+      .q-card {
+        background-color: white;
+        border-radius: 4px;
+        animation-delay: 2s;
+      }
+      #responseBox {
+        background-color: #dbe0e4;
+        border-radius: 4px;
+        animation-delay: 2s;
+      }
+
+      button.unselected:before {
+        font-family: "Material Icons";
+        content: "\e836";
+        color: #ACB8C7;
+        font-size: 1.5em;
+        padding-right: 10px;
+      }
+      button.selected:before {
+        font-family: "Material Icons";
+        content: "\e837";
+        color: black;
+        font-size: 1.5em;
+        padding-right: 10px;
+      }
+      button.error:before {
+        font-family: "Material Icons";
+        content: "\e5c9";
+        color: #E53E3E;
+        font-size: 1.5em;
+        padding-right: 10px;
+      }
+      button.success:before {
+        font-family: "Material Icons";
+        content: "\e86c";
+        color: #83CB2A;
+        font-size: 1.5em;
+        padding-right: 10px;
+      }
+
+      .question-correct.error {
+        background-color: #FCEEEE;
+        border-radius: 4px;
+      }
+      .question-correct.error #question-correct-title-ko  {
+        display: block;
+      }
+      .question-correct.error #question-correct-title-ok  {
+        display: none;
+      }
+
+      .question-correct.success {
+        background-color: #F3FAEB;
+        border-radius: 4px;
+      }
+      .question-correct.success #question-correct-title-ko  {
+        display: none;
+      }
+      .question-correct.success #question-correct-title-ok  {
+        display: block;
+      }
+
+    </style>
+  </head>
+  <body class="bg-black">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-595P5GQ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <header>
+      <div id="menu" class="flex text-sm z-20">
+  <nav class="w-full" role="navigation">
+    <div class="flex items-center h-16 mx-2 md:mx-10">
+      <a class="order-2 flex-1 sm:flex-initial sm:order-1 justify-center" href="/">
+        <img class="menu-logo w-16 md:w-20 h-auto mx-auto sm:mx-0" src="/static/img/tuamc/tuAMC.svg" alt="tuAMC" />
+      </a>
+      <ul class="navigation flex items-center sm:flex-1 cursor-pointer order-1 sm:order-2">
+       
+      </ul>
+      <div class="right-menu flex items-center justify-end order-3">
+    
+        <!---User / Login  --->
+        <div id="nav-login" class="flex items-center justify-end">
+          <a class="flex mx-2 items-center white-btn sm:shadow-md h-10 px-2 sm:px-4 cursor-pointer" onclick="showLoginModal()">
+            <i class="material-icons">
+              account_circle
+            </i>
+            <span class="hidden sm:flex px-2">Identifícate</span>
+          </a>
+        </div>
+        <div id="nav-user" class="flex hidden">
+          <ul id="profileMenu" class="relative" onclick="toggleClass('.profileMenuItems', 'display-profile-menu')">
+            <li class="p-2 pr-0 text-right cursor-pointer">
+              <div class="flex items-center py-2">
+                Hola <span id="nav-user-name" class="ml-1 truncate"></span>
+                <i class="material-icons -mr-2">
+                  arrow_drop_down
+                </i>
+              </div>
+            </li>
+            <ul class="profileMenuItems subMenu mr-2 sm:mr-0 mt-6 cursor-pointer transition-in-out-2">
+              <li class="px-4 py-3 text-right">
+                <a href="/perfil" rel="nofollow">
+                Mi perfil
+                </a>
+              </li>
+              <li class="px-4 py-3 text-right border-top pl-8" onclick="logOut()">
+                Cerrar sesión
+              </li>
+            </ul>          
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+    </header>
+    <div class="content-page mb-8 flex flex-col pt-32" id="app">
+      <div class="container mx-auto flex flex-col px-2">
+        <section class="flex w-full">
+          <div class="flex">
+            <a href="/tests-canal-cocina" class="flex mb-4">
+              <i class="material-icons mr-5 text-white">
+                chevron_left
+              </i>
+              <span class="text-xs font-bold m-auto text-white">VOLVER A MIS TESTS</span>
+            </a>
+          </div>  
+          </section>
+          <section class="flex w-full">
+          <div id="test">
+            <div class="mt-4 shadow q-card p-6">
+              <div class="testheader flex flex-col sm:flex-row">
+                <div class="w-full sm:w-1/3">
+                  <img loading="lazy" class="sm:pr-4 pb-2" src="https://tuamc.tv/actualidad/wp-content/uploads/2021/12/BodegonConfortChristmas-480x270.jpg" />
+                </div>
+                <div class="flex w-full sm:w-2/3 flex-col">
+                  <h1 class="text-4xl font-bold">Test 2:</h1>
+                  <h2 class="text-4xl font-bold mb-4">Confort Christmas</h2>
+                  <p class="">Demuestra lo que has aprendido sobre el tema - Confort Christmas - del curso Canal Cocina superando este test.</p>
+                </div>
+              </div>
+              <div id="responseBox" class="hidden p-8 mt-4 shadow">
+                <h1 class="text-4xl font-bold">Enhorabuena, has completado el test "Confort Christmas"</h1>
+                <p><b id="correct-responses">2 respuestas incorrectas,</b> puedes revisar las preguntas. </p>
+              </div>
+            </div>
+              
+            <div class="mt-4 shadow q-card p-6" id="question-0">
+              <h3 class="font-bold">PREGUNTA 1</h3>
+              <h4 class="font-bold mb-2">¿Cómo se forma una popieta de pescado?</h4>
+                
+              <button id="question-0-res-0" onclick="rowSelected(0, 0)" class="unselected block py-2 flex items-center text-left">
+                Cortando el filete en tiras
+              </button>
+                
+              <button id="question-0-res-1" onclick="rowSelected(0, 1)" class="unselected block py-2 flex items-center text-left">
+                Enrollando el filete
+              </button>
+                
+              <button id="question-0-res-2" onclick="rowSelected(0, 2)" class="unselected block py-2 flex items-center text-left">
+                Cortando el filete en cubos y superponiédolos
+              </button>
+              
+              <div id="question-correct-0" class="question-correct hidden p-4">
+                <p id="question-correct-title-ko" class="font-bold">Respuesta incorrecta</p>
+                <p id="question-correct-title-ok" class="font-bold">Respuesta correcta</p>
+              </div>
+            </div>
+              
+            <div class="mt-4 shadow q-card p-6" id="question-1">
+              <h3 class="font-bold">PREGUNTA 2</h3>
+              <h4 class="font-bold mb-2">El roast beef se elabora con</h4>
+                
+              <button id="question-1-res-0" onclick="rowSelected(1, 0)" class="unselected block py-2 flex items-center text-left">
+                Carne de ternera
+              </button>
+                
+              <button id="question-1-res-1" onclick="rowSelected(1, 1)" class="unselected block py-2 flex items-center text-left">
+                Carne de cerdo
+              </button>
+                
+              <button id="question-1-res-2" onclick="rowSelected(1, 2)" class="unselected block py-2 flex items-center text-left">
+                Ambas son correctas
+              </button>
+              
+              <div id="question-correct-1" class="question-correct hidden p-4">
+                <p id="question-correct-title-ko" class="font-bold">Respuesta incorrecta</p>
+                <p id="question-correct-title-ok" class="font-bold">Respuesta correcta</p>
+              </div>
+            </div>
+              
+            <div class="mt-4 shadow q-card p-6" id="question-2">
+              <h3 class="font-bold">PREGUNTA 3</h3>
+              <h4 class="font-bold mb-2">El pastel escocés de pescado tiene una base de</h4>
+                
+              <button id="question-2-res-0" onclick="rowSelected(2, 0)" class="unselected block py-2 flex items-center text-left">
+                Masa de hojaldre
+              </button>
+                
+              <button id="question-2-res-1" onclick="rowSelected(2, 1)" class="unselected block py-2 flex items-center text-left">
+                Puré de patata
+              </button>
+                
+              <button id="question-2-res-2" onclick="rowSelected(2, 2)" class="unselected block py-2 flex items-center text-left">
+                Masa brisa
+              </button>
+              
+              <div id="question-correct-2" class="question-correct hidden p-4">
+                <p id="question-correct-title-ko" class="font-bold">Respuesta incorrecta</p>
+                <p id="question-correct-title-ok" class="font-bold">Respuesta correcta</p>
+              </div>
+            </div>
+              
+            <div class="mt-4 shadow q-card p-6" id="question-3">
+              <h3 class="font-bold">PREGUNTA 4</h3>
+              <h4 class="font-bold mb-2">Las tradicionales galletas de Navidad son de</h4>
+                
+              <button id="question-3-res-0" onclick="rowSelected(3, 0)" class="unselected block py-2 flex items-center text-left">
+                Chocolate
+              </button>
+                
+              <button id="question-3-res-1" onclick="rowSelected(3, 1)" class="unselected block py-2 flex items-center text-left">
+                Mantequilla
+              </button>
+                
+              <button id="question-3-res-2" onclick="rowSelected(3, 2)" class="unselected block py-2 flex items-center text-left">
+                Jengibre y canela
+              </button>
+              
+              <div id="question-correct-3" class="question-correct hidden p-4">
+                <p id="question-correct-title-ko" class="font-bold">Respuesta incorrecta</p>
+                <p id="question-correct-title-ok" class="font-bold">Respuesta correcta</p>
+              </div>
+            </div>
+            
+            <button id="submitBtn" class="white-btn transition-in-out-2 text-black font-bold shadow px-4 py-2 mb-2 mt-4" onclick="validateTest()" disabled="true">Enviar test</button>
+            <div id="endBtn" class="hidden flex">
+              <a href="https://actualidad.tuamc.tv/escuela-canal-cocina/indice/" class="flex pt-4">
+                <span class="text-xs font-bold m-auto text-white">VOLVER AL CURSO CANAL COCINA</span>
+                  <i class="material-icons mr-5 text-white">
+                    chevron_right
+                  </i>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="mt-8">
+  <div class="flex content-center flex-wrap justify-center py-10 px-4 md:px-10">
+    <ul id="footerChannels" class="footer-channels justify-center items-center">
+    </ul>
+  </div>
+  <div class="flex flex-col blue-footer justify-center pb-10 px-4 md:px-10">
+    
+     <ul class="footer-menu flex justify-center flex-wrap flex-sm-row p-4 text-center text-sm my-4">
+        <li class="mr-2"><a class="link" href="https://amcnetworks.es/aviso-legal/">Aviso legal</a></li>
+        <li class="mr-2">|</li>
+        <li class="mr-2"><a class="link" href="https://amcn.club/terminos-y-condiciones-club">Términos y condiciones del club</a></li>
+        <li class="mr-2">|</li>
+        <li class="mr-2"><a class="link" href="https://amcnetworks.es/politica-de-privacidad/">Política de privacidad</a></li>
+        <li class="mr-2">|</li>
+        <li class="mr-2"><a class="link" href="https://amcnetworks.es/politica-de-cookies/">Política de Cookies</a></li>
+        <li class="mr-2">|</li>
+        <li class="mr-2"><a target="_blank" class="link" href="https://amcnetworks.es/tuamc/faq">Preguntas Frecuentes</a></li>
+     </ul>
+     <img loading="lazy" class="footer-logo m-auto hidden sm:flex" src="/static/img/tuamc/LOGOS-RGB-FOOTER-ES-ALLBRANDS-DESKTOP-F1.png" alt="AMC Networks International" />
+     <img loading="lazy" class="footer-logo m-auto sm:hidden" src="/static/img/tuamc/LOGOS-RGB-FOOTER-ES-ALLBRANDS-MOBILE-F1.png" alt="AMC Networks International" />
+     <div class="mx-auto">
+        <!-- OneTrust Cookies Settings button start -->
+        <button id="ot-sdk-btn" class="ot-sdk-show-settings">Gestionar Cookies</button>
+        <!-- OneTrust Cookies Settings button end -->
+     </div>
+  
+  </div>
+    
+</footer>
+   
+    <script src="https://code.jquery.com/jquery-1.9.0rc1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parse/3.4.1/parse.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="/static/js/pselect/pselect.min.js" ></script>
+<script src="/static/js/auth.js"></script>
+<script src="/static/js/index.js"></script>
+<script src="/static/js/eventsAnalytics.js"></script>
+<script src="/static/js/clubbin.js"></script>
+<script src="/static/js/ltw.js"></script>
+<link href="/static/css/tuamc/sign-in.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js" integrity="sha512-8pbzenDolL1l5OPSsoURCx9TEdMFTaeFipASVrMYKhuYtly+k3tcsQYliOEKTmuB1t7yuzAiVo+yd7SJz+ijFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="text/javascript" id="siteScript">
+  site = JSON.parse(`{"pointer":{"__type":"Pointer","className":"Site","objectId":"8Ar3Qc46Sd"},"name":"Tu AMC","domain":"tuamc.tv","userParam":"siteTuamc","path":"tuamc","type":"public","bitmovinConf":{"key":"99d282f8-9e7a-4bbb-bd1c-5e4ae5aaef0a","remotecontrol":{"type":"googlecast","customReceiverConfig":{"receiverStylesheetUrl":"https://buzztv.es/static/css/bvhorror/bitmovin-custom-ui.css"}},"analytics":{"key":"7ceb7c06-ebd7-4ea8-b9da-c5d691831e62"},"source":{"drm":{"widevine":{"LA_URL":"https://widevine-dash.ezdrm.com/proxy?pX=80BA2D"},"playready":{"LA_URL":"https://playready.ezdrm.com/cency/preauth.aspx?pX=A8DC04"},"fairplay":{"LA_URL":"https://fps.ezdrm.com/api/licenses/00002BC7-2E2E-446D-9F9F-C3E84D29DF07","certificateURL":"https://storage.googleapis.com/planet-horror.appspot.com/drm/fairplay.cer","prepareContentId":"/Function((contentId) => {console.log('contentId: ', contentId);var uri = contentId;var uriParts = uri.split('://', 1);var protocol = uriParts[0].slice(-3);uriParts = uri.split(';', 2);contentId = uriParts.length > 1 ? uriParts[1] : '';            uriParts = contentId.split('?', 2);contentId = uriParts.length > 1 ? uriParts[0] : contentId;console.log('response: ', protocol.toLowerCase() == 'skd' ? contentId : '');return protocol.toLowerCase() == 'skd' ? contentId : '';})/","prepareLicenseAsync":"/Function(function(ckc) {console.log('ckc: ', ckc);return new Promise(function(resolve, reject) {const reader = new FileReader();reader.addEventListener('loadend', function() {resolve(new Uint8Array(reader.result));});reader.addEventListener('error', function() {reject(reader.error);});reader.readAsArrayBuffer(ckc);});})/","prepareMessage":"/Function(function(event, session) {console.log('event:', event.message);return new Blob([event.message], {type: 'application/octet-binary'});})/","headers":{"content-type":"application/octet-stream"},"useUint16InitData":true,"licenseResponseType":"blob"}}}}}`);
+  $('#siteScript').remove()
+</script>
+
+
+<script type="text/javascript" id="ipScript">
+  const ip = "3.236.225.157"
+  $('#ipScript').remove()
+</script>
+
+
+<div id="page-login-modal" class="modal-dialog w-full hidden">
+  <div class="modal-bg fixed top-0 flex h-full w-full z-40">
+  <div class="modal-card modal-content-m card bg-white p-6 sm:p-8 m-auto z-50">
+    <button class="flex justify-start sm:mt-4 sm:mb-6" onclick="closeLoginModal()">
+      <i class="material-icons">
+        close
+      </i>
+    </button>
+    <form name="login" class="flex flex-col">
+      <h1 class="text-xl text-center font-bold">¡<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="91d3f8f4ffe7f4fff8f5d1">[email&#160;protected]</a>!</h1>
+      <p class="base-text text-center mt-2">Accede gratis a contenidos en vídeo, concursos y ventajas por ser de clubbin.</p>
+      <label for="email" class="mt-4 mb-2 font-bold">Email</label>
+      <input type="email" id="email" name="email" placeholder="Email" class="h-10 border-2 border-gray-300 px-2">
+      <div class="justify-start mt-2">
+        <span class="text-sm">Introduce tu email para iniciar sesión o registrarte.</span>
+      </div>
+      <span class="px-4 py-2 bg-red-100 mt-4 text-sm hidden" id="error-span">El email introducido no es válido.</span>
+      <button type="submit" class="primary-btn text-center transition px-4 py-2 mb-4 mt-6">
+        <div class="loading-dots">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <span>Continuar</span>
+      </button>
+
+      <span class="underlined relative w-full"> o </span>
+
+      <a class="fb-btn text-center transition px-4 py-2 mb-4 mt-6 cursor-pointer" onclick="loginFacebook('FB')">
+        <div class="flex justify-center items-center"><img width="28px" src="/static/img/tuamc/f_logo.svg"> <p class="ml-4">Accede con Facebook</p></div>
+      </a>
+
+      <input type="hidden" id="xid" name="xid">
+      <input type="hidden" id="xtoken" name="xtoken">
+      <input type="hidden" id="it" name="it" value="">
+      <input type="hidden" id="idcrm" name="idcrm" value="">
+
+    </form>
+  </div>
+</div>
+</div>
+<div id="page-no-url-modal" class="modal-dialog w-full hidden">
+  <div class="modal-bg fixed top-0 flex h-full w-full z-40">
+  <div class="modal-card modal-content-m card bg-white p-6 sm:p-8 m-auto z-50">
+    <div class="flex justify-center mt-4 mb-6">
+        <img src="/static/img/tuamc/logo_clubbin_amc.png" class="h-auto mx-auto w-1/3" />
+    </div>
+    </button>
+    <div class="flex flex-col">
+      <p class="base-text text-center mt-2">Muchas gracias. Puedes seguir disfrutando de más contenidos y promociones.</p>
+      <button class="primary-btn text-center transition px-4 py-2 mb-4 mt-6" onclick="hideModal('#page-no-url-modal')">
+        <span>Aceptar</span>
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+<div id="page-code-modal" class="modal-dialog w-full hidden">
+  <div class="modal-bg fixed top-0 flex h-full w-full z-40">
+  <div class="modal-card modal-content-m card bg-white p-6 sm:p-8 m-auto z-50">
+    <button class="flex justify-start mt-4 mb-6" onclick="closeLoginModal()">
+      <i class="material-icons">
+        close
+      </i>
+    </button>
+    <form name="verification" class="flex flex-col">
+      <h1 class="text-xl text-center font-bold">Te hemos enviado un email</h1>
+      <div class="mt-2 text-center">
+        <span class="text-sm">Hemos enviado un email con un link de acceso y un código, revisa tu bandeja de email
+          y accede pulsando en el link del email o introduciendo tu código de acceso.</span>
+      </div>
+      <div class="w-full md:w-80 mx-auto items-center flex flex-col justify-center mb-8 p-4">
+        <input type="text" id="code" name="code" placeholder="código"
+          class="h-10 text-center border-2 border-gray-300 px-2">
+        <span class="px-4 py-2 bg-red-100 mt-4 text-sm hidden" id="error-span">El código es erróneo.</span>
+        <button type="submit" class="primary-btn text-center transition font-bold px-4 py-2 mb-4 mt-6 w-full">
+          <div class="loading-dots">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <span>Verificar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<div id="page-register-modal" class="modal-dialog w-full hidden">
+  <div class="modal-bg fixed top-0 flex h-full w-full z-40">
+  <div class="modal-card modal-content-full card bg-white pt-2 px-8 pb-8 m-auto z-50 flex flex-col">
+    <button class="flex justify-start my-4
+    " onclick="closeLoginModal()">
+      <i class="material-icons">
+        close
+      </i>
+    </button>
+    <div class="flex flex-col lg:flex-row flex-1 overflow-auto">
+      <div class="w-full lg:w-2/3 bg md:px-8 xl:px-20 lg:mr-10">
+        <h1 class="text-2xl xl:text-4xl text-center font-bold pt-20 lg:pt-40 xl:pt-56">Únete a</h1>
+        <img loading="lazy" class="h-auto mx-auto" src="/static/img/tuamc/logo_clubbin_amc.png" alt="clubbin" />
+        <h2 class="text-2xl mt-4 md: mt-0 lg:text-2xl xl:text-4xl text-center font-bold">y tendrás un sinfín de ventajas y promociones</h2>
+        <p class="base-text text-center pb-20 my-8 md:pt-10 md:my-0 lg:pb-0">Regístrate en el club de los canales de AMC Networks y tendrás acceso a más contenidos, estrenos exclusivos, recomendaciones, promociones, sorteos, viajes… y mucho más.</p>
+      </div>
+      <form name="registration" class="flex flex-col lg:pl-0 xl:pl-10">
+        <h1 class="text-xl text-center font-bold xl:mb-8">Te estás registrando en Clubbin</h1>
+        <div class="sm:flex">
+          <div class="flex flex-col flex-1">
+            <label for="name" class="mt-4 mb-2 font-bold">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Nombre" class="h-10 border-2 border-gray-300 px-2 sm:mr-2">
+          </div>
+          <div class="flex flex-col flex-1">
+            <label for="surname" class="mt-4 mb-2 font-bold">Apellidos</label>
+            <input type="text" id="surname" name="surname" placeholder="Apellidos" class="h-10 border-2 border-gray-300 px-2">
+          </div>
+        </div>
+        <div class="sm:flex">
+          <div class="flex flex-col flex-1">
+            <label for="postalcode" class="mt-4 mb-2 font-bold">CP</label>
+            <input type="text" id="postalcode" name="postalcode" placeholder="Código postal" class="h-10 border-2 border-gray-300 px-2 sm:mr-2" required>
+          </div>
+          <div class="flex flex-col flex-1">
+            <label for="mobile" class="mt-4 mb-2 font-bold">Móvil (opcional)</label>
+            <input type="text" id="mobile" name="mobile" placeholder="Móvil (opcional)" class="h-10 border-2 border-gray-300 px-2">
+          </div>
+        </div>
+        <!-- <label for="birthdate" class="mt-4 mb-2 font-bold">Fecha de nacimiento (opcional)</label>
+        <input id="birthdate" name="birthdate" placeholder="DD/MM/AAAA" type="date" class="h-10 border-2 border-gray-300 px-2"> -->
+  
+        <span class="font-bold my-4 xl:mt-8 -mb-4">Selecciona tu operador de televisión:</span>
+        <div class="flex flex-wrap platforms checkboxes mb-2"></div>
+        <div class="flex justify-center">
+          <label for="platforms" class="mt-4 mb-2 font-bold hidden">Platforms</label>
+          <input type="text" id="platforms" name="platforms" class="w-0" >
+        </div>
+  
+        <div class="flex flex-col checkboxes mt-2">
+          <div class="flex mb-4 lg:mb-2 xl:mb-4">
+            <div class="terms-checkbox cursor-pointer" onclick="selectCheckBox('terms')">
+              <i class="checkbox_not_checked material-icons mr-5">
+                check_box_outline_blank
+              </i>
+              <i class="checkbox_checked material-icons mr-5">
+                check_box
+              </i>
+            </div>
+            <p>Soy mayor de edad y acepto los <a target="_blank" class="font-bold"
+                href="https://amcn.club/terminos-y-condiciones-club">Términos y Condiciones del Club.</a> </p>
+          </div>
+          <div class="flex mb-4 lg:mb-2 xl:mb-4">
+            <div class="privacy-checkbox cursor-pointer" onclick="selectCheckBox('privacy')">
+              <i class="checkbox_not_checked material-icons mr-5">
+                check_box_outline_blank
+              </i>
+              <i class="checkbox_checked material-icons mr-5">
+                check_box
+              </i>
+            </div>
+            <p>Acepto la <a target="_blank" class="font-bold" href="https://amcnetworks.es/politica-de-privacidad/">
+                Política de Privacidad </a> y recibir comunicaciones del Club.</p>
+          </div>
+          <div class="flex mb-4 lg:mb-2 xl:mb-4">
+            <div class="publicity-checkbox cursor-pointer" onclick="selectCheckBox('publicity')">
+              <i class="checkbox_not_checked material-icons mr-5">
+                check_box_outline_blank
+              </i>
+              <i class="checkbox_checked material-icons mr-5">
+                check_box
+              </i>
+            </div>
+            <p>Acepto recibir publicidad (opcional).</p>
+          </div>
+        </div>
+  
+        <span class="px-4 py-2 bg-red-100 mt-4 text-sm hidden" id="error-span">Algo ha salido mal... prueba de nuevo más tarde.</span>
+        <button type="submit"
+          class="submitBtn primary-btn transition-in-out-8 px-4 py-2 mb-4 mt-2 disabled"
+          disabled>
+          <div class="loading-dots">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <span>Registrarse</span>
+        </button>
+      </form>
+    </div>
+    
+  </div>
+</div>
+</div>
+<div id="page-clubbin-register-modal" class="modal-dialog w-full hidden">
+  <div class="modal-bg fixed top-0 flex h-full w-full z-40">
+  <div class="modal-card modal-content-l card bg-white p-6 sm:p-8 m-auto z-50 flex flex-col">
+    <button class="flex justify-start mt-4 mb-2" onclick="closeLoginModal()">
+      <i class="material-icons">
+        close
+      </i>
+    </button>
+    <div class="flex-1 overflow-y-scroll w-full">
+      <div class="w-full bg px-8 md:px-10">
+        <h1 class="text-2xl md:text-3xl text-center font-bold pt-10 lg:pt-20">Únete a</h1>
+        <img loading="lazy" class="h-auto mx-auto" src="/static/img/tuamc/logo_clubbin_amc.png" alt="clubbin" />
+        <h2 class="text-2xl mt-4 md: mt-0 md:text-3xl text-center font-bold">y tendrás un sinfín de ventajas y promociones</h2>
+        <p class="base-text text-center my-4 md:pt-10 md:my-0 md:pb-10">¡Déjanos tus datos! Regístrate en clubbin y disfrutarás gratis de programas de nuestros canales, contenido premium, concursos y ventajas.
+      </p>
+      </div>
+      <form name="clubbinRegistration" class="flex flex-col">
+        <div class="flex flex-col checkboxes">
+          <div class="flex mb-4">
+            <div class="terms-checkbox cursor-pointer" onclick="selectCheckBox('terms')">
+              <i class="checkbox_not_checked material-icons mr-5">
+                check_box_outline_blank
+              </i>
+              <i class="checkbox_checked material-icons mr-5">
+                check_box
+              </i>
+            </div>
+            <p>Soy mayor de edad y acepto los <a target="_blank" class="font-bold"
+                href="https://amcn.club/terminos-y-condiciones-club">Términos y Condiciones del Club.</a> </p>
+          </div>
+          <div class="flex mb-4">
+            <div class="privacy-checkbox cursor-pointer" onclick="selectCheckBox('privacy')">
+              <i class="checkbox_not_checked material-icons mr-5">
+                check_box_outline_blank
+              </i>
+              <i class="checkbox_checked material-icons mr-5">
+                check_box
+              </i>
+            </div>
+            <p>Acepto la <a target="_blank" class="font-bold" href="https://amcnetworks.es/politica-de-privacidad/">
+                Política de Privacidad </a> y recibir comunicaciones del Club.</p>
+          </div>
+          <div class="flex mb-4">
+            <div class="publicity-checkbox cursor-pointer" onclick="selectCheckBox('publicity')">
+              <i class="checkbox_not_checked material-icons mr-5">
+                check_box_outline_blank
+              </i>
+              <i class="checkbox_checked material-icons mr-5">
+                check_box
+              </i>
+            </div>
+            <p>Acepto recibir publicidad (opcional).</p>
+          </div>
+        </div>
+  
+        <span class="px-4 py-2 bg-red-100 mt-4 text-sm hidden" id="error-span">Algo ha salido mal... prueba de nuevo más
+          tarde.</span>
+        <button type="submit"
+          class="submitBtn primary-btn transition-in-out-8 px-4 py-2 mb-4 mt-6 disabled"
+          disabled>
+          <div class="loading-dots">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <span>Registrarse</span>
+        </button>
+      </form>
+      <div>
+        <span class="text-sm text-gray-700 mb-4 text-center">Si deseas seguir utilizando Microcanales como hasta ahora, puedes seguir haciéndolo en <b><a title="Microcanales" target="_blank" href="https://microcanales.com/">Microcanales.com</a></b>.</span>
+      </div>
+    </div>
+    
+  </div>
+</div>
+</div>
+<div id="page-requalify-modal" class="modal-dialog w-full hidden">
+  <div class="modal-bg fixed top-0 flex h-full w-full z-40">
+  <div class="modal-card modal-content-m card bg-white p-6 sm:p-8 m-auto z-50 flex flex-col">
+    <button class="flex justify-start mt-4 mb-6" onclick="closeRequalifyModal()">
+      <i class="material-icons">
+        close
+      </i>
+    </button>
+    <div class="flex flex-col flex-1 overflow-y-scroll overflow-container w-full">
+      <form name="requalify" class="flex flex-col">
+        <h1 class="text-xl text-center font-bold">Completa tu perfil</h1>
+        <p id='descriptionText' class="base-text text-center">Completa la información de tu perfil y accede a estas y muchas más ventajas.</p>
+        <div id="requalify_name" class="flex">
+          <div class="flex flex-col flex-1">
+            <label for="name" class="mt-4 mb-2 font-bold">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Nombre" class="h-10 border-2 border-gray-300 px-2 sm:mr-2">
+          </div>
+        </div>
+        <div id="requalify_surname" class="flex">
+          <div class="flex flex-col flex-1">
+            <label for="surname" class="mt-4 mb-2 font-bold">Apellidos</label>
+            <input type="text" id="surname" name="surname" placeholder="Apellidos" class="h-10 border-2 border-gray-300 px-2">
+          </div>
+        </div>
+        
+        <div id="requalify_country" class="flex">
+          <div class="flex flex-col flex-1">
+            <label for="country" class="mt-4 mb-2 font-bold">País</label>
+            <select id="country" name="country" class="h-10 border-2 border-gray-300 px-2">
+              <option value="1" selected>España</option>
+            </select>
+          </div>
+        </div>
+        <div id="requalify_province" class="flex">
+          <div class="flex flex-col flex-1">
+            <label for="province" class="mt-4 mb-2 font-bold">Provincia</label>
+            <select id="province" name="province" class="h-10 border-2 border-gray-300 px-2"></select>
+          </div>
+        </div>
+        <div id="requalify_city" class="flex">
+          <div class="flex flex-col flex-1">
+            <label for="city" class="mt-4 mb-2 font-bold">Municipio</label>
+            <select id="city" name="city" class="h-10 border-2 border-gray-300 px-2"></select>
+          </div>
+        </div>
+        <div id="requalify_pc" class="flex">
+          <div class="flex flex-col flex-1">
+            <label for="pc" class="mt-4 mb-2 font-bold">Código Postal</label>
+            <input type="text" id="pc" name="pc" placeholder="Código Postal" class="h-10 border-2 border-gray-300 px-2">
+          </div>
+        </div>
+        <div id="requalify_street" class="flex">
+          <div class="flex flex-col flex-1">
+            <label for="street" class="mt-4 mb-2 font-bold">Domicilio</label>
+            <input type="text" id="street" name="street" placeholder="Calle" class="h-10 border-2 border-gray-300 px-2">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div id="requalify_number" class="mt-4 mb-2">
+            <label for="number" class="font-bold">Número</label>
+            <input type="text" id="number" name="number" placeholder="Número" class="h-10 border-2 border-gray-300 px-2 w-full">
+          </div>
+          <div id="requalify_block" class="mt-4 mb-2">
+            <label for="block" class="font-bold">Bloque</label>
+            <input type="text" id="block" name="block" placeholder="Bloque" class="h-10 border-2 border-gray-300 px-2 w-full">
+          </div>
+          <div id="requalify_stair" class="mt-4 mb-2">
+            <label for="stair" class="font-bold">Escalera</label>
+            <input type="text" id="stair" name="stair" placeholder="Escalera" class="h-10 border-2 border-gray-300 px-2 w-full">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div id="requalify_floor" class="mt-4 mb-2">
+            <label for="floor" class="font-bold">Piso</label>
+            <input type="text" id="floor" name="floor" placeholder="Piso" class="h-10 border-2 border-gray-300 px-2 w-full">
+          </div>
+          <div id="requalify_letter" class="mt-4 mb-2">
+            <label for="letter" class="font-bold">Letra</label>
+            <input type="text" id="letter" name="letter" placeholder="Letra" class="h-10 border-2 border-gray-300 px-2 w-full">
+          </div>
+        </div>
+        
+        <div id="requalify_postalcode" class="flex">
+          <div class="flex flex-col flex-1">
+            <label for="postalcode" class="mt-4 mb-2 font-bold">CP</label>
+            <input type="text" id="postalcode" name="postalcode" placeholder="Código postal" class="h-10 border-2 border-gray-300 px-2 sm:mr-2" required>
+          </div>
+        </div>
+        <div id="requalify_address" class="flex">
+          <div class="flex flex-col flex-1">
+            <label for="address" class="mt-4 mb-2 font-bold">Dirección</label>
+            <input type="text" id="address" name="address" placeholder="Dirección" class="h-10 border-2 border-gray-300 px-2 sm:mr-2" required>
+          </div>
+        </div>
+        <div id="requalify_mobile" class="flex">
+          <div class="flex flex-col flex-1">
+            <label for="mobile" class="mt-4 mb-2 font-bold">Móvil</label>
+            <input type="text" id="mobile" name="mobile" placeholder="Móvil" class="h-10 border-2 border-gray-300 px-2">
+          </div>
+        </div>
+        <div id="requalify_birthdate" class="flex">
+          <div class="flex flex-col flex-1">
+            <label for="birthdate" class="mt-4 mb-2 font-bold">Fecha de nacimiento</label>
+            <input id="birthdate" name="birthdate" placeholder="DD/MM/AAAA" type="date" class="h-10 border-2 border-gray-300 px-2">
+          </div>
+          <!-- <div class="flex items-center">
+            <select class="flex-1 h-10 p-2 mr-2 border-2 border-gray-300" id="birthday">
+              <option disabled selected value> <span class="text-gray-700"> Día </span></option>
+            </select>
+            <select class="flex-1 h-10 p-2 mr-2 border-2 border-gray-300" id="birthmonth">
+              <option disabled selected value><span class="text-gray-700"> Mes</span></option>
+              <option value="01">Enero</option>
+              <option value="02">Febrero</option>
+              <option value="03">Marzo</option>
+              <option value="04">Abril</option>
+              <option value="05">Mayo</option>
+              <option value="06">Junio</option>
+              <option value="07">Julio</option>
+              <option value="08">Agosto</option>
+              <option value="09">Septiembre</option>
+              <option value="10">Octubre</option>
+              <option value="11">Noviembre</option>
+              <option value="12">Diciembre</option>
+            </select>
+            <select class="flex-1 p-2 h-10 border-2 border-gray-300" id="birthage">
+              <option disabled selected value><span class="text-gray-700"> Año</span></option>
+            </select>
+          </div> -->
+        </div>
+    
+        <div id="requalify_platform" class="flex flex-wrap platforms checkboxes mb-2">
+        </div>
+        <div>
+          <label for="requalify_platforms" class="mt-4 mb-2 font-bold hidden">Platforms</label>
+          <input type="text" id="requalify_platforms" name="requalify_platforms" class="w-0" >
+        </div>
+
+  
+        <span class="px-4 py-2 bg-red-100 mt-4 text-sm hidden" id="error-span">Algo ha salido mal... prueba de nuevo más tarde.</span>
+        <button type="submit"
+          class="submitBtn primary-btn transition-in-out-8 px-4 py-2 mb-4 mt-8">
+          <div class="loading-dots">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <span>Guardar</span>
+        </button>
+      </form>
+    </div>
+    
+  </div>
+</div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/static/js/modalLogin.js"></script>
+
+
+  <!-- Adform Tracking Code BEGIN -->
+  <script type="text/javascript">
+    window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
+  
+    window._adftrack.push({
+        HttpHost: 'track.adform.net',
+        pm: 1661778,
+        divider: encodeURIComponent('|'),
+        pagename: encodeURIComponent('canal-cocina-tests_t4-test-2')
+    });
+  
+    (function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://s2.adform.net/banners/scripts/st/trackpoint-async.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
+
+  </script>
+  <noscript>
+    <p style="margin:0;padding:0;border:0;">
+    
+      <img src="https://track.adform.net/Serving/TrackPoint/?pm=1661778&ADFPageName=canal-cocina-tests_t4-test-2&ADFdivider=|" width="1" height="1" alt="" />
+    
+    </p>
+  </noscript>
+  <!-- Adform Tracking Code END -->
+  
+
+    <script src="/static/js/test.js"></script>
+    <script>
+      initializeWithTest('{"slug":"t4-test-2","name":"Test 2","title":"Confort Christmas","description":"Demuestra lo que has aprendido sobre el tema - Confort Christmas - del curso Canal Cocina superando este test.","image":"https://tuamc.tv/actualidad/wp-content/uploads/2021/12/BodegonConfortChristmas-480x270.jpg","questionsJson":"temp4/test2_confortchristmas.json","date":"2021-12-14","questions":[{"number":"PREGUNTA 1","title":"¿Cómo se forma una popieta de pescado?","responses":["Cortando el filete en tiras","Enrollando el filete","Cortando el filete en cubos y superponiédolos"],"correctIndex":1,"correctText":""},{"number":"PREGUNTA 2","title":"El roast beef se elabora con","responses":["Carne de ternera","Carne de cerdo","Ambas son correctas"],"correctIndex":0,"correctText":""},{"number":"PREGUNTA 3","title":"El pastel escocés de pescado tiene una base de","responses":["Masa de hojaldre","Puré de patata","Masa brisa"],"correctIndex":1,"correctText":""},{"number":"PREGUNTA 4","title":"Las tradicionales galletas de Navidad son de","responses":["Chocolate","Mantequilla","Jengibre y canela"],"correctIndex":2,"correctText":""}]}', 4)
+    </script>
+    <div id="no-user-modal" class="modal-dialog w-full hidden">
+      <div class="modal-bg fixed top-0 flex h-full w-full z-1">
+        <div class="modal-card modal-content-m card bg-white p-6 sm:p-8 m-auto z-50">
+          <div class="flex justify-start mt-4 mb-6">
+            <a class="text-xs font-bold mr-4 flex items-center" href="https://actualidad.tuamc.tv/escuela-canal-cocina/indice/">
+              <i class="material-icons -ml-2">
+                chevron_left
+              </i>
+              VOLVER AL CURSO
+            </a>
+          </div>
+          <p class="mb-4">Para realizar el test Canal Cocina inicia sesión en clubbin.</p>
+          <div class="flex items-center justify-end truncate">
+            <a class="mr-2 truncate flex items-center white-btn shadow px-2 px-sm-4 py-2 my-2 cursor-pointer" onclick="showLoginModal()">
+              <i class="material-icons">
+                account_circle
+              </i>
+              <span class="ml-2 flex">Identifícate</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script>(function(){var js = "window['__CF$cv$params']={r:'7376760bcbfc8256',m:'V9ZOALlskZNVHBmiLjhpO4sNKVJMu_FGSSSmwf4Hhnc-1659942929-0-AX3tUp27fFchtT0+KZbPVlxILK+WUhXRA+cCqy+osynPxbEPQgSoH+Pf5gjsnJZvk3gtAuH9W5EvFahHro/HQET+E4hcblTZBjC1VrsANHRmAU746JnZCVd2dDlL5o7AFqXtGt80dtq9RFXbZzK8ZeeaUu0j2oMQd/qnVGHlnBdi',s:[0xdec5d4e7e0,0x4a8522c43a],u:'/cdn-cgi/challenge-platform/h/g'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/h/g/scripts/alpha/invisible.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</html>

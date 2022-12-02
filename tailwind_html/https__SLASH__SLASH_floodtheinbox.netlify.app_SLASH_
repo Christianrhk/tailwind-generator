@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Flood the Inbox • Create an email link to share mass email campaigns
+    </title>
+    <meta
+      name="description"
+      content="Create a magic link to share mass email campaigns"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      property="og:title"
+      content="Flood the Inbox • Create a magic link to share mass email campaigns"
+    />
+    <meta
+      property="og:description"
+      content="Easily create a magic link to share mass email campaigns"
+    />
+    <meta
+      property="og:image"
+      content="https://floodtheinbox.netlify.app/images/card-image.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
+
+  <body
+    x-data="{ 
+        senderValue: new URLSearchParams(location.search).get('sender') || '', 
+        subjectValue: new URLSearchParams(location.search).get('subject') || '', 
+        bodyValue: new URLSearchParams(location.search).get('body') || ''
+      }"
+    class="box-border bg-gray-900 h-screen flex flex-col items-center"
+  >
+    <header id="hero" class="py-10">
+      <h1 class="text-5xl lg:text-6xl text-center text-gray-100 font-extrabold">
+        Flood the Inbox
+      </h1>
+      <h3 class="font-medium text-gray-200 text-center">
+        Easily create a magic link to share mass email campaigns
+      </h3>
+    </header>
+    <main class="lg:w-9/12 w-full px-4 lg:px-0">
+      <form class="flex flex-col shadow-xl">
+        <div class="bg-indigo-900 h-8 rounded-t-md flex items-center">
+          <span
+            class="text-gray-100 text-xs font-light pl-2"
+            x-text="[subjectValue || 'Enter your email campaign here ↓']"
+          >
+          </span>
+        </div>
+
+        <div
+          class="bg-gray-100 flex items-center border-b border-gray-300 border-solid border-opacity-100"
+        >
+          <label for="sender" class="text-sm text-gray-700 m-0 p-2">To</label>
+          <textarea
+            id="sender"
+            placeholder="mayor.helpdesk@your-city.org, councilmember.name@your-city.org, councilmember.othername@your-city.org..."
+            class="text-sm placeholder-gray-600 bg-gray-100 border-opacity-0 p-1 pl-0 w-full h-8 flex-no-wrap resize-y"
+            type="email"
+            x-bind:value="senderValue"
+            x-model="senderValue"
+          >
+          </textarea>
+        </div>
+
+        <div
+          class="bg-gray-100 flex items-center border-b border-gray-300 border-solid border-opacity-100"
+        >
+          <label for="subject" class="text-sm text-gray-700 m-0 p-2"
+            >Subject</label
+          >
+          <input
+            id="subject"
+            class="text-sm placeholder-gray-600 bg-gray-100 border-opacity-0 p-1 pl-0 w-full h-8 flex-no-wrap resize-y"
+            placeholder="DEFUND THE POLICE NOW!"
+            type="text"
+            x-bind:value="subjectValue"
+            x-model="subjectValue"
+          />
+        </div>
+
+        <div
+          class="bg-gray-100 flex flex-col lg:flex-row items-start border-b border-gray-300 border-solid border-opacity-100"
+        >
+          <label for="body" class="text-sm text-gray-700 m-0 p-2 w-auto"
+            >Body</label
+          >
+          <textarea
+            id="body"
+            class="text-sm placeholder-gray-600 bg-gray-100 border-opacity-0 p-2 w-full h-40 flex-no-wrap resize-y"
+            type="text"
+            placeholder="[This is a placeholder, enter your text here]
+            
+I am a resident of [YOUR DISTRICT]. I am writing to demand that the City Council adopt a People’s Budget that prioritizes community wellbeing and redirects funding away from the police.
+
+We are in the midst of widespread upheaval over the systemic violence of policing, embodied by the police department’s well documented history of murdering Black people. We will no longer accept empty gestures and suggestions of “reform”..."
+            x-bind:value="bodyValue"
+            x-model="bodyValue"
+          >
+          </textarea>
+        </div>
+        <div class="bg-gray-700 opacity-60 p-2">
+          <input
+            class="text-xs bg-transparent text-gray-200 font-semi-bold outline-none w-full block"
+            id="mailto"
+            x-bind:class="{ 'opacity-0': !bodyValue && !senderValue && !subjectValue }"
+            x-bind:value="`mailto:${senderValue}?subject=${subjectValue}&body=${bodyValue}`"
+            type="text"
+          />
+        </div>
+      </form>
+
+      <section
+        id="buttons"
+        class="flex flex-col mt-1 justify-center items-center"
+      >
+        <div class="flex flex-col sm:flex-row mt-1 justify-center">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-semi-bold text-lg mx-1 my-3 py-3 px-5 rounded"
+            x-bind:disabled="!bodyValue && !senderValue && !subjectValue"
+            x-bind:class="{ 'opacity-50 cursor-not-allowed': !bodyValue && !senderValue && !subjectValue }"
+            id="copy"
+          >
+            Copy email link 🔗
+          </button>
+          <form
+            action="https://tinyurl.com/create.php"
+            method="post"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <input
+              type="text"
+              name="url"
+              class="hidden"
+              x-bind:value="`mailto:${senderValue}?subject=${subjectValue}&body=${bodyValue}`"
+            />
+            <input
+              type="submit"
+              name="submit"
+              x-bind:disabled="!bodyValue && !senderValue && !subjectValue"
+              class="bg-purple-500 hover:bg-purple-700 cursor-pointer text-white font-semi-bold text-lg mx-1 my-3 py-3 px-5 rounded"
+              x-bind:class="{ 'opacity-50 cursor-not-allowed': !bodyValue && !senderValue && !subjectValue }"
+              value="Shorten email link 🐣🔗"
+            />
+          </form>
+        </div>
+        <a
+          class="mt-4 flex flex-col items-center"
+          x-bind:class="{ 'opacity-25 pointer-events-none': !bodyValue && !senderValue && !subjectValue }"
+          x-bind:href="`?sender=${senderValue}&subject=${subjectValue}&body=${bodyValue}`"
+        >
+          <span class="text-lg text-gray-100 font-semi-bold">
+            Email link not working correctly?
+          </span>
+          <span class="text-center text-sm text-gray-100 max-w-xl">
+            Send <span class="inline underline">the link to this page</span> so
+            others can copy and paste the recipients, subject and body
+          </span>
+        </a>
+      </section>
+    </main>
+    <aside
+      id="info"
+      class="flex flex-col justify-center items-center my-12 px-8 lg:px-0"
+    >
+      <h3 class="text-xl font-bold text-gray-200 mb-8">#blacklivesmatter</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:max-w-2xl">
+        <a
+          href="https://signatures.carrd.co"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h4 class="text-lg text-gray-200 underline">
+            Sign Petitions
+          </h4>
+          <p class="mt-1 text-xs md:text-sm text-gray-500 font-medium">
+            https://signatures.carrd.co
+          </p>
+        </a>
+        <a
+          href="https://blacklivesmatters.carrd.co/#donate"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h4 class="text-lg text-gray-200 underline">Donate</h4>
+          <p class="mt-1 text-xs md:text-sm text-gray-500 font-medium">
+            https://blacklivesmatters.carrd.co/#donate
+          </p>
+        </a>
+        <a
+          <a
+          href="tinyurl.com/BLMFOREVER"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h4 class="text-lg text-gray-200 underline">BLM Forever</h4>
+          <p class="mt-1 text-xs md:text-sm text-gray-500 font-medium">
+            Google Doc with multiple resources and petitions
+          </p>
+        </a>
+        <a
+          href="https://blacklivesmatters.carrd.co"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h4 class="text-lg text-gray-200 underline">Ways you can Help</h4>
+          <p class="mt-1 text-xs md:text-sm text-gray-500 font-medium">
+            https://blacklivesmatters.carrd.co
+          </p>
+        </a>
+        <a
+          href="https://defund12.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h4 class="text-lg text-gray-200 underline">defund12.org</h4>
+          <p class="mt-1 text-xs md:text-sm text-gray-500 font-medium">
+            Contact your representatives to pressure them into defunding police
+          </p>
+        </a>
+
+        <a
+          href="http://bit.ly/JusticeEmails"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h4 class="text-lg text-gray-200 underline">Justice Emails</h4>
+          <p class="mt-1 text-xs md:text-sm text-gray-500 font-medium">
+            Complete list of email campaigns
+          </p>
+        </a>
+      </div>
+    </aside>
+    <footer
+      class="bg-gray-800 w-full h-40 p-2 text-gray-500 text-xs text-gray-500 font-medium text-center"
+    >
+      This website does not track any data •
+      <a
+        class="underline text-purple-300"
+        href="https://forms.gle/TR4W1DeU9ZpHeVgD8"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Feedback</a
+      >
+      •
+      <a
+        class="underline text-purple-300"
+        href="https://github.com/dfosco/floodtheinbox"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Github</a
+      >
+    </footer>
+    <script>
+      function copy() {
+        var copyText = document.querySelector("#mailto");
+        copyText.select();
+        document.execCommand("copy");
+      }
+
+      document.querySelector("#copy").addEventListener("click", copy);
+    </script>
+  </body>
+</html>

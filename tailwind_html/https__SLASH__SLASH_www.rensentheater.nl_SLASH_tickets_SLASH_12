@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- test -->
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rensentheater Emmen - Kleinschalig Theater in de oude dierentuin</title>
+        <!-- Favicon -->
+        <link href="img/favicon-2.png" rel="icon">
+        <!-- script -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/248b231374.js" crossorigin="anonymous"></script>
+        <!-- styles -->
+        <link type="text/css" rel="stylesheet" href="https://www.rensentheater.nl/css/style.css">
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPoppins:400,500,700,800,900%7CRoboto:100,300,400,400i,500,700">
+            </head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            <!-- Page Heading -->
+            <header class="flex items-center justify-between flex-wrap fixed w-full z-10 top-0">
+
+                <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+                    <div x-data="{ open: false, showTickets: false, mobileOpen: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+
+                        <div class="p-4 flex flex-row items-center justify-between">
+                            <a href="https://www.rensentheater.nl">
+                                <img class="block lg:hidden h-12 w-auto" src="https://www.rensentheater.nl/img/RT_logo.svg" alt="RensenTheater">
+                                <img class="pl-20  hidden lg:block h-12 w-auto" src="https://www.rensentheater.nl/img/RT_logo.svg" alt="RensenTheater">
+                            </a>
+                            <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="mobileOpen = !mobileOpen">
+                                <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                                    <path x-show="!mobileOpen" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                                    <path x-show="mobileOpen" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <nav class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+
+                                                            <a class="inline-block text-black no-underline hover:text-gray-200 hover:bg-gray-700 hover:text-white rounded-md py-2 px-4 nav-font" href="https://www.rensentheater.nl/#programma" >Programma</a>
+                            
+                           <a class="inline-block text-black no-underline hover:text-gray-200 hover:bg-gray-700 hover:text-white rounded-md py-2 px-4 nav-font" href="https://ticket.eventree.nl/nl/shop/wedlhelwpntew8e205g1suqbc60vpfbhhr7lcslu" >Tickets</a>
+
+
+                            <a class="inline-block text-black no-underline hover:text-gray-200 hover:bg-gray-700 hover:text-white rounded-md py-2 px-4 nav-font" href="https://www.rensentheater.nl/nieuws">Nieuws</a>
+
+                                                            <a class="inline-block text-black no-underline hover:text-gray-200 hover:bg-gray-700 hover:text-white rounded-md py-2 px-4 nav-font" href="https://www.rensentheater.nl/#over">Over</a>
+                            
+                            <a class="inline-block text-black no-underline hover:text-gray-200 hover:bg-gray-700 hover:text-white rounded-md py-2 px-4 nav-font" href="https://www.rensentheater.nl/contact">Contact</a>
+                        </nav>
+
+                        <nav x-show="mobileOpen" class="flex-col flex-grow pb-4 md:pb-0 lg:hidden md:flex md:justify-end md:flex-row">
+
+                                                            <a class="block text-black no-underline hover:text-gray-200 hover:bg-gray-700 hover:text-white rounded-md py-2 px-4 nav-font" href="https://www.rensentheater.nl/#programma" >Programma</a>
+                            
+                            <div class="relative">
+                                <div>
+                                    <a href="https://ticket.eventree.nl/nl/shop/wedlhelwpntew8e205g1suqbc60vpfbhhr7lcslu" class="flex flex-row items-center w-full inline-block text-black no-underline hover:text-gray-200 hover:bg-gray-700 hover:text-white rounded-md py-2 px-4 nav-font">
+                                        <span>Tickets</span>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <a class="block text-black no-underline hover:text-gray-200 hover:bg-gray-700 hover:text-white rounded-md py-2 px-4 nav-font" href="https://www.rensentheater.nl/contact">Contact</a>
+                        </nav>
+
+                    </div>
+                </div>
+
+            </header>
+
+            <!-- Page Content -->
+            <main>
+                    <div>
+        <!-- banner -->
+        <div class="banner-img bg-center mb-32">
+            <div class="text-center mx-12 md:mx-28 lg:mx-32 xl:mx-52">
+                <h1 class="py-44 text-4xl xl:text-5xl leading-relaxed xl:leading-relaxed text-white">
+                    Ticketverkoop: December
+                </h1>
+            </div>
+        </div>
+
+        <!-- contact -->
+        <div id="contact" class="mx-12 md:mx-28 lg:mx-32 xl:mx-52 mb-32 ">
+
+            <div class="mb-12">
+                <h3 class="text-xl md:text-2xl text-yellow-500 mb-2 md:mb-5">Koop hier je tickets voor de maand</h3>
+                <h2 class="text-4xl md:text-5xl">December</h2>
+            </div>
+            <div id="shop-iframe-12"></div>
+<script type="text/javascript">
+    var Eventics = {};
+    Eventics.Application = {
+        containerId: "shop-iframe-12",
+        channel: "tx4uyoakrrwi7to5aelfhmyxruvncu9sgzfh8wjz",
+        width: "auto",
+        height: "950"
+    };
+</script>
+<script type="text/javascript" src="https://www.eventree.nl/iframe/js/embed.js"></script>
+
+        </div>
+
+        <div class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 text-dark text-center">
+
+        <span class="block uppercase font-medium text-xl text-yellow-500">Meer weten?</span>
+
+        <h2 class="block uppercase font-extrabold text-5xl my-8">Neem  <span class="text-yellow-500">gerust</span> contact met ons op</h2>
+
+        <a href="https://www.rensentheater.nl/contact" class="px-8 py-4 bg-yellow-500 text-white uppercase tracking-wider rounded-full hover:opacity-75 focus:outline-none">
+            Contact        </a>
+    </div>
+
+</div>
+    </div>
+            </main>
+        </div>
+
+    </body>
+    <!-- Footer start -->
+    <footer class="footer">
+        <div class="bg-current py-16">
+            <div class="mx-12 md:mx-28 lg:mx-32 xl:mx-52 grid md:grid-cols-2 flex items-center">
+                <div class="">
+                    <h1 class="text-2xl text-white mb-4 md:mb-0"><a href="#">Rensen Theater <br> Emmen</a></h1>
+                </div>
+                <div class="md:text-right text-white">
+                                            <a class="pr-6 hover:opacity-75" href="https://www.rensentheater.nl/#programma">Programma</a>
+                        <a class="pr-6 hover:opacity-75" href="https://www.rensentheater.nl/#tickets">Tickets</a>
+                        <a class="pr-6 hover:opacity-75" href="https://www.rensentheater.nl/#over">Over</a>
+                        <a class="pr-6 hover:opacity-75" href="https://www.rensentheater.nl/contact">Contact</a>
+                                    </div>
+                <div class="flex my-2">
+                    <a href="https://www.facebook.com/rensentheater/"><i style="background-color: #3B5998;" class="flex items-center justify-center h-12 w-12 mx-1 rounded-full fab fill-current text-white text-xl fab fa-facebook-f"></i></a>
+                    <a href="mailto:info@rensentheater.nl"><i style="background-color: #dd4b39;" class="flex items-center justify-center h-12 w-12 mx-1 rounded-full fas fill-current text-white text-xl fab fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/rensentheater_emmen/"><i style="background-color:#125688;" class="flex items-center justify-center h-12 w-12 mx-1 rounded-full fab fill-current text-white text-xl fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-current">
+            <div class="mx-auto px-4 sm:px-6 md:flex items-center justify-between py-4">
+                <div class="md:flex">
+                    <span class="block text-white text-sm pl-24 mb-2 md:mb-0">© 2022, RensenTheater Emmen</span>
+                </div>
+                <div class="text-sm text-white inline-block pr-24">
+                    <a href="https://www.dynalogical.nl" target="_blank" class="inline-block"><img class="h-4" src="https://www.rensentheater.nl/img/logo_white-2.png"></a></a>
+                </div>
+            </div>
+
+        </div>
+
+        <script>jQuery('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(t){if(location.pathname.replace(/^\//,"")==this.pathname.replace(/^\//,"")&&location.hostname==this.hostname){var e=jQuery(this.hash);(e=e.length?e:jQuery("[name="+this.hash.slice(1)+"]")).length&&(t.preventDefault(),jQuery("html, body").animate({scrollTop:e.offset().top},700))}});</script><script type="text/javascript" id="ct-footer-js"></script>
+    </footer>
+</html>

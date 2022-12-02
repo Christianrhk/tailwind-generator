@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Register - PieSocket Realtime</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <!-- † -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="39nJvmnNCzEbQEG4rB7hNL7hapkqTgUK3PzRz1DY">
+    <meta name="url" content="https://www.piesocket.com">
+    <meta name="docsearch:version" content="3.0" />
+
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+
+    
+    
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+
+            <meta name="description"
+            content="Managed WebSocket Server API, pub-sub and scalable biredetional communication solutions">
+    
+    <!-- Styles -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <link href="/css/websocket.css" rel="stylesheet">
+    
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KCPHTW3');
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body class="register">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCPHTW3" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="app" data-sticky-wrap>
+        <div class="bg-gray-50">
+            <div class="relative overflow-hidden">               
+                <div class="relative pt-6 pb-4">
+                    <div>
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                            <nav class="relative flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
+    <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
+        <div class="flex items-center justify-between w-full md:w-auto">
+            <a href="/">
+                <span class="sr-only">PieSocket</span>
+                <img class="h-8 w-auto sm:h-10" src="/img/piesocket-text.png" alt="PieSocket">
+            </a>
+            <div class="-mr-2 flex items-center md:hidden">
+                <button @click="showNav=!showNav" type="button"
+                    class="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <!-- Heroicon name: outline/menu -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="hidden md:flex mt-4 md:space-x-10">
+
+        <div>
+            <a v-on:clickout="showMoreMenu=false" @click="showMoreMenu=!showMoreMenu"
+                class="text-gray-500 cursor-pointer group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                aria-expanded="false">
+                <span>Products</span>
+                <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </a>
+            <div v-cloak v-if="showMoreMenu" class="v-cloak absolute mt-4 z-10 left-1/3 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <a href="/channels" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Channels
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                PubSub SDK For Web
+                            </p>
+                        </a>
+                        <a href="/portals" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Portals
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                WebRTC SDK For Web
+                            </p>
+                        </a>                        
+                        <a href="/docs/3.0/websocket-api" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                WebSocket API
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500"> 
+                                WebSocket API for Web, Mobile and IoT
+                            </p>
+                        </a>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <a href="/pricing" class="font-medium text-gray-500 hover:text-gray-900">Pricing</a>
+
+        
+        <div>
+            <a v-on:clickout="showCompareNav=false" @click="showCompareNav=!showCompareNav"
+                class="text-gray-500 cursor-pointer group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                aria-expanded="false">
+                <span>Why us</span>
+                <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </a>
+            <div v-cloak v-if="showCompareNav" class="v-cloak absolute mt-4 z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <a href="/pusher-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                PieSocket vs Pusher
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Compare PieSocket and Pusher
+                            </p>
+                        </a>
+
+                        <a href="/ably-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                PieSocket vs Ably
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Compare PieSocket and Ably
+                            </p>
+                        </a>
+
+                        <a href="/socketio-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Buy vs Build
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                PieSocket or In-house solution?
+                            </p>
+                        </a>
+
+                        <a href="/realtime-blockchain" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Realtime Blockchain
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                Send signed messages over blockchain.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <a v-on:clickout="showResourcesNav=false" @click="showResourcesNav=!showResourcesNav"
+                class="text-gray-500 cursor-pointer group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                aria-expanded="false">
+                <span>Tools</span>
+                <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </a>
+            <div v-cloak v-if="showResourcesNav" class="v-cloak absolute mt-4 z-10 left-2/3 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <a href="/websocket-tester" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                WebSocket Tester
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Test WebSocket Servers Online.
+                            </p>
+                        </a>
+
+                        <a href="/socketio-tester" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Socket.IO Tester
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Test Socket.IO Servers Online
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="/blog" class="font-medium text-gray-500 hover:text-gray-900">Blog</a>
+
+        <a href="/docs" class="font-medium text-gray-500 hover:text-gray-900">Docs</a>
+    </div>
+
+    <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
+                    <span class="inline-flex rounded-md shadow">
+                <a href="/login"
+                    class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500">
+                    Log in
+                </a>
+            </span>
+            <span class="inline-flex ml-4 rounded-md shadow ">
+                <a href="/pricing"
+                    class="bg-indigo-600 hover:bg-indigo-700 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white">
+                    Get Started
+                </a>
+            </span>
+            </div>
+</nav>
+                        </div>
+                        <div v-cloak  v-if="showNav" class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+    <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+        <div class="px-5 pt-4 flex items-center justify-between">
+            <div>
+                <a href="/"><img class="h-8 w-auto" src="/img/piesocket-text.png" alt="PieSocket"></a>
+            </div>
+            <div class="-mr-2">
+                <button @click="showNav=!showNav" type="button"
+                    class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <span class="sr-only">Close main menu</span>
+                    <!-- Heroicon name: outline/x -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <div class="v-cloak ml-3">
+                <a v-on:clickout="showMoreMenu=false" @click="showMoreMenu=!showMoreMenu"
+                    class="text-gray-700 cursor-pointer group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    aria-expanded="false">
+                    <span>Products</span>
+                    <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <div v-cloak v-if="showMoreMenu" class="v-cloak absolute mt-4 z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
+                    <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                        <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                            <a href="/channels" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                                <p class="text-base font-medium text-gray-900">
+                                    Channels
+                                </p>
+                                <p class="mt-1 text-sm text-gray-500">
+                                    PubSub SDK For Web
+                                </p>
+                            </a>
+                            <a href="/portals" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                                <p class="text-base font-medium text-gray-900">
+                                    Portals
+                                </p>
+                                <p class="mt-1 text-sm text-gray-500">
+                                    WebRTC SDK For Web
+                                </p>
+                            </a>
+                            <a href="/docs/3.0/websocket-api" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                                <p class="text-base font-medium text-gray-900">
+                                    WebSocket API
+                                </p>
+                                <p class="mt-1 text-sm text-gray-500">
+                                    WebSocket API for Web, Mobile and IoT
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="/use-cases"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Use Cases</a>
+            <a href="/pricing"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Pricing</a>
+            <div>
+            <a  v-on:clickout="showCompareNav=false" @click="showCompareNav=!showCompareNav"
+                class="inline-flex  px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                aria-expanded="false">
+                <span>Why us</span>
+                <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </a>
+            <div v-cloak="true" v-if="showCompareNav" class="v-cloak absolute mt-10 z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <a href="/pusher-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                PieSocket vs Pusher
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Compare PieSocket and Pusher
+                            </p>
+                        </a>
+
+                        <a href="/ably-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                PieSocket vs Ably
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                            Compare PieSocket and Ably
+                            </p>
+                        </a>
+
+                        <a href="/socketio-alternative" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Buy vs Build
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                PieSocket or In-house solution?
+                            </p>
+                        </a>
+
+                        <a href="/realtime-blockchain" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            <p class="text-base font-medium text-gray-900">
+                                Realtime Blockchain
+                            </p>
+                            <p class="mt-1 text-sm text-gray-500">
+                                Send signed messages over blockchain.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <a href="/docs"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Documentation</a>
+    
+        </div>
+        <a href="/login"
+            class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700">
+            Log in
+        </a>
+        <a href="/register?plan=development"
+            class="block w-full px-5 py-3 text-center font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+            Get Started
+        </a>
+    </div>
+</div>
+                    </div>
+                </div>
+
+                <div class="bg-white">
+                    <div class="min-h-full pb-24 bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+      Create an account
+    </h2>
+    <p class="text-center max-w-xl mt-4 mb-2 mx-auto text-xl text-gray-500">Let's setup your PieSocket account.</p>
+
+    
+       
+  </div>
+
+  <div class="sm:mx-auto sm:w-full mt-2  sm:max-w-lg">
+    <div class="p-4" style="font-size:16px" uk-alert>
+    </div>
+
+    <div class="bg-white -mt-4 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <form class="uk-form-stacked" id="" role="form" method="POST" action="https://www.piesocket.com/register/subscribe">
+        <input type="hidden" name="_token" value="39nJvmnNCzEbQEG4rB7hNL7hapkqTgUK3PzRz1DY">
+
+                    <input type="hidden" class="uk-input" name="plan" value='development'>
+        
+        
+        
+        
+        
+        
+        <div class="mt-2">
+          <label for="email" class="block text-sm font-medium text-gray-700">
+            Name
+          </label>
+          <div class="mt-1">
+            <input  name="name" value="" required id="name" type="text" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          </div>
+        </div>
+
+        <div class="mt-2">
+          <label for="email" class="block text-sm font-medium text-gray-700">
+            Company
+          </label>
+          <div class="mt-1">
+            <input  name="company_name" value="" required id="company_name" type="text" autocomplete="company" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          </div>
+        </div>
+
+        <div class="mt-2">
+          <label for="email" class="block text-sm font-medium text-gray-700">
+            Email address
+          </label>
+          <div class="mt-1">
+            <input  name="email" value="" required id="email" type="email" autocomplete="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          </div>
+        </div>
+
+        <div class="mt-2">
+          <label for="email" class="block text-sm font-medium text-gray-700">
+            Country
+          </label>
+          <div class="mt-1">
+            <select name="country" id="countrySelection" class="uk-input appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" >
+    <option value="AF">Afghanistan</option>
+    <option value="AX">Åland Islands</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua and Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia, Plurinational State of</option>
+    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+    <option value="BA">Bosnia and Herzegovina</option>
+    <option value="BW">Botswana</option>
+    <option value="BV">Bouvet Island</option>
+    <option value="BR">Brazil</option>
+    <option value="IO">British Indian Ocean Territory</option>
+    <option value="BN">Brunei Darussalam</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    <option value="CV">Cape Verde</option>
+    <option value="KY">Cayman Islands</option>
+    <option value="CF">Central African Republic</option>
+    <option value="TD">Chad</option>
+    <option value="CL">Chile</option>
+    <option value="CN">China</option>
+    <option value="CX">Christmas Island</option>
+    <option value="CC">Cocos (Keeling) Islands</option>
+    <option value="CO">Colombia</option>
+    <option value="KM">Comoros</option>
+    <option value="CG">Congo</option>
+    <option value="CD">Congo, the Democratic Republic of the</option>
+    <option value="CK">Cook Islands</option>
+    <option value="CR">Costa Rica</option>
+    <option value="CI">Côte d'Ivoire</option>
+    <option value="HR">Croatia</option>
+    <option value="CU">Cuba</option>
+    <option value="CW">Curaçao</option>
+    <option value="CY">Cyprus</option>
+    <option value="CZ">Czech Republic</option>
+    <option value="DK">Denmark</option>
+    <option value="DJ">Djibouti</option>
+    <option value="DM">Dominica</option>
+    <option value="DO">Dominican Republic</option>
+    <option value="EC">Ecuador</option>
+    <option value="EG">Egypt</option>
+    <option value="SV">El Salvador</option>
+    <option value="GQ">Equatorial Guinea</option>
+    <option value="ER">Eritrea</option>
+    <option value="EE">Estonia</option>
+    <option value="ET">Ethiopia</option>
+    <option value="FK">Falkland Islands (Malvinas)</option>
+    <option value="FO">Faroe Islands</option>
+    <option value="FJ">Fiji</option>
+    <option value="FI">Finland</option>
+    <option value="FR">France</option>
+    <option value="GF">French Guiana</option>
+    <option value="PF">French Polynesia</option>
+    <option value="TF">French Southern Territories</option>
+    <option value="GA">Gabon</option>
+    <option value="GM">Gambia</option>
+    <option value="GE">Georgia</option>
+    <option value="DE">Germany</option>
+    <option value="GH">Ghana</option>
+    <option value="GI">Gibraltar</option>
+    <option value="GR">Greece</option>
+    <option value="GL">Greenland</option>
+    <option value="GD">Grenada</option>
+    <option value="GP">Guadeloupe</option>
+    <option value="GU">Guam</option>
+    <option value="GT">Guatemala</option>
+    <option value="GG">Guernsey</option>
+    <option value="GN">Guinea</option>
+    <option value="GW">Guinea-Bissau</option>
+    <option value="GY">Guyana</option>
+    <option value="HT">Haiti</option>
+    <option value="HM">Heard Island and McDonald Islands</option>
+    <option value="VA">Holy See (Vatican City State)</option>
+    <option value="HN">Honduras</option>
+    <option value="HK">Hong Kong</option>
+    <option value="HU">Hungary</option>
+    <option value="IS">Iceland</option>
+    <option value="IN">India</option>
+    <option value="ID">Indonesia</option>
+    <option value="IR">Iran, Islamic Republic of</option>
+    <option value="IQ">Iraq</option>
+    <option value="IE">Ireland</option>
+    <option value="IM">Isle of Man</option>
+    <option value="IL">Israel</option>
+    <option value="IT">Italy</option>
+    <option value="JM">Jamaica</option>
+    <option value="JP">Japan</option>
+    <option value="JE">Jersey</option>
+    <option value="JO">Jordan</option>
+    <option value="KZ">Kazakhstan</option>
+    <option value="KE">Kenya</option>
+    <option value="KI">Kiribati</option>
+    <option value="KP">Korea, Democratic People's Republic of</option>
+    <option value="KR">Korea, Republic of</option>
+    <option value="KW">Kuwait</option>
+    <option value="KG">Kyrgyzstan</option>
+    <option value="LA">Lao People's Democratic Republic</option>
+    <option value="LV">Latvia</option>
+    <option value="LB">Lebanon</option>
+    <option value="LS">Lesotho</option>
+    <option value="LR">Liberia</option>
+    <option value="LY">Libya</option>
+    <option value="LI">Liechtenstein</option>
+    <option value="LT">Lithuania</option>
+    <option value="LU">Luxembourg</option>
+    <option value="MO">Macao</option>
+    <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+    <option value="MG">Madagascar</option>
+    <option value="MW">Malawi</option>
+    <option value="MY">Malaysia</option>
+    <option value="MV">Maldives</option>
+    <option value="ML">Mali</option>
+    <option value="MT">Malta</option>
+    <option value="MH">Marshall Islands</option>
+    <option value="MQ">Martinique</option>
+    <option value="MR">Mauritania</option>
+    <option value="MU">Mauritius</option>
+    <option value="YT">Mayotte</option>
+    <option value="MX">Mexico</option>
+    <option value="FM">Micronesia, Federated States of</option>
+    <option value="MD">Moldova, Republic of</option>
+    <option value="MC">Monaco</option>
+    <option value="MN">Mongolia</option>
+    <option value="ME">Montenegro</option>
+    <option value="MS">Montserrat</option>
+    <option value="MA">Morocco</option>
+    <option value="MZ">Mozambique</option>
+    <option value="MM">Myanmar</option>
+    <option value="NA">Namibia</option>
+    <option value="NR">Nauru</option>
+    <option value="NP">Nepal</option>
+    <option value="NL">Netherlands</option>
+    <option value="NC">New Caledonia</option>
+    <option value="NZ">New Zealand</option>
+    <option value="NI">Nicaragua</option>
+    <option value="NE">Niger</option>
+    <option value="NG">Nigeria</option>
+    <option value="NU">Niue</option>
+    <option value="NF">Norfolk Island</option>
+    <option value="MP">Northern Mariana Islands</option>
+    <option value="NO">Norway</option>
+    <option value="OM">Oman</option>
+    <option value="PK">Pakistan</option>
+    <option value="PW">Palau</option>
+    <option value="PS">Palestinian Territory, Occupied</option>
+    <option value="PA">Panama</option>
+    <option value="PG">Papua New Guinea</option>
+    <option value="PY">Paraguay</option>
+    <option value="PE">Peru</option>
+    <option value="PH">Philippines</option>
+    <option value="PN">Pitcairn</option>
+    <option value="PL">Poland</option>
+    <option value="PT">Portugal</option>
+    <option value="PR">Puerto Rico</option>
+    <option value="QA">Qatar</option>
+    <option value="RE">Réunion</option>
+    <option value="RO">Romania</option>
+    <option value="RU">Russian Federation</option>
+    <option value="RW">Rwanda</option>
+    <option value="BL">Saint Barthélemy</option>
+    <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+    <option value="KN">Saint Kitts and Nevis</option>
+    <option value="LC">Saint Lucia</option>
+    <option value="MF">Saint Martin (French part)</option>
+    <option value="PM">Saint Pierre and Miquelon</option>
+    <option value="VC">Saint Vincent and the Grenadines</option>
+    <option value="WS">Samoa</option>
+    <option value="SM">San Marino</option>
+    <option value="ST">Sao Tome and Principe</option>
+    <option value="SA">Saudi Arabia</option>
+    <option value="SN">Senegal</option>
+    <option value="RS">Serbia</option>
+    <option value="SC">Seychelles</option>
+    <option value="SL">Sierra Leone</option>
+    <option value="SG">Singapore</option>
+    <option value="SX">Sint Maarten (Dutch part)</option>
+    <option value="SK">Slovakia</option>
+    <option value="SI">Slovenia</option>
+    <option value="SB">Solomon Islands</option>
+    <option value="SO">Somalia</option>
+    <option value="ZA">South Africa</option>
+    <option value="GS">South Georgia and the South Sandwich Islands</option>
+    <option value="SS">South Sudan</option>
+    <option value="ES">Spain</option>
+    <option value="LK">Sri Lanka</option>
+    <option value="SD">Sudan</option>
+    <option value="SR">Suriname</option>
+    <option value="SJ">Svalbard and Jan Mayen</option>
+    <option value="SZ">Swaziland</option>
+    <option value="SE">Sweden</option>
+    <option value="CH">Switzerland</option>
+    <option value="SY">Syrian Arab Republic</option>
+    <option value="TW">Taiwan</option>
+    <option value="TJ">Tajikistan</option>
+    <option value="TZ">Tanzania, United Republic of</option>
+    <option value="TH">Thailand</option>
+    <option value="TL">Timor-Leste</option>
+    <option value="TG">Togo</option>
+    <option value="TK">Tokelau</option>
+    <option value="TO">Tonga</option>
+    <option value="TT">Trinidad and Tobago</option>
+    <option value="TN">Tunisia</option>
+    <option value="TR">Turkey</option>
+    <option value="TM">Turkmenistan</option>
+    <option value="TC">Turks and Caicos Islands</option>
+    <option value="TV">Tuvalu</option>
+    <option value="UG">Uganda</option>
+    <option value="UA">Ukraine</option>
+    <option value="AE">United Arab Emirates</option>
+    <option value="GB">United Kingdom</option>
+    <option value="US" selected>United States</option>
+    <option value="UM">United States Minor Outlying Islands</option>
+    <option value="UY">Uruguay</option>
+    <option value="UZ">Uzbekistan</option>
+    <option value="VU">Vanuatu</option>
+    <option value="VE">Venezuela, Bolivarian Republic of</option>
+    <option value="VN">Viet Nam</option>
+    <option value="VG">Virgin Islands, British</option>
+    <option value="VI">Virgin Islands, U.S.</option>
+    <option value="WF">Wallis and Futuna</option>
+    <option value="EH">Western Sahara</option>
+    <option value="YE">Yemen</option>
+    <option value="ZM">Zambia</option>
+    <option value="ZW">Zimbabwe</option>
+</select>
+<script type="application/javascript">
+    const countryOld = "";
+    const userCountry = "";
+    
+    if(countryOld !== '') {
+      document.getElementById("countrySelection").value = countryOld
+    }
+
+    if(userCountry !== '') {
+      document.getElementById("countrySelection").value = userCountry
+    }
+
+</script>
+          </div>
+        </div>
+
+        <div class="mt-2">
+          <label for="password" class="block text-sm font-medium text-gray-700">
+            Password
+          </label>
+          <div class="mt-1">
+            <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          </div>
+        </div>
+
+        <div class="flex items-center mt-2 justify-between">         
+
+          <div class="text-sm">
+                          <a class="font-medium text-indigo-600 hover:text-indigo-500" href="/redeem-coupon">I have a coupon code</a>
+                      </div>
+        </div>
+
+        <div class="mt-6">
+          <button name="button" type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Create Account
+          </button>
+        </div>
+        </form>
+      </form>
+
+      <div class="mt-6">
+        <div class="relative">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-2 bg-white text-gray-500">
+              Returning customer?
+            </span>            
+          </div>
+        </div>
+
+        <div class="mt-6 text-center">
+            <a href="/login" class="font-medium text-indigo-600 hover:text-indigo-500">
+                Log into your account
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-gray-800" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <div class="grid grid-cols-2 gap-8 xl:col-span-2">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+              RESOURCES
+            </h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="/websocket-tester" class="text-base text-gray-300 hover:text-white">
+                 WebSocket Tester
+                </a>
+              </li>
+
+              <li>
+                <a href="/blog" class="text-base text-gray-300 hover:text-white">
+                  Blog
+                </a>
+              </li>
+
+              <li>
+                <a href="/redeem-coupon" class="text-base text-gray-300 hover:text-white">
+                  Coupons
+                </a>
+              </li>
+
+              <li>
+                <a href="/changelog" class="text-base text-gray-300 hover:text-white">
+                  Changelog
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-12 md:mt-0">
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+              Support
+            </h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="/contact?type=report_bug" class="text-base text-gray-300 hover:text-white">
+                  Report a bug
+                </a>
+              </li>
+
+              <li>
+                <a href="/community" class="text-base text-gray-300 hover:text-white">
+                  Community
+                </a>
+              </li>
+
+              <li>
+                <a href="/contact" class="text-base text-gray-300 hover:text-white">
+                  Contact us
+                </a>
+              </li>
+
+              <li>
+                <a href="https://calendly.com/piesocket" target="_blank" class="text-base text-gray-300 hover:text-white">
+                  Schedule a call
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+              Company
+            </h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="https://saasvillage.com/about/" class="text-base text-gray-300 hover:text-white">
+                  About
+                </a>
+              </li>
+
+              <li>
+                <a href="https://saasvillage.com/press/" class="text-base text-gray-300 hover:text-white">
+                  Press
+                </a>
+              </li>
+
+              <li>
+                <a href="/partners" class="text-base text-gray-300 hover:text-white">
+                  Partners
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-12 md:mt-0">
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+              Legal
+            </h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="/legal/service-level-agreement" class="text-base text-gray-300 hover:text-white">
+                  Service Level Agreement
+                </a>
+              </li>
+
+              <li>
+                <a href="/legal/privacy-policy" class="text-base text-gray-300 hover:text-white">
+                  Privacy
+                </a>
+              </li>
+
+              <li>
+                <a href="/legal/terms-and-conditions" class="text-base text-gray-300 hover:text-white">
+                  Terms
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 xl:mt-0">
+        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+          Get your API key
+        </h3>
+        <p class="mt-4 text-base text-gray-300">
+          Start a trial, get a free account for 30 days.
+        </p>
+        <form action="/pricing" class="mt-4 sm:flex sm:max-w-md">
+          <label for="email-address" class="sr-only">Email address</label>
+          <input type="email" name="email" id="email-address" autocomplete="email" required class="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400" placeholder="Enter your email">
+          <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+            <button type="submit" class="w-full bg-indigo-500 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
+              Get Started
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+      <div class="flex space-x-6 md:order-2">
+        <a href="https://www.facebook.com/piesocket" target="_blank" class="text-gray-400 hover:text-gray-300">
+          <span class="sr-only">Facebook</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+          </svg>
+        </a>
+
+        <a href="https://twitter.com/PieSocketAPI" target="_blank" class="text-gray-400 hover:text-gray-300">
+          <span class="sr-only">Twitter</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+          </svg>
+        </a>
+
+        <a href="https://github.com/piesocket" target="_blank" class="text-gray-400 hover:text-gray-300">
+          <span class="sr-only">GitHub</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+          </svg>
+        </a>
+
+      </div>
+      <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+        &copy; 2022 SaaS Village LLP. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+        <script src="/js/app.js"></script>
+</body>
+</html>

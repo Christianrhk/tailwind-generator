@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/timetable_styles.css">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lodash@4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlaG9sem1hbiIsImEiOiJjazA1cHc0bGwyc25zM29xZGptdnJ3N2FlIn0.c6NVNxyMLyAONXtQtpUjyg';
+  </script>
+  <script src="js/system-map.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mx-4 h-screen items-stretch md:mx-auto md:flex">
+    <div class="overview-list flex-none md:overflow-y-scroll">
+      <h1 class="text-2xl pt-4 pb-2">REPLACEME Routes</h1><a class="overview-menu-item mb-3" href="20210705-20210804/ca14d0eb11111001_the_1_mon-fri.html" data-route-ids="ca14d0eb">
+        <div class="text-lg text-gray-800 leading-none">Route The</div>
+        <div class="flex my-1">
+          <div class="route-color-swatch flex-none mr-2" style="background-color: #ad0101; color: #ffffff;">The</div>
+          <div class="mt-1 text-gray-600 leading-none">Dalles Deviated Fixed (Red)</div>
+        </div>
+        <div class="text-gray-600">Mon-Fri</div>
+      </a>
+    </div>
+    <div class="map ml-4 h-full w-full" id="system_map"></div>
+    <script>
+      (function() {
+        var geojson = {
+          "type": "FeatureCollection",
+          "features": [{
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.21769, 45.62568],
+                [-121.21769, 45.62595],
+                [-121.21627, 45.62595],
+                [-121.21451, 45.62598],
+                [-121.21455, 45.62628],
+                [-121.21456, 45.62725],
+                [-121.21455, 45.62775],
+                [-121.21458, 45.62813],
+                [-121.21462, 45.62826],
+                [-121.21487, 45.62871],
+                [-121.2155, 45.62975],
+                [-121.21555, 45.63],
+                [-121.21553, 45.63007],
+                [-121.21549, 45.63013],
+                [-121.21542, 45.63019],
+                [-121.21512, 45.63031],
+                [-121.21461, 45.6304],
+                [-121.21438, 45.63037],
+                [-121.21423, 45.63028],
+                [-121.21416, 45.63014],
+                [-121.21419, 45.62963],
+                [-121.21435, 45.62798],
+                [-121.21434, 45.62749],
+                [-121.21429, 45.62716],
+                [-121.21427, 45.62678],
+                [-121.2142, 45.62612],
+                [-121.21412, 45.62565],
+                [-121.21398, 45.62511],
+                [-121.21388, 45.62479],
+                [-121.21374, 45.62445],
+                [-121.21318, 45.62326],
+                [-121.21175, 45.62034],
+                [-121.20925, 45.61538],
+                [-121.20847, 45.61389],
+                [-121.2082, 45.6135],
+                [-121.20772, 45.61297],
+                [-121.2073, 45.61259],
+                [-121.20659, 45.61202],
+                [-121.20364, 45.60996],
+                [-121.2029, 45.60942],
+                [-121.20148, 45.60847],
+                [-121.20092, 45.60817],
+                [-121.2003, 45.60791],
+                [-121.19968, 45.60768],
+                [-121.19846, 45.60737],
+                [-121.19532, 45.60698],
+                [-121.19018, 45.6064],
+                [-121.18889, 45.60621],
+                [-121.18784, 45.60602],
+                [-121.18715, 45.60581],
+                [-121.18603, 45.60535],
+                [-121.18472, 45.60474],
+                [-121.18312, 45.60396],
+                [-121.17983, 45.60243],
+                [-121.17834, 45.60181],
+                [-121.17759, 45.60153],
+                [-121.17652, 45.60116],
+                [-121.17539, 45.60082],
+                [-121.17458, 45.6006],
+                [-121.17337, 45.60031],
+                [-121.17222, 45.60008],
+                [-121.17111, 45.59988],
+                [-121.16927, 45.59962],
+                [-121.16769, 45.59948],
+                [-121.16612, 45.5994],
+                [-121.16465, 45.59938],
+                [-121.16351, 45.5994],
+                [-121.16237, 45.59945],
+                [-121.16122, 45.59954],
+                [-121.16022, 45.59964],
+                [-121.15864, 45.59984],
+                [-121.15704, 45.60008],
+                [-121.14405, 45.60188],
+                [-121.14112, 45.6021],
+                [-121.13863, 45.60215],
+                [-121.1382, 45.6039],
+                [-121.1376, 45.60396],
+                [-121.1366, 45.60412],
+                [-121.1359, 45.60426],
+                [-121.13524, 45.60443],
+                [-121.13388, 45.60486],
+                [-121.1324, 45.60535],
+                [-121.13082, 45.60599],
+                [-121.1303, 45.60627],
+                [-121.12985, 45.60657],
+                [-121.12929, 45.607],
+                [-121.12841, 45.60778],
+                [-121.1275, 45.60847]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.12784, 45.6082],
+                [-121.12841, 45.60778],
+                [-121.12929, 45.607]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.12985, 45.60657],
+                [-121.1303, 45.60627]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13388, 45.60486],
+                [-121.13524, 45.60443]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1382, 45.6039],
+                [-121.13798, 45.60474],
+                [-121.13901, 45.60486],
+                [-121.13926, 45.60487],
+                [-121.13929, 45.60513],
+                [-121.13929, 45.60528],
+                [-121.13867, 45.6052],
+                [-121.13853, 45.60576],
+                [-121.13861, 45.60576],
+                [-121.13866, 45.60579],
+                [-121.13876, 45.60579],
+                [-121.13892, 45.60574],
+                [-121.13907, 45.60576],
+                [-121.13906, 45.60579],
+                [-121.13907, 45.60583],
+                [-121.13914, 45.60588],
+                [-121.13924, 45.60589],
+                [-121.1393, 45.60587],
+                [-121.13933, 45.60584],
+                [-121.13934, 45.60579],
+                [-121.13933, 45.60575],
+                [-121.13923, 45.6057],
+                [-121.13927, 45.60565],
+                [-121.1393, 45.60554],
+                [-121.13931, 45.60534],
+                [-121.13929, 45.60528]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13929, 45.60514],
+                [-121.13926, 45.60487],
+                [-121.13901, 45.60486],
+                [-121.1382, 45.60477]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13798, 45.60474],
+                [-121.1382, 45.6039]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13824, 45.60375],
+                [-121.13834, 45.60333]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13863, 45.60215],
+                [-121.13871, 45.6019],
+                [-121.13925, 45.59983],
+                [-121.13947, 45.59924],
+                [-121.13969, 45.5988],
+                [-121.13937, 45.59866],
+                [-121.13907, 45.59849],
+                [-121.13876, 45.59827],
+                [-121.13852, 45.59813],
+                [-121.1383, 45.59803],
+                [-121.13687, 45.59766],
+                [-121.13647, 45.59753],
+                [-121.13609, 45.59734],
+                [-121.13565, 45.59707],
+                [-121.13467, 45.59625],
+                [-121.13492, 45.59619],
+                [-121.13501, 45.59619],
+                [-121.13509, 45.59621],
+                [-121.1352, 45.5963],
+                [-121.13539, 45.59654],
+                [-121.1355, 45.59665],
+                [-121.136, 45.59697],
+                [-121.13685, 45.5974],
+                [-121.13723, 45.59746],
+                [-121.13759, 45.59745],
+                [-121.13822, 45.59722],
+                [-121.13879, 45.59705],
+                [-121.1412, 45.5967],
+                [-121.14193, 45.59676],
+                [-121.14197, 45.59597],
+                [-121.14194, 45.59488],
+                [-121.14199, 45.59342],
+                [-121.14876, 45.59345],
+                [-121.15285, 45.59343],
+                [-121.15838, 45.59343],
+                [-121.16345, 45.5934],
+                [-121.1647, 45.59338],
+                [-121.16626, 45.59301],
+                [-121.1668, 45.59301],
+                [-121.16681, 45.59229],
+                [-121.16684, 45.59163],
+                [-121.16689, 45.59119],
+                [-121.16667, 45.59119],
+                [-121.16672, 45.59046],
+                [-121.16578, 45.59046],
+                [-121.16583, 45.58926],
+                [-121.16578, 45.58784],
+                [-121.16633, 45.58765],
+                [-121.16631, 45.5874],
+                [-121.16626, 45.58724],
+                [-121.16614, 45.5872],
+                [-121.16526, 45.5872],
+                [-121.16526, 45.58738],
+                [-121.16505, 45.58737],
+                [-121.16487, 45.5875],
+                [-121.16485, 45.58755],
+                [-121.16488, 45.58758],
+                [-121.16493, 45.58759],
+                [-121.16499, 45.58759],
+                [-121.16511, 45.58755],
+                [-121.16603, 45.58757],
+                [-121.16632, 45.58756]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16633, 45.58765],
+                [-121.16578, 45.58784]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16578, 45.58794],
+                [-121.16583, 45.58926],
+                [-121.16578, 45.59046]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16668, 45.59093],
+                [-121.16667, 45.59119]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1668, 45.59301],
+                [-121.16681, 45.59385],
+                [-121.16753, 45.59383],
+                [-121.16848, 45.59384],
+                [-121.16938, 45.59377],
+                [-121.17128, 45.59377],
+                [-121.17265, 45.59378],
+                [-121.17341, 45.59393],
+                [-121.18103, 45.59391],
+                [-121.18105, 45.59511],
+                [-121.18102, 45.59557],
+                [-121.18071, 45.59587],
+                [-121.18064, 45.59599],
+                [-121.18064, 45.59705],
+                [-121.18066, 45.59711],
+                [-121.1807, 45.59716],
+                [-121.18078, 45.59721],
+                [-121.18216, 45.59763],
+                [-121.1831, 45.59794],
+                [-121.18425, 45.59877],
+                [-121.1843, 45.59886],
+                [-121.18425, 45.59894],
+                [-121.18314, 45.60009],
+                [-121.18286, 45.60036],
+                [-121.18258, 45.60067],
+                [-121.18128, 45.60202],
+                [-121.17998, 45.6014],
+                [-121.1802, 45.60117],
+                [-121.18036, 45.6011],
+                [-121.18065, 45.60078],
+                [-121.18133, 45.60008],
+                [-121.1776, 45.5983],
+                [-121.17627, 45.59771],
+                [-121.17591, 45.59761],
+                [-121.17562, 45.59756],
+                [-121.17512, 45.59754],
+                [-121.17452, 45.5976],
+                [-121.17407, 45.59758],
+                [-121.1734, 45.59737],
+                [-121.17324, 45.59727],
+                [-121.17314, 45.59717],
+                [-121.17313, 45.59712],
+                [-121.17308, 45.59707],
+                [-121.17303, 45.59704],
+                [-121.17296, 45.59703],
+                [-121.17282, 45.59704],
+                [-121.17275, 45.59707],
+                [-121.1727, 45.59715],
+                [-121.17241, 45.59722],
+                [-121.17231, 45.59722],
+                [-121.17161, 45.59701],
+                [-121.17124, 45.59694],
+                [-121.17081, 45.59689],
+                [-121.1696, 45.59681],
+                [-121.16802, 45.59667],
+                [-121.16679, 45.59667],
+                [-121.16458, 45.59682],
+                [-121.1628, 45.59689],
+                [-121.16195, 45.59679],
+                [-121.16096, 45.59659],
+                [-121.15958, 45.59642],
+                [-121.15703, 45.59618],
+                [-121.15608, 45.59618],
+                [-121.15481, 45.59628],
+                [-121.15409, 45.59641],
+                [-121.15248, 45.5968],
+                [-121.15111, 45.59696],
+                [-121.14925, 45.59711],
+                [-121.14838, 45.59723],
+                [-121.14758, 45.59741],
+                [-121.14462, 45.59837],
+                [-121.14202, 45.59906],
+                [-121.14161, 45.59908],
+                [-121.14127, 45.59906],
+                [-121.14004, 45.5989],
+                [-121.13969, 45.5988]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13947, 45.59924],
+                [-121.13925, 45.59983]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.12784, 45.6082],
+                [-121.1273, 45.60864]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.12725, 45.60867],
+                [-121.12784, 45.6082]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.12929, 45.607],
+                [-121.12985, 45.60657]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1382, 45.6039],
+                [-121.13798, 45.60474]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13926, 45.60487],
+                [-121.13929, 45.60514]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13908, 45.60525],
+                [-121.13867, 45.6052]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13876, 45.60579],
+                [-121.13892, 45.60574]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13906, 45.60579],
+                [-121.13907, 45.60583]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13931, 45.60545],
+                [-121.13931, 45.60534]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13901, 45.60486],
+                [-121.1382, 45.60477]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13798, 45.60474],
+                [-121.1382, 45.6039]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13802, 45.59795],
+                [-121.13732, 45.59777]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1352, 45.5963],
+                [-121.13529, 45.59642]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13879, 45.59705],
+                [-121.1412, 45.5967],
+                [-121.14193, 45.59676],
+                [-121.14197, 45.59597]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.14194, 45.59488],
+                [-121.14199, 45.59342]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.14574, 45.59344],
+                [-121.14876, 45.59345]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.15445, 45.59343],
+                [-121.15564, 45.59343]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16306, 45.5934],
+                [-121.1647, 45.59338],
+                [-121.16626, 45.59301]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1668, 45.59295],
+                [-121.16681, 45.59229]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16578, 45.59046],
+                [-121.16583, 45.58926]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16606, 45.5872],
+                [-121.16526, 45.5872]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16511, 45.58755],
+                [-121.16603, 45.58757]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1658, 45.58839],
+                [-121.16583, 45.58926],
+                [-121.16578, 45.59046]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16689, 45.59119],
+                [-121.16684, 45.59163]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1668, 45.59311],
+                [-121.16681, 45.59385],
+                [-121.16753, 45.59383]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16848, 45.59384],
+                [-121.16938, 45.59377]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.17128, 45.59377],
+                [-121.17265, 45.59378]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.18104, 45.59436],
+                [-121.18105, 45.59468]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.18102, 45.59557],
+                [-121.18071, 45.59587]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.18378, 45.59843],
+                [-121.18425, 45.59877]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.18036, 45.6011],
+                [-121.18065, 45.60078]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1807, 45.60073],
+                [-121.18196, 45.60131],
+                [-121.18626, 45.60335],
+                [-121.187, 45.60366],
+                [-121.18839, 45.60428],
+                [-121.19194, 45.60577],
+                [-121.19743, 45.60817],
+                [-121.20046, 45.60941],
+                [-121.20242, 45.6104],
+                [-121.20321, 45.61102],
+                [-121.20505, 45.61149],
+                [-121.20558, 45.6117],
+                [-121.2061, 45.61197],
+                [-121.2067, 45.61231],
+                [-121.20712, 45.61262],
+                [-121.20762, 45.61307],
+                [-121.20804, 45.61357],
+                [-121.20851, 45.61429],
+                [-121.20899, 45.6152],
+                [-121.21101, 45.61918],
+                [-121.21283, 45.62289],
+                [-121.21353, 45.62434],
+                [-121.21373, 45.62484],
+                [-121.21386, 45.62522],
+                [-121.21395, 45.62557],
+                [-121.21401, 45.62591],
+                [-121.21409, 45.62653],
+                [-121.21412, 45.62723],
+                [-121.21384, 45.62838],
+                [-121.21369, 45.62886],
+                [-121.21348, 45.62942],
+                [-121.21293, 45.63067],
+                [-121.21415, 45.63049],
+                [-121.21461, 45.6304]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.21512, 45.63031],
+                [-121.21577, 45.63019],
+                [-121.2155, 45.62975]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.21524, 45.62931],
+                [-121.21487, 45.62871]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.21769, 45.62595],
+                [-121.21769, 45.62547]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.12722, 45.60869],
+                [-121.12729, 45.60865]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1324, 45.60535],
+                [-121.13388, 45.60486]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1382, 45.60477],
+                [-121.13901, 45.60486]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13908, 45.60525],
+                [-121.13867, 45.6052]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13929, 45.60514],
+                [-121.13926, 45.60487]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13871, 45.6019],
+                [-121.1391, 45.60038]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.14876, 45.59345],
+                [-121.15143, 45.59344]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16684, 45.59163],
+                [-121.16689, 45.59119]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16511, 45.58755],
+                [-121.16603, 45.58757]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1658, 45.58839],
+                [-121.16583, 45.58926]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.17128, 45.59377],
+                [-121.17265, 45.59378]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.18104, 45.59436],
+                [-121.18105, 45.59468]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.1819, 45.60137],
+                [-121.1816, 45.60168]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.18036, 45.6011],
+                [-121.18065, 45.60078]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.16679, 45.59667],
+                [-121.16458, 45.59682]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.14758, 45.59741],
+                [-121.14462, 45.59837]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.13524, 45.60443],
+                [-121.13388, 45.60486]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.12729, 45.60865],
+                [-121.12674, 45.60901]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.21416, 45.63014],
+                [-121.21419, 45.62963]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.18083, 45.60079],
+                [-121.18184, 45.60126]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.18207, 45.60137],
+                [-121.18302, 45.60182]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.18325, 45.60193],
+                [-121.18396, 45.60226]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.19068, 45.60524],
+                [-121.19139, 45.60554]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.19792, 45.60836],
+                [-121.20046, 45.60941]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.2061, 45.61197],
+                [-121.2067, 45.61231],
+                [-121.20712, 45.61262]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.20899, 45.6152],
+                [-121.21101, 45.61918],
+                [-121.21283, 45.62289]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.21386, 45.62522],
+                [-121.21395, 45.62557]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.21451, 45.62598],
+                [-121.21542, 45.62596]
+              ]
+            }
+          }, {
+            "type": "Feature",
+            "properties": {
+              "agency_name": "REPLACEME",
+              "route_id": "ca14d0eb",
+              "agency_id": "1",
+              "route_short_name": "The",
+              "route_long_name": "Dalles Deviated Fixed (Red)",
+              "route_type": 3,
+              "route_color": "#ad0101",
+              "route_text_color": "#ffffff"
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [-121.21769, 45.62595],
+                [-121.21769, 45.62533]
+              ]
+            }
+          }]
+        };
+        createSystemMap('system_map', geojson);
+      })();
+    </script>
+  </div>
+</body>
+
+</html>

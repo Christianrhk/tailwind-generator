@@ -1,0 +1,2670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+
+    <!-- Favicon -->
+    <link href="/static/images/favicon.png?v=3" rel="icon" type="image/png">
+
+    <!-- Basic Page Needs
+        ================================================== -->
+    <title>花叮网 - 在花叮创建属于你的社交圈</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="花叮网、花叮、交友、男女交友、花叮交友、游戏、视频、公共主页、好友、小组、推荐小组、花叮视频、花叮短视频、收藏夹、招聘求职、花叮热点话题、花叮焦点、热点杂谈、我要爆料、日常分享、花叮群聊、标记好友、感受活动、注册花叮、搜索、搜索花叮网">
+    <meta name="description" content="花叮网，全国首家集交友、视频、游戏、资讯于一体的娱乐资讯聚合综合性网站。信息综合领导者，打造一体式分享和交流的平台，汇集个人、社交圈、休闲娱乐、本地资讯，坚持用户需求第一原则，为用户打造最大最全的社交资讯网站，提供更多资源和更便捷好用的资讯获取方式。">
+
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="/static/css/icons.css">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="/static/css/uikit3.css">
+    <link rel="stylesheet" href="/static/css/style.css?v=4">
+    <link href="/static/css/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        .search-last-item .glyph.fs1 {
+            background-color: #227ef7;
+            color: #fff;
+        }
+        .header_search .header_search_dropdown ul.search-last-item .list-name {
+            color: #227ef7;
+        }
+    </style>
+    
+<link rel="stylesheet" href="/static/css/share.min.css">
+<link rel="stylesheet" href="/static/css/emojionearea.min.css">
+<style>
+    .chat_header {
+        cursor: move;
+    }
+
+    .chat_msg_item .emojionearea .emojionearea-button {
+        display: none;
+    }
+    .chat_msg_item .emojionearea, .emojionearea.form-control {
+        display: initial;
+        position: initial;
+        width: initial;
+        height: initial;
+        padding: initial;
+        font-size: initial;
+        background-color: #FFF;
+        border: initial;
+        -moz-border-radius: initial;
+        -webkit-border-radius: initial;
+        border-radius: initial;
+        -moz-box-shadow: initial;
+        -webkit-box-shadow: initial;
+        box-shadow: initial;
+        -moz-transition: initial;
+        -o-transition: initial;
+        -webkit-transition: initial;
+        transition: initial;
+    }
+    .chat_msg_item .emojionearea .emojionearea-editor {
+        display: inherit;
+        height: inherit;
+        min-height: inherit;
+        max-height: inherit;
+        overflow: inherit;
+        line-height: inherit;
+        font-size: 13px;
+        color: inherit;
+        border: 0;
+        cursor: inherit;
+        margin-right: inherit;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+        max-width: 140px;
+    }
+    .emojionearea .emojionearea-button.active+.emojionearea-picker-position-top {
+        z-index: 999;
+    }
+    .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: 0.25rem .5rem;
+        clear: both;
+        font-weight: 400;
+        color: rgba(73,80,87,.8);
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 0;
+    }
+    .d-flex {
+        display: flex!important;
+    }
+    .align-items-center {
+        align-items: center!important;
+    }
+    .dropdown .dropdown-menu .dropdown-item {
+        padding: 0.5rem 1.5rem;
+        display: flex;
+        align-items: center;
+    }
+    .dropdown-menu.show {
+        display: block;
+    }
+    .dropdown-menu {
+        z-index: 1025;
+        font-size: .875rem;
+    }
+
+    .message-time-sign {
+        text-align: center;
+        display: block;
+        position: relative;
+        margin: 10px 0 20px;
+        width: 100%;
+        float: left;
+    }
+    .message-time-sign span {
+        background-color: #fff;
+        font-size: 12px;
+        color: #a7a7a7;
+        z-index: 11;
+        position: relative;
+        padding: 0 10px;
+    }
+    .message-time-sign:before {
+        display: none;
+    }
+</style>
+<style>
+    .responsive-nav.extanded ul {
+        overflow: hidden;
+    }
+
+    @media (min-width: 1600px) {
+        header .header_wrap {
+            margin-left: 380px;
+        }
+        .post-main {
+            left: -100px;
+            position: relative;
+        }
+
+        .sidebar {
+            left: 180px
+        }
+        .main_content {
+            margin-left: 510px;
+        }
+
+    }
+
+    @media (min-width: 1024px) {
+        header .header_wrap {
+            margin-left: 380px;
+        }
+        .post-main {
+            left: -100px;
+            position: relative;
+        }
+
+        .main_content {
+            margin-left: 510px;
+        }
+
+    }
+
+    ul li{
+        list-style: none;
+    }
+    .fabs {
+        bottom: 0;
+        position: fixed;
+        margin: 1em;
+        right: 0;
+        z-index: 998;
+
+    }
+
+    .fab {
+        display: block;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        text-align: center;
+        color: #f0f0f0;
+        margin: 25px auto 0;
+        box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
+        cursor: pointer;
+        -webkit-transition: all .1s ease-out;
+        transition: all .1s ease-out;
+        position: relative;
+        z-index: 998;
+        overflow: hidden;
+        background: #42a5f5;
+    }
+
+    .fab > i {
+        font-size: 2em;
+        line-height: 55px;
+        -webkit-transition: all .2s ease-out;
+        -webkit-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+    }
+
+    .chat {
+        position: fixed;
+        right: 85px;
+        bottom: 20px;
+        width: 400px;
+        height: 490px;
+        font-size: 12px;
+        line-height: 22px;
+        font-family: 'Roboto';
+        font-weight: 500;
+        opacity: 0;
+        display: none;
+        border-radius: 10px;
+    }
+
+    .chat_fullscreen {
+        position: fixed;
+        right: 0px;
+        bottom: 0px;
+        top: 0px;
+    }
+    .chat_header {
+        /* margin: 10px; */
+        font-size: 13px;
+        font-family: 'Roboto';
+        font-weight: 500;
+        color: #f3f3f3;
+        height: 55px;
+        background: #42a5f5;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding-top: 8px;
+    }
+    .chat_header2 {
+        /* margin: 10px; */
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    .chat_header .span {
+        float:right;
+    }
+
+    .chat_fullscreen_loader {
+        display: none;
+        float: right;
+        cursor: pointer;
+        /* margin: 10px; */
+        font-size: 20px;
+        opacity: 0.5;
+        /* padding: 20px; */
+        margin: -10px 10px;
+    }
+
+    .chat.is-visible {
+        z-index: 99;
+        opacity: 1;
+        display: block;
+        -webkit-animation: zoomIn .2s cubic-bezier(.42, 0, .58, 1);
+        animation: zoomIn .2s cubic-bezier(.42, 0, .58, 1);
+        background: #fff;
+    }
+    .is-hide{
+        opacity: 0
+    }
+
+    .chat_option {
+        float: left;
+        font-size: 15px;
+        list-style: none;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        text-align: relative;
+        margin-right: 10px;
+        letter-spacing: 0.5px;
+        font-weight: 400
+    }
+
+
+    .chat_option img {
+        border-radius: 50%;
+        width: 55px;
+        float: left;
+        margin: -30px 20px 10px 20px;
+        border: 4px solid rgba(0, 0, 0, 0.21);
+    }
+
+    .change_img img{
+        width: 35px;
+        margin: 0px 20px 0px 20px;
+    }
+    .chat_option .agent {
+        font-size: 12px;
+        font-weight: 300;
+    }
+    .chat_option .online{
+        opacity: 0.4;
+        font-size: 11px;
+        font-weight: 300;
+    }
+    .chat_color {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 10px;
+        float: left;
+    }
+
+
+    .chat_body {
+        background: #fff;
+        width: 100%;
+
+        display: inline-block;
+        text-align: center;
+        overflow-y: auto;
+
+    }
+    #chat_body{
+        height: 450px;
+    }
+    .chat_login p,.chat_body li, p, a{
+        -webkit-animation: zoomIn .5s cubic-bezier(.42, 0, .58, 1);
+        animation: zoomIn .5s cubic-bezier(.42, 0, .58, 1);
+    }
+    .chat_body p {
+        padding: 20px;
+        color: #888
+    }
+    .chat_body a {
+        width: 10%;
+        text-align: center;
+        border: none;
+        box-shadow: none;
+        line-height: 40px;
+        font-size: 15px;
+    }
+
+
+
+    .chat_field {
+        position: relative;
+        margin: 5px 0 5px 0;
+        width: 50%;
+        font-family: 'Roboto';
+        font-size: 12px;
+        line-height: 30px;
+        font-weight: 500;
+        color: #4b4b4b;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        border: none;
+        outline: none;
+        display: inline-block;
+    }
+
+    .chat_field.chat_message {
+        /*height: 30px;*/
+        resize: none;
+        font-size: 13px;
+        font-weight: 400;
+        margin: 8px auto 5px;
+        min-height: initial;
+        min-width: initial;
+        text-align: left;
+        border: 1px solid #e5e5e5;
+    }
+    .chat_category{
+        text-align: left;
+    }
+
+    .chat_category{
+        margin: 20px;
+        background: rgba(0, 0, 0, 0.03);
+        padding: 10px;
+    }
+
+    .chat_category ul li{
+        width: 80%;
+        height: 30px;
+        background: #fff;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        border-radius: 3px;
+        border: 1px solid #e0e0e0;
+        font-size: 13px;
+        cursor: pointer;
+        line-height: 30px;
+        color: #888;
+        text-align: center;
+    }
+
+    .chat_category li:hover{
+        background: #83c76d;
+        color: #fff;
+    }
+    .chat_category li.active{
+        background: #83c76d;
+        color: #fff;
+    }
+
+    .tags{
+        margin: 20px;
+        bottom: 0px;
+        display: block;
+        width: 120%
+    }
+    .tags li{
+        padding: 5px 10px;
+        border-radius: 40px;
+        border: 1px solid rgb(3, 117, 208);
+        margin: 5px;
+        display: inline-block;
+        color: rgb(3, 117, 208);
+        cursor: pointer;
+
+    }
+    .fab_field {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        background: #fff;
+        border-top: 1px solid #eee;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+
+    }
+    .fab_field2 {
+        bottom: 0px;
+        position: absolute;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        z-index: 999;
+    }
+
+    .fab_field a {
+        display: inline-block;
+        text-align: center;
+    }
+
+    #fab_camera {
+        float: left;
+        background: rgba(0, 0, 0, 0);
+    }
+
+    #fab_send {
+        float: right;
+        background: rgba(0, 0, 0, 0);
+    }
+
+    .fab_field .fab {
+        width: 35px;
+        height: 35px;
+        box-shadow: none;
+        margin: 5px;
+    }
+
+    .fab_field .fab>i {
+        font-size: 1.6em;
+        line-height: 35px;
+    }
+    .fab_field .fab>i:hover {
+        color: #42a5f5;
+    }
+    .chat_conversion {
+
+    }
+
+    .chat_converse {
+        position: relative;
+        background: #fff;
+        margin: 6px 0 0px 0;
+        height: 300px;
+        min-height: 0;
+        font-size: 12px;
+        line-height: 18px;
+        overflow-y: auto;
+        width: 100%;
+        float: right;
+    }
+    .chat_converse2{
+        height: 100%;
+        max-height: 800px
+    }
+    .chat_list {
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+    }
+
+    .chat_list .chat_list_item {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .chat .chat_converse .chat_msg_item {
+        position: relative;
+        margin: 8px 0 8px 0;
+        padding: 8px 0px;
+        max-width: 60%;
+        display: block;
+        word-wrap: break-word;
+        border-radius: 3px;
+        -webkit-animation: zoomIn .5s cubic-bezier(.42, 0, .58, 1);
+        animation: zoomIn .5s cubic-bezier(.42, 0, .58, 1);
+        clear: both;
+        z-index: 999;
+    }
+    .status {
+        font-size: 11px;
+        position: absolute;
+        bottom: -10px;
+        width: 150px;
+        right: 5px;
+        color: #999797;
+        text-align: right;
+    }
+    .status2 {
+        font-size: 11px;
+        position: absolute;
+        bottom: -20px;
+        width: 100px;
+        left: 5px;
+        color: #999797;
+        text-align: right;
+    }
+    .chat .chat_converse .chat_msg_item .chat_avatar {
+        position: absolute;
+        top: 0;
+    }
+
+    .chat .chat_converse .chat_msg_item.chat_msg_item_admin .chat_avatar {
+        left: -52px;
+        background: rgba(0, 0, 0, 0.03);
+    }
+
+    .chat .chat_converse .chat_msg_item.chat_msg_item_user .chat_avatar {
+        right: -52px;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .chat .chat_converse .chat_msg_item .chat_avatar, .chat_avatar img{
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 50%;
+    }
+
+    .chat .chat_converse .chat_msg_item.chat_msg_item_admin {
+        margin-left: 60px;
+        float: left;
+        /*background: rgba(0, 0, 0, 0.03);*/
+        color: #666;
+        width: 100%;
+    }
+
+    .chat .chat_converse .chat_msg_item.chat_msg_item_user {
+        margin-right: 20px;
+        float: right;
+        color: #eceff1;
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+    .chat .chat_converse .chat_msg_item.chat_msg_item_admin:before {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: -12px;
+        z-index: 998;
+        border: 6px solid transparent;
+        border-right-color: rgba(255, 255, 255, .4);
+    }
+
+    .chat_form .get-notified label{
+        color: #077ad6;
+        font-weight: 600;
+        font-size: 11px;
+    }
+
+    input {
+        position: relative;
+        width: 90%;
+        font-family: 'Roboto';
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 500;
+        color: #4b4b4b;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        outline: none;
+        background: #fff;
+        display: inline-block;
+        resize: none;
+        padding: 5px;
+        border-radius: 3px;
+    }
+    .chat_form .get-notified input {
+        margin: 2px 0 0 0;
+        border: 1px solid #83c76d;
+    }
+    .chat_form .get-notified i {
+        background: #83c76d;
+        width: 30px;
+        height: 32px;
+        font-size: 18px;
+        color: #fff;
+        line-height: 30px;
+        font-weight: 600;
+        text-align: center;
+        margin: 2px 0 0 -30px;
+        position: absolute;
+        border-radius: 3px;
+    }
+    .chat_form .message_form {
+        margin: 10px 0 0 0;
+    }
+    .chat_form .message_form input{
+        margin: 5px 0 5px 0;
+        border: 1px solid #e0e0e0;
+    }
+    .chat_form .message_form textarea{
+        margin: 5px 0 5px 0;
+        border: 1px solid #e0e0e0;
+        position: relative;
+        width: 90%;
+        font-family: 'Roboto';
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 500;
+        color: #4b4b4b;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        outline: none;
+        background: #fff;
+        display: inline-block;
+        resize: none;
+        padding: 5px;
+        border-radius: 3px;
+    }
+    .chat_form .message_form button{
+        margin: 5px 0 5px 0;
+        border: 1px solid #e0e0e0;
+        position: relative;
+        width: 95%;
+        font-family: 'Roboto';
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 500;
+        color: #fff;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        outline: none;
+        background: #fff;
+        display: inline-block;
+        resize: none;
+        padding: 5px;
+        border-radius: 3px;
+        background: #83c76d;
+        cursor: pointer;
+    }
+    strong.chat_time {
+        padding: 0 1px 1px 0;
+        font-weight: 500;
+        font-size: 8px;
+        display: block;
+    }
+
+    .chat_msg_item_admin .chat-log-name {
+        position: absolute;
+        top: -10px;
+        width: 100%;
+        font-size: 12px;
+        color: #a9a7a7;
+    }
+    .chat_msg_item_admin .chat-log-cont {
+        background: rgba(0, 0, 0, 0.03);
+        padding: 8px 10px;
+        position: relative;
+        top: 2px;
+        border-radius: 3px;
+        font-size: 13px;
+        display: inline-block;
+        max-width: 160px;
+    }
+
+    .chat_msg_item_user .chat-log-cont {
+        float: right;
+        background: #42a5f5;
+        color: #eceff1;
+        position: relative;
+        padding: 8px 10px;
+        max-width: 160px;
+        border-radius: 3px;
+    }
+    .chat_is_one .chat-log-name {
+        display: none;
+    }
+    .chat_is_one .chat-log-cont {
+        top: -5px;
+    }
+    .start-chat span {
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        font-weight: 700;
+        height: 16px;
+        width: 16px;
+        color: #fff;
+        font-size: 11px;
+        background-color: #ec5252;
+        border-radius: 50%;
+        right: -3px;
+        top: -3px;
+    }
+
+    /*Chatbox scrollbar*/
+
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        margin: 2px;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-list::-webkit-scrollbar-thumb {
+        background: #f9fafb;
+    }
+    .contact-list:hover::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+    }
+    /*Element state*/
+
+    .is-active {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        -webkit-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
+    }
+
+    .is-float {
+        box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32);
+    }
+
+    .is-loading {
+        display: block;
+        -webkit-animation: load 1s cubic-bezier(0, .99, 1, 0.6) infinite;
+        animation: load 1s cubic-bezier(0, .99, 1, 0.6) infinite;
+    }
+    /*Animation*/
+
+
+    @media only screen and (min-width: 300px) {
+        .chat {
+            width: 250px;
+        }
+    }
+    /* SMARTPHONES LANDSCAPE */
+
+    @media only screen and (min-width: 480px) {
+        .chat {
+            width: 300px;
+        }
+        .chat_field {
+            width: 65%;
+        }
+    }
+    /* TABLETS PORTRAIT */
+
+    @media only screen and (min-width: 768px) {
+        .chat {
+            width: 300px;
+        }
+        .chat_field {
+            width: 65%;
+        }
+    }
+    /* TABLET LANDSCAPE / DESKTOP */
+
+    @media only screen and (min-width: 1024px) {
+        .chat {
+            width: 300px;
+        }
+        .chat_field {
+            width: 65%;
+        }
+    }
+    /*Color Options*/
+
+
+
+    .blue .fab {
+        background: #42a5f5;
+        color: #fff;
+    }
+
+
+
+    .blue .chat {
+        background: #42a5f5;
+        color: #999;
+    }
+
+
+    /* Ripple */
+
+    .ink {
+        display: block;
+        position: absolute;
+        background: rgba(38, 50, 56, 0.4);
+        border-radius: 100%;
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        webkit-transform: scale(0);
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    /*animation effect*/
+
+    .ink.animate {
+        -webkit-animation: ripple 0.5s ease-in-out;
+        animation: ripple 0.5s ease-in-out;
+    }
+
+
+</style>
+
+</head>
+<body>
+
+
+<div id="wrapper" >
+
+    <!-- Header -->
+    
+<header>
+    <div class="header_wrap">
+        <div class="header_inner mcontainer">
+            <div class="left_side">
+
+                        <span class="slide_menu" hidden uk-toggle="target: #wrapper ; cls: is-collapse is-active">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h18v2H3v-2z" fill="currentColor"></path></svg>
+                        </span>
+
+                <div id="logo">
+                    <a class="lg:float-left" href="/">
+                        <img src="/static/images/logo.png?v=2" alt="">
+                        <img src="/static/images/logo-mobile.png?v=2" class="logo_mobile " alt="">
+                    </a>
+                    <a hidden class="text-lg ml-2 hover:underline area-danxuan" href="javascript:;"><span>深圳</span>[切换]</a>
+                </div>
+            </div>
+
+            <!-- search icon for mobile -->
+            <div class="header-search-icon" uk-toggle="target: #wrapper ; cls: show-searchbox"> </div>
+            <div class="header_search"><i class="uil-search-alt"></i>
+                <input value="" type="text" id="keyword-input" class="form-control" placeholder="搜索花叮网" autocomplete="off">
+                <div uk-drop="mode: click" class="header_search_dropdown">
+
+                    <h4 class="search_title"> 近期搜索记录 </h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                    <span class="glyph fs1">
+                                        <span class="icon-feather-clock"></span>
+                                    </span>
+                                <div class="list-name">  无 </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="right_side">
+                                    <div class="header_widgets">
+                    <a href="/admin.php" class="text-blue-600" aria-expanded="false">
+                        花叮APP
+                    </a>
+                    <div uk-drop="pos: left-center ;animation: uk-animation-slide-left-small" class="uk-drop uk-drop-left-center" style="width: 180px" >
+                        <div class="contact-list-box">
+                            <img src="/static/images/qrcode.png" width="150">
+                            <span>花叮APP欢迎下载</span>
+                        </div>
+                    </div>
+                    <a href="javascript:;" onclick="gotoLogin()" class="text-blue-600 ml-2 mr-2">
+                        登录
+                    </a>
+                    <a href="http://i.gxcw.com/register?returnUrl=687474703a2f2f7777772e677863772e636f6d2f" target="_blank" class="text-blue-600">
+                        注册账号
+                    </a>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <!-- sidebar -->
+    <div class="sidebar">
+
+        
+<div class="sidebar_inner" data-simplebar style=" padding-bottom: 250px;">
+
+    <ul>
+        <li class="active"><a href="/home.html" target="main">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-blue-600">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+            </svg>
+            <span> 首页 </span> </a>
+        </li>
+        <li ><a href="javascript:;" onclick="layer.msg('请先登录');"  target="main">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-yellow-500">
+                <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" clip-rule="evenodd"></path>
+            </svg>
+            <span> 公共主页 </span> </a>
+        </li>
+        <li ><a href="javascript:;" onclick="layer.msg('请先登录');"  target="main">
+            <img src="/static/images/S0U5ECzYUSu.png" style="width: 30px; margin-right: 7px;">
+            <span> 好友 </span></a>
+        </li>
+        <li ><a href="javascript:;" onclick="layer.msg('请先登录');"  target="main">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-blue-500">
+                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+            </svg><span> 小组 </span></a>
+        </li>
+        <li ><a href="/videos.html" target="main">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-red-500">
+                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3 2h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4zm2 0h1V9h-1v2zm1-4V5h-1v2h1zM5 5v2H4V5h1zm0 4H4v2h1V9zm-1 4h1v2H4v-2z" clip-rule="evenodd" />
+            </svg>
+            <span> 视频 </span></a>
+        </li>
+        <li ><a href="/games.html" target="main">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-green-500">
+                <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
+            </svg>  <span>  游戏 </span></a>
+        </li>
+
+        <li ><a href="javascript:;" onclick="layer.msg('请先登录');"  target="main">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-pink-500">
+                <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd" />
+                <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+            </svg> <span> 收藏夹</span> </a>
+        </li>
+        <li  ><a href="javascript:;" onclick="layer.msg('请先登录');"  target="main">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-indigo-500">
+                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+            </svg>
+            <span> 招聘求职</span></a>
+        </li>
+        <li id="more-veiw" hidden><a href="events.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-yellow-500">
+                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+            </svg><span>  活动 </span></a>
+        </li>
+    </ul>
+    <h3 class="side-title"> 热点话题 </h3>
+
+    <div class="contact-list my-2 ml-1">
+        <div id="portal_block_2182_content" class="dxb_bc">
+            <div class="bj_con">
+                <ul class="wo">
+
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+	
+       
+        <!-- sidebar overly for mobile -->
+        <div class="side_overly" uk-toggle="target: #wrapper ; cls: is-collapse is-active"></div>
+
+    </div>
+
+    <!-- Main Contents -->
+   <div class="min-h-screen">
+<div class="main_content min-h-screen">
+    <div class="mcontainer min-h-screen">
+
+        <!--  Feeds  -->
+        <div class="lg:flex lg:space-x-10 min-h-screen">
+            <div class="lg:w-3/4 space-y-7  post-main min-h-screen">
+                <iframe src="/home" id="main" name="main" width="100%" height="100%" class="min-h-screen" frameborder="0" scrolling="yes" style="overflow: visible;">
+
+                </iframe>
+            </div>
+            <div class="lg:w-72 w-full z-10">
+
+                <h3 class="text-xl font-semibold"> 联系人 </h3>
+
+                                <div class="" uk-sticky="offset:80">
+
+                    <nav class="responsive-nav border-b extanded mb-2 -mt-2">
+                        <ul uk-switcher="connect: #group-details; animation: uk-animation-fade">
+                            <li class="uk-active"><a href="#0">官方</a></li>
+                            <li><a class="active" href="#0">  好友 </a></li>
+                        </ul>
+                    </nav>
+                    <div class="uk-switcher" id="group-details" >
+                        <div class="contact-list uk-slider" id="">
+                            <a href="javascript:;" aria-expanded="false" class="">
+                                <div class="contact-avatar">
+                                    <img src="http://www.gxcw.com/data/attachment/forum/202208/07/groupchat_23983320220807071017651.jpg" alt="">
+                                    <span class="user_status "></span>
+                                </div>
+                                <div class="contact-username"> 官方群 </div>
+                            </a>
+                            <div uk-drop="pos: left-center ;animation: uk-animation-slide-left-small" class="uk-drop uk-drop-left-center" style="left: 721.7px; top: 171.5px;">
+                                <div class="contact-list-box">
+                                    <div class="contact-avatar">
+                                        <img src="http://www.gxcw.com/data/attachment/forum/202208/07/groupchat_23983320220807071017651.jpg" alt="">
+                                        <span class="user_status"></span>
+                                    </div>
+                                    <div class="contact-username">  官方群 </div>
+                                    <div class="contact-list-box-btns">
+                                                                                <button type="button" onclick="gotoLogin()" class="button primary flex-1 block mr-2">
+                                            <i class="uil-plus mr-1"></i> 请先登录加入群聊</button>
+                                        </button>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-list uk-slider overflow-y-scroll " style="max-height: 670px; padding-bottom: 180px;" id="contactList">
+                        </div>
+
+                    </div>
+
+                </div>
+                            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+ 
+</div>
+	
+<!-- <div class="footer-links">
+    <a href="#">隐私权政策</a> .
+    <a href="#">服务条款 </a> .  花叮网 © 2021
+</div> -->
+<style>
+
+.wrap{background:#1f2226;color:white;margin-top:20px;font-size: 12px;height:272px;z-index:1000;position: relative;
+    bottom: 0;
+    width: 100%;}
+.footer{margin:0 auto;padding:25px 0 35px;width:1200px;height:212px;}
+em,i{font-style:normal;}
+
+.copy-logo{float:left;margin:0 auto;}
+.copy-logo .logo-cc{
+	float:left;
+	margin:0px 100px 0 90px;
+	width:190px;
+
+}
+.footer p {
+    font-size: 12px;
+    line-height: 18px;
+}
+.copy-ied{float:left;padding:5px 0 0 10px;width:810px}
+.copy-ied .flks a{display:inline-block;vertical-align:middle;margin:0 4px;color:white;}
+.copy-ied .flks i{font-style:normal;display:inline-block;width:1px;height:6px;overflow:hidden;vertical-align:middle;color:#4f4f4f;background:#4f4f4f;}
+.copy-ied .ftce{float:left;margin-top:2px;padding-left:4px;}
+.copy-ied .ftce a{color:white;}
+.copy-ied .ftcc{float:right;padding-right:6px;}
+.cn-nav{float:left;line-height:50px;margin-top:20px;}
+.cn-nav .web{width:642px;margin:auto;text-align:center;}
+
+.cn-nav .web a{padding-right:20px; }
+.cn-nav .web img{border:1px solid #dbdbdb;display:inline-block;}
+#company a {
+	color: white;
+}
+#company {
+	float: left;
+	width: 420px;
+	left: -317px;
+	margin-top: -170px;
+	font-color: white;
+	position: relative;
+	display: inline;
+}
+#company p {
+	margin: 0;
+	padding: 0;
+	line-height: 20px;
+}
+#company p:nth-child(1), #company p:nth-child(4) {
+	margin-top: 20px;
+}
+#company p:nth-child(5) {
+	margin-top: 5px;
+}
+</style>
+<div class="wrap">
+		<div class="footer">
+			<div class="copy-logo">
+
+					<div class="logo-cc">
+						<a href="http://www.gxcw.com"><img src="http://12sky2.gxcw.com/statics/images/12sky1/logo.png" alt="花叮网" title="花叮网"></a>
+
+
+					</div>
+					
+                 
+					<div class="copy-ied">
+							
+
+							
+
+							 
+
+							<p class="ftce">	
+							软著 &nbsp;					
+							 <a href="http://www.gxcw.com/img/花叮网.jpg" target="_blank">2022SR0572440&nbsp;</a> <a href="http://www.gxcw.com/img/连成绝.jpg" target="_blank">2021SR0623782&nbsp;</a>  <a href="http://www.gxcw.com/img/萨满英雄.jpg" target="_blank"> 2021SR0623840&nbsp;</a>   <a href="http://www.gxcw.com/img/十二之天.jpg" target="_blank">2021SR0623736&nbsp; </a>  <a href="http://www.gxcw.com/img/天贰.jpg" target="_blank">2021SR0623781&nbsp;</a>  <a href="http://www.gxcw.com/img/天叁.jpg" target="_blank"> 2021SR0623780</a>  <a href="http://www.gxcw.com/img/信城传奇.jpg" target="_blank"> 2021SR0623788</a> <br>
+
+							 
+                             新闻出版	&nbsp;					
+							<a href="http://www.gxcw.com/img/2016328.jpg" target="_blank">沪新出版科数（2016）328号</a> 
+							<a href="http://www.gxcw.com/img/2014530.jpg" target="_blank">沪新出版科数（2014）530号</a>  
+							<a href="http://www.gxcw.com/img/2016289.jpg" target="_blank"> 新广出审（2016）289号</a>  
+							<a href="http://www.gxcw.com/img/20141087.jpg" target="_blank">新广出审（2014）1087号 </a><br>
+							 
+							
+                            
+                             连城绝文化部游戏备案号 文网游备字〔2015〕Ｗ-RPG 0782 号 《十二之天II经典版》ISBN备案号 978-7-89404-341-2 
+                             <br> 
+                             连城绝isbn备案号 978-7-900801-75-3 十二之天II经典版 文网游进字〔2016〕0018 号
+                             十二之天 文网游备字〔2016〕Ｃ-RPG 5501 号  <br>十二之天叁  文网游备字〔2017〕Ｃ-RPG 0023 号&nbsp;&nbsp;<span style="color:red;">&nbsp;网络监察支队：23011002000176 </span>     
+                             <br>
+                            
+								增值电信业务经营许可证 <a href="http://www.gxcw.com/img/ICP.jpg" target="_blank">黑B2-20130004</a>  网络文化经许可证 <a href="http://www.gxcw.com/img/ww1.jpg" target="_blank">黑网文（2017）10238-096号 </a>&nbsp;<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">黑ICP备2021001610号-3</a><br>
+
+							</p>
+
+							<div class="cn-nav">
+								<div class="web">
+									<a href="http://www.gxcw.com/" target="_blank"><img src="http://www.gxcw.com/pingan.png" width="160" height="60" border="0"></a>
+									<a href="http://www.cnnic.net.cn/" target="_blank"><img src="http://www.gxcw.com/cnnic.png" width="160" height="60" border="0"></a>
+									<a href="http://www.cnnic.net.cn/" target="_blank"><img src="http://www.gxcw.com/cxrz.png" width="160" height="60" border="0"></a>
+									<a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/63cea0ae8386438c80c3cc2056ba9d20" target="blank" style="border:0"><img src="http://www.gxcw.com/youxidzbq.png" style="60px;height:57px;"></a>
+						
+								</div>
+
+								<div id="company">
+
+									<p><a style="font-size: 12px;" href="http://www.gxcw.com/img/zong.jpg" target="_blank">黑龙江王氏国信网络科技股份有限公司（总部）</a>
+									</p>
+
+									<p><a style="font-size: 12px;" href="http://www.gxcw.com/img/zhuhai.jpg" target="_blank">王氏国信城网科技（珠海）有限公司</a></p>
+									<p><a style="font-size: 12px;" href="http://www.gxcw.com/img/haerb.jpg" target="_blank">哈尔滨王氏信城网络科技有限公司</a></p>
+
+									<p><a style=" font-size: 16px;" href="http://www.gxcw.com/header/index.html" target="_blank">关于花叮|</a>
+
+										<a style="font-size: 16px;" href="http://www.gxcw.com/header/index2.html" target="_blank">联系我们|</a>
+
+										<a style=" font-size: 16px; " href="http://www.gxcw.com/header/index3.html" target="_blank">招贤纳士</a></p>
+
+
+									<p><a style="font-size: 16px;" href="http://www.gxcw.com/header/index4.html" target="_blank">商务合作|</a>
+
+										<a style=" font-size: 16px;" href="http://www.gxcw.com/header/index5.html" target="_blank">隐私条款|</a>
+
+										<a style=" font-size: 16px;" href="http://12sky2.gxcw.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=239" target="_blank">花叮客服</a></p>
+
+								</div>
+
+						</div>
+
+				</div>
+			</div>	
+		</div>
+</div>
+
+
+
+<!-- open chat box -->
+<div class="start-chat" style="display: none;">
+</div>
+
+
+<div class="chat">
+    <div class="chat_header">
+        <div class="chat_option">
+            <div class="header_img">
+                <img src="http://www.gxcw.com/uc_server/avatar.php?uid=197017&size=big&random=5232"/>
+            </div>
+            <span id="chat_head"></span> <br> <span class="agent" hidden >Agent</span> <span class="online" hidden >(Online)</span>
+            <span id="chat_fullscreen_loader" class="chat_fullscreen_loader"><i class="fullscreen zmdi zmdi-window-maximize"></i></span>
+
+        </div>
+        <button class="absolute bg-gray-100 rounded-full p-2 right-12 uk-icon uk-close hide-chat" type="button" uk-tooltip="title: 缩小 ; pos: bottom ;offset:7" title="" aria-expanded="false" style="top: 10px;"><i class="icon icon-feather-minus" style="font-size: .94rem;"></i></button>
+        <button class="uk-modal-close-default bg-gray-100 rounded-full p-2 right-2 uk-icon uk-close close-chat" type="button" uk-close="" uk-tooltip="title: 关闭 ; pos: bottom ;offset:7" title="" aria-expanded="false"><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></button>
+    </div>
+    <div id="chat_converse" class="chat_conversion chat_converse">
+    </div>
+    <div class="fab_field  chat-upload">
+        <a id="fab_camera" href="javascript:;" uk-form-custom class="fab ">
+            <input class="select-file cursor-pointer" type="file" multiple><i class="icon icon-feather-camera"></i></a>
+        <a id="fab_send" href="javascript:;" class="fab" onclick="onSubmit()" ><i class="icon icon-feather-navigation"></i></a>
+        <textarea id="chatSend" name="chat_message" placeholder="发送消息" class="chat_field chat_message"></textarea>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- For Night mode -->
+<script>
+    (function (window, document, undefined) {
+        'use strict';
+        if (!('localStorage' in window)) return;
+        var nightMode = localStorage.getItem('gmtNightMode');
+        if (nightMode) {
+            document.documentElement.className += ' night-mode';
+        }
+    })(window, document);
+
+    (function (window, document, undefined) {
+
+        'use strict';
+
+        // Feature test
+        if (!('localStorage' in window)) return;
+
+        // Get our newly insert toggle
+        var nightMode = document.querySelector('#night-mode');
+        if (!nightMode) return;
+
+        // When clicked, toggle night mode on or off
+        nightMode.addEventListener('click', function (event) {
+            event.preventDefault();
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('gmtNightMode', true);
+                return;
+            }
+            localStorage.removeItem('gmtNightMode');
+        }, false);
+
+    })(window, document);
+</script>
+
+<!-- Javascript
+================================================== -->
+<script src="/static/js/jquery-3.6.0.min.js" ></script>
+<script src="/static/js/jquery.autocomplete.js"></script>
+<script src="/static/js/tippy.all.min.js"></script>
+<script src="/static/js/uikit.js"></script>
+<script src="/static/js/layer/layer.js"></script>
+<script src="/static/js/simplebar.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/bootstrap-select.min.js"></script>
+<script src="/static/js/ionicons.js"></script>
+<script>
+    $(function(){
+        autoSearch();
+        getArticles();
+    })
+
+    function gotoLogin(){
+        layer.open({
+            type: 2,
+            title: ' ',
+            shade: 0,
+            area: ['480px', '480px'],
+            content: ['/login/tan', 'no']
+        });
+    }
+
+    function autoSearch() {
+
+        $('#keyword-input').autocomplete({
+
+            serviceUrl: '/searchAjax',
+            type:'POST',
+            dataType: 'json',
+            appendTo: $('.header_search_dropdown'),
+            beforeRender: function (element,res) {
+                console.log(element);
+                // let data = res.suggestions;
+                let html = '';
+                // $.each(that.suggestions, function (i, suggestion) {
+                // });
+                for(let i in res){
+                    html += '<ul>\n' +
+                        '                            <li>\n' +
+                        '                                <a href="/search?k='+ res[i].username +'" target="main">\n' +
+                        '                                    <span class="glyph fs1">\n' +
+                        '                                        <span class="icon-feather-clock"></span>\n' +
+                        '                                    </span>\n' +
+                        '                                    <div class="list-name">  '+res[i].username+' </div>\n' +
+                        '                                </a>\n' +
+                        '                            </li>\n' +
+                        '                        </ul>'
+                }
+                html += '<ul class="search-last-item">\n' +
+                    '                            <li>\n' +
+                    '                                <a href="/search?k='+ $('#keyword-input').val() +'"  target="main">\n' +
+                    '                                    <span class="glyph fs1">\n' +
+                    '                                        <span class="uil-search-alt"></span>\n' +
+                    '                                    </span>\n' +
+                    '                                    <div class="list-name">  搜索<strong>'+$('#keyword-input').val()+'</strong> </div>\n' +
+                    '                                </a>\n' +
+                    '                            </li>\n' +
+                    '                        </ul>';
+                // console.log(html);
+                $('.header_search_dropdown').html(html);
+            }
+        });
+    }
+
+
+    function getArticles() {
+
+        $.post('/index/articles', {}, function (res) {
+            let lists = res.data;
+            let html = '';
+            for (let i in lists) {
+                html += '<li '+ (i == 'hdjd' ? '' : 'style="margin-top:20px;"')+'><a href="javascript:;" style="color:' + lists[i].color + '">' + lists[i].typename + '</a></li>';
+                let sub_list = lists[i].list;
+                for (let j in sub_list) {
+                    html += '<li style="overflow: hidden;white-space: nowrap;width: 265px;text-overflow: ellipsis;"> • <a href="/news/' + sub_list[j].id+ '.html" target="main" title="' + sub_list[j].title + '" >' + sub_list[j].title + '</a></li>';
+                }
+
+            }
+            $('.wo').html(html);
+        }, 'json')
+    }
+
+    function openArticle(id) {
+        if ($('#articleContent').length > 0) {
+            $('#getMore').hide();
+            $.post('/getArticle/'+id, {}, function (res) {
+                let data = res.data;
+                let img_cont = '';
+                if (data.imgs.length > 0) {
+                    let img_arr = data.imgs;
+                    for (let i in img_arr) {
+                        img_cont += '<p><img src="'+img_arr[i].img+'"></p>';
+                    }
+                }
+                let html = '<div class="card lg:mx-0 uk-animation-slide-bottom-small mb-5 overflow-visible">\n' +
+                    '\n' +
+                    '                            <!-- post header-->\n' +
+                    '                            <div class="flex justify-between items-center lg:p-4 p-2.5" style="\n' +
+                    '    text-align: center;\n' +
+                    '    width: 100%;\n' +
+                    '">\n' +
+                    '   <h3 class="text-lg font-semibold" style="\n' +
+                    '    width: 100%;margin-top:23px;' +
+                    '">'+data.subject+'</h3><button onclick="returnPost()" class="uk-modal-close-default-article bg-gray-100 rounded-full p-2.5 right-2 uk-icon uk-close top-2" type="button" uk-close="" uk-tooltip="title: 返回 ; pos: bottom ;offset:7" title="" aria-expanded="false"><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></button> </div>\n' +
+                    '\n' + '<div class=" text-center  m-5 mt-0"> '+data.addtime+' </div>' +
+                    '<div class="p-5 pt-0 border-b dark:border-gray-700">\n' +
+                    '<div class=" ">'+data.message+img_cont+'</div>';
+                $('#articleContent').html(html);
+                $('#postContent').hide();
+
+            }, 'json')
+        } else {
+            location.href = '/index/thread/' + id+ '.html';
+        }
+    }
+
+    function returnPost() {
+        $('#articleContent').html('');
+        $('#postContent').show();
+        $('#getMore').show();
+    }
+
+    //同意好友请求
+    function agreeFriend(uid,t) {
+        layer.load();
+        $.post('/agreeFriend', {uid:uid}, function(res) {
+            let num = parseInt($('.notice-msg-count').text());
+            if (num > 0) {
+                $('.notice-msg-count').text(num-1);
+            }
+            if (res.code == 1) {
+                if ($(t).hasClass('is_link')) {
+
+                    $(t).parent().parent().parent().parent().remove();
+                    let notice_msg_count = parseInt($('.notice-msg-count').text())-1;
+                    $('.notice-msg-count').text(notice_msg_count);
+                    if (notice_msg_count < 1) {
+                        $('.notice-msg-count').hide();
+                        $('.notice-center-btn').show();
+                        $('.notice-center').hide();
+                        $('.main_content').click();
+                        getFriends()
+                    }
+                    layer.closeAll();
+                } else {
+                    location.reload()
+                }
+            } else {
+                layer.msg(res.msg)
+            }
+        }, 'json');
+    }
+
+    //移除好友请求
+    function delFriendReq(uid,t) {
+        layer.load();
+        $.post('/delFriendReq', {uid:uid, ruid:0}, function(res) {
+            if (res.code == 1) {
+                if ($(t).hasClass('is_link')) {
+                    $(t).parent().parent().parent().parent().remove();
+                    let notice_msg_count = parseInt($('.notice-msg-count').text())-1;
+                    $('.notice-msg-count').text(notice_msg_count);
+                    if (notice_msg_count < 1) {
+                        $('.notice-msg-count').hide();
+                        $('.notice-center-btn').show();
+                        $('.notice-center').hide();
+                        $('.main_content').click();
+                    }
+                    layer.closeAll();
+                } else {
+                    location.reload()
+                }
+            } else {
+                layer.msg(res.msg)
+            }
+            layer.closeAll();
+        }, 'json');
+    }
+</script>
+
+<script src="/static/js/jquery.share.min.js"></script>
+<script src="/static/js/emojionearea.js?v=3"></script>
+
+<script src="/static/chat/proto/js/long.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/chat/proto/js/bytebuffer.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/chat/proto/js/protobuf.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+    var ProtoBuf = dcodeIO.ProtoBuf;
+    var pqBaseInfo = ProtoBuf.loadProtoFile("/static/chat/proto/pb/Chat_v2.proto");
+    var pqMsg = pqBaseInfo.build("Chat.Msg");
+    var msg = new pqMsg();
+    var pqHead = pqBaseInfo.build("Chat.Head");
+    var head = new pqHead();
+    var pqSendUser = pqBaseInfo.build("Chat.SendUser");
+    var send_user = new pqSendUser();
+
+    var ws, client_list={};
+    var current_domain = 'http://www.gxcw.com';
+    var from_client_id = 0;
+    var from_uid = '0';
+    var to_uid = '';
+    var msg_code = 2001;
+    var lockReconnect = false;
+    let current_msg_count = 0,current_group_msg_count = 0;
+    // 连接服务端
+    function connect() {
+        // 创建websocket
+        ws = new WebSocket("ws://"+document.domain+":8293");
+        ws.binaryType = 'arraybuffer';
+        // 当socket连接打开时，输入用户名
+        ws.onopen = onopen;
+        // 当有消息时根据消息类型显示不同信息
+        ws.onmessage = onmessage;
+        ws.onclose = function() {
+            connect();
+        };
+        ws.onerror = function() {
+            // reconnect();
+        };
+    }
+
+    // 连接建立时发送登录信息
+    function onopen()
+    {
+        head.set('msgType',21001);
+        head.set('fromId',from_uid);
+        msg.set('head',head);
+        send();
+
+        head.set('msgType',1002);
+        head.set('fromId',from_uid);
+        msg.set('head',head);
+        send();
+    }
+
+
+    function reconnect(){
+
+        if(lockReconnect) return;
+
+        lockReconnect = true;
+
+        setTimeout(function (){
+            connect();
+            lockReconnect = false;
+        }, 3000);//断开后3s自动重连
+    }
+    // 服务端发来消息时
+    function onmessage(evt)
+    {
+        var hex = buf2hex(evt.data);
+        var buff = hex2ab(hex.substring(4,hex.length));
+        var obj = pqMsg.decode(buff);
+
+
+        var msg_head = obj.head;
+        var msg_body = obj.body;
+        var msg_user = obj.user;
+        console.log(obj);
+        switch(msg_head.msgType){
+            // 服务端ping客户端
+            case 1002:
+                /*                setTimeout(function (){
+                                    head.set('msgType',1002);
+                                    msg.set('head',head);
+                                    send();
+                                }, 3000);//断开后2s自动重连*/
+                break;
+            // 回复
+            case 2001:
+
+                chat2001(msg_head,msg_user,msg_body);
+                head.set('msgType',21009);
+                head.set('extend',msg_head.msgId);
+                head.set('fromId',msg_user.uid.toString());
+                msg.set('head',head);
+                send();
+                break;
+
+            case 3001:
+                chat3001(msg_head,msg_user,msg_body,'');
+
+                head.set('msgType',21009);
+                head.set('extend',msg_head.msgId);
+                head.set('fromId',msg_user.uid.toString());
+                msg.set('head',head);
+                send();
+
+                break;
+
+            case 4001: //通知
+                let msg_html = '';
+                if (msg_head.msgContentType == 109) {
+
+                    msg_html = '<li class="un-read"><a href="#"><div class="drop_avatar">\n' +
+                        '                                                <img src="'+msg_user.portrait+'" alt="">\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="drop_text">\n' +
+                        '                                                <p>\n' +
+                        '                                                    <strong>'+msg_user.name+'</strong> 请求添加你为好友\n' +
+                        '                                                </p>\n' +
+                        '                                                <p class="m-2">\n' +
+                        '                                                    <span class="is_link" onclick="agreeFriend('+msg_user.uid+',this)">同意 </span>\n' +
+                        '                                                    <span class="is_link" onclick="delFriendReq('+msg_head.fromId+',this)" style="color: #5a5a5a;">移除 </span>\n' +
+                        '                                                </p><time> 刚刚 </time></div></a></li>';
+
+                } else if (msg_head.msgContentType == 110) {
+
+                    msg_html = '<li class="un-read"><a href="javascript:location.reload();"><div class="drop_avatar">\n' +
+                        '                                                <img src="'+msg_user.portrait+'" alt="">\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="drop_text">\n' +
+                        '                                                <p>\n' +
+                        '                                                    <strong>'+msg_user.name+'</strong> 已'+ (msg_head.extend == 1 ? '同意' : '拒绝') +'你为好友\n' +
+                        '                                                </p><time> 刚刚 </time></div></a></li>';
+
+                } else if (msg_head.msgContentType == 111) {
+
+                    msg_html = '<li class="un-read" onclick="readNotice(this)"><a href="/post/info/'+msg_head.extend+'" target="main"><div class="drop_avatar"><img src="'+msg_user.portrait+'" alt=""></div><div class="drop_text"><p>'+msg_user.name+'</p><time> 刚刚</time></div></a></li>';
+
+                }
+                $('.notice-center ul').html(msg_html + $('.notice-center ul').html());
+                $('.notice-center-btn').hide();
+                $('.notice-center').show();
+
+                $('.notice-msg-count').text(parseInt($('.notice-msg-count').text())+1);
+                $('.notice-msg-count').show();
+
+
+                head.set('msgType',21009);
+                head.set('extend',msg_head.msgId);
+                head.set('fromId',msg_user.uid.toString());
+                msg.set('head',head);
+                send();
+
+                break;
+
+            case 25001: //离线消息
+                let offline_msg = obj.OfflineMsg;
+
+                let offline_extend = JSON.parse(msg_head.extend);
+                if (offline_extend.msg_code == 2001) {
+                    for (let i in offline_msg) {
+                        chat2001(offline_msg[i].head,offline_msg[i].user,offline_msg[i].body);
+                    }
+                } else {
+                    if (offline_extend.offline_count > 0) {
+                        let i = offline_msg.length-1;
+                        chat3001(offline_msg[i].head,offline_msg[i].user,offline_msg[i].body,offline_extend.offline_count);
+                    }
+                }
+
+                console.log(offline_msg,'OfflineMsg');
+                head.set('msgType',21012);
+                head.set('extend',msg_head.extend);
+                msg.set('head',head);
+                send();
+                break;
+        }
+    }
+
+    function readNotice(t) {
+        $(t).removeClass('un-read');
+        $('.notice-msg-count').text(0);
+        $('.notice-msg-count').hide();
+    }
+
+    function send() {
+        var to_buffer = msg.toArrayBuffer();
+        var nbuf = concatenate(new Uint8Array([0,to_buffer.byteLength]).buffer, to_buffer);
+        ws.send(nbuf);
+    }
+
+    function chat3001(msg_head,msg_user,msg_body,mcount) {
+        if  (msg_head.msgContentType == 102) { //图片
+            msg_body = '<a href="'+msg_body+'" target="_blank"><img width="60px" src="'+msg_body+'" /></a>';
+        } else if (msg_head.msgContentType == 103) {  //视频
+            msg_body = '<font style="color: #ccc;">[语音]</font>';
+        } else if (msg_head.msgContentType == 104) {  //视频
+            msg_body = '<video class="video-ele w-full" src="'+msg_body+'" controls playsinline  uk-video="autoplay: inview"></video>'
+        }
+
+        if (msg_head.msgContentType == 108) {
+            let return_msg_id = JSON.parse(msg_head.extend);
+            console.log(return_msg_id);
+            $('#'+return_msg_id.id).remove();
+        } else {
+            if (msg_head.fromId == from_uid) {
+                if (to_uid == msg_head.toId) {
+                    replySelf(msg_user.uid, msg_user.name, msg_body, msg_head.timestamp, msg_head.msgType,msg_head);
+                }
+            } else if (to_uid == msg_head.toId && $('.chat').hasClass('is-visible')) {
+                reply(msg_user.uid, msg_user.name, msg_body, msg_head.timestamp, msg_head.msgType,msg_head);
+                head.set('msgType',1011);
+                head.set('fromId',msg_user.uid.toString());
+                head.set('toId',msg_head.toId);
+                msg.set('head',head);
+                send();
+            } else {
+                if  (msg_head.msgContentType == 102) { //图片
+                    msg_body = '[图片]';
+                } else if (msg_head.msgContentType == 103) {  //语音
+                    msg_body = '[语音]';
+                } else if (msg_head.msgContentType == 104) {  //视频
+                    msg_body = '[视频]';
+                }
+                $.post('/getGroupChatInfo/'+msg_head.toId, {}, function(res) {
+                    if (res.code == 1) {
+                        if ($('.nes-msg').find('.umsg'+msg_head.toId).length > 0) {
+                            $('.nes-msg').find('.umsg'+msg_head.toId).remove();
+                        }
+
+                        current_group_msg_count = mcount ? mcount : current_group_msg_count+1;
+                        userinfo = res.data;
+                        let msg_html = '<li class="un-read umsg'+userinfo.tid+'" onclick="goChat('+userinfo.tid+',\''+userinfo.chatname+'\',\''+userinfo.icon+'\',3001, '+current_group_msg_count+',this)"><a href="#"><div class="drop_avatar"> <img src="'+userinfo.icon+'" alt=""></div>\n' +
+                            '                                                <div class="drop_text">\n' +
+                            '                                                    <strong> '+userinfo.chatname+' </strong> <time>'+format(parseInt(msg_head.timestamp))+'</time>\n' +
+                            '                                                    <p>  '+msg_body+'  </p>\n' +
+                            '                                                </div></a></li>';
+                        $('.nes-msg').html(msg_html + $('.nes-msg').html());
+                        let new_msg_count = mcount ? mcount : parseInt($('.new-msg-count').data('msg_count'))+1;
+                        $('.new-msg-count').data('msg_count',new_msg_count);
+                        $('.new-msg-count').text(new_msg_count>99?'...':new_msg_count);
+                        $('.new-msg-count').show();
+                        $('.not-msg').hide();
+
+                    }
+                }, 'json');
+                // let msg_html = $('nes-msg')
+            }
+        }
+    }
+
+    function chat2001(msg_head,msg_user,msg_body) {
+
+        if  (msg_head.msgContentType == 102) { //图片
+            msg_body = '<a href="'+msg_body+'" target="_blank"><img width="60px" src="'+msg_body+'" /></a>';
+        } else if (msg_head.msgContentType == 104) {  //视频
+            msg_body = '<font style="color: #ccc;">[语音]</font>';
+        } else if (msg_head.msgContentType == 104) {  //视频
+            msg_body = '<video class="video-ele w-full" src="'+msg_body+'" controls playsinline  uk-video="autoplay: inview"></video>'
+        }
+
+
+        if (msg_head.msgContentType == 108) {
+            let return_msg_id = JSON.parse(msg_head.extend);
+            console.log(return_msg_id);
+            $('#'+return_msg_id.id).remove();
+        } else {
+            console.log(to_uid);
+            console.log(msg_head.toId);
+            if (to_uid == msg_head.fromId) {
+                reply(msg_user.uid, msg_user.name, msg_body, msg_head.timestamp, msg_head.msgType,msg_head);
+                head.set('msgType',1011);
+                head.set('fromId',msg_user.uid.toString());
+                head.set('toId',msg_head.toId);
+                msg.set('head',head);
+                send();
+            } else if (msg_head.fromId == from_uid && $('.chat').hasClass('is-visible')) {
+                if (to_uid == msg_head.toId) {
+                    replySelf(msg_user.uid, msg_user.name, msg_body, msg_head.timestamp, msg_head.msgType,msg_head);
+                }
+            } else {
+                if  (msg_head.msgContentType == 102) { //图片
+                    msg_body = '[图片]';
+                } else if (msg_head.msgContentType == 103) {  //视频
+                    msg_body = '<font style="color: #ccc;">[语音]</font>';
+                } else if (msg_head.msgContentType == 104) {  //视频
+                    msg_body = '[视频]';
+                }
+                if ($('.nes-msg').find('#umsg'+msg_user.uid).length > 0) {
+                    current_msg_count = parseInt($('.nes-msg').find('#umsg'+msg_user.uid).data('msg_count')) + 1;
+                    $('.nes-msg').find('#umsg'+msg_user.uid).remove();
+                } else {
+                    current_msg_count = 1;
+                }
+                let msg_html = '<li class="un-read" id="umsg'+msg_user.uid+'" data-msg_count="'+current_msg_count+'" onclick="goChat('+msg_user.uid+',\''+msg_user.name+'\',\''+msg_user.portrait+'\',2001, '+current_msg_count+',this)"><a href="#"><div class="drop_avatar"> <img src="'+msg_user.portrait+'" alt=""></div>\n' +
+                    '                                                <div class="drop_text">\n' +
+                    '                                                    <strong> '+msg_user.name+' </strong> <time>'+format(parseInt(msg_head.timestamp))+'</time>\n' +
+                    '                                                    <p>  '+msg_body+'  </p>\n' +
+                    '                                                </div></a></li>';
+                $('.nes-msg').html(msg_html + $('.nes-msg').html());
+                $('.new-msg-count').text(parseInt($('.new-msg-count').text())+1);
+                $('.new-msg-count').show();
+                $('.not-msg').hide();
+                // let msg_html = $('nes-msg')
+            }
+        }
+    }
+
+    function mathNum() {
+        return 'pc-'+(((1 + Math.random()) * 0x10000) | 0).toString(16)+'-'+(((1 + Math.random()) * 0x10000) | 0).toString(16)+'-'+(((1 + Math.random()) * 0x10000) | 0).toString(16);
+    }
+
+    function hex2ab(hex) {
+        var typedArray = new Uint8Array(hex.match(/[\da-f]{2}/gi).map(function (h) {
+            return parseInt(h, 16)
+        }))
+
+        var buffer = typedArray.buffer
+        return buffer;
+    }
+
+    function buf2hex(buffer) { // buffer is an ArrayBuffer
+        return [...new Uint8Array(buffer)]
+            .map(x => x.toString(16).padStart(2, '0'))
+            .join('');
+    }
+
+    function concatenate(...arrays) {
+
+        let totalLen = 0;
+
+        for (let arr of arrays)
+
+            totalLen += arr.byteLength;
+
+        let res = new Uint8Array(totalLen)
+
+        let offset = 0
+
+        for (let arr of arrays) {
+
+            let uint8Arr = new Uint8Array(arr)
+
+            res.set(uint8Arr, offset)
+
+            offset += arr.byteLength
+
+        }
+
+        return res.buffer
+
+    }
+
+    function format(timestamp) {
+        var time = new Date(timestamp);
+        var year = time.getFullYear();
+        var month = (time.getMonth() + 1) > 9 && (time.getMonth() + 1) || ('0' + (time.getMonth() + 1))
+        var date = time.getDate() > 9 && time.getDate() || ('0' + time.getDate())
+        var hour = time.getHours() > 9 && time.getHours() || ('0' + time.getHours())
+        var minute = time.getMinutes() > 9 && time.getMinutes() || ('0' + time.getMinutes())
+        var second = time.getSeconds() > 9 && time.getSeconds() || ('0' + time.getSeconds())
+        var YmdHis = year + '-' + month + '-' + date + ' ' + hour + ':' + minute;
+        var Hi = hour + ':' + minute;
+        return Hi;
+    }
+
+    // 提交对话
+    function onSubmit() {
+        var input = document.getElementById("chatSend");
+        if (input.value) {
+            sendMsg(input.value, 101);
+            input.value = "";
+            $('.chat_message .emojionearea-editor').text('');
+        }
+    }
+
+    function sendMsg(info, msg_type) {
+        var content = replaceContent(info);
+        if (msg_type == 102) {
+            content = '<a href="'+content+'" target="_blank"><img width="60px" src="'+content+'" /></a>';
+        } else if (msg_type == 104) {  //视频
+            content = '<video class="video-ele w-full" src="'+content+'" controls playsinline  uk-video="autoplay: inview"></video>'
+        }
+        let time = Date.now();
+        let msg_id = mathNum();
+        html = '<span class="chat_msg_item chat_msg_item_user" data-msg_code="'+msg_code+'" data-time="'+Date.now()+'" data-msg_id="'+msg_id+'" id="'+msg_id+'"><span class="chat-log-cont chat-log-cont-'+time+'"> '+content+'</span></span>';
+        $("#chat_converse").append(html);
+        if (msg_type == 101) {
+            $('.chat-log-cont-'+time).emojioneArea();
+        }
+        goBottom();
+
+        head.set('msgType',msg_code);
+        head.set('msgId',msg_id);
+        head.set('msgContentType',msg_type);
+        head.set('fromId',from_uid);
+        head.set('toId',to_uid);
+        head.set('timestamp',Date.now());
+
+        send_user.set('uid',from_client_id);
+        send_user.set('name','');
+        send_user.set('portrait','');
+
+        msg.set('head',head);
+        msg.set('body',info);
+        msg.set('user',send_user);
+
+        var to_buffer = msg.toArrayBuffer();
+        var nbuf = concatenate(new Uint8Array([0,to_buffer.byteLength]).buffer, to_buffer);
+
+        ws.send(nbuf);
+    }
+
+    // 收到消息
+    function reply(from_client_id, from_client_name, content, time, code, head){
+        let cname = code == 3001 ? 'chat_is_group' : 'chat_is_one';
+        let html = '<span class="chat_msg_item chat_msg_item_admin '+cname+'" id="'+head.msgId+'">' +
+            '            <div class="chat_avatar">\n' +
+            '               <a href="/space/'+from_client_id+'.html" target="_blank"><img src="http://www.gxcw.com/uc_server/avatar.php?uid='+from_client_id+'&amp;size=big&amp;random=5232"></a>\n' +
+            '            </div><span class="chat-log-name">'+from_client_name+'</span><span class="chat-log-cont">'+content+'</span></span>';
+        lasttime = time;
+        $("#chat_converse").append(html);
+        if (head.msgContentType == 101) {
+            $('#'+head.msgId).find('.chat-log-cont').emojioneArea();
+        }
+
+
+        goBottom();
+    }
+    // 同步自己消息
+    function replySelf(from_client_id, from_client_name, content, time, code, head){
+        let cname = code == 3001 ? 'chat_is_group' : 'chat_is_one';
+        let html = '<span class="chat_msg_item chat_msg_item_user '+cname+'" data-msg_id="'+head.msgId+'">' + '<span class="chat-log-cont">'+content+'</span></span>';
+        lasttime = time;
+        $("#chat_converse").append(html);
+
+        if (head.msgContentType == 101) {
+            $('#'+head.msgId).find('.chat-log-cont').emojioneArea();
+        }
+        goBottom();
+    }
+
+    function goBottom() {
+        var dialog = document.getElementById('chat_converse');
+        dialog.scrollTop = dialog.scrollHeight;
+    }
+
+    // 转义聊天内容中的特殊字符
+    function replaceContent(content) {
+        // 支持的html标签
+        var html = function (end) {
+            return new RegExp('\\n*\\[' + (end || '') + '(pre|div|span|p|table|thead|th|tbody|tr|td|ul|li|ol|li|dl|dt|dd|h2|h3|h4|h5)([\\s\\S]*?)\\]\\n*', 'g');
+        };
+        content = (content || '').replace(/&(?!#?[a-zA-Z0-9]+;)/g, '&amp;')
+            .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/'/g, '&#39;').replace(/"/g, '&quot;') // XSS
+            .replace(/@(\S+)(\s+?|$)/g, '@<a href="javascript:;">$1</a>$2') // 转义@
+
+            .replace(/face\[([^\s\[\]]+?)\]/g, function (face) {  // 转义表情
+                var alt = face.replace(/^face/g, '');
+                return '<img alt="' + alt + '" title="' + alt + '" src="' + faces[alt] + '">';
+            })
+            .replace(/img\[([^\s]+?)\]/g, function (img) {  // 转义图片
+                return '<img class="layui-whisper-photos" src="' + img.replace(/(^img\[)|(\]$)/g, '') + '" style="max-width:100px;max-height:100px" >';
+            })
+            .replace(/file\([\s\S]+?\)\[[\s\S]*?\]/g, function (str) { // 转义文件
+                var href = (str.match(/file\(([\s\S]+?)\)\[/) || [])[1];
+                var text = (str.match(/\)\[([\s\S]*?)\]/) || [])[1];
+                if (!href) return str;
+                return '<a class="layui-whisper-file" href="' + href + '" download target="_blank"><i class="layui-icon">&#xe61e;</i><cite>' + (text || href) + '</cite></a>';
+            })
+            .replace(/a\([\s\S]+?\)\[[\s\S]*?\]/g, function (str) { // 转义链接
+                var href = (str.match(/a\(([\s\S]+?)\)\[/) || [])[1];
+                var text = (str.match(/\)\[([\s\S]*?)\]/) || [])[1];
+                if (!href) return str;
+                return '<a href="' + href + '" target="_blank">' + (text || href) + '</a>';
+            }).replace(html(), '\<$1 $2\>').replace(html('/'), '\</$1\>') // 转移HTML代码
+            .replace(/\n/g, '<br>') // 转义换行
+
+        return content;
+    }
+
+
+    $('#chat_converse').on('click','.chat_msg_item_user ',function(event){
+        $('.chat_msg_item_user .dropdown-menu').remove();
+        if (Date.now() - parseInt($(this).data('time')) > 120000)
+            return;
+        let msg_id = $(this).data('msg_id');
+        let rhtml = '<div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: -25px; left: -50px; transform: translate3d(0px, 20px, 0px);">\n' +
+            '                                                        <a class="dropdown-item d-flex align-items-center" href="javascript:;" onclick="returnChat(\''+msg_id+'\',\''+this.id+'\',\''+$(this).data('msg_code')+'\')">\n' +
+            '                                                            <span>撤回</span>\n' +
+            '                                                        </a>\n' +
+            '                                                    </div>';
+        if ($(this).find('.emojionearea-editor').length > 0) {
+            $(this).find('.emojionearea-editor').append(rhtml);
+        } else {
+            $(this).find('.chat-log-cont').append(rhtml);
+        }
+        event.stopPropagation();
+        event.preventDefault();
+    })
+
+    $('#chat_converse').on('click','.chat_avatar ',function(event){
+        $('.chat_avatar .dropdown-menu').hide();
+        $(this).find('.dropdown-menu').show();
+        event.stopPropagation();
+        event.preventDefault();
+    })
+
+    $('#chat_converse').click(function(){
+        $('.chat_msg_item_user .dropdown-menu').remove();
+        $('.chat_avatar .dropdown-menu').hide();
+    })
+
+    function returnChat(msg_id,id,msg_code) {
+
+        head.set('msgType',parseInt(msg_code));
+        head.set('msgId',mathNum());
+        head.set('msgContentType',108);
+        head.set('fromId',from_uid);
+        head.set('toId',to_uid);
+        head.set('timestamp',Date.now());
+        head.set('extend','{"id":"'+msg_id+'"}');
+
+        send_user.set('uid',from_client_id);
+        send_user.set('name','');
+        send_user.set('portrait','');
+
+        msg.set('head',head);
+        msg.set('body','');
+        msg.set('user',send_user);
+
+        var to_buffer = msg.toArrayBuffer();
+        var nbuf = concatenate(new Uint8Array([0,to_buffer.byteLength]).buffer, to_buffer);
+
+        ws.send(nbuf);
+
+
+        $('#'+id).remove();
+    }
+</script>
+
+<script>
+
+    var post_file = [],post_file2 = [],session_uid='0',post_video_file='';
+    $(function(){
+        if (session_uid != 0) {
+            getFriends();
+        }
+        hideChat(1);
+        if (session_uid != 0) {
+            connect();
+        }
+
+        $('.sidebar_inner li').click(function(){
+            $('.sidebar_inner li').removeClass('active');
+            $(this).addClass('active');
+        })
+
+        $('.start-chat').click(function() {
+            toggleFab();
+        });
+        $('.close-chat').click(function() {
+            msg_code = '';
+            to_uid = '';
+            toggleFab();
+        });
+        $('.hide-chat').click(function() {
+            $('.chat').removeClass('is-visible');
+            let avatar = $(this).parent().find('.chat_option .header_img img').attr('src');
+            $('.start-chat').css({'background':'url('+avatar+')','background-size':'contain'});
+            $('.start-chat').show();
+        });
+
+
+        $("#chatSend").emojioneArea({events: {
+                /**
+                 * @param {jQuery} editor EmojioneArea input
+                 * @param {Event} event jQuery Event object
+                 */
+                focus: function (editor, event) {
+                    console.log('event:focus');
+                },
+                /**
+                 * @param {jQuery} editor EmojioneArea input
+                 * @param {Event} event jQuery Event object
+                 */
+                blur: function (editor, event) {
+                    console.log('event:blur');
+                },
+                /**
+                 * @param {jQuery} editor EmojioneArea input
+                 * @param {Event} event jQuery Event object
+                 */
+                mousedown: function (editor, event) {
+                    console.log('event:mousedown');
+                },
+                /**
+                 * @param {jQuery} editor EmojioneArea input
+                 * @param {Event} event jQuery Event object
+                 */
+                mouseup: function (editor, event) {
+                    console.log('event:mouseup');
+                },
+                /**
+                 * @param {jQuery} editor EmojioneArea input
+                 * @param {Event} event jQuery Event object
+                 */
+                click: function (editor, event) {
+                    console.log('event:click');
+                },
+                /**
+                 * @param {jQuery} editor EmojioneArea input
+                 * @param {Event} event jQuery Event object
+                 */
+                keyup: function (editor, event) {
+                    console.log('event:keyup');
+                },
+                /**
+                 * @param {jQuery} editor EmojioneArea input
+                 * @param {Event} event jQuery Event object
+                 */
+                keydown: function (editor, event) {
+                    if (event.keyCode == 13 || event.which== 13) {
+                        console.log(event.keyCode);
+                        $('#fab_send').focus();
+                        onSubmit();
+                    }
+                    console.log('event:keydown');
+                },
+                /**
+                 * @param {jQuery} editor EmojioneArea input
+                 * @param {Event} event jQuery Event object
+                 */
+                keypress: function (editor, event) {
+                    console.log('event:keypress');
+                },
+                /**
+                 * @param {jQuery} editor EmojioneArea input
+                 * @param {Event} event jQuery Event object
+                 */
+                paste: function (editor, event) {
+                    console.log('event:paste');
+                },
+                /**
+                 * @param {jQuery} editor EmojioneArea input
+                 * @param {Event} event jQuery Event object
+                 */
+                change: function (editor, event) {
+                    console.log('event:change');
+                },
+                /**
+                 * @param {jQuery} filter EmojioneArea filter
+                 * @param {Event} event jQuery Event object
+                 */
+                filter_click: function (filter, event) {
+                    console.log('event:filter.click, filter=' + filter.data("filter"));
+                },
+                /**
+                 * @param {jQuery} button EmojioneArea emoji button
+                 * @param {Event} event jQuery Event object
+                 */
+                emojibtn_click: function (button, event) {
+                    console.log('event:emojibtn.click, emoji=' + button.children().data("name"));
+                },
+                /**
+                 * @param {jQuery} button EmojioneArea left arrow button
+                 * @param {Event} event jQuery Event object
+                 */
+                arrowLeft_click: function (button, event) {
+                    console.log('event:arrowLeft.click');
+                },
+                /**
+                 * @param {jQuery} button EmojioneArea right arrow button
+                 * @param {Event} event jQuery Event object
+                 */
+                arrowRight_click: function (button, event) {
+                    console.log('event:arrowRight.click');
+                }
+            },
+            autoHideFilters: true
+        });
+
+        $("#chat_converse").scroll(function () {
+            console.log(23);
+            // console.log($(this)[0].scrollHeight,'scrollHeight');
+            // console.log($(this)[0].scrollTop,'scrollTop');
+            if ($('#chat_converse').html() && $(this)[0].scrollTop == 0 && chat_is_scroll == 0 && chat_count_page >= chat_page) {
+                chatHistory();
+            }
+        })
+
+        var move=false;//移动标记
+        var _x,_y;//鼠标离控件左上角的相对位置
+        $(".chat_header").mousedown(function(e){
+            move=true;
+            _x=e.pageX-parseInt($(".chat").css("left"));
+            _y=e.pageY-parseInt($(".chat").css("top"));
+            console.log(_x,'_x');
+            console.log(_y,'_y');
+        });
+        $(document).mousemove(function(e){
+            if(move){
+                let x=e.pageX-_x;//控件左上角到屏幕左上角的相对位置
+                let y=e.pageY-_y;
+                console.log(x,'x');
+                console.log(y,'y');
+                $(".chat").css({"top":y,"left":x});
+            }
+        }).mouseup(function(){
+            move=false;
+        });
+
+
+        UIkit.upload('.chat-upload', {
+
+            url: '/upload',
+            multiple: false,
+            name: 'file',
+            type: 'json',
+            error: function () {
+                layer.msg('上传文件错误！');
+            },
+            complete: function (res) {
+                if (res.response.status != 1) {
+                    layer.msg(res.response.msg);
+                    return false;
+                }
+                let code = 0;
+                if (checkFile(res.response.path,'image')) {
+                    code = 102;
+                } else {
+                    code = 104;
+                }
+                sendMsg(current_domain + res.response.path, code);
+
+            }
+
+        });
+
+    })
+
+    function checkFile(fileValue,type) {
+        console.log("fileValue==" + fileValue);
+        var index = fileValue.indexOf("."); //（考虑严谨用lastIndexOf(".")得到）得到"."在第几位
+        fileValueSuffix = fileValue.substring(index); //截断"."之前的，得到后缀
+        if(type == 'video') {
+            if (!/(.*)\.(mp4|MP4|rmvb|avi|ts)$/.test(fileValueSuffix)) { //根据后缀，判断是否符合视频格式
+                return false;
+            }
+        }
+        if(type == 'image') {
+            if (!/(.*)\.(gif|jpg|jpeg|png|GIF|JPG|JPEG|PNG)$/.test(fileValueSuffix)) { //根据后缀，判断是否符合图片格式
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    //Toggle chat and links
+    function toggleFab() {
+        $('.chat').toggleClass('is-visible');
+
+    }
+
+    function hideChat(hide) {
+        switch (hide) {
+            case 1:
+                $('#chat_converse').css('display', 'block');
+                $('#chat_body').css('display', 'none');
+                $('#chat_form').css('display', 'none');
+                $('.chat_login').css('display', 'none');
+                $('.chat_fullscreen_loader').css('display', 'block');
+                break;
+        }
+    }
+
+    function getDateDiff(dateStr) {
+        let publishTime = getDateTimeStamp(dateStr) / 1000,
+            d_seconds,
+            d_minutes,
+            d_hours,
+            d_days,
+            timeNow = parseInt(new Date().getTime() / 1000),
+            d,
+
+            date = new Date(publishTime * 1000),
+            Y = date.getFullYear(),
+            M = date.getMonth() + 1,
+            D = date.getDate(),
+            H = date.getHours(),
+            m = date.getMinutes(),
+            s = date.getSeconds();
+        //小于10的在前面补0
+        if (M < 10) {
+            M = '0' + M;
+        }
+        if (D < 10) {
+            D = '0' + D;
+        }
+        if (H < 10) {
+            H = '0' + H;
+        }
+        if (m < 10) {
+            m = '0' + m;
+        }
+        if (s < 10) {
+            s = '0' + s;
+        }
+
+        d = timeNow - publishTime;
+        d_days = parseInt(d / 86400);
+        d_hours = parseInt(d / 3600);
+        d_minutes = parseInt(d / 60);
+        d_seconds = parseInt(d);
+
+        if (d_days > 0 && d_days < 3) {
+            return d_days + '天前';
+        } else if (d_days <= 0 && d_hours > 0) {
+            return d_hours + '小时前';
+        } else if (d_hours <= 0 && d_minutes > 0) {
+            return d_minutes + '分钟前';
+        } else if (d_seconds < 60) {
+            if (d_seconds <= 0) {
+                return '刚刚';
+            } else {
+                return d_seconds + '秒前';
+            }
+        } else if (d_days >= 3 && d_days < 30) {
+            return M + '-' + D + ' ' + H + ':' + m;
+        } else if (d_days >= 30) {
+            return Y + '-' + M + '-' + D + ' ' + H + ':' + m;
+        }
+    }
+
+    // 时间
+    function showTimePipe(unix_stamp) { // unix_stamp 精确到微秒
+        let _today_obj = new Date(),
+            _today_date = {
+                y: _today_obj.getFullYear(),
+                m: (_today_obj.getMonth() + 1 < 10 ? '0' + (_today_obj.getMonth() - -1) : (_today_obj.getMonth() - -1)),
+                d: (_today_obj.getDate() < 10 ? '0' + _today_obj.getDate() : _today_obj.getDate())
+            }
+
+        let _today_stamp = Date.parse(_today_date.y + '/' + _today_date.m + '/' + _today_date.d + ' 00:00:00')
+
+        let stamp = []
+        stamp[0] = _today_stamp + 86400000
+        stamp[1] = _today_stamp
+        stamp[2] = _today_stamp - 86400000
+        stamp[3] = _today_stamp - 172800000
+
+        stamp[4] = _today_stamp - 518400000 // 7天
+
+        stamp[5] = _today_stamp - 31536000000 // 365天
+
+        let _compare_obj = new Date()
+        _compare_obj.setTime(unix_stamp)
+
+        let return_str
+
+        if (unix_stamp >= stamp[1] && unix_stamp < stamp[0]) {
+            return_str = _compare_obj.getHours() + ':' + (_compare_obj.getMinutes() < 10 ? '0' + _compare_obj.getMinutes() : _compare_obj.getMinutes())
+        } else if (unix_stamp >= stamp[2] && unix_stamp < stamp[1]) {
+            let yesterdayText = '昨天'
+            return_str = yesterdayText + ' ' + _compare_obj.getHours() + ':' +
+                (_compare_obj.getMinutes() < 10 ? '0' + _compare_obj.getMinutes() : _compare_obj.getMinutes())
+        } else if (unix_stamp >= stamp[3] && unix_stamp < stamp[2]) {
+            let theDayBeforeYesterdayText = '前天'
+            return_str = theDayBeforeYesterdayText + ' ' + _compare_obj.getHours() + ':' +
+                (_compare_obj.getMinutes() < 10 ? '0' + _compare_obj.getMinutes() : _compare_obj.getMinutes())
+
+        } else if (unix_stamp >= stamp[4] && unix_stamp < stamp[3]) { // 7天内
+            let daynames = ['天', '一', '二', '三', '四', '五', '六']
+            let dathStr = '星期' + daynames[_compare_obj.getDay()]
+
+            let SundayText = '星期天'
+            let MondayText = '星期一'
+            let TuesdayText = '星期二'
+            let WednesdayText = '星期三'
+            let ThursdayText = '星期四'
+            let FridayText = '星期五'
+            let SaturdayText = '星期六'
+
+            let dathStr2
+
+            switch (dathStr) {
+                case '星期天':
+                    dathStr2 = SundayText
+                    break
+                case '星期一':
+                    dathStr2 = MondayText
+                    break
+                case '星期二':
+                    dathStr2 = TuesdayText
+                    break
+                case '星期三':
+                    dathStr2 = WednesdayText
+                    break
+                case '星期四':
+                    dathStr2 = ThursdayText
+                    break
+                case '星期五':
+                    dathStr2 = FridayText
+                    break
+                case '星期六':
+                    dathStr2 = SaturdayText
+                    break
+                default:
+                    dathStr2 = dathStr
+                    break
+            }
+
+            return_str = dathStr2 + ' ' + _compare_obj.getHours() + ':' +
+                (_compare_obj.getMinutes() < 10 ? '0' + _compare_obj.getMinutes() : _compare_obj.getMinutes())
+        } else if (unix_stamp >= stamp[5] && unix_stamp < stamp[4]) { // 365天内
+            let monthText = '月'
+            let dayText = '日'
+            return_str = (_compare_obj.getMonth() - (-1)) + monthText + _compare_obj.getDate() + dayText + ' '
+                + _compare_obj.getHours() + ':' + (_compare_obj.getMinutes() < 10 ? '0' + _compare_obj.getMinutes() : _compare_obj.getMinutes())
+
+        } else {
+            let yearText = '年'
+            let monthText = '月'
+            let dayText = '日'
+            return_str = _compare_obj.getFullYear() + yearText + (_compare_obj.getMonth() - (-1)) +
+                monthText + _compare_obj.getDate() + dayText + ' ' + _compare_obj.getHours() + ':' +
+                (_compare_obj.getMinutes() < 10 ? '0' + _compare_obj.getMinutes() : _compare_obj.getMinutes())
+        }
+        return return_str
+
+    }
+
+    function getDateTimeStamp(dateStr) {
+        // 如果时间格式为2020/07/09 21:43:19.000  需要去掉.000 不然ios和firefox会有问题
+        return Date.parse(dateStr.replace(/-/gi, "/"));
+    }
+
+    var chat_page = 1,chat_scroll = 0,chat_is_scroll=0,chat_count_page=0;
+    function goChat(id,name,img,code,cmsg_count, t) {
+        $('#chat_converse').html('');
+        // console.log($('.new-msg-count').text())
+        if  (t) {
+
+            let new_msg_count = 0;
+            if (code == 3001) {
+                new_msg_count = parseInt($('.new-msg-count').data('msg_count'))-cmsg_count;
+            } else {
+                if (cmsg_count) {
+                    new_msg_count = parseInt($('.new-msg-count').text())-cmsg_count;
+                }
+                $('.nes-msg').find('#umsg'+id).data('msg_count',0);
+            }
+            if (new_msg_count < 1) {
+                new_msg_count = 0;
+            }
+            $('.new-msg-count').text(new_msg_count);
+            if (new_msg_count < 1) {
+                $('.new-msg-count').hide();
+                new_msg_count = 0;
+            }
+            $(t).removeClass('un-read');
+            if (code == 3001) {
+                current_group_msg_count = current_group_msg_count - cmsg_count;
+                $('.new-msg-count').data('msg_count',new_msg_count);
+            }
+
+        }
+        msg_code = code;
+        to_uid = id.toString();
+        $('.chat').addClass('is-visible');
+        $('.header_img img').attr('src',img);
+        $('#chat_head').text(name);
+        chat_page = 1;
+        chatHistory();
+    }
+
+    var last_time = 0;
+    function chatHistory() {
+        chat_is_scroll = 1;
+        var data = {code:msg_code,page:chat_page};
+        $.post('/chat/history/'+to_uid, data, function(res) {
+            if (res.status == 1) {
+                chat_count_page = res.msg.last_page;
+                let log = res.data;
+                let html = '';
+                for (let i in log) {
+                    let cont = log[i].content;
+                    let date_time = new Date(log[i].create_time);
+                    if (log[i].msg_type == 102) {
+                        cont = '<a href="'+cont+'" target="_blank"><img width="60px" src="'+cont+'"></a>'
+                    } else if (log[i].msg_type == 103) {
+                        cont = '<font style="color: #ccc;">[语音]</font>'
+                    } else if (log[i].msg_type == 104) {
+                        cont = '<video class="video-ele w-full" src="'+cont+'" controls playsinline  uk-video="autoplay: inview"></video>'
+                    }
+                    if (date_time.getTime() - last_time > 180000) {
+                        html += '<span class="message-time-sign"><span>'+showTimePipe(date_time.getTime())+'</span></span>';
+                    }
+                    if (log[i].type == 0 || log[i].from_uid == from_uid) { //发送方
+                        html += '<span class="chat_msg_item chat_msg_item_user" data-msg_code="'+msg_code+'" data-time="'+date_time.getTime()+'" data-msg_id="'+log[i].app_msg_id+'" id="'+log[i].id+'"><span class="chat-log-cont chat-log-cont-page-'+log[i].msg_type+'-'+chat_page+'">'+cont+'</span></span>';
+                    } else {
+                        let target_uid = log[i].target_uid ? log[i].target_uid : log[i].from_uid;
+                        let cname;
+                        let mute_html = '<div class="dropdown-menu " x-placement="bottom-start" style="position: absolute;will-change: transform;top: -25px;left: 50px;transform: translate3d(0px, 20px, 0px);text-align: center;display: none;"><a class="dropdown-item d-flex align-items-center" href="javascript:;" onclick="main.location.href=\'space/'+target_uid+'.html\'"><span>查看资料</span></a></div>';
+                        if (msg_code == 3001) {
+                            cname = 'chat_is_group';
+                            if (res.msg.is_admin > 0) {
+                                mute_html = '<div class="dropdown-menu " x-placement="bottom-start" style="position: absolute;will-change: transform;top: -25px;left: 50px;transform: translate3d(0px, 20px, 0px);text-align: center;display: none;"><a class="dropdown-item d-flex align-items-center"  href="javascript:;" onclick="main.location.href=\'space/'+target_uid+'.html\'"><span>查看资料</span></a><a class="dropdown-item d-flex align-items-center" href="javascript:;" onclick="mute('+target_uid+','+log[i].group_id+')" style="text-align: center;"><span>禁言</span></a></div>';
+                            }
+                        } else {
+                            cname = 'chat_is_one';
+                        }
+                        html += '<span class="chat_msg_item chat_msg_item_admin '+cname+'" data-msg_code="'+msg_code+'" data-time="'+date_time.getTime()+'" data-msg_id="'+log[i].app_msg_id+'" id="'+log[i].id+'">\n' +
+                            '            <div class="chat_avatar">\n' +
+                            '               <a href="javascript:;"><img src="http://www.gxcw.com/uc_server/avatar.php?uid='+target_uid+'&amp;size=big&amp;random=5232"></a>'+mute_html+'</div><span class="chat-log-name">'+log[i].username+'</span><span class="chat-log-cont chat-log-cont-page-'+log[i].msg_type+'-'+chat_page+'">'+cont+'</span></span>';
+                    }
+                    last_time = date_time.getTime();
+                }
+                $('#chat_converse').html(html + $('#chat_converse').html());
+                $(".chat-log-cont-page-101-"+chat_page).emojioneArea();
+                if (chat_page == 1) {
+                    goBottom();
+                } else {
+                    // console.log($("#chat_converse")[0].scrollHeight-chat_scroll, 'go');
+                    $("#chat_converse").scrollTop($("#chat_converse")[0].scrollHeight-chat_scroll - $('#chat_converse').height());
+                }
+                chat_scroll = $("#chat_converse")[0].scrollHeight;
+                // console.log(chat_scroll,'chat_scroll');
+                chat_page += 1;
+                chat_is_scroll = 0;
+            } else {
+                layer.msg(res.msg);
+            }
+        }, 'json');
+    }
+
+    function joinChat(tid) {
+        var data = {};
+        $.post('/joinChat/'+tid, data, function(res) {
+            if (res.code == 1) {
+                layer.msg('加入群聊成功！',{time:1500},function(){
+                    location.reload();
+                });
+
+            } else {
+                layer.msg(res.msg);
+            }
+        }, 'json')
+    }
+
+
+    function mute(uid,tid) {
+        var data = {};
+        data.fuid = uid;
+        data.tid = tid;
+        $.post('/mute/user', data, function(res) {
+            if (res.code == 1) {
+                layer.msg('禁言成功！');
+
+            } else {
+                layer.msg(res.msg);
+            }
+        }, 'json')
+    }
+
+
+    //获取好友
+    function getFriends() {
+
+        $.post('/getFriends', {}, function (res) {
+            let data = res.data;
+            $('#friendsNum').text(data.friends_num);
+            let html = '', html2 = '';
+            if (data.friends_num > 0) {
+                let friends = data.friends;
+                for (let i in friends) {
+                    html += '<a href="javascript:;" onclick="goChat('+friends[i].fuid+',\''+friends[i].fusername+'\',\''+friends[i].fhead_portrait+'\',2001)" aria-expanded="false" class="">\n' +
+                        '                                <div class="contact-avatar">\n' +
+                        '                                    <img src="' + friends[i].fhead_portrait + '" alt="">\n' +
+                        '                                    <span class="user_status "></span>\n' +
+                        '                                </div>\n' +
+                        '                                <div class="contact-username"> ' + friends[i].fusername + '</div>\n' +
+                        '                            </a>';
+
+                    html += '<div uk-drop="pos: left-center ;animation: uk-animation-slide-left-small">\n' +
+                        '                                <div class="contact-list-box">\n' +
+                        '                                    <div class="contact-avatar">\n' +
+                        '                                        <img src="' + friends[i].fhead_portrait + '" alt="">\n' +
+                        '                                        <span class="user_status"></span>\n' +
+                        '                                    </div>\n' +
+                        '                                    <div class="contact-username">  ' + friends[i].fusername + ' </div>\n' +
+                        '                                    <div class="contact-list-box-btns">\n' +
+                        '                                        <button type="button" onclick="goChat('+friends[i].fuid+',\''+friends[i].fusername+'\',\''+friends[i].fhead_portrait+'\',2001);" class="button primary flex-1 block mr-2">\n' +
+                        '                                            <i class="uil-envelope mr-1"></i> 发送消息</button>\n' +
+                        '                                        <button type="button" onclick="javascript:main.location.href=\'/space/'+friends[i].fuid+'.html\'" class="button secondary button-icon mr-2">\n' +
+                        '                                            <i class="uil-list-ul"> </i> </button>\n' +
+                        '                                        <button type="button" hidden  href="#" class="button secondary button-icon">\n' +
+                        '                                            <i class="uil-ellipsis-h"> </i>\n' +
+                        '                                        </button>\n' +
+                        '                                    </div>\n' +
+                        '                                </div>\n' +
+                        '                            </div>';
+
+                    html2 += '<a href="/chats/'+friends[i].fuid+'.html" target="main">\n' +
+                        '                    <div class="contact-avatar">\n' +
+                        '                        <img src="' + friends[i].fhead_portrait + '" alt="">\n' +
+                        '                    </div>\n' +
+                        '                    <div class="contact-username">\n' + friends[i].fusername +
+                        '                    </div>\n' +
+                        '                </a>';
+                }
+            } else {
+                html = html2 = '<p style="text-align: center;">暂无好友</p>';
+            }
+            $('#contactList').html(html);
+            $('#chatFirens').html(html2);
+            getGroupChat();
+
+        }, 'json');
+    }
+
+    //获取好友
+    function getGroupChat() {
+
+        $.post('/getGroupChat', {}, function (res) {
+            let data = res.data;
+            // $('#friendsNum').text(data.friends_num);
+            let html = '', html2 = '';
+            // if (data.friends_num > 0) {
+            let friends = data;
+            for (let i in friends) {
+                if (friends[i].tid == 239833){
+                    continue;
+                }
+                html += '<a href="javascript:;" onclick="goChat('+friends[i].tid+',\''+friends[i].chatname+'\',\''+friends[i].icon+'\', 3001)" aria-expanded="false" class="">\n' +
+                    '                                <div class="contact-avatar">\n' +
+                    '                                    <img src="' + friends[i].icon + '" alt="">\n' +
+                    '                                    <span class="user_status "></span>\n' +
+                    '                                </div>\n' +
+                    '                                <div class="contact-username"> ' + friends[i].chatname + '</div>\n' +
+                    '                            </a>';
+
+                html += '<div uk-drop="pos: left-center ;animation: uk-animation-slide-left-small">\n' +
+                    '                                <div class="contact-list-box">\n' +
+                    '                                    <div class="contact-avatar">\n' +
+                    '                                        <img src="' + friends[i].icon + '" alt="">\n' +
+                    '                                        <span class="user_status"></span>\n' +
+                    '                                    </div>\n' +
+                    '                                    <div class="contact-username">  ' + friends[i].chatname + ' </div>\n' +
+                    '                                    <div class="contact-list-box-btns">\n' +
+                    '                                        <button type="button" onclick="goChat('+friends[i].tid+',\''+friends[i].chatname+'\',\''+friends[i].icon+'\', 3001)" class="button primary flex-1 block mr-2">\n' +
+                    '                                            <i class="uil-envelope mr-1"></i> 发送消息</button>\n' +
+                    '                                        <button type="button" hidden href="#" class="button secondary button-icon mr-2">\n' +
+                    '                                            <i class="uil-list-ul"> </i> </button>\n' +
+                    '                                        <button type="button" hidden href="#" class="button secondary button-icon">\n' +
+                    '                                            <i class="uil-ellipsis-h"> </i>\n' +
+                    '                                        </button>\n' +
+                    '                                    </div>\n' +
+                    '                                </div>\n' +
+                    '                            </div>';
+
+                html2 += '<a href="/chats/group/'+friends[i].tid+'.html">\n' +
+                    '                    <div class="contact-avatar">\n' +
+                    '                        <img src="' + friends[i].icon + '" alt="">\n' +
+                    '                    </div>\n' +
+                    '                    <div class="contact-username">\n' + friends[i].chatname +
+                    '                    </div>\n' +
+                    '                </a>';
+            }
+            // } else {
+            //     html = html2 = '<p style="text-align: center;">暂无好友</p>';
+            // }
+            $('#contactList').html($('#contactList').html() + html);
+            $('#chatFirens').html($('#chatFirens').html() + html2);
+
+        }, 'json');
+    }
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Puente Web</title>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://api.iconify.design/nimbus:ecosystem.svg?color=%23888888"/>
+<link rel="stylesheet" href="css.css">
+<link rel="stylesheet" href="dist/output.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="js.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@1.14.7/dist/full.css" rel="stylesheet" type="text/css"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css"/>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>    </head>
+    <body class="bg-white">
+        
+        
+
+<nav style="background-color: #006A4E;" class="bg-green-5 bg-white justify-between lg:flex lg:flex-nowrap md:flex md:flex-wrap shadow-xl top-0 w-full z-10" x-data="{ isOpen: false }" @keydown.escape="isOpen = false" :class="{ 'shadow-lg bg-white' : isOpen , 'bg-white' : !isOpen}">
+    <!--Logo etc-->
+    <div class="bg-green-2 pr-8 rounded-r-full">
+        <div class="bg-green-1 flex flex-shrink-0 items-center mr-6 py-2 rounded-r-full text-white">
+            <a href="index" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 pr-10">
+                <!-- <img src="https://i.ibb.co/G36Wym5/PW-logo.png" alt="PW-logo" class="h-28 text-white">
+                <span class="ml-3 text-xl">PUENTE <strong>WEB</strong></span><br> -->
+                <img class="px-4 h-24 lg:h-36" src="https://i.ibb.co/PMzRNfs/Logo-Puente-Web-fondo-Blanco-removebg-preview.png" alt="Logo-Puente-Web-fondo-Blanco-removebg-preview" border="0">
+            </a>
+        </div>
+    </div>
+
+    <!--Toggle button (hidden on large screens)-->
+    <button @click="isOpen = !isOpen" type="button" class="block focus:outline-none lg:hidden px-2 text-white" :class="{ 'transition transform-180': isOpen }">
+        <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path x-show="isOpen" fill-rule="evenodd" clip-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
+            <path x-show="!isOpen" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+        </svg>
+    </button>
+
+    <!--Menu-->
+    <div id="menu" class="w-full flex-grow lg:flex lg:items-center lg:w-auto" :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }" @click.away="isOpen = false" x-show.transition="true">
+        <ul class="pl-6 lg:pl-0 pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center text-sm">
+            <li class="mr-3">
+                <a class="inline-block text-white no-underline py-2 menulink" data-pathname="/index" href="index" @click="isOpen = false" id="home">Inicio</a>
+            </li>
+            <li class="mr-3">
+                <a class="inline-block text-white no-underline py-2 menulink" data-pathname="/quienesomos" href="quienesomos" @click="isOpen = false">Quienes somos </a>
+            </li>
+            <div @click.away="open = false" class="relative" x-on:mouseEnter="open = true" x-on:mouseLeave="open = false" x-data="{ open: false }">
+                    <button @click="open = !open" class="focus:outline-none focus:ring-0 focus:ring-offset-0 inline-block inline-flex items-center menulink no-underline py-2 text-white">
+                        <span>Soluciones</span>
+                        <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-2 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 z-30">
+                        <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-700">
+                            <a class="inline-block text-gray-600 no-underline py-2 px-4 hover:bg-gray-300 w-full" href="productos">Productos</a>
+                            <a class="inline-block text-gray-600 no-underline py-2 px-4 hover:bg-gray-300 w-full" href="modulos">M&oacute;dulos</a>
+                        </div>
+                    </div>
+                </div>
+            <li class="mr-3">
+                <a class="inline-block text-white no-underline py-2 menulink" data-pathname="/integraciones" href="integraciones" @click="isOpen = false">Integraci&oacute;n</a>
+            </li>
+            <li class="mr-3">
+                <a class="inline-block text-white no-underline py-2 menulink" data-pathname="/clientes" href="clientes" @click="isOpen = false">Clientes </a>
+            </li>
+            <li class="mr-3">
+                <a class="inline-block text-white no-underline py-2 menulink" data-pathname="/postventa" href="postventa" @click="isOpen = false">Post venta </a>
+            </li>
+            <li class="mr-3">
+                <a class="inline-block text-white no-underline py-2 menulink" data-pathname="/ayuda" href="https://www.puenteweb.com/new/cursoonline/" @click="isOpen = false">Ayuda</a>
+            </li>
+            <li class="mr-3">
+                <a class="inline-block text-white no-underline py-2 menulink" data-pathname="/contacto" href="contacto" @click="isOpen = false">Contacto</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- 
+<div class="container shadow-lg mx-auto bg-white lg:mt-40 mt-32"><span></span></div> -->
+
+
+
+        
+        <!-- bloque 1 -->
+
+        <section>
+            
+            <div class="slider-index lg:h-80 h-auto sm:h-72 ">
+                <ul>
+                    <li>
+                        <img src="src/img/2.png" alt="">
+                    </li>
+                    <li>
+                        <img src="src/img/1.png" alt="">
+                    </li>
+                    <li>
+                        <img src="src/img/3.png" alt="">
+                    </li>
+                    <li>
+                        <img src="src/img/4.png" alt="">
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!--<a href="index#soluciones">-->
+        <!--    <div class="arrow">-->
+        <!--        <span></span>-->
+        <!--        <span></span>-->
+        <!--        <span></span>-->
+        <!--    </div>-->
+        <!--</a>-->
+
+        <!-- fin bloque 1 -->
+
+        <!-- bloque 2 -->
+        
+        <section class="text-gray-900">
+            <div class="flex justify-center py-4 mt-10">
+                <a href="index#novedades">
+                    <div class="arrow mr-5">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+                <p class="text-5xl font-bold leading-none tracking-tighter green-5 animate__animated animate__bounce animate__infinite">Novedades</p>
+                <a href="index#novedades">
+                    <div class="arrow ml-8">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+                <!--<p class="text-5xl font-bold leading-none tracking-tighter green-5 animate__animated animate__bounce animate__infinite">Novedades</p>-->
+            </div>
+            
+            <div id="novedades" class="px-14 pb-16 pt-4 mx-auto">
+                <div class="flex flex-wrap -m-4">
+                    <div class="p-4 md:w-1/3">
+                        <div class="h-full border-2 border-green-900 border-opacity-60 rounded-lg overflow-hidden bg-green-1">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://i.ibb.co/1b5B3yG/Para-novedad-Biadok.png" alt="Para-novedad-Biadok" border="0">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORIA: Novedades</h2>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Lanzamos Biadok, un Software de Gestión de Registro de Documentos</h1>
+                            <p class="leading-relaxed mb-3">Presentamos una solución al problema de la documentación en locaciones de la Industria Petrolera.</p>
+                            <div class="flex items-center flex-wrap ">
+                            <a href="https://test.biadok.com" class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0">Más info
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            <!-- <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                                </svg>1.2K
+                            </span>
+                            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+                                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                                </svg>6
+                            </span> -->
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="p-4 md:w-1/3">
+                        <div class="h-full border-2 border-green-900 border-opacity-60 rounded-lg overflow-hidden bg-green-1">
+                            <img class="lg:h-48 md:h-36 w-full object-cover object-center border" src="https://i.ibb.co/wQCs7bZ/tienda-nube-1.jpg" alt="novedad2" border="0">
+                            <div class="p-6">
+                                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORIA: E-Commerce</h2>
+                                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">E-Commerce y Tienda Nube</h1>
+                                <p class="leading-relaxed mb-3">Esta opción permite crear tiendas online en integración con PW_E-Commerce, y está orientada mayormente a comercios que prioricen una interfaz de diseño amigable y responsivo.</p>
+                                <div class="flex items-center flex-wrap">
+                                <a href="novedad_e-commerce" class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0">Más info
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                <!-- <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>1.2K
+                                </span>
+                                <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                                    </svg>6
+                                </span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 md:w-1/3">
+                        <div class="h-full border-2 border-green-900 border-opacity-60 rounded-lg overflow-hidden bg-green-1">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://i.ibb.co/2kQV4j1/firmadigital-1.png" alt="novedad3" border="0">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORIA: Firma digital</h2>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Firma digital para remitos</h1>
+                            <p class="leading-relaxed mb-3">Esta solución posibilita la firma remota de documentos, brindando seguridad y confianza. La herramienta está intergada al sistema PW_Gestion, sincronizándose online con el sistema de gestión de la empresa.</p>
+                            <div class="flex items-center flex-wrap ">
+                            <a href="novedad_firmadigital" class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0">Más info
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            <!-- <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                                </svg>1.2K
+                            </span>
+                            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+                                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                                </svg>6
+                            </span> -->
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="relative flex justify-center">
+            <div class="h-px w-1/2 text-center m-auto bg-green-5"></div>
+        </div>
+
+        <!-- fin bloque 2 -->
+
+        <!-- bloque 3 -->
+
+        <section id="soluciones" class="text-gray-600 py-20 callout animation-element test">
+            <div class="container px-5 mx-auto pb-10">
+                <div class="flex w-full pb-10 flex-col items-center text-center">
+                    <h1 class="text-5xl font-bold leading-none tracking-tighter green-5">Soluciones</h1>
+                </div>
+                <div class="flex flex-wrap -m-4">
+                    <div class="xl:w-1/3 md:w-1/3 p-4">
+                        <a href="pw_gestion">
+                            <div class="border border-gray-200 p-6 rounded-lg hover:border-gray-500 hover:shadow-xl">
+                                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+                                    </svg>
+                                </div>
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">PW_Gestion</h2>
+                                <p class="leading-relaxed text-base">Un sistema de gestión y administración contable e integral para empresas.</p>
+                                
+                                <div class="flex justify-end pt-4">
+                                    <a href="pw_gestion" class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0">Más info
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="xl:w-1/3 md:w-1/3 p-4">
+                        <a href="https://biadok.com">
+                            <div class="border border-gray-200 p-6 rounded-lg hover:border-gray-500 hover:shadow-xl">
+                                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                    </svg>
+                                </div>
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Biadok</h2>
+                                <p class="leading-relaxed text-base"> Un software de gestión para el problema de la documentación en locaciones de la Industria Petrolera.</p>
+                                
+                                <div class="flex justify-end pt-4">
+                                    <a href="https://biadok.com" class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0">Más info
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="xl:w-1/3 md:w-1/3 p-4">
+                        <a href="pw_mobile">
+                            <div class="border border-gray-200 p-6 rounded-lg hover:border-gray-500 hover:shadow-xl">
+                                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">PW_Mobile</h2>
+                                <p class="leading-relaxed text-base">Una aplicación para la comercialización online de productos y servicios.</p>
+                                
+                                <div class="flex justify-end pt-4">
+                                    <a href="pw_mobile" class="text-green-500 inline-flex items-center md:mb-2 lg:mb-0">Más info
+                                    </a>
+                                </div>
+                            </div>
+                        </a>    
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="w-full flex justify-center">
+                <a href="producto" class="inline-flex items-center px-3 py-2 border border-transparent shadow-md leading-4 font-medium rounded-md green-1 bg-green-4">
+                    Ver más
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 -mr-0.5 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <div class="relative flex justify-center">
+            <div class="h-px w-1/2 text-center m-auto bg-green-5"></div>
+        </div>
+        
+        <!-- fin bloque 3 -->
+        
+        <!-- bloque 4 -->
+        <section id="alianzasPW" class="py-14 px-5 callout animation-element test2">
+            <div class="block lg:flex lg:justify-around">
+                <div class="border-solid box-border py-4 text-black">
+                    <h1 class="text-5xl font-bold leading-none tracking-tighter green-5 lg:text-left text-center"> Integración</h1>
+                    <p class="my-12 text-base leading-relaxed lg:text-left text-justify text-gray-400 "> Nos hemos integrado estratégicamente con partners especialistas en su rubro.</p>
+                    <div class="flex flex-wrap lg:space-x-4 md:space-x-4 sm:space-x-2 w-full">
+                    
+                        <!-- <img src="logos/tiendanube.png" alt="tiendanubeLogo" class="mx-auto h-16">
+                        <img src="logos/tango.png" alt="tangoLogo" class="mx-auto h-16">
+                        <img src="logos/bejerman.png" alt="bejermanLogo" class="mx-auto h-16"> -->
+
+                        <img src="https://i.ibb.co/sWmzmLt/conquer.png" alt="conquer" border="0" class="h-16 mx-auto">
+                        <img src="https://i.ibb.co/xjskXJJ/mtgroup.png" alt="mtgroup" border="0" class="h-16 mx-auto">
+                        <img src="https://i.ibb.co/6YvqnW2/edit.png" alt="edit" border="0" class="h-16 mx-auto">
+                    
+                    </div>
+                    <div class="w-full flex justify-center pt-20">
+                        <a href="integraciones" class="inline-flex items-center px-3 py-2 border border-transparent shadow-md leading-4 font-medium rounded-md green-1 bg-green-4">
+                            Ver más
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 -mr-0.5 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden lg:block pt-16 w-2/5">
+                    <img class="rounded-lg shadow-2xl" src="https://i.ibb.co/F6GxVZ1/alianza1.png" alt="alianza1">
+                </div>
+            </div>
+        </section>
+        
+        <!-- fin bloque 4 -->
+        
+        <!-- bloque 5 -->
+
+        <div class="w-full h-16 pt-2 lg:p-4 text-center bg-gray-200">
+            <span class="p-4 text-base font-semibold tracking-wide text-gray-600 uppercase"> Clientes que confían en nosotros</span>
+        </div>
+        <div class="slider bg-gray-200">
+            <div class="slide-track">
+
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/rdB5XGj/spusa.png" alt="spusa" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/BqTKBVw/eltronador.png" alt="eltronador" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/yYRMP06/comercial.png" alt="comercial" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/gMy7DxD/blancoamor.png" alt="blancoamor" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/KqTyN5p/tortoriello.png" alt="tortoriello" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/K965R8z/tec.png" alt="tec" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/ng9ZRBg/warnes.png" alt="warnes" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/CK0r9ZT/cedisa.png" alt="cedisa" border="0">
+                </div>
+                <!-- doble -->
+
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/rdB5XGj/spusa.png" alt="spusa" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/BqTKBVw/eltronador.png" alt="eltronador" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/yYRMP06/comercial.png" alt="comercial" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/gMy7DxD/blancoamor.png" alt="blancoamor" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/KqTyN5p/tortoriello.png" alt="tortoriello" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/K965R8z/tec.png" alt="tec" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/ng9ZRBg/warnes.png" alt="warnes" border="0">
+                </div>
+                <div class="slide">
+                    <img class="grayscale hover:grayscale-0" src="https://i.ibb.co/CK0r9ZT/cedisa.png" alt="cedisa" border="0">
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- fin bloque 5 -->
+
+        <!-- bloque 6 -->
+        <section id="postventa" class="py-14 px-5 callout animation-element test3">
+            <div class="block lg:flex lg:justify-around">
+                <div class="hidden lg:block w-2/5 pt-16">
+                    <img class="object-cover object-center mx-auto rounded-lg shadow-2xl " src="https://i.ibb.co/0qv75zR/postventa1.png" alt="postventa1">
+                </div>
+                <div class="box-border text-black border-solid p-4 md:w-1/2 md:pl-6 xl:pl-24">
+                    
+                    <h1 class="text-5xl font-bold leading-none tracking-tighter green-5 lg:text-left text-center">
+                        Post venta
+                    </h1>
+                    <p class="py-5 m-0 leading-7 text-gray-700 border-0 border-gray-300 lg:text-left text-justify">
+                        Brindamos asistencia personalizada en la implementación y puesta en marcha de cada solución.
+                    </p>
+                    <!-- <ul class="p-0 m-0 leading-6 border-0 space-y-3 border-gray-300">
+                        <li class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
+                            <span class="inline-flex items-center justify-center w-6 h-6 mr-2 green-1 bg-green-3 rounded-full"><span class="text-base font-bold">✓</span></span> Soluciones via telefonica, e-mail, chat y sistema de tickets
+                        </li>
+                        <li class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
+                            <span class="inline-flex items-center justify-center w-6 h-6 mr-2 green-1 bg-green-3 rounded-full"><span class="text-base font-bold">✓</span></span> Personalizamos todos sus documentos
+                        </li>
+                        <li class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
+                            <span class="inline-flex items-center justify-center w-6 h-6 mr-2 green-1 bg-green-3 rounded-full"><span class="text-base font-bold">✓</span></span> Determinamos cuales son sus reportes preferidos y los configuramos
+                        </li>
+                    </ul> -->
+                    <div class="w-full flex justify-center pt-20">
+                        <a href="postventa" class="inline-flex items-center px-3 py-2 border border-transparent shadow-md leading-4 font-medium rounded-md green-1 bg-green-4">
+                            Ver más
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 -mr-0.5 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- fin bloque 6 -->
+        <!-- <div class="bg-gray-200">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    <span class="block">Ya sos cliente nuestro?</span>
+                    <span class="block text-indigo-600">Te invitamos a visitar nuestro curso de ayuda.</span>
+                </h2>
+                <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                    <div class="inline-flex rounded-md shadow">
+                        <a href="https://www.puenteweb.com/new/cursoonline" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                            Ayuda
+                        </a>
+                    </div>
+                    <div class="ml-3 inline-flex rounded-md shadow">
+                        <a href="index.html#contactoForm" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
+                            No soy cliente
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        
+        
+        <footer class="bg-gray-100 text-gray-600 body-font">
+    <div class="container px-4 py-12 mx-auto">
+        <div class="flex justify-center text-center">
+            <div class="w-full px-4">
+                <h2 class="title-font font-medium text-gray-900 tracking-widest text-base mb-3">CONTACTANOS</h2>
+                <nav class="list-none text-sm lg:text-base">
+                    <li class="inline-flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                        </svg>
+                        <p class="text-gray-600 hover:text-gray-800 ml-2">+54 299-4019928 </p>
+                    </li><br>
+                    <li class="inline-flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-at" viewBox="0 0 16 16">
+                            <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"/>
+                        </svg>
+                        <p class="text-gray-600 hover:text-gray-800 ml-2">info@puenteweb.com</p>
+                    </li><br>
+                    <li class="inline-flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
+                            <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
+                        </svg>
+                        <p class="text-gray-600 hover:text-gray-800 ml-2">+54 299 4014201 o +54 299 6277373 </p>
+                    </li><br>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="bg-gray-50">
+        <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                <img src="images/PW-logo (2).png" alt="puenteweb" class="h-14 text-white">
+                <span class="ml-3 text-xl">PUENTE <strong>WEB</strong></span>
+            </a>
+            <p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">© 2021 Puente web 
+            <!-- <a href="https://www.puenteweb.com" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@Puenteweb</a> -->
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                <a target="_blank" href="https://web.facebook.com/Puente-Web-107490311900117" class="ml-3 text-gray-500 hover:text-gray-800">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                </a>
+                <a target="_blank" href="https://www.instagram.com/puentewebsoftware/" class="ml-4 text-gray-500 hover:text-gray-800">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                    </svg>
+                </a>
+                <a target="_blank" href="https://www.youtube.com/user/PuenteWeb" class="ml-5 text-gray-500 hover:text-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+                    </svg>
+                </a>
+            </span>
+        </div>
+    </div>
+</footer>        <script></script>
+    </body>
+</html>

@@ -1,0 +1,287 @@
+
+    <!doctype html>
+    <html>
+        <head>
+<base href="https://etablissements.pixli.fr/login/" />
+
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+            <meta http-equiv="Pragma" content="no-cache" />
+            <meta http-equiv="Expires" content="0"/>
+            <title> - Pixli.fr</title>
+            <link rel="icon" href="/ressources/img/favicon.ico" />
+            <link rel="stylesheet" href="/ressources/css/animate.min.css">
+            <link rel="stylesheet" href="/ressources/css/tailwind.min.css">
+            <link rel="stylesheet" href="/ressources/css/theme.css">
+            <link rel="stylesheet" href="/ressources/css/tour.min.css">
+            <script type="text/javascript" src="/ressources/js/jquery-3.5.1.min.js"></script>
+            <script type="text/javascript" src="/ressources/js/jquery.validate.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js" integrity="sha512-rCjfoab9CVKOH/w/T6GbBxnAH5Azhy4+q1EXW5XEURefHbIkRbQ++ZR+GBClo3/d3q583X/gO4FKmOFuhkKrdA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script type="text/javascript" src="/ressources/js/tour.min.js"></script>
+            <script type="text/javascript" src="/ressources/js/client.js"></script>
+            <script type="text/javascript" src="/ressources/js/search.js"></script>
+            
+        </head>
+        <body onload="$('#loader').hide()">
+            
+            <div id="loader" class="fixed z-10 w-screen h-screen top-0 left-0 overflow-hidden bg-black bg-opacity-25 flex justify-center items-center">
+                <svg width="40" height="40" viewBox="0 0 105 105" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+                    <circle cx="12.5" cy="12.5" r="12.5">
+                        <animate attributeName="fill-opacity" begin="0s" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="12.5" cy="52.5" r="12.5" fill-opacity=".5">
+                        <animate attributeName="fill-opacity" begin="100ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="52.5" cy="12.5" r="12.5">
+                        <animate attributeName="fill-opacity" begin="300ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="52.5" cy="52.5" r="12.5">
+                        <animate attributeName="fill-opacity" begin="600ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="92.5" cy="12.5" r="12.5">
+                        <animate attributeName="fill-opacity" begin="800ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="92.5" cy="52.5" r="12.5">
+                        <animate attributeName="fill-opacity" begin="400ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="12.5" cy="92.5" r="12.5">
+                        <animate attributeName="fill-opacity" begin="700ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="52.5" cy="92.5" r="12.5">
+                        <animate attributeName="fill-opacity" begin="500ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="92.5" cy="92.5" r="12.5">
+                        <animate attributeName="fill-opacity" begin="200ms" dur="1s" values="1;.2;1" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                </svg>
+            </div>
+
+            
+            
+
+        <div class="min-h-screen bg-white flex flex-col-reverse xl:flex-row overflow-hidden animate__animated animate__fadeIn">
+
+            <div class="h-screen-scroll-view flex flex-col items-center justify-between bg-white py-4 md:py-12 px-4 sm:px-16 lg:px-24 mx-auto h-screen overflow-hidden" style="z-index: 100;">
+                <div></div>
+                <div class="max-w-md w-full space-y-8">
+                    <div>
+                        <img class="w-2/5 mx-auto select-none" src="/ressources/img/logo.png" alt="PIXLI">
+						<p class="text-center text-lg text-gray-600 whitespace-nowrap mt-4 mb-16">
+                            Espace  établissements
+                        </p>
+                        <p class="mt-2 text-center text-sm text-gray-600 whitespace-nowrap">
+                            Connectez-vous afin d'accéder &agrave; votre espace de gestion.
+                        </p>
+                    </div>
+                    <form id="login" class="mt-16 space-y-3 md:space-y-6" method="post">
+                        <input type="hidden" name="_csrf" value="" /><input type="hidden" name="_origin" value="/login/" />
+                        <div class="mt-6 grid grid-cols-4 gap-4">
+                            <div class="col-span-4">
+                                <label for="username" class="block text-sm font-medium text-gray-700">Identifiant </label>
+                                <input type="text" value="" name="username" id="username" placeholder="Saisissez votre identifiant ici" required autocomplete="on" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
+                            </div>
+                            <div class="col-span-4">
+                                <label for="password" class="block text-sm font-medium text-gray-700">Mot de passe </label>
+                                <input type="password" name="password" id="password" placeholder="Saisissez votre mot de passe ici" required autocomplete="off" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
+                            </div>
+
+
+                            <div class="-mt-2 text-right col-span-4 text-sm select-none">
+                                <input id="show_password" class="mr-1 cursor-pointer" type="checkbox" onclick="if ($('input#password').attr('type') === 'password') { $('input#password').attr('type', 'text') } else { $('input#password').attr('type', 'password') }">
+                                <label for="show_password" class="cursor-pointer">Afficher le mot de passe</label>
+                            </div>
+
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class=" group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400">
+                                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                    <svg class="h-5 w-5 text-green-400 group-hover:text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </span>
+                                Se connecter
+                            </button>
+                        </div>
+                        <div id="user_error_code" class="w-full text-center text-sm mt-16 text-red-600">
+                            
+                            &nbsp;
+                        </div>
+                    </form>
+                </div>
+                <div class="w-full h-128">
+                    
+                    <div class="-mt-16 xl:mt-0 relative w-full pb-2 sm:pb-5">
+                        <div class="w-full mx-auto">
+                          <div class="p-2 rounded-lg bg-green-500 shadow-lg sm:p-3">
+                            <div class="flex items-center justify-between flex-wrap">
+                              <div class="w-0 flex-1 flex items-center">
+                                <span class="relative p-2 rounded-lg overflow-visible animate__animated animate__flip">
+                                  <svg class="absolute top-1/2 left-0 transform -translate-x-2/3 -translate-y-2/3 h-20 w-20 text-white " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+                                    <defs>
+                                    </defs>
+                                    <g transform="translate(128 128) scale(0.72 0.72)">
+                                        <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(-175.05 -175.05000000000004) scale(3.89 3.89)" >
+                                        <path d="M 85.211 47.425 c 0.3 -0.873 0.465 -1.809 0.465 -2.785 c 0 -1.807 -0.561 -3.482 -1.516 -4.864 c 1.814 -1.571 2.964 -3.89 2.964 -6.478 c 0 -4.36 -3.258 -7.957 -7.471 -8.496 c 0.315 -0.853 0.488 -1.774 0.488 -2.736 c 0 -4.358 -3.533 -7.892 -7.892 -7.892 c 0 -4.358 -3.533 -7.892 -7.892 -7.892 c -1.805 0 -3.468 0.608 -4.798 1.628 c -1.439 -1.929 -3.738 -3.178 -6.33 -3.178 c -0.218 0 -0.434 0.011 -0.648 0.029 C 51.37 1.959 48.583 0 45.338 0 c -3.399 0 -6.296 2.149 -7.407 5.163 c -0.606 -0.149 -1.239 -0.23 -1.891 -0.23 c -3.997 0 -7.297 2.971 -7.818 6.825 c -0.246 -0.023 -0.496 -0.036 -0.748 -0.036 c -4.288 0 -7.775 3.421 -7.886 7.683 c -0.458 -0.083 -0.929 -0.128 -1.411 -0.128 c -4.358 0 -7.892 3.533 -7.892 7.892 c 0 2.127 0.843 4.055 2.21 5.474 c -0.202 -0.013 -0.406 -0.022 -0.611 -0.022 c -5.106 0 -9.246 4.139 -9.246 9.246 c 0 4.114 2.688 7.599 6.403 8.798 c -0.576 1.206 -0.899 2.555 -0.899 3.981 c 0 5.106 4.139 9.246 9.246 9.246 c 1.341 0 2.613 -0.288 3.763 -0.801 c 1.671 1.655 3.969 2.678 6.506 2.678 c 4.198 0 7.74 -2.799 8.868 -6.632 c 1.338 0.986 2.991 1.57 4.781 1.57 c 1.334 0 2.591 -0.326 3.699 -0.899 c -0.002 0.069 -0.005 0.137 -0.005 0.206 c 0 4.358 3.533 7.892 7.892 7.892 c 2.822 0 5.297 -1.483 6.692 -3.711 c 1.524 1.395 3.554 2.247 5.784 2.247 c 4.008 0 7.372 -2.752 8.309 -6.469 c 1.428 1.064 3.198 1.694 5.116 1.694 c 4.732 0 8.569 -3.836 8.569 -8.569 C 87.361 50.922 86.548 48.936 85.211 47.425 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(104,143,44); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                        <path d="M 62.429 55.079 c -3.442 2.75 -7.5 4.261 -10.288 4.743 l -0.354 3.539 c 3.682 -1.565 7.559 -3.932 11.632 -7.099 L 62.429 55.079 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(105,64,49); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                        <path d="M 27.063 53.474 c 5.13 4.099 11.18 6.352 15.335 7.07 l 0.528 5.275 c -5.488 -2.333 -11.267 -5.86 -17.338 -10.582 L 27.063 53.474 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(105,64,49); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                        <path d="M 52.991 48.359 c -0.835 7.356 -3.874 13.97 -6.621 17.85 l 3.776 4.633 c 2.527 -6.231 4.335 -13.647 5.426 -22.25 L 52.991 48.359 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(105,64,49); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                        <path d="M 55.901 90 c -6.594 -6.586 -2.545 -18.917 -5.131 -27.863 c -2.637 -6.873 -4.699 -9.662 -4.89 -16.624 h -1.823 c -0.849 4.947 -0.315 10.133 1.823 15.595 c -3.321 -4.643 -6.821 -8.047 -10.531 -9.988 l -1.881 1.897 c 4.548 3.296 8.895 9.794 8.498 17.247 c 0 8.93 -1.175 14.565 -6.223 19.735 H 55.901 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(120,74,56); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                        <path d="M 78.207 39.96 c 0 -2.186 -1.063 -4.12 -2.695 -5.328 c 0.531 -0.953 0.835 -2.05 0.835 -3.218 c 0 -3.662 -2.969 -6.631 -6.631 -6.631 c -0.375 0 -0.74 0.039 -1.097 0.098 c -0.351 -0.531 -0.775 -1.007 -1.26 -1.417 c 0.489 -0.925 0.769 -1.977 0.769 -3.096 c 0 -3.662 -2.969 -6.631 -6.631 -6.631 c -0.526 0 -1.035 0.068 -1.526 0.183 c -1.216 -1.466 -3.051 -2.4 -5.105 -2.4 c -0.375 0 -0.74 0.039 -1.097 0.098 c -1.187 -1.796 -3.221 -2.982 -5.534 -2.982 c -2.374 0 -4.451 1.252 -5.622 3.127 c -0.561 -0.154 -1.149 -0.243 -1.759 -0.243 c -2.678 0 -4.98 1.591 -6.027 3.877 c -0.421 -0.084 -0.855 -0.129 -1.3 -0.129 c -3.446 0 -6.276 2.628 -6.599 5.989 c -0.351 -0.058 -0.71 -0.095 -1.077 -0.095 c -3.662 0 -6.631 2.969 -6.631 6.631 c 0 0.189 0.013 0.375 0.028 0.56 c -1.382 1.215 -2.258 2.991 -2.258 4.976 c 0 0.866 0.171 1.691 0.473 2.449 c -2.808 0.771 -4.874 3.335 -4.874 6.389 c 0 1.851 0.76 3.524 1.984 4.727 c -0.592 0.993 -0.939 2.149 -0.939 3.388 c 0 3.662 2.969 6.631 6.631 6.631 c 0.996 0 1.937 -0.226 2.785 -0.619 c 1.201 1.698 3.176 2.81 5.414 2.81 c 2.359 0 4.425 -1.236 5.601 -3.092 c 3.411 -0.274 6.095 -3.123 6.095 -6.604 c 0 -0.289 -0.025 -0.571 -0.061 -0.85 c 0.557 0.152 1.141 0.24 1.746 0.24 c 1.517 0 2.911 -0.515 4.029 -1.373 c 0.069 0.1 0.141 0.197 0.216 0.293 c -0.006 0.104 -0.016 0.206 -0.016 0.311 c 0 3.177 2.575 5.752 5.752 5.752 c 0.846 0 1.647 -0.187 2.371 -0.516 c 0.393 3.287 3.176 5.839 6.569 5.839 c 3.425 0 6.243 -2.597 6.594 -5.93 c 0.254 0.029 0.51 0.049 0.772 0.049 c 3.662 0 6.631 -2.969 6.631 -6.631 c 0 -0.267 -0.02 -0.528 -0.051 -0.787 C 76.79 44.686 78.207 42.489 78.207 39.96 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(118,161,52); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                        <path d="M 53.531 38.027 c 0.823 -0.584 1.361 -1.542 1.361 -2.628 c 0 -0.965 -0.426 -1.828 -1.097 -2.418 c 0.541 -0.576 0.874 -1.349 0.874 -2.202 c 0 -1.121 -0.573 -2.108 -1.442 -2.685 c 0.03 -0.175 0.048 -0.354 0.048 -0.538 c 0 -1.78 -1.443 -3.223 -3.223 -3.223 c -0.046 0 -0.091 0.005 -0.136 0.007 c -0.044 -0.147 -0.1 -0.289 -0.164 -0.427 c 1.008 -0.545 1.694 -1.611 1.694 -2.837 c 0 -1.299 -0.771 -2.416 -1.878 -2.926 c 0.305 -0.493 0.485 -1.072 0.485 -1.694 c 0 -1.78 -1.443 -3.223 -3.223 -3.223 c -1.55 0 -2.844 1.095 -3.152 2.553 c -0.339 -0.121 -0.702 -0.19 -1.082 -0.19 c -1.587 0 -2.904 1.149 -3.171 2.659 c -0.462 -0.255 -0.992 -0.402 -1.557 -0.402 c -1.78 0 -3.223 1.443 -3.223 3.223 c 0 0.045 0.005 0.089 0.007 0.133 c -0.364 -0.143 -0.76 -0.224 -1.174 -0.224 c -1.78 0 -3.223 1.443 -3.223 3.223 c 0 0.985 0.443 1.866 1.14 2.457 c -0.697 0.591 -1.14 1.472 -1.14 2.457 c 0 0.129 0.01 0.256 0.024 0.381 c -0.453 -0.242 -0.969 -0.381 -1.519 -0.381 c -1.78 0 -3.223 1.443 -3.223 3.223 c -1.78 0 -3.223 1.443 -3.223 3.223 c 0 0.679 0.211 1.308 0.57 1.828 c -1.329 0.398 -2.298 1.628 -2.298 3.087 c 0 0.469 0.102 0.913 0.282 1.315 c -1.053 0.53 -1.776 1.618 -1.776 2.877 c 0 1.78 1.443 3.223 3.223 3.223 c 0.549 0 1.066 -0.138 1.519 -0.381 c -0.015 0.125 -0.024 0.252 -0.024 0.381 c 0 1.78 1.443 3.223 3.223 3.223 c 1.78 0 3.223 -1.443 3.223 -3.223 c 0 -0.424 -0.084 -0.827 -0.232 -1.198 c 0.368 0.146 0.768 0.229 1.188 0.229 c 1.163 0 2.179 -0.618 2.746 -1.541 c 0.567 0.923 1.583 1.541 2.745 1.541 c 1.098 0 2.066 -0.55 2.648 -1.388 c 0.503 0.324 1.1 0.515 1.743 0.515 c 1.555 0 2.852 -1.101 3.156 -2.565 c 0.358 0.137 0.745 0.215 1.151 0.215 c 1.392 0 2.574 -0.884 3.025 -2.119 c 0.451 1.235 1.633 2.119 3.025 2.119 c 1.78 0 3.223 -1.443 3.223 -3.223 C 54.669 39.498 54.227 38.618 53.531 38.027 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(132,179,61); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                        <path d="M 71.035 40.933 c 0 -1.78 -1.443 -3.223 -3.223 -3.223 c -1.035 0 -1.954 0.49 -2.544 1.249 c -0.219 -0.047 -0.446 -0.073 -0.679 -0.073 c -1.78 0 -3.223 1.443 -3.223 3.223 c 0 0.422 0.083 0.824 0.231 1.193 c -0.959 0.559 -1.605 1.595 -1.605 2.784 c 0 1.78 1.443 3.223 3.223 3.223 c 1.006 0 1.903 -0.461 2.495 -1.183 c 0.472 0.271 1.018 0.428 1.601 0.428 c 1.78 0 3.223 -1.443 3.223 -3.223 c 0 -0.726 -0.243 -1.394 -0.648 -1.933 C 70.588 42.808 71.035 41.923 71.035 40.933 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(132,179,61); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                    </g>
+                                    </g>
+                                    </svg>
+                                </span>
+                                <p class="ml-4 font-medium text-white truncate">
+                                  <span class="inline">Merci ! Déjà <u>424 arbres</u> plantés !</span>
+                                </p>
+                              </div>
+                              <span class="block sm:mr-2 sm:inline-block">
+                                <a target="_blank" href="https://www.reforestaction.com/pixli" class="text-white font-bold underline"> En savoir plus <span aria-hidden="true">&rarr;</span></a>
+                              </span>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+                        
+            <div class="hidden sm:block relative flex-1 h-screen overflow-y-auto overflow-x-hidden p-10 text-justify bg-gray-50 shadow-inner bg-cover bg-center" style="background-image: url(/ressources/img/photo-1504275107627-0c2ba7a43dba.jpg);">
+
+                <!--a href="https://unsplash.com/photos/VLaKsTkmVhk" class="block absolute w-full text-center bottom-2 left-0 text-white opacity-50">
+                    Crédits : https://unsplash.com/photos/VLaKsTkmVhk
+                </a-->
+
+            </div>
+        </div>
+    
+	
+
+            
+    
+        <div aria-live="assertive" class="fixed top-12 inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start">
+            <div class="w-full flex flex-col items-center space-y-4 sm:items-end">
+
+                
+                    
+
+                        <div data-notification="" class="animate__animated animate__fadeInRight animate__faster max-w-sm w-full bg-white bg-opacity-50 border-b-2 border-red-400 shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden" style="backdrop-filter: blur(7px);">
+                            <div class="p-4">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-3 w-0 flex-1 pt-0.5">
+                                        <p class="text-sm font-medium text-gray-900">
+                                            Vous avez été deconnecté.
+                                        </p>
+                                        
+                                            <p class="mt-1 text-sm text-gray-500">
+                                                Temps d'inactivité trop long.
+                                            </p>
+                                        
+                                        
+                                    </div>
+                                    <div class="ml-4 flex-shrink-0 flex">
+                                        <button onclick="$(this).closest('[data-notification]').addClass('animate__animated animate__fadeOutRight animate__fast')" class="rounded-md inline-flex text-gray-600 hover:text-gray-900 focus:outline-none">
+                                            <span class="sr-only">Close</span>
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                
+                    
+                
+                    
+                
+
+            </div>
+        </div>
+    
+
+
+            
+
+            <div id="async_loader" class="hidden fixed w-screen h-2 bottom-0 left-0 overflow-hidden" style="z-index: 1000;">
+                <div class="relative h-full bg-transparent w-full animate-pulse"></div>
+            </div>
+
+            <template id="modal">
+                <div id="modal-{{modal-id}}" class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+                        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                        <div class="inline-block animate__animated {{modal-animation}} align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                <div class="sm:flex sm:items-start">
+                                    <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-{{modal-icon-color}}-100 sm:mx-0 sm:h-10 sm:w-10">
+                                        <svg class="h-6 w-6 text-{{modal-icon-color}}-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                            {{modal-icon}}
+                                        </svg>
+                                    </div>
+                                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">{{modal-title}}</h3>
+                                        <div class="mt-2 text-sm text-gray-500" id="modal-content">
+                                            {{modal-content}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                <button id="modal-btn-confirm-{{modal-id}}" class="{{modal-btn-confirm-class}} w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-{{modal-btn-confirm-color}}-500 text-base font-medium text-white hover:bg-{{modal-btn-confirm-color}}-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-{{modal-btn-confirm-color}}-500 sm:ml-3 sm:w-auto sm:text-sm">{{modal-btn-confirm-label}}</button>
+                                <button id="modal-btn-cancel-{{modal-id}}" class="{{modal-btn-cancel-class}} mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">{{modal-btn-cancel-label}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            
+            <div id="alert-cookies" class="hidden fixed bottom-0 inset-x-0 p-6">
+                <div class="w-full mx-auto">
+                    <div class="p-2 rounded-lg bg-gray-600 shadow-lg sm:p-3 bg-opacity-75" style="backdrop-filter: blur(15px);">
+                        <div class="flex items-center justify-between flex-wrap">
+                            <div class="w-0 flex-1 flex items-center">
+                                <span class="flex p-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </span>
+                                <p class="ml-2 font-medium text-white text-justify">
+                                    <span>En continuant sur ce site, vous acceptez l'utilisation de cookies et de toutes autres technologies nous permettant de vous offrir le meilleur service possible. Ces informations ne sont pas utilisées à des fins commerciales.</span>
+                                </p>
+                            </div>
+                            <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
+                                <a href="https://www.pixli.fr/legal/gestion-cookies" class="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:underline">En savoir plus</a>
+                            </div>
+                            <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-2">
+                                <button onclick="localStorage.setItem('cookies-accept', (new Date()).getTime()); $('#alert-cookies').addClass('animate__animated animate__fadeOut')" class="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-600 bg-white hover:bg-gray-50 focus:outline-none">Continuer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                $(document).ready(function(){
+                    
+                    c.init()
+                    
+                    if ( !localStorage.getItem('cookies-accept') ) { $('#alert-cookies').removeClass('hidden') }
+
+                })
+            </script>
+            
+        </body>
+    </html>

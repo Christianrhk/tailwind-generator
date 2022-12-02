@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="pavlovec.net">
+    <title>FLOX</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/img/favicon/safari-pinned-tab.svg" color="#66b821">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--IUB-COOKIE-SKIP-START--><script type="text/javascript">
+var _iub = _iub || [];
+_iub.csConfiguration = {"consentOnContinuedBrowsing":false,"whitelabel":false,"lang":"en","floatingPreferencesButtonDisplay":"bottom-right","siteId":2420229,"countryDetection":true,"cookiePolicyId":95402468, "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"closeButtonDisplay":false,"position":"float-top-center","acceptButtonColor":"#0073CE","acceptButtonCaptionColor":"white","customizeButtonColor":"#DADADA","customizeButtonCaptionColor":"#4D4D4D","rejectButtonColor":"#0073CE","rejectButtonCaptionColor":"white","textColor":"black","backgroundColor":"white" }};
+</script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+			<script>
+				var iCallback = function() {};
+				var _iub = _iub || {};
+
+				if ( typeof _iub.csConfiguration != 'undefined' ) {
+					if ( 'callback' in _iub.csConfiguration ) {
+						if ( 'onConsentGiven' in _iub.csConfiguration.callback )
+							iCallback = _iub.csConfiguration.callback.onConsentGiven;
+
+						_iub.csConfiguration.callback.onConsentGiven = function() {
+							iCallback();
+
+							/* separator */
+							jQuery('noscript._no_script_iub').each(function (a, b) { var el = jQuery(b); el.after(el.html()); });
+						}
+					}
+				}
+			</script><!--IUB-COOKIE-SKIP-END--><meta name='robots' content='max-image-preview:large' />
+<link rel="alternate" hreflang="en" href="https://floxrobotics.com/newsroom/" />
+<link rel="alternate" hreflang="x-default" href="https://floxrobotics.com/newsroom/" />
+<!-- Library initialization -->
+			<script type="text/javascript">
+				var _iub = _iub || { };
+
+				_iub.cons_instructions = _iub.cons_instructions || [ ];
+				_iub.cons_instructions.push(
+					[ "init", {
+							api_key: "24981710",
+							log_level: "error",
+							logger: "console",
+							sendFromLocalStorageAtLoad: true
+						}, function ( ) {
+							// console.log( "init callBack" );
+						}
+					]
+				);
+			</script>
+			<script type="text/javascript" src="//cdn.iubenda.com/cons/iubenda_cons.js" async></script><link rel='dns-prefetch' href='//s.w.org' />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/floxrobotics.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.1"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://floxrobotics.com/wp-includes/css/dist/block-library/style.min.css?ver=6.0.1' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='tailwind-css'  href='https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/css/dist/tailwind.min.css?ver=1638613407' type='text/css' media='all' />
+<link rel='stylesheet' id='lightgallery-css'  href='https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/css/dist/lightgallery.min.css?ver=1638613407' type='text/css' media='all' />
+<link rel='stylesheet' id='lightgallery-thumbnail-css'  href='https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/css/dist/lightgallery-thumbnail.min.css?ver=1638613407' type='text/css' media='all' />
+<link rel='stylesheet' id='lightgallery-video-css'  href='https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/css/dist/lightgallery-video.min.css?ver=1638613407' type='text/css' media='all' />
+<link rel='stylesheet' id='style-wp-css'  href='https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/css/dist/style.min.css?ver=1638613408' type='text/css' media='all' />
+<link rel='stylesheet' id='style-temp-css'  href='https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/style.css?ver=1638612300' type='text/css' media='all' />
+<script type='text/javascript' src='https://floxrobotics.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://floxrobotics.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script type='text/javascript' id='wpml-cookie-js-extra'>
+/* <![CDATA[ */
+var wpml_cookies = {"wp-wpml_current_language":{"value":"en","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"en","expires":1,"path":"\/"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://floxrobotics.com/wp-content/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookie.js?ver=4.5.0' id='wpml-cookie-js'></script>
+<script type='text/javascript' src='https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/js/header-scripts.js?ver=1637425869' id='header-scripts-js'></script>
+<link rel="https://api.w.org/" href="https://floxrobotics.com/wp-json/" /><link rel="alternate" type="application/json" href="https://floxrobotics.com/wp-json/wp/v2/pages/10" /><link rel="canonical" href="https://floxrobotics.com/newsroom/" />
+<link rel="alternate" type="application/json+oembed" href="https://floxrobotics.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffloxrobotics.com%2Fnewsroom%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://floxrobotics.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffloxrobotics.com%2Fnewsroom%2F&#038;format=xml" />
+<meta name="generator" content="WPML ver:4.5.0 stt:1;" />
+
+		<!-- GA Google Analytics @ https://m0n.co/ga -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176421687-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-176421687-1');
+		</script>
+
+	</head>
+
+
+<body class="body" id="top">
+    <div class="body-inner" id="lightgallery">
+        <section class="header-wrap">
+            <header class="header">
+                <div class="header-inner">
+                    <div class="header__logo">
+                                                    <a href="https://floxrobotics.com">
+                                <img src="https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/img/logo-flox.png" alt="">
+                            </a>
+                                            </div>
+
+                    <div class="header__menu">
+                        <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-17"><a href="https://floxrobotics.com/">Home</a></li>
+<li id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-19"><a href="https://floxrobotics.com#about">About</a></li>
+<li id="menu-item-20" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-20"><a href="https://floxrobotics.com#results">Our Results</a></li>
+<li id="menu-item-21" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-21"><a href="https://floxrobotics.com#benefits">Solution</a></li>
+<li id="menu-item-861" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-861"><a href="https://floxrobotics.com#solution">Our Impact</a></li>
+<li id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-22"><a href="https://floxrobotics.com#team">Team</a></li>
+<li id="menu-item-23" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-23"><a href="https://floxrobotics.com#contacts">Contacts</a></li>
+<li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-10 current_page_item menu-item-18"><a href="https://floxrobotics.com/newsroom/" aria-current="page">Newsroom</a></li>
+</ul></div>                    </div>
+                                        
+                    <div class="header__burger">
+                        <div class="header__burger-inner">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </section>
+        <div class="fake-header"></div>
+<main class="index">
+    <section class="gen-posts gen-width gen-rim">
+        <div class="pb-4 gen-title">
+            <h1>Latest posts</h1>
+        </div>
+        <div class="gen-posts-inner">
+                                        <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-successfully-introduced-to-the-first-customer-in-the-us/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/07/img_8664-1024x523.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>FLOX successfully introduced to the first Customer in the US</h3>
+                            <p class="p--date">July 30, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-expands-team-this-summer-with-three-interns-for-sustainability-and-business-development/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/07/screenshot-2022-07-13-at-13-35-50-1024x574.png" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>FLOX Expands Team This Summer With Three Interns for Sustainability and Business Development</h3>
+                            <p class="p--date">July 13, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/floxs-hugin-drone-helps-save-juvenile-roe-deer-ahead-of-harvesting/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/06/screenshot-2022-06-23-at-15-38-13-1024x575.png" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>FLOX&#8217;s&nbsp;Hugin drone helps save Juvenile Roe Deer ahead of Harvesting</h3>
+                            <p class="p--date">June 23, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-ceo-sara-nozkova-to-present-at-sweden-foodtechs-bigmeet2022/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/05/screenshot-2022-05-26-at-18-48-35-1024x579.png" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>FLOX CEO Sára Nožková To Present at Sweden FoodTech&#8217;s&nbsp;#BigMeet2022</h3>
+                            <p class="p--date">May 26, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-may-newsletter-continues-commercial-test-phase-eyes-customer-02/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/05/img_2319-1024x683.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>FLOX May Newsletter: Continues Commercial Test Phase; Eyes Customer 02</h3>
+                            <p class="p--date">May 23, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/call-to-action-flox-volunteering-oh-1-solution-to-farmers-in-sweden-interested-in-saving-deer-fawns-pre-harvest/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/05/screenshot-2022-05-19-at-13-22-45-1024x572.png" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>CALL-TO-ACTION: FLOX Volunteering OH-1 Solution to Farmers in Sweden Interested in Saving Deer Fawns Pre Harvest</h3>
+                            <p class="p--date">May 20, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-robotics-enters-commercial-phase-with-its-first-ever-customer-delivery/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/04/img_2166-1024x683.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>FLOX Robotics Enters Customer Pilot Phase</h3>
+                            <p class="p--date">April 1, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/march-2022-newsletter/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/03/aprilfools.jpeg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Newsletter March 2022</h3>
+                            <p class="p--date">March 31, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-robotics-expands-team-with-user-experience-interface-designer-sihan-sun/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/03/screenshot-2022-03-30-at-12-01-39-1024x573.png" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>FLOX Robotics Expands Team With User Experience &#038; Interface Designer Sihan Sun</h3>
+                            <p class="p--date">March 30, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-recognized-as-as-one-of-the-5-top-drone-startups-to-watch-globally-in-2022/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/03/screenshot-2022-03-22-at-13-55-50-1024x737.png" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>FLOX Recognized As One Of The 5 Top Drone Startups To Watch Globally in 2022</h3>
+                            <p class="p--date">March 25, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-robotics-joins-forces-with-research-institutes-of-sweden-rise-and-stockholm-university-in-groundbreaking-research-project-autonomous-drones-and-ai-assisted-computer-vision-for-near-real-time-m/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/03/logga-1-1024x608.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>FLOX Robotics Joins Forces With Research Institutes of Sweden (RISE) and Stockholm University In Groundbreaking Research Project: Autonomous Drones and AI-Assisted Computer Vision for Near Real-Time Mapping and Management of Wild Stock￼</h3>
+                            <p class="p--date">March 23, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-robotics-expands-team-with-robotics-autonomous-systems-engineer-kishore-kumar/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/03/img-20220212-wa0072-1-1024x768.jpg" alt="Kishore Kumar" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>FLOX Robotics Expands Team With Robotics &#038; Autonomous Systems Engineer Kishore Kumar</h3>
+                            <p class="p--date">March 14, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-robotics-expands-team-with-magnus-isenberg-to-focus-on-growth-sales/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/02/magnus_1-764x1024.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3><strong>FLOX Robotics Expands Team With Magnus Isenberg To Focus on Growth &amp; Sales</strong></h3>
+                            <p class="p--date">February 24, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-robotics-to-deliver-1st-ever-fully-autonomous-drone-system-to-repel-wildlife-from-cultivated-lands-in-april-launches-commercial-test-phase%ef%bf%bc/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/02/picture-1.jpg" alt="FLOX’s Hugin drone in action above one of the Swedish test fields" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>FLOX Robotics To Deliver 1st Ever Fully Autonomous Drone System To Repel Wildlife From Cultivated Lands In April; Launches Commercial Test Phase￼</h3>
+                            <p class="p--date">February 23, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/jakt-jagare-new-technology-is-used-against-wild-boars/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/02/screen_capture_-_28_jan__9_24_am-1024x200.png" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Jakt &#038; Jägare: New technology is used against wild boars</h3>
+                            <p class="p--date">February 4, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/newsletter-january-2022/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/01/screen_capture_-_28_jan__9_24_am-1024x761.png" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Newsletter January 2022</h3>
+                            <p class="p--date">January 28, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-robotics-expands-team-with-chief-marketing-officer-joon-knapen/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/01/joon.png" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Flox Robotics Expands Team With Chief Marketing Officer Joon Knapen</h3>
+                            <p class="p--date">January 24, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-robotics-expands-team-with-animal-scientist-simone-vaianella/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/01/simone-807x1024.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Flox Robotics Expands Team with Animal Scientist Simone Vaianella</h3>
+                            <p class="p--date">January 20, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-robotics-selected-as-the-newest-member-of-the-swedish-ai-startup-landscape/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2022/01/trusted_ai-startup_sweden-1024x933.png" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Flox Robotics selected as the newest member of the  Swedish AI Startup Landscape</h3>
+                            <p class="p--date">January 19, 2022</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/thank-you-for-your-support-in-2021/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/12/flox2-2-1024x737.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Thank you for your support in 2021</h3>
+                            <p class="p--date">December 22, 2021</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/atl-flox-is-looking-for-venture-capital-for-wild-boar-scare/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/12/credit_tetra-imagesalamy_anmp9y_web.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>ATL: Flox is looking for venture capital for wild boar scare</h3>
+                            <p class="p--date">December 17, 2021</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/sting-meet-flox-the-deeptech-startup-helping-animals-and-humans-coexist-in-harmony/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/12/img_3872-1024x577.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Sting: Meet Flox, the deeptech startup helping animals and humans coexist in harmony</h3>
+                            <p class="p--date">December 7, 2021</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/newsletter-december/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/12/flox-test-august-2-1024x630.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Newsletter December 2021</h3>
+                            <p class="p--date">December 4, 2021</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/feber-flox-drones-keep-animals-away-from-forests-and-fields-to-avoid-damages/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/12/img_1030-1024x630.jpeg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Feber: Flox drones keep animals away from certain forests and fields to avoid damages</h3>
+                            <p class="p--date">December 1, 2021</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/breakit-with-the-help-of-the-latest-ai-technology-and-autonomous-drones-sara-nozkova-can-save-billions-for-swedish-landowners/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/flox-test-august-2.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Breakit: With the help of the latest AI technology and autonomous drones, Sara Nozkova can save billions for Swedish landowners</h3>
+                            <p class="p--date">November 29, 2021</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/the-ojo-yoshida-report-us-farm-drones-going-hog-wild/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/img_0394-1024x531-2.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>The Ojo-Yoshida Report (US): Farm Drones Going Hog Wild</h3>
+                            <p class="p--date">November 22, 2021</p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-part-of-the-startup-climate-action-map-2021-in-the-category-ai-for-planet/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/credit_tetra-imagesalamy_anmp9y_web.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Flox part of the Startup Climate Action Map 2021 in the category &#8220;AI for Planet&#8221;</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/lantbruksnytt-tv-drones-keep-the-fields-free-from-wild-animal-damage/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/image-from-ios.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Lantbruksnytt TV: Drones keep the fields free from wild animal damage</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/newsletter-september-2021/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/flox-test-august-1-1024x516.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Newsletter September 2021</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/atl-drones-are-able-to-scare-wild-boars-and-deer/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/gary-bendig-xesmjinao5o-unsplash-1-1024x608.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>ATL: Drones are able to scare wild boars and deer</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/flox-robotics-takes-the-next-step-towards-autonomous-drone-solution-that-successfully-manages-human-wildlife-conflict-2/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/dream-team-1024x795.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Flox Robotics Takes The Next Step Towards Autonomous Drone Solution That Successfully Manages Human-Wildlife Conflict</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/newsletter-august-2021/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/flox-test-august-956x1024.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Newsletter August 2021</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/3-ways-autonomous-drones-can-prevent-human-wildlife-conflict/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/gary-bendig-xesmjinao5o-unsplash-1024x683.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>3 Ways Autonomous Drones Can Prevent Human-Wildlife Conflict</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/newsletter-july-2021/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/03-babydeer-1.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Newsletter July 2021</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/making-drone-technology-accessible-for-landowners-and-beyond/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/flox-2-1024x776.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Making Drone Technology Accessible for Landowners and Beyond</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/newsletter-june-2021/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/forest-copy-1-1024x534.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Newsletter June 2021</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/use-of-flox-drones-and-ai-to-reduce-mortality-of-roe-deer-fawns-before-harvest/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/03-babydeer.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Use of Flox drones and AI to reduce mortality of roe deer fawns before harvest</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                            <div class="gen-posts__item">
+                    <a href="https://floxrobotics.com/news/stockholm-based-drone-company-enters-the-market-to-provide-sustainable-wildlife-management-and-prevent-food-loss/" class="gen-posts__item-inner">
+                        <div class="gen-posts__item__img">
+                                                            <img src="https://floxrobotics.com/wp-content/uploads/2021/11/blog-post-1-1024x721.jpg" alt="" loading="lazy">
+                                                    </div>
+                        <div class="gen-posts__item__text">
+                            <h3>Stockholm-based drone company enters the market to provide sustainable wildlife management and prevent food loss</h3>
+                            <p class="p--date"></p>
+                            <p></p>
+                        </div>
+                        <div class="gen-posts__item__btn">
+                            <span class="btn btn--m btn--blue-d">Read more</span>
+                        </div>
+                    </a>
+                </div>
+                                </div>
+    </section>
+</main>
+
+<footer class="footer-wrap" id="contacts">
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="footer__text">
+                                    <h2 class="pb-6">Contacts</h2>
+                
+                                                            <div class="gen-icon-text">
+                            <a href="/cdn-cgi/l/email-protection#3e575058517e585251464c515c514a575d4d105d5153" class="gen-icon-text-inner">
+                                                                    <img src="https://floxrobotics.com/wp-content/uploads/2021/10/icon-email.svg" alt="" />
+                                                                <span>General inquiries: <span class="__cf_email__" data-cfemail="254c4b434a6543494a5d574a474a514c46560b464a48">[email&#160;protected]</span></span>
+                            </a>
+                        </div>
+                                            <div class="gen-icon-text">
+                            <a href="/cdn-cgi/l/email-protection#bbcbc9dec8c8fbddd7d4c3c9d4d9d4cfd2d8c895d8d4d6" class="gen-icon-text-inner">
+                                                                    <img src="https://floxrobotics.com/wp-content/uploads/2021/10/icon-email.svg" alt="" />
+                                                                <span>For media/ journalists: <span class="__cf_email__" data-cfemail="12626077616152747e7d6a607d707d667b71613c717d7f">[email&#160;protected]</span></span>
+                            </a>
+                        </div>
+                                            <div class="gen-icon-text">
+                            <a href="tel:+46&nbsp;72&nbsp;017&nbsp;40&nbsp;89" class="gen-icon-text-inner">
+                                                                    <img src="https://floxrobotics.com/wp-content/uploads/2021/10/icon-phone.svg" alt="" />
+                                                                <span>+46&nbsp;72&nbsp;017&nbsp;40&nbsp;89</span>
+                            </a>
+                        </div>
+                                            <div class="gen-icon-text">
+                            <a href="https://goo.gl/maps/iB9gUkLwhSKh89vx7" class="gen-icon-text-inner">
+                                                                    <img src="https://floxrobotics.com/wp-content/uploads/2021/10/icon-marker.svg" alt="" />
+                                                                <span>Mjolnerbacken 67, 174&nbsp;60 Sundbyberg, Stockholm.</span>
+                            </a>
+                        </div>
+                                    
+                                    <br>
+                    <p>Copyright © 2022 All Rights Reserved by Flox Aktiebolag.</p>
+                            </div>
+
+                            <div class="footer__social">
+                                            <div class="gen-social-icon">
+                            <a href="https://www.linkedin.com/company/flox" class="gen-social-icon-inner">
+                                                                    <img src="https://floxrobotics.com/wp-content/uploads/2021/10/icon-linkedin.svg" alt="" />
+                                                            </a>
+                        </div>
+                                            <div class="gen-social-icon">
+                            <a href="https://instagram.com/floxrobotics" class="gen-social-icon-inner">
+                                                                    <img src="https://floxrobotics.com/wp-content/uploads/2021/10/icon-instagram.svg" alt="" />
+                                                            </a>
+                        </div>
+                                            <div class="gen-social-icon">
+                            <a href="https://www.youtube.com/channel/UCLPf9JyUMtebLr7VxitM51g" class="gen-social-icon-inner">
+                                                                    <img src="https://floxrobotics.com/wp-content/uploads/2021/10/icon-youtube.svg" alt="" />
+                                                            </a>
+                        </div>
+                                            <div class="gen-social-icon">
+                            <a href="https://www.facebook.com/Flox-103540495138227" class="gen-social-icon-inner">
+                                                                    <img src="https://floxrobotics.com/wp-content/uploads/2021/10/icon-facebook.svg" alt="" />
+                                                            </a>
+                        </div>
+                                    </div>
+                    </div>
+    </div>
+</footer>
+
+
+</div><!-- END - body-inner -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type='text/javascript' id='iubenda-forms-js-extra'>
+/* <![CDATA[ */
+var iubForms = [];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://floxrobotics.com/wp-content/plugins/iubenda-cookie-law-solution/js/frontend.js?ver=2.5.8' id='iubenda-forms-js'></script>
+<script type='text/javascript' src='https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/js/lightgallery.min.js?ver=1637425868' id='lightgallery-js'></script>
+<script type='text/javascript' src='https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/js/lightgallery-thumbnail.min.js?ver=1637425869' id='lightgallery-thumbnail-js'></script>
+<script type='text/javascript' src='https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/js/lightgallery-video.min.js?ver=1637425868' id='lightgallery-video-js'></script>
+<script type='text/javascript' src='https://floxrobotics.com/wp-content/themes/theme-by-pavlovec/assets/js/footer-scripts.js?ver=1637425868' id='footer-scripts-js'></script>
+</body>
+
+</html>

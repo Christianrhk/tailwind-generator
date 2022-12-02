@@ -1,0 +1,2064 @@
+﻿
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="alternate" type="application/rss+xml" href="/blog/feed">
+    
+    
+    <meta name="description" content="Learn how to livestream your video and audio with Twilio Live and Node.js.">
+    
+    
+
+  
+
+
+    
+    <title>Build a Livestreaming Application with Twilio Live and Express</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" type="BlogPage" href="https://www.twilio.com/blog/build-livestreaming-application-twilio-live-express" />
+
+  <script type="application/ld+json">{"@context": "http://schema.org", "@type": "BlogPosting", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.twilio.com/blog/build-livestreaming-application-twilio-live-express"}, "headline": "Build a Livestreaming Application with Twilio Live and Express", "datePublished": "2021-10-20T12:58:00+00:00", "publisher": {"@type": "Organization", "name": "Twilio", "url": "https://www.twilio.com", "logo": {"@type": "ImageObject", "url": "https://twilio-cms-prod.s3.amazonaws.com/original_images/twilio-logo-red-60px-tall.png", "width": 199, "height": 60}, "sameAs": ["https://twitter.com/twilio", "https://www.facebook.com/TeamTwilio", "https://plus.google.com/+twilio", "https://www.linkedin.com/company/twilio-inc-", "https://instagram.com/twilio/"]}, "description": "Learn how to livestream your video and audio with Twilio Live and Node.js.", "author": {"@type": "Person", "name": "Mia Adjei"}, "dateModified": "2021-12-10T20:11:21.746122+00:00", "image": {"@type": "ImageObject", "url": "https://twilio-cms-prod.s3.amazonaws.com/original_images/IhmCFKLl3YKHj8aljFZN7f_pCf_ajLDtEndMkwNz3T0A1V6-McdqIwrH0SzJI_rebAtnxuMlecwKj0", "height": 620, "width": 1200}}</script>
+  
+
+
+
+<meta property="og:title" content="Build a Livestreaming Application with Twilio Live and Express">
+
+<meta property="og:url" content="https://www.twilio.com/blog/build-livestreaming-application-twilio-live-express" />
+<meta property="og:site_name" content="Twilio Blog" />
+<meta property="og:type" content="article" />
+
+  <meta property="og:image" content="https://twilio-cms-prod.s3.amazonaws.com/original_images/IhmCFKLl3YKHj8aljFZN7f_pCf_ajLDtEndMkwNz3T0A1V6-McdqIwrH0SzJI_rebAtnxuMlecwKj0" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="620" />
+
+
+<meta property="og:description" content="Learn how to livestream your video and audio with Twilio Live and Node.js.">
+
+
+
+<meta name="twitter:site" content="@twilio" />
+
+<meta name="twitter:title" content="Build a Livestreaming Application with Twilio Live and Express">
+
+
+<meta name="twitter:description" content="Learn how to livestream your video and audio with Twilio Live and Node.js.">
+
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://twilio-cms-prod.s3.amazonaws.com/original_images/IhmCFKLl3YKHj8aljFZN7f_pCf_ajLDtEndMkwNz3T0A1V6-McdqIwrH0SzJI_rebAtnxuMlecwKj0" />
+
+
+
+
+<meta property="fb:app_id" content="414254592083321" />
+
+
+
+
+
+  
+
+  
+  
+
+  <script>
+      dataLayer = [{
+          'author': 'Mia Adjei',
+          'tags': 'JavaScript,Node.js,Twilio Live,TwilioVoices,Express,Video,Twilio Video,livestreaming',
+          'categories': 'code-tutorials-and-hacks',
+          'published_at': '2021-10-20',
+          'modified_at': '2021-12-10',
+      }]
+  </script>
+
+
+  
+  <link rel="shortcut icon" href="/docs/static/img/favicons/favicon.3896ba8d9.ico"/>
+  <link rel="apple-touch-icon" href="/docs/static/img/favicons/favicon_57.3896ba8d9.png"/>
+  <link rel="apple-touch-icon" sizes="72x72" href="/docs/static/img/favicons/favicon_72.3896ba8d9.png"/>
+  <link rel="apple-touch-icon" sizes="114x114" href="/docs/static/img/favicons/favicon_114.3896ba8d9.png"/>
+
+  
+  <link rel="stylesheet" href="/docs/static/css/fonts.min.3896ba8d9.css" />
+  <link rel="stylesheet" href="/docs/static/css/font-awesome.min.3896ba8d9.css" />
+
+  
+  <link rel="stylesheet" href="/docs/static/css/blog.min.3896ba8d9.css" />
+  
+
+  
+  
+
+  
+  <script>
+  var twilio = twilio || {};
+  twilio.environment = "prod";
+  twilio.baseUrl = "https://www.twilio.com";
+  twilio.DOCSEARCH_APP_ID = "OOAM14PGB2";
+  twilio.DOCSEARCH_API_KEY = "22caea5865713b51c9dc8953bba2db41";
+  twilio.FACEBOOK_APP_ID = "414254592083321";
+
+
+  twilio.account = twilio.account || {};
+  
+
+  twilio.user = twilio.user || {};
+  
+  
+    twilio.user.visitorSid = "VIaa1cc33411f259d430f7d888ab3df71a";
+  
+  
+
+  
+  twilio.user.language = "node-js";
+  
+
+  
+
+</script>
+
+</head>
+
+<body class="outer-container">
+    
+      
+
+	
+		
+      <!-- Google Tag Manager -->
+      <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MWRD6S"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;j.onerror=function(){if(w.disableAF){w.disableAF();}}
+      ;f.parentNode.insertBefore(j,f);
+      })(window, document, 'script', 'dataLayer', 'GTM-MWRD6S');</script>
+      <!-- End Google Tag Manager -->
+		
+	
+
+
+    
+    
+      
+    
+
+    
+    
+      
+
+<div role="drawer" class="nav__drawer">
+  <div role="drawer__wrapper" class="nav__drawer-wrapper">
+    <div role="drawer__nav" class="nav__drawer-nav"><span class="nav__drawer-auth"><a href="/login" class="nav__drawer-auth-link">Log In</a><a href="/try-twilio" class="nav__drawer-auth-link">Sign Up</a></span><a href="#close" role="drawer__close" class="nav__drawer-close">Close</a></div>
+    <div class="nav__drawer-menu">
+      <div class="nav__drawer-container">
+        <div class="nav__drawer-grid">
+          <div class="nav__drawer-section">
+            <div role="drawer__header" class="nav__drawer-header">Products</div>
+            <div role="drawer__dropdown" class="nav__drawer-dropdown">
+              <div class="nav__drawer-column">
+                <ul>
+                  <li><a href="/voice" class="nav__drawer-link nav__drawer-link--category">Voice &amp; Video</a></li>
+                  <li><a href="/voice" class="nav__drawer-link">Programmable Voice</a></li>
+                  <li><a href="/video" class="nav__drawer-link">Programmable Video</a></li>
+                  <li><a href="/sip-trunking" class="nav__drawer-link">Elastic SIP Trunking</a></li>
+                  <li><a href="/taskrouter" class="nav__drawer-link">TaskRouter</a></li>
+                  <li><a href="/stun-turn" class="nav__drawer-link">Network Traversal</a></li>
+                </ul>
+                <ul>
+                  <li><a href="/messaging" class="nav__drawer-link nav__drawer-link--category">Messaging</a></li>
+                  <li><a href="/sms" class="nav__drawer-link">Programmable SMS</a></li>
+                  <li><a href="/conversations-api" class="nav__drawer-link">Programmable Chat</a></li>
+                  <li><a href="/notify" class="nav__drawer-link">Notify</a></li>
+                </ul>
+              </div>
+              <div class="nav__drawer-column">
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Authentication</div>
+                  </li>
+                  <li><a href="/authy" class="nav__drawer-link">Authy</a></li>
+                </ul>
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Connectivity</div>
+                  </li>
+                  <li><a href="/lookup" class="nav__drawer-link">Lookup</a></li>
+                  <li><a href="/phone-numbers" class="nav__drawer-link">Phone Numbers</a></li>
+                  <li><a href="/iot/wireless" class="nav__drawer-link">Programmable Wireless</a></li>
+                  <li><a href="/sync" class="nav__drawer-link">Sync</a></li>
+                </ul>
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Marketplace</div>
+                  </li>
+                  <li><a href="https://showcase.twilio.com" class="nav__drawer-link">Add&#8209;ons</a></li>
+                </ul>
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Platform</div>
+                  </li>
+                  <li><a href="/solutions/enterprise" class="nav__drawer-link">Enterprise Plan</a></li>
+                  <li><a href="/interconnect" class="nav__drawer-link">Interconnect</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="nav__drawer-section">
+            <div role="drawer__header" class="nav__drawer-header">Use Cases</div>
+            <div role="drawer__dropdown" class="nav__drawer-dropdown">
+              <ul>
+                <li><a href="/solutions/account-security" class="nav__drawer-link nav__drawer-link--category">Access Security</a></li>
+                <li><a href="/solutions/text-marketing" class="nav__drawer-link nav__drawer-link--category">Call &amp; Text Marketing</a></li>
+                <li><a href="/flex" class="nav__drawer-link nav__drawer-link--category">Collaboration</a></li>
+                <li><a href="/proxy" class="nav__drawer-link nav__drawer-link--category">Commerce Communications</a></li>
+                <li><a href="/flex" class="nav__drawer-link nav__drawer-link--category">Contact Center</a></li>
+              </ul>
+              <hr>
+            </div>
+            <div>
+              <div class="nav__drawer-column">
+                <ul>
+                  <li><a href="https://customers.twilio.com" class="nav__drawer-link nav__drawer-link--small">Customer Stories</a></li>
+                  <li><a href="https://showcase.twilio.com" class="nav__drawer-link nav__drawer-link--small">Partner Showcase</a></li>
+                  <li><a href="/what-is-cloud-communications?" class="nav__drawer-link nav__drawer-link--small">Why Twilio?</a></li>
+                  <li><a href="/support-plans" class="nav__drawer-link nav__drawer-link--small">Support Plans</a></li>
+                  <li><a href="https://status.twilio.com" class="nav__drawer-link nav__drawer-link--small">Status</a></li>
+                </ul>
+              </div>
+              <div class="nav__drawer-column">
+                <ul>
+                  <li><a href="/docs" class="nav__drawer-link nav__drawer-link--small">API &amp; Docs</a></li>
+                  <li><a href="/blog" class="nav__drawer-link nav__drawer-link--small">Blog</a></li>
+                  <li><a href="https://support.twilio.com/hc/en-us" class="nav__drawer-link nav__drawer-link--small">Help</a></li>
+                  <li><a href="/company/jobs" class="nav__drawer-link nav__drawer-link--small">Jobs at Twilio</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="nav__sales"><a href="/help/sales" class="nav__sales-button">Talk to Sales</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="nav js-nav" role="nav" style="background-color: white !important;">
+  <a href="https://www.twilio.com/blog" class="nav-title" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="logo">
+
+    <span class="nav-logo"></span>
+    <span class="nav-title-label">
+      
+        BLOG
+      
+    </span>
+  </a>
+  <ul class="nav-list">
+    
+    <li class="nav-list-item nav-docs">
+      <a href="https://www.twilio.com/docs" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="docs & help">
+        <svg class="icon-docs" stroke-miterlimit="10" width="11.8" height="14" viewBox="0 0 11.8 14"><g fill="none" stroke="#F22F46"><path d="M11.3 13.5H.5V.5h5.4l5.4 5.4z"></path><path d="M11.3 5.9H5.9V.5"></path></g></svg>
+
+        <span class="nav-docs-label">Docs</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-login toggle-on-login">
+      <a href="https://www.twilio.com/login" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="log in">
+        <svg class="icon-login" width="10.2" height="13.5" viewBox="0 0 10.2 13.5"><g fill="none" stroke="#F22F46" stroke-miterlimit="10"><circle cx="5.1" cy="3" r="2.5"></circle><path d="M.5 13.5c0-2.5 2.1-4.6 4.6-4.6s4.6 2.1 4.6 4.6"></path></g></svg>
+
+        <span class="nav-login-label">Log In</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-signup toggle-on-login">
+      <a href="https://www.twilio.com/try-twilio" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="sign up">
+        <svg class="icon-signup" width="13" height="13" viewBox="0 0 13 13"><path fill="none" stroke="#F22F46" stroke-miterlimit="10" d="M0 6.5h13M6.5 0v13"></path></svg>
+
+        <span class="nav-signup-label">Sign Up</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-console toggle-on-login hidden">
+      <a href="https://www.twilio.com/console" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="console">
+        <svg class="icon-login" width="10.2" height="13.5" viewBox="0 0 10.2 13.5"><g fill="none" stroke="#F22F46" stroke-miterlimit="10"><circle cx="5.1" cy="3" r="2.5"></circle><path d="M.5 13.5c0-2.5 2.1-4.6 4.6-4.6s4.6 2.1 4.6 4.6"></path></g></svg>
+
+        <span class="nav-login-label">Console</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-dotcom">
+      <a href="https://www.twilio.com" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="twilio.com">
+        <svg class="icon-outbound-link" width="13" height="13" viewBox="0 0 13 13"><path fill="none" stroke="#F22F46" stroke-miterlimit="10" d="M2 2.5h8.5V11M10 3l-8 8"></path></svg>
+
+        <span class="nav-dotcom-label">Twilio</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+    
+
+    
+      
+        
+
+<section class="cta js-cta">
+  <div class="cta-content inner-container">
+    <div class="cta-headline h3">
+      
+        Build the future of communications.
+      
+    </div>
+    <a class="cta-action btn btn--outline-red" href="https://www.twilio.com/try-twilio" data-glinktype="cta-link" data-glinklocation="blog-hero" data-glinkname="signup-start-building-for-free">Start Building for Free</a>
+  </div>
+</section>
+
+      
+    
+
+    
+
+    <main class="main inner-container">
+      <aside class="sidebar ">
+        
+          
+
+
+
+<div class="search">
+    <form action="/blog/search" method="GET">
+  <div class="search">
+    <input class="input input--search search-input" type="search" name="q" placeholder="Search">
+  </div>
+</form>
+
+</div>
+
+
+
+<div class="signup-to-build">
+  <p>Build the future of communications. Start today with Twilio's APIs and services.</p>
+  <a class="btn btn--primary" href="/try-twilio" data-glinktype="cta-link" data-glinklocation="blog-sidebar" data-glinkname="signup-start-building-for-free-2">Start Building for Free</a>
+</div>
+
+
+
+<section class="tags">
+    <p class="tags-header">Posts by Stack</p>
+    <ul class="tags-list">
+      
+        <li class="tag"><a href="/blog/tag/java">Java</a></li>
+      
+        <li class="tag"><a href="/blog/tag/php">PHP</a></li>
+      
+        <li class="tag"><a href="/blog/tag/ruby">Ruby</a></li>
+      
+        <li class="tag"><a href="/blog/tag/net">.NET</a></li>
+      
+        <li class="tag"><a href="/blog/tag/python">Python</a></li>
+      
+        <li class="tag"><a href="/blog/tag/swift">Swift</a></li>
+      
+        <li class="tag"><a href="/blog/tag/arduino">Arduino</a></li>
+      
+        <li class="tag"><a href="/blog/tag/javascript">JavaScript</a></li>
+      
+    </ul>
+  </section>
+
+
+
+<section class="tags">
+  <p class="tags-header">Posts By Product</p>
+  <ul class="tags-list">
+    
+      <li class="tag"><a href="/blog/tag/email">Email</a></li>
+    
+      <li class="tag"><a href="/blog/tag/sms">SMS</a></li>
+    
+      <li class="tag"><a href="/blog/tag/voice">Voice</a></li>
+    
+      <li class="tag"><a href="/blog/tag/twilio-client">Twilio Client</a></li>
+    
+      <li class="tag"><a href="/blog/tag/mms">MMS</a></li>
+    
+      <li class="tag"><a href="/blog/tag/video">Video</a></li>
+    
+      <li class="tag"><a href="/blog/tag/conversations">Conversations</a></li>
+    
+      <li class="tag"><a href="/blog/tag/task-router">task router</a></li>
+    
+      <li class="tag"><a href="/blog/tag/verify">Verify</a></li>
+    
+      <li class="tag"><a href="/blog/tag/flex">Flex</a></li>
+    
+      <li class="tag"><a href="/blog/tag/sip">SIP</a></li>
+    
+      <li class="tag"><a href="/blog/tag/iot">IoT</a></li>
+    
+      <li class="tag"><a href="/blog/tag/studio">Studio</a></li>
+    
+  </ul>
+</section>
+
+
+
+<section class="tags">
+  <p class="tags-header">Categories</p>
+  <ul class="tags-list">
+    
+      <li class="tag--category">
+        <a href="/blog/category/code-tutorials-and-hacks">Code, Tutorials and Hacks</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="/blog/category/customer-highlights">Customer Highlights</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="/blog/category/developers-drawing-the-owl">Developers Drawing The Owl</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="/blog/category/life-inside-we-build-at-twilio">Life Inside: We Build At Twilio</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="/blog/category/news">News</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="/blog/category/stories-from-the-road">Stories From The Road</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="tags">
+    <p class="tags-header">Languages</p>
+    <ul class="tags-list">
+      
+        <li class="tag"><a href="/blog/tag/japanese">Japanese</a></li>
+      
+        <li class="tag"><a href="/blog/tag/german">german</a></li>
+      
+        <li class="tag"><a href="/blog/tag/spanish">spanish</a></li>
+      
+        <li class="tag"><a href="/blog/tag/portuguese">Portuguese</a></li>
+      
+        <li class="tag"><a href="/blog/tag/french">french</a></li>
+      
+    </ul>
+  </section>
+
+
+
+  <div class="social-buttons">
+    <a class="btn btn--icon-twitter" href="https://twitter.com/twilio" target="_blank" title="Follow on Twitter">
+      <svg class="icon-twitter" width="17" height="13.7" viewBox="0 0 17 13.7"><path d="M17 1.6c-.6.3-1.3.5-2 .5.7-.4 1.3-1.1 1.5-1.9-.7.4-1.4.7-2.2.8-.6-.6-1.5-1-2.5-1-2 0-3.5 1.5-3.5 3.5 0 .3 0 .5.1.8C5.5 4.1 2.9 2.7 1.2.6.9 1.1.7 1.7.7 2.4c0 1.2.6 2.3 1.6 2.9-.6 0-1.1-.2-1.6-.4C.7 6.6 1.9 8 3.5 8.3c-.3 0-.6.1-.9.1-.2 0-.4 0-.7-.1.4 1.4 1.7 2.4 3.3 2.4-1.2.9-2.7 1.5-4.3 1.5H.1c1.5 1 3.4 1.6 5.3 1.6 6.4 0 9.9-5.3 9.9-9.8v-.4c.6-.7 1.2-1.3 1.7-2"></path></svg>
+
+      Twitter
+    </a>
+    <a class="btn btn--icon-facebook" href="https://www.facebook.com/TeamTwilio" target="_blank" title="Follow on Facebook">
+      <svg class="icon-facebook" width="16" height="16" viewBox="0 0 16 16"><path d="M14.5 0h-13C.7 0 0 .7 0 1.5v13.1c0 .7.7 1.4 1.5 1.4H8V9.3H6v-2h2v-2c0-1.7.7-2.7 2.7-2.7h2v2h-.9c-.6 0-1.1.5-1.1 1.1v1.5h2.7l-.3 2h-2.3V16h3.9c.8 0 1.5-.7 1.5-1.5v-13C16 .7 15.3 0 14.5 0z"></path></svg>
+
+      Facebook
+    </a>
+  </div>
+
+
+
+<section class="subscribe">
+  <h3 class="subscribe-header">
+    Developer stories<br />to your inbox.
+  </h3>
+
+  <p>Subscribe to the Developer Digest, a monthly dose of all things code.</p>
+    <form id="1451" novalidate="" _lpchecked="1">
+        <div class="input-wrapper">
+          <input class="input__honey field-size-top-large" id="field0" name="field_Email" type="email" placeholder="Enter your email&hellip;" required="required" />
+          <input class="input__email field-size-top-large" id="email" name="email" type="email" placeholder="Enter your email&hellip;" autocomplete="nope" required="required" />
+          <aside class="error_message small">Please enter a valid email address.</aside>
+        </div>
+        <input type="hidden" id="uTMContentInquiry" name="field_uTMContentInquiry" value="">
+        <input type="hidden" id="uTMCampaignInquiry" name="field_uTMCampaignInquiry" value="">
+        <input type="hidden" id="uTMMediumInquiry" name="field_uTMMediumInquiry" value="">
+        <input type="hidden" id="uTMSourceInquiry" name="field_uTMSourceInquiry" value="">
+        <input type="hidden" id="uTMTermInquiry" name="field_uTMTermInquiry" value="">
+        <input type="hidden" id="previousPage" name="field_previousPage" value="">
+        <input type="hidden" id="assetPage" name="field_assetPage" value="">
+        <input type="hidden" id="heapID" name="field_heapID" value="">
+        <input type="hidden" id="gCLIDURL" name="field_gCLIDURL" value="">
+        <input type="hidden" id="gCLID" name="field_gCLID" value="">
+        <input type="hidden" id="Lead_Source_Most_Recent_ELOQUA__c" name="field_Lead_Source_Most_Recent_ELOQUA__c" value="Full Service Request">
+        <input type="hidden" id="underTwilioPrivacyPolicy" name="field_underTwilioPrivacyPolicy" value="true">
+        <button id="submit" type="submit">
+          <span class="icon">
+            <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" fill="#fff"></path></svg>
+          </span>
+          <span class="success">All set! Check your email.</span>
+        </button>
+    </form>
+  <p class="small">
+    You may unsubscribe at any time using the unsubscribe link in the digest email. See our <a href="https://www.twilio.com/legal/privacy">privacy policy</a> for more information.
+  </p>
+</section>
+
+
+
+<a class="promo" href="https://www.twilio.com/docs/tutorials">
+  <div class="promo-callout">New!</div>
+  <div class="promo-content">
+    <div class="promo-headline"> Tutorials</div>
+    <div class="promo-body">
+      Sample  applications that cover common use cases in a variety of languages. Download, test drive, and tweak them yourself.
+    </div>
+    <div class="promo-action link">Get started</div>
+  </div>
+</a>
+
+
+        
+        
+      </aside>
+
+      <section class="column">
+        
+          <ul class="article-list">
+        
+          
+          
+    
+      
+
+
+
+<article class="article not-loaded">
+  <header class="article-header">
+  <div class="article-meta">
+    <div class="article-authors">
+      <img src="https://www.gravatar.com/avatar/969f35629e689fcaa505d4e7e94d1566?d=https%3A%2F%2Fwww.twilio.com%2Fdocs%2Fstatic%2Fimg%2Fred-logo.3896ba8d9.png&amp;s=40">
+      By <a href="/blog/author/madjei">Mia Adjei</a>
+      <span class="article-published">2021-10-20</span>
+    </div>
+    <div class="social-buttons">
+      <a class="btn btn--icon-twitter" href="https://twitter.com/intent/tweet?url=https://www.twilio.com/blog/build-livestreaming-application-twilio-live-express&text=Build%20a%20Livestreaming%20Application%20with%20Twilio%20Live%20and%20Express&via=twilio" target="_blank" title="Share on Twitter">
+        <svg class="icon-twitter" width="17" height="13.7" viewBox="0 0 17 13.7"><path d="M17 1.6c-.6.3-1.3.5-2 .5.7-.4 1.3-1.1 1.5-1.9-.7.4-1.4.7-2.2.8-.6-.6-1.5-1-2.5-1-2 0-3.5 1.5-3.5 3.5 0 .3 0 .5.1.8C5.5 4.1 2.9 2.7 1.2.6.9 1.1.7 1.7.7 2.4c0 1.2.6 2.3 1.6 2.9-.6 0-1.1-.2-1.6-.4C.7 6.6 1.9 8 3.5 8.3c-.3 0-.6.1-.9.1-.2 0-.4 0-.7-.1.4 1.4 1.7 2.4 3.3 2.4-1.2.9-2.7 1.5-4.3 1.5H.1c1.5 1 3.4 1.6 5.3 1.6 6.4 0 9.9-5.3 9.9-9.8v-.4c.6-.7 1.2-1.3 1.7-2"></path></svg>
+        Twitter
+      </a>
+      <a class="btn btn--icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.twilio.com/blog/build-livestreaming-application-twilio-live-express" target="_blank" title="Share on Facebook">
+        <svg class="icon-facebook" width="16" height="16" viewBox="0 0 16 16"><path d="M14.5 0h-13C.7 0 0 .7 0 1.5v13.1c0 .7.7 1.4 1.5 1.4H8V9.3H6v-2h2v-2c0-1.7.7-2.7 2.7-2.7h2v2h-.9c-.6 0-1.1.5-1.1 1.1v1.5h2.7l-.3 2h-2.3V16h3.9c.8 0 1.5-.7 1.5-1.5v-13C16 .7 15.3 0 14.5 0z"></path></svg>
+        Facebook
+      </a>
+      <a class="btn btn--icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&source=Twilio%20Blog&title=Build%20a%20Livestreaming%20Application%20with%20Twilio%20Live%20and%20Express&url=https://www.twilio.com/blog/build-livestreaming-application-twilio-live-express" target="_blank" title="Share on LinkedIn">
+        <svg class="icon-linkedin" width="16" height="16" viewBox="0 0 12 12"><path d="M2.9,1.5C2.9,2.3,2.3,3,1.5,3C0.7,3,0,2.3,0,1.5C0,0.7,0.7,0,1.5,0C2.3,0,2.9,0.7,2.9,1.5z M2.7,4H0.2v8
+	h2.5V4z M6.7,4H4.3v8h2.4c0,0,0-3,0-4.2C6.7,6.7,7.2,6,8.2,6c0.9,0,1.3,0.6,1.3,1.8c0,1.2,0,4.2,0,4.2H12c0,0,0-2.9,0-5.1
+	c0-2.1-1.2-3.2-2.9-3.2c-1.7,0-2.4,1.3-2.4,1.3V4L6.7,4z"></path></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  <h1 class="article-title">Build a Livestreaming Application with Twilio Live and Express</h1>
+  </header>
+  <section class="article-content">
+    <p id="header_image">
+      
+
+
+  <img alt="Build a Livestreaming Application with Twilio Live and Express" height="417" sizes="808px" src="https://twilio-cms-prod.s3.amazonaws.com/images/IhmCFKLl3YKHj8aljFZN7f_pCf_ajLDtEndMkwNz3T0A1V.width-808.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/IhmCFKLl3YKHj8aljFZN7f_pCf_ajLDtEndMkwNz3T0A1V.width-808.png 808w, https://twilio-cms-prod.s3.amazonaws.com/images/IhmCFKLl3YKHj8aljFZN7f_pCf_ajLDtEndMkwNz3T0A1.width-1616.png 1200w" width="808">
+
+
+    </p>
+    <div class="block-rich_text">
+
+<p><a href="https://www.twilio.com/live">Twilio Live</a> is finally here! If you have ever wanted to build your own livestreaming application, now is your chance.</p>
+<p>In this tutorial, you will learn how to build a livestreaming application and share your live video feed with your friends, followers, and maybe even the world. For this project, you'll be using Node.js and Express to build the server side of the application, and vanilla JavaScript on the client side.</p>
+<p>Let's get started!</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>A free Twilio account. (If you register <a href="https://www.twilio.com/referral/D4tqHM">here</a>, you'll receive $10 in Twilio credit when you upgrade to a paid account!)</li>
+<li><a href="https://nodejs.org/">Node.js</a> v14+ and <a href="https://www.npmjs.com/">npm</a> installed on your machine.</li>
+<li><a href="https://ngrok.com/">ngrok</a></li>
+</ul>
+<h2>What you will build</h2>
+<p>In this tutorial, you will be creating an application that allows a person to livestream video and audio from their device to people who have the link to the stream. The Express server you'll build will handle both the streamer and audience experiences. The client side will have one experience for the streamer and one experience for the audience members.</p>
+<p>For the streamer experience, you will:</p>
+<ul>
+<li>Create a <a href="https://www.twilio.com/docs/video/tutorials/understanding-video-rooms">Twilio Video Room</a>, where the streamer will share their video and audio.
+<ul>
+<li>There are three different types of Video Rooms, but for this project, you'll be using a <a href="https://www.twilio.com/docs/video/tutorials/understanding-video-rooms#video-webrtc-go-rooms">WebRTC Go room</a>, which is limited to two participants. Since this application will just be for one user to stream their own video, a WebRTC Go room is the perfect size. When you finish this tutorial, if you decide you want to include more streaming participants in one room, you can upgrade to a <a href="https://www.twilio.com/docs/video/tutorials/understanding-video-rooms#video-group-rooms">Group room</a> very easily!</li>
+</ul>
+</li>
+<li>Create the livestream itself — the captured audio and video, formatted into a livestream by a <a href="https://www.twilio.com/docs/live/api/video-composer">Video Composer</a> running on a <a href="https://www.twilio.com/docs/live/api/mediaprocessors">MediaProcessor</a>.</li>
+<li>Create a <a href="https://www.twilio.com/docs/live/api/playerstreamers">PlayerStreamer</a>, which sends the livestreamed content to a web or mobile application running a version of the Player SDK.</li>
+<li>Build a UI where the streamer can start and end the livestream.</li>
+</ul>
+<p>For the audience experience, you will:</p>
+<ul>
+<li>Build a UI where the audience can watch a livestream.</li>
+<li>Use the <a href="https://www.twilio.com/docs/live/javascript-player-sdk-overview">Player SDK</a> to receive and display the livestreamed media in the browser.</li>
+</ul>
+<h2>Create the project directory and install dependencies</h2>
+<p>From your terminal or command prompt, navigate to where you would like to set up your project. Create a new directory called <em>express-live-stream</em> and change into that directory by running the following commands in your terminal:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-bash"><pre class="twlo-code language-bash"><code class="language-bash">mkdir express-live-stream
+cd express-live-stream
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Next, set up a new Node.js project with a default <em>package.json</em> file by running the following command:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-bash"><pre class="twlo-code language-bash"><code class="language-bash">npm init -y
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Once you have your <em>package.json</em> file, you're ready to install the needed dependencies:</p>
+<ul>
+<li><a href="https://expressjs.com/">Express</a>, a Node.js framework</li>
+<li><a href="https://www.twilio.com/docs/libraries/node">Twilio Node Helper Library</a>, to use the Twilio APIs</li>
+<li><a href="https://www.npmjs.com/package/dotenv">dotenv</a>, to load the environment variables from a <em>.env</em> file into your application</li>
+<li><a href="https://nodemon.io/">nodemon</a>, to automatically reload the server when you make code changes</li>
+<li><a href="https://www.twilio.com/docs/live/javascript-player-sdk-overview">@twilio/live-player-sdk</a>, the Twilio Live Player SDK for JavaScript</li>
+</ul>
+<p>Run the following command in your terminal to install the packages listed above:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-bash"><pre class="twlo-code language-bash"><code class="language-bash">npm install express twilio dotenv nodemon @twilio/live-player-sdk
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Open the <em>package.json</em> file in your code editor. You will see that the packages listed above have been installed as <code>dependencies</code>.</p>
+<p>Now that you have a <em>package.json</em> file set up, it's time to add your environment variables to the project.</p>
+<h2>Save your Twilio credentials safely as environment variables</h2>
+<p>Create a new file named <em>.env</em> at the root of your project and open it in your code editor. The <em>.env</em> file is where you will keep your Twilio account credentials. Add the following variables to your new file:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-text"><pre class="twlo-code language-text"><code class="language-text">TWILIO_ACCOUNT_SID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+TWILIO_API_KEY_SID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+TWILIO_API_KEY_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>You’ll need to replace the placeholder text above with your actual Twilio credentials, which can be found in the <a href="https://www.twilio.com/console">Twilio Console</a>. Log in to the Twilio Console and find your <strong>Account SID</strong>:</p>
+<p><img alt="Twilio console, showing location of Account SID" class="richtext-image full-width" height="210" sizes="800px" src="https://twilio-cms-prod.s3.amazonaws.com/images/q4XJx37ccKi2JABWiqvXgwGKKxspphlSpxuU4eLFcMWxx_.width-800.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/q4XJx37ccKi2JABWiqvXgwGKKxspphlSpxuU4eLFcMWxx_.width-800.png 800w, https://twilio-cms-prod.s3.amazonaws.com/images/q4XJx37ccKi2JABWiqvXgwGKKxspphlSpxuU4eLFcMWxx.width-1600.png 1222w" width="800"/></p>
+<p>Copy and paste the value for <strong>Account SID</strong> to replace the placeholder text for <code>TWILIO_ACCOUNT_SID</code>.</p>
+<p>Then, navigate to the <a href="https://www.twilio.com/console/project/api-keys">API Keys section of the console</a> and generate a new <strong>API Key. </strong>Copy the API Key's values for <strong>SID</strong> and <strong>Secret</strong> to replace the placeholder text for <code>TWILIO_API_KEY_SID</code> and <code>TWILIO_API_KEY_SECRET</code>.</p>
+<p>It’s important to <a href="https://www.twilio.com/docs/usage/secure-credentials">keep these private credentials secure</a> and out of version control. If you’re using GitHub, create a <em><a href="https://git-scm.com/docs/gitignore">.gitignore</a></em> file at the root of your project. In this file, you can list the files and directories that you want Git to not track or commit. Open .<em>gitignore</em> in your code editor and add the <em>.env</em> file and the <em>node_modules</em> directory:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-text"><pre class="twlo-code language-text"><code class="language-text">.env
+node_modules
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Now that you have your Twilio credentials set up, it's time to create your Express server.</p>
+<h2>Create a new Express server</h2>
+<p>Create a new file called <em>server.js</em> at the root of your project. This is the place where you will write your server-side code.</p>
+<p>Open <em>server.js</em> in your code editor and add the following lines of code to import the necessary packages and create your Express application, which will run on port 5000:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import express from 'express';
+import crypto from 'crypto';
+import twilio from 'twilio';
+
+dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const app = express();
+const port = 5000;
+
+// Start the Express server
+app.listen(port, async () =&gt; {
+  console.log(`Express server running on port ${port}`);
+});
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Now, open <em>package.json</em> in your code editor. Here, you will see that the <code>main</code> file is set to <code>index.js</code>. Remove this line and the <code>scripts</code> section below it. Then add the following lines in their place:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-json"><pre class="twlo-code language-json"><code class="language-json">  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>The code above changes the <code>main</code> file to <code>server.js</code> to match the server file you just created. Then, just below that, <code>"type": "module"</code> allows you to use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">ES6 modules</a> in your project. The <code>start</code> script on the lines after that is the command to use <a href="https://nodemon.io/">nodemon</a> to run your Node.js server. Your updated <em>package.json</em> file should look like the one below:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-json"><pre class="twlo-code language-json"><code class="language-json" hl_lines="[5, 6, 7, 8, 9]">{
+  "name": "express-live-stream",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@twilio/live-player-sdk": "1.0.0",
+    "dotenv": "10.0.0",
+    "express": "4.17.1",
+    "nodemon": "2.0.13",
+    "twilio": "3.70.0"
+  }
+}
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>To run the <code>start</code> script, return to your terminal window and run the following command:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-bash"><pre class="twlo-code language-bash"><code class="language-bash">npm start
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Once you have done this, you should see the following log statement in your terminal window, letting you know that the Express server is running:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-text"><pre class="twlo-code language-text"><code class="language-text">Express server running on port 5000
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>You can leave this server running while you work through the tutorial. <a href="https://nodemon.io/">Nodemon</a> will watch for changes in the <em>server.js</em> file and reload the server to keep it up to date with your latest additions.</p>
+<p>Now that your server is running, it's time to lay out the client side of your application. </p>
+<h2>Build the application layout and serve static files</h2>
+<p>Create a new directory called <em>public</em> at the root of your project. This directory will hold your static files:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-bash"><pre class="twlo-code language-bash"><code class="language-bash">mkdir public
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Inside the <em>public</em> directory, create 5 new files:</p>
+<ul>
+<li><em>index.html</em>, a simple entry point for your application<em> </em></li>
+<li><em>streamer.html</em>, containing the UI for the streamer</li>
+<li><em>streamer.js,</em> containing the logic for starting and ending a livestream</li>
+<li><em>audience.html, </em>containing the UI for the audience member</li>
+<li><em>audience.js, </em>containing the logic for watching a livestream</li>
+</ul>
+<p>Now that you have the public files, you need to set up your server to serve these files when a user navigates to <em><a href="http://localhost:5000/">http://localhost:5000/</a></em> in their browser.</p>
+<p>Return to <em>server.js</em> in your code editor. Add the following code to the file, just below your variable for <code>port</code>:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">app.use(express.json());
+
+// Serve static files from the public directory
+app.use(express.static('public'));
+
+app.get('/', (req, res) =&gt; {
+  res.sendFile('public/index.html', { root: __dirname });
+});
+
+app.get('/stream', (req, res) =&gt; {
+  res.sendFile('public/streamer.html', { root: __dirname });
+});
+
+app.get('/watch', (req, res) =&gt; {
+  res.sendFile('public/audience.html', { root: __dirname });
+});
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>This code will allow you to display the HTML files in your browser when users navigate to the endpoints you have set up above.</p>
+<p>Let's work on the HTML files first to get the layout of the application set up. Open <em>public/index.html</em> in your code editor and add the following code to the file:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-html"><pre class="twlo-code language-html"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset='utf-8'&gt;
+    &lt;meta http-equiv='X-UA-Compatible'&gt;
+    &lt;meta name='viewport' content='width=device-width, initial-scale=1'&gt;
+    &lt;title&gt;Livestream Demo&lt;/title&gt;
+    &lt;link href='https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css' rel='stylesheet'&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class='container mx-auto mt-20 text-center'&gt;
+      &lt;div class='mx-auto'&gt;
+          &lt;a href='/stream' class='hover:no-underline hover:text-blue-500 text-xl'&gt;start a livestream&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class='mx-auto mt-10'&gt;
+        &lt;a href='/watch' class='hover:no-underline hover:text-blue-500 text-xl'&gt;watch a livestream&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>The HTML code above creates a simple layout with two links — one for the streamer and one for the audience members. This layout also includes a CDN link to <a href="https://tailwindcss.com/">TailwindCSS</a>, which will allow you to quickly add CSS styles.</p>
+<p>If you navigate to <a href="http://localhost:5000/">http://localhost:5000/</a> in your browser, you will see the links as shown below:</p>
+<p><img alt='UI showing two links: "start a live stream" and "watch a live stream"' class="richtext-image full-width" height="422" sizes="800px" src="https://twilio-cms-prod.s3.amazonaws.com/images/pGFax1w9Nb0e2W2tZa9PZ61emLhVGMmB5sSUKqAZHf-5UJ.width-800.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/pGFax1w9Nb0e2W2tZa9PZ61emLhVGMmB5sSUKqAZHf-5UJ.width-800.png 800w, https://twilio-cms-prod.s3.amazonaws.com/images/pGFax1w9Nb0e2W2tZa9PZ61emLhVGMmB5sSUKqAZHf-5U.width-1600.png 1600w" width="800"/></p>
+<p>Next, open <em>public/streamer.html</em> in your editor and add the following code to the file:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-html"><pre class="twlo-code language-html"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset='utf-8'&gt;
+    &lt;meta http-equiv='X-UA-Compatible'&gt;
+    &lt;meta name='viewport' content='width=device-width, initial-scale=1'&gt;
+    &lt;title&gt;Livestream Demo | Streamer&lt;/title&gt;
+    &lt;link href='https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css' rel='stylesheet'&gt;
+    &lt;script defer src='https://sdk.twilio.com/js/video/releases/2.18.0/twilio-video.min.js'&gt;&lt;/script&gt;
+    &lt;script defer src='streamer.js' type='text/javascript'&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id='container' class='container mx-auto mt-10 justify-center items-center text-center'&gt;
+      &lt;div id='stream' class='flex items-center justify-center w-full'&gt;
+        &lt;!-- video will be added here --&gt;
+      &lt;/div&gt;
+      &lt;div id='controls' class='mt-10'&gt;
+
+        &lt;input class='bg-gray-200 appearance-none border-2 border-gray-200 rounded  py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500'
+                id='identity'
+                type='text'
+                placeholder='Your name'
+                required&gt;
+
+        &lt;input class='bg-gray-200 appearance-none border-2 border-gray-200 rounded  py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500'
+                id='streamName'
+                type='text'
+                placeholder='Livestream name'
+                required&gt;
+
+        &lt;button class='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 mr-2 rounded' id='streamStartEnd'&gt;
+          start stream
+        &lt;/button&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>In this HTML file for the streamer, you will see that there is a div reserved for the video stream, as well as a controls section with inputs for the streamer's name and the livestream's name, as well as a button that lets the user start the stream. Navigating to <a href="http://localhost:5000/stream">http://localhost:5000/stream</a> in your browser window will show you what the layout looks like so far:</p>
+<p><img alt='Two inputs, one for your name and one for the live stream name, and a "start stream" button' class="richtext-image full-width" height="358" sizes="800px" src="https://twilio-cms-prod.s3.amazonaws.com/images/rQBnTpjYJ6GA80ajYvLRSz5xG9oXeZ1DQk4hCndPVU0IKE.width-800.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/rQBnTpjYJ6GA80ajYvLRSz5xG9oXeZ1DQk4hCndPVU0IKE.width-800.png 800w, https://twilio-cms-prod.s3.amazonaws.com/images/rQBnTpjYJ6GA80ajYvLRSz5xG9oXeZ1DQk4hCndPVU0IK.width-1600.png 1600w" width="800"/></p>
+<p>Now open <em>public/audience.html</em> and add the following code to the file:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-html"><pre class="twlo-code language-html"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset='utf-8'&gt;
+    &lt;meta http-equiv='X-UA-Compatible'&gt;
+    &lt;meta name='viewport' content='width=device-width, initial-scale=1'&gt;
+    &lt;title&gt;Livestream Demo | Audience&lt;/title&gt;
+    &lt;link href='https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css' rel='stylesheet'&gt;
+    &lt;script defer src='../livePlayer/twilio-live-player.min.js'&gt;&lt;/script&gt;
+    &lt;script defer src='audience.js' type='text/javascript'&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class='container mx-auto mt-10 justify-center items-center text-center'&gt;
+      &lt;div id='player' class='mx-auto bg-gray-200 h-96 max-w-2xl'&gt;
+        &lt;!-- livestream will appear here --&gt;
+      &lt;/div&gt;
+
+      &lt;button class='bg-green-500 hover:bg-green-700 text-white font-bold mt-10 py-2 px-6 mr-2 rounded' id='streamStartEnd'&gt;
+        watch stream
+      &lt;/button&gt;
+
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>In this HTML file for the audience members, you will see that there is a div for the livestream to appear, as well as a button that allows viewers to start watching the stream. If you navigate to <a href="http://localhost:5000/watch">http://localhost:5000/watch</a> in your browser, you will see the following layout:</p>
+<p><img alt='Gray outline where stream will appear, and a "watch stream" button' class="richtext-image full-width" height="552" sizes="800px" src="https://twilio-cms-prod.s3.amazonaws.com/images/-elfsA9szjGBINn_dKluU-CrSR7U4JeOqT3C1bOr5GLvpN.width-800.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/-elfsA9szjGBINn_dKluU-CrSR7U4JeOqT3C1bOr5GLvpN.width-800.png 800w, https://twilio-cms-prod.s3.amazonaws.com/images/-elfsA9szjGBINn_dKluU-CrSR7U4JeOqT3C1bOr5GLvp.width-1600.png 1600w" width="800"/></p>
+<p>Now that the layout is set up, the next step is to build out the streamer experience.</p>
+<h2>Build the streamer experience</h2>
+<h3>Allow the streamer to preview their video feed</h3>
+<p>Open <em>public/streamer.js</em>. This is where you will add the logic that allows the person livestreaming to preview their own video feed and control the livestream.</p>
+<p>To start, add the following code to the file:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">const stream = document.getElementById('stream');
+const identityInput = document.getElementById('identity');
+const streamNameInput = document.getElementById('streamName');
+const startEndButton = document.getElementById('streamStartEnd');
+const video = document.getElementsByTagName('video')[0];
+
+let streaming = false;
+let room;
+let streamDetails;
+
+let liveNotification = document.createElement('div');
+liveNotification.innerHTML = 'LIVE';
+liveNotification.id = 'liveNotification';
+liveNotification.classList.add('absolute', 'top-10', 'left-48', 'p-2', 'bg-red-500', 'text-white');
+
+const addLocalVideo = async () =&gt; {
+  const videoTrack = await Twilio.Video.createLocalVideoTrack();
+  const trackElement = videoTrack.attach();
+  stream.appendChild(trackElement);
+};
+
+addLocalVideo();
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>The first section of this code sets up the variables you will need for this part of the project. There is a list of HTML elements that you will refer to later in the code, as well as variables for whether a user is streaming, for the room being streamed, and for the details of that stream. After that, you create a <code>liveNotification</code>, which is a div that will appear for the user to let them know their video is being shared live.</p>
+<p>Below that, the function <code>addLocalVideo()</code> creates a video track and attaches it to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">DOM</a>. This allows the streamer to preview their video feed before they start the stream. If you navigate to <a href="http://localhost:5000/stream">http://localhost:5000/stream</a> in your browser, you will be able to preview your video feed.</p>
+</div>
+<div class="block-warning_danger">
+
+
+<div class="docs-note docs-note--info">
+  <p>If you don't see your video preview, you may need to refresh the page.</p>
+</div>
+</div>
+<div class="block-rich_text">
+
+<h3>Add logic to control the livestream</h3>
+<p>It's time to add the functions that will allow the streamer to control the livestream. In this section, you will be adding three functions — one to start the livestream, one to end the livestream, and one to toggle which of these actions is selected.</p>
+<p>Add the following <code>startStream()</code> function to <em>public/streamer.js</em>, just below the <code>addLocalVideo()</code> function:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">const startStream = async (streamName, identity) =&gt; {
+  // Create the livestream
+  const startStreamResponse = await fetch('/start', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      'streamName': streamName
+    })
+  });
+
+  streamDetails = await startStreamResponse.json();
+  const roomId = streamDetails.roomId;
+
+  // Get an Access Token
+  const tokenResponse = await fetch('/streamerToken', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      'identity': identity,
+      'room': roomId
+    })
+  });
+
+  const tokenData = await tokenResponse.json();
+
+  // Connect to the Video Room
+  room = await Twilio.Video.connect(tokenData.token);
+  streaming = true;
+
+  stream.insertBefore(liveNotification, video);
+
+  startEndButton.disabled = false;
+  startEndButton.classList.replace('bg-green-500', 'bg-red-500');
+  startEndButton.classList.replace('hover:bg-green-500', 'hover:bg-red-700');
+}
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>This function takes the stream name that the user enters and calls a <code>/start</code> endpoint on the server side to create a new Video Room and a livestream. Once the stream is created, the function then calls the <code>/streamerToken</code> endpoint to retrieve an <a href="https://www.twilio.com/docs/video/tutorials/user-identity-access-tokens">Access Token</a>, then uses that token to join the Video Room and begin streaming. Once the stream has started, a red <strong>LIVE</strong> message is added to the top left corner of the video feed, and the <strong>start stream</strong> button changes to say <strong>end stream</strong> instead. If the streamer clicks this button, they can end the livestream.</p>
+<p>Next, add the following <code>endStream()</code> function just below <code>startStream()</code>:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">const endStream = async () =&gt; {
+  // If streaming, end the stream
+  if (streaming) {
+    try {
+      const response = await fetch('/end', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          streamDetails: streamDetails
+        })
+      });
+
+      const data = await response.json();
+      room.disconnect();
+      streaming = false;
+      liveNotification.remove();
+
+      startEndButton.innerHTML = 'start stream';
+      startEndButton.classList.replace('bg-red-500', 'bg-green-500');
+      startEndButton.classList.replace('hover:bg-red-500', 'hover:bg-green-700');
+      identityInput.disabled = false;
+      streamNameInput.disabled = false;
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>If there is an ongoing livestream, this function will call the server-side <code>/end</code> endpoint to stop the stream and close the video room. The <strong>LIVE</strong> message disappears, and the button returns to saying <strong>start stream</strong> again.</p>
+<p>Now, add the following <code>startOrEndStream()</code> function and event listeners to the file, just below <code>endStream()</code>:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">const startOrEndStream = async (event) =&gt; {
+  event.preventDefault();
+  if (!streaming) {
+    const streamName = streamNameInput.value;
+    const identity = identityInput.value;
+
+    startEndButton.innerHTML = 'end stream';
+    startEndButton.disabled = true;
+    identityInput.disabled = true;
+    streamNameInput.disabled = true;
+
+    try {
+      await startStream(streamName, identity);
+
+    } catch (error) {
+      console.log(error);
+      alert('Unable to start livestream.');
+      startEndButton.innerHTML = 'start stream';
+      startEndButton.disabled = false;
+      identityInput.disabled = false;
+      streamNameInput.disabled = false;
+    }
+
+  }
+  else {
+    endStream();
+  }
+};
+
+startEndButton.addEventListener('click', startOrEndStream);
+
+window.addEventListener('beforeunload', async (event) =&gt; {
+  event.preventDefault();
+  await endStream();
+  e.returnValue = '';
+});
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>The <code>startOrEndStream()</code> function will be called when the <code>startEndButton</code> is clicked. If there is no livestream ongoing, this function will call <code>startStream()</code>. Otherwise, if a stream is in progress, the function will call <code>endStream()</code> to stop it. There is also an event listener for when a user closes the browser tab or window —  this way, the video room and livestream can be cleaned up even if the user does not click the <strong>stop stream</strong> button before navigating away.</p>
+<p>Now that you have the client-side logic to handle controlling the livestream, it's time to add the server-side endpoints being called in the JavaScript code above.</p>
+<h3>Create endpoints for controlling the livestream and getting access tokens</h3>
+<p>In <em>server.js</em>, you will need to add the <code>/start</code>, <code>/end</code>, and <code>/streamerToken</code> endpoints referred to in the previous step.</p>
+<p>First, just below <code>const port = 5000;</code>, add variables for your Twilio credentials and the access tokens you'll need for this project:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">const AccessToken = twilio.jwt.AccessToken;
+const VideoGrant = AccessToken.VideoGrant;
+const PlaybackGrant = AccessToken.PlaybackGrant;
+
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const apiKey = process.env.TWILIO_API_KEY_SID;
+const apiKeySecret = process.env.TWILIO_API_KEY_SECRET;
+
+const twilioClient = twilio(apiKey, apiKeySecret, { accountSid: accountSid });
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Then, add the following <code>/start</code> endpoint to the file, just below the <code>/watch</code> endpoint:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">/**
+ * Start a new livestream with a Video Room, PlayerStreamer, and MediaProcessor
+ */
+app.post('/start', async (req, res) =&gt; {
+  const streamName  = req.body.streamName;
+
+  try {
+    // Create the WebRTC Go video room, PlayerStreamer, and MediaProcessors
+    const room = await twilioClient.video.rooms.create({
+      uniqueName: streamName,
+      type: 'go'
+    });
+
+    const playerStreamer = await twilioClient.media.playerStreamer.create();
+
+    const mediaProcessor = await twilioClient.media.mediaProcessor.create({
+      extension: 'video-composer-v1',
+      extensionContext: JSON.stringify({
+        identity: 'video-composer-v1',
+        room: {
+          name: room.sid
+        },
+        outputs: [
+          playerStreamer.sid
+        ],
+      })
+    })
+
+    return res.status(200).send({
+      roomId: room.sid,
+      streamName: streamName,
+      playerStreamerId: playerStreamer.sid,
+      mediaProcessorId: mediaProcessor.sid
+    });
+
+  } catch(error) {
+    return res.status(400).send({
+      message: `Unable to create livestream`,
+      error
+    });
+  }
+})
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>This endpoint uses the <a href="https://www.twilio.com/docs/libraries/node">Twilio Node Helper Library</a> to create a WebRTC Go Video Room using the stream name chosen by the user. Then it creates the <a href="https://www.twilio.com/docs/live/api/playerstreamers">PlayerStreamer</a> and <a href="https://www.twilio.com/docs/live/api/mediaprocessors">MediaProcessor</a>. The PlayerStreamer is what will allow the livestreamed content to be sent to the audience. The MediaProcessor uses the <a href="https://www.twilio.com/docs/live/video-composer">Video Composer extension</a> to compose the video feeds into a grid layout and send the content to the PlayerStreamer. (In this project, since there is only one streamer, the audience will only see one video feed.) Once the MediaProcessor is created, the Video Composer extension will join the video room as a second participant and begin to stream out the video and audio tracks.</p>
+</div>
+<div class="block-warning_danger">
+
+
+<div class="docs-note docs-note--warning">
+  <p>By default, Media Processor resources are created with a maximum duration time of 5 minutes. The <code>maxDuration</code> option can be added to the <code>create()</code> call above to specify a different maximum duration in seconds.</p>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Now that you can start the livestream, add the following <code>/end</code> endpoint under the <code>/start</code> endpoint to stop it:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">/**
+ * End a livestream
+ */
+app.post('/end', async (req, res) =&gt; {
+  const streamDetails = req.body.streamDetails;
+
+  // End the player streamer, media processor, and video room
+  const streamName  = streamDetails.streamName;
+  const roomId  = streamDetails.roomId;
+  const playerStreamerId = streamDetails.playerStreamerId;
+  const mediaProcessorId = streamDetails.mediaProcessorId;
+
+  try {
+    await twilioClient.media.mediaProcessor(mediaProcessorId).update({status: 'ended'});
+    await twilioClient.media.playerStreamer(playerStreamerId).update({status: 'ended'});
+    await twilioClient.video.rooms(roomId).update({status: 'completed'});
+
+    return res.status(200).send({
+      message: `Successfully ended stream ${streamName}`
+    });
+
+  } catch (error) {
+    return res.status(400).send({
+      message: `Unable to end stream`,
+      error
+    });
+  }
+});
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>This endpoint takes the <code>streamDetails</code> from the request and sets the PlayerStreamer and MediaProcessor's statuses to <code>ended</code>. After this is complete, the endpoint also updates the video room's status to <code>completed</code>.</p>
+</div>
+<div class="block-warning_danger">
+
+
+<div class="docs-note docs-note--warning">
+  <p>To avoid unnecessary charges to your Twilio account, it's important to <strong>always</strong> <a href="https://www.twilio.com/docs/live/api/mediaprocessors#example-stop-a-mediaprocessor">end the MediaProcessor</a> and <a href="https://www.twilio.com/docs/live/api/playerstreamers#example-end-a-playerstreamer">end the PlayerStreamer</a> resources when the livestream is finished.</p>
+<p>These resources will continue to run until you explicitly end them via the REST API. See the <a href="https://www.twilio.com/docs/live/billing-and-resource-management">Billing and Resource Management</a> documentation page for more information.</p>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Next, add the following <code>/streamerToken</code> endpoint to the file, just below <code>/end</code>:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">/**
+ * Get an Access Token for a streamer
+ */
+app.post('/streamerToken', async (req, res) =&gt; {
+  if (!req.body.identity || !req.body.room) {
+    return res.status(400).send({ message: `Missing identity or stream name` });
+  }
+
+  // Get the user's identity and the room name from the request
+  const identity  = req.body.identity;
+  const roomName  = req.body.room;
+
+  try {
+    // Create a video grant for this specific room
+    const videoGrant = new VideoGrant({
+      room: roomName,
+    });
+
+    // Create an access token
+    const token = new AccessToken(accountSid, apiKey, apiKeySecret);
+
+    // Add the video grant and the user's identity to the token
+    token.addGrant(videoGrant);
+    token.identity = identity;
+
+    // Serialize the token to a JWT and return it to the client side
+    return res.send({
+      token: token.toJwt()
+    });
+
+  } catch (error) {
+    return res.status(400).send({error});
+  }
+});
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>This endpoint creates a new access token for the streamer and adds a VideoGrant, which will allow this person to join the video room and begin streaming. Now that you have all the endpoints you need for the streamer, it's time to build out the experience for the audience members.</p>
+<h2>Build the audience experience</h2>
+<h3>Add the Twilio Player SDK</h3>
+<p>To play a livestream, your application will need the following three static files from the <a href="https://twilio.github.io/twilio-live-player.js/docs/latest/#joining-a-live-stream">Twilio JavaScript Player SDK</a>:</p>
+<ul>
+<li>twilio-live-player.min.js</li>
+<li>twilio-live-player-wasmworker-1-5-0.min.js</li>
+<li>twilio-live-player-wasmworker-1-5-0.min.wasm</li>
+</ul>
+<p>You can find these files in <em>node_modules/@twilio/live-player-sdk/dist/build</em> from when you ran <code>npm install</code> earlier in the tutorial.</p>
+<p>Inside the <em>public </em>directory, create a new directory called <em>livePlayer</em>. This is where you will store the Player SDK files:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-bash"><pre class="twlo-code language-bash"><code class="language-bash">mkdir public/livePlayer
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>From your terminal window, run the following command at the root of the project to copy the three Player SDK files into the <em>livePlayer</em> directory:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-bash"><pre class="twlo-code language-bash"><code class="language-bash">cp node_modules/@twilio/live-player-sdk/dist/build/twilio-live-player-wasmworker* public/livePlayer/
+cp node_modules/@twilio/live-player-sdk/dist/build/twilio-live-player.min.js public/livePlayer/
+</code></pre></div>
+</div>
+</div>
+<div class="block-warning_danger">
+
+
+<div class="docs-note docs-note--info">
+  <p>You can learn more about the JavaScript Player SDK by visiting its <a href="https://www.twilio.com/docs/live/javascript-player-sdk-overview">documentation page here</a>.</p>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Now you are ready to add the logic to show the player in the UI.</p>
+<h3>Allow the audience member to start watching the stream</h3>
+<p>For the audience member's experience, you will be adding logic to <em>public/audience.js</em>. Open this file in your code editor and start by adding the following variables to the top of the file:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">const streamPlayer = document.getElementById('player');
+const startEndButton = document.getElementById('streamStartEnd');
+
+let player;
+let watchingStream = false;
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Now you are able to refer to the player element, the button that will control it, and whether the audience member is currently watching a livestream.</p>
+<p>Next, add the following <code>watchStream()</code> function to the file, just below the variables:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">const watchStream = async () =&gt; {
+  try {
+    const response = await fetch('/audienceToken', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+
+    const data = await response.json();
+
+    if (data.message) {
+      alert(data.message);
+      return;
+    }
+
+    player = await Twilio.Live.Player.connect(data.token, {playerWasmAssetsPath: '../livePlayer'});
+    player.play();
+    streamPlayer.appendChild(player.videoElement);
+
+    watchingStream = true;
+    startEndButton.innerHTML = 'leave stream';
+    startEndButton.classList.replace('bg-green-500', 'bg-red-500');
+    startEndButton.classList.replace('hover:bg-green-500', 'hover:bg-red-700');
+
+  } catch (error) {
+    console.log(error);
+    alert('Unable to connect to livestream');
+  }
+}
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Similar to the person streaming their content, an audience member who wants to view a livestream also needs an access token. The <code>watchStream()</code> function calls the <code>/audienceToken</code> endpoint you will create in a later step to get the token for the user. After that, the function uses the token to connect to the Player SDK and begin playing the livestreamed content in the browser window. Once the user is watching the livestream, the <strong>watch stream</strong> button changes to say <strong>leave stream</strong>.</p>
+<p>Now, add the following <code>leaveStream()</code> function, just below where you added <code>watchStream()</code>:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">const leaveStream = () =&gt; {
+  player.disconnect();
+  watchingStream = false;
+  startEndButton.innerHTML = 'watch stream';
+  startEndButton.classList.replace('bg-red-500', 'bg-green-500');
+  startEndButton.classList.replace('hover:bg-red-500', 'hover:bg-green-700');
+}
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>This function disconnects the player and changes the button's text and color back to its original state.</p>
+<p>Finally, similar to on the streamer side of the application, add the following <code>watchOrLeaveStream()</code> function and event listener:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">const watchOrLeaveStream = async (event) =&gt; {
+  event.preventDefault();
+  if (!watchingStream) {
+    await watchStream();
+  }
+  else {
+    leaveStream();
+  }
+};
+
+startEndButton.addEventListener('click', watchOrLeaveStream);
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>On a button click, if the audience member is already watching the livestream, this function will call <code>leaveStream()</code>. If they are not watching, then <code>watchStream()</code> will be called.</p>
+<p>You may be wondering why we don't just let the livestream start playing when the audience member navigates to the audience experience page at the <code>/watch</code> endpoint. Well, there is a browser policy that makes <a href="https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide">autoplay videos start muted</a> — to start playing the audio, an explicit user interaction is required. In this application, clicking the <strong>watch stream</strong> button is the explicit user interaction that will start playing the livestream's audio along with its video.</p>
+<p>Now that you have the logic to let the audience member watch or leave the stream, you just need to fill in the <code>/audienceToken</code> endpoint on the server side to allow these users to get the access tokens they need.</p>
+<h3>Create endpoints for controlling the livestream and getting access tokens</h3>
+<p>Return to <em>server.js</em> and add the following <code>/audienceToken</code> endpoint just below the  <code>/streamerToken</code> endpoint:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-js"><pre class="twlo-code language-js"><code class="language-js">/**
+ * Get an Access Token for an audience member
+ */
+app.post('/audienceToken', async (req, res) =&gt; {
+  // Generate a random string for the identity
+  const identity = crypto.randomBytes(20).toString('hex');
+
+  try {
+    // Get the first player streamer
+    const playerStreamerList = await twilioClient.media.playerStreamer.list({status: 'started'});
+    const playerStreamer = playerStreamerList.length ? playerStreamerList[0] : null;
+
+    // If no one is streaming, return a message
+    if (!playerStreamer){
+      return res.status(200).send({
+        message: `No one is streaming right now`,
+      })
+    }
+
+    // Otherwise create an access token with a PlaybackGrant for the livestream
+    const token = new AccessToken(accountSid, apiKey, apiKeySecret);
+
+    // Create a playback grant and attach it to the access token
+    const playbackGrant = await twilioClient.media.playerStreamer(playerStreamer.sid).playbackGrant().create({ttl: 60});
+
+    const wrappedPlaybackGrant = new PlaybackGrant({
+      grant: playbackGrant.grant
+    });
+
+    token.addGrant(wrappedPlaybackGrant);
+    token.identity = identity;
+
+    // Serialize the token to a JWT and return it to the client side
+    return res.send({
+      token: token.toJwt()
+    });
+
+  } catch (error) {
+    res.status(400).send({
+      message: `Unable to view livestream`,
+      error
+    });
+  }
+});
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>This endpoint generates a random string for the audience member's identity. Then, it queries for a list of PlayerStreamers with a status of <code>started</code>. In this application, you can assume that there is only one PlayerStreamer, so the endpoint takes the first one from the list. If the list comes back empty, the endpoint returns a message to the client side to let them know that no one is streaming right now.</p>
+<p>Once you have the PlayerStreamer, you can create a PlaybackGrant which will allow the audience member to start viewing the livestream. This grant is attached to the access token, and the token is returned to the client side.</p>
+<p>You have all the code you need to begin streaming! There is just one more step before you can test it all out.</p>
+<h2>Run your application on ngrok</h2>
+<p>In this project, you'll be using ngrok to connect the Express application running locally on your machine to a temporary public URL. To start a new ngrok tunnel, open up a new terminal window and run the following command:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-bash"><pre class="twlo-code language-bash"><code class="language-bash">ngrok http 5000
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Once ngrok is running, you will see text similar to the below in your terminal window:</p>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="language-text"><pre class="twlo-code language-text"><code class="language-text" hl_lines="[7]">ngrok by @inconshreveable                                                                                                             (Ctrl+C to quit)
+
+Version                       2.3.40
+Region                        &lt;YOUR_REGION&gt;
+Web Interface                 http://127.0.0.1:4040
+Forwarding                    http://XXXXXXXXXXX.ngrok.io -&gt; http://localhost:5000
+Forwarding                    https://XXXXXXXXXXX.ngrok.io -&gt; http://localhost:5000
+
+Connections                   ttl     opn     rt1     rt5     p50     p90
+                              0       0       0.00    0.00    0.00    0.00
+</code></pre></div>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Copy the https:// URL next to <code>Forwarding</code>. Any requests that are made to this ngrok URL will be forwarded to your local server. You now have a temporary link to your application that you can share with a friend or colleague!</p>
+<h2>Try livestreaming!</h2>
+<p>Now that everything is set up, it's time to try out a livestream. You will be trying out both the streamer and audience member experiences.</p>
+</div>
+<div class="block-warning_danger">
+
+
+<div class="docs-note docs-note--info">
+  <p>In order to avoid audio feedback between the Video Room and the livestream, you may want to wear headphones for this step.</p>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p>Open the ngrok forwarding URL in your browser window. Click the link to <strong>start a livestream</strong>. Enter your name and your livestream's name in the input boxes, then click the <strong>start stream</strong> button.</p>
+</div>
+<div class="block-warning_danger">
+
+
+<div class="docs-note docs-note--info">
+  <p>You may see an alert dialog asking if this browser tab can use your camera and microphone. Once you allow this permission, you will be able to share your video and audio feeds.</p>
+</div>
+</div>
+<div class="block-rich_text">
+
+<p><img alt="Streamer view, with a sleeping dog in the video feed" class="richtext-image full-width" height="565" sizes="800px" src="https://twilio-cms-prod.s3.amazonaws.com/images/gdNXer0S2iBDPHEYhGLqqRwQnMcsYvEoYUzh4ydvvoYecD.width-800.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/gdNXer0S2iBDPHEYhGLqqRwQnMcsYvEoYUzh4ydvvoYecD.width-800.png 800w, https://twilio-cms-prod.s3.amazonaws.com/images/gdNXer0S2iBDPHEYhGLqqRwQnMcsYvEoYUzh4ydvvoYec.width-1600.png 1600w" width="800"/></p>
+<p><em>For my livestream, I've decided to share a cute stream of my dog, Nova! 🐶</em></p>
+<p>Once you've started the stream, the <strong>LIVE</strong> marker will appear and the button will change to say <strong>end stream</strong>. Congratulations, you're livestreaming!</p>
+<p><img alt="Stream is LIVE, showing a dog who has just woken up" class="richtext-image full-width" height="572" sizes="800px" src="https://twilio-cms-prod.s3.amazonaws.com/images/5a86NoLMuiSogt-dm8s_qNL7f9TfGA_2gBp-dXfwC4UcP5.width-800.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/5a86NoLMuiSogt-dm8s_qNL7f9TfGA_2gBp-dXfwC4UcP5.width-800.png 800w, https://twilio-cms-prod.s3.amazonaws.com/images/5a86NoLMuiSogt-dm8s_qNL7f9TfGA_2gBp-dXfwC4UcP.width-1600.png 1600w" width="800"/></p>
+<p>Now it's time to check out the audience experience. In a second browser tab, navigate to the ngrok forwarding URL again. This time, click <strong>watch a livestream. </strong>You will see a layout like the following appear:</p>
+<p><img alt='Gray box, with "watch stream" button just below it' class="richtext-image full-width" height="498" sizes="800px" src="https://twilio-cms-prod.s3.amazonaws.com/images/gtI9wR0oriaP_Z2084MG2VGe7Qrvx4a-E_r8B0m3jmjjf8.width-800.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/gtI9wR0oriaP_Z2084MG2VGe7Qrvx4a-E_r8B0m3jmjjf8.width-800.png 800w, https://twilio-cms-prod.s3.amazonaws.com/images/gtI9wR0oriaP_Z2084MG2VGe7Qrvx4a-E_r8B0m3jmjjf.width-1600.png 1600w" width="800"/></p>
+<p>Click the <strong>watch stream</strong> button to connect to the stream and begin watching. The live video feed will replace the gray box in the UI:</p>
+<p><img alt='Audience view with livestream, showing sleeping pup. The "leave stream" button is just below the video.' class="richtext-image full-width" height="484" sizes="800px" src="https://twilio-cms-prod.s3.amazonaws.com/images/50W3uWW7UlwNdvpJDA3W5U73EsQzxGFpQI0dZpNph8H14_.width-800.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/50W3uWW7UlwNdvpJDA3W5U73EsQzxGFpQI0dZpNph8H14_.width-800.png 800w, https://twilio-cms-prod.s3.amazonaws.com/images/50W3uWW7UlwNdvpJDA3W5U73EsQzxGFpQI0dZpNph8H14.width-1600.png 1600w" width="800"/></p>
+<p>If you want, you can send the <code>/watch</code> link to a friend so they can see your livestream too!</p>
+</div>
+<div class="block-warning_danger">
+
+
+<div class="docs-note docs-note--warning">
+  <p>To avoid unnecessary charges to your Twilio account, don't forget to stop all of the livestream resources when you are finished trying out the livestream app.</p>
+<p>You can do this by calling the <code>/end</code> endpoint you wrote earlier, connected to the <strong>end stream</strong> button in the streamer's side of the UI.</p>
+<p>Learn more by visiting the Twilio Live documentation page for <a href="https://www.twilio.com/docs/live/billing-and-resource-management">billing and resource management</a>.</p>
+</div>
+</div>
+<div class="block-rich_text">
+
+<h2>What's next for building a livestreaming application?</h2>
+<p>Now that you have had a taste of livestreaming by learning to stream your video feed, perhaps you'd like to try another Live tutorial and learn how to <a href="https://www.twilio.com/blog/live-stream-screen-twilio-live">livestream your screen</a>. Or, if you're curious about livestreaming in general, check out this blog post about livestreaming's <a href="https://www.twilio.com/blog/interactive-live-streaming">use cases and benefits</a>. Maybe you already have your own project idea in mind, in which case you can check out the <a href="https://www.twilio.com/docs/live">Twilio Live documentation</a> to learn even more.</p>
+<p>I can't wait to see what you build!</p>
+<p><em>Mia Adjei is a Software Developer on the Developer Voices team. They love to help developers build out new project ideas and discover aha moments. Mia can be reached at madjei [at] twilio.com.</em></p>
+</div>
+    
+    <div class="article-columns">
+      <div class="article-column">
+        
+<div class="rating-wrapper">
+  <div class="rating-stars " data-rating="0">
+    <span class="rating-label">Rate this post</span>
+  </div>
+</div>
+
+
+      </div>
+      <div class="article-column">
+        <div class="article-coauthors">
+          <div class="article-coauthors-label">Authors</div>
+          <ul class="article-coauthors-list">
+            <li>
+              <img src="https://www.gravatar.com/avatar/969f35629e689fcaa505d4e7e94d1566?d=https%3A%2F%2Fwww.twilio.com%2Fdocs%2Fstatic%2Fimg%2Fred-logo.3896ba8d9.png&amp;s=40">
+              <a href="/blog/author/madjei">Mia Adjei</a>
+            </li>
+            
+            
+            
+          </ul>
+        </div>
+        
+        <div class="article-coauthors">
+          <div class="article-coauthors-label">Reviewers</div>
+          <ul class="article-coauthors-list">
+            
+            <li>
+              <img src="https://www.gravatar.com/avatar/3f8b4992f65f4a96c667882d684f8eaa?d=https%3A%2F%2Fwww.twilio.com%2Fdocs%2Fstatic%2Fimg%2Fred-logo.3896ba8d9.png&amp;s=40">
+              <a href="/blog/author/sstringer">Sarah Stringer</a>
+            </li>
+            
+            <li>
+              <img src="https://www.gravatar.com/avatar/8c7c15fc3f2ad588b20d8356ea6e355a?d=https%3A%2F%2Fwww.twilio.com%2Fdocs%2Fstatic%2Fimg%2Fred-logo.3896ba8d9.png&amp;s=40">
+              <a href="/blog/author/eallard">August Allard</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+
+    
+    <hr />
+      <div class="article-related"><h4>Related Posts</h4></div>
+      
+<div class="suggestions vertical">
+
+    
+
+<a href="https://www.twilio.com/blog/twilio-functions-sms-javascript" title="Learn How to Use Twilio Functions by Building an SMS Measurement Converter for JavaScript Beginners" class="card">
+    <img alt="How to use Twilio Functions JavaScript Beginners Header image" class="image" height="120" sizes="232px" src="https://twilio-cms-prod.s3.amazonaws.com/images/Copy_of_C04_Blog_Text.height-120.jpg" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/Copy_of_C04_Blog_Text.height-120.jpg 232w, https://twilio-cms-prod.s3.amazonaws.com/images/Copy_of_C04_Blog_Text.height-240.jpg 464w" width="232">
+    <div class="body">
+        <div class="card-title">Learn How to Use Twilio Functions by Building an SMS Measurement Converter for JavaScript Beginners</div>
+    
+        <div class="card-date">Aug 05, 2022</div>
+    
+        <p class="card-description">Learn How to Use Twilio Functions with JavaScript by Making an SMS Measurement Converter for Beginners</p>
+    </div>
+</a>
+
+
+    
+
+<a href="https://www.twilio.com/blog/cambie-el-fondo-de-sus-videollamadas-con-la-libreria-processors-de-twilio-video" title="Cambie el fondo de sus videollamadas con la librería Processors de Twilio Video" class="card">
+    <img alt="twilio-video-processor-header" class="image" height="120" sizes="232px" src="https://twilio-cms-prod.s3.amazonaws.com/images/twilio-video-processor.height-120.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/twilio-video-processor.height-120.png 232w, https://twilio-cms-prod.s3.amazonaws.com/images/twilio-video-processor.height-240.png 464w" width="232">
+    <div class="body">
+        <div class="card-title">Cambie el fondo de sus videollamadas con la librería Processors de Twilio Video</div>
+    
+        <div class="card-date">Aug 04, 2022</div>
+    
+        <p class="card-description">Aprende como aplicar filtros de reemplazo y desenfoque al fondo de tu aplicacion de Twilio Video</p>
+    </div>
+</a>
+
+
+    
+
+<a href="https://www.twilio.com/blog/svelte-national-parks-api" title="Build a Svelte App that Uses the National Parks Service API to Plan Your Perfect Trip" class="card">
+    <img alt="Copy of C03 Blog Text (4)" class="image" height="120" sizes="232px" src="https://twilio-cms-prod.s3.amazonaws.com/images/Copy_of_C03_Blog_Text_4.height-120.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/Copy_of_C03_Blog_Text_4.height-120.png 232w, https://twilio-cms-prod.s3.amazonaws.com/images/Copy_of_C03_Blog_Text_4.height-240.png 464w" width="232">
+    <div class="body">
+        <div class="card-title">Build a Svelte App that Uses the National Parks Service API to Plan Your Perfect Trip</div>
+    
+        <div class="card-date">Jul 28, 2022</div>
+    
+        <p class="card-description">Learn how to use Svelte along with the National Parks Service API to build an app that lets you find the perfect national park for your next trip.</p>
+    </div>
+</a>
+
+
+    
+
+<a href="https://www.twilio.com/blog/build-a-serverless-call-routing-application-with-time-zone-management-in-javascript" title="Build a Serverless Call Routing Application with Time Zone Management in JavaScript" class="card">
+    <img alt="Build a Serverless Call Routing Application with Time Zone Management in JavaScript" class="image" height="120" sizes="232px" src="https://twilio-cms-prod.s3.amazonaws.com/images/1aPqJWo2UeR_yZR2eT3xAUNmSR4gGda17-ssmlrLxNydb.height-120.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/1aPqJWo2UeR_yZR2eT3xAUNmSR4gGda17-ssmlrLxNydb.height-120.png 232w, https://twilio-cms-prod.s3.amazonaws.com/images/1aPqJWo2UeR_yZR2eT3xAUNmSR4gGda17-ssmlrLxNydb.height-240.png 464w" width="232">
+    <div class="body">
+        <div class="card-title">Build a Serverless Call Routing Application with Time Zone Management in JavaScript</div>
+    
+        <div class="card-date">Jul 18, 2022</div>
+    
+        <p class="card-description">In this tutorial, learn how to create a call routing application with time zone awareness on Twilio&#x27;s Serverless platform.</p>
+    </div>
+</a>
+
+
+    
+
+<a href="https://www.twilio.com/blog/call-ai-friend-gpt-3-twilio-voice-functions" title="How to Call an AI Friend using GPT-3 with Twilio Voice and Functions" class="card">
+    <img alt="How to call an AI friend Header" class="image" height="120" sizes="232px" src="https://twilio-cms-prod.s3.amazonaws.com/images/k9XwubGInkPXpCyxDKj3fVoNYIxDcevXoy5AnMLwuWaoW.height-120.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/k9XwubGInkPXpCyxDKj3fVoNYIxDcevXoy5AnMLwuWaoW.height-120.png 232w, https://twilio-cms-prod.s3.amazonaws.com/images/k9XwubGInkPXpCyxDKj3fVoNYIxDcevXoy5AnMLwuWaoW.height-240.png 464w" width="232">
+    <div class="body">
+        <div class="card-title">How to Call an AI Friend using GPT-3 with Twilio Voice and Functions</div>
+    
+        <div class="card-date">Jul 18, 2022</div>
+    
+        <p class="card-description">Learn how to leverage Twilio Voice and Functions with OpenAI’s GPT-3 engine to build a phone service to converse with an AI friend.</p>
+    </div>
+</a>
+
+
+    
+
+<a href="https://www.twilio.com/blog/add-a-website-as-a-segment-source" title="How to Add a Website as a Segment Source" class="card">
+    <img alt="header img" class="image" height="120" sizes="232px" src="https://twilio-cms-prod.s3.amazonaws.com/images/5V800VQao7Eeqy-33LaVA2aJ0ps9ANCXivGECNWZ_SJ5O.height-120.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/5V800VQao7Eeqy-33LaVA2aJ0ps9ANCXivGECNWZ_SJ5O.height-120.png 232w, https://twilio-cms-prod.s3.amazonaws.com/images/5V800VQao7Eeqy-33LaVA2aJ0ps9ANCXivGECNWZ_SJ5O.height-240.png 464w" width="232">
+    <div class="body">
+        <div class="card-title">How to Add a Website as a Segment Source</div>
+    
+        <div class="card-date">Jul 05, 2022</div>
+    
+        <p class="card-description">Learn how to add a website as a Segment source to send data to Segment.</p>
+    </div>
+</a>
+
+
+</div>
+
+    
+
+    
+      <ul class="tags-list blog-tags">
+
+    <li class="tag"><a href="https://www.twilio.com/blog/tag/javascript">JavaScript</a></li>
+
+    <li class="tag"><a href="https://www.twilio.com/blog/tag/nodejs">Node.js</a></li>
+
+    <li class="tag"><a href="https://www.twilio.com/blog/tag/twilio-live">Twilio Live</a></li>
+
+    <li class="tag"><a href="https://www.twilio.com/blog/tag/twiliovoices">TwilioVoices</a></li>
+
+    <li class="tag"><a href="https://www.twilio.com/blog/tag/express">Express</a></li>
+
+    <li class="tag"><a href="https://www.twilio.com/blog/tag/video">Video</a></li>
+
+</ul>
+    
+
+    
+  </section>
+</article>
+
+
+    
+
+        
+          </ul>
+        
+      </section>
+    </main>
+
+    
+    <div class="prefooter">
+      
+        <a class="btn btn-large" href="https://www.twilio.com/try-twilio" data-glinktype="cta-link" data-glinklocation="blog-footer" data-glinkname="signup-sign-up-start-building">Sign up and start building</a>
+        <div class="secondary-action">
+          Not ready yet?
+          <a href="https://www.twilio.com/help/sales" class="underline" data-glinktype="cta-link" data-glinklocation="blog-footer" data-glinkname="sales-talk-to-an-expert">
+            Talk to an expert.
+          </a>
+        </div>
+      
+    </div>
+    
+
+
+
+
+
+<footer class="twlo-footer">
+  <div class="twlo-footer__logo" title="Twilio">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+      <path fill="currentColor" d="M15 0C6.7 0 0 6.7 0 15s6.7 15 15 15 15-6.7 15-15S23.3 0 15 0zm0 26C8.9 26 4 21.1 4 15S8.9 4 15 4s11 4.9 11 11-4.9 11-11 11z"/>
+      <circle fill="currentColor" cx="18.7" cy="11.3" r="3.1"/>
+      <circle fill="currentColor" cx="18.7" cy="18.7" r="3.1"/>
+      <circle fill="currentColor" cx="11.3" cy="18.7" r="3.1"/>
+      <circle fill="currentColor" cx="11.3" cy="11.3" r="3.1"/>
+    </svg>
+  </div>
+  <ul class="twlo-footer__list">
+    <li class="twlo-footer__list-item">
+      <a href="/company" class="twlo-footer__link">About</a>
+    </li>
+    <li class="twlo-footer__list-item">
+      <a href="/legal/tos" class="twlo-footer__link">Legal</a>
+    </li>
+    <li class="twlo-footer__list-item">
+      Copyright &copy; 2022 Twilio Inc.
+    </li>
+    <li class="twlo-footer__list-item">
+      All Rights Reserved.
+    </li>
+    <li class="twlo-footer__list-item">
+      Protected by reCAPTCHA – <a href="https://policies.google.com/privacy" target="_blank" class="legal__link">Privacy</a> – <a href="https://policies.google.com/terms" target="_blank"class="legal__link">Terms</a>
+    </li>
+  </ul>
+</footer>
+
+
+
+    
+
+
+  <div id="feedback-form-modal" class="twlo-modal-overlay">
+    <form id="feedback" method="POST" action="/docs/submit-feedback">
+      <div class="twlo-modal">
+        <span class="twlo-modal__close close">
+          <svg class="icon-close" fill="#233659" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+            viewBox="0 0 18 18">
+            <path d="M15 4l-5 5 5 5v1h-1l-5-5-5 5H3v-1l5-5-5-5V3h1l5 5 5-5h1v1z" />
+          </svg>
+        </span>
+        <h2 class="twlo-modal__title">Thanks for rating this post!</h2>
+        <p class="twlo-modal__body">
+We are always striving to improve our blog quality, and your feedback is valuable to us. How could this post serve you better?
+</p>
+
+        
+
+<input type="hidden" name="star_rating" value="">
+<input type="hidden" name="feedback_id" value="">
+<input type="hidden" name="page" value="26977">
+<input type="hidden" name="page_live_revision"
+    value="438118">
+<input type="hidden" name="requested_path" value="/blog/build-livestreaming-application-twilio-live-express">
+
+<input type="hidden" name="csrfmiddlewaretoken" value="BUWCsMB6HU1gRhKtpG85fsnckwUxpPA4X6GJH1UaMMTY2MDA1Mzk5Ny4xNjg2NzM">
+<input type="hidden" name="recaptcha" value="">
+
+
+<div class="feedback-countries">
+    <label for="countries">If applicable fill in the countries where you are using Twilio</label><br />
+    <input id="countries" name="countries" value=""><br />
+</div>
+
+
+
+<div class="twlo-modal__form">
+    <div id="feedback-negative-form-fields">
+        <div class="twlo-modal__form-options">
+            <input type="checkbox" class="twlo-modal__form-options-input" name="negative_first_option"
+                id="feedback-negative-form-option-one"  />
+            <label for="feedback-negative-form-option-one">Missing information or code</label>
+        </div>
+    
+        <div class="twlo-modal__form-options">
+            <input type="checkbox" class="twlo-modal__form-options-input" name="negative_second_option"
+                id="feedbac-knegative-form-option-two"  />
+            <label for="feedbac-knegative-form-option-two">Content is confusing or hard to follow</label>
+        </div>
+    
+        <div class="twlo-modal__form-options">
+            <input type="checkbox" class="twlo-modal__form-options-input" name="negative_third_option"
+                id="feedback-negative-form-option-three"  />
+            <label for="feedback-negative-form-option-three">Inaccurate or outdated information</label>
+        </div>
+    
+        <div class="twlo-modal__form-options">
+            <input type="checkbox" class="twlo-modal__form-options-input" name="negative_fourth_option"
+                id="feedback-negative-form-option-four"  />
+            <label for="feedback-negative-form-option-four">Broken link or typo</label>
+        </div>
+
+        <div class="twlo-modal__form-options">
+            <input type="checkbox" class="twlo-modal__form-options-input" name="negative_fifth_option"
+                id="feedback-negative-form-option-five"  />
+            <label for="feedback-negative-form-option-five">Did not solve my problem</label>
+        </div>
+    </div>
+    
+    <div id="feedback-positive-form-fields">
+        <div class="twlo-modal__form-options">
+            <input type="checkbox" class="twlo-modal__form-options-input" name="positive_first_option"
+                id="feedback-positive-form-option-one" />
+            <label for="feedback-positive-form-option-one">Content is easy to follow</label>
+        </div>
+    
+        <div class="twlo-modal__form-options">
+            <input type="checkbox" class="twlo-modal__form-options-input" name="positive_second_option"
+                id="feedback-positive-form-option-two"  />
+            <label for="feedback-positive-form-option-two">Solved my problem</label>
+        </div>
+    </div>
+
+    <div class="twlo-modal__form-options">
+        <input type="checkbox" class="twlo-modal__form-options-input" name="other_option" id="feedback-form-other-option" />
+        <label for="feedback-form-other-option">Other</label>
+    </div>
+</div>
+
+
+
+<textarea class="twlo-modal__textarea" name="comment" id="feedback-form-text-area"
+        placeholder="Suggestions..."></textarea>
+
+<button id="feedback-submit-btn" type="button" class="twlo-btn">Send your suggestions</button>
+
+
+        <div class="twlo-modal__footer">
+          
+          <div class="rc-anchor-pt">
+            Protected by reCAPTCHA – <a href="https://www.google.com/intl/en/policies/privacy/"
+              target="_blank">Privacy</a><span aria-hidden="true" role="presentation"> - </span><a
+              href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div id="sending-feedback-modal" class="twlo-modal-overlay">
+    <div class="twlo-loading loading-no-bg">
+      <div class="twlo-loading__inner">
+        <div class="twlo-loading__spinner">
+          <svg>
+            <circle cx="25" cy="25" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+          </svg>
+        </div>
+        <div class="twlo-loading__message">
+          Sending your feedback...
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="feedback-sent-modal" class="twlo-modal-overlay">
+    <div class="twlo-modal__submit-message">
+      🎉 Thank you for your feedback!
+    </div>
+  </div>
+  <div id="feedback-error-modal" class="twlo-modal-overlay">
+    <div class="twlo-modal__submit-message">
+      Something went wrong. Please try again.
+    </div>
+  </div>
+
+
+
+
+
+    
+    <script src="/docs/static/js/vendor.min.3896ba8d9.js"></script>
+    
+
+  
+
+  <!-- Mixpanel -->
+  <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+  typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,
+    e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+    mixpanel.init("f71c19735fa6ecc5225ff563285e1794");
+    </script>
+  
+
+  
+    <!-- Eloqua -->
+    <script type="text/javascript">
+    var _elqQ = _elqQ || [];
+    _elqQ.push(['elqSetSiteId', '815114181']);
+    _elqQ.push(['elqTrackPageView']);
+    _elqQ.push(['elqUseFirstPartyCookie', 'www.twilio.com']);
+
+    (function () {
+      function async_load() {
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+        s.src = '//img03.en25.com/i/elqCfg.min.js';
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+      }
+      if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+      else if (window.attachEvent) window.attachEvent('onload', async_load);
+    })();
+    </script>
+  
+
+  
+    <!-- Transifex -->
+    <script type="text/javascript">
+    window.liveSettings = {
+      api_key: '4c06c1c5a6b341e591d969476fe2675f'
+    };
+    </script>
+    <script type="text/javascript" src="//cdn.transifex.com/live.js"></script>
+    <style>
+    .txlive-langselector { display: none; }
+    </style>
+  
+
+  
+
+
+
+
+    
+      <script src="/docs/static/js/blog.min.3896ba8d9.js"></script>
+    
+
+    
+    
+
+    
+
+
+    
+
+    <!-- Initialize recaptcha v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LeB76EdAAAAAMFifakt7llHwwjJfXE2goTVnoKT"></script>
+<script type="application/javascript">window.reCAPTCHASiteKey = "6LeB76EdAAAAAMFifakt7llHwwjJfXE2goTVnoKT";</script>
+
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript">
+    window.twilio.SIGNUP_LINK_PATTERNS = [ new RegExp('^https?:\/\/(www.)?twilio.com\/try-twilio'), ]
+</script>
+    <script> fitvids() </script>
+    <script type="text/javascript">
+  (function(h,o,u,n,d) {
+    h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+    d=o.createElement(u);d.async=1;d.src=n
+    n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+  })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM')
+  DD_RUM.onReady(function() {
+    DD_RUM.init({
+    applicationId: 'a0206a0e-ef93-42ec-9136-f4c4897ec78e',
+    clientToken: 'pub4860256025c6e6986794af73b438f413',
+    site: 'datadoghq.com',
+    service:'twilio-docs',
+    env:'prod',
+    version: '3896ba8d9',
+    sampleRate: 100,
+    replaySampleRate: 0,
+    trackInteractions: false,
+    });
+  })
+</script>
+
+  </body>
+
+</html>

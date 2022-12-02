@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangunindo - About Us</title>
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css">
+    <link rel="stylesheet" href="https://bangunindo.com/frontend_assets/css/styling.css">
+    <link rel="stylesheet" href="https://bangunindo.com/backend_assets/css/mediabox.min.css">
+    <!-- <link rel="stylesheet" href="https://bangunindo.com/backend_assets/css/swal2.min.css"> -->
+
+    <!-- FONT OPEN SANS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/1d81ccf367.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://kit.fontawesome.com/e25b852c87.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+</head>
+
+<body data-spy="scroll" data-target="fullpage">
+       <!-- NAVBAR -->
+   <div class="flex justify-center">
+        <nav class="navs container fixed z-50 h-24 bg-transparent max-w-full" x-data="{showMenu: false}">
+            <div class="container relative flex flex-wrap items-center justify-between h-24 mx-auto max-w-7xl font-semibold border-gray-200 lg:justify-center sm:px-4 md:px-2">
+                <!-- LOGO BTJ -->
+                <a href="/" class="py-4 md:py-0">
+                    <img class="w-20 md:w-16 lg:w-20 xl:w-24" style="display: inline-block;" id="anniv-logo" src="backend_assets/img/btj-anniv.png" alt="">
+                    <img class="w-20 md:w-16 lg:w-20 xl:w-24" style="display: inline-block;" id="white-logo" src="backend_assets/img/Image-01.png" alt="">    
+                    <img class="w-24 md:w-20 lg:w-28 xl:w-32 ml-8 md:ml-8 hidden" id="color-logo" src="backend_assets/img/logo.png" alt="">    
+                </a>
+                <!-- MENUS -->
+                <div class="top-0 left-0 items-start hidden w-full h-full p-4 text-sm bg-gray-900 bg-opacity-50 md:w-5/6 md:absolute lg:text-base md:h-auto md:bg-transparent md:p-0 md:relative md:flex" :class="{'flex fixed': showMenu, 'hidden': !showMenu }">
+                    <div class="flex-col w-full h-auto overflow-hidden bg-gray-400 rounded-lg select-none md:bg-transparent md:rounded-none md:relative md:flex md:flex-row md:overflow-auto">
+                        <div class="flex flex-col items-start justify-center w-full text-center md:mt-0 md:flex-row md:items-center">
+                            <a href="/about" id="about" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">ABOUT US</a>
+                            <a href="/services" id="services" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">SERVICES</a>
+                            <a href="/works" id="works" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">WORKS</a>
+                            <a href="/contact" id="contact" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">CONTACT</a>
+                            <!-- <a href="/blog" id="blog" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">BLOG</a> -->
+                            <a href="/careers" id="blog" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">CAREERS</a>
+                            <!-- <a href="/zabbix" id="blog" class="inline-block w-full px-6 py-2 mx-0 text-left nav-menu md:w-auto md:px-0 md:mx-2 lg:mx-7 md:text-center">ZABBIX</a> -->
+                        </div>
+                        <div class="flex flex-col items-start justify-end w-full pt-4 md:items-center md:w-1/6 md:mr-8 md:flex-row md:py-0">
+                            <span class="inline-flex w-full shadow-sm md:rounded-full md:w-auto">
+                                <a href="/product" id="careers" class="inline-flex items-center w-full px-6 py-3 text-sm font-semibold leading-4 btn-primary md:px-2 md:w-auto lg:px-4" style="border-radius: 9999px 0px 9999px 9999px;">SEMERU TOOLS</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- MENU/HAMBURGER ICON FOR MOBILE VIEW -->
+                <div @click="showMenu = !showMenu" class="absolute mr-8 right-0 flex flex-col items-center items-end justify-center w-10 h-10 rounded-full cursor-pointer md:hidden hover:bg-gray-100">
+                    <svg class="w-6 h-6 text-gray-800" x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" x-cloak>
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg class="w-6 h-6 text-gray-800" x-show="showMenu" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" x-cloak>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+<script>
+    $(window).on("scroll", function(){
+        if($(window).scrollTop() > 50){
+            $(".navs").addClass("active");
+            $("#color-logo").removeClass('hidden')
+            $("#white-logo").css('display', 'none')
+            $("#anniv-logo").css('display', 'none')
+        } else {
+            $(".navs").removeClass("active");
+            $("#color-logo").addClass('hidden')
+            $("#white-logo").css('display', 'inline-block')
+            $("#anniv-logo").css('display', 'inline-block')
+        }
+    });
+
+    // $(document).ready(function(){
+    //     setTimeout(function(){
+    //         $('#anniv-logo').fadeOut(500)
+    //         $('#white-logo').fadeIn(1000)
+    //     }, 2000)
+    // })
+
+    var currURL = window.location.pathname.split('/');
+
+    if(currURL[1] == "home") {
+        var home = document.getElementById("home");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "about") {
+        var home = document.getElementById("about");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "product") {
+        var home = document.getElementById("product");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "services") {
+        var home = document.getElementById("services");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "works") {
+        var home = document.getElementById("works");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "blog") {
+        var home = document.getElementById("blog");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "contact") {
+        var home = document.getElementById("contact");
+        home.classList.add("active");
+    }
+
+    if(currURL[1] == "careers") {
+        var home = document.getElementById("careers");
+        // home.classList.add("active");
+    }
+
+    if(currURL[1] == "zabbix") {
+        var home = document.getElementById("zabbix");
+        // home.classList.add("active");
+    }
+</script>
+    <!-- TITLE -->
+    <div class="parallax"
+        style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');">
+        <div class="flex justify-left pt-16 pb-6 md:pb-4 pl-10 md:pl-20 lg:pt-24 xl:pt-32 xl:pb-12 bg-linear-black">
+            <div class="text-white w-auto">
+                <h1
+                    class="md:text-left text-center text-2xl pt-28 leading-tight md:leading-tight md:text-4xl lg:leading-tight lg:text-4xl">
+                    About Us</h1>
+            </div>
+        </div>
+    </div>
+
+    <section class="bg-white px-6 py-12">
+        <div class="px-4 mx-auto md:flex flex-wrap flex-col md:flex-row items-center">
+            <!--Left Col-->
+            <div class="w-auto md:w-1/2 items-center md:items-left md:mt-4">
+                <div class="max-w-full mx-auto">
+                <div class="grid md:grid-cols-1 mt-10">
+                <div class="w-full py-2 px-2">
+                    <div class="bg-cover h-52 md:h-72" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');">
+                    </div>
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-3">
+                <div class="col-span-2 md:col-span-1 w-full py-2 px-2">
+                    <div class="bg-cover h-52 md:h-44" style="background-image: url('https://images.unsplash.com/photo-1536104968055-4d61aa56f46a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80');">
+                    </div>
+                </div>
+                <div class="col-span-2 w-full py-2 px-2 ">
+                    <div class="bg-cover h-52 md:h-44" style="background-image: url('https://images.unsplash.com/photo-1600485513918-dc9fe2ebc21d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');">
+                    </div>
+                </div>
+                
+            </div>
+                </div>
+            </div>
+            <!--Right Col-->
+            <div class="flex flex-col w-full md:w-1/2 z-50">
+                <div class="flex flex-col xl:pl-10 px-10 pt-6 lg:pt-10 xl:pt-0 justify-center items-center md:items-start text-center md:text-justify">
+                    <p class="mb-4 leading-relaxed text-gray-800 lg:text-xl xl:text-lg">
+                    Our belief in constant technological evolution in this ever-changing digital world and our long lasting relationships with our customers make us a trusted and preferred business partner in many of our clients’ digital transformation. We offer an integrated portfolio of world-class solutions & services across Infrastructure, IoT, Enterprise Security, Cloud & Mobility and Product Engineering & Development to Industry Verticals like BFSI, Telecom, Government/ PSU, Manufacturing, and Healthcare.</p>
+                        <p class="mb-4 leading-relaxed text-gray-800 lg:text-xl xl:text-lg">
+                        We empower top global enterprises across myriad verticals by helping them drive business-enabled IT initiatives with our end-to-end provisioning of IT services combined with the latest digital technology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="px-6 py-12" style="background: linear-gradient(240.95deg, #EEA849 -2.99%, #F46B45 144.87%);">
+        <div class="md:px-16 mx-auto md:flex flex-wrap flex-col md:flex-row">
+            <div class="w-auto md:w-2/3 items-center text-center md:text-left md:items-left md:mt-4">
+                <p class="my-2 md:text-4xl font-serif text-4xl md:mx-2 mx-4 font-bold text-white md:leading-snug">
+                    Bangunindo Becomes Zabbix SIA Certified Partner in Indonesia
+                </p>
+            </div>
+            <div class="w-auto md:w-1/3 items-center md:items-left md:mt-4">
+                <img src="backend_assets/Images/illustration/about_us_logo_zabbix.jpg" alt="zabbix" class="block object-contain" style="max-width:75%" />
+            </div>
+        </div>
+        <div class="md:px-16 mx-auto md:flex flex-wrap flex-col md:flex-row my-8">
+            <div class="w-auto md:w-1/3 items-center text-center md:text-left md:items-left md:mt-4">
+                <p class="leading-normal text-xl md:text-2xl text-base text-white md:mx-2 mx-4">
+                Zabbix is an enterprise-class open source distributed monitoring solution designed to monitor and track performance and availability of network servers, devices, services and other IT resources.
+				</p>
+            </div>
+            <div class="w-auto md:w-1/3 items-center text-center md:text-left md:items-left md:mt-4">
+                <p class="leading-normal text-xl md:text-2xl text-base text-white md:mx-2 mx-4">
+                Zabbix is an all-in-one monitoring solution that allows users to collect, store, manage and analyze information received from IT infrastructure, as well as display on-screen, and alert by e-mail, SMS or Jabber when thresholds are reached.
+				</p>
+            </div>
+            <div class="w-auto md:w-1/3 items-center text-center md:text-left md:items-left md:mt-4">
+                <p class="leading-normal text-xl md:text-2xl text-base text-white md:mx-2 mx-4">
+                Zabbix allows administrators to recognize server and device problems within a short period of time and therefore reduces the system downtime and risk of system failure. The monitoring solution is being actively used by SMBs and large enterprises across all industries and almost in every country of the world.
+				</p>
+            </div>
+        </div>
+        <div class="w-auto md:my-8">
+        <div class="flex justify-center pt-6 w-auto">
+                        <a id="button" href="/zabbix" class="bg-white text-primary cursor-pointer inline-flex justify-center items-center w-auto text-center px-6 py-3 text-sm font-bold leading-4 text-white transition duration-150 rounded-full md:px-3 lg:px-5 hover: transform hover:scale-110 motion-reduce:transform-none uppercase">LEARN ZABBIX MORE</a>
+                    </div>
+        </div>
+    </section> -->
+
+    <!-- SOLUTION -->
+    <section class="px-6 py-32 bg-gray-50">
+        <div class="px-16 mx-auto md:flex flex-wrap flex-col md:flex-row">
+            <div class="w-auto md:w-3/4 items-center md:items-left md:mt-4 my-16">
+                <p class="my-2 md:text-4xl font-serif text-4xl md:mx-2 mx-4 font-bold text-gray-800 md:leading-snug">
+                    We offer solutions for your business development to be at the forefront of digitization
+                </p>
+            </div>
+            <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                <div class="flex">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-16 w-16">
+                        <img src="backend_assets/Images/illustration/3x/offer_icon_big_data@3x.png">
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <dt class="text-lg md:text-xl lg:text-xl xl:text-xl leading-6 font-bold color-txt">
+                        Big Data and Cloud Solution
+                    </dt>
+                    <dd class="mt-2 text-md md:text-lg lg:text-lg xl:text-lg text-gray-500">
+                        With our state-of-the-art technology, our company provides quick
+                        solutions to effectively manage and present data.
+                    </dd>
+                </div>
+                </div>
+
+                <div class="flex">
+                <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-16 w-16">
+                <img src="backend_assets/Images/illustration/3x/offer_icon_integrated@3x.png">
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <dt class="text-lg md:text-xl lg:text-xl xl:text-xl leading-6 font-bold color-txt">
+                        Integrated Management System
+                    </dt>
+                    <dd class="mt-2 text-md md:text-lg lg:text-lg xl:text-lg text-gray-500">
+                        Proficiency across the technology stacks, databases, mobile and web apps development, hardware development, and electrical and telecommunication engineering.
+                    </dd>
+                </div>
+                </div>
+
+                <div class="flex">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-16 w-16">
+                    <img src="backend_assets/Images/illustration/3x/offer_icon_app_web@3x.png">
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <dt class="text-lg md:text-xl lg:text-xl xl:text-xl leading-6 font-bold color-txt">
+                    Common Apps and Web Development
+                    </dt>
+                    <dd class="mt-2 text-md md:text-lg lg:text-lg xl:text-lg text-gray-500">
+                        Perform cost-benefit and needs analysis of existing/potential telco customers, covering their techology needs with our range of IT solutions.
+                    </dd>
+                </div>
+                </div>
+
+                <div class="flex">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-16 w-16">
+                    <img src="backend_assets/Images/illustration/3x/offer_icon_human@3x.png">
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <dt class="text-lg md:text-xl lg:text-xl xl:text-xl leading-6 font-bold color-txt">
+                    Digital Strategy and Human Digital Development
+                    </dt>
+                    <dd class="mt-2 text-md md:text-lg lg:text-lg xl:text-lg text-gray-500">
+                        We create strategies to give the best possible solution and generate positive results for your company.
+                    </dd>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-12">
+			<!-- <div class="grid lg:grid-cols-4">
+				<div class="w-full">
+					<div class="p-8 bg-color h-72 pt-36">
+						<h2 class="text-5xl text-right font-bold text-white">Our</h2>
+						<h2 class="text-5xl text-right font-bold text-white">Story</h2>
+					</div>
+				</div>
+				<div class="w-full">
+					<div class="p-8 bg-white h-72">
+						<h2 class="text-2xl font-bold color-txt">2011</h2>
+						<p class="text-black font-semibold mr-16">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+							sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+							enim ad</p>
+					</div>
+				</div>
+				<div class="w-full">
+				    <div class="w-full">
+				        <div class="bg-cover bg-center"
+				            style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80');">
+				            <div class="h-72 bg-linear-sm">
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<div class="w-full">
+					<div class="p-8 bg-white h-72">
+						<h2 class="text-2xl font-bold color-txt">2015</h2>
+						<p class="text-black font-semibold mr-16">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+							sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+							enim ad</p>
+					</div>
+				</div>
+				<div class="w-full">
+					<div class="p-8 bg-white h-72">
+						<h2 class="text-2xl font-bold color-txt">2019</h2>
+						<p class="text-black font-semibold mr-16">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+							sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+							enim ad</p>
+					</div>
+				</div>
+				<div class="w-full">
+				    <div class="w-full">
+				        <div class="bg-cover bg-center"
+				            style="background-image: url('https://images.unsplash.com/photo-1603796846097-bee99e4a601f?ixlib=rb-1.2.1&  ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');">
+				            <div class="h-72 bg-linear-sm">
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<div class="w-full">
+					<div class="p-8 bg-white h-72">
+						<h2 class="text-2xl font-bold color-txt">2020</h2>
+						<p class="text-black font-semibold mr-16">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+							sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+							enim ad</p>
+					</div>
+				</div>
+				<div class="w-full">
+				    <div class="w-full">
+				        <div class="bg-cover bg-center"
+				            style="background-image: url('https://images.unsplash.com/photo-1633114128729-0a8dc13406b9?ixlib=rb-1.2.1&  ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');">
+				            <div class="h-72 bg-linear-sm">
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			</div> -->
+            <div class="bg-cover bg-center"
+                style="background-image: url('https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20(1%20of%201)-5.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');">
+                <div class="bg-linear-black grid lg:grid-cols-3">
+                    <div class="w-full">
+                        <div class="px-8 p-20 h-72 text-center">
+                            <h1 class="text-6xl font-bold text-white mb-2">50</h1>
+                            <h2 class="text-4xl text-white font-bold">employees</h2>
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <div class="px-8 p-20 h-72 text-center">
+                            <h1 class="text-6xl font-bold text-white mb-2">8+</h1>
+                            <h2 class="text-4xl text-white font-bold">clients</h2>
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <div class="px-8 p-20 h-72 text-center">
+                            <h1 class="text-6xl font-bold text-white mb-2">20</h1>
+                            <h2 class="text-4xl text-white font-bold">works</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</section>
+
+        <!-- BOARD OF DIRECTOR -->
+    <div class="grid mt-24 mb-36">
+        <h1 class="text-center md:text-4xl text-3xl text-gray-800 pb-12">Board of Directors</h1>
+        <!-- Five columns -->
+        <div class="grid px-14 md:px-2 md:grid-cols-5 xl:grid-cols-5">
+            <div class="w-full px-2 py-2">
+                <div class="container-1 h-96">
+                    <div class="profile-1">
+                        <img src="backend_assets/Images/About_Us/bod/photo_cfo.png">
+                    </div>
+                    <div class="text-1">
+                        <p id="names"><span>Muhammad Adriansyah</span></p>
+                        <p class="content-1">Chief Marketing Officer</p>
+                        <div class="links-1">
+                            <a href="" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full px-2 py-2">
+                <div class="container-1 h-96">
+                    <div class="profile-1">
+                        <img src="backend_assets/Images/About_Us/bod/photo_coo.png">
+                    </div>
+                    <div class="text-1">
+                        <p id="names"><span>Edo Apriyadi</span></p>
+                        <p class="content-1">Chief Operating Officer</p>
+                        <div class="links-1">
+                            <a href="" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full px-2 py-2">
+                <div class="container-1 h-96">
+                    <div class="profile-1">
+                        <img src="backend_assets/Images/About_Us/bod/photo_ceo.png">
+                    </div>
+                    <div class="text-1">
+                        <p id="names"><span>Denny Basri</span></p>
+                        <p class="content-1">Chief Executive Officer</p>
+                        <div class="links-1">
+                            <a href="" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full px-2 py-2">
+                <div class="container-1 h-96">
+                    <div class="profile-1">
+                        <img src="backend_assets/Images/About_Us/bod/photo_cmo.png">
+                    </div>
+                    <div class="text-1">
+                        <p id="names"><span>Calvin Laviano</span></p>
+                        <p class="content-1">Chief Financial Officer</p>
+                        <div class="links-1">
+                            <a href="https://www.linkedin.com/in/calvin-l-588836140/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full px-2 py-2">
+                <div class="container-1 h-96">
+                    <div class="profile-1">
+                        <img src="backend_assets/Images/About_Us/bod/photo_cto.png">
+                    </div>
+                    <div class="text-1">
+                        <p id="names"><span>Muhammad Iqbal Alaydrus</span></p>
+                        <p class="content-1">Chief Technology Officer</p>
+                        <div class="links-1">
+                            <a href="" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTION -->
+    <section class="mt-24 py-8 leading-7 text-gray-900 bg-color sm:py-12 md:py-16 lg:py-24">
+        <div class="container mx-auto items-center">
+            <div class="flex flex-col px-10 items-start leading-7 text-white md:item-left items-center justify-center lg:flex-row">
+                <div class="box-border flex-1 text-center sm:text-left md:border-r-4">
+                    <h1 class="m-0 text-2xl leading-tight tracking-tight md:text-left text-center lg:text-4xl md:text-3xl capitalize">Find out how to get partnered and start create magic</h1>
+                </div>
+                <div class="bg-white md:w-1/3 w-full text-gray-400 rounded-lg md:ml-32 md:mt-2 mt-4">
+                    <div class="relative flex w-full flex-wrap items-stretch">
+                        <input type="text" placeholder="Enter Your Email..." id="form-email"
+                            class="md:py-4 py-3 pl-4 pr-20 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full pr-10" />
+                        <button id="submit-email"
+                            class="mx-2 md:my-2 my-1 rounded-full bg-color cursor-pointer z-10 h-auto font-normal  absolute text-center text-white rounded text-sm items-center justify-center w-auto right-0 px-4 py-2 font-bold">SUBMIT
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    $('#submit-email').on('click', function(){
+        var email = $('#form-email').val()
+        
+        if(email !== ''){
+            Swal.fire(
+                'Thank You!',
+                'We will send you more information about us!',
+                'success'
+            )
+        }
+    })
+    </script>
+
+<footer class="footer bg-gray-700 relative pt-1">
+    <div class="container mx-auto px-6 py-4">
+        <div class="sm:flex sm:mt-8">
+            <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
+                <div class="flex flex-col mx-4 md:mr-2 md:pr-44 text-center md:text-left py-2">
+                    <span class="font-bold text-white md:text-2xl capitalize mb-2">Bangunindo Teknusa Jaya</span>
+                    <p class="my-2 text-white text-md md:mr-12">Lt. 2 Gedung Wisma Semeru Jalan Taman Kemang No. 18, Bangka Kec. Mampang Prapata, Jakarta Selatan DKI Jakarta 12730</p>
+                    <span class="py-6 inline-flex justify-center mt-4 space-x-5 sm:mt-0 sm:justify-start">
+                <a onclick="window.open('https://www.linkedin.com/company/bangunindo/')" class="text-gray-400 hover:text-gray-500">
+                    <i class="fab fa-linkedin-in fa-lg"></i>
+                </a>
+                <a onclick="window.open('https://www.instagram.com/bangunindoteknusajaya/?hl=en')" class="text-gray-400 hover:text-gray-500">
+                    <i class="fab fa-instagram fa-lg"></i>
+                </a>
+            </span>
+                </div>
+                <div class="flex flex-col mx-4 md:mr-2 md:pr-44 text-center md:text-left py-2">
+                <span class="font-bold text-white md:text-2xl capitalize mb-2">Company</span>
+                    <span class="my-1"><a href="/about" class="text-white text-md">About Us</a></span>
+                    <span class="my-1"><a href="/product" class="text-white text-md">Product</a></span>
+                    <span class="my-1"><a href="/service" class="text-white text-md">Services</a></span>
+                    <span class="my-1"><a href="/works" class="text-white text-md">Works</a></span>
+                    <span class="my-1"><a href="/contact" class="text-white text-md">Contact</a></span>
+                    <span class="my-1"><a href="/blog" class="text-white text-md">Blog</a></span>
+                </div>
+                <div class="flex flex-col mx-4 md:mr-2 md:pr-44 text-center md:text-left py-2">
+                <span class="font-bold text-white md:text-2xl capitalize mb-2">Support</span>
+                    <span class="my-2"><a href="#" class="text-white text-md">API Support</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto px-14">
+        <div class="mt-4 border-t-2 border-gray-300 flex flex-col items-center">
+            <div class="sm:w-2/3 text-center py-6">
+                <p class="text-sm text-white font-bold mb-2">
+                    &copy; Designed in 2021 - by Bangunindo Teknusa Jaya
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+    <script src="https://bangunindo.com/backend_assets/js/mediabox.min.js"></script>
+    <!-- <script src="https://bangunindo.com/backend_assets/js/swal2.min.js"></script> -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        MediaBox('.mediabox');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/assets/img/icon.png" type="image/png">
+    <title>Company List example using tailwind css | Try tailwind Component Online.
+</title>
+    <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+    <script src="/assets/js/alpine.min.js" defer></script>
+    <script src="/assets/lib/codemirror-5.53.2/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="/assets/lib/codemirror-5.53.2/lib/codemirror.css">
+    <script src="/assets/lib/codemirror-5.53.2/mode/javascript/javascript.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Source+Code+Pro|Roboto&display=swap"
+        rel="stylesheet">
+    <meta name="keywords" content="">
+<meta name="description" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://web2tailwind.com/editors/company-list-example-using-tailwind-css-8ee8e7434ed4" />
+<meta property="og:title" content="" />
+<meta property="og:image" content="http://tailwindcomponent.com/storage/documents/1z9OHIGN5y5jxFSAk5rtsiyqtgsHYlM3upNQzX7k.png" />
+<meta property="og:site_name" content="Tailwind Component" />
+<meta property="og:description" content="" />
+<meta property="og:updated_time" content="2020-05-10T05:22:56+05:00">
+<meta property="article:author" content="@tailwindcomponent">
+
+<meta name="twitter:site" content="@tailwindcomponent">
+<meta name="twitter:creator" content="@tailwindcomponent">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:domain" content="https://web2tailwind.com" />
+<meta name="twitter:title" property="og:title" itemprop="title" content="" />
+<meta name="twitter:image" property="og:image" content="http://tailwindcomponent.com/storage/documents/1z9OHIGN5y5jxFSAk5rtsiyqtgsHYlM3upNQzX7k.png" />
+<meta name="twitter:description" property="og:description" itemprop="description"
+    content="" />
+</head>
+
+<body class="lg:overflow-hidden" style="font-family:Roboto;">
+    <div class="bg-white block lg:hidden overflow-y-auto">
+    <div class="bg-white border-b-2 border-red-500 sticky shadow-lg md:shadow-none top-0 z-10">
+    <div
+    style="background: #c21500;background: -webkit-linear-gradient(to right, #c21500, #ffc500); background: linear-gradient(to right, #c21500, #ffc500);">
+    <div class="container mx-auto md:px-20 text-center px-6 py-2 ">
+        <a href="https://web2tailwind.com/laratail/introduction" class="text-gray-100 text-lg hover:text-gray-200">
+            Laratail is Out !!! Laravel and Tailwind css based free admin panel starter kit.
+        </a>
+    </div>
+</div>
+    <nav x-data="{show:false}"
+        class="container mx-auto px-6 2xl:px-0 flex items-center justify-between flex-wrap bg-white py-2">
+        <a href="https://web2tailwind.com" class="flex items-center">
+            <img src="/assets/img/logo.png" alt="web2tailwind.com logo" class="h-8 md:h-10 mr-12 md:mr-0">
+        </a>
+        <div class="flex items-center md:hidden">
+            <div class="px-3 py-4 lg:py-3">
+                <a target="_blank" href="/tailwind/try"
+                    class="flex items-center bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-4 md:px-8 rounded-full font-hairline">
+                    <span class="hidden md:inline">Try  Online</span>
+                    <span class="material-icons inline md:hidden">moving</span>
+                </a>
+            </div>
+            <div>
+                <button @click="show=!show"
+                    class="flex items-center px-3 py-2 border rounded text-gray-700 border-gray-200">
+                    <svg class="fill-current h-4 w-4 font-bold" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div @click.away="show = false" :class="{ 'block': show, 'hidden': !show }"
+            class="border-t md:border-t-0 w-full flex-grow md:flex items-center md:justify-end md:w-auto">
+            <div>
+                <a href="https://web2tailwind.com"
+                class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Components</a>
+                <a href="https://web2tailwind.com/blogs"
+                    class="block md:inline-block font-bold text-base px-2 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Blogs</a>
+                <a href="https://web2tailwind.com/design"
+                    class="block md:inline-block font-bold text-base px-2 md:px-3 py-2 leading-none rounded text-gray-700 mt-2 md:mt-0">Design</a>
+            </div>
+            <div class="hidden md:block pl-3 py-6 md:py-3 ">
+                <a target="_blank" href="/tailwind/try"
+                    class="bg-green-400 hover:bg-green-500 hover:text-gray-100 text-white font-medium py-2 px-8 rounded-full font-hairline">Try
+                    Online
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+    <div class="px-8 mt-4 mb-20">
+        <div class="mb-12 h-full rounded-lg shadow-lg" style="background-color:hsl(0, 0%, 100%);">
+            <div class="rounded-t-lg w-full h-40"
+                style="background: url(http://tailwindcomponent.com/storage/documents/1z9OHIGN5y5jxFSAk5rtsiyqtgsHYlM3upNQzX7k.png); background-size:cover !important; background-position:center !important">
+            </div>
+            <div class="border-t border-gray-100 px-4 py-4">
+                <div class="mb-2 font-semibold leading-tight text-xl text-gray-800 hover:text-gray-800">
+                    Company List example using tailwind css
+                </div>
+                <div class="flex items-center justify-between my-4">
+                    <div class="w-16">
+                        <img class="border border-gray-900 p-2 w-12 h-12 rounded-full" src="/assets/img/icon.png"
+                            style="border-width:1px !important;">
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-gray-700 font-semibold">
+                            Web2tailwind.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-10">
+            <h2 class="font-bold text-2xl text-gray-700 mb-2">Output</h2>
+            <iframe id="iframe" class="w-full" style="min-height: 14rem;" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link href=&quot;https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js&quot; defer&gt;&lt;/script&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+
+&lt;body class=&quot;bg-gray-100&quot; style=&quot;font-family:Roboto&quot;&gt;
+    &lt;div class=&quot;flex justify-center items-center h-screen md:-mx-4&quot;&gt;
+      
+      &lt;div class=&quot;bg-white w-1/2 rounded px-6&quot;&gt;
+        &lt;div class=&quot;border-l-4 border-red-400 -ml-6 pl-6 flex items-center justify-between my-4&quot;&gt;
+        	&lt;div class=&quot;font-semibold text-gray-800&quot;&gt;Company Highlights&lt;/div&gt;
+            &lt;div class=&quot;text-red-400&quot;&gt;See all&lt;/div&gt;
+        &lt;/div&gt;
+		&lt;hr class=&quot;-mx-6&quot;&gt;
+        &lt;div class=&quot;flex items-center justify-between my-4&quot;&gt;
+          &lt;div class=&quot;w-16&quot;&gt;
+            &lt;img class=&quot;w-12 h-12 rounded-full&quot; src=&quot;https://source.unsplash.com/50x50/?nature&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;flex-1 pl-2&quot;&gt;
+              &lt;div class=&quot;text-gray-700 font-semibold&quot;&gt;
+                PHP Developers
+              &lt;/div&gt;
+              &lt;div class=&quot;text-gray-600 font-thin&quot;&gt;
+                Web House
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;div class=&quot;text-red-400&quot;&gt;20 Posts&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;hr class=&quot;boder-b-0 my-4&quot;&gt;
+        &lt;div class=&quot;flex items-center my-4&quot;&gt;
+          &lt;div class=&quot;w-16&quot;&gt;
+            &lt;img class=&quot;w-12 h-12 rounded-full&quot; src=&quot;https://source.unsplash.com/50x50/?water&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;flex-1 pl-2&quot;&gt;
+              &lt;div class=&quot;text-gray-700 font-semibold&quot;&gt;
+                Designer
+              &lt;/div&gt;
+              &lt;div class=&quot;text-gray-600 font-thin&quot;&gt;
+                Web House
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;div class=&quot;text-red-400&quot;&gt;300 Posts&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;hr class=&quot;boder-b-0 my-4&quot;&gt;
+        &lt;div class=&quot;flex items-center my-4&quot;&gt;
+          &lt;div class=&quot;w-16&quot;&gt;
+            &lt;img class=&quot;w-12 h-12 rounded-full&quot; src=&quot;https://source.unsplash.com/50x50/?logo&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;flex-1 pl-2&quot;&gt;
+              &lt;div class=&quot;text-gray-700 font-semibold&quot;&gt;
+                Data Entry
+              &lt;/div&gt;
+              &lt;div class=&quot;text-gray-600 font-thin&quot;&gt;
+                Web House
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;div class=&quot;text-red-400&quot;&gt;30 Posts&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;"></iframe>
+        </div>
+        <div class="mb-10">
+            <h2 class="font-bold text-2xl text-gray-700 mb-2">Code</h2>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link href=&quot;https://unpkg.com/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6f1b0e06031806010b0c1c1c2f">[email&#160;protected]</a>^1.0/dist/tailwind.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/gh/alpinejs/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="83e2eff3eaede6c3f5b1adfbadfb">[email&#160;protected]</a>/dist/alpine.min.js&quot; defer&gt;&lt;/script&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+
+&lt;body class=&quot;bg-gray-100&quot; style=&quot;font-family:Roboto&quot;&gt;
+    &lt;div class=&quot;flex justify-center items-center h-screen md:-mx-4&quot;&gt;
+      
+      &lt;div class=&quot;bg-white w-1/2 rounded px-6&quot;&gt;
+        &lt;div class=&quot;border-l-4 border-red-400 -ml-6 pl-6 flex items-center justify-between my-4&quot;&gt;
+        	&lt;div class=&quot;font-semibold text-gray-800&quot;&gt;Company Highlights&lt;/div&gt;
+            &lt;div class=&quot;text-red-400&quot;&gt;See all&lt;/div&gt;
+        &lt;/div&gt;
+		&lt;hr class=&quot;-mx-6&quot;&gt;
+        &lt;div class=&quot;flex items-center justify-between my-4&quot;&gt;
+          &lt;div class=&quot;w-16&quot;&gt;
+            &lt;img class=&quot;w-12 h-12 rounded-full&quot; src=&quot;https://source.unsplash.com/50x50/?nature&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;flex-1 pl-2&quot;&gt;
+              &lt;div class=&quot;text-gray-700 font-semibold&quot;&gt;
+                PHP Developers
+              &lt;/div&gt;
+              &lt;div class=&quot;text-gray-600 font-thin&quot;&gt;
+                Web House
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;div class=&quot;text-red-400&quot;&gt;20 Posts&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;hr class=&quot;boder-b-0 my-4&quot;&gt;
+        &lt;div class=&quot;flex items-center my-4&quot;&gt;
+          &lt;div class=&quot;w-16&quot;&gt;
+            &lt;img class=&quot;w-12 h-12 rounded-full&quot; src=&quot;https://source.unsplash.com/50x50/?water&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;flex-1 pl-2&quot;&gt;
+              &lt;div class=&quot;text-gray-700 font-semibold&quot;&gt;
+                Designer
+              &lt;/div&gt;
+              &lt;div class=&quot;text-gray-600 font-thin&quot;&gt;
+                Web House
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;div class=&quot;text-red-400&quot;&gt;300 Posts&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;hr class=&quot;boder-b-0 my-4&quot;&gt;
+        &lt;div class=&quot;flex items-center my-4&quot;&gt;
+          &lt;div class=&quot;w-16&quot;&gt;
+            &lt;img class=&quot;w-12 h-12 rounded-full&quot; src=&quot;https://source.unsplash.com/50x50/?logo&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;flex-1 pl-2&quot;&gt;
+              &lt;div class=&quot;text-gray-700 font-semibold&quot;&gt;
+                Data Entry
+              &lt;/div&gt;
+              &lt;div class=&quot;text-gray-600 font-thin&quot;&gt;
+                Web House
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;div class=&quot;text-red-400&quot;&gt;30 Posts&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </div>
+    </div>
+    <div class="px-8 py-20" style="font-family: Mulish">
+    <div class="flex justify-center mb-2">
+        <div class="font-light text-sm text-gray-600">
+            &copy; 2019 - 2022
+            <a href="https://web2tailwind.com"
+                class="text-base text-gray-600 hover:text-gray-600" style="font-family: 'Source Code Pro';">Web2tailwind.com</a>
+        </div>
+    </div>
+    <div class="flex flex-wrap justify-center text-blue-400">
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/about-us"> About Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/contact-us">Contact Us</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/copyright">Copyright</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/code-of-conduct">Code of Conduct</a> |
+        <a class="px-2 text-blue-600 hover:text-blue-500" href="https://web2tailwind.com/privacy-and-policy">Privacy & Policy</a>
+    </div>
+</div>
+</div>
+<div class="hidden lg:block bg-gray-100 md:p-0">
+    <div id="app" data-page="{&quot;component&quot;:&quot;Editor\/Index&quot;,&quot;props&quot;:{&quot;auth&quot;:{&quot;user&quot;:null},&quot;errors&quot;:{},&quot;initcode&quot;:&quot;&lt;!DOCTYPE html&gt;\n&lt;html lang=\&quot;en\&quot;&gt;\n\n&lt;head&gt;\n    &lt;meta charset=\&quot;UTF-8\&quot;&gt;\n    &lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1.0\&quot;&gt;\n    &lt;meta http-equiv=\&quot;X-UA-Compatible\&quot; content=\&quot;ie=edge\&quot;&gt;\n    &lt;title&gt;Document&lt;\/title&gt;\n    &lt;link href=\&quot;https:\/\/unpkg.com\/tailwindcss@^1.0\/dist\/tailwind.min.css\&quot; rel=\&quot;stylesheet\&quot;&gt;\n    &lt;script src=\&quot;https:\/\/cdn.jsdelivr.net\/gh\/alpinejs\/alpine@v2.x.x\/dist\/alpine.min.js\&quot; defer&gt;&lt;\/script&gt;\n    &lt;link href=\&quot;https:\/\/fonts.googleapis.com\/css?family=Source+Code+Pro|Roboto&amp;display=swap\&quot; rel=\&quot;stylesheet\&quot;&gt;\n&lt;\/head&gt;\n\n&lt;body class=\&quot;bg-gray-100\&quot; style=\&quot;font-family:Roboto\&quot;&gt;\n    &lt;div class=\&quot;flex justify-center items-center h-screen md:-mx-4\&quot;&gt;\n      \n      &lt;div class=\&quot;bg-white w-1\/2 rounded px-6\&quot;&gt;\n        &lt;div class=\&quot;border-l-4 border-red-400 -ml-6 pl-6 flex items-center justify-between my-4\&quot;&gt;\n        \t&lt;div class=\&quot;font-semibold text-gray-800\&quot;&gt;Company Highlights&lt;\/div&gt;\n            &lt;div class=\&quot;text-red-400\&quot;&gt;See all&lt;\/div&gt;\n        &lt;\/div&gt;\n\t\t&lt;hr class=\&quot;-mx-6\&quot;&gt;\n        &lt;div class=\&quot;flex items-center justify-between my-4\&quot;&gt;\n          &lt;div class=\&quot;w-16\&quot;&gt;\n            &lt;img class=\&quot;w-12 h-12 rounded-full\&quot; src=\&quot;https:\/\/source.unsplash.com\/50x50\/?nature\&quot;&gt;\n          &lt;\/div&gt;\n          &lt;div class=\&quot;flex-1 pl-2\&quot;&gt;\n              &lt;div class=\&quot;text-gray-700 font-semibold\&quot;&gt;\n                PHP Developers\n              &lt;\/div&gt;\n              &lt;div class=\&quot;text-gray-600 font-thin\&quot;&gt;\n                Web House\n              &lt;\/div&gt;\n            &lt;\/div&gt;\n          &lt;div class=\&quot;text-red-400\&quot;&gt;20 Posts&lt;\/div&gt;\n        &lt;\/div&gt;\n        &lt;hr class=\&quot;boder-b-0 my-4\&quot;&gt;\n        &lt;div class=\&quot;flex items-center my-4\&quot;&gt;\n          &lt;div class=\&quot;w-16\&quot;&gt;\n            &lt;img class=\&quot;w-12 h-12 rounded-full\&quot; src=\&quot;https:\/\/source.unsplash.com\/50x50\/?water\&quot;&gt;\n          &lt;\/div&gt;\n          &lt;div class=\&quot;flex-1 pl-2\&quot;&gt;\n              &lt;div class=\&quot;text-gray-700 font-semibold\&quot;&gt;\n                Designer\n              &lt;\/div&gt;\n              &lt;div class=\&quot;text-gray-600 font-thin\&quot;&gt;\n                Web House\n              &lt;\/div&gt;\n            &lt;\/div&gt;\n          &lt;div class=\&quot;text-red-400\&quot;&gt;300 Posts&lt;\/div&gt;\n        &lt;\/div&gt;\n        &lt;hr class=\&quot;boder-b-0 my-4\&quot;&gt;\n        &lt;div class=\&quot;flex items-center my-4\&quot;&gt;\n          &lt;div class=\&quot;w-16\&quot;&gt;\n            &lt;img class=\&quot;w-12 h-12 rounded-full\&quot; src=\&quot;https:\/\/source.unsplash.com\/50x50\/?logo\&quot;&gt;\n          &lt;\/div&gt;\n          &lt;div class=\&quot;flex-1 pl-2\&quot;&gt;\n              &lt;div class=\&quot;text-gray-700 font-semibold\&quot;&gt;\n                Data Entry\n              &lt;\/div&gt;\n              &lt;div class=\&quot;text-gray-600 font-thin\&quot;&gt;\n                Web House\n              &lt;\/div&gt;\n            &lt;\/div&gt;\n          &lt;div class=\&quot;text-red-400\&quot;&gt;30 Posts&lt;\/div&gt;\n        &lt;\/div&gt;\n      &lt;\/div&gt;\n    &lt;\/div&gt;\n&lt;\/body&gt;\n\n&lt;\/html&gt;&quot;,&quot;url&quot;:&quot;editors\/company-list-example-using-tailwind-css-8ee8e7434ed4&quot;},&quot;url&quot;:&quot;\/editors\/company-list-example-using-tailwind-css-8ee8e7434ed4&quot;,&quot;version&quot;:&quot;8ec6269f20620bb6e06e22235b45ad0f&quot;}"></div>
+</div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://web2tailwind.com/dist/js/intertia.js?id=8da57b8417a8db5ac577"></script>
+    <script>
+    // Selecting the iframe element
+    var iframe = document.getElementById("iframe");
+
+    // Adjusting the iframe height onload event
+    iframe.onload = function(){
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
+</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106586554-6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-106586554-6');
+    </script>
+    <script src="/assets/js/highlight.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/dracula.min.css">
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        @media (min-width: 1920px) {
+            .px6 {
+                padding-left: 3rem;
+                padding-right: 1rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .px6 {
+                padding-left: 6rem;
+                padding-right: 1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .md\:mr-32 {
+                margin-right: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .md\:text-xl {
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .md\:mr-32 {
+                margin-right: 5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .md\:text-xl {
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 1366px) {
+            .md\:text-xl {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .md\:text-xl {
+                font-size: 1.0rem;
+            }
+        }
+
+      @media (min-width: 1280px){
+      .ms { 
+        margin-left: 8px;
+       }
+       .mo{
+        margin-left: -4px; 
+       }
+       }
+    </style>
+</head>
+
+
+<body class="antialiased font-sans lg:w-9/12 lg:mx-auto xl-w-100 xl:w-6/12 border-gray-100 border-2 border-solid pro">
+    <div>
+        <div class="flex items-center">
+            <div class="rounded m-4  relative">
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="" style="position: relative">
+                        <img src="assets/june-22/June 22.jpg" class="h-auto" style="width: 213%">
+
+                        <div class="font-bold text-5xl text-center absolute top-0 right-0" style="color:#5FBFBC;">
+                            The Indian Economic&nbsp;<br><i>Scan-shot</i>&nbsp;</div>
+
+                    </div>
+                </div>
+                <div class="grid grid-cols-4 gap-4 relative">
+                    <div class="text-2xl">
+                        <div class="mx-2 text-3xl absolute" style="z-index: 9999; color: white;">
+                            <h1 class="font-semibold px6 px9 px-12 md:px-9 lg:px-4 xl:px-0 2xl:px-12">June</h1>
+                            <h1 class="font-semibold px6 px9 px-12 md:px-9 lg:px-4 xl:px-0 2xl:px-12">2022</h1>
+                            <p style="font-size: 11px;padding-top:6px"
+                                class="font-semibold px6 px9 px-12 md:px-9 lg:px-4 xl:px-0 2xl:px-12">(with data from
+                                May '22)
+                            </p>
+
+                        </div>
+                        <hr class="w-100 absolute" style="margin-top: -178px;  width: 25%;height: 105%;
+                            background-color:#5FBFBC ;top: 130px; border: none;">
+                    </div>
+                    <div class="col-span-3 text-3xl lg:text-base text-left"
+                        style="margin-left: 10px; padding-top:10px;">
+                        <p class="md:text-xl">Hello Again!
+                        </p>
+                        <a href="#" class="w-fill flex">
+                            <!-- <img style="padding-top:15px;" class="flex-none w-6 h-full" src="assets/june-22/music.jpg" /> -->
+                            <span style="padding-top:8px;" class="md:text-xl">
+                                The monsoons are (almost!) here and we've already experienced our first/second/third
+                                waterlogging-related jam in Mumbai. And yet, despite all the challenges that we face as
+                                a nation, we refuse to let go of our optimism. In fact, we have yet another towering
+                                consumer confidence index - which is incidentally, the highest in the world! Some of
+                                this enthusiasm seems to be based on the bourgeoning Services PMI, the Construction and
+                                Manufacturing output growth indices and a cooling off in the unemployment and inflation
+                                rates. The rest of the buoyancy is probably because "we are like this only!"
+
+                            </span>
+                            <!-- <img style="padding-top:38px;" class="flex-none md:w-5 w-4 h-full md:mr-32"
+                                src="assets/june-22/music1.png" /> -->
+                        </a>
+                        <!-- <p class="md:text-xl" style="padding-top:5px;">Rs. 142k crores, Rs. 28.5k crores, $42 billion
+                            and 71.7 are 4-month
+                            highs across these key indices! Go India!
+                            Other good indices await your perusal further inside this Scan-shot.
+                        </p> -->
+                        <br>
+                        <p class="md:text-xl">Happy reading!
+                        </p>
+
+                        <p class="md:text-xl">Team Insights</p>
+
+                        <div class="flex items-center font-bold float-right">
+                            <img class="w-10 ml-8" src="assets/june-22/Picture4.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <br>
+        <br>
+        <div class="text-center max-w-xl mx-auto">
+            <h1 class="text-2xl font-bold mb-2" style="white-space:nowrap;">Economic Indices</h1>
+        </div>
+        <br>
+        <div class="justify-items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>GST
+                            Collection</b><sup>[1]</sup><br>(INR '000 Cr)
+                    </h1>
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                </div>
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Net Equity
+                            Inflow</b><sup>[2]</sup><br>(INR '000 Cr)
+
+                    </h1>
+                    <canvas id="myChart1" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="justify-items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;">
+                        <b>Exports</b><sup>[3]</sup><br>(US$ bn)
+                    </h1>
+                    <canvas id="myChart2" width="400" height="400"></canvas>
+                </div>
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;">
+                        <b>Imports</b><sup>[4]</sup><br>(US$ bn)
+                    </h1>
+                    <canvas id="myChart3" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="justify-items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Sensex</b><sup>[5]</sup>
+                    </h1>
+
+                    <canvas id="myChart4" width="400" height="400"></canvas>
+                </div>
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Consumer Confidence
+                            Index</b><sup>[6]</sup>
+                    </h1>
+
+                    <canvas id="myChart5" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="justify-items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Forex
+                            Reserves</b><sup>[7]
+                        </sup><br>(US$ bn)
+
+                    </h1>
+                    <canvas id="myChart13" width="400" height="400"></canvas>
+                </div>
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Unemployment
+                            Rate</b><sup>[8]</sup> <b>(%)</b></h1>
+                    <br> <br>
+                    <div class="grid grid-cols-4 gap-4 justify-center text-center">
+                        <div class="rounded-full  h-12 flex items-center justify-center bg-black text-white mx-auto"
+                            style="background-color: #548235; width: 79px; height: 79px;">
+                            8.1</div>
+                        <div class="rounded-full ms h-12 flex items-center justify-center bg-black text-white mx-auto"
+                            style="background-color:  #EE4266; width: 68px; height: 68px;">
+                            7.6</div>
+                        <div class="rounded-full   flex items-center justify-center bg-black text-white mx-auto"
+                            style="background-color: #545775; width: 70px; height: 70px;">7.8</div>
+                        <div class="rounded-full mo  h-12 flex items-center justify-center bg-black text-white mx-auto"
+                            style="background-color: #5FBFBC; width: 65px; height: 65px;    ">
+                            7.1</div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-1 justify-center text-center" style="padding-top: 10px;">
+                        <div class="w-5 h-5 flex items-center justify-center  text-black mx-auto"><b>Feb</b></div>
+                        <div class="w-5 h-5 flex items-center justify-center  text-black mx-auto"><b>Mar</b></div>
+                        <div class="w-5 h-5 flex items-center justify-center  text-black mx-auto"><b>April</b></div>
+                        <div class="w-5 h-5 flex items-center justify-center  text-black mx-auto"><b>May</b></div>
+                    </div>
+                    <br>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Inflation
+                            Rate</b><sup>[9]</sup> <b>(%)</b>
+                    </h1><br>
+                    <div class="grid grid-cols-4 gap-4 justify-center text-center">
+                        <div class="rounded-full  h-12 flex items-center justify-center bg-black text-white mx-auto"
+                            style="background-color: #548235; width: 55px; height: 55px;    margin-left: 18px;">6.07
+                        </div>
+                        <div class="rounded-full  flex items-center justify-center bg-black text-white mx-auto"
+                            style="background-color: #EE4266; width: 60px; height: 60px; ">6.95</div>
+                        <div class="rounded-full mo  flex items-center justify-center bg-black text-white mx-auto"
+                            style="background-color: #545775; width: 73px; height: 73px;">7.79</div>
+                        <div class="rounded-full mo flex items-center justify-center bg-black text-white mx-auto"
+                            style="background-color: #5FBFBC; width: 67px; height: 67px;  ">7.04
+                        </div>
+                    </div>
+                    <br>
+                    <div class="grid grid-cols-4 gap-1 justify-center text-center" style="padding-top: 10px;">
+                        <div class="w-5 h-5 flex items-center justify-center  text-black mx-auto"><b>Feb</b></div>
+                        <div class="w-5 h-5 flex items-center justify-center  text-black mx-auto"><b>Mar</b></div>
+                        <div class="w-5 h-5 flex items-center justify-center  text-black mx-auto"><b>April</b></div>
+                        <div class="w-5 h-5 flex items-center justify-center  text-black mx-auto"><b>May</b></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br> <br>
+        <div class="justify-items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Manufacturing
+                            PMI</b><sup>[10]</sup>
+                    </h1>
+                    <canvas id="myChart7" width="400" height="400"></canvas>
+                </div>
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Services
+                            PMI</b><sup>[11]</sup>
+                    </h1>
+                    <canvas id="myChart8" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- <div class="text-center max-w-xl mx-auto">
+		<h1 class="text-3xl md:text-xl font-medium mb-2">Automotive Indicators
+		</h1>
+	</div> -->
+        <div class="justify-items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Construction Output
+                            Growth</b><sup>[12]</sup><br> <b>(%)</b></h1>
+                    <canvas id="myChart14" width="400" height="400"></canvas>
+                    <!-- <h6 class="text-right text-xs text-gray-600">The data for October is expected in December</h6> -->
+                </div>
+                <div>
+                    <h1 class="font-medium" style="white-space:nowrap;text-align:center;"><b>Manufacturing Production
+                            YoY <br>
+                            Growth</b><sup>[13]</sup> <b>(%)</b>
+                    </h1>
+                    <canvas id="myChart15" width="400" height="400"></canvas>
+                    <!-- <h6 class="text-right text-xs text-gray-600">The data for October is expected in December</h6> -->
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="justify-items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Auto Production &
+                            Domestic<br>Sales</b><sup>[14]</sup> (Lakh Units)
+                    </h1>
+                    <canvas id="myChart9" width="400" height="400"></canvas>
+                </div>
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"> <b>Passenger Vehicle
+                            Sales</b><sup>[15]</sup><br>(Lakh Units)
+                    </h1>
+                    <canvas id="myChart10" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- <div class="text-center max-w-xl mx-auto">
+		<h1 class="text-xl md:text-xl font-medium mb-2">Airline Passenger Trends
+		</h1>
+	</div> -->
+        <div class="justify-items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Domestic
+                            Flights</b><sup>[16]</sup>
+                        ('000)
+                    </h1>
+                    <canvas id="myChart11" width="400" height="400"></canvas>
+                    <!-- <h6 class="text-right text-xs text-gray-600">The data for October is expected in December</h6> -->
+                </div>
+                <div>
+                    <h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Domestic
+                            Passengers</b><sup>[17]</sup>
+                        ('000)
+                    </h1>
+                    <canvas id="myChart12" width="400" height="400"></canvas>
+                    <!-- <h6 class="text-right text-xs text-gray-600">The data for October is expected in December</h6> -->
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr><br>
+        <!-- <div class="justify-items-center">
+			<div class="grid grid-cols-1 gap-4">
+				<div>
+					<h1 class=" font-medium " style="white-space:nowrap;text-align:center;"><b>Traffic Level 2021 vs
+							2019
+						</b><sup>[18]</sup> <b>(%)</b>
+					</h1>
+					<canvas id="myChart16" width="400" height="200"></canvas>
+				</div>
+
+			</div>
+		</div>
+		<br>
+		<hr>
+		<br> -->
+        <!-- Footer -->
+        <div class="grid grid-cols-4 gap-2 text-xs">
+            <div>[1] GST Council<br>[2] AMFI<br>[3][4] Ministry of commerce and Industry<br>[5]
+                BSE&nbsp;&nbsp;&nbsp;&nbsp;[6][7] RBI
+            </div>
+            <div>[8] Unemployment India<br>
+                [9] MOSPI<br>
+                [10][11] Markit Economics<br>
+                [12] Office of the economic adviser
+            </div>
+            <div>[13] MOSPI<br>
+                [14] SIAM<br>
+                [15] Auto Pundits<br>
+                [16] [17] AAI<br>
+
+            </div>
+            <div class=""><img class="w-32 float-right" src="assets/june-22/Picture2.jpg">
+            </div>
+        </div>
+    </div><br>
+    <!-- 1 -->
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+
+            data: {
+                labels: ['February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: '',
+                    data: [133, 142, 168, 140],
+
+                    backgroundColor: [
+                        '#548235',
+                        '#EE4266',
+                        '#545775',
+                        '#5FBFBC'
+                    ],
+
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'GST Collection[1](INR 000 Crs)',
+
+                    },
+                    legend: {
+                        display: false
+                    },
+
+                },
+            }
+        });
+    </script>
+    <!-- 2 -->
+    <script>
+        var ctx = document.getElementById('myChart1').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: '',
+                    data: [19.7, 28.5, 15.9, 18.5],
+
+                    backgroundColor: [
+                        '#548235',
+                        '#EE4266',
+                        '#545775',
+                        '#5FBFBC'
+                    ],
+
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Net Equity Inflow[2] (Cr)',
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 3 -->
+    <script>
+        var ctx = document.getElementById('myChart2').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: '',
+                    data: [34.6, 42.2, 40.2, 38.9],
+
+                    backgroundColor: [
+                        '#548235',
+                        '#EE4266',
+                        '#545775',
+                        '#5FBFBC'
+                    ],
+
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Exports[3] (USD Bns)'
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 4 -->
+    <script>
+        var ctx = document.getElementById('myChart3').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: '',
+                    data: [55.5, 60.7, 60.3, 63.2],
+
+                    backgroundColor: [
+                        '#548235',
+                        '#EE4266',
+                        '#545775',
+                        '#5FBFBC'
+                    ],
+
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Imports[4] (USD Bns)',
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 5 -->
+    <script>
+        var ctx = document.getElementById('myChart4').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: '',
+                    data: [56247, 58569, 57061, 55566],
+
+                    backgroundColor: [
+                        '#548235',
+                        '#EE4266',
+                        '#545775',
+                        '#5FBFBC'
+                    ],
+
+                }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'x',
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Sensex[5]'
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 6 -->
+    <script>
+        var ctx = document.getElementById('myChart5').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['November', 'January', 'March', 'May'],
+                datasets: [{
+                    label: '',
+                    data: [62.3, 63.7, 71.7, 75.9],
+                    backgroundColor: [
+                        '#C55A11',
+                        '#CC9900',
+                        '#EE4266',
+                        '#5FBFBC'
+                    ],
+
+
+                }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'x',
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Consumer Confidence Index[7]'
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 7 -->
+    <script>
+        var ctx = document.getElementById('myChart13').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: '',
+                    data: [631, 617, 597, 601],
+
+                    backgroundColor: [
+                        '#548235',
+                        '#EE4266',
+                        '#545775',
+                        '#5FBFBC'
+                    ],
+
+                }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'x',
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Forex Reserves[6] (USD Bns)'
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 9 -->
+    <script>
+        var ctx = document.getElementById('myChart7').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['May', 'April', 'March', 'February'],
+                datasets: [{
+                    label: '',
+                    data: [54.6, 54.7, 54, 54.9],
+                    backgroundColor: [
+                        '#5FBFBC',
+                        '#545775',
+                        '#EE4266',
+                        '#548235'
+
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'y',
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Manufacturing PMI[10]'
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 10 -->
+    <script>
+        var ctx = document.getElementById('myChart8').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['May', 'April', 'March', 'February'],
+                datasets: [{
+                    label: '',
+                    data: [58.9, 57.9, 53.6, 51.8],
+                    backgroundColor: [
+                        '#5FBFBC',
+                        '#545775',
+                        '#EE4266',
+                        '#548235'
+
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'y',
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Services PMI[11]'
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 11 -->
+    <script>
+        var ctx = document.getElementById('myChart14').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['April', 'March', 'February', 'January'],
+                datasets: [{
+                    label: '',
+                    data: [8.4, 4.3, 5.8, 4],
+                    backgroundColor: [
+                        '#545775',
+                        '#EE4266',
+                        '#548235',
+                        '#CC9900',
+
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'y',
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Construction Output (%)[12]'
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 12 -->
+    <script>
+        var ctx = document.getElementById('myChart15').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['April', 'March', 'February', 'January'],
+                datasets: [{
+                    label: '',
+                    data: [6.3, 0.9, 0.8, 1.1],
+                    backgroundColor: [
+                        '#545775',
+                        '#EE4266',
+                        '#548235',
+                        '#CC9900',
+
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'y',
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Manufacturing Production (%)[13]'
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 13 -->
+    <script>
+        var ctx = document.getElementById('myChart9').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Production', 'Sales'],
+                datasets: [
+                    {
+                        label: 'February',
+                        data: [17.95, 13.28],
+                        backgroundColor: [
+                            '#548235',
+                            '#548235',
+                        ],
+
+                    },
+                    {
+                        label: 'March',
+                        data: [19.6, 14.95],
+                        backgroundColor: [
+                            '#EE4266',
+                            '#EE4266'
+                        ],
+
+                    },
+                    {
+                        label: 'April',
+                        data: [18.74, 14.21],
+                        backgroundColor: [
+                            ' #545775',
+                            ' #545775'
+                        ],
+                    },
+                    {
+                        label: 'May',
+                        data: [19.65, 12.82],
+                        backgroundColor: [
+                            '#5FBFBC',
+                            '#5FBFBC'
+                        ],
+                    },
+                ]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'x',
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Auto Production & Domestic [14] Sales (Lakh Units)'
+                    },
+
+                }
+            }
+        });
+    </script>
+    <!-- 14 -->
+    <script>
+        var ctx = document.getElementById('myChart10').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['4W', '2W'],
+                datasets: [
+                    {
+                        label: 'February',
+                        data: [2.38, 9.83],
+                        backgroundColor: [
+                            '#548235',
+                            '#548235',
+                        ],
+
+                    },
+                    {
+                        label: 'March',
+                        data: [2.71, 11.57],
+                        backgroundColor: [
+                            '#EE4266',
+                            '#EE4266'
+                        ],
+
+                    },
+                    {
+                        label: 'April',
+                        data: [2.64, 11.94],
+                        backgroundColor: [
+                            ' #545775',
+                            ' #545775'
+                        ],
+                    },
+                    {
+                        label: 'May',
+                        data: [2.63, 12.22],
+                        backgroundColor: [
+                            '#5FBFBC',
+                            '#5FBFBC'
+                        ],
+                    },
+                ]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'x',
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Passenger Vehicle Sales[15] (Lakh Units)'
+                    },
+                    // legend: {
+                    // 	display: false,
+                    // }
+                }
+            }
+        });
+    </script>
+    <!-- 15 -->
+    <script>
+        var ctx = document.getElementById('myChart11').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April'],
+                datasets: [{
+                    label: '',
+                    data: [133.21, 121.85, 169.4, 173.84],
+                    backgroundColor: [
+                        '#CC9900',
+                        '#548235',
+                        '#EE4266',
+                        '#545775'
+
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Domestic Flights (000)[16]'
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 16 -->
+    <script>
+        var ctx = document.getElementById('myChart12').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April'],
+                datasets: [{
+                    label: '',
+                    data: [12760, 15280, 21120, 20827],
+                    backgroundColor: [
+                        '#CC9900',
+                        '#548235',
+                        '#EE4266',
+                        '#545775'
+
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        // text: 'Domestic Passengers (Lakhs)[17]'
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 17	 -->
+    <!-- <script>
+		var yValues = [50, 60, 70, 80, 90, 100];
+		new Chart("myChart16", {
+			type: "line",
+			data: {
+				labels: yValues,
+				labels: ['September', 'October', 'November', 'December'],
+
+				datasets: [{
+					label: 'Mumbai',
+					data: [89, 86, 83, 85],
+					borderWidth: 4,
+					backgroundColor: "#C00000",
+					borderColor: "#C00000",
+					// fill: false
+				},
+				{
+					label: 'Delhi',
+					data: [93, 91, 86, 92],
+					borderWidth: 4,
+					backgroundColor: "#18206F",
+					borderColor: "#18206F",
+					// fill: false
+				}, {
+					label: 'Bangalore',
+					data: [82, 83, 88, 87],
+					borderWidth: 4,
+					backgroundColor: "#726F6E",
+					borderColor: "#726F6E",
+					// fill: false
+				},
+				{
+					label: 'Pune',
+					data: [87, 88, 86, 91],
+					borderWidth: 4,
+					backgroundColor: "#137C31",
+					borderColor: "#137C31",
+					// fill: false
+				}]
+			},
+			options: {
+				legend: { display: true }
+			}
+		});
+	</script> -->
+</body>
+
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>彩虹单词本使用教程 - 彩虹字节</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/tailwindcss/1.2.0/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/bulma/0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/home/css/base.css">
+    <style>
+    .tags:not(:last-child) {
+        margin-bottom: 0;
+    }
+
+</style>
+</head>
+
+<body>
+
+    <div class="modal" id="registerDialog">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <!-- Any other Bulma elements you want -->
+            <div class="card p-8">
+                <p class="mb-3">当前网站的账号与<span class="text-blue-500 font-medium px-1">彩虹字节官网</span>的账号同步，如果您未注册<span class="text-blue-500 font-medium px-1">彩虹字节官网</span>账号，请先前往<span class="text-blue-500 font-medium px-1">彩虹字节官网</span>进行注册。</p>
+                <a class="button is-info" href="https://rainbowbyte.com/user/register.html">
+                    <strong>立即前往官网注册</strong>
+                </a>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" id="closeRegister"></button>
+    </div>
+
+    <nav id="navbar" class="navbar has-shadow is-spaced">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <img src="/home/images/logo.png" width="112" height="28" alt="彩虹字节">
+                </a>
+                <div id="navbarBurger" class="navbar-burger burger" data-target="navMenuDocumentation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div id="navMenuDocumentation" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item bd-navbar-item-documentation" href="/">
+                        <span class="icon has-text-primary"><i class="fas fa-home"></i></span>
+                        <span class="is-hidden-desktop-only">首页</span>
+                    </a>
+                    <a class="navbar-item bd-navbar-item-documentation" href="/free/">
+                        <span class="icon has-text-info"><i class="fas fa-graduation-cap"></i></span>
+                        <span class="is-hidden-desktop-only">免费课程</span>
+                    </a>
+                    <a class="navbar-item bd-navbar-item-documentation" href="/excellent/">
+                        <span class="icon has-text-link"><i class="fas fa-gem"></i></span>
+                        <span class="is-hidden-desktop-only">精选课程</span>
+                    </a>
+                    <a class="navbar-item bd-navbar-item-documentation" href="/soft/">
+                        <span class="icon has-text-danger"><i class="fas fa-compass"></i></span>
+                        <span class="is-hidden-desktop-only">软件教程</span>
+                    </a>
+
+                    <a class="navbar-item bd-navbar-item-documentation" href="https://rainbowbyte.com">
+                        <span class="icon has-text-success"><i class="fas fa-rainbow"></i></span>
+                        <span class="is-hidden-desktop-only">官方应用</span>
+                    </a>
+
+                    <a class="navbar-item bd-navbar-item-blog" href="/about.html">
+                        <span class="icon has-text-grey"><i class="fas fa-map-marked"></i></span>
+                        <span>网站介绍</span>
+                    </a>
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="field is-grouped is-grouped-multiline">
+                            <p class="control">
+                                                                <a class="button is-primary" href="/user/login.html">
+                                    <strong>登录</strong>
+                                </a>
+                                <button class="button is-info" id="register">
+                                    <strong>注册</strong>
+                                </button>
+                                                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="modal" id="payDialog">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <!-- Any other Bulma elements you want -->
+        <div class="card p-8">
+            <p class="mb-3"><b>尚未登录，请登录后进行操作。</b>当前网站的账号与<span
+                    class="text-blue-500 font-medium px-1">彩虹字节官网</span>的账号同步，如果您未注册，请先前往<span
+                    class="text-blue-500 font-medium px-1">彩虹字节官网</span>进行注册。</p>
+            <a class="button is-primary mr-3" href="/user/login.html" target="_blank">
+                <strong>登录账号</strong>
+            </a>
+            <a class="button is-info" href="https://rainbowbyte.com/user/register.html" target="_blank">
+                <strong>立即前往官网注册</strong>
+            </a>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close" id="closePay"></button>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-8-desktop is-offset-2-desktop">
+                <div class="columns ">
+                    <div class="column is-one-third">
+                        <img src="https://asset.rainbowbyte.com/images/20200720210100.png" alt="彩虹单词本使用教程" class="mx-auto mb-2 rounded-md">
+                    </div>
+                    <div class="column">
+                        <h3 class="title has-text-dark">彩虹单词本使用教程</h3>
+                        <p class="truncate2">《彩虹单词本》是一款英语学习软件，支持将电影或书籍等资料统计词频后进行排序，筛选出比较重要的单词，更清晰的了解学习英文资料的软件。</p>
+
+                        <div class="mt-6">
+                                                                                    <a class="button is-link is-outlined ml-3"
+                                href="/chapter/1.html">立即阅读</a>
+                                                        <button class="button is-link is-outlined ml-3" disabled>当前教程为免费教程</button>
+                                                    </div>
+                    </div>
+                </div>
+                <hr>
+
+                                <div class="mb-5">
+                    <a href="/chapter/1.html">
+                        <div
+                            class="columns border-b-2 border-dashed border-gray-300 hover:bg-gray-100 hover:border-blue-300">
+                            <div class="column font-medium">
+                                <div class="tags has-addons float-left mr-2">
+                                    <span class="tag is-success"> <i class="fas fa-book text-white pr-1"></i>第
+                                        1 章</span>
+                                                                    </div>
+
+                                <div class="tags has-addons float-left mr-2">
+                                    <span class="tag is-primary">预计学习时长</span>
+                                    <span class="tag is-black is-light">
+                                        约2分钟</span>
+                                </div>
+
+                                <div class="tags has-addons">
+                                    <span class="tag is-info">最近更新</span>
+                                    <span class="tag is-black is-light">2年前</span>
+                                </div>
+
+                                <p class="truncate text-gray-700">
+
+                                    《彩虹单词本》软件介绍
+                                </p>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
+                                <div class="mb-5">
+                    <a href="/chapter/2.html">
+                        <div
+                            class="columns border-b-2 border-dashed border-gray-300 hover:bg-gray-100 hover:border-blue-300">
+                            <div class="column font-medium">
+                                <div class="tags has-addons float-left mr-2">
+                                    <span class="tag is-success"> <i class="fas fa-book text-white pr-1"></i>第
+                                        2 章</span>
+                                                                    </div>
+
+                                <div class="tags has-addons float-left mr-2">
+                                    <span class="tag is-primary">预计学习时长</span>
+                                    <span class="tag is-black is-light">
+                                        约1分钟</span>
+                                </div>
+
+                                <div class="tags has-addons">
+                                    <span class="tag is-info">最近更新</span>
+                                    <span class="tag is-black is-light">2年前</span>
+                                </div>
+
+                                <p class="truncate text-gray-700">
+
+                                    如何下载在线单词本
+                                </p>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
+                                <div class="mb-5">
+                    <a href="/chapter/3.html">
+                        <div
+                            class="columns border-b-2 border-dashed border-gray-300 hover:bg-gray-100 hover:border-blue-300">
+                            <div class="column font-medium">
+                                <div class="tags has-addons float-left mr-2">
+                                    <span class="tag is-success"> <i class="fas fa-book text-white pr-1"></i>第
+                                        3 章</span>
+                                                                    </div>
+
+                                <div class="tags has-addons float-left mr-2">
+                                    <span class="tag is-primary">预计学习时长</span>
+                                    <span class="tag is-black is-light">
+                                        约2分钟</span>
+                                </div>
+
+                                <div class="tags has-addons">
+                                    <span class="tag is-info">最近更新</span>
+                                    <span class="tag is-black is-light">2年前</span>
+                                </div>
+
+                                <p class="truncate text-gray-700">
+
+                                    学习和复习功能介绍
+                                </p>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
+                                <div class="mb-5">
+                    <a href="/chapter/4.html">
+                        <div
+                            class="columns border-b-2 border-dashed border-gray-300 hover:bg-gray-100 hover:border-blue-300">
+                            <div class="column font-medium">
+                                <div class="tags has-addons float-left mr-2">
+                                    <span class="tag is-success"> <i class="fas fa-book text-white pr-1"></i>第
+                                        4 章</span>
+                                                                    </div>
+
+                                <div class="tags has-addons float-left mr-2">
+                                    <span class="tag is-primary">预计学习时长</span>
+                                    <span class="tag is-black is-light">
+                                        约3分钟</span>
+                                </div>
+
+                                <div class="tags has-addons">
+                                    <span class="tag is-info">最近更新</span>
+                                    <span class="tag is-black is-light">2年前</span>
+                                </div>
+
+                                <p class="truncate text-gray-700">
+
+                                    自定义生成单词本教程
+                                </p>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
+                                <div class="mb-5">
+                    <a href="/chapter/5.html">
+                        <div
+                            class="columns border-b-2 border-dashed border-gray-300 hover:bg-gray-100 hover:border-blue-300">
+                            <div class="column font-medium">
+                                <div class="tags has-addons float-left mr-2">
+                                    <span class="tag is-success"> <i class="fas fa-book text-white pr-1"></i>第
+                                        5 章</span>
+                                                                    </div>
+
+                                <div class="tags has-addons float-left mr-2">
+                                    <span class="tag is-primary">预计学习时长</span>
+                                    <span class="tag is-black is-light">
+                                        约2分钟</span>
+                                </div>
+
+                                <div class="tags has-addons">
+                                    <span class="tag is-info">最近更新</span>
+                                    <span class="tag is-black is-light">2年前</span>
+                                </div>
+
+                                <p class="truncate text-gray-700">
+
+                                    历史记录分析的介绍
+                                </p>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
+                            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-left">
+                <div class="tiny-footer-dark">
+                    <p>如果您觉得我们的教程阅读起来还不错的话，请推荐给您身边的朋友。</p>
+                </div>
+                <p>Copyright &copy; 2020 <strong>彩虹字节(RainbowByte)</strong></p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        $('#navbarBurger').click(function () {
+            var navMenu = $('#navMenuDocumentation');
+            if (navMenu.hasClass('is-active')) {
+                navMenu.removeClass('is-active')
+            } else {
+                navMenu.addClass('is-active')
+            }
+        })
+
+
+        $('#register').click(function () {
+            $('#registerDialog').addClass('is-active')
+        })
+        $('#closeRegister').click(function () {
+            $('#registerDialog').removeClass('is-active')
+        })
+
+    </script>
+    <script>
+    $('#openPay').click(function () {
+        $('#payDialog').addClass('is-active')
+    })
+    $('#closePay').click(function () {
+        $('#payDialog').removeClass('is-active')
+    })
+
+</script>
+</body>
+
+</html>
